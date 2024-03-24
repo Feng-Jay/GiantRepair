@@ -39,4 +39,14 @@ TBD
 
 ## IV. Discussion Result
 
-TBD
+### Experiment with the GPT-4-1106-preview
+
+To investigate whether or not GiantRepair is still effective for repairing unique bugs when comparing to the most advanced LLMs, we conducted another experiment with GPT-4.Specifically, we randomly selected ten bugs that were correctly repaired by GIANTREPAIR but cannot by the studied LLMs, and then invoked GPT-4 via API requests to generate 20 patches for each bug. Here is the outcome table:
+
+![Table: Comparsion with GPT-4-1106-preview.\label{gpt4}](./doc/figure/compare_with_gpt4.png)
+
+### Data leakage
+
+In Discussion's Data leakage part, we not only showcase GiantRepair's effectiveness in addressing data leakage concerns by examining the StarCoder training dataset, but we also seek to further substantiate this conclusion. To achieve this, we employed the [GrowingBugs](https://github.com/liuhuigmail/GrowingBugRepository) dataset for additional experimentation. Remarkably, GiantRepair managed to successfully rectify 10 out of the 51 bugs identified. The detailed data are presented in the tables below:
+
+<img src="./doc/figure/growingbugs.png" alt="Table: Correct Fixes on GrowingBugs.\label{growing}" style="zoom:50%;" />
