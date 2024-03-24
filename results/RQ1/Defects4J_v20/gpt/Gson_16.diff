@@ -1,0 +1,28 @@
+--- 
++++ 
+@@ -1,10 +1,8 @@
+ private static Type resolve(Type context, Class<?> contextRawType, Type toResolve,
+                             Collection<TypeVariable> visitedTypeVariables) {
+-  // this implementation is made a little more complicated in an attempt to avoid object-creation
+   while (true) {
+     if (toResolve instanceof TypeVariable) {
+       TypeVariable<?> typeVariable = (TypeVariable<?>) toResolve;
+-        // cannot reduce due to infinite recursion
+       toResolve = resolveTypeVariable(context, contextRawType, typeVariable);
+       if (toResolve == typeVariable) {
+         return toResolve;
+@@ -53,12 +51,12 @@
+       Type[] originalLowerBound = original.getLowerBounds();
+       Type[] originalUpperBound = original.getUpperBounds();
+ 
+-      if (originalLowerBound.length == 1) {
++      if (originalLowerBound.length == 1 && originalUpperBound.length == 0) {
+         Type lowerBound = resolve(context, contextRawType, originalLowerBound[0], visitedTypeVariables);
+         if (lowerBound != originalLowerBound[0]) {
+           return supertypeOf(lowerBound);
+         }
+-      } else if (originalUpperBound.length == 1) {
++      } else if (originalUpperBound.length == 1 && originalLowerBound.length == 0) {
+         Type upperBound = resolve(context, contextRawType, originalUpperBound[0], visitedTypeVariables);
+         if (upperBound != originalUpperBound[0]) {
+           return subtypeOf(upperBound);

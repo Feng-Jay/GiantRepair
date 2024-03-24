@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -6,7 +6,12 @@
+     }
+     Class<?>[] classes = new Class[array.length];
+     for (int i = 0; i < array.length; i++) {
+-        classes[i] = array[i].getClass();
++        Object obj = array[i];
++        if (obj == null) {
++            classes[i] = null;
++        } else {
++            classes[i] = obj.getClass();
++        }
+     }
+     return classes;
+ }

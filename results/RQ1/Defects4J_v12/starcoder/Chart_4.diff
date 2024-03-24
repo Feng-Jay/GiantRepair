@@ -1,0 +1,41 @@
+--- 
++++ 
+@@ -45,10 +45,10 @@
+     Iterator iterator = mappedDatasets.iterator();
+     while (iterator.hasNext()) {
+         XYDataset d = (XYDataset) iterator.next();
+-        if (d != null) {
++        if (d!= null) {
+             XYItemRenderer r = getRendererForDataset(d);
+             if (isDomainAxis) {
+-                if (r != null) {
++                if (r!= null) {
+                     result = Range.combine(result, r.findDomainBounds(d));
+                 }
+                 else {
+@@ -57,7 +57,7 @@
+                 }
+             }
+             else {
+-                if (r != null) {
++                if (r!= null) {
+                     result = Range.combine(result, r.findRangeBounds(d));
+                 }
+                 else {
+@@ -65,7 +65,7 @@
+                             DatasetUtilities.findRangeBounds(d));
+                 }
+             }
+-            
++            if (r!= null) {
+                 Collection c = r.getAnnotations();
+                 Iterator i = c.iterator();
+                 while (i.hasNext()) {
+@@ -74,6 +74,7 @@
+                         includedAnnotations.add(a);
+                     }
+                 }
++            }
+         }
+     }
+ 

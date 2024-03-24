@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -1,8 +1,13 @@
+ protected void burstToken(String token, boolean stopAtNonOption)
+ {
+-    for (int i = 1; i < token.length(); i++)
++    for (int i = 0; i < token.length(); i++) // Change starting index to 0
+     {
+         String ch = String.valueOf(token.charAt(i));
++
++        if (ch.equals("-")) // Check if character is a hyphen
++        {
++            continue; // Skip hyphen and move to next character
++        }
+ 
+         if (options.hasOption(ch))
+         {
+@@ -19,6 +24,7 @@
+         else if (stopAtNonOption)
+         {
+             process(token.substring(i));
++            break; // Break loop if a non-option is found
+         }
+         else
+         {

@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -3,10 +3,12 @@
+     HashMap<String, ObjectType> currentProperties,
+     ObjectType interfaceType) {
+   ObjectType implicitProto = interfaceType.getImplicitPrototype();
+-  Set<String> currentPropertyNames;
+-    // This can be the case if interfaceType is proxy to a non-existent
+-    // object (which is a bad type annotation, but shouldn't crash).
+-    currentPropertyNames = implicitProto.getOwnPropertyNames();
++  // This can be the case if interfaceType is proxy to a non-existent
++  // object (which is a bad type annotation, but shouldn't crash).
++  Set<String> currentPropertyNames =
++      implicitProto == null ?
++          ImmutableSet.<String>of() :
++          implicitProto.getOwnPropertyNames();
+   for (String name : currentPropertyNames) {
+     ObjectType oType = properties.get(name);
+     if (oType != null) {

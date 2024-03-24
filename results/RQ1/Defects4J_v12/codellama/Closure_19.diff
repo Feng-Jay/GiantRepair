@@ -1,0 +1,15 @@
+--- 
++++ 
+@@ -13,7 +13,11 @@
+       scope.inferQualifiedSlot(node, qualifiedName, origType, type);
+       break;
+ 
+-      // "this" references aren't currently modeled in the CFG.
++    case Token.THIS:
++      // This is not modeled in the CFG, so we create a fake
++      // node and type for this.
++      scope.inferSlotType("this", type);
++      break;
+ 
+     default:
+       throw new IllegalArgumentException("Node cannot be refined. \n" +

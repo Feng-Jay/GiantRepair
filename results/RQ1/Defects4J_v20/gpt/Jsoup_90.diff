@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -2,7 +2,7 @@
+     int i = 0;
+     // BOM:
+     if (input.length >= 3 && (input[0] & 0xFF) == 0xEF
+-        && (input[1] & 0xFF) == 0xBB & (input[2] & 0xFF) == 0xBF) {
++        && (input[1] & 0xFF) == 0xBB && (input[2] & 0xFF) == 0xBF) {
+         i = 3;
+     }
+ 
+@@ -24,6 +24,9 @@
+             return false;
+         }
+ 
++        if (end > input.length) { // Check for out of bounds
++            return false;
++        }
+ 
+         while (i < end) {
+             i++;

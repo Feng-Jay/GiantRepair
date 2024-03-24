@@ -1,0 +1,29 @@
+--- 
++++ 
+@@ -5,7 +5,7 @@
+     }
+     int index = this.plot.getIndexOf(this);
+     CategoryDataset dataset = this.plot.getDataset(index);
+-    if (dataset != null) {
++    if (dataset == null) {
+         return result;
+     }
+     int seriesCount = dataset.getRowCount();
+@@ -13,7 +13,7 @@
+         for (int i = 0; i < seriesCount; i++) {
+             if (isSeriesVisibleInLegend(i)) {
+                 LegendItem item = getLegendItem(index, i);
+-                if (item != null) {
++                if (item!= null) {
+                     result.add(item);
+                 }
+             }
+@@ -23,7 +23,7 @@
+         for (int i = seriesCount - 1; i >= 0; i--) {
+             if (isSeriesVisibleInLegend(i)) {
+                 LegendItem item = getLegendItem(index, i);
+-                if (item != null) {
++                if (item!= null) {
+                     result.add(item);
+                 }
+             }

@@ -1,0 +1,17 @@
+--- 
++++ 
+@@ -18,5 +18,14 @@
+     // / // / /
+   }
+ 
++  if (c == '/' && getLastChar() == '/') {
++    // Do not allow two forward slashes in a row.
++    // For example,
++    // REGEXP // REGEXP
++    // is valid and should print like
++    // / // / /
++    append(" ");
++  }
++
+   append(newcode);
+ }

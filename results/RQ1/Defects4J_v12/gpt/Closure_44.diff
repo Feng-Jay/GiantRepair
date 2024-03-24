@@ -1,0 +1,25 @@
+--- 
++++ 
+@@ -6,16 +6,15 @@
+   }
+ 
+   char c = newcode.charAt(0);
+-  if ((isWordChar(c) || c == '\\') &&
+-      isWordChar(getLastChar())) {
++  if ((isWordChar(c) || c == '\\') && isWordChar(getLastChar())) {
+     // need space to separate. This is not pretty printing.
+     // For example: "return foo;"
+     append(" ");
+-    // Do not allow a forward slash to appear after a DIV.
+-    // For example,
+-    // REGEXP DIV REGEXP
+-    // is valid and should print like
+-    // / // / /
++  }
++  
++  // Add a check to prevent a forward slash from appearing after a DIV.
++  if (getLastChar() == '/' && c == '/') {
++    append(" ");
+   }
+ 
+   append(newcode);

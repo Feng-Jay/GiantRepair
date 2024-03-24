@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -2,7 +2,9 @@
+     int k = 0;
+     for (Matcher m : matchers) {
+         if (m instanceof CapturesArguments) {
+-            ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
++            if (k < i.getArguments().length) {
++                ((CapturesArguments) m).captureFrom(i.getArguments()[k]);
++            }
+         }
+         k++;
+     }

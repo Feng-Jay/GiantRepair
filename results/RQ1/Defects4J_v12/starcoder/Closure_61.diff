@@ -1,0 +1,33 @@
+--- 
++++ 
+@@ -1,6 +1,6 @@
+ static boolean functionCallHasSideEffects(
+     Node callNode, @Nullable AbstractCompiler compiler) {
+-  if (callNode.getType() != Token.CALL) {
++  if (callNode.getType()!= Token.CALL) {
+     throw new IllegalStateException(
+         "Expected CALL node, got " + Token.name(callNode.getType()));
+   }
+@@ -30,8 +30,11 @@
+     }
+ 
+     // Functions in the "Math" namespace have no side effects.
+-
+-    if (compiler != null && !compiler.hasRegExpGlobalReferences()) {
++    Node objNode = nameNode.getFirstChild();
++    if (objNode.getType() == Token.NAME
++        && objNode.getString().equals("Math")) {
++      return false;
++    } else if (compiler!= null &&!compiler.hasRegExpGlobalReferences()) {
+       if (nameNode.getFirstChild().getType() == Token.REGEXP
+           && REGEXP_METHODS.contains(nameNode.getLastChild().getString())) {
+         return false;
+@@ -39,7 +42,7 @@
+           && STRING_REGEXP_METHODS.contains(
+               nameNode.getLastChild().getString())) {
+         Node param = nameNode.getNext();
+-        if (param != null &&
++        if (param!= null &&
+             (param.getType() == Token.STRING
+                 || param.getType() == Token.REGEXP))
+         return false;

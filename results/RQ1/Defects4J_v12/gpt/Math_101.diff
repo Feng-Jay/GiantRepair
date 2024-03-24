@@ -1,0 +1,14 @@
+--- 
++++ 
+@@ -55,9 +55,8 @@
+     int n = getImaginaryCharacter().length();
+     startIndex = pos.getIndex();
+     int endIndex = startIndex + n;
+-    if (
+-        source.substring(startIndex, endIndex).compareTo(
+-        getImaginaryCharacter()) != 0) {
++    if (startIndex >= source.length() || endIndex > source.length() ||
++        !source.substring(startIndex, endIndex).equals(getImaginaryCharacter())) {
+         // set index back to initial, error index should be the start index
+         // character examined.
+         pos.setIndex(initialIndex);

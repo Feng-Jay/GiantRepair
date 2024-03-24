@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -3,5 +3,7 @@
+         _annotations = new HashMap<Class<? extends Annotation>,Annotation>();
+     }
+     Annotation previous = _annotations.put(ann.annotationType(), ann);
+-    return (previous != null) && previous.equals(ann);
++    return (previous == null) || !previous.equals(ann);
+ }
++
++// The fixed function should return true when the annotation is successfully added to the map and false otherwise. The bug in the original function is that it returns true when the annotation is already in the map and false otherwise. The fixed function corrects this by returning true when the previous value in the map is null (indicating that the annotation was not previously in the map) or when the previous value is not equal to the new annotation (indicating that the annotation was replaced with a new value in the map).

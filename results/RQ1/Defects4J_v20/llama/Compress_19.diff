@@ -1,0 +1,27 @@
+--- 
++++ 
+@@ -4,10 +4,19 @@
+                                         boolean hasDiskStart)
+     throws ZipException {
+     if (rawCentralDirectoryData != null) {
+-        int expectedLength = (hasUncompressedSize ? DWORD : 0)
+-            + (hasCompressedSize ? DWORD : 0)
+-            + (hasRelativeHeaderOffset ? DWORD : 0)
+-            + (hasDiskStart ? WORD : 0);
+-         if (rawCentralDirectoryData.length != expectedLength) {
++        int expectedLength = 0;
++        if (hasUncompressedSize) {
++            expectedLength += DWORD;
++        }
++        if (hasCompressedSize) {
++            expectedLength += DWORD;
++        }
++        if (hasRelativeHeaderOffset) {
++            expectedLength += DWORD;
++        }
++        if (hasDiskStart) {
++            expectedLength += WORD;
++        }
++         if (rawCentralDirectoryData.length < expectedLength) {
+             throw new ZipException("central directory zip64 extended"
+                                    + " information extra field's length"

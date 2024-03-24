@@ -1,0 +1,13 @@
+--- 
++++ 
+@@ -23,7 +23,9 @@
+         // there are times where there is a spurious byte-order-mark at the start of the text. Shouldn't be present
+         // in utf-8. If after decoding, there is a BOM, strip it; otherwise will cause the parser to go straight
+         // into head mode
+-
++        if (docData.codePointAt(0) == 65279) { // BOM
++            docData = docData.substring(1);
++        }
+         doc = parser.parseInput(docData, baseUri);
+         doc.outputSettings().charset(charsetName);
+     }

@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -1,7 +1,13 @@
+ protected double getInitialDomain(double p) {
+     double ret;
+     double d = getDenominatorDegreesOfFreedom();
++    // check if denominator degrees of freedom is greater than 2
++    if (d > 2.0) {
+         // use mean
+         ret = d / (d - 2.0);
++    } else {
++        // handle error case
++        ret = 0.0;
++    }
+     return ret;
+ }
