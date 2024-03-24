@@ -26,7 +26,7 @@ TBD
 * OS: Linux (Tested on Ubuntu 20.04.6 LTS)
 * OpenJDK 1.8.0_382 and OpenJDK 11.0.20.1
 * Download and configure Defects4J.
-* More runtime configurations can be found in the [config-file](/resources/conf).
+* More runtime configurations can be found in the config-file.
 
 ### LLM
 
