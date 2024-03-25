@@ -17,7 +17,27 @@ Automated Program Repair (APR) has garnered significant attention due to its pot
 
 ## II. Project Structure
 
-TBD
+```bash
+├── GiantRepair: GiantRepair's Java implementation
+├── LLM_Inference: Code to apply LLMs to APR task
+│   ├── Models
+│   ├── run_apr.py
+│   ├── script_runapr.sh
+│   ├── test_llm.py
+│   └── utils
+├── README.md
+├── doc
+├── results: Specific Results used in paper.
+└── d4j-info: Analysisi results of Defects4J and GrowingBugs Dataset
+    ├── filelist.json
+    ├── growing_bugs_filelist.json
+    ├── growing_bugs_single_function.json
+    ├── growing_bugs_single_function_expand.json
+    ├── linelist.json
+    └── single_function_repair.json
+```
+
+
 
 ## III. Environment
 
@@ -35,7 +55,7 @@ TBD
 
 ## III. How to Run
 
-TBD
+To be done...
 
 ## IV. Discussion Result
 
