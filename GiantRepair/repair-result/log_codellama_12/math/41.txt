@@ -1,0 +1,247 @@
+Repair : math_41
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/1.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/2.java
+Following are 0th generated patches:
+Validating 63 patches...
+Following are 1th generated patches:
+Validating 186 patches...
+Following are 2th generated patches:
+Validating 167 patches...
+Tested:410 patches
+Compile failed:301 patches
+Compilation rate:0.2658536585365854
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/3.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 33 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:39 patches
+Compile failed:24 patches
+Compilation rate:0.38461538461538464
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/4.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 49 patches...
+Tested:73 patches
+Compile failed:58 patches
+Compilation rate:0.2054794520547945
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Tested:21 patches
+Compile failed:13 patches
+Compilation rate:0.38095238095238093
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/6.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_41_buggy/src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java
+SUCCESS
+//Following are generated patch:
+  public double evaluate(  final double[] values,  final double[] weights,  final double mean,  final int begin,  final int length){
+    double var=Double.NaN;
+    if (test(values,weights,begin,length)) {
+      if (length == 1) {
+        var=0.0;
+      }
+if(length>1){
+double accum=0.0;
+double accum2=0.0;
+double dev=0.0;
+double sumWts=0;
+for(int i=begin;i<begin+length;i++){
+dev=values[i]-mean;
+accum+=weights[i]*(dev*dev);
+accum2+=weights[i]*dev;
+sumWts+=weights[i];
+}
+if(isBiasCorrected){
+var=(accum-(accum2*accum2/sumWts))/(sumWts-1.0);
+}
+else{
+var=(accum-(accum2*accum2/sumWts))/sumWts;
+}
+}
+    }
+    return var;
+  }
+
+1 th patch/26
+Trace:
+
+START : 
+2023.12.10 AD at 14:15:43 HKT
+---------TIME : 
+2023.12.10 AD at 14:20:17 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_41_buggy/src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java
+SUCCESS
+//Following are generated patch:
+  public double evaluate(  final double[] values,  final double[] weights,  final double mean,  final int begin,  final int length){
+    double var=Double.NaN;
+    if (test(values,weights,begin,length)) {
+      if (length == 1) {
+        var=0.0;
+      }
+if(incMoment){
+double accum=0.0;
+double accum2=0.0;
+double dev=0.0;
+double sumWts=0;
+for(int i=begin;i<begin+length;i++){
+dev=values[i]-mean;
+accum+=weights[i]*(dev*dev);
+accum2+=weights[i]*dev;
+sumWts+=weights[i];
+}
+if(isBiasCorrected){
+var=(accum-(accum2*accum2/sumWts))/(sumWts-1.0);
+}
+else{
+var=(accum-(accum2*accum2/sumWts))/sumWts;
+}
+}
+    }
+    return var;
+  }
+
+2 th patch/26
+Trace:
+
+START : 
+2023.12.10 AD at 14:15:43 HKT
+---------TIME : 
+2023.12.10 AD at 14:20:17 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_41_buggy/src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java
+SUCCESS
+//Following are generated patch:
+  public double evaluate(  final double[] values,  final double[] weights,  final double mean,  final int begin,  final int length){
+    double var=Double.NaN;
+    if (test(values,weights,begin,length)) {
+      if (length == 1) {
+        var=0.0;
+      }
+if(length>=1){
+double accum=0.0;
+double accum2=0.0;
+double dev=0.0;
+double sumWts=0;
+for(int i=begin;i<begin+length;i++){
+dev=values[i]-mean;
+accum+=weights[i]*(dev*dev);
+accum2+=weights[i]*dev;
+sumWts+=weights[i];
+}
+if(isBiasCorrected){
+var=(accum-(accum2*accum2/sumWts))/(sumWts-1.0);
+}
+else{
+var=(accum-(accum2*accum2/sumWts))/sumWts;
+}
+}
+    }
+    return var;
+  }
+
+3 th patch/26
+Trace:
+
+START : 
+2023.12.10 AD at 14:15:43 HKT
+---------TIME : 
+2023.12.10 AD at 14:20:17 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_41_buggy/src/main/java/org/apache/commons/math/stat/descriptive/moment/Variance.java
+SUCCESS
+//Following are generated patch:
+  public double evaluate(  final double[] values,  final double[] weights,  final double mean,  final int begin,  final int length){
+    double var=Double.NaN;
+    if (test(values,weights,begin,length)) {
+      if (length == 1) {
+        var=0.0;
+      }
+if(isBiasCorrected){
+double accum=0.0;
+double accum2=0.0;
+double dev=0.0;
+double sumWts=0;
+for(int i=begin;i<begin+length;i++){
+dev=values[i]-mean;
+accum+=weights[i]*(dev*dev);
+accum2+=weights[i]*dev;
+sumWts+=weights[i];
+}
+if(isBiasCorrected){
+var=(accum-(accum2*accum2/sumWts))/(sumWts-1.0);
+}
+else{
+var=(accum-(accum2*accum2/sumWts))/sumWts;
+}
+}
+    }
+    return var;
+  }
+
+4 th patch/26
+Trace:
+
+START : 
+2023.12.10 AD at 14:15:43 HKT
+---------TIME : 
+2023.12.10 AD at 14:20:17 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 21 patches...
+Tested:42 patches
+Compile failed:28 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/7.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 77 patches...
+Following are 2th generated patches:
+Validating 45 patches...
+Tested:134 patches
+Compile failed:108 patches
+Compilation rate:0.19402985074626866
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_41/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_41/8.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Finish : math-41 > patch : 4 | Start : Sun Dec 10 14:15:43 HKT 2023 | End : 2023.12.10 AD at 14:21:59 HKT

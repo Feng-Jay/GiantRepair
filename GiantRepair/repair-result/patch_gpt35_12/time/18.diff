@@ -1,0 +1,24 @@
+Following diff 12:
+-instant=iGregorianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
+-if(instant<iCutoverMillis){
++if(year<1582||(year==1582&&monthOfYear<10)||(year==1582&&monthOfYear==10&&dayOfMonth<15)){
++else{
++instant=iGregorianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
++}
+Following diff 12:
+-instant=iGregorianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
+-if(instant<iCutoverMillis){
+-instant=iJulianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
+-if(instant>=iCutoverMillis){
+-thrownewIllegalArgumentException("Specifieddatedoesnotexist");
+-}
+-}
++if(year<1582||(year==1582&&monthOfYear<10)||(year==1582&&monthOfYear==10&&dayOfMonth<15)){
++instant=iJulianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
++if(instant>=iCutoverMillis){
++thrownewIllegalArgumentException("Specifieddatedoesnotexist");
++}
++}
++else{
++instant=iGregorianChronology.getDateTimeMillis(year,monthOfYear,dayOfMonth,hourOfDay,minuteOfHour,secondOfMinute,millisOfSecond);
++}

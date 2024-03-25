@@ -1,0 +1,505 @@
+Repair : lang_39
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/1.java
+Following are 0th generated patches:
+Validating 63 patches...
+Following are 1th generated patches:
+Validating 28 patches...
+Following are 2th generated patches:
+Validating 99 patches...
+Tested:188 patches
+Compile failed:161 patches
+Compilation rate:0.14361702127659576
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/2.java
+Following are 0th generated patches:
+Validating 301 patches...
+Following are 1th generated patches:
+Validating 217 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:519 patches
+Compile failed:472 patches
+Compilation rate:0.0905587668593449
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/3.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/4.java
+Following are 0th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+1 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 21:25:19 HKT
+---------TIME : 
+2023.12.09 AD at 21:27:10 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+2 th patch/503
+Trace:
+
+START : 
+2023.12.09 AD at 21:25:19 HKT
+---------TIME : 
+2023.12.09 AD at 21:27:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+3 th patch/503
+Trace:
+
+START : 
+2023.12.09 AD at 21:25:19 HKT
+---------TIME : 
+2023.12.09 AD at 21:27:43 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 20 patches...
+Following are 2th generated patches:
+Validating 21 patches...
+Tested:502 patches
+Compile failed:207 patches
+Compilation rate:0.5876494023904383
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/5.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 22 patches...
+Following are 2th generated patches:
+Validating 23 patches...
+Tested:52 patches
+Compile failed:37 patches
+Compilation rate:0.28846153846153844
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/6.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/7.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 29 patches...
+Tested:516 patches
+Compile failed:215 patches
+Compilation rate:0.5833333333333334
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/8.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 32 patches...
+Following are 2th generated patches:
+Validating 25 patches...
+Tested:557 patches
+Compile failed:556 patches
+Compilation rate:0.0017953321364452424
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/9.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/10.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 18 patches...
+Following are 2th generated patches:
+Validating 11 patches...
+Tested:502 patches
+Compile failed:206 patches
+Compilation rate:0.5896414342629482
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/11.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 320 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:781 patches
+Compile failed:586 patches
+Compilation rate:0.2496798975672215
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/12.java
+Following are 0th generated patches:
+Validating 129 patches...
+Following are 1th generated patches:
+Validating 28 patches...
+Following are 2th generated patches:
+Validating 9 patches...
+Tested:162 patches
+Compile failed:119 patches
+Compilation rate:0.2654320987654321
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/13.java
+Following are 0th generated patches:
+Validating 121 patches...
+Following are 1th generated patches:
+Validating 26 patches...
+Following are 2th generated patches:
+Validating 75 patches...
+Tested:218 patches
+Compile failed:217 patches
+Compilation rate:0.0045871559633027525
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/14.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/15.java
+Following are 0th generated patches:
+Validating 57 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 100 patches...
+Tested:155 patches
+Compile failed:130 patches
+Compilation rate:0.16129032258064516
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/16.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/17.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 90 patches...
+Following are 2th generated patches:
+Validating 92 patches...
+Tested:182 patches
+Compile failed:165 patches
+Compilation rate:0.09340659340659341
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/18.java
+Following are 0th generated patches:
+Validating 166 patches...
+Following are 1th generated patches:
+Validating 26 patches...
+Following are 2th generated patches:
+Validating 81 patches...
+Tested:270 patches
+Compile failed:268 patches
+Compilation rate:0.007407407407407408
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/19.java
+Following are 0th generated patches:
+Validating 175 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+Tested:88 patches
+Compile failed:88 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/20.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:8 patches
+Compilation rate:0.2727272727272727
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/21.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/22.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 32 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+Tested:509 patches
+Compile failed:214 patches
+Compilation rate:0.5795677799607073
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_39/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_39/23.java
+Following are 0th generated patches:
+Validating 63 patches...
+Following are 1th generated patches:
+Validating 28 patches...
+Following are 2th generated patches:
+Validating 7 patches...
+Tested:95 patches
+Compile failed:65 patches
+Compilation rate:0.3157894736842105
+Finish : lang-39 > patch : 3 | Start : Sat Dec 09 21:25:19 HKT 2023 | End : 2023.12.09 AD at 21:35:48 HKT

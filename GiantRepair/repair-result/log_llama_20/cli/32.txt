@@ -1,0 +1,937 @@
+Repair : cli_32
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/1.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 374 patches...
+Tested:3395 patches
+Compile failed:3247 patches
+Compilation rate:0.043593519882179674
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/2.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 510 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:513 patches
+Compile failed:472 patches
+Compilation rate:0.07992202729044834
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/3.java
+Following are 0th generated patches:
+Validating 265 patches...
+Following are 1th generated patches:
+Validating 147 patches...
+Following are 2th generated patches:
+Validating 147 patches...
+Following are 3th generated patches:
+Validating 42 patches...
+Following are 4th generated patches:
+Validating 43 patches...
+Tested:572 patches
+Compile failed:447 patches
+Compilation rate:0.21853146853146854
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/4.java
+Following are 0th generated patches:
+Validating 36 patches...
+Following are 1th generated patches:
+Validating 510 patches...
+Following are 2th generated patches:
+Validating 511 patches...
+Following are 3th generated patches:
+Validating 514 patches...
+Following are 4th generated patches:
+Validating 513 patches...
+Tested:2052 patches
+Compile failed:1882 patches
+Compilation rate:0.08284600389863547
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/5.java
+Following are 0th generated patches:
+Validating 113 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+while(pos>=startPos&&!Character.isWhitespace(text.charAt(pos))){
+--pos;
+}
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+1 th patch/116
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:30:19 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+2 th patch/116
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:30:19 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+while(pos>=startPos&&!Character.isWhitespace(text.charAt(pos))){
+--pos;
+}
+    char c;
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+3 th patch/116
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:30:19 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 59 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Following are 3th generated patches:
+Validating 64 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:231 patches
+Compile failed:193 patches
+Compilation rate:0.1645021645021645
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/6.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 510 patches...
+Following are 2th generated patches:
+Validating 512 patches...
+Following are 3th generated patches:
+Validating 511 patches...
+Following are 4th generated patches:
+Validating 511 patches...
+Tested:2051 patches
+Compile failed:1881 patches
+Compilation rate:0.08288639687957094
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/7.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 74 patches...
+Tested:75 patches
+Compile failed:48 patches
+Compilation rate:0.36
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 222 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:225 patches
+Compile failed:212 patches
+Compilation rate:0.057777777777777775
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/9.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 37 patches...
+Following are 2th generated patches:
+Validating 38 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:78 patches
+Compile failed:68 patches
+Compilation rate:0.1282051282051282
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/10.java
+Following are 0th generated patches:
+Validating 157 patches...
+Following are 1th generated patches:
+Validating 510 patches...
+Following are 2th generated patches:
+Validating 585 patches...
+Following are 3th generated patches:
+Validating 513 patches...
+Following are 4th generated patches:
+Validating 516 patches...
+Tested:2222 patches
+Compile failed:2081 patches
+Compilation rate:0.06345634563456345
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/11.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 373 patches...
+Following are 2th generated patches:
+Validating 747 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 373 patches...
+Tested:1501 patches
+Compile failed:1360 patches
+Compilation rate:0.09393737508327782
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/12.java
+Following are 0th generated patches:
+Validating 85 patches...
+Following are 1th generated patches:
+Validating 510 patches...
+Following are 2th generated patches:
+Validating 511 patches...
+Following are 3th generated patches:
+Validating 603 patches...
+Following are 4th generated patches:
+Validating 19 patches...
+Tested:1720 patches
+Compile failed:1549 patches
+Compilation rate:0.09941860465116278
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/13.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 391 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 835 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+while((pos>=startPos)&&((text.charAt(pos)!=' ')&&(text.charAt(pos)!='\n')&&(text.charAt(pos)!='\r'))&&(pos>startPos)){
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+while(pos>text.length()&&pos<=text.length()&&text.charAt(pos)!='\r'&&text.charAt(pos)!=' '&&text.charAt(pos)!='\n'){
+++pos;
+}
+    return pos == text.length() ? -1 : pos;
+  }
+
+4 th patch/652
+Trace:
+UPDATEWhileStmt;UPDATEInfixExpr
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:42:02 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 444 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+while(pos>text.length()&&pos<=text.length()&&text.charAt(pos)!='\r'&&text.charAt(pos)!=' '&&text.charAt(pos)!='\n'){
+++pos;
+}
+    return pos == text.length() ? -1 : pos;
+  }
+
+5 th patch/1487
+Trace:
+UPDATEWhileStmt;UPDATEInfixExpr
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:43:06 HKT
+--------------- END -----------------
+Tested:1678 patches
+Compile failed:1464 patches
+Compilation rate:0.12753277711561384
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/14.java
+Following are 0th generated patches:
+Validating 329 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+6 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+for(pos=startPos+width;pos<length&&((text.charAt(pos)!=' ')&&(text.charAt(pos)!='\n')&&(text.charAt(pos)!='\r'));pos++){
+;
+}
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+7 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+;
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+8 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+for(pos=startPos+width;pos<length&&((text.charAt(pos)!=' ')&&(text.charAt(pos)!='\n')&&(text.charAt(pos)!='\r'));pos++){
+;
+}
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+9 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+;
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+10 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+return pos==length?-1:pos;
+  }
+
+11 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+int length=text.length();
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+12 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+;
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+13 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+;
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+14 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+;
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+;
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+15 th patch/332
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:44:20 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:3307 patches
+Compile failed:3042 patches
+Compilation rate:0.08013305110371938
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/15.java
+Following are 0th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+int endPos=startPos+width-1;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+16 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:48:33 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+17 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:48:33 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+if(width<=0){
+return -1;
+}
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+18 th patch/253
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:48:33 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+if(width<=0){
+return -1;
+}
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+19 th patch/503
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:49:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//cli/cli_32_buggy/src/main/java/org/apache/commons/cli/HelpFormatter.java
+SUCCESS
+//Following are generated patch:
+  protected int findWrapPos(  String text,  int width,  int startPos){
+if(width<=0){
+return -1;
+}
+    int pos;
+    if (((pos=text.indexOf('\n',startPos)) != -1 && pos <= width) || ((pos=text.indexOf('\t',startPos)) != -1 && pos <= width)) {
+      return pos + 1;
+    }
+ else     if (startPos + width >= text.length()) {
+      return -1;
+    }
+    pos=startPos + width;
+int endPos=startPos+width-1;
+    char c;
+    while ((pos >= startPos) && ((c=text.charAt(pos)) != ' ') && (c != '\n')&& (c != '\r')) {
+      --pos;
+    }
+    if (pos > startPos) {
+      return pos;
+    }
+    pos=startPos + width;
+    return pos == text.length() ? -1 : pos;
+  }
+
+20 th patch/503
+Trace:
+
+START : 
+2023.12.06 AD at 14:20:29 HKT
+---------TIME : 
+2023.12.06 AD at 14:49:00 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 19 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2932 patches
+Compile failed:2628 patches
+Compilation rate:0.10368349249658936
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/16.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:2 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/17.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 747 patches...
+Following are 2th generated patches:
+Validating 373 patches...
+Following are 3th generated patches:
+Validating 373 patches...
+Following are 4th generated patches:
+Validating 746 patches...
+Tested:2246 patches
+Compile failed:2037 patches
+Compilation rate:0.09305431878895815
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/18.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:2003 patches
+Compile failed:1912 patches
+Compilation rate:0.0454318522216675
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/19.java
+Following are 0th generated patches:
+Validating 449 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:4447 patches
+Compile failed:3945 patches
+Compilation rate:0.11288509107263324
+Current file:/data/PLM4APR/codex_out/200_patches_llama_20/cli_32/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_20/cli_32/20.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 74 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:77 patches
+Compile failed:50 patches
+Compilation rate:0.35064935064935066
+Finish : cli-32 > patch : 20 | Start : Wed Dec 06 14:20:29 HKT 2023 | End : 2023.12.06 AD at 15:05:21 HKT

@@ -1,0 +1,352 @@
+Repair : lang_45
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/1.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1403 patches
+Compile failed:1403 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/2.java
+Following are 0th generated patches:
+Validating 51 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_45_buggy/src/java/org/apache/commons/lang/WordUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String abbreviate(  String str,  int lower,  int upper,  String appendToEnd){
+    if (str == null) {
+      return null;
+    }
+    if (str.length() == 0) {
+      return StringUtils.EMPTY;
+    }
+int length=str.length();
+if(upper==-1||upper>length){
+      upper=str.length();
+    }
+    if (upper < lower) {
+      upper=lower;
+    }
+if(upper>length){
+upper=length;
+}
+    StringBuffer result=new StringBuffer();
+    int index=StringUtils.indexOf(str," ",lower);
+    if (index == -1) {
+      result.append(str.substring(0,upper));
+      if (upper != str.length()) {
+        result.append(StringUtils.defaultString(appendToEnd));
+      }
+    }
+ else     if (index > upper) {
+      result.append(str.substring(0,upper));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+ else {
+      result.append(str.substring(0,index));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+    return result.toString();
+  }
+
+1 th patch/54
+Trace:
+
+START : 
+2023.12.09 AD at 22:02:00 HKT
+---------TIME : 
+2023.12.09 AD at 22:03:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_45_buggy/src/java/org/apache/commons/lang/WordUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String abbreviate(  String str,  int lower,  int upper,  String appendToEnd){
+    if (str == null) {
+      return null;
+    }
+    if (str.length() == 0) {
+      return StringUtils.EMPTY;
+    }
+int length=str.length();
+    if (upper == -1 || upper > str.length()) {
+upper=length;
+    }
+    if (upper < lower) {
+      upper=lower;
+    }
+if(upper>length){
+upper=length;
+}
+    StringBuffer result=new StringBuffer();
+    int index=StringUtils.indexOf(str," ",lower);
+    if (index == -1) {
+      result.append(str.substring(0,upper));
+      if (upper != str.length()) {
+        result.append(StringUtils.defaultString(appendToEnd));
+      }
+    }
+ else     if (index > upper) {
+      result.append(str.substring(0,upper));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+ else {
+      result.append(str.substring(0,index));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+    return result.toString();
+  }
+
+2 th patch/54
+Trace:
+
+START : 
+2023.12.09 AD at 22:02:00 HKT
+---------TIME : 
+2023.12.09 AD at 22:03:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_45_buggy/src/java/org/apache/commons/lang/WordUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String abbreviate(  String str,  int lower,  int upper,  String appendToEnd){
+    if (str == null) {
+      return null;
+    }
+    if (str.length() == 0) {
+      return StringUtils.EMPTY;
+    }
+int length=str.length();
+    if (upper == -1 || upper > str.length()) {
+      upper=str.length();
+    }
+    if (upper < lower) {
+      upper=lower;
+    }
+if(upper>length){
+upper=length;
+}
+if(lower>upper){
+return str;
+}
+    StringBuffer result=new StringBuffer();
+    int index=StringUtils.indexOf(str," ",lower);
+    if (index == -1) {
+      result.append(str.substring(0,upper));
+      if (upper != str.length()) {
+        result.append(StringUtils.defaultString(appendToEnd));
+      }
+    }
+ else     if (index > upper) {
+      result.append(str.substring(0,upper));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+ else {
+      result.append(str.substring(0,index));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+    return result.toString();
+  }
+
+3 th patch/54
+Trace:
+
+START : 
+2023.12.09 AD at 22:02:00 HKT
+---------TIME : 
+2023.12.09 AD at 22:03:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_45_buggy/src/java/org/apache/commons/lang/WordUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String abbreviate(  String str,  int lower,  int upper,  String appendToEnd){
+    if (str == null) {
+      return null;
+    }
+    if (str.length() == 0) {
+      return StringUtils.EMPTY;
+    }
+int length=str.length();
+    if (upper == -1 || upper > str.length()) {
+      upper=str.length();
+    }
+    if (upper < lower) {
+      upper=lower;
+    }
+if(upper>length){
+upper=length;
+}
+    StringBuffer result=new StringBuffer();
+    int index=StringUtils.indexOf(str," ",lower);
+    if (index == -1) {
+      result.append(str.substring(0,upper));
+      if (upper != str.length()) {
+        result.append(StringUtils.defaultString(appendToEnd));
+      }
+    }
+ else     if (index > upper) {
+      result.append(str.substring(0,upper));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+ else {
+      result.append(str.substring(0,index));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+    return result.toString();
+  }
+
+4 th patch/54
+Trace:
+
+START : 
+2023.12.09 AD at 22:02:00 HKT
+---------TIME : 
+2023.12.09 AD at 22:03:00 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 320 patches...
+Tested:383 patches
+Compile failed:367 patches
+Compilation rate:0.04177545691906005
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/3.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1497 patches
+Compile failed:1419 patches
+Compilation rate:0.052104208416833664
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/4.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/5.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Tested:39 patches
+Compile failed:32 patches
+Compilation rate:0.1794871794871795
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/6.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:521 patches
+Compile failed:297 patches
+Compilation rate:0.42994241842610365
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/7.java
+Following are 0th generated patches:
+Validating 287 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:781 patches
+Compile failed:720 patches
+Compilation rate:0.07810499359795134
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/8.java
+Following are 0th generated patches:
+Validating 343 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:839 patches
+Compile failed:761 patches
+Compilation rate:0.09296781883194279
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_45/9.java
+Following are 0th generated patches:
+Validating 8 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_45_buggy/src/java/org/apache/commons/lang/WordUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String abbreviate(  String str,  int lower,  int upper,  String appendToEnd){
+    if (str == null) {
+      return null;
+    }
+    if (str.length() == 0) {
+      return StringUtils.EMPTY;
+    }
+    if (upper == -1 || upper > str.length()) {
+      upper=str.length();
+    }
+    if (upper < lower) {
+      upper=lower;
+    }
+if(upper==-1||upper>str.length()){
+upper=str.length();
+}
+    StringBuffer result=new StringBuffer();
+    int index=StringUtils.indexOf(str," ",lower);
+    if (index == -1) {
+      result.append(str.substring(0,upper));
+      if (upper != str.length()) {
+        result.append(StringUtils.defaultString(appendToEnd));
+      }
+    }
+ else     if (index > upper) {
+      result.append(str.substring(0,upper));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+ else {
+      result.append(str.substring(0,index));
+      result.append(StringUtils.defaultString(appendToEnd));
+    }
+    return result.toString();
+  }
+
+5 th patch/11
+Trace:
+
+START : 
+2023.12.09 AD at 22:02:00 HKT
+---------TIME : 
+2023.12.09 AD at 22:07:16 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 8 patches
+Compile failed 0 patches
+Compilation rate1.0
+Patch number exceeds the limit!
+Tested 8 patches
+Compile failed 0 patches
+Compilation rate1.0
+Tested:8 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_45/10.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-45 > patch : 5 | Start : Sat Dec 09 22:02:00 HKT 2023 | End : 2023.12.09 AD at 22:07:16 HKT

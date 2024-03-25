@@ -1,0 +1,59 @@
+Following diff 14:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
+-if(c==n.getLastChild()){
+-break;
+-}
++tryMinimizeIfBlockExits(finallyBlock,n.getLastChild(),n,exitType,labelName);
++for(Nodec=n.getFirstChild();c!=null;c=c.getNext()){
++if(c.isIf()){
++NodeifTree=c;
++NodetrueBlock,falseBlock;
++trueBlock=ifTree.getFirstChild().getNext();
++falseBlock=trueBlock.getNext();
++tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
++trueBlock=ifTree.getFirstChild().getNext();
++falseBlock=trueBlock.getNext();
++if(falseBlock!=null){
++tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
++}
++}
++if(c.getParent()==n){
++break;
++}
++}
+Following diff 19:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeIfBlockExits(finallyBlock,n.getLastChild(),n,exitType,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.cloneNode(),Node.COLUMN_BITS,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.cloneNode(),Node.COLUMN_MASK,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.getLastSibling(),Node.INPUT_ID,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.cloneNode(),Node.FREE_CALL,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++matchingExitNode(n,exitType,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock,Node.SYNTHETIC_BLOCK_PROP,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(tryBlock,Node.JSDOC_INFO_PROP,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.cloneNode(),Node.CHANGE_TIME,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(n.getLastChild(),Node.INPUT_ID,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(n.getFirstChild(),Node.LENGTH,labelName);
+Following diff 25:
+-tryMinimizeExits(finallyBlock,exitType,labelName);
++tryMinimizeExits(finallyBlock.cloneTree(),Node.CHANGE_TIME,labelName);

@@ -1,0 +1,509 @@
+Repair : chart_3
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/0.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 392 patches...
+Following are 2th generated patches:
+Validating 192 patches...
+Tested:591 patches
+Compile failed:224 patches
+Compilation rate:0.6209813874788495
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/1.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:9 patches
+Compile failed:7 patches
+Compilation rate:0.2222222222222222
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/2.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 400 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:907 patches
+Compile failed:907 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/3.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/4.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Tested:9 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Tested:9 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/6.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 400 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_3_buggy/source/org/jfree/data/time/TimeSeries.java
+SUCCESS
+//Following are generated patch:
+  public TimeSeries createCopy(  int start,  int end) throws CloneNotSupportedException {
+    if (start < 0) {
+      throw new IllegalArgumentException("Requires start >= 0.");
+    }
+    if (end < start) {
+      throw new IllegalArgumentException("Requires start <= end.");
+    }
+    TimeSeries copy=(TimeSeries)super.clone();
+    copy.data=new java.util.ArrayList();
+    if (this.data.size() > 0) {
+      for (int index=start; index <= end; index++) {
+        TimeSeriesDataItem item=(TimeSeriesDataItem)this.data.get(index);
+        TimeSeriesDataItem clone=(TimeSeriesDataItem)item.clone();
+        try {
+          copy.add(clone);
+        }
+ catch (        SeriesException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+copy.findBoundsByIteration();
+    return copy;
+  }
+
+1 th patch/254
+Trace:
+ExpressionStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.07 AD at 23:55:32 HKT
+---------TIME : 
+2023.12.07 AD at 23:58:44 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_3_buggy/source/org/jfree/data/time/TimeSeries.java
+SUCCESS
+//Following are generated patch:
+  public TimeSeries createCopy(  int start,  int end) throws CloneNotSupportedException {
+    if (start < 0) {
+      throw new IllegalArgumentException("Requires start >= 0.");
+    }
+    if (end < start) {
+      throw new IllegalArgumentException("Requires start <= end.");
+    }
+    TimeSeries copy=(TimeSeries)super.clone();
+    copy.data=new java.util.ArrayList();
+    if (this.data.size() > 0) {
+      for (int index=start; index <= end; index++) {
+        TimeSeriesDataItem item=(TimeSeriesDataItem)this.data.get(index);
+        TimeSeriesDataItem clone=(TimeSeriesDataItem)item.clone();
+        try {
+          copy.add(clone);
+        }
+ catch (        SeriesException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+copy.addAndOrUpdate(copy);
+    return copy;
+  }
+
+2 th patch/254
+Trace:
+ExpressionStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.07 AD at 23:55:32 HKT
+---------TIME : 
+2023.12.07 AD at 23:58:44 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_3_buggy/source/org/jfree/data/time/TimeSeries.java
+SUCCESS
+//Following are generated patch:
+  public TimeSeries createCopy(  int start,  int end) throws CloneNotSupportedException {
+    if (start < 0) {
+      throw new IllegalArgumentException("Requires start >= 0.");
+    }
+    if (end < start) {
+      throw new IllegalArgumentException("Requires start <= end.");
+    }
+    TimeSeries copy=(TimeSeries)super.clone();
+    copy.data=new java.util.ArrayList();
+    if (this.data.size() > 0) {
+      for (int index=start; index <= end; index++) {
+        TimeSeriesDataItem item=(TimeSeriesDataItem)this.data.get(index);
+        TimeSeriesDataItem clone=(TimeSeriesDataItem)item.clone();
+        try {
+          copy.add(clone);
+        }
+ catch (        SeriesException e) {
+          e.printStackTrace();
+        }
+      }
+    }
+copy.delete(-1,maximumItemCount);
+    return copy;
+  }
+
+3 th patch/254
+Trace:
+ExpressionStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.07 AD at 23:55:32 HKT
+---------TIME : 
+2023.12.07 AD at 23:58:45 HKT
+--------------- END -----------------
+Tested:401 patches
+Compile failed:105 patches
+Compilation rate:0.7381546134663342
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/7.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 16 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:17 patches
+Compile failed:17 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/9.java
+Following are 0th generated patches:
+Validating 77 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 182 patches...
+Tested:759 patches
+Compile failed:747 patches
+Compilation rate:0.015810276679841896
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/10.java
+Following are 0th generated patches:
+Validating 0 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 393 patches...
+Tested:893 patches
+Compile failed:535 patches
+Compilation rate:0.4008958566629339
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/11.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:8 patches
+Compile failed:1 patches
+Compilation rate:0.875
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/12.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 29 patches...
+Tested:30 patches
+Compile failed:24 patches
+Compilation rate:0.2
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/13.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/14.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/15.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/16.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:7 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/17.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:3 patches
+Compile failed:2 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/18.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/19.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/20.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/21.java
+Following are 0th generated patches:
+Validating 10 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:10 patches
+Compile failed:5 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/22.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Following are 2th generated patches:
+Validating 8 patches...
+Tested:18 patches
+Compile failed:18 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/23.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 16 patches...
+Tested:17 patches
+Compile failed:17 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/24.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:4 patches
+Compile failed:3 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/25.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 17 patches...
+Tested:18 patches
+Compile failed:17 patches
+Compilation rate:0.05555555555555555
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/26.java
+Following are 0th generated patches:
+Validating 9 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Following are 2th generated patches:
+Validating 27 patches...
+Tested:44 patches
+Compile failed:44 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/27.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 36 patches...
+Following are 2th generated patches:
+Validating 18 patches...
+Tested:57 patches
+Compile failed:57 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/28.java
+Following are 0th generated patches:
+Validating 0 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/29.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/30.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/31.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/32.java
+Following are 0th generated patches:
+Validating 4 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:4 patches
+Compile failed:3 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/33.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/34.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/35.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/36.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:511 patches
+Compile failed:511 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/37.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_3/38.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Finish : chart-3 > patch : 3 | Start : Thu Dec 07 23:55:32 HKT 2023 | End : 2023.12.08 AD at 00:03:58 HKT

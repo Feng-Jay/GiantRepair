@@ -1,0 +1,30 @@
+Following diff 9:
+-if(node.isName()&&isNameAssignedTo(node.getString(),replacement)){
+-returnfalse;
+-}
++if(node.hasChildren()||isNameAssignedTo(node.getQualifiedName(),replacement)){
++returnfalse;
++}
+Following diff 9:
+-if(node.isName()&&isNameAssignedTo(node.getString(),replacement)){
+-returnfalse;
+-}
++if(node.isGetProp()||isNameAssignedTo(node.getQualifiedName(),replacement)){
++returnfalse;
++}
+Following diff 13:
++if(node.isGetProp()){
++returnisSafeReplacement(node,replacement);
++}
+Following diff 23:
++if(node.isGetProp()){
++returnfalse;
++}
+Following diff 23:
++if(node.hasChildren()){
++returnfalse;
++}
+Following diff 23:
++if(node.hasMoreThanOneChild()){
++returnfalse;
++}

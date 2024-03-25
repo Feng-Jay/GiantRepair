@@ -1,0 +1,321 @@
+Repair : closure_25
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/1.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1004 patches
+Compile failed:49 patches
+Compilation rate:0.951195219123506
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/2.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1004 patches
+Compile failed:40 patches
+Compilation rate:0.9601593625498008
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/3.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 30 patches...
+Following are 2th generated patches:
+Validating 32 patches...
+Tested:66 patches
+Compile failed:9 patches
+Compilation rate:0.8636363636363636
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/4.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/5.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 30 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:34 patches
+Compile failed:4 patches
+Compilation rate:0.8823529411764706
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/6.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 210 patches...
+Tested:214 patches
+Compile failed:10 patches
+Compilation rate:0.9532710280373832
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/7.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 65 patches...
+Tested:567 patches
+Compile failed:27 patches
+Compilation rate:0.9523809523809523
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/8.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 298 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_25_buggy/src/com/google/javascript/jscomp/TypeInference.java
+SUCCESS
+//Following are generated patch:
+  private FlowScope traverseNew(  Node n,  FlowScope scope){
+    Node constructor=n.getFirstChild();
+scope=traverseCall(n,scope.createChildFlowScope());
+    JSType constructorType=constructor.getJSType();
+    JSType type=null;
+    if (constructorType != null) {
+      constructorType=constructorType.restrictByNotNullOrUndefined();
+      if (constructorType.isUnknownType()) {
+        type=getNativeType(UNKNOWN_TYPE);
+      }
+ else {
+        FunctionType ct=constructorType.toMaybeFunctionType();
+        if (ct == null && constructorType instanceof FunctionType) {
+          ct=(FunctionType)constructorType;
+        }
+        if (ct != null && ct.isConstructor()) {
+          type=ct.getInstanceType();
+        }
+      }
+    }
+    n.setJSType(type);
+    for (Node arg=constructor.getNext(); arg != null; arg=arg.getNext()) {
+      scope=traverse(arg,scope);
+    }
+    return scope;
+  }
+
+1 th patch/254
+Trace:
+UPDATEExpressionStmt;UPDATEAssign;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.10 AD at 17:18:14 HKT
+---------TIME : 
+2023.12.10 AD at 17:22:01 HKT
+--------------- END -----------------
+Tested:299 patches
+Compile failed:9 patches
+Compilation rate:0.9698996655518395
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/9.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 268 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:271 patches
+Compile failed:13 patches
+Compilation rate:0.9520295202952029
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/10.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1011 patches
+Compile failed:57 patches
+Compilation rate:0.9436201780415431
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/11.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 210 patches...
+Tested:719 patches
+Compile failed:15 patches
+Compilation rate:0.9791376912378303
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/12.java
+Following are 0th generated patches:
+Validating 78 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 221 patches...
+Tested:799 patches
+Compile failed:37 patches
+Compilation rate:0.9536921151439299
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/13.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:507 patches
+Compile failed:20 patches
+Compilation rate:0.960552268244576
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/14.java
+Following are 0th generated patches:
+Validating 6 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 483 patches...
+Tested:490 patches
+Compile failed:24 patches
+Compilation rate:0.9510204081632653
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/15.java
+Following are 0th generated patches:
+Validating 23 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1021 patches
+Compile failed:36 patches
+Compilation rate:0.9647404505386875
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/16.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/17.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 30 patches...
+Following are 2th generated patches:
+Validating 31 patches...
+Tested:61 patches
+Compile failed:8 patches
+Compilation rate:0.8688524590163934
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/18.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1013 patches
+Compile failed:65 patches
+Compilation rate:0.9358341559723593
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/19.java
+Following are 0th generated patches:
+Validating 17 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1016 patches
+Compile failed:22 patches
+Compilation rate:0.9783464566929134
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/20.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/21.java
+Following are 0th generated patches:
+Validating 33 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1031 patches
+Compile failed:34 patches
+Compilation rate:0.9670223084384093
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/22.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 18 patches...
+Tested:530 patches
+Compile failed:21 patches
+Compilation rate:0.960377358490566
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/23.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 32 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:543 patches
+Compile failed:26 patches
+Compilation rate:0.9521178637200737
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/24.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1004 patches
+Compile failed:59 patches
+Compilation rate:0.9412350597609562
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/25.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:507 patches
+Compile failed:23 patches
+Compilation rate:0.9546351084812623
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/closure_25/26.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:507 patches
+Compile failed:12 patches
+Compilation rate:0.9763313609467456
+Finish : closure-25 > patch : 1 | Start : Sun Dec 10 17:18:14 HKT 2023 | End : 2023.12.10 AD at 17:28:26 HKT

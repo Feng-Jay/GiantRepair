@@ -1,0 +1,18 @@
+Following diff 0:
+-return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);
++return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:a);
+Following diff 1:
+-return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);
++return(a>=b)?a:(Float.isNaN(a+b)?Float.NaN:b);
+Following diff 1:
+-return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);
++return(a>b)?a:(Float.isNaN(a+b)?Float.NaN:b);
+Following diff 2:
+-return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);
++if(Float.isNaN(a+b)){
++returnFloat.NaN;
++}
++return(a<=b)?b:a;
+Following diff 3:
+-return(a<=b)?b:(Float.isNaN(a+b)?Float.NaN:b);
++returnMath.max(a,b);

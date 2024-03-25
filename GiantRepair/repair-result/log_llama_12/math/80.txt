@@ -1,0 +1,498 @@
+Repair : math_80
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/0.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/3.java
+Following are 0th generated patches:
+Validating 41 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:44 patches
+Compile failed:17 patches
+Compilation rate:0.6136363636363636
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/4.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 48 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+int j=4*tType;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[i + k]=work[j - k];
+          work[j - k]=tmp;
+        }
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+1 th patch/55
+Trace:
+UPDATEVarDeclarationStmt;Vdf;InfixExpr;SName
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:41:33 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+int j=4*pingPong;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[i + k]=work[j - k];
+          work[j - k]=tmp;
+        }
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+2 th patch/55
+Trace:
+UPDATEVarDeclarationStmt;Vdf;InfixExpr;SName
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:41:33 HKT
+--------------- END -----------------
+Tested:52 patches
+Compile failed:44 patches
+Compilation rate:0.15384615384615385
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_80/6.java
+Following are 0th generated patches:
+Validating 83 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    return false;
+  }
+
+3 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      return true;
+    }
+    return false;
+  }
+
+4 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+    }
+    return false;
+  }
+
+5 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      return true;
+    }
+    return false;
+  }
+
+6 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        j-=4;
+      }
+    }
+    return false;
+  }
+
+7 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+      }
+      return true;
+    }
+    return false;
+  }
+
+8 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[j - k]=tmp;
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+9 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+        }
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+10 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+11 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[j - k]=tmp;
+        }
+        j-=4;
+      }
+    }
+    return false;
+  }
+
+12 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+    }
+    return false;
+  }
+
+13 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[j - k]=tmp;
+        }
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+14 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+      }
+    }
+    return false;
+  }
+
+15 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+        }
+        j-=4;
+      }
+      return true;
+    }
+    return false;
+  }
+
+16 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+17 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+        }
+        j-=4;
+      }
+    }
+    return false;
+  }
+
+18 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_80_buggy/src/main/java/org/apache/commons/math/linear/EigenDecompositionImpl.java
+SUCCESS
+//Following are generated patch:
+  private boolean flipIfWarranted(  final int n,  final int step){
+    if (1.5 * work[pingPong] < work[4 * (n - 1) + pingPong]) {
+      int j=4 * n - 1;
+      for (int i=0; i < j; i+=4) {
+        for (int k=0; k < 4; k+=step) {
+          final double tmp=work[i + k];
+          work[j - k]=tmp;
+        }
+      }
+    }
+    return false;
+  }
+
+19 th patch/86
+Trace:
+
+START : 
+2023.12.11 AD at 02:40:48 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:18 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 83 patches
+Compile failed 56 patches
+Compilation rate0.3253012048192771
+Patch number exceeds the limit!
+Tested 83 patches
+Compile failed 56 patches
+Compilation rate0.3253012048192771
+Tested:83 patches
+Compile failed:56 patches
+Compilation rate:0.3253012048192771
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_80/7.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : math-80 > patch : 19 | Start : Mon Dec 11 02:40:48 HKT 2023 | End : 2023.12.11 AD at 02:42:18 HKT

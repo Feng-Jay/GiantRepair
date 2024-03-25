@@ -1,0 +1,976 @@
+Repair : lang_10
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/0.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:3 patches
+Compile failed:3 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/1.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 78 patches...
+Following are 2th generated patches:
+Validating 76 patches...
+Tested:153 patches
+Compile failed:153 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/2.java
+Following are 0th generated patches:
+Validating 170 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:63 patches
+Compile failed:63 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/3.java
+Following are 0th generated patches:
+Validating 500 patches...
+Following are 1th generated patches:
+Validating 260 patches...
+Following are 2th generated patches:
+Validating 87 patches...
+Tested:369 patches
+Compile failed:369 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/4.java
+Following are 0th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+1 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+2 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+3 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+4 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+5 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+6 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+7 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+8 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+9 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+10 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+11 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+12 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+13 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+14 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+15 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+16 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            if(Character.isWhitespace(c)) {
+            }
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+17 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            if(Character.isWhitespace(c)) {
+                if(!wasWhite) {
+                    wasWhite= true;
+                }
+            }
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+18 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            wasWhite= false;
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+19 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_10_buggy/src/main/java/org/apache/commons/lang3/time/FastDateParser.java
+SUCCESS
+//Following are generated patch:
+    private static StringBuilder escapeRegex(StringBuilder regex, String value, boolean unquote) {
+        boolean wasWhite= false;
+        for(int i= 0; i<value.length(); ++i) {
+            char c= value.charAt(i);
+            switch(c) {
+            case '\'':
+                if(unquote) {
+                    if(++i==value.length()) {
+                        return regex;
+                    }
+                    c= value.charAt(i);
+                }
+                break;
+            case '?':
+            case '[':
+            case ']':
+            case '(':
+            case ')':
+            case '{':
+            case '}':
+            case '\\':
+            case '|':
+            case '*':
+            case '+':
+            case '^':
+            case '$':
+            case '.':
+                regex.append('\\');
+            }
+            regex.append(c);
+        }
+        return regex;
+}
+
+20 th patch/253
+Trace:
+
+START : 
+2023.12.08 AD at 19:56:07 HKT
+---------TIME : 
+2023.12.08 AD at 20:00:12 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 250 patches
+Compile failed 78 patches
+Compilation rate0.688
+Patch number exceeds the limit!
+Tested 250 patches
+Compile failed 78 patches
+Compilation rate0.688
+Tested:250 patches
+Compile failed:78 patches
+Compilation rate:0.688
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_10/5.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-10 > patch : 20 | Start : Fri Dec 08 19:56:07 HKT 2023 | End : 2023.12.08 AD at 20:00:13 HKT

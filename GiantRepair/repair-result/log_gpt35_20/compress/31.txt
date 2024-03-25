@@ -1,0 +1,1035 @@
+Repair : compress_31
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/0.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Tested:28 patches
+Compile failed:17 patches
+Compilation rate:0.39285714285714285
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/1.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 31 patches...
+Following are 2th generated patches:
+Validating 50 patches...
+Following are 3th generated patches:
+Validating 28 patches...
+Following are 4th generated patches:
+Validating 19 patches...
+Tested:139 patches
+Compile failed:79 patches
+Compilation rate:0.4316546762589928
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/2.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 30 patches...
+Following are 3th generated patches:
+Validating 43 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:103 patches
+Compile failed:79 patches
+Compilation rate:0.23300970873786409
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:9 patches
+Compilation rate:0.3076923076923077
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/4.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 56 patches...
+Following are 3th generated patches:
+Validating 68 patches...
+Tested:138 patches
+Compile failed:112 patches
+Compilation rate:0.18840579710144928
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:9 patches
+Compilation rate:0.3076923076923077
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/6.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Tested:28 patches
+Compile failed:17 patches
+Compilation rate:0.39285714285714285
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/7.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 475 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:487 patches
+Compile failed:415 patches
+Compilation rate:0.14784394250513347
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/8.java
+Following are 0th generated patches:
+Validating 37 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+1 th patch/40
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 17:59:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte == 0) {
+      }
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+2 th patch/40
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 17:59:28 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 3 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 3 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:25 patches
+Compile failed:6 patches
+Compilation rate:0.76
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/9.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:11 patches
+Compile failed:4 patches
+Compilation rate:0.6363636363636364
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/10.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 671 patches...
+Following are 3th generated patches:
+Validating 682 patches...
+Following are 4th generated patches:
+Validating 683 patches...
+Tested:2050 patches
+Compile failed:1680 patches
+Compilation rate:0.18048780487804877
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/11.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:2 patches
+Compilation rate:0.8181818181818182
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/12.java
+Following are 0th generated patches:
+Validating 160 patches...
+Following are 1th generated patches:
+Validating 248 patches...
+Following are 2th generated patches:
+Validating 255 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 274 patches...
+Tested:932 patches
+Compile failed:842 patches
+Compilation rate:0.09656652360515021
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/13.java
+Following are 0th generated patches:
+Validating 19 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:47 patches
+Compile failed:29 patches
+Compilation rate:0.3829787234042553
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/14.java
+Following are 0th generated patches:
+Validating 19 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 20 patches...
+Following are 3th generated patches:
+Validating 21 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:61 patches
+Compile failed:4 patches
+Compilation rate:0.9344262295081968
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/15.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:15 patches
+Compile failed:8 patches
+Compilation rate:0.4666666666666667
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/16.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:40 patches
+Compile failed:30 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/17.java
+Following are 0th generated patches:
+Validating 5 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte == 0) {
+      }
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+3 th patch/8
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:06:24 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+4 th patch/8
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:06:24 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+5 th patch/36
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:06:41 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 28 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+if(buffer[start]==' '){
+start++;
+}
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+6 th patch/64
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:06:56 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte == 0) {
+      }
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+7 th patch/65
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:07:09 HKT
+--------------- END -----------------
+Tested:62 patches
+Compile failed:34 patches
+Compilation rate:0.45161290322580644
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/18.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 14 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:41 patches
+Compile failed:30 patches
+Compilation rate:0.2682926829268293
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/19.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/20.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 19 patches...
+Tested:20 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/21.java
+Following are 0th generated patches:
+Validating 9 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:13 patches
+Compile failed:4 patches
+Compilation rate:0.6923076923076923
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/22.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 56 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 57 patches...
+Following are 4th generated patches:
+Validating 58 patches...
+Tested:173 patches
+Compile failed:137 patches
+Compilation rate:0.20809248554913296
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/23.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 14 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:42 patches
+Compile failed:30 patches
+Compilation rate:0.2857142857142857
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/24.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:9 patches
+Compilation rate:0.3076923076923077
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/25.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:44 patches
+Compile failed:29 patches
+Compilation rate:0.3409090909090909
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/26.java
+Following are 0th generated patches:
+Validating 57 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 476 patches...
+Following are 3th generated patches:
+Validating 501 patches...
+Following are 4th generated patches:
+Validating 30 patches...
+Tested:1080 patches
+Compile failed:1046 patches
+Compilation rate:0.03148148148148148
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/27.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:29 patches
+Compile failed:22 patches
+Compilation rate:0.2413793103448276
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/28.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 40 patches...
+Following are 3th generated patches:
+Validating 43 patches...
+Following are 4th generated patches:
+Validating 16 patches...
+Tested:114 patches
+Compile failed:94 patches
+Compilation rate:0.17543859649122806
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/29.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 48 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Tested:54 patches
+Compile failed:29 patches
+Compilation rate:0.46296296296296297
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/30.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 264 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Tested:270 patches
+Compile failed:165 patches
+Compilation rate:0.3888888888888889
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/31.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 66 patches...
+Following are 2th generated patches:
+Validating 97 patches...
+Following are 3th generated patches:
+Validating 93 patches...
+Following are 4th generated patches:
+Validating 67 patches...
+Tested:340 patches
+Compile failed:268 patches
+Compilation rate:0.21176470588235294
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/32.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 36 patches...
+Tested:37 patches
+Compile failed:21 patches
+Compilation rate:0.43243243243243246
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/33.java
+Following are 0th generated patches:
+Validating 36 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 44 patches...
+Following are 3th generated patches:
+Validating 40 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:114 patches
+Compile failed:91 patches
+Compilation rate:0.20175438596491227
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/34.java
+Following are 0th generated patches:
+Validating 247 patches...
+Following are 1th generated patches:
+Validating 86 patches...
+Following are 2th generated patches:
+Validating 118 patches...
+Following are 3th generated patches:
+Validating 31 patches...
+Following are 4th generated patches:
+Validating 114 patches...
+Tested:523 patches
+Compile failed:423 patches
+Compilation rate:0.19120458891013384
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/35.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:40 patches
+Compile failed:30 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/36.java
+Following are 0th generated patches:
+Validating 37 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+8 th patch/40
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:14:14 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte == 0) {
+      }
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+9 th patch/40
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:14:14 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+while(start<end&&(buffer[start]==' '||buffer[start]==0)){
+start++;
+}
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte == 0) {
+      }
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+10 th patch/43
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:14:28 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_31_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+while(start<end&&(buffer[start]==' '||buffer[start]==0)){
+start++;
+}
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+11 th patch/46
+Trace:
+
+START : 
+2023.12.05 AD at 17:56:48 HKT
+---------TIME : 
+2023.12.05 AD at 18:14:41 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:25 patches
+Compile failed:7 patches
+Compilation rate:0.72
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/37.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:30 patches
+Compile failed:21 patches
+Compilation rate:0.3
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/38.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 30 patches...
+Following are 3th generated patches:
+Validating 3 patches...
+Following are 4th generated patches:
+Validating 4 patches...
+Tested:71 patches
+Compile failed:50 patches
+Compilation rate:0.29577464788732394
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/39.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 23 patches...
+Following are 2th generated patches:
+Validating 47 patches...
+Following are 3th generated patches:
+Validating 4 patches...
+Following are 4th generated patches:
+Validating 50 patches...
+Tested:136 patches
+Compile failed:81 patches
+Compilation rate:0.40441176470588236
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_31/40.java
+Following are 0th generated patches:
+Validating 23 patches...
+Following are 1th generated patches:
+Validating 168 patches...
+Following are 2th generated patches:
+Validating 7 patches...
+Following are 3th generated patches:
+Validating 8 patches...
+Following are 4th generated patches:
+Validating 8 patches...
+Tested:198 patches
+Compile failed:186 patches
+Compilation rate:0.06060606060606061
+Finish : compress-31 > patch : 11 | Start : Tue Dec 05 17:56:48 HKT 2023 | End : 2023.12.05 AD at 18:15:48 HKT

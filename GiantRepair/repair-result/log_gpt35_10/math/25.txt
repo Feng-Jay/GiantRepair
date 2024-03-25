@@ -1,0 +1,2035 @@
+Repair : math_25
+Current file:/data/PLM4APR/codex_out/valuable_patches_gpt35_real/math_25/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_gpt35_real/math_25/patch.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.DENOMINATOR);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+1 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.POLYNOMIAL);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+2 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.ZERO_NORM);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+3 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.INDEX);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+4 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.SCALE);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+5 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.ILLEGAL_STATE);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+6 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.CANNOT_PARSE);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+7 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.COLUMN_INDEX);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+8 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.NORMALIZE_NAN);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+9 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.INFINITE_BOUND);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+10 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.REAL_FORMAT);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+11 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.MEAN);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+12 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.UNKNOWN_MODE);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+13 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.INTERNAL_ERROR);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+14 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.SHAPE);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+15 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.DIMENSION);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+16 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.LENGTH);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+17 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.NO_DATA);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+18 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.FRACTION);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+19 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.BANDWIDTH);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+20 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.OVERFLOW);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+21 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.FUNCTION);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+22 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.EVALUATION);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+23 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.INPUT_ARRAY);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+24 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.EXPONENT);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+25 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.ROW_INDEX);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+26 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.NUMERATOR);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+27 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_25_buggy/src/main/java/org/apache/commons/math3/optimization/fitting/HarmonicFitter.java
+SUCCESS
+//Following are generated patch:
+  private void guessAOmega(){
+    double sx2=0;
+    double sy2=0;
+    double sxy=0;
+    double sxz=0;
+    double syz=0;
+    double currentX=observations[0].getX();
+    double currentY=observations[0].getY();
+    double f2Integral=0;
+    double fPrime2Integral=0;
+    final double startX=currentX;
+    for (int i=1; i < observations.length; ++i) {
+      final double previousX=currentX;
+      final double previousY=currentY;
+      currentX=observations[i].getX();
+      currentY=observations[i].getY();
+      final double dx=currentX - previousX;
+      final double dy=currentY - previousY;
+      final double f2StepIntegral=dx * (previousY * previousY + previousY * currentY + currentY * currentY) / 3;
+      final double fPrime2StepIntegral=dy * dy / dx;
+      final double x=currentX - startX;
+      f2Integral+=f2StepIntegral;
+      fPrime2Integral+=fPrime2StepIntegral;
+      sx2+=x * x;
+      sy2+=f2Integral * f2Integral;
+      sxy+=x * f2Integral;
+      sxz+=x * fPrime2Integral;
+      syz+=f2Integral * fPrime2Integral;
+    }
+    double c1=sy2 * sxz - sxy * syz;
+    double c2=sxy * sxz - sx2 * syz;
+    double c3=sx2 * sy2 - sxy * sxy;
+    if ((c1 / c2 < 0) || (c2 / c3 < 0)) {
+      final int last=observations.length - 1;
+      final double xRange=observations[last].getX() - observations[0].getX();
+      if (xRange == 0) {
+        throw new ZeroException();
+      }
+      omega=2 * Math.PI / xRange;
+      double yMin=Double.POSITIVE_INFINITY;
+      double yMax=Double.NEGATIVE_INFINITY;
+      for (int i=1; i < observations.length; ++i) {
+        final double y=observations[i].getY();
+        if (y < yMin) {
+          yMin=y;
+        }
+        if (y > yMax) {
+          yMax=y;
+        }
+      }
+      a=0.5 * (yMax - yMin);
+    }
+ else {
+if(c2==0){
+throw new MathIllegalStateException(LocalizedFormats.EVALUATIONS);
+}
+      a=FastMath.sqrt(c1 / c2);
+      omega=FastMath.sqrt(c2 / c3);
+    }
+  }
+
+28 th patch/252
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:37:27 HKT
+---------TIME : 
+2023.12.23 AD at 20:41:15 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 252 patches
+Compile failed 68 patches
+Compilation rate0.7301587301587301
+Patch number exceeds the limit!
+Tested 252 patches
+Compile failed 68 patches
+Compilation rate0.7301587301587301
+Tested:252 patches
+Compile failed:68 patches
+Compilation rate:0.7301587301587301
+Finish : math-25 > patch : 28 | Start : Sat Dec 23 20:37:27 HKT 2023 | End : 2023.12.23 AD at 20:41:16 HKT

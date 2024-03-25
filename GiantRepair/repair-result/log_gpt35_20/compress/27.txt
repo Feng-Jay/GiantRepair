@@ -1,0 +1,3176 @@
+Repair : compress_27
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/0.java
+Following are 0th generated patches:
+Validating 134 patches...
+Following are 1th generated patches:
+Validating 476 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+while(start<end&&(buffer[start]==' '||buffer[start]==0)){
+start++;
+}
+while(start<=end&&(buffer[end-1]==' '||buffer[end-1]==0)){
+end--;
+}
+    byte trailer=buffer[end - 1];
+    if (start == end) {
+      throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+1 th patch/387
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:24:11 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 476 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:1042 patches
+Compile failed:930 patches
+Compilation rate:0.10748560460652591
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/1.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 14 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:39 patches
+Compile failed:39 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Tested:28 patches
+Compile failed:17 patches
+Compilation rate:0.39285714285714285
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:9 patches
+Compilation rate:0.3076923076923077
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/4.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:9 patches
+Compilation rate:0.3076923076923077
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/5.java
+Following are 0th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+2 th patch/6
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:39 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 66 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==length){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+3 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==offset){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+4 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==result){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+5 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==trailer){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+6 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(BYTE_MASK==start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+7 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(length==start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+8 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==BYTE_MASK){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+9 th patch/72
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:25:52 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 67 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==result){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+10 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==offset){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+11 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==length){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+12 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==trailer){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+13 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(BYTE_MASK==start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+14 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end==BYTE_MASK){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+15 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(length==start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+16 th patch/139
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:04 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+17 th patch/140
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:26:13 HKT
+--------------- END -----------------
+Tested:135 patches
+Compile failed:106 patches
+Compilation rate:0.21481481481481482
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/6.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:11 patches
+Compile failed:2 patches
+Compilation rate:0.8181818181818182
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/7.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+Tested:28 patches
+Compile failed:17 patches
+Compilation rate:0.39285714285714285
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/8.java
+Following are 0th generated patches:
+Validating 236 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 212 patches...
+Following are 3th generated patches:
+Validating 109 patches...
+Following are 4th generated patches:
+Validating 104 patches...
+Tested:592 patches
+Compile failed:462 patches
+Compilation rate:0.2195945945945946
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/9.java
+Following are 0th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+18 th patch/6
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:28:33 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 12 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end<start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+19 th patch/18
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:28:42 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 13 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+if(end<start){
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+}
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+20 th patch/31
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:28:51 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+21 th patch/32
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:29:00 HKT
+--------------- END -----------------
+Tested:27 patches
+Compile failed:18 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/10.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:40 patches
+Compile failed:30 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/11.java
+Following are 0th generated patches:
+Validating 41 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 714 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+while(end>=start&&(trailer==0||trailer==' ')){
+end--;
+if(end>start){
+trailer=buffer[end-1];
+}
+}
+    if (start == end) {
+      throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+22 th patch/309
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:29:39 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 687 patches...
+Tested:1437 patches
+Compile failed:1166 patches
+Compilation rate:0.1885873347251218
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/12.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:41 patches
+Compile failed:30 patches
+Compilation rate:0.2682926829268293
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/13.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:29 patches
+Compile failed:22 patches
+Compilation rate:0.2413793103448276
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/14.java
+Following are 0th generated patches:
+Validating 321 patches...
+Following are 1th generated patches:
+Validating 477 patches...
+Following are 2th generated patches:
+Validating 507 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+while(start<end&&buffer[start]==' '){
+start++;
+}
+while(end>=start&&(buffer[end-1]==0||buffer[end-1]==' ')){
+end--;
+}
+    if (start == end) {
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+23 th patch/1051
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:32:53 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 3 patches...
+Following are 4th generated patches:
+Validating 504 patches...
+Tested:1719 patches
+Compile failed:1561 patches
+Compilation rate:0.09191390343222804
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/15.java
+Following are 0th generated patches:
+Validating 41 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+return 0L;
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+24 th patch/44
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:33:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+25 th patch/44
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:33:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+26 th patch/44
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:33:58 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 35 patches...
+Following are 3th generated patches:
+Validating 63 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+if(buffer[start]==' '){
+start++;
+}
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+return 0L;
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+27 th patch/169
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:34:17 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 32 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+return 0L;
+    }
+    for (; start < end; start++) {
+ final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+28 th patch/201
+Trace:
+UPDATEVarDeclarationStmt;Vdf;AryAcc;SName
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:34:27 HKT
+--------------- END -----------------
+Tested:191 patches
+Compile failed:138 patches
+Compilation rate:0.2774869109947644
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/16.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 14 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:44 patches
+Compile failed:32 patches
+Compilation rate:0.2727272727272727
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/17.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:30 patches
+Compile failed:21 patches
+Compilation rate:0.3
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/18.java
+Following are 0th generated patches:
+Validating 860 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 12 patches...
+Following are 3th generated patches:
+Validating 4 patches...
+Following are 4th generated patches:
+Validating 82 patches...
+Tested:949 patches
+Compile failed:888 patches
+Compilation rate:0.0642781875658588
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/19.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 671 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+while(end>=start&&(trailer==0||trailer==' ')){
+end--;
+if(end>start){
+trailer=buffer[end-1];
+}
+}
+    if (start == end) {
+      throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+29 th patch/273
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:36:51 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 683 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+while(end>=start&&(trailer==0||trailer==' ')){
+end--;
+if(end>start){
+trailer=buffer[end-1];
+}
+}
+    if (start == end) {
+      throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+30 th patch/944
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:37:43 HKT
+--------------- END -----------------
+Tested:1369 patches
+Compile failed:1120 patches
+Compilation rate:0.18188458728999268
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/20.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:2003 patches
+Compile failed:1847 patches
+Compilation rate:0.07788317523714429
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/21.java
+Following are 0th generated patches:
+Validating 106 patches...
+Following are 1th generated patches:
+Validating 3 patches...
+Following are 2th generated patches:
+Validating 45 patches...
+Following are 3th generated patches:
+Validating 430 patches...
+Following are 4th generated patches:
+Validating 405 patches...
+Tested:978 patches
+Compile failed:978 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/22.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 14 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:33 patches
+Compile failed:20 patches
+Compilation rate:0.3939393939393939
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/23.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 3 patches...
+Following are 2th generated patches:
+Validating 474 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 476 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+while(end>=start&&(buffer[end-1]==0||buffer[end-1]==' ')){
+end--;
+}
+    if (start == end) {
+throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+31 th patch/753
+Trace:
+WhileStmt;InfixExpr;InfixExpr;CMPOP
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:42:38 HKT
+--------------- END -----------------
+Tested:969 patches
+Compile failed:832 patches
+Compilation rate:0.14138286893704852
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/24.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:29 patches
+Compile failed:22 patches
+Compilation rate:0.2413793103448276
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/25.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 19 patches...
+Tested:20 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/26.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 3 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:2 patches
+Compilation rate:0.8181818181818182
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/27.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 14 patches...
+Following are 3th generated patches:
+Validating 15 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:44 patches
+Compile failed:32 patches
+Compilation rate:0.2727272727272727
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/28.java
+Following are 0th generated patches:
+Validating 85 patches...
+Following are 1th generated patches:
+Validating 479 patches...
+Following are 2th generated patches:
+Validating 31 patches...
+Following are 3th generated patches:
+Validating 504 patches...
+Following are 4th generated patches:
+Validating 505 patches...
+Tested:1589 patches
+Compile failed:1489 patches
+Compilation rate:0.06293266205160478
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/29.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 15 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:38 patches
+Compile failed:28 patches
+Compilation rate:0.2631578947368421
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/30.java
+Following are 0th generated patches:
+Validating 9 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:13 patches
+Compile failed:3 patches
+Compilation rate:0.7692307692307693
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/31.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 16 patches...
+Tested:48 patches
+Compile failed:37 patches
+Compilation rate:0.22916666666666666
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/32.java
+Following are 0th generated patches:
+Validating 826 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+32 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:47:23 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+33 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:47:23 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+String str=new String(buffer,start,end-start).trim();
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+34 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:47:23 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+String str=new String(buffer,start,end-start).trim();
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+35 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:47:23 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+36 th patch/829
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:48:53 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+37 th patch/829
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:48:53 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 24 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 30 patches...
+Following are 4th generated patches:
+Validating 26 patches...
+Tested:902 patches
+Compile failed:675 patches
+Compilation rate:0.2516629711751663
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/33.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:11 patches
+Compile failed:3 patches
+Compilation rate:0.7272727272727273
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/34.java
+Following are 0th generated patches:
+Validating 13 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:3 patches
+Compilation rate:0.7272727272727273
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/35.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:40 patches
+Compile failed:30 patches
+Compilation rate:0.25
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/36.java
+Following are 0th generated patches:
+Validating 120 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+38 th patch/123
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:50:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+39 th patch/123
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:50:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+40 th patch/123
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:50:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+41 th patch/123
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:50:36 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 29 patches...
+Following are 4th generated patches:
+Validating 33 patches...
+Tested:182 patches
+Compile failed:119 patches
+Compilation rate:0.34615384615384615
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/37.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 20 patches...
+Following are 3th generated patches:
+Validating 50 patches...
+Following are 4th generated patches:
+Validating 22 patches...
+Tested:106 patches
+Compile failed:50 patches
+Compilation rate:0.5283018867924528
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/38.java
+Following are 0th generated patches:
+Validating 169 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+42 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+43 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+for(int i=start;i<end;i++){
+ final byte currentByte=buffer[i];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+44 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+while(end>start&&(trailer==0||trailer==' ')){
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+45 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+while(end>start&&(trailer==0||trailer==' ')){
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+46 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+47 th patch/172
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:51:52 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 52 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+48 th patch/225
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:52:07 HKT
+--------------- END -----------------
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 24 patches...
+Tested:243 patches
+Compile failed:110 patches
+Compilation rate:0.5473251028806584
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/39.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 296 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:299 patches
+Compile failed:236 patches
+Compilation rate:0.21070234113712374
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/40.java
+Following are 0th generated patches:
+Validating 7 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+return 0L;
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+49 th patch/10
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:53:05 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+50 th patch/10
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:53:05 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 27 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Following are 3th generated patches:
+Validating 28 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+if(buffer[start]==' '){
+start++;
+}
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+51 th patch/69
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:53:20 HKT
+--------------- END -----------------
+Following are 4th generated patches:
+Validating 32 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+if(buffer[start]==' '){
+start++;
+}
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+return 0L;
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+52 th patch/101
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:53:31 HKT
+--------------- END -----------------
+Tested:97 patches
+Compile failed:57 patches
+Compilation rate:0.41237113402061853
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_20/compress_27/41.java
+Following are 0th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+53 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:54:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+54 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:54:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+String trimmed=new String(buffer,start,end-start).trim();
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+55 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:54:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//compress/compress_27_buggy/src/main/java/org/apache/commons/compress/archivers/tar/TarUtils.java
+SUCCESS
+//Following are generated patch:
+  public static long parseOctal(  final byte[] buffer,  final int offset,  final int length){
+    long result=0;
+    int end=offset + length;
+    int start=offset;
+    if (length < 2) {
+      throw new IllegalArgumentException("Length " + length + " must be at least 2");
+    }
+    if (buffer[start] == 0) {
+      return 0L;
+    }
+String trimmed=new String(buffer,start,end-start).trim();
+    while (start < end) {
+      if (buffer[start] == ' ') {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    byte trailer=buffer[end - 1];
+    while (start < end && (trailer == 0 || trailer == ' ')) {
+      end--;
+      trailer=buffer[end - 1];
+    }
+    if (start == end) {
+    }
+    for (; start < end; start++) {
+      final byte currentByte=buffer[start];
+      if (currentByte < '0' || currentByte > '7') {
+        throw new IllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
+      }
+      result=(result << 3) + (currentByte - '0');
+    }
+    return result;
+  }
+
+56 th patch/253
+Trace:
+
+START : 
+2023.12.05 AD at 17:23:24 HKT
+---------TIME : 
+2023.12.05 AD at 17:54:13 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 24 patches...
+Following are 2th generated patches:
+Validating 128 patches...
+Following are 3th generated patches:
+Validating 505 patches...
+Following are 4th generated patches:
+Validating 506 patches...
+Tested:2152 patches
+Compile failed:1859 patches
+Compilation rate:0.13615241635687733
+Finish : compress-27 > patch : 56 | Start : Tue Dec 05 17:23:24 HKT 2023 | End : 2023.12.05 AD at 17:56:48 HKT

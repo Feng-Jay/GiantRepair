@@ -1,0 +1,332 @@
+Repair : math_56
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_56/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_56/1.java
+Following are 0th generated patches:
+Validating 419 patches...
+Following are 1th generated patches:
+Validating 35 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Tested:459 patches
+Compile failed:198 patches
+Compilation rate:0.5686274509803921
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_56/2.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 13 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:19 patches
+Compile failed:8 patches
+Compilation rate:0.5789473684210527
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_56/3.java
+Following are 0th generated patches:
+Validating 41 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:43 patches
+Compile failed:17 patches
+Compilation rate:0.6046511627906976
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_56/4.java
+Following are 0th generated patches:
+Validating 377 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+indices[i]++;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+1 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+indices[last]++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+2 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+      final int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+indices[i]++;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+indices[last]++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+3 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+4 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+      final int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+indices[i]++;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+5 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+      final int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+6 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_56_buggy/src/main/java/org/apache/commons/math/util/MultidimensionalCounter.java
+SUCCESS
+//Following are generated patch:
+  public int[] getCounts(  int index){
+    if (index < 0 || index >= totalSize) {
+      throw new OutOfRangeException(index,0,totalSize);
+    }
+    final int[] indices=new int[dimension];
+    int count=0;
+    for (int i=0; i < last; i++) {
+      int idx=0;
+      final int offset=uniCounterOffset[i];
+      while (count <= index) {
+        count+=offset;
+        ++idx;
+      }
+      --idx;
+      count-=offset;
+      indices[i]=idx;
+    }
+    int idx=1;
+    while (count < index) {
+count++;
+indices[last]++;
+      ++idx;
+    }
+    --idx;
+    indices[last]=idx;
+    return indices;
+  }
+
+7 th patch/253
+Trace:
+
+START : 
+2023.12.10 AD at 17:03:00 HKT
+---------TIME : 
+2023.12.10 AD at 17:06:30 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 250 patches
+Compile failed 107 patches
+Compilation rate0.572
+Patch number exceeds the limit!
+Tested 250 patches
+Compile failed 107 patches
+Compilation rate0.572
+Tested:250 patches
+Compile failed:107 patches
+Compilation rate:0.572
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_56/5.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : math-56 > patch : 7 | Start : Sun Dec 10 17:03:00 HKT 2023 | End : 2023.12.10 AD at 17:06:31 HKT

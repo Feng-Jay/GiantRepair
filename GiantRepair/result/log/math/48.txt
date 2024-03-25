@@ -1,0 +1,8726 @@
+Repair : math_48
+Current failed test : org.apache.commons.math.analysis.solvers.RegulaFalsiSolverTest::testIssue631 | 2023.11.10 AD at 20:34:13 CST
+Patch Number: /Users/ffengjay/Postgraduate/PLM4APR/codex_out/valuable_patches_starcoder_real/math_48/patch.java
+37.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+37.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x0==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x0==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+37.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x1==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x1==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(fx==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(fx==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(f==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(f==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==x0){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==x0){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==f1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==f1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==x){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==x){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(f0==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(f0==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(f1==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(f1==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==fx){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==fx){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x0==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x0==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+38.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x1==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x1==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(max==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(max==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==f0){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==f0){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==f){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==f){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==x)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==x)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(min==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(min==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==min){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==min){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==max){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==max){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(fx==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(fx==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(f==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(f==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==x0)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==x0)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==f1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==f1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==fx)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==fx)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(f0==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(f0==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+39.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(f1==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(f1==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==f)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==f)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(ftol==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(ftol==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(atol==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(atol==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(rtol==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(rtol==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==ftol){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==ftol){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==atol){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==atol){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==rtol){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==rtol){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(max==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(max==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==f0)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==f0)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==max)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==max)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(min==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(min==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+40.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==min)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==min)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(ftol==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(ftol==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(atol==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(atol==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(rtol==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(rtol==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==ftol)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==ftol)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==atol)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==atol)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+41.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==rtol)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==rtol)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+42.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(method==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(method==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+42.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(maxEval==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(maxEval==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+42.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==method){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==method){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+42.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==maxEval){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==maxEval){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(allowed==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(allowed==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==allowed){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==allowed){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(method==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(method==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(maxEval==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(maxEval==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==method)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==method)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+43.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==maxEval)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==maxEval)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+44.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(inverted==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(inverted==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+44.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==inverted){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==inverted){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+44.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(allowed==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(allowed==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+44.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==allowed)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==allowed)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+45.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(inverted==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(inverted==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+45.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==inverted)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==inverted)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+46.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(startValue==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(startValue==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+46.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==startValue){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==startValue){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+47.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(startValue==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(startValue==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+47.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==startValue)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==startValue)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+50.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+
+51.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(allowedSolution==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(allowedSolution==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+51.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==allowedSolution){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==allowedSolution){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(absoluteAccuracy==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(absoluteAccuracy==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(relativeAccuracy==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(relativeAccuracy==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==absoluteAccuracy){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==absoluteAccuracy){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==relativeAccuracy){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==relativeAccuracy){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(allowedSolution==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(allowedSolution==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+52.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==allowedSolution)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==allowedSolution)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+53.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(absoluteAccuracy==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(absoluteAccuracy==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+53.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(relativeAccuracy==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(relativeAccuracy==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+53.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==absoluteAccuracy)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==absoluteAccuracy)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+53.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==relativeAccuracy)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==relativeAccuracy)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+57.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(functionValueAccuracy==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(functionValueAccuracy==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+57.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==functionValueAccuracy){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==functionValueAccuracy){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+58.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(functionValueAccuracy==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(functionValueAccuracy==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+58.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==functionValueAccuracy)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==functionValueAccuracy)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+61.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(DEFAULT_ABSOLUTE_ACCURACY==x1){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(DEFAULT_ABSOLUTE_ACCURACY==x1){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+61.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==DEFAULT_ABSOLUTE_ACCURACY){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(x==DEFAULT_ABSOLUTE_ACCURACY){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+62.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(DEFAULT_ABSOLUTE_ACCURACY==x1)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(DEFAULT_ABSOLUTE_ACCURACY==x1)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+62.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(!(x==DEFAULT_ABSOLUTE_ACCURACY)){
+throw new ConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
+}
+}
+}
++if(!(x==DEFAULT_ABSOLUTE_ACCURACY)){
++thrownewConvergenceException(LocalizedFormats.UNABLE_TO_BRACKET,x1);
++}
+
+74.0
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==x1){
+throw new ConvergenceException();
+}
+}
+}
++if(x==x1){
++thrownewConvergenceException();
++}
+
+FILE : /Users/ffengjay/Postgraduate/PLM4APR/tmp/defects4j_buggy//math/math_48_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+SUCCESS
+88 th patch
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+if(x==x1){
+throw new ConvergenceException();
+}
+}
+}
+
+START : 
+2023.11.10 AD at 20:34:13 CST
+---------TIME : 
+2023.11.10 AD at 20:34:39 CST
+--------------- END -----------------
+Finish : math-48 > patch : 1 | Start : Fri Nov 10 20:34:13 CST 2023 | End : 2023.11.10 AD at 20:34:39 CST

@@ -1,0 +1,730 @@
+Repair : closure_5
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/1.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 308 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 316 patches...
+Following are 4th generated patches:
+Validating 5 patches...
+Tested:1619 patches
+Compile failed:993 patches
+Compilation rate:0.3866584311303274
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/2.java
+Following are 0th generated patches:
+Validating 18 patches...
+Following are 1th generated patches:
+Validating 132 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 133 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:276 patches
+Compile failed:232 patches
+Compilation rate:0.15942028985507245
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/3.java
+Following are 0th generated patches:
+Validating 87 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+Set<String> properties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+ret=false;
+      ret=true;
+    }
+    return ret;
+  }
+
+1 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+ret=false;
+      ret=true;
+    }
+    return ret;
+  }
+
+2 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+      ret=true;
+    }
+    return ret;
+  }
+
+3 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+Set<String> properties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+properties.add(name.getString());
+      ret=true;
+    }
+    return ret;
+  }
+
+4 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+Set<String> properties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+for(String property : validProperties){
+if(!properties.contains(property)){
+ret=false;
+break;
+}
+}
+      ret=true;
+    }
+    return ret;
+  }
+
+5 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+Set<String> properties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+      ret=true;
+    }
+    return ret;
+  }
+
+6 th patch/90
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:20:48 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 692 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+      ret=true;
+    }
+    return ret;
+  }
+
+7 th patch/340
+Trace:
+
+START : 
+2023.12.07 AD at 18:03:05 HKT
+---------TIME : 
+2023.12.07 AD at 18:29:01 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 288 patches...
+Following are 3th generated patches:
+Validating 693 patches...
+Following are 4th generated patches:
+Validating 694 patches...
+Tested:2422 patches
+Compile failed:1860 patches
+Compilation rate:0.2320396366639141
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/4.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 376 patches...
+Following are 2th generated patches:
+Validating 394 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:775 patches
+Compile failed:555 patches
+Compilation rate:0.2838709677419355
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/5.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+Following are 2th generated patches:
+Validating 514 patches...
+Following are 3th generated patches:
+Validating 5 patches...
+Following are 4th generated patches:
+Validating 509 patches...
+Tested:2509 patches
+Compile failed:2080 patches
+Compilation rate:0.17098445595854922
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/6.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 160 patches...
+Following are 3th generated patches:
+Validating 86 patches...
+Following are 4th generated patches:
+Validating 88 patches...
+Tested:354 patches
+Compile failed:269 patches
+Compilation rate:0.2401129943502825
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/7.java
+Following are 0th generated patches:
+Validating 18 patches...
+Following are 1th generated patches:
+Validating 344 patches...
+Following are 2th generated patches:
+Validating 688 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 18 patches...
+Tested:1066 patches
+Compile failed:981 patches
+Compilation rate:0.07973733583489681
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 152 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:156 patches
+Compile failed:36 patches
+Compilation rate:0.7692307692307693
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/9.java
+Following are 0th generated patches:
+Validating 18 patches...
+Following are 1th generated patches:
+Validating 132 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 135 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:276 patches
+Compile failed:251 patches
+Compilation rate:0.09057971014492754
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/10.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:11 patches
+Compile failed:4 patches
+Compilation rate:0.6363636363636364
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/11.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 180 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 181 patches...
+Tested:368 patches
+Compile failed:267 patches
+Compilation rate:0.27445652173913043
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/12.java
+Following are 0th generated patches:
+Validating 258 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:3195 patches
+Compile failed:2970 patches
+Compilation rate:0.07042253521126761
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/13.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2004 patches
+Compile failed:966 patches
+Compilation rate:0.5179640718562875
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/14.java
+Following are 0th generated patches:
+Validating 41 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2024 patches
+Compile failed:1892 patches
+Compilation rate:0.06521739130434782
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/15.java
+Following are 0th generated patches:
+Validating 18 patches...
+Following are 1th generated patches:
+Validating 132 patches...
+Following are 2th generated patches:
+Validating 133 patches...
+Following are 3th generated patches:
+Validating 134 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:407 patches
+Compile failed:346 patches
+Compilation rate:0.14987714987714987
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_5/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_5/16.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 39 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2052 patches
+Compile failed:2050 patches
+Compilation rate:9.746588693957114E-4
+Finish : closure-5 > patch : 7 | Start : Thu Dec 07 18:03:05 HKT 2023 | End : 2023.12.07 AD at 20:33:12 HKT

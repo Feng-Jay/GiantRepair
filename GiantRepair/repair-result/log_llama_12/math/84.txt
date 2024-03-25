@@ -1,0 +1,264 @@
+Repair : math_84
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/0.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 24 patches...
+Tested:25 patches
+Compile failed:20 patches
+Compilation rate:0.2
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:11 patches
+Compilation rate:0.15384615384615385
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/3.java
+Following are 0th generated patches:
+Validating 51 patches...
+Following are 1th generated patches:
+Validating 15 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:45 patches
+Compile failed:27 patches
+Compilation rate:0.4
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/4.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 14 patches...
+Tested:15 patches
+Compile failed:15 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/5.java
+Following are 0th generated patches:
+Validating 7 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_84_buggy/src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java
+SUCCESS
+//Following are generated patch:
+  protected void iterateSimplex(  final Comparator<RealPointValuePair> comparator) throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+    while (true) {
+      incrementIterationsCounter();
+      final RealPointValuePair[] original=simplex;
+      final RealPointValuePair best=original[0];
+      final RealPointValuePair reflected=evaluateNewSimplex(original,1.0,comparator);
+      if (comparator.compare(reflected,best) < 0) {
+        final RealPointValuePair[] reflectedSimplex=simplex;
+        final RealPointValuePair expanded=evaluateNewSimplex(original,khi,comparator);
+        if (comparator.compare(reflected,expanded) <= 0) {
+          simplex=reflectedSimplex;
+        }
+        return;
+      }
+      final RealPointValuePair contracted=evaluateNewSimplex(original,gamma,comparator);
+if(comparator.compare(contracted,best)<=0){
+        return;
+      }
+    }
+  }
+
+1 th patch/10
+Trace:
+
+START : 
+2023.12.11 AD at 02:43:06 HKT
+---------TIME : 
+2023.12.11 AD at 02:43:42 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+Tested:19 patches
+Compile failed:5 patches
+Compilation rate:0.7368421052631579
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/6.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 13 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:15 patches
+Compile failed:11 patches
+Compilation rate:0.26666666666666666
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/7.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_84_buggy/src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java
+SUCCESS
+//Following are generated patch:
+  protected void iterateSimplex(  final Comparator<RealPointValuePair> comparator) throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+    while (true) {
+      incrementIterationsCounter();
+      final RealPointValuePair[] original=simplex;
+      final RealPointValuePair best=original[0];
+      final RealPointValuePair reflected=evaluateNewSimplex(original,1.0,comparator);
+      if (comparator.compare(reflected,best) < 0) {
+        final RealPointValuePair[] reflectedSimplex=simplex;
+        final RealPointValuePair expanded=evaluateNewSimplex(original,khi,comparator);
+        if (comparator.compare(reflected,expanded) <= 0) {
+          simplex=reflectedSimplex;
+        }
+        return;
+      }
+      final RealPointValuePair contracted=evaluateNewSimplex(original,gamma,comparator);
+if(comparator.compare(contracted,best)<=0){
+return ;
+}
+    }
+  }
+
+2 th patch/18
+Trace:
+
+START : 
+2023.12.11 AD at 02:43:06 HKT
+---------TIME : 
+2023.12.11 AD at 02:44:21 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_84_buggy/src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java
+SUCCESS
+//Following are generated patch:
+  protected void iterateSimplex(  final Comparator<RealPointValuePair> comparator) throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+    while (true) {
+      incrementIterationsCounter();
+      final RealPointValuePair[] original=simplex;
+      final RealPointValuePair best=original[0];
+      final RealPointValuePair reflected=evaluateNewSimplex(original,1.0,comparator);
+      if (comparator.compare(reflected,best) < 0) {
+        final RealPointValuePair[] reflectedSimplex=simplex;
+        final RealPointValuePair expanded=evaluateNewSimplex(original,khi,comparator);
+        if (comparator.compare(reflected,expanded) <= 0) {
+          simplex=reflectedSimplex;
+        }
+        return;
+      }
+      final RealPointValuePair contracted=evaluateNewSimplex(original,gamma,comparator);
+if(comparator.compare(reflected,best)<=0){
+return ;
+}
+    }
+  }
+
+3 th patch/18
+Trace:
+UPDATEIfStmt;InfixExpr;MethodInv;MethodInvForVar(OTHER);UPDATEInfixExpr
+START : 
+2023.12.11 AD at 02:43:06 HKT
+---------TIME : 
+2023.12.11 AD at 02:44:21 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_84_buggy/src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java
+SUCCESS
+//Following are generated patch:
+  protected void iterateSimplex(  final Comparator<RealPointValuePair> comparator) throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+    while (true) {
+      incrementIterationsCounter();
+      final RealPointValuePair[] original=simplex;
+      final RealPointValuePair best=original[0];
+      final RealPointValuePair reflected=evaluateNewSimplex(original,1.0,comparator);
+      if (comparator.compare(reflected,best) < 0) {
+        final RealPointValuePair[] reflectedSimplex=simplex;
+        final RealPointValuePair expanded=evaluateNewSimplex(original,khi,comparator);
+        if (comparator.compare(reflected,expanded) <= 0) {
+          simplex=reflectedSimplex;
+        }
+        return;
+      }
+      final RealPointValuePair contracted=evaluateNewSimplex(original,gamma,comparator);
+if(comparator.compare(contracted,best)>=0){
+return ;
+}
+    }
+  }
+
+4 th patch/18
+Trace:
+UPDATEIfStmt;InfixExpr;CMPOP;UPDATEInfixExpr
+START : 
+2023.12.11 AD at 02:43:06 HKT
+---------TIME : 
+2023.12.11 AD at 02:44:21 HKT
+--------------- END -----------------
+Tested:15 patches
+Compile failed:5 patches
+Compilation rate:0.6666666666666666
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/8.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 24 patches...
+Following are 2th generated patches:
+Validating 24 patches...
+Tested:26 patches
+Compile failed:26 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_84/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_84/9.java
+Following are 0th generated patches:
+Validating 7 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_84_buggy/src/main/java/org/apache/commons/math/optimization/direct/MultiDirectional.java
+SUCCESS
+//Following are generated patch:
+  protected void iterateSimplex(  final Comparator<RealPointValuePair> comparator) throws FunctionEvaluationException, OptimizationException, IllegalArgumentException {
+    while (true) {
+      incrementIterationsCounter();
+      final RealPointValuePair[] original=simplex;
+      final RealPointValuePair best=original[0];
+      final RealPointValuePair reflected=evaluateNewSimplex(original,1.0,comparator);
+      if (comparator.compare(reflected,best) < 0) {
+        final RealPointValuePair[] reflectedSimplex=simplex;
+        final RealPointValuePair expanded=evaluateNewSimplex(original,khi,comparator);
+if(comparator.compare(reflected,expanded)<0){
+          simplex=reflectedSimplex;
+        }
+        return;
+      }
+      final RealPointValuePair contracted=evaluateNewSimplex(original,gamma,comparator);
+if(comparator.compare(contracted,best)<=0){
+        return;
+      }
+    }
+  }
+
+5 th patch/10
+Trace:
+
+START : 
+2023.12.11 AD at 02:43:06 HKT
+---------TIME : 
+2023.12.11 AD at 02:44:36 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 7 patches
+Compile failed 0 patches
+Compilation rate1.0
+Patch number exceeds the limit!
+Tested 7 patches
+Compile failed 0 patches
+Compilation rate1.0
+Tested:7 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Finish : math-84 > patch : 5 | Start : Mon Dec 11 02:43:06 HKT 2023 | End : 2023.12.11 AD at 02:44:36 HKT

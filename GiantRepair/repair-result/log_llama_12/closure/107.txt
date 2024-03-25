@@ -1,0 +1,575 @@
+Repair : closure_107
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/1.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:14 patches
+Compile failed:2 patches
+Compilation rate:0.8571428571428571
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/2.java
+Following are 0th generated patches:
+Validating 31 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1028 patches
+Compile failed:997 patches
+Compilation rate:0.030155642023346304
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/3.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:8 patches
+Compile failed:2 patches
+Compilation rate:0.75
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/4.java
+Following are 0th generated patches:
+Validating 51 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:34 patches
+Compile failed:8 patches
+Compilation rate:0.7647058823529411
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/5.java
+Following are 0th generated patches:
+Validating 17 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:19 patches
+Compile failed:4 patches
+Compilation rate:0.7894736842105263
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/6.java
+Following are 0th generated patches:
+Validating 191 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+Tested:142 patches
+Compile failed:27 patches
+Compilation rate:0.8098591549295775
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_107/7.java
+Following are 0th generated patches:
+Validating 317 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+    return options;
+  }
+
+1 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+      options.setCodingConvention(new JqueryCodingConvention());
+    }
+ else {
+      options.setCodingConvention(new ClosureCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+ else     if (CompilationLevel.ADVANCED_OPTIMIZATIONS == level) {
+    }
+    return options;
+  }
+
+2 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+      options.setCodingConvention(new JqueryCodingConvention());
+    }
+ else {
+      options.setCodingConvention(new ClosureCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+    return options;
+  }
+
+3 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+ else     if (CompilationLevel.ADVANCED_OPTIMIZATIONS == level) {
+    }
+    return options;
+  }
+
+4 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+ else     if (CompilationLevel.ADVANCED_OPTIMIZATIONS == level) {
+    }
+    return options;
+  }
+
+5 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+    return options;
+  }
+
+6 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+    }
+ else {
+      options.setCodingConvention(new ClosureCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+    return options;
+  }
+
+7 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+    }
+ else {
+      options.setCodingConvention(new ClosureCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+ else     if (CompilationLevel.ADVANCED_OPTIMIZATIONS == level) {
+    }
+    return options;
+  }
+
+8 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+      options.setCodingConvention(new JqueryCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+    return options;
+  }
+
+9 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_107_buggy/src/com/google/javascript/jscomp/CommandLineRunner.java
+SUCCESS
+//Following are generated patch:
+  protected CompilerOptions createOptions(){
+    CompilerOptions options=new CompilerOptions();
+    if (flags.processJqueryPrimitives) {
+      options.setCodingConvention(new JqueryCodingConvention());
+    }
+    options.setExtraAnnotationNames(flags.extraAnnotationName);
+    CompilationLevel level=flags.compilationLevel;
+    level.setOptionsForCompilationLevel(options);
+    if (flags.debug) {
+      level.setDebugOptionsForCompilationLevel(options);
+    }
+    if (flags.useTypesForOptimization) {
+      level.setTypeBasedOptimizationOptions(options);
+    }
+    if (flags.generateExports) {
+      options.setGenerateExports(flags.generateExports);
+    }
+    WarningLevel wLevel=flags.warningLevel;
+    wLevel.setOptionsForWarningLevel(options);
+    for (    FormattingOption formattingOption : flags.formatting) {
+      formattingOption.applyToOptions(options);
+    }
+    options.closurePass=flags.processClosurePrimitives;
+    options.jqueryPass=CompilationLevel.ADVANCED_OPTIMIZATIONS == level && flags.processJqueryPrimitives;
+    options.angularPass=flags.angularPass;
+    if (!flags.translationsFile.isEmpty()) {
+      try {
+        options.messageBundle=new XtbMessageBundle(new FileInputStream(flags.translationsFile),flags.translationsProject);
+      }
+ catch (      IOException e) {
+        throw new RuntimeException("Reading XTB file",e);
+      }
+    }
+ else     if (CompilationLevel.ADVANCED_OPTIMIZATIONS == level) {
+    }
+    return options;
+  }
+
+10 th patch/253
+Trace:
+
+START : 
+2023.12.12 AD at 11:18:58 HKT
+---------TIME : 
+2023.12.12 AD at 11:28:59 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 177 patches
+Compile failed 42 patches
+Compilation rate0.7627118644067796
+Patch number exceeds the limit!
+Tested 177 patches
+Compile failed 42 patches
+Compilation rate0.7627118644067796
+Tested:177 patches
+Compile failed:42 patches
+Compilation rate:0.7627118644067796
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_107/8.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : closure-107 > patch : 10 | Start : Tue Dec 12 11:18:58 HKT 2023 | End : 2023.12.12 AD at 11:28:59 HKT

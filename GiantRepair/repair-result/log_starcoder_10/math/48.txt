@@ -1,0 +1,117 @@
+Repair : math_48
+Current file:/data/PLM4APR/codex_out/valuable_patches_starcoder_real/math_48/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_starcoder_real/math_48/patch.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 161 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_48_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BaseSecantSolver.java
+SUCCESS
+//Following are generated patch:
+  protected final double doSolve(){
+    double x0=getMin();
+    double x1=getMax();
+    double f0=computeObjectiveValue(x0);
+    double f1=computeObjectiveValue(x1);
+    if (f0 == 0.0) {
+      return x0;
+    }
+    if (f1 == 0.0) {
+      return x1;
+    }
+    verifyBracketing(x0,x1);
+    final double ftol=getFunctionValueAccuracy();
+    final double atol=getAbsoluteAccuracy();
+    final double rtol=getRelativeAccuracy();
+    boolean inverted=false;
+    while (true) {
+      final double x=x1 - ((f1 * (x1 - x0)) / (f1 - f0));
+      final double fx=computeObjectiveValue(x);
+      if (fx == 0.0) {
+        return x;
+      }
+      if (f1 * fx < 0) {
+        x0=x1;
+        f0=f1;
+        inverted=!inverted;
+      }
+ else {
+switch (method) {
+case ILLINOIS:
+          f0*=0.5;
+        break;
+case PEGASUS:
+      f0*=f1 / (f1 + fx);
+    break;
+case REGULA_FALSI:
+if(x==x1){
+throw new ConvergenceException();
+}
+  break;
+default :
+throw new MathInternalError();
+}
+}
+x1=x;
+f1=fx;
+if (FastMath.abs(f1) <= ftol) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+if (inverted) {
+return x1;
+}
+break;
+case RIGHT_SIDE:
+if (!inverted) {
+return x1;
+}
+break;
+case BELOW_SIDE:
+if (f1 <= 0) {
+return x1;
+}
+break;
+case ABOVE_SIDE:
+if (f1 >= 0) {
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if (FastMath.abs(x1 - x0) < FastMath.max(rtol * FastMath.abs(x1),atol)) {
+switch (allowed) {
+case ANY_SIDE:
+return x1;
+case LEFT_SIDE:
+return inverted ? x1 : x0;
+case RIGHT_SIDE:
+return inverted ? x0 : x1;
+case BELOW_SIDE:
+return (f1 <= 0) ? x1 : x0;
+case ABOVE_SIDE:
+return (f1 >= 0) ? x1 : x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+}
+
+1 th patch/163
+Trace:
+Blk;ThrowStmt;ClassInstCreation;IfStmt;Blk;ThrowStmt;ClassInstCreation
+START : 
+2023.12.23 AD at 20:52:08 HKT
+---------TIME : 
+2023.12.23 AD at 20:54:08 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 4 patches...
+Tested:167 patches
+Compile failed:91 patches
+Compilation rate:0.4550898203592814
+Finish : math-48 > patch : 1 | Start : Sat Dec 23 20:52:08 HKT 2023 | End : 2023.12.23 AD at 20:54:10 HKT

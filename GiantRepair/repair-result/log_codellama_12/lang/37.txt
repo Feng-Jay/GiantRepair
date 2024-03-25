@@ -1,0 +1,348 @@
+Repair : lang_37
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/1.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/4.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 80 patches...
+Following are 2th generated patches:
+Validating 67 patches...
+Tested:151 patches
+Compile failed:148 patches
+Compilation rate:0.019867549668874173
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/5.java
+Following are 0th generated patches:
+Validating 21 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException(type2.getName()+" cannot be stored in an array of "+type1.getName());
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+1 th patch/24
+Trace:
+
+START : 
+2023.12.09 AD at 13:47:22 HKT
+---------TIME : 
+2023.12.09 AD at 13:47:59 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException(type2.getName()+" cannot be stored in an array of "+type1.getName());
+}
+ final int joinedArrayLength=array1.length+array2.length;
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+2 th patch/24
+Trace:
+
+START : 
+2023.12.09 AD at 13:47:22 HKT
+---------TIME : 
+2023.12.09 AD at 13:47:59 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 164 patches...
+Following are 2th generated patches:
+Validating 61 patches...
+Tested:246 patches
+Compile failed:238 patches
+Compilation rate:0.032520325203252036
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/6.java
+Following are 0th generated patches:
+Validating 5 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException("Cannot store "+type2.getName()+" in an array of "+type1.getName());
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+3 th patch/8
+Trace:
+
+START : 
+2023.12.09 AD at 13:47:22 HKT
+---------TIME : 
+2023.12.09 AD at 13:48:27 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 164 patches...
+Following are 2th generated patches:
+Validating 74 patches...
+Tested:242 patches
+Compile failed:240 patches
+Compilation rate:0.008264462809917356
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/7.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 160 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:166 patches
+Compile failed:164 patches
+Compilation rate:0.012048192771084338
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/8.java
+Following are 0th generated patches:
+Validating 85 patches...
+Following are 1th generated patches:
+Validating 80 patches...
+Following are 2th generated patches:
+Validating 121 patches...
+Tested:218 patches
+Compile failed:213 patches
+Compilation rate:0.022935779816513763
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/9.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:503 patches
+Compile failed:500 patches
+Compilation rate:0.005964214711729622
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/10.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:9 patches
+Compile failed:6 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/11.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1004 patches
+Compile failed:1003 patches
+Compilation rate:9.9601593625498E-4
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/12.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/13.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 160 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:163 patches
+Compile failed:158 patches
+Compilation rate:0.03067484662576687
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/14.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 73 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:592 patches
+Compile failed:591 patches
+Compilation rate:0.0016891891891891893
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/15.java
+Following are 0th generated patches:
+Validating 5 patches...
+Following are 1th generated patches:
+Validating 176 patches...
+Following are 2th generated patches:
+Validating 112 patches...
+Tested:292 patches
+Compile failed:280 patches
+Compilation rate:0.0410958904109589
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/16.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 30 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:536 patches
+Compile failed:530 patches
+Compilation rate:0.011194029850746268
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/17.java
+Following are 0th generated patches:
+Validating 164 patches...
+Following are 1th generated patches:
+Validating 36 patches...
+Following are 2th generated patches:
+Validating 38 patches...
+Tested:236 patches
+Compile failed:233 patches
+Compilation rate:0.012711864406779662
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/18.java
+Following are 0th generated patches:
+Validating 11 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException(type2.getName()+"[] cannot be stored in "+type1.getName()+"[]");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+4 th patch/14
+Trace:
+
+START : 
+2023.12.09 AD at 13:47:22 HKT
+---------TIME : 
+2023.12.09 AD at 13:54:16 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException(type2.getName()+"[] cannot be stored in "+type1.getName()+"[]");
+}
+ final T[] joinedArray=(T[])Array.newInstance(type1,array1.length+array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+5 th patch/14
+Trace:
+
+START : 
+2023.12.09 AD at 13:47:22 HKT
+---------TIME : 
+2023.12.09 AD at 13:54:16 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 11 patches
+Compile failed 6 patches
+Compilation rate0.45454545454545453
+Patch number exceeds the limit!
+Tested 11 patches
+Compile failed 6 patches
+Compilation rate0.45454545454545453
+Tested:11 patches
+Compile failed:6 patches
+Compilation rate:0.45454545454545453
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_37/19.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-37 > patch : 5 | Start : Sat Dec 09 13:47:22 HKT 2023 | End : 2023.12.09 AD at 13:54:16 HKT

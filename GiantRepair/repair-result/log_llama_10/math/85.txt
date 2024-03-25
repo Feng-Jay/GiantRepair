@@ -1,0 +1,902 @@
+Repair : math_85
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/1.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 13 patches...
+Following are 2th generated patches:
+Validating 12 patches...
+Following are 3th generated patches:
+Validating 12 patches...
+Tested:44 patches
+Compile failed:24 patches
+Compilation rate:0.45454545454545453
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/2.java
+Following are 0th generated patches:
+Validating 92 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+    if (fa * fb >= 0.0) {
+    }
+    return new double[]{a,b};
+  }
+
+1 th patch/95
+Trace:
+
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:00:19 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 23 patches...
+Following are 3th generated patches:
+Validating 24 patches...
+Tested:140 patches
+Compile failed:122 patches
+Compilation rate:0.12857142857142856
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 38 patches...
+Tested:39 patches
+Compile failed:14 patches
+Compilation rate:0.6410256410256411
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/4.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 23 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fb>0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+2 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;CMPOP;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:01:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(initial*fb<0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+3 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:01:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fb*fb<0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+4 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:01:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(b*fb<0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+5 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:01:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fa<0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+6 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:01:13 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 38 patches...
+Following are 3th generated patches:
+Validating 61 patches...
+Tested:125 patches
+Compile failed:64 patches
+Compilation rate:0.488
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/5.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:10 patches
+Compile failed:10 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/6.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 23 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fa<=0.0){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+7 th patch/29
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:02 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 38 patches...
+Following are 3th generated patches:
+Validating 61 patches...
+Tested:125 patches
+Compile failed:64 patches
+Compilation rate:0.488
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama/math_85/7.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 53 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fb<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+8 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(a*fb<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+9 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fb>=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+10 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fb<=0.0&&numIterations>maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+11 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*b<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+12 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(b*fb<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+13 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fb*fb<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+14 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fa<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+15 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*a<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+16 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fb<0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+17 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(initial*fb<=0.0&&numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+18 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+19 th patch/59
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_85_buggy/src/java/org/apache/commons/math/analysis/solvers/UnivariateRealSolverUtils.java
+SUCCESS
+//Following are generated patch:
+  public static double[] bracket(  UnivariateRealFunction function,  double initial,  double lowerBound,  double upperBound,  int maximumIterations) throws ConvergenceException, FunctionEvaluationException {
+    if (function == null) {
+      throw MathRuntimeException.createIllegalArgumentException("function is null");
+    }
+    if (maximumIterations <= 0) {
+      throw MathRuntimeException.createIllegalArgumentException("bad value for maximum iterations number: {0}",maximumIterations);
+    }
+    if (initial < lowerBound || initial > upperBound || lowerBound >= upperBound) {
+      throw MathRuntimeException.createIllegalArgumentException("invalid bracketing parameters:  lower bound={0},  initial={1}, upper bound={2}",lowerBound,initial,upperBound);
+    }
+    double a=initial;
+    double b=initial;
+    double fa;
+    double fb;
+    int numIterations=0;
+    do {
+      a=Math.max(a - 1.0,lowerBound);
+      b=Math.min(b + 1.0,upperBound);
+      fa=function.value(a);
+      fb=function.value(b);
+      numIterations++;
+    }
+ while ((fa * fb > 0.0) && (numIterations < maximumIterations) && ((a > lowerBound) || (b < upperBound)));
+if(fa*fa<=0.0||numIterations>=maximumIterations){
+throw new ConvergenceException("number of iterations={0}, maximum iterations={1}, "+"initial={2}, lower bound={3}, upper bound={4}, final a value={5}, "+"final b value={6}, f(a)={7}, f(b)={8}",numIterations,maximumIterations,initial,lowerBound,upperBound,a,b,fa,fb);
+}
+    return new double[]{a,b};
+  }
+
+20 th patch/59
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.10 AD at 07:59:39 HKT
+---------TIME : 
+2023.12.10 AD at 08:07:54 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 56 patches
+Compile failed 28 patches
+Compilation rate0.5
+Patch number exceeds the limit!
+Tested 56 patches
+Compile failed 28 patches
+Compilation rate0.5
+Tested:56 patches
+Compile failed:28 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_llama/math_85/8.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : math-85 > patch : 20 | Start : Sun Dec 10 07:59:39 HKT 2023 | End : 2023.12.10 AD at 08:07:54 HKT

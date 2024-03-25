@@ -1,0 +1,155 @@
+Repair : math_73
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_73/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_73/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_73/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_73/1.java
+Following are 0th generated patches:
+Validating 4 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_73_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+SUCCESS
+//Following are generated patch:
+  public double solve(  final UnivariateRealFunction f,  final double min,  final double max,  final double initial) throws MaxIterationsExceededException, FunctionEvaluationException {
+    clearResult();
+    verifySequence(min,initial,max);
+    double yInitial=f.value(initial);
+    if (Math.abs(yInitial) <= functionValueAccuracy) {
+      setResult(initial,0);
+      return result;
+    }
+    double yMin=f.value(min);
+    if (Math.abs(yMin) <= functionValueAccuracy) {
+      setResult(yMin,0);
+      return result;
+    }
+    if (yInitial * yMin < 0) {
+      return solve(f,min,yMin,initial,yInitial,min,yMin);
+    }
+    double yMax=f.value(max);
+    if (Math.abs(yMax) <= functionValueAccuracy) {
+      setResult(yMax,0);
+      return result;
+    }
+    if (yInitial * yMax < 0) {
+      return solve(f,initial,yInitial,max,yMax,initial,yInitial);
+    }
+if(!(Math.abs(yInitial)<=functionValueAccuracy)){
+solve(initial,0);
+return result;
+}
+    return solve(f,min,yMin,max,yMax,initial,yInitial);
+  }
+
+1 th patch/257
+Trace:
+IfStmt;NOT IfCondition;Blk;ExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.10 AD at 17:40:13 HKT
+---------TIME : 
+2023.12.10 AD at 17:40:39 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_73_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+SUCCESS
+//Following are generated patch:
+  public double solve(  final UnivariateRealFunction f,  final double min,  final double max,  final double initial) throws MaxIterationsExceededException, FunctionEvaluationException {
+    clearResult();
+    verifySequence(min,initial,max);
+    double yInitial=f.value(initial);
+    if (Math.abs(yInitial) <= functionValueAccuracy) {
+      setResult(initial,0);
+      return result;
+    }
+    double yMin=f.value(min);
+    if (Math.abs(yMin) <= functionValueAccuracy) {
+      setResult(yMin,0);
+      return result;
+    }
+    if (yInitial * yMin < 0) {
+      return solve(f,min,yMin,initial,yInitial,min,yMin);
+    }
+    double yMax=f.value(max);
+    if (Math.abs(yMax) <= functionValueAccuracy) {
+      setResult(yMax,0);
+      return result;
+    }
+    if (yInitial * yMax < 0) {
+      return solve(f,initial,yInitial,max,yMax,initial,yInitial);
+    }
+if(Math.abs(yInitial)>=functionValueAccuracy){
+solve(max,initial);
+return result;
+}
+    return solve(f,min,yMin,max,yMax,initial,yInitial);
+  }
+
+2 th patch/507
+Trace:
+InfixExpr;CMPOP;Blk;ExpressionStmt;MethodInv;SCOPEMETHODINV;IfStmt;InfixExpr;CMPOP;Blk;ExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.10 AD at 17:40:13 HKT
+---------TIME : 
+2023.12.10 AD at 17:40:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_73_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BrentSolver.java
+SUCCESS
+//Following are generated patch:
+  public double solve(  final UnivariateRealFunction f,  final double min,  final double max,  final double initial) throws MaxIterationsExceededException, FunctionEvaluationException {
+    clearResult();
+    verifySequence(min,initial,max);
+    double yInitial=f.value(initial);
+    if (Math.abs(yInitial) <= functionValueAccuracy) {
+      setResult(initial,0);
+      return result;
+    }
+    double yMin=f.value(min);
+    if (Math.abs(yMin) <= functionValueAccuracy) {
+      setResult(yMin,0);
+      return result;
+    }
+    if (yInitial * yMin < 0) {
+      return solve(f,min,yMin,initial,yInitial,min,yMin);
+    }
+    double yMax=f.value(max);
+    if (Math.abs(yMax) <= functionValueAccuracy) {
+      setResult(yMax,0);
+      return result;
+    }
+    if (yInitial * yMax < 0) {
+      return solve(f,initial,yInitial,max,yMax,initial,yInitial);
+    }
+if(Math.abs(yInitial)>=functionValueAccuracy){
+solve(initial,min);
+return result;
+}
+    return solve(f,min,yMin,max,yMax,initial,yInitial);
+  }
+
+3 th patch/507
+Trace:
+InfixExpr;CMPOP;Blk;ExpressionStmt;MethodInv;SCOPEMETHODINV;IfStmt;InfixExpr;CMPOP;Blk;ExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.10 AD at 17:40:13 HKT
+---------TIME : 
+2023.12.10 AD at 17:40:57 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 21 patches...
+Tested:525 patches
+Compile failed:485 patches
+Compilation rate:0.0761904761904762
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/math_73/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/math_73/2.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 152 patches...
+Following are 2th generated patches:
+Validating 435 patches...
+Tested:589 patches
+Compile failed:436 patches
+Compilation rate:0.2597623089983022
+Finish : math-73 > patch : 3 | Start : Sun Dec 10 17:40:13 HKT 2023 | End : 2023.12.10 AD at 17:41:52 HKT

@@ -1,0 +1,238 @@
+Repair : lang_37
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/1.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 152 patches...
+Following are 2th generated patches:
+Validating 76 patches...
+Tested:238 patches
+Compile failed:229 patches
+Compilation rate:0.037815126050420166
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/2.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1002 patches
+Compile failed:1001 patches
+Compilation rate:9.98003992015968E-4
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/3.java
+Following are 0th generated patches:
+Validating 36 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)&&!type2.isAssignableFrom(type1)){
+throw new IllegalArgumentException("Cannot add arrays of different types");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+1 th patch/39
+Trace:
+
+START : 
+2023.12.08 AD at 14:49:27 HKT
+---------TIME : 
+2023.12.08 AD at 14:51:27 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+if(array1==null){
+return clone(array2);
+}
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)&&!type2.isAssignableFrom(type1)){
+throw new IllegalArgumentException("Cannot add arrays of different types");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+2 th patch/39
+Trace:
+
+START : 
+2023.12.08 AD at 14:49:27 HKT
+---------TIME : 
+2023.12.08 AD at 14:51:27 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 31 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:567 patches
+Compile failed:488 patches
+Compilation rate:0.13932980599647266
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/4.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 30 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:537 patches
+Compile failed:456 patches
+Compilation rate:0.15083798882681565
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/5.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/6.java
+Following are 0th generated patches:
+Validating 36 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException("Incompatible array types");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+3 th patch/39
+Trace:
+
+START : 
+2023.12.08 AD at 14:49:27 HKT
+---------TIME : 
+2023.12.08 AD at 14:53:18 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+if(array1==null){
+return clone(array2);
+}
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException("Incompatible array types");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+4 th patch/39
+Trace:
+
+START : 
+2023.12.08 AD at 14:49:27 HKT
+---------TIME : 
+2023.12.08 AD at 14:53:18 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 31 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:567 patches
+Compile failed:488 patches
+Compilation rate:0.13932980599647266
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/7.java
+Following are 0th generated patches:
+Validating 31 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_37_buggy/src/java/org/apache/commons/lang3/ArrayUtils.java
+SUCCESS
+//Following are generated patch:
+  public static <T>T[] addAll(  T[] array1,  T... array2){
+    if (array1 == null) {
+      return clone(array2);
+    }
+ else     if (array2 == null) {
+      return clone(array1);
+    }
+    final Class<?> type1=array1.getClass().getComponentType();
+ final Class<?> type2=array2.getClass().getComponentType();
+if(!type1.isAssignableFrom(type2)){
+throw new IllegalArgumentException("Incompatible types");
+}
+    T[] joinedArray=(T[])Array.newInstance(type1,array1.length + array2.length);
+    System.arraycopy(array1,0,joinedArray,0,array1.length);
+    System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+    return joinedArray;
+  }
+
+5 th patch/34
+Trace:
+
+START : 
+2023.12.08 AD at 14:49:27 HKT
+---------TIME : 
+2023.12.08 AD at 14:54:18 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 18 patches
+Compile failed 12 patches
+Compilation rate0.3333333333333333
+Patch number exceeds the limit!
+Tested 18 patches
+Compile failed 12 patches
+Compilation rate0.3333333333333333
+Tested:18 patches
+Compile failed:12 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_37/8.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-37 > patch : 5 | Start : Fri Dec 08 14:49:27 HKT 2023 | End : 2023.12.08 AD at 14:54:18 HKT

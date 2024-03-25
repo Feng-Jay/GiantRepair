@@ -1,0 +1,685 @@
+Repair : lang_12
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/0.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Tested:21 patches
+Compile failed:16 patches
+Compilation rate:0.23809523809523808
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/1.java
+Following are 0th generated patches:
+Validating 301 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 87 patches...
+Tested:388 patches
+Compile failed:184 patches
+Compilation rate:0.5257731958762887
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/2.java
+Following are 0th generated patches:
+Validating 44 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 87 patches...
+Tested:132 patches
+Compile failed:72 patches
+Compilation rate:0.45454545454545453
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/3.java
+Following are 0th generated patches:
+Validating 62 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 87 patches...
+Tested:150 patches
+Compile failed:73 patches
+Compilation rate:0.5133333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/4.java
+Following are 0th generated patches:
+Validating 99 patches...
+Following are 1th generated patches:
+Validating 87 patches...
+Following are 2th generated patches:
+Validating 87 patches...
+Tested:273 patches
+Compile failed:143 patches
+Compilation rate:0.47619047619047616
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/5.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 64 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:66 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/6.java
+Following are 0th generated patches:
+Validating 107 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=ch;
+            count--;
+            buffer[count]=(char)(55296 + random.nextInt(128));
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=(char)(56320 + random.nextInt(128));
+            count--;
+            buffer[count]=ch;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+1 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=ch;
+            count--;
+            buffer[count]=(char)(55296 + random.nextInt(128));
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+          }
+ else {
+            buffer[count]=(char)(56320 + random.nextInt(128));
+            count--;
+            buffer[count]=ch;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+2 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=ch;
+            count--;
+            buffer[count]=(char)(55296 + random.nextInt(128));
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+            count++;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+3 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=(char)(56320 + random.nextInt(128));
+            count--;
+            buffer[count]=ch;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+4 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+            count++;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+5 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+          }
+ else {
+            buffer[count]=(char)(56320 + random.nextInt(128));
+            count--;
+            buffer[count]=ch;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+6 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=ch;
+            count--;
+            buffer[count]=(char)(55296 + random.nextInt(128));
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+7 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=ch;
+            count--;
+            buffer[count]=(char)(55296 + random.nextInt(128));
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+8 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_12_buggy/src/main/java/org/apache/commons/lang3/RandomStringUtils.java
+SUCCESS
+//Following are generated patch:
+  public static String random(  int count,  int start,  int end,  boolean letters,  boolean numbers,  char[] chars,  Random random){
+    if (count == 0) {
+      return "";
+    }
+ else     if (count < 0) {
+      throw new IllegalArgumentException("Requested random string length " + count + " is less than 0.");
+    }
+    if (start == 0 && end == 0) {
+      if (!letters && !numbers) {
+        end=Integer.MAX_VALUE;
+      }
+ else {
+        end='z' + 1;
+        start=' ';
+      }
+    }
+    char[] buffer=new char[count];
+    int gap=end - start;
+    while (count-- != 0) {
+      char ch;
+      if (chars == null) {
+        ch=(char)(random.nextInt(gap) + start);
+      }
+ else {
+ch=chars[random.nextInt(chars.length)];
+      }
+      if (letters && Character.isLetter(ch) || numbers && Character.isDigit(ch) || !letters && !numbers) {
+        if (ch >= 56320 && ch <= 57343) {
+          if (count == 0) {
+            count++;
+          }
+        }
+ else         if (ch >= 55296 && ch <= 56191) {
+          if (count == 0) {
+            count++;
+          }
+ else {
+            buffer[count]=(char)(56320 + random.nextInt(128));
+            count--;
+            buffer[count]=ch;
+          }
+        }
+ else         if (ch >= 56192 && ch <= 56319) {
+          count++;
+        }
+ else {
+          buffer[count]=ch;
+        }
+      }
+ else {
+        count++;
+      }
+    }
+    return new String(buffer);
+  }
+
+9 th patch/110
+Trace:
+
+START : 
+2023.12.08 AD at 00:45:27 HKT
+---------TIME : 
+2023.12.08 AD at 00:48:38 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 107 patches
+Compile failed 50 patches
+Compilation rate0.5327102803738317
+Patch number exceeds the limit!
+Tested 107 patches
+Compile failed 50 patches
+Compilation rate0.5327102803738317
+Tested:107 patches
+Compile failed:50 patches
+Compilation rate:0.5327102803738317
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/lang_12/7.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-12 > patch : 9 | Start : Fri Dec 08 00:45:27 HKT 2023 | End : 2023.12.08 AD at 00:48:38 HKT

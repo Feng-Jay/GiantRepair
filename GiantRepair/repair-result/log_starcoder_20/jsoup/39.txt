@@ -1,0 +1,1499 @@
+Repair : jsoup_39
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/0.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:6 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/2.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Following are 2th generated patches:
+Validating 97 patches...
+Following are 3th generated patches:
+Validating 95 patches...
+Following are 4th generated patches:
+Validating 6 patches...
+Tested:1125 patches
+Compile failed:849 patches
+Compilation rate:0.24533333333333332
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/4.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 154 patches...
+Following are 3th generated patches:
+Validating 44 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2902 patches
+Compile failed:2090 patches
+Compilation rate:0.27980702963473464
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/5.java
+Following are 0th generated patches:
+Validating 25 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=null;
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+1 th patch/28
+Trace:
+
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 04:47:32 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 4 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:29 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/6.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/7.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 106 patches...
+Following are 2th generated patches:
+Validating 108 patches...
+Following are 3th generated patches:
+Validating 16 patches...
+Following are 4th generated patches:
+Validating 9 patches...
+Tested:1193 patches
+Compile failed:1193 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/8.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Tested:21 patches
+Compile failed:12 patches
+Compilation rate:0.42857142857142855
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/9.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Following are 3th generated patches:
+Validating 10 patches...
+Following are 4th generated patches:
+Validating 7 patches...
+Tested:975 patches
+Compile failed:690 patches
+Compilation rate:0.2923076923076923
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/10.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/11.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Following are 2th generated patches:
+Validating 15 patches...
+Following are 3th generated patches:
+Validating 11 patches...
+Following are 4th generated patches:
+Validating 100 patches...
+Tested:1092 patches
+Compile failed:814 patches
+Compilation rate:0.25457875457875456
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/12.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Following are 3th generated patches:
+Validating 3 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:18 patches
+Compile failed:18 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/13.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:3 patches
+Compile failed:2 patches
+Compilation rate:0.3333333333333333
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/14.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 94 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 5 patches...
+Following are 4th generated patches:
+Validating 95 patches...
+Tested:1126 patches
+Compile failed:1126 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/15.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:6 patches
+Compile failed:6 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/16.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 11 patches...
+Following are 2th generated patches:
+Validating 8 patches...
+Following are 3th generated patches:
+Validating 8 patches...
+Following are 4th generated patches:
+Validating 113 patches...
+Tested:1072 patches
+Compile failed:857 patches
+Compilation rate:0.20055970149253732
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/17.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 6 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:25 patches
+Compile failed:7 patches
+Compilation rate:0.72
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/18.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/19.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/20.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 18 patches...
+Tested:19 patches
+Compile failed:17 patches
+Compilation rate:0.10526315789473684
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/21.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 87 patches...
+Following are 2th generated patches:
+Validating 115 patches...
+Following are 3th generated patches:
+Validating 112 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:1286 patches
+Compile failed:900 patches
+Compilation rate:0.3001555209953344
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/22.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 104 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 15 patches...
+Tested:1067 patches
+Compile failed:771 patches
+Compilation rate:0.2774133083411434
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/23.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 6 patches...
+Tested:18 patches
+Compile failed:18 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/24.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 48 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 106 patches...
+Following are 4th generated patches:
+Validating 248 patches...
+Tested:1135 patches
+Compile failed:1135 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/25.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 20 patches...
+Following are 2th generated patches:
+Validating 21 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:44 patches
+Compile failed:8 patches
+Compilation rate:0.8181818181818182
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/26.java
+Following are 0th generated patches:
+Validating 599 patches...
+Following are 1th generated patches:
+Validating 44 patches...
+Following are 2th generated patches:
+Validating 436 patches...
+Following are 3th generated patches:
+Validating 441 patches...
+Following are 4th generated patches:
+Validating 105 patches...
+Tested:1063 patches
+Compile failed:1055 patches
+Compilation rate:0.007525870178739417
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/27.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Following are 2th generated patches:
+Validating 95 patches...
+Following are 3th generated patches:
+Validating 8 patches...
+Following are 4th generated patches:
+Validating 94 patches...
+Tested:1124 patches
+Compile failed:902 patches
+Compilation rate:0.19750889679715303
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/28.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 18 patches...
+Tested:19 patches
+Compile failed:17 patches
+Compilation rate:0.10526315789473684
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/29.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 18 patches...
+Following are 2th generated patches:
+Validating 19 patches...
+Following are 3th generated patches:
+Validating 37 patches...
+Following are 4th generated patches:
+Validating 18 patches...
+Tested:93 patches
+Compile failed:85 patches
+Compilation rate:0.08602150537634409
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/30.java
+Following are 0th generated patches:
+Validating 209 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 40 patches...
+Following are 4th generated patches:
+Validating 192 patches...
+Tested:2441 patches
+Compile failed:2326 patches
+Compilation rate:0.047111839410077835
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/31.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 18 patches...
+Tested:19 patches
+Compile failed:17 patches
+Compilation rate:0.10526315789473684
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/32.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 57 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:69 patches
+Compile failed:67 patches
+Compilation rate:0.028985507246376812
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/33.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 17 patches...
+Following are 2th generated patches:
+Validating 108 patches...
+Following are 3th generated patches:
+Validating 93 patches...
+Following are 4th generated patches:
+Validating 92 patches...
+Tested:1292 patches
+Compile failed:1053 patches
+Compilation rate:0.184984520123839
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/34.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 36 patches...
+Following are 2th generated patches:
+Validating 46 patches...
+Following are 3th generated patches:
+Validating 5 patches...
+Following are 4th generated patches:
+Validating 44 patches...
+Tested:1111 patches
+Compile failed:876 patches
+Compilation rate:0.21152115211521152
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/35.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 38 patches...
+Following are 2th generated patches:
+Validating 9 patches...
+Following are 3th generated patches:
+Validating 26 patches...
+Following are 4th generated patches:
+Validating 13 patches...
+Tested:999 patches
+Compile failed:643 patches
+Compilation rate:0.3563563563563564
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/36.java
+Following are 0th generated patches:
+Validating 298 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 7 patches...
+Following are 4th generated patches:
+Validating 3 patches...
+Tested:257 patches
+Compile failed:180 patches
+Compilation rate:0.29961089494163423
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/37.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:2 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/38.java
+Following are 0th generated patches:
+Validating 456 patches...
+Following are 1th generated patches:
+Validating 117 patches...
+Following are 2th generated patches:
+Validating 9 patches...
+Following are 3th generated patches:
+Validating 120 patches...
+Following are 4th generated patches:
+Validating 122 patches...
+Tested:760 patches
+Compile failed:698 patches
+Compilation rate:0.08157894736842106
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/39.java
+Following are 0th generated patches:
+Validating 623 patches...
+Following are 1th generated patches:
+Validating 68 patches...
+Following are 2th generated patches:
+Validating 940 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:3631 patches
+Compile failed:3604 patches
+Compilation rate:0.007435968052877995
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/40.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Following are 3th generated patches:
+Validating 9 patches...
+Following are 4th generated patches:
+Validating 5 patches...
+Tested:975 patches
+Compile failed:690 patches
+Compilation rate:0.2923076923076923
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/41.java
+Following are 0th generated patches:
+Validating 729 patches...
+Following are 1th generated patches:
+Validating 52 patches...
+Following are 2th generated patches:
+Validating 436 patches...
+Following are 3th generated patches:
+Validating 109 patches...
+Following are 4th generated patches:
+Validating 111 patches...
+Tested:778 patches
+Compile failed:768 patches
+Compilation rate:0.012853470437017995
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/42.java
+Following are 0th generated patches:
+Validating 14 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseInput(docData,baseUri);
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+2 th patch/17
+Trace:
+
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:17 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseInput(docData,baseUri);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+3 th patch/17
+Trace:
+
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:17 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 86 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseInput(docData,baseUri);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+4 th patch/103
+Trace:
+
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parse(docData,docData);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+5 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseBodyFragmentRelaxed(docData,baseUri);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+6 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parse(docData,baseUri);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+7 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parse(docData,defaultCharset);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+8 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseInput(docData,docData);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+9 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseBodyFragmentRelaxed(docData,docData);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+10 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseBodyFragmentRelaxed(docData,defaultCharset);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+11 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//jsoup/jsoup_39_buggy/src/main/java/org/jsoup/helper/DataUtil.java
+SUCCESS
+//Following are generated patch:
+  static Document parseByteData(  ByteBuffer byteData,  String charsetName,  String baseUri,  Parser parser){
+    String docData;
+    Document doc=null;
+    if (charsetName == null) {
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      doc=parser.parseInput(docData,baseUri);
+      Element meta=doc.select("meta[http-equiv=content-type], meta[charset]").first();
+      if (meta != null) {
+        String foundCharset;
+        if (meta.hasAttr("http-equiv")) {
+          foundCharset=getCharsetFromContentType(meta.attr("content"));
+          if (foundCharset == null && meta.hasAttr("charset")) {
+            try {
+              if (Charset.isSupported(meta.attr("charset"))) {
+                foundCharset=meta.attr("charset");
+              }
+            }
+ catch (            IllegalCharsetNameException e) {
+              foundCharset=null;
+            }
+          }
+        }
+ else {
+          foundCharset=meta.attr("charset");
+        }
+        if (foundCharset != null && foundCharset.length() != 0 && !foundCharset.equals(defaultCharset)) {
+          foundCharset=foundCharset.trim().replaceAll("[\"']","");
+          charsetName=foundCharset;
+          byteData.rewind();
+          docData=Charset.forName(foundCharset).decode(byteData).toString();
+          doc=null;
+        }
+      }
+    }
+ else {
+      Validate.notEmpty(charsetName,"Must set charset arg to character set of file to parse. Set to null to attempt to detect from HTML");
+      docData=Charset.forName(charsetName).decode(byteData).toString();
+    }
+    if (docData.length() > 0 && docData.charAt(0) == 65279) {
+      byteData.rewind();
+      docData=Charset.forName(defaultCharset).decode(byteData).toString();
+      docData=docData.substring(1);
+doc=parser.parseInput(docData,defaultCharset);
+      charsetName=defaultCharset;
+    }
+    if (doc == null) {
+      doc=parser.parseInput(docData,baseUri);
+      doc.outputSettings().charset(charsetName);
+    }
+    return doc;
+  }
+
+12 th patch/103
+Trace:
+ExpressionStmt;Assign;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.06 AD at 04:41:52 HKT
+---------TIME : 
+2023.12.06 AD at 05:15:31 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 89 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:188 patches
+Compile failed:44 patches
+Compilation rate:0.7659574468085106
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/43.java
+Following are 0th generated patches:
+Validating 63 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Following are 2th generated patches:
+Validating 7 patches...
+Following are 3th generated patches:
+Validating 5 patches...
+Following are 4th generated patches:
+Validating 5 patches...
+Tested:67 patches
+Compile failed:60 patches
+Compilation rate:0.1044776119402985
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/44.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 2 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:11 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/45.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:3 patches
+Compile failed:3 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/46.java
+Following are 0th generated patches:
+Validating 197 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 6 patches...
+Following are 3th generated patches:
+Validating 144 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:338 patches
+Compile failed:338 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/47.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 14 patches...
+Following are 2th generated patches:
+Validating 8 patches...
+Following are 3th generated patches:
+Validating 13 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:1012 patches
+Compile failed:751 patches
+Compilation rate:0.25790513833992096
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/48.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 6 patches...
+Following are 2th generated patches:
+Validating 16 patches...
+Following are 3th generated patches:
+Validating 34 patches...
+Following are 4th generated patches:
+Validating 35 patches...
+Tested:986 patches
+Compile failed:687 patches
+Compilation rate:0.30324543610547666
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/49.java
+Following are 0th generated patches:
+Validating 92 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 4 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:100 patches
+Compile failed:100 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/50.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 98 patches...
+Following are 2th generated patches:
+Validating 114 patches...
+Following are 3th generated patches:
+Validating 211 patches...
+Following are 4th generated patches:
+Validating 118 patches...
+Tested:1410 patches
+Compile failed:1410 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/51.java
+Following are 0th generated patches:
+Validating 1000 patches...
+Following are 1th generated patches:
+Validating 14 patches...
+Following are 2th generated patches:
+Validating 10 patches...
+Following are 3th generated patches:
+Validating 50 patches...
+Following are 4th generated patches:
+Validating 52 patches...
+Tested:1100 patches
+Compile failed:1100 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/52.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/53.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 54 patches...
+Following are 2th generated patches:
+Validating 18 patches...
+Following are 3th generated patches:
+Validating 36 patches...
+Following are 4th generated patches:
+Validating 18 patches...
+Tested:130 patches
+Compile failed:119 patches
+Compilation rate:0.08461538461538462
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/54.java
+Following are 0th generated patches:
+Validating 92 patches...
+Following are 1th generated patches:
+Validating 17 patches...
+Following are 2th generated patches:
+Validating 15 patches...
+Following are 3th generated patches:
+Validating 26 patches...
+Following are 4th generated patches:
+Validating 16 patches...
+Tested:142 patches
+Compile failed:67 patches
+Compilation rate:0.528169014084507
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_20/jsoup_39/55.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 60 patches...
+Following are 3th generated patches:
+Validating 59 patches...
+Tested:123 patches
+Compile failed:123 patches
+Compilation rate:0.0
+Finish : jsoup-39 > patch : 12 | Start : Wed Dec 06 04:41:52 HKT 2023 | End : 2023.12.06 AD at 05:21:23 HKT

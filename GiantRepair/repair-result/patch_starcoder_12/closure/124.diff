@@ -1,0 +1,46 @@
+Following diff 14:
+-node=node.getFirstChild();
+-returntrue;
++node=node.getFirstChild();
++return!NodeUtil.isGet(node);
+Following diff 14:
+-node=node.getFirstChild();
+-if(node.isName()
+-&&isNameAssignedTo(node.getString(),replacement)){
+-returnfalse;
+-}
+-returntrue;
++node=node.getFirstChild();
++if(node.isName()&&isNameAssignedTo(node.getString(),replacement)){
++returnfalse;
++}
++return!NodeUtil.isGet(node);
+Following diff 42:
++NodenodeToCheck=node;
++while(nodeToCheck.isGetProp()){
++nodeToCheck=nodeToCheck.getFirstChild();
++if(nodeToCheck.isName()&&isNameAssignedTo(nodeToCheck.getString(),replacement)){
++returnfalse;
++}
++}
+Following diff 42:
+-node=node.getFirstChild();
++NodenodeToCheck=node;
++while(nodeToCheck.isGetProp()){
++nodeToCheck=nodeToCheck.getFirstChild();
++if(nodeToCheck.isName()&&isNameAssignedTo(nodeToCheck.getString(),replacement)){
++returnfalse;
++}
++}
+Following diff 42:
+-if(node.isName()
+-&&isNameAssignedTo(node.getString(),replacement)){
+-returnfalse;
+-}
++NodenodeToCheck=node;
++while(nodeToCheck.isGetProp()){
++nodeToCheck=nodeToCheck.getFirstChild();
++if(nodeToCheck.isName()&&isNameAssignedTo(nodeToCheck.getString(),replacement)){
++returnfalse;
++}
++}

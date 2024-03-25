@@ -1,0 +1,1146 @@
+Repair : closure_126
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/3.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 2 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:5 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/4.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 147 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:653 patches
+Compile failed:524 patches
+Compilation rate:0.19754977029096477
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/5.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/6.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/7.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/8.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/9.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/10.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/11.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:5 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/12.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/13.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/14.java
+Following are 0th generated patches:
+Validating 265 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeIfBlockExits(finallyBlock,n.getLastChild(),n,exitType,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+for(Node c=n.getFirstChild();c!=null;c=c.getNext()){
+if(c.isIf()){
+Node ifTree=c;
+Node trueBlock,falseBlock;
+trueBlock=ifTree.getFirstChild().getNext();
+falseBlock=trueBlock.getNext();
+tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+trueBlock=ifTree.getFirstChild().getNext();
+falseBlock=trueBlock.getNext();
+if(falseBlock!=null){
+tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+}
+}
+if(c.getParent()==n){
+break;
+}
+}
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+1 th patch/268
+Trace:
+
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:23:21 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1263 patches
+Compile failed:913 patches
+Compilation rate:0.2771179730799683
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/15.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/16.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/17.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/18.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/19.java
+Following are 0th generated patches:
+Validating 92 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeIfBlockExits(finallyBlock,n.getLastChild(),n,exitType,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+2 th patch/95
+Trace:
+
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:26:59 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 28 patches...
+Following are 2th generated patches:
+Validating 164 patches...
+Tested:276 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/20.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/21.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/22.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/23.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/24.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/closure_126/25.java
+Following are 0th generated patches:
+Validating 63 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.cloneNode(),Node.COLUMN_BITS,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+3 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.cloneNode(),Node.COLUMN_MASK,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+4 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.getLastSibling(),Node.INPUT_ID,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+5 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.cloneNode(),Node.FREE_CALL,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+6 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+matchingExitNode(n,exitType,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+7 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock,Node.SYNTHETIC_BLOCK_PROP,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+8 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(tryBlock,Node.JSDOC_INFO_PROP,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+9 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.cloneNode(),Node.CHANGE_TIME,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+10 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(n.getLastChild(),Node.INPUT_ID,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+11 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(n.getFirstChild(),Node.LENGTH,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+12 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_126_buggy/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+SUCCESS
+//Following are generated patch:
+  void tryMinimizeExits(  Node n,  int exitType,  String labelName){
+    if (matchingExitNode(n,exitType,labelName)) {
+      NodeUtil.removeChild(n.getParent(),n);
+      compiler.reportCodeChange();
+      return;
+    }
+    if (n.isIf()) {
+      Node ifBlock=n.getFirstChild().getNext();
+      tryMinimizeExits(ifBlock,exitType,labelName);
+      Node elseBlock=ifBlock.getNext();
+      if (elseBlock != null) {
+        tryMinimizeExits(elseBlock,exitType,labelName);
+      }
+      return;
+    }
+    if (n.isTry()) {
+      Node tryBlock=n.getFirstChild();
+      tryMinimizeExits(tryBlock,exitType,labelName);
+      Node allCatchNodes=NodeUtil.getCatchBlock(n);
+      if (NodeUtil.hasCatchHandler(allCatchNodes)) {
+        Preconditions.checkState(allCatchNodes.hasOneChild());
+        Node catchNode=allCatchNodes.getFirstChild();
+        Node catchCodeBlock=catchNode.getLastChild();
+        tryMinimizeExits(catchCodeBlock,exitType,labelName);
+      }
+      if (NodeUtil.hasFinally(n)) {
+        Node finallyBlock=n.getLastChild();
+tryMinimizeExits(finallyBlock.cloneTree(),Node.CHANGE_TIME,labelName);
+      }
+    }
+    if (n.isLabel()) {
+      Node labelBlock=n.getLastChild();
+      tryMinimizeExits(labelBlock,exitType,labelName);
+    }
+    if (!n.isBlock() || n.getLastChild() == null) {
+      return;
+    }
+    for (    Node c : n.children()) {
+      if (c.isIf()) {
+        Node ifTree=c;
+        Node trueBlock, falseBlock;
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        tryMinimizeIfBlockExits(trueBlock,falseBlock,ifTree,exitType,labelName);
+        trueBlock=ifTree.getFirstChild().getNext();
+        falseBlock=trueBlock.getNext();
+        if (falseBlock != null) {
+          tryMinimizeIfBlockExits(falseBlock,trueBlock,ifTree,exitType,labelName);
+        }
+      }
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+    for (Node c=n.getLastChild(); c != null; c=n.getLastChild()) {
+      tryMinimizeExits(c,exitType,labelName);
+      if (c == n.getLastChild()) {
+        break;
+      }
+    }
+  }
+
+13 th patch/566
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2023.12.13 AD at 01:17:47 HKT
+---------TIME : 
+2023.12.13 AD at 01:33:31 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 563 patches
+Compile failed 152 patches
+Compilation rate0.7300177619893428
+Patch number exceeds the limit!
+Tested 563 patches
+Compile failed 152 patches
+Compilation rate0.7300177619893428
+Tested:563 patches
+Compile failed:152 patches
+Compilation rate:0.7300177619893428
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/closure_126/26.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : closure-126 > patch : 13 | Start : Wed Dec 13 01:17:47 HKT 2023 | End : 2023.12.13 AD at 01:33:31 HKT

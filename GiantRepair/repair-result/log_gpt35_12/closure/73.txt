@@ -1,0 +1,307 @@
+Repair : closure_73
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/0.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 317 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:820 patches
+Compile failed:97 patches
+Compilation rate:0.8817073170731707
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/2.java
+Following are 0th generated patches:
+Validating 0 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/3.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Tested:516 patches
+Compile failed:50 patches
+Compilation rate:0.9031007751937985
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/4.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:503 patches
+Compile failed:47 patches
+Compilation rate:0.9065606361829026
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/5.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/6.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 459 patches...
+Following are 2th generated patches:
+Validating 316 patches...
+Tested:777 patches
+Compile failed:75 patches
+Compilation rate:0.9034749034749034
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/7.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 329 patches...
+Following are 2th generated patches:
+Validating 13 patches...
+Tested:344 patches
+Compile failed:49 patches
+Compilation rate:0.8575581395348837
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/9.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 136 patches...
+Tested:137 patches
+Compile failed:16 patches
+Compilation rate:0.8832116788321168
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/10.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1008 patches
+Compile failed:133 patches
+Compilation rate:0.8680555555555556
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/11.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 27 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_73_buggy/src/com/google/javascript/jscomp/CodeGenerator.java
+SUCCESS
+//Following are generated patch:
+  static String strEscape(  String s,  char quote,  String doublequoteEscape,  String singlequoteEscape,  String backslashEscape,  CharsetEncoder outputCharsetEncoder){
+    StringBuilder sb=new StringBuilder(s.length() + 2);
+    sb.append(quote);
+    for (int i=0; i < s.length(); i++) {
+      char c=s.charAt(i);
+switch (c) {
+case '\0':
+        sb.append("\\0");
+      break;
+case '\n':
+    sb.append("\\n");
+  break;
+case '\r':
+sb.append("\\r");
+break;
+case '\t':
+sb.append("\\t");
+break;
+case '\\':
+sb.append(backslashEscape);
+break;
+case '\"':
+sb.append(doublequoteEscape);
+break;
+case '\'':
+sb.append(singlequoteEscape);
+break;
+case '>':
+if (i >= 2 && ((s.charAt(i - 1) == '-' && s.charAt(i - 2) == '-') || (s.charAt(i - 1) == ']' && s.charAt(i - 2) == ']'))) {
+sb.append("\\>");
+}
+ else {
+sb.append(c);
+}
+break;
+case '<':
+final String END_SCRIPT="/script";
+final String START_COMMENT="!--";
+if (s.regionMatches(true,i + 1,END_SCRIPT,0,END_SCRIPT.length())) {
+sb.append("<\\");
+}
+ else if (s.regionMatches(false,i + 1,START_COMMENT,0,START_COMMENT.length())) {
+sb.append("<\\");
+}
+ else {
+sb.append(c);
+}
+break;
+default :
+if (outputCharsetEncoder != null) {
+if (outputCharsetEncoder.canEncode(c)) {
+sb.append(c);
+}
+ else {
+appendHexJavaScriptRepresentation(sb,c);
+}
+}
+ else {
+if(c>=0x20&&c<0x7e){
+sb.append(c);
+}
+ else {
+appendHexJavaScriptRepresentation(sb,c);
+}
+}
+}
+}
+sb.append(quote);
+return sb.toString();
+}
+
+1 th patch/31
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.08 AD at 11:59:02 HKT
+---------TIME : 
+2023.12.08 AD at 12:08:57 HKT
+--------------- END -----------------
+Tested:28 patches
+Compile failed:13 patches
+Compilation rate:0.5357142857142857
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/12.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1008 patches
+Compile failed:106 patches
+Compilation rate:0.8948412698412699
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/13.java
+Following are 0th generated patches:
+Validating 36 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1036 patches
+Compile failed:162 patches
+Compilation rate:0.8436293436293436
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/14.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:3 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/15.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 414 patches...
+Tested:916 patches
+Compile failed:123 patches
+Compilation rate:0.8657205240174672
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/16.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 76 patches...
+Tested:77 patches
+Compile failed:8 patches
+Compilation rate:0.8961038961038961
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/17.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1002 patches
+Compile failed:87 patches
+Compilation rate:0.9131736526946108
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/18.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 307 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:318 patches
+Compile failed:63 patches
+Compilation rate:0.8018867924528302
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/19.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/20.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:502 patches
+Compile failed:34 patches
+Compilation rate:0.9322709163346613
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/21.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 13 patches...
+Following are 2th generated patches:
+Validating 329 patches...
+Tested:344 patches
+Compile failed:46 patches
+Compilation rate:0.8662790697674418
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/closure_73/22.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 13 patches...
+Tested:14 patches
+Compile failed:7 patches
+Compilation rate:0.5
+Finish : closure-73 > patch : 1 | Start : Fri Dec 08 11:59:02 HKT 2023 | End : 2023.12.08 AD at 12:14:28 HKT

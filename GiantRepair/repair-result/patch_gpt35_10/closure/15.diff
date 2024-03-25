@@ -1,0 +1,60 @@
+Following diff 3:
++if(n.isDelProp()){
++returntrue;
++}
+Following diff 3:
++if(n.isGetElem()){
++returntrue;
++}
+Following diff 4:
+-returntrue;
++if(NodeUtil.isGet(n.getLastSibling())){
++returntrue;
++}
+Following diff 5:
++if(n.isDelProp()){
++returntrue;
++}
+Following diff 5:
++if(n.isGetElem()){
++returntrue;
++}
+Following diff 7:
++if(NodeUtil.isGet(n.getLastSibling())){
++returntrue;
++}
+Following diff 13:
++if(c.isDelProp()){
++returntrue;
++}
+Following diff 13:
++if(c.isGetElem()){
++returntrue;
++}
+Following diff 14:
+-returntrue;
++if(NodeUtil.isGet(n.getLastSibling())){
++returntrue;
++}
+Following diff 14:
+-if(n.isCall()&&NodeUtil.functionCallHasSideEffects(n)){
+-returntrue;
+-}
+-if(n.isNew()&&NodeUtil.constructorCallHasSideEffects(n)){
+-returntrue;
+-}
++if(n.isCall()){
++if(NodeUtil.functionCallHasSideEffects(n)){
++returntrue;
++}
++}
++if(NodeUtil.isGet(n.getLastSibling())){
++returntrue;
++}
++else{
++if(n.isNew()){
++if(NodeUtil.constructorCallHasSideEffects(n)){
++returntrue;
++}
++}
++}

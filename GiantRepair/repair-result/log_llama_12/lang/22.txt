@@ -1,0 +1,303 @@
+Repair : lang_22
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_22/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_22/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_22/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_22/1.java
+Following are 0th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+1 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:46:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+2 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:46:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+3 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:46:13 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1430 patches
+Compile failed:1181 patches
+Compilation rate:0.17412587412587413
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_22/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/lang_22/2.java
+Following are 0th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(u==0||v==0){
+return 0;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+4 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:48:21 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(u==0||v==0){
+return 0;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+5 th patch/503
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:48:52 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(u==0||v==0){
+return 0;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+6 th patch/503
+Trace:
+
+START : 
+2023.12.09 AD at 19:45:27 HKT
+---------TIME : 
+2023.12.09 AD at 19:48:52 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 500 patches
+Compile failed 351 patches
+Compilation rate0.298
+Patch number exceeds the limit!
+Tested 500 patches
+Compile failed 351 patches
+Compilation rate0.298
+Tested:500 patches
+Compile failed:351 patches
+Compilation rate:0.298
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/lang_22/3.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-22 > patch : 6 | Start : Sat Dec 09 19:45:27 HKT 2023 | End : 2023.12.09 AD at 19:48:52 HKT

@@ -1,0 +1,115 @@
+Repair : closure_20
+Current file:/data/PLM4APR/codex_out/valuable_patches_codellama_real/closure_20/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_codellama_real/closure_20/patch.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_20_buggy/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldSimpleFunctionCall(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node callTarget=n.getFirstChild();
+    if (callTarget != null && callTarget.isName() && callTarget.getString().equals("String")) {
+      Node value=callTarget.getNext();
+if(value!=null&&(NodeUtil.isImmutableValue(value)||value.isFunction())&&(value.getNext()==null)){
+        Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+        n.getParent().replaceChild(n,addition);
+        reportCodeChange();
+        return addition;
+      }
+    }
+    return n;
+  }
+
+1 th patch/1
+Trace:
+
+START : 
+2023.12.23 AD at 16:57:43 HKT
+---------TIME : 
+2023.12.23 AD at 16:58:54 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 15 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_20_buggy/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldSimpleFunctionCall(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node callTarget=n.getFirstChild();
+    if (callTarget != null && callTarget.isName() && callTarget.getString().equals("String")) {
+      Node value=callTarget.getNext();
+if(value!=null&&(NodeUtil.isImmutableValue(value)||value.isFunction())&&(value.getNext()==null)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+    }
+    return n;
+  }
+
+2 th patch/16
+Trace:
+
+START : 
+2023.12.23 AD at 16:57:43 HKT
+---------TIME : 
+2023.12.23 AD at 17:00:06 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_20_buggy/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldSimpleFunctionCall(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node callTarget=n.getFirstChild();
+    if (callTarget != null && callTarget.isName() && callTarget.getString().equals("String")) {
+      Node value=callTarget.getNext();
+if(value.getNext()==null&&NodeUtil.isImmutableValue(value)&&value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+    }
+    return n;
+  }
+
+3 th patch/16
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.23 AD at 16:57:43 HKT
+---------TIME : 
+2023.12.23 AD at 17:00:06 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_20_buggy/src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldSimpleFunctionCall(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node callTarget=n.getFirstChild();
+    if (callTarget != null && callTarget.isName() && callTarget.getString().equals("String")) {
+      Node value=callTarget.getNext();
+if(value.getNext()==null&&NodeUtil.isImmutableValue(value)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+    }
+    return n;
+  }
+
+4 th patch/16
+Trace:
+UPDATEIfStmt
+START : 
+2023.12.23 AD at 16:57:43 HKT
+---------TIME : 
+2023.12.23 AD at 17:00:06 HKT
+--------------- END -----------------
+Tested:16 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Finish : closure-20 > patch : 4 | Start : Sat Dec 23 16:57:43 HKT 2023 | End : 2023.12.23 AD at 17:00:07 HKT

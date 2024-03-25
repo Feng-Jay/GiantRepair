@@ -1,0 +1,215 @@
+Repair : math_82
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_82/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_82/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_82/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_82/1.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>epsilon){
+        final double ratio=rhs / entry;
+        if (ratio < minRatio) {
+          minRatio=ratio;
+          minRatioPos=i;
+        }
+      }
+    }
+    return minRatioPos;
+  }
+
+1 th patch/4
+Trace:
+
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:30 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>epsilon){
+ final double ratio=rhs/entry;
+if(ratio<minRatio){
+minRatio=ratio;
+minRatioPos=i;
+}
+}
+    }
+    return minRatioPos;
+  }
+
+2 th patch/7
+Trace:
+
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:40 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>=epsilon){
+ final double ratio=rhs/entry;
+if(ratio<minRatio){
+minRatio=ratio;
+minRatioPos=i;
+}
+}
+    }
+    return minRatioPos;
+  }
+
+3 th patch/7
+Trace:
+UPDATEIfStmt;InfixExpr;CMPOP;UPDATEInfixExpr
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:40 HKT
+--------------- END -----------------
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_82/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_82/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Tested:6 patches
+Compile failed:1 patches
+Compilation rate:0.8333333333333334
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_82/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_llama_all/math_82/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0.0){
+        final double ratio=rhs / entry;
+        if (ratio < minRatio) {
+          minRatio=ratio;
+          minRatioPos=i;
+        }
+      }
+    }
+    return minRatioPos;
+  }
+
+4 th patch/4
+Trace:
+
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:42:55 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>=0.0){
+ final double ratio=rhs/entry;
+if(ratio<minRatio){
+minRatio=ratio;
+minRatioPos=i;
+}
+}
+    }
+    return minRatioPos;
+  }
+
+5 th patch/7
+Trace:
+UPDATEIfStmt;InfixExpr;CMPOP;UPDATEInfixExpr
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:43:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_82_buggy/src/main/java/org/apache/commons/math/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  final int col,  final SimplexTableau tableau){
+    double minRatio=Double.MAX_VALUE;
+    Integer minRatioPos=null;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0.0){
+ final double ratio=rhs/entry;
+if(ratio<minRatio){
+minRatio=ratio;
+minRatioPos=i;
+}
+}
+    }
+    return minRatioPos;
+  }
+
+6 th patch/7
+Trace:
+
+START : 
+2023.12.11 AD at 02:42:19 HKT
+---------TIME : 
+2023.12.11 AD at 02:43:04 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 4 patches
+Compile failed 0 patches
+Compilation rate1.0
+Patch number exceeds the limit!
+Tested 4 patches
+Compile failed 0 patches
+Compilation rate1.0
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_llama_all/math_82/4.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : math-82 > patch : 6 | Start : Mon Dec 11 02:42:19 HKT 2023 | End : 2023.12.11 AD at 02:43:05 HKT

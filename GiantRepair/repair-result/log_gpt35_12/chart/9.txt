@@ -1,0 +1,239 @@
+Repair : chart_9
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/0.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:5 patches
+Compile failed:1 patches
+Compilation rate:0.8
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/1.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 8 patches...
+Tested:9 patches
+Compile failed:9 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/3.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 499 patches...
+Following are 2th generated patches:
+Validating 499 patches...
+Tested:1001 patches
+Compile failed:456 patches
+Compilation rate:0.5444555444555444
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/4.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:13 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/6.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_9_buggy/source/org/jfree/data/time/TimeSeries.java
+SUCCESS
+//Following are generated patch:
+  public TimeSeries createCopy(  RegularTimePeriod start,  RegularTimePeriod end) throws CloneNotSupportedException {
+    if (start == null) {
+      throw new IllegalArgumentException("Null 'start' argument.");
+    }
+    if (end == null) {
+      throw new IllegalArgumentException("Null 'end' argument.");
+    }
+    if (start.compareTo(end) > 0) {
+      throw new IllegalArgumentException("Requires start on or before end.");
+    }
+    boolean emptyRange=false;
+    int startIndex=getIndex(start);
+    if (startIndex < 0) {
+      startIndex=-(startIndex + 1);
+      if (startIndex == this.data.size()) {
+        emptyRange=true;
+      }
+    }
+    int endIndex=getIndex(end);
+    if (endIndex < 0) {
+      endIndex=-(endIndex + 1);
+      endIndex=endIndex - 1;
+    }
+if(endIndex<startIndex){
+      emptyRange=true;
+    }
+    if (emptyRange) {
+      TimeSeries copy=(TimeSeries)super.clone();
+      copy.data=new java.util.ArrayList();
+      return copy;
+    }
+ else {
+      return createCopy(startIndex,endIndex);
+    }
+  }
+
+1 th patch/4
+Trace:
+
+START : 
+2023.12.08 AD at 00:10:11 HKT
+---------TIME : 
+2023.12.08 AD at 00:12:54 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 5 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_9_buggy/source/org/jfree/data/time/TimeSeries.java
+SUCCESS
+//Following are generated patch:
+  public TimeSeries createCopy(  RegularTimePeriod start,  RegularTimePeriod end) throws CloneNotSupportedException {
+    if (start == null) {
+      throw new IllegalArgumentException("Null 'start' argument.");
+    }
+    if (end == null) {
+      throw new IllegalArgumentException("Null 'end' argument.");
+    }
+    if (start.compareTo(end) > 0) {
+      throw new IllegalArgumentException("Requires start on or before end.");
+    }
+    boolean emptyRange=false;
+    int startIndex=getIndex(start);
+    if (startIndex < 0) {
+      startIndex=-(startIndex + 1);
+      if (startIndex == this.data.size()) {
+        emptyRange=true;
+      }
+    }
+    int endIndex=getIndex(end);
+    if (endIndex < 0) {
+      endIndex=-(endIndex + 1);
+      endIndex=endIndex - 1;
+    }
+if(endIndex<startIndex){
+emptyRange=true;
+}
+    if (emptyRange) {
+      TimeSeries copy=(TimeSeries)super.clone();
+      copy.data=new java.util.ArrayList();
+      return copy;
+    }
+ else {
+      return createCopy(startIndex,endIndex);
+    }
+  }
+
+2 th patch/9
+Trace:
+
+START : 
+2023.12.08 AD at 00:10:11 HKT
+---------TIME : 
+2023.12.08 AD at 00:13:05 HKT
+--------------- END -----------------
+Tested:6 patches
+Compile failed:2 patches
+Compilation rate:0.6666666666666666
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/7.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 10 patches...
+Tested:12 patches
+Compile failed:2 patches
+Compilation rate:0.8333333333333334
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/9.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:1 patches
+Compile failed:1 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/10.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 38 patches...
+Following are 2th generated patches:
+Validating 38 patches...
+Tested:77 patches
+Compile failed:77 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/11.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 43 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:57 patches
+Compile failed:55 patches
+Compilation rate:0.03508771929824561
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/12.java
+Following are 0th generated patches:
+Validating 0 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/13.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 232 patches...
+Tested:233 patches
+Compile failed:192 patches
+Compilation rate:0.1759656652360515
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/chart_9/14.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 42 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:49 patches
+Compile failed:48 patches
+Compilation rate:0.02040816326530612
+Finish : chart-9 > patch : 2 | Start : Fri Dec 08 00:10:11 HKT 2023 | End : 2023.12.08 AD at 00:14:35 HKT

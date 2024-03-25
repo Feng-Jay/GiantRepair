@@ -1,0 +1,81 @@
+Repair : closure_15
+Current file:/data/PLM4APR/codex_out/valuable_patches_codellama_real/closure_15/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_codellama_real/closure_15/patch.java
+Following are 0th generated patches:
+Validating 169 patches...
+Following are 1th generated patches:
+Validating 433 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 580 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_15_buggy/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+SUCCESS
+//Following are generated patch:
+  public boolean apply(  Node n){
+    if (n == null) {
+      return false;
+    }
+    if (n.isCall() && NodeUtil.functionCallHasSideEffects(n)) {
+      return true;
+    }
+if(n.isDelProp()){
+return true;
+}
+    if (n.isNew() && NodeUtil.constructorCallHasSideEffects(n)) {
+      return true;
+    }
+    for (Node c=n.getFirstChild(); c != null; c=c.getNext()) {
+      if (!ControlFlowGraph.isEnteringNewCfgNode(c) && apply(c)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+1 th patch/2852
+Trace:
+MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;Blk;ReturnStmt;BoolLiteral;IfStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;Blk;ReturnStmt;BoolLiteral
+START : 
+2023.12.23 AD at 15:04:45 HKT
+---------TIME : 
+2023.12.23 AD at 15:33:41 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_15_buggy/src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java
+SUCCESS
+//Following are generated patch:
+  public boolean apply(  Node n){
+    if (n == null) {
+      return false;
+    }
+    if (n.isCall() && NodeUtil.functionCallHasSideEffects(n)) {
+      return true;
+    }
+if(n.isGetElem()){
+return true;
+}
+    if (n.isNew() && NodeUtil.constructorCallHasSideEffects(n)) {
+      return true;
+    }
+    for (Node c=n.getFirstChild(); c != null; c=c.getNext()) {
+      if (!ControlFlowGraph.isEnteringNewCfgNode(c) && apply(c)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+2 th patch/2852
+Trace:
+MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;Blk;ReturnStmt;BoolLiteral;IfStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;Blk;ReturnStmt;BoolLiteral
+START : 
+2023.12.23 AD at 15:04:45 HKT
+---------TIME : 
+2023.12.23 AD at 15:33:41 HKT
+--------------- END -----------------
+Tested:3161 patches
+Compile failed:1722 patches
+Compilation rate:0.4552356849098387
+Finish : closure-15 > patch : 2 | Start : Sat Dec 23 15:04:45 HKT 2023 | End : 2023.12.23 AD at 15:43:29 HKT

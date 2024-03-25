@@ -1,0 +1,67 @@
+Repair : closure_118
+Current file:/data/PLM4APR/codex_out/valuable_patches_gpt35_real/closure_118/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_gpt35_real/closure_118/patch.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 430 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_118_buggy/src/com/google/javascript/jscomp/DisambiguateProperties.java
+SUCCESS
+//Following are generated patch:
+  private void handleObjectLit(  NodeTraversal t,  Node n){
+    for (Node child=n.getFirstChild(); child != null; child=child.getNext()) {
+if( child.isQuotedString()){
+continue;
+}
+      String name=child.getString();
+      T type=typeSystem.getType(getScope(),n,name);
+      Property prop=getProperty(name);
+      if (!prop.scheduleRenaming(child,processProperty(t,prop,type,null))) {
+        if (propertiesToErrorFor.containsKey(name)) {
+          compiler.report(JSError.make(t.getSourceName(),child,propertiesToErrorFor.get(name),Warnings.INVALIDATION,name,(type == null ? "null" : type.toString()),n.toString(),""));
+        }
+      }
+    }
+  }
+
+1 th patch/252
+Trace:
+PrefixExpr;PREFIXNOT;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;PrefixExpr;PREFIXNOT;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 14:13:56 HKT
+---------TIME : 
+2023.12.23 AD at 14:25:35 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_118_buggy/src/com/google/javascript/jscomp/DisambiguateProperties.java
+SUCCESS
+//Following are generated patch:
+  private void handleObjectLit(  NodeTraversal t,  Node n){
+    for (Node child=n.getFirstChild(); child != null; child=child.getNext()) {
+if( child.getBooleanProp(Node.QUOTED_PROP)){
+continue;
+}
+      String name=child.getString();
+      T type=typeSystem.getType(getScope(),n,name);
+      Property prop=getProperty(name);
+      if (!prop.scheduleRenaming(child,processProperty(t,prop,type,null))) {
+        if (propertiesToErrorFor.containsKey(name)) {
+          compiler.report(JSError.make(t.getSourceName(),child,propertiesToErrorFor.get(name),Warnings.INVALIDATION,name,(type == null ? "null" : type.toString()),n.toString(),""));
+        }
+      }
+    }
+  }
+
+2 th patch/432
+Trace:
+PrefixExpr;PREFIXNOT;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;PrefixExpr;PREFIXNOT;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 14:13:56 HKT
+---------TIME : 
+2023.12.23 AD at 14:31:28 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:433 patches
+Compile failed:180 patches
+Compilation rate:0.5842956120092379
+Finish : closure-118 > patch : 2 | Start : Sat Dec 23 14:13:56 HKT 2023 | End : 2023.12.23 AD at 14:31:30 HKT

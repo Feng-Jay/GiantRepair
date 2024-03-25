@@ -1,0 +1,139 @@
+Repair : closure_36
+Current file:/data/PLM4APR/codex_out/valuable_patches_starcoder_real/closure_36/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_starcoder_real/closure_36/patch.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_36_buggy/src/com/google/javascript/jscomp/InlineVariables.java
+SUCCESS
+//Following are generated patch:
+  private boolean canInline(  Reference declaration,  Reference initialization,  Reference reference){
+    if (!isValidDeclaration(declaration) || !isValidInitialization(initialization) || !isValidReference(reference)) {
+      return false;
+    }
+    if (declaration != initialization && !initialization.getGrandparent().isExprResult()) {
+      return false;
+    }
+    if (declaration.getBasicBlock() != initialization.getBasicBlock() || declaration.getBasicBlock() != reference.getBasicBlock()) {
+      return false;
+    }
+    Node value=initialization.getAssignedValue();
+    Preconditions.checkState(value != null);
+    if (value.isGetProp() && reference.getParent().isCall() && reference.getParent().getFirstChild() == reference.getNode()) {
+      return false;
+    }
+    if (value.isFunction()) {
+      Node callNode=reference.getParent();
+      if (reference.getParent().isCall()) {
+        CodingConvention convention=compiler.getCodingConvention();
+        SubclassRelationship relationship=convention.getClassesDefinedByCall(callNode);
+        if (relationship != null) {
+          return false;
+        }
+if(convention.getSingletonGetterClassName(callNode)!=null){
+return false;
+}
+      }
+    }
+    return canMoveAggressively(value) || canMoveModerately(initialization,reference);
+  }
+
+1 th patch/252
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 14:40:55 HKT
+---------TIME : 
+2023.12.23 AD at 14:44:34 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_36_buggy/src/com/google/javascript/jscomp/InlineVariables.java
+SUCCESS
+//Following are generated patch:
+  private boolean canInline(  Reference declaration,  Reference initialization,  Reference reference){
+    if (!isValidDeclaration(declaration) || !isValidInitialization(initialization) || !isValidReference(reference)) {
+      return false;
+    }
+    if (declaration != initialization && !initialization.getGrandparent().isExprResult()) {
+      return false;
+    }
+    if (declaration.getBasicBlock() != initialization.getBasicBlock() || declaration.getBasicBlock() != reference.getBasicBlock()) {
+      return false;
+    }
+    Node value=initialization.getAssignedValue();
+    Preconditions.checkState(value != null);
+    if (value.isGetProp() && reference.getParent().isCall() && reference.getParent().getFirstChild() == reference.getNode()) {
+      return false;
+    }
+    if (value.isFunction()) {
+      Node callNode=reference.getParent();
+      if (reference.getParent().isCall()) {
+        CodingConvention convention=compiler.getCodingConvention();
+        SubclassRelationship relationship=convention.getClassesDefinedByCall(callNode);
+        if (relationship != null) {
+          return false;
+        }
+if(convention.getSingletonGetterClassName(callNode.cloneTree())!=null){
+return false;
+}
+      }
+    }
+    return canMoveAggressively(value) || canMoveModerately(initialization,reference);
+  }
+
+2 th patch/502
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 14:40:55 HKT
+---------TIME : 
+2023.12.23 AD at 14:47:32 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_36_buggy/src/com/google/javascript/jscomp/InlineVariables.java
+SUCCESS
+//Following are generated patch:
+  private boolean canInline(  Reference declaration,  Reference initialization,  Reference reference){
+    if (!isValidDeclaration(declaration) || !isValidInitialization(initialization) || !isValidReference(reference)) {
+      return false;
+    }
+    if (declaration != initialization && !initialization.getGrandparent().isExprResult()) {
+      return false;
+    }
+    if (declaration.getBasicBlock() != initialization.getBasicBlock() || declaration.getBasicBlock() != reference.getBasicBlock()) {
+      return false;
+    }
+    Node value=initialization.getAssignedValue();
+    Preconditions.checkState(value != null);
+    if (value.isGetProp() && reference.getParent().isCall() && reference.getParent().getFirstChild() == reference.getNode()) {
+      return false;
+    }
+    if (value.isFunction()) {
+      Node callNode=reference.getParent();
+      if (reference.getParent().isCall()) {
+        CodingConvention convention=compiler.getCodingConvention();
+        SubclassRelationship relationship=convention.getClassesDefinedByCall(callNode);
+        if (relationship != null) {
+          return false;
+        }
+if(convention.getSingletonGetterClassName(callNode.getLastSibling())!=null){
+return false;
+}
+      }
+    }
+    return canMoveAggressively(value) || canMoveModerately(initialization,reference);
+  }
+
+3 th patch/1002
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 14:40:55 HKT
+---------TIME : 
+2023.12.23 AD at 14:51:03 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:1004 patches
+Compile failed:733 patches
+Compilation rate:0.2699203187250996
+Finish : closure-36 > patch : 3 | Start : Sat Dec 23 14:40:55 HKT 2023 | End : 2023.12.23 AD at 14:52:12 HKT

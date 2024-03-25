@@ -1,0 +1,367 @@
+Following diff 0:
+-while(start<end){
+-if(buffer[start]==''){
+-start++;
+-}
+-else{
+-break;
+-}
+-}
+-bytetrailer=buffer[end-1];
+-while(start<end&&(trailer==0||trailer=='')){
+-end--;
+-trailer=buffer[end-1];
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++while(start<end&&(buffer[start]==''||buffer[start]==0)){
++start++;
++}
++while(start<=end&&(buffer[end-1]==''||buffer[end-1]==0)){
++end--;
++}
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end==length){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end==trailer){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end==offset){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(BYTE_MASK==start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end==result){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end==BYTE_MASK){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(length==start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end==result){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end==length){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end==offset){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end==trailer){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(BYTE_MASK==start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(length==start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end==BYTE_MASK){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 5:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 9:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 9:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(end<start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 9:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 9:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++if(end<start){
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++}
+Following diff 14:
+-while(start<end){
+-if(buffer[start]==''){
+-start++;
+-}
+-else{
+-break;
+-}
+-}
+-bytetrailer=buffer[end-1];
+-while(start<end&&(trailer==0||trailer=='')){
+-end--;
+-trailer=buffer[end-1];
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
++while(start<end&&buffer[start]==''){
++start++;
++}
++while(end>=start&&(buffer[end-1]==0||buffer[end-1]=='')){
++end--;
++}
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+Following diff 14:
+-while(start<end){
+-if(buffer[start]==''){
+-start++;
+-}
+-else{
+-break;
+-}
+-}
+-bytetrailer=buffer[end-1];
+-while(start<end&&(trailer==0||trailer=='')){
+-end--;
+-trailer=buffer[end-1];
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++while(start<end&&buffer[start]==''){
++start++;
++}
++while(end>=start&&(buffer[end-1]==0||buffer[end-1]=='')){
++end--;
++}
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 15:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++return0L;
+Following diff 15:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 15:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 15:
+-if(buffer[start]==''){
+-start++;
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
++if(buffer[start]==''){
++start++;
++}
++return0L;
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+Following diff 15:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-finalbytecurrentByte=buffer[start];
++finalbytecurrentByte=buffer[start];
+Following diff 19:
+-while(start<end&&(trailer==0||trailer=='')){
+-end--;
+-trailer=buffer[end-1];
+-}
++while(end>=start&&(trailer==0||trailer=='')){
++end--;
++if(end>start){
++trailer=buffer[end-1];
++}
++}
+Following diff 19:
++while(end>=start&&(trailer==0||trailer=='')){
++end--;
++if(end>start){
++trailer=buffer[end-1];
++}
++}
+Following diff 28:
+-bytetrailer=buffer[end-1];
+-while(start<end&&(trailer==0||trailer=='')){
+-end--;
+-trailer=buffer[end-1];
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,currentByte));
++while(end>=start&&(buffer[end-1]==0||buffer[end-1]=='')){
++end--;
++}
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,buffer[start]));
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
++thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,i,currentByte));
+Following diff 32:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 32:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 32:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++Stringstr=newString(buffer,start,end-start).trim();
+Following diff 32:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++Stringstr=newString(buffer,start,end-start).trim();
+Following diff 32:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 32:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 36:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 36:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 36:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 36:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 38:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 38:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 38:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+-for(;start<end;start++){
+-finalbytecurrentByte=buffer[start];
++for(inti=start;i<end;i++){
++finalbytecurrentByte=buffer[i];
+Following diff 38:
+-while(start<end&&(trailer==0||trailer=='')){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++while(end>start&&(trailer==0||trailer=='')){
+Following diff 38:
+-while(start<end&&(trailer==0||trailer=='')){
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++while(end>start&&(trailer==0||trailer=='')){
+Following diff 38:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 40:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 40:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++return0L;
+Following diff 40:
+-if(buffer[start]==''){
+-start++;
+-}
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++if(buffer[start]==''){
++start++;
++}
++return0L;
+Following diff 40:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++return0L;
+Following diff 40:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++return0;
+Following diff 40:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 41:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
+Following diff 41:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+Following diff 41:
+-if(start==end){
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
+-}
++Stringtrimmed=newString(buffer,start,end-start).trim();
+Following diff 41:
+-thrownewIllegalArgumentException(exceptionMessage(buffer,offset,length,start,trailer));
++Stringtrimmed=newString(buffer,start,end-start).trim();

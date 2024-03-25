@@ -1,0 +1,335 @@
+Repair : lang_43
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/0.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 42 patches...
+Following are 2th generated patches:
+Validating 81 patches...
+Tested:142 patches
+Compile failed:119 patches
+Compilation rate:0.1619718309859155
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/2.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 21 patches...
+Following are 2th generated patches:
+Validating 76 patches...
+Tested:119 patches
+Compile failed:68 patches
+Compilation rate:0.42857142857142855
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/3.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 42 patches...
+Following are 2th generated patches:
+Validating 22 patches...
+Tested:74 patches
+Compile failed:74 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/4.java
+Following are 0th generated patches:
+Validating 57 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(appendTo!=null){
+pos.setIndex(pos.getIndex() + 1);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+1 th patch/310
+Trace:
+Blk;ExpressionStmt;MethodInv;MethodInvForVar(OTHER);IfStmt;Blk;ExpressionStmt;MethodInv;MethodInvForVar(OTHER)
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:41:34 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(appendTo!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+2 th patch/310
+Trace:
+Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:41:35 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(c!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+3 th patch/560
+Trace:
+InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:42:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(registry!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+4 th patch/560
+Trace:
+InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:42:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(toPattern!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+5 th patch/560
+Trace:
+InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:42:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(pattern!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+6 th patch/560
+Trace:
+InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:42:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+if(pos!=null){
+this.next(pos);
+}
+      return appendTo == null ? null : appendTo.append(QUOTE);
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+      if (escapingOn && pattern.substring(i).startsWith(ESCAPED_QUOTE)) {
+        appendTo.append(c,lastHold,pos.getIndex() - lastHold).append(QUOTE);
+        pos.setIndex(i + ESCAPED_QUOTE.length());
+        lastHold=pos.getIndex();
+        continue;
+      }
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+7 th patch/560
+Trace:
+InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD;IfStmt;InfixExpr;SName;Blk;ExpressionStmt;MethodInv;THISMETHOD
+START : 
+2023.12.09 AD at 14:39:40 HKT
+---------TIME : 
+2023.12.09 AD at 14:42:13 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 537 patches
+Compile failed 425 patches
+Compilation rate0.2085661080074488
+Patch number exceeds the limit!
+Tested 537 patches
+Compile failed 425 patches
+Compilation rate0.2085661080074488
+Tested:537 patches
+Compile failed:425 patches
+Compilation rate:0.2085661080074488
+Current file:/data/PLM4APR/codex_out/200_patches_codellama_all/lang_43/5.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : lang-43 > patch : 7 | Start : Sat Dec 09 14:39:40 HKT 2023 | End : 2023.12.09 AD at 14:42:14 HKT

@@ -1,0 +1,81 @@
+Repair : closure_5
+Current file:/data/PLM4APR/codex_out/valuable_patches_llama_real/closure_5/patch.java
+Patch Number: /data/PLM4APR/codex_out/valuable_patches_llama_real/closure_5/patch.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 696 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_5_buggy/src/com/google/javascript/jscomp/InlineObjectLiterals.java
+SUCCESS
+//Following are generated patch:
+  private boolean isInlinableObject(  List<Reference> refs){
+    boolean ret=false;
+    Set<String> validProperties=Sets.newHashSet();
+    for (    Reference ref : refs) {
+      Node name=ref.getNode();
+      Node parent=ref.getParent();
+      Node gramps=ref.getGrandparent();
+      if (parent.isGetProp()) {
+        Preconditions.checkState(parent.getFirstChild() == name);
+        if (gramps.isCall() && gramps.getFirstChild() == parent) {
+          return false;
+        }
+if(gramps.isDelProp()){
+return false;
+}
+        String propName=parent.getLastChild().getString();
+        if (!validProperties.contains(propName)) {
+          if (NodeUtil.isVarOrSimpleAssignLhs(parent,gramps)) {
+            validProperties.add(propName);
+          }
+ else {
+            return false;
+          }
+        }
+        continue;
+      }
+      if (!isVarOrAssignExprLhs(name)) {
+        return false;
+      }
+      Node val=ref.getAssignedValue();
+      if (val == null) {
+        continue;
+      }
+      if (!val.isObjectLit()) {
+        return false;
+      }
+      for (Node child=val.getFirstChild(); child != null; child=child.getNext()) {
+        if (child.isGetterDef() || child.isSetterDef()) {
+          return false;
+        }
+        validProperties.add(child.getString());
+        Node childVal=child.getFirstChild();
+        for (        Reference t : refs) {
+          Node refNode=t.getParent();
+          while (!NodeUtil.isStatementBlock(refNode)) {
+            if (refNode == childVal) {
+              return false;
+            }
+            refNode=refNode.getParent();
+          }
+        }
+      }
+      ret=true;
+    }
+    return ret;
+  }
+
+1 th patch/252
+Trace:
+MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2023.12.23 AD at 17:18:58 HKT
+---------TIME : 
+2023.12.23 AD at 17:27:20 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:700 patches
+Compile failed:192 patches
+Compilation rate:0.7257142857142858
+Finish : closure-5 > patch : 1 | Start : Sat Dec 23 17:18:58 HKT 2023 | End : 2023.12.23 AD at 17:35:06 HKT

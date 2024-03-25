@@ -1,0 +1,298 @@
+Repair : closure_161
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/0.java
+Following are 0th generated patches:
+Validating 32 patches...
+Following are 1th generated patches:
+Validating 54 patches...
+Following are 2th generated patches:
+Validating 69 patches...
+Following are 3th generated patches:
+Validating 515 patches...
+Tested:644 patches
+Compile failed:642 patches
+Compilation rate:0.003105590062111801
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/1.java
+Following are 0th generated patches:
+Validating 354 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 33 patches...
+Following are 3th generated patches:
+Validating 32 patches...
+Tested:103 patches
+Compile failed:61 patches
+Compilation rate:0.4077669902912621
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Tested:501 patches
+Compile failed:212 patches
+Compilation rate:0.5768463073852296
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/4.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 740 patches...
+Following are 2th generated patches:
+Validating 172 patches...
+Following are 3th generated patches:
+Validating 79 patches...
+Tested:997 patches
+Compile failed:867 patches
+Compilation rate:0.13039117352056168
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/5.java
+Following are 0th generated patches:
+Validating 4 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Following are 3th generated patches:
+Validating 500 patches...
+Tested:1005 patches
+Compile failed:1003 patches
+Compilation rate:0.001990049751243781
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/6.java
+Following are 0th generated patches:
+Validating 8 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:11 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/7.java
+Following are 0th generated patches:
+Validating 25 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Tested:3018 patches
+Compile failed:2859 patches
+Compilation rate:0.05268389662027833
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/8.java
+Following are 0th generated patches:
+Validating 2 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+if(this.isAssignmentTarget(n)){
+return n;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+1 th patch/505
+Trace:
+MethodInv;THISMETHOD;IfStmt;MethodInv;THISMETHOD
+START : 
+2023.12.08 AD at 13:56:46 HKT
+---------TIME : 
+2023.12.08 AD at 14:15:26 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+if(this.isAssignmentTarget(n)){
+return left;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+2 th patch/755
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.08 AD at 13:56:46 HKT
+---------TIME : 
+2023.12.08 AD at 14:18:21 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+if(this.isAssignmentTarget(n)){
+return right;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+3 th patch/1005
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.08 AD at 13:56:46 HKT
+---------TIME : 
+2023.12.08 AD at 14:21:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+if(this.isAssignmentTarget(n)){
+return parent;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+4 th patch/1005
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.08 AD at 13:56:46 HKT
+---------TIME : 
+2023.12.08 AD at 14:21:30 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 14 patches...
+Tested:1016 patches
+Compile failed:708 patches
+Compilation rate:0.3031496062992126
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder/closure_161/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder/closure_161/9.java

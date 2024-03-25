@@ -1,0 +1,30 @@
+Following diff 3:
++if(!(!this.isNativeObjectType())){
++return;
++}
+Following diff 18:
+-if(constraintObj.isRecordType()){
+-for(Stringprop:constraintObj.getOwnPropertyNames()){
+-JSTypepropType=constraintObj.getPropertyType(prop);
+-if(!isPropertyTypeDeclared(prop)){
+-JSTypetypeToInfer=propType;
+-if(!hasProperty(prop)){
+-typeToInfer=getNativeType(JSTypeNative.VOID_TYPE).getLeastSupertype(propType);
+-}
+-defineInferredProperty(prop,typeToInfer,null);
+-}
+-}
+-}
++if(this.isNativeObjectType()){
++return;
++}
++for(Stringprop:constraintObj.getOwnPropertyNames()){
++JSTypepropType=constraintObj.getPropertyType(prop);
++if(!isPropertyTypeDeclared(prop)){
++JSTypetypeToInfer=propType;
++if(!hasProperty(prop)){
++typeToInfer=getNativeType(JSTypeNative.VOID_TYPE).getLeastSupertype(propType);
++}
++defineInferredProperty(prop,typeToInfer,null);
++}
++}

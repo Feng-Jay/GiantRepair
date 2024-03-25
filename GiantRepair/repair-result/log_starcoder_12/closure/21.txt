@@ -1,0 +1,377 @@
+Repair : closure_21
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/0.java
+Following are 0th generated patches:
+Validating 15 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1015 patches
+Compile failed:956 patches
+Compilation rate:0.05812807881773399
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/1.java
+Following are 0th generated patches:
+Validating 75 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1075 patches
+Compile failed:1062 patches
+Compilation rate:0.012093023255813953
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/2.java
+Following are 0th generated patches:
+Validating 78 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(NodeTraversal t, Node n, Node parent) {
+    // VOID nodes appear when there are extra semicolons at the BLOCK level.
+    // I've been unable to think of any cases where this indicates a bug,
+    // and apparently some people like keeping these semicolons around,
+    // so we'll allow it.
+    if (n.isEmpty() ||
+        n.isComma()) {
+      return;
+    }
+
+    if (parent == null) {
+      return;
+    }
+
+    // Do not try to remove a block or an expr result. We already handle
+    // these cases when we visit the child, and the peephole passes will
+    // fix up the tree in more clever ways when these are removed.
+    if (n.isExprResult()) {
+      return;
+    }
+
+    // This no-op statement was there so that JSDoc information could
+    // be attached to the name. This check should not complain about it.
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+
+    boolean isResultUsed = NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp = NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+      if (n == parent.getLastChild()) {
+      }
+    } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if (
+        (isSimpleOp || !NodeUtil.mayHaveSideEffects(n, t.getCompiler()))) {
+      String msg = "This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg = "Is there a missing '+' on the previous line?";
+      } else if (isSimpleOp) {
+        msg = "The result of the '" + Token.name(n.getType()).toLowerCase() +
+            "' operator is not being used.";
+      }
+
+      t.getCompiler().report(
+          t.makeError(n, level, USELESS_CODE_ERROR, msg));
+      // TODO(johnlenz): determine if it is necessary to
+      // try to protect side-effect free statements as well.
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+1 th patch/81
+Trace:
+
+START : 
+2023.12.09 AD at 10:18:37 HKT
+---------TIME : 
+2023.12.09 AD at 10:27:04 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 496 patches...
+Tested:1074 patches
+Compile failed:1066 patches
+Compilation rate:0.0074487895716946
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/3.java
+Following are 0th generated patches:
+Validating 29 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:29 patches
+Compile failed:27 patches
+Compilation rate:0.06896551724137931
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/4.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1011 patches
+Compile failed:1010 patches
+Compilation rate:9.891196834817012E-4
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/5.java
+Following are 0th generated patches:
+Validating 500 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(NodeTraversal t, Node n, Node parent) {
+    // VOID nodes appear when there are extra semicolons at the BLOCK level.
+    // I've been unable to think of any cases where this indicates a bug,
+    // and apparently some people like keeping these semicolons around,
+    // so we'll allow it.
+    if (n.isEmpty() ||
+        n.isComma()) {
+      return;
+    }
+
+    if (parent == null) {
+      return;
+    }
+if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+
+    // Do not try to remove a block or an expr result. We already handle
+    // these cases when we visit the child, and the peephole passes will
+    // fix up the tree in more clever ways when these are removed.
+    if (n.isExprResult()) {
+      return;
+    }
+
+    // This no-op statement was there so that JSDoc information could
+    // be attached to the name. This check should not complain about it.
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+
+    boolean isResultUsed = NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp = NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+    } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if (
+        (isSimpleOp || !NodeUtil.mayHaveSideEffects(n, t.getCompiler()))) {
+      String msg = "This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg = "Is there a missing '+' on the previous line?";
+      } else if (isSimpleOp) {
+        msg = "The result of the '" + Token.name(n.getType()).toLowerCase() +
+            "' operator is not being used.";
+      }
+
+      t.getCompiler().report(
+          t.makeError(n, level, USELESS_CODE_ERROR, msg));
+      // TODO(johnlenz): determine if it is necessary to
+      // try to protect side-effect free statements as well.
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+2 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 10:18:37 HKT
+---------TIME : 
+2023.12.09 AD at 10:33:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(NodeTraversal t, Node n, Node parent) {
+    // VOID nodes appear when there are extra semicolons at the BLOCK level.
+    // I've been unable to think of any cases where this indicates a bug,
+    // and apparently some people like keeping these semicolons around,
+    // so we'll allow it.
+    if (n.isEmpty() ||
+        n.isComma()) {
+      return;
+    }
+
+    if (parent == null) {
+      return;
+    }
+if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+
+    // Do not try to remove a block or an expr result. We already handle
+    // these cases when we visit the child, and the peephole passes will
+    // fix up the tree in more clever ways when these are removed.
+    if (n.isExprResult()) {
+      return;
+    }
+
+    // This no-op statement was there so that JSDoc information could
+    // be attached to the name. This check should not complain about it.
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+
+    boolean isResultUsed = NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp = NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+      if (n == parent.getLastChild()) {
+      }
+    } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if (
+        (isSimpleOp || !NodeUtil.mayHaveSideEffects(n, t.getCompiler()))) {
+      String msg = "This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg = "Is there a missing '+' on the previous line?";
+      } else if (isSimpleOp) {
+        msg = "The result of the '" + Token.name(n.getType()).toLowerCase() +
+            "' operator is not being used.";
+      }
+
+      t.getCompiler().report(
+          t.makeError(n, level, USELESS_CODE_ERROR, msg));
+      // TODO(johnlenz): determine if it is necessary to
+      // try to protect side-effect free statements as well.
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+3 th patch/253
+Trace:
+
+START : 
+2023.12.09 AD at 10:18:37 HKT
+---------TIME : 
+2023.12.09 AD at 10:33:13 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(NodeTraversal t, Node n, Node parent) {
+    // VOID nodes appear when there are extra semicolons at the BLOCK level.
+    // I've been unable to think of any cases where this indicates a bug,
+    // and apparently some people like keeping these semicolons around,
+    // so we'll allow it.
+    if (n.isEmpty() ||
+        n.isComma()) {
+      return;
+    }
+
+    if (parent == null) {
+      return;
+    }
+
+    // Do not try to remove a block or an expr result. We already handle
+    // these cases when we visit the child, and the peephole passes will
+    // fix up the tree in more clever ways when these are removed.
+    if (n.isExprResult()) {
+      return;
+    }
+
+    // This no-op statement was there so that JSDoc information could
+    // be attached to the name. This check should not complain about it.
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+
+    boolean isResultUsed = NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp = NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+      if (n == parent.getLastChild()) {
+      }
+    } else if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (! (parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if (
+        (isSimpleOp || !NodeUtil.mayHaveSideEffects(n, t.getCompiler()))) {
+      String msg = "This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+      } else if (isSimpleOp) {
+        msg = "The result of the '" + Token.name(n.getType()).toLowerCase() +
+            "' operator is not being used.";
+      }
+
+      t.getCompiler().report(
+          t.makeError(n, level, USELESS_CODE_ERROR, msg));
+      // TODO(johnlenz): determine if it is necessary to
+      // try to protect side-effect free statements as well.
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+4 th patch/503
+Trace:
+
+START : 
+2023.12.09 AD at 10:18:37 HKT
+---------TIME : 
+2023.12.09 AD at 10:36:04 HKT
+--------------- END -----------------
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:501 patches
+Compile failed:244 patches
+Compilation rate:0.5129740518962076
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/6.java
+Following are 0th generated patches:
+Validating 65 patches...
+Following are 1th generated patches:
+Validating 0 patches...
+Following are 2th generated patches:
+Validating 0 patches...
+Tested:65 patches
+Compile failed:61 patches
+Compilation rate:0.06153846153846154
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/7.java
+Following are 0th generated patches:
+Validating 108 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Tested:1108 patches
+Compile failed:1101 patches
+Compilation rate:0.00631768953068592
+Finish : closure-21 > patch : 4 | Start : Sat Dec 09 10:18:37 HKT 2023 | End : 2023.12.09 AD at 10:37:27 HKT

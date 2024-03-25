@@ -1,0 +1,693 @@
+Repair : closure_161
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/0.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Following are 3th generated patches:
+Validating 501 patches...
+Tested:1004 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/1.java
+Following are 0th generated patches:
+Validating 14 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 502 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2514 patches
+Compile failed:2241 patches
+Compilation rate:0.10859188544152745
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 500 patches...
+Tested:501 patches
+Compile failed:212 patches
+Compilation rate:0.5768463073852296
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/3.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+Following are 2th generated patches:
+Validating 503 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:3015 patches
+Compile failed:2443 patches
+Compilation rate:0.18971807628524046
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/4.java
+Following are 0th generated patches:
+Validating 85 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+Following are 2th generated patches:
+Validating 503 patches...
+Following are 3th generated patches:
+Validating 503 patches...
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:1591 patches
+Compile failed:1539 patches
+Compilation rate:0.03268384663733501
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(right.getType()!=Token.NUMBER|| NodeUtil.isLValue(n)){
+return n;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+1 th patch/254
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 05:00:04 HKT
+--------------- END -----------------
+Tested:503 patches
+Compile failed:44 patches
+Compilation rate:0.9125248508946322
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/6.java
+Following are 0th generated patches:
+Validating 9 patches...
+Following are 1th generated patches:
+Validating 29 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 30 patches...
+Following are 4th generated patches:
+Validating 30 patches...
+Tested:99 patches
+Compile failed:60 patches
+Compilation rate:0.3939393939393939
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/7.java
+Following are 0th generated patches:
+Validating 57 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 504 patches...
+Following are 4th generated patches:
+Validating 501 patches...
+Tested:2555 patches
+Compile failed:2503 patches
+Compilation rate:0.020352250489236792
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/8.java
+Following are 0th generated patches:
+Validating 18 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 2 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2019 patches
+Compile failed:1815 patches
+Compilation rate:0.10104011887072809
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/9.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 502 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:2522 patches
+Compile failed:1804 patches
+Compilation rate:0.2846946867565424
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/10.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 343 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(right.getType()!=Token.NUMBER||this.isAssignmentTarget(n)){
+return n;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+2 th patch/254
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 05:35:34 HKT
+--------------- END -----------------
+Tested:344 patches
+Compile failed:88 patches
+Compilation rate:0.7441860465116279
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/11.java
+Following are 0th generated patches:
+Validating 21 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1 patches...
+Following are 4th generated patches:
+Validating 14 patches...
+Tested:2036 patches
+Compile failed:1765 patches
+Compilation rate:0.13310412573673872
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/12.java
+Following are 0th generated patches:
+Validating 46 patches...
+Following are 1th generated patches:
+Validating 507 patches...
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 502 patches...
+Following are 4th generated patches:
+Validating 503 patches...
+Tested:2552 patches
+Compile failed:1728 patches
+Compilation rate:0.322884012539185
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/13.java
+Following are 0th generated patches:
+Validating 7 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 1 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+Following are 4th generated patches:
+Validating 1000 patches...
+Tested:3007 patches
+Compile failed:2466 patches
+Compilation rate:0.17991353508480212
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/14.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+Following are 2th generated patches:
+Validating 500 patches...
+Following are 3th generated patches:
+Validating 500 patches...
+Tested:2002 patches
+Compile failed:518 patches
+Compilation rate:0.7412587412587412
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35/closure_161/15.java
+Following are 0th generated patches:
+Validating 11 patches...
+Following are 1th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return n;
+}
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+3 th patch/264
+Trace:
+MethodInv;THISMETHOD;IfStmt;MethodInv;THISMETHOD
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 06:40:46 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return parent;
+}
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+4 th patch/764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 06:47:03 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return left;
+}
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+5 th patch/764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 06:47:03 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return right;
+}
+    if (right.getType() != Token.NUMBER) {
+      return n;
+    }
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+6 th patch/764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 06:47:03 HKT
+--------------- END -----------------
+Following are 2th generated patches:
+Validating 1000 patches...
+Following are 3th generated patches:
+Validating 1000 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return n;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+7 th patch/2264
+Trace:
+MethodInv;THISMETHOD;IfStmt;MethodInv;THISMETHOD
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 07:01:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return parent;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+8 th patch/2764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 07:08:08 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return right;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+9 th patch/2764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 07:08:08 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_161_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldArrayAccess(  Node n,  Node left,  Node right){
+    Node parent=n.getParent();
+if(this.isAssignmentTarget(n)){
+return left;
+}
+    double index=right.getDouble();
+    int intIndex=(int)index;
+    if (intIndex != index) {
+      error(INVALID_GETELEM_INDEX_ERROR,right);
+      return n;
+    }
+    if (intIndex < 0) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    Node elem=left.getFirstChild();
+    for (int i=0; elem != null && i < intIndex; i++) {
+      elem=elem.getNext();
+    }
+    if (elem == null) {
+      error(INDEX_OUT_OF_BOUNDS_ERROR,right);
+      return n;
+    }
+    if (elem.getType() == Token.EMPTY) {
+      elem=NodeUtil.newUndefinedNode(elem);
+    }
+ else {
+      left.removeChild(elem);
+    }
+    n.getParent().replaceChild(n,elem);
+    reportCodeChange();
+    return elem;
+  }
+
+10 th patch/2764
+Trace:
+MethodInv;THISMETHOD;Blk;ReturnStmt;SName;IfStmt;MethodInv;THISMETHOD;Blk;ReturnStmt;SName
+START : 
+2023.12.07 AD at 04:18:12 HKT
+---------TIME : 
+2023.12.07 AD at 07:08:08 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 2760 patches
+Compile failed 1979 patches
+Compilation rate0.28297101449275364
+Patch number exceeds the limit!
+Tested 2760 patches
+Compile failed 1979 patches
+Compilation rate0.28297101449275364
+Tested:2760 patches
+Compile failed:1979 patches
+Compilation rate:0.28297101449275364
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35/closure_161/16.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : closure-161 > patch : 10 | Start : Thu Dec 07 04:18:12 HKT 2023 | End : 2023.12.07 AD at 07:08:09 HKT

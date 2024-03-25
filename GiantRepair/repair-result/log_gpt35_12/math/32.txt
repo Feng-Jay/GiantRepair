@@ -1,0 +1,615 @@
+Repair : math_32
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/1.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:9 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/2.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:5 patches
+Compile failed:1 patches
+Compilation rate:0.8
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/3.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute().equals(true)){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+1 th patch/4
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 18:56:17 HKT
+--------------- END -----------------
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute().equals(true)){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+2 th patch/5
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 18:56:57 HKT
+--------------- END -----------------
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/4.java
+Following are 0th generated patches:
+Validating 9 patches...
+Following are 1th generated patches:
+Validating 80 patches...
+Following are 2th generated patches:
+Validating 81 patches...
+Tested:165 patches
+Compile failed:130 patches
+Compilation rate:0.21212121212121213
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/5.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 12 patches...
+Tested:13 patches
+Compile failed:8 patches
+Compilation rate:0.38461538461538464
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/6.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:2 patches
+Compilation rate:0.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/7.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 4 patches...
+Following are 2th generated patches:
+Validating 3 patches...
+Tested:9 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/8.java
+Following are 0th generated patches:
+Validating 17 patches...
+Following are 1th generated patches:
+Validating 80 patches...
+Following are 2th generated patches:
+Validating 4 patches...
+Tested:100 patches
+Compile failed:58 patches
+Compilation rate:0.42
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/9.java
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+3 th patch/4
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 18:58:44 HKT
+--------------- END -----------------
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+4 th patch/5
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 18:59:23 HKT
+--------------- END -----------------
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/10.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 5 patches...
+Tested:6 patches
+Compile failed:1 patches
+Compilation rate:0.8333333333333334
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/11.java
+Following are 0th generated patches:
+Validating 1 patches...
+Following are 1th generated patches:
+Validating 3 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/12.java
+Following are 0th generated patches:
+Validating 3 patches...
+Following are 1th generated patches:
+Validating 1 patches...
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:9 patches
+Compile failed:4 patches
+Compilation rate:0.5555555555555556
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/13.java
+Following are 0th generated patches:
+Validating 61 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+5 th patch/64
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 19:01:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+6 th patch/64
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 19:01:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else     if (v[0][0] == null) {
+      setSize(Double.POSITIVE_INFINITY);
+      setBarycenter(Vector2D.NaN);
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+7 th patch/64
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 19:01:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_32_buggy/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/PolygonsSet.java
+SUCCESS
+//Following are generated patch:
+  protected void computeGeometricalProperties(){
+    final Vector2D[][] v=getVertices();
+    if (v.length == 0) {
+      final BSPTree<Euclidean2D> tree=getTree(false);
+if(tree.getAttribute() instanceof Boolean&&(Boolean)tree.getAttribute()){
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(0);
+        setBarycenter(new Vector2D(0,0));
+      }
+    }
+ else {
+      double sum=0;
+      double sumX=0;
+      double sumY=0;
+      for (      Vector2D[] loop : v) {
+        double x1=loop[loop.length - 1].getX();
+        double y1=loop[loop.length - 1].getY();
+        for (        final Vector2D point : loop) {
+          final double x0=x1;
+          final double y0=y1;
+          x1=point.getX();
+          y1=point.getY();
+          final double factor=x0 * y1 - y0 * x1;
+          sum+=factor;
+          sumX+=factor * (x0 + x1);
+          sumY+=factor * (y0 + y1);
+        }
+      }
+      if (sum < 0) {
+        setSize(Double.POSITIVE_INFINITY);
+        setBarycenter(Vector2D.NaN);
+      }
+ else {
+        setSize(sum / 2);
+        setBarycenter(new Vector2D(sumX / (3 * sum),sumY / (3 * sum)));
+      }
+    }
+  }
+
+8 th patch/64
+Trace:
+
+START : 
+2023.12.08 AD at 18:55:20 HKT
+---------TIME : 
+2023.12.08 AD at 19:01:43 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 61 patches
+Compile failed 28 patches
+Compilation rate0.5409836065573771
+Patch number exceeds the limit!
+Tested 61 patches
+Compile failed 28 patches
+Compilation rate0.5409836065573771
+Tested:61 patches
+Compile failed:28 patches
+Compilation rate:0.5409836065573771
+Current file:/data/PLM4APR/codex_out/200_patches_gpt35_all/math_32/14.java
+Patch number exceeds the limit!
+Tested 0 patches
+Compile failed 0 patches
+Compilation rateNaN
+Finish : math-32 > patch : 8 | Start : Fri Dec 08 18:55:20 HKT 2023 | End : 2023.12.08 AD at 19:01:44 HKT

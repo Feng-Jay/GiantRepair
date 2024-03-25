@@ -1,0 +1,22 @@
+Following diff 5:
+-if(!flags.translationsFile.isEmpty()){
+-try{
+-options.messageBundle=newXtbMessageBundle(
+-newFileInputStream(flags.translationsFile),
+-flags.translationsProject);
+-}catch(IOExceptione){
+-thrownewRuntimeException("ReadingXTBfile",e);
+-}
+-}elseif(CompilationLevel.ADVANCED_OPTIMIZATIONS==level){
+-//InSIMPLEorWHITESPACEmode,iftheuserhasn'tspecifieda
+-//translationsfile,theymightreasonablytrytowritetheirown
+-//implementationofgoog.getMsgthatmakesthesubstitutionat
+-//run-time.
+-//
+-//InADVANCEDmode,goog.getMsgisgoingtoberenamedanyway,
+-//sowemightaswellinlineit.Butshutoffthei18nwarnings,
+-//becausetheuserdidn'treallyaskfori18n.
+-options.messageBundle=newEmptyMessageBundle();
+-}
+Following diff 41:
+-options.messageBundle=newEmptyMessageBundle();
