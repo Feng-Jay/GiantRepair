@@ -1,0 +1,11 @@
+--- 
++++ 
+@@ -10,6 +10,7 @@
+     _inputBuffer = inputBuffer;
+     _inputPtr = start;
+     _inputEnd = end;
+-    // If we have offset, need to omit that from byte offset, so:
++    _currInputRowStart = start; // added to fix issue with line numbers
++    _currInputProcessed = -start; // added to fix issue with byte offset
+     _bufferRecyclable = bufferRecyclable;
+ }

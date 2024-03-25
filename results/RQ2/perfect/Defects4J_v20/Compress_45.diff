@@ -1,0 +1,29 @@
+--- 
++++ 
+@@ -2,7 +2,7 @@
+     final long value, final byte[] buf, final int offset, final int length) {
+ 
+     // Check whether we are dealing with UID/GID or SIZE field
+-    final long maxAsOctalChar = length == TarConstants.UIDLEN ? TarConstants.MAXID : TarConstants.MAXSIZE;
++    final long maxAsOctalChar = length == TarConstants.UIDLEN? TarConstants.MAXID : TarConstants.MAXSIZE;
+ 
+     final boolean negative = value < 0;
+     if (!negative && value <= maxAsOctalChar) { // OK to store as octal chars
+@@ -12,8 +12,15 @@
+     if (length < 9) {
+         formatLongBinary(value, buf, offset, length, negative);
+     }
+-    formatBigIntegerBinary(value, buf, offset, length, negative);
++    else {
++        formatBigIntegerBinary(value, buf, offset, length, negative);
++    }
+ 
+-    buf[offset] = (byte) (negative ? 0xff : 0x80);
++    if (negative) {
++        buf[offset] = (byte) 0xff;
++    }
++    else {
++        buf[offset] = (byte) 0x80;
++    }
+     return offset + length;
+ }

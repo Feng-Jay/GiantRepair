@@ -1,0 +1,28 @@
+--- 
++++ 
+@@ -33,7 +33,11 @@
+         return null;
+     }
+     
+-        // minus signs should be leading, invalid expression
++    // minus signs should be leading, invalid expression
++    if (num.intValue() < 0) {
++        pos.setIndex(initialIndex);
++        return null;
++    }
+ 
+     // parse '/'
+     int startIndex = pos.getIndex();
+@@ -68,7 +72,11 @@
+         return null;
+     }
+     
+-        // minus signs must be leading, invalid
++    // minus signs must be leading, invalid
++    if (den.intValue() < 0) {
++        pos.setIndex(initialIndex);
++        return null;
++    }
+ 
+     int w = whole.intValue();
+     int n = num.intValue();

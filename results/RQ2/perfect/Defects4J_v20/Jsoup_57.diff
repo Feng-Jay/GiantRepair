@@ -1,0 +1,10 @@
+--- 
++++ 
+@@ -5,6 +5,6 @@
+     for (Iterator<String> it = attributes.keySet().iterator(); it.hasNext(); ) {
+         String attrKey = it.next();
+         if (attrKey.equalsIgnoreCase(key))
+-            attributes.remove(attrKey);
++            it.remove();
+     }
+ }

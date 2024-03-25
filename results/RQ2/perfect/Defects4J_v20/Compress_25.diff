@@ -1,0 +1,8 @@
+--- 
++++ 
+@@ -8,4 +8,5 @@
+     this.allowStoredEntriesWithDataDescriptor =
+         allowStoredEntriesWithDataDescriptor;
+     // haven't read anything so far
++    buf.limit(0);
+ }

@@ -1,0 +1,26 @@
+--- 
++++ 
+@@ -12,7 +12,7 @@
+         if (num != null) {
+             try {
+                 int base = m.group(2) != null ? 16 : 10; // 2 is hex indicator
+-                charval = Integer.valueOf(num, base);
++                charval = Integer.parseInt(num, base);
+             } catch (NumberFormatException e) {
+             } // skip
+         } else {
+@@ -21,11 +21,11 @@
+                 charval = full.get(name);
+         }
+ 
+-        if (charval != -1 || charval > 0xFFFF) { // out of range
++        if (charval != -1 && charval <= 0xFFFF) { // check if within range
+             String c = Character.toString((char) charval);
+-            m.appendReplacement(accum, c);
++            m.appendReplacement(accum, Matcher.quoteReplacement(c)); // escape replacement string
+         } else {
+-            m.appendReplacement(accum, m.group(0));
++            m.appendReplacement(accum, Matcher.quoteReplacement(m.group(0))); // escape replacement string
+         }
+     }
+     m.appendTail(accum);

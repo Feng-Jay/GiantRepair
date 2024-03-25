@@ -1,0 +1,41 @@
+--- 
++++ 
+@@ -14,17 +14,15 @@
+          *    revisited if this causes problems.
+          */
+         if (serializationType == null) {
+-              serializationType = TypeFactory.type(am.getGenericType(), _beanDesc.getType());
+-            serializationType = declaredType;
++            serializationType = TypeFactory.type(am.getGenericType(), _beanDesc.getType());
+         }
++        serializationType = serializationType.withContentTypeHandler(contentTypeSer);
++        // Not exactly sure why, but this used to occur; better check explicitly:
+         JavaType ct = serializationType.getContentType();
+-        // Not exactly sure why, but this used to occur; better check explicitly:
+         if (ct == null) {
+             throw new IllegalStateException("Problem trying to create BeanPropertyWriter for property '"
+                     +propDef.getName()+"' (of type "+_beanDesc.getType()+"); serialization type "+serializationType+" has no content");
+         }
+-        serializationType = serializationType.withContentTypeHandler(contentTypeSer);
+-        ct = serializationType.getContentType();
+     }
+     
+     Object valueToSuppress = null;
+@@ -64,7 +62,7 @@
+         // always suppress nulls
+         suppressNulls = true;
+         // and for referential types, also "empty", which in their case means "absent"
+-        if (declaredType.isReferenceType()) {
++        if (actualType.isReferenceType()) {
+             valueToSuppress = BeanPropertyWriter.MARKER_FOR_EMPTY;
+         }
+         break;
+@@ -80,7 +78,7 @@
+     case ALWAYS: // default
+     default:
+         // we may still want to suppress empty collections, as per [JACKSON-254]:
+-        if (declaredType.isContainerType()
++        if (actualType.isContainerType()
+                 && !_config.isEnabled(SerializationFeature.WRITE_EMPTY_JSON_ARRAYS)) {
+             valueToSuppress = BeanPropertyWriter.MARKER_FOR_EMPTY;
+         }

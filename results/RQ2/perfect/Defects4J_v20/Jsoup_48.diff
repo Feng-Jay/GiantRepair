@@ -1,0 +1,21 @@
+--- 
++++ 
+@@ -18,8 +18,17 @@
+                     cookie(cookieName, cookieVal);
+             }
+         } else { // combine same header names with comma: http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+-            if (!values.isEmpty())
++            if (values.size() > 1) {
++                StringBuilder sb = new StringBuilder();
++                for (String value : values) {
++                    if (sb.length() > 0)
++                        sb.append(", ");
++                    sb.append(value);
++                }
++                header(name, sb.toString());
++            } else if (values.size() == 1) {
+                 header(name, values.get(0));
++            }
+         }
+     }
+ }

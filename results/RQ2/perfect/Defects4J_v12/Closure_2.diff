@@ -1,0 +1,20 @@
+--- 
++++ 
+@@ -4,12 +4,14 @@
+     ObjectType interfaceType) {
+   ObjectType implicitProto = interfaceType.getImplicitPrototype();
+   Set<String> currentPropertyNames;
+-    // This can be the case if interfaceType is proxy to a non-existent
+-    // object (which is a bad type annotation, but shouldn't crash).
++  if (implicitProto!= null) {
+     currentPropertyNames = implicitProto.getOwnPropertyNames();
++  } else {
++    currentPropertyNames = ImmutableSet.of();
++  }
+   for (String name : currentPropertyNames) {
+     ObjectType oType = properties.get(name);
+-    if (oType != null) {
++    if (oType!= null) {
+       if (!interfaceType.getPropertyType(name).isEquivalentTo(
+           oType.getPropertyType(name))) {
+         compiler.report(

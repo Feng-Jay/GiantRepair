@@ -1,0 +1,26 @@
+--- 
++++ 
+@@ -14,7 +14,7 @@
+              * that will mask this mixIn)? If so, add if visible
+              * without masking (no such annotation)
+              */
+-            if (am != null) {
++            if (am!= null) {
+                 _addMixUnders(m, am);
+                 /* Otherwise will have precedence, but must wait
+                  * until we find the real method (mixIn methods are
+@@ -22,7 +22,14 @@
+                  */
+             } else {
+                 // Well, or, as per [Issue#515], multi-level merge within mixins...
++                AnnotatedMethod am2 = mixIns.find(m);
++                if (am2!= null) {
++                    // [Issue#515]: If we already have it, then we may need to merge.
++                    _addMixUnders(m, am2);
++                } else {
++                    // Not yet; just add
+                     mixIns.add(_constructMethod(m));
++                }
+             }
+         }
+     }

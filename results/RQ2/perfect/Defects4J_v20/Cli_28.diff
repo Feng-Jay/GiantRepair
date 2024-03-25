@@ -1,0 +1,19 @@
+--- 
++++ 
+@@ -30,13 +30,13 @@
+                     }
+                 }
+             }
+-            else if (!("yes".equalsIgnoreCase(value)
++            else if (value != null && !value.isEmpty() && !("yes".equalsIgnoreCase(value)
+                     || "true".equalsIgnoreCase(value)
+                     || "1".equalsIgnoreCase(value)))
+             {
+-                // if the value is not yes, true or 1 then don't add the
++                // if the value is not empty and not yes, true or 1 then don't add the
+                 // option to the CommandLine
+-                break;
++                continue;
+             }
+ 
+             cmd.addOption(opt);

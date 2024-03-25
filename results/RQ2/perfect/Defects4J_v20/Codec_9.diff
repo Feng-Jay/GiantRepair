@@ -1,0 +1,16 @@
+--- 
++++ 
+@@ -3,11 +3,11 @@
+         return binaryData;
+     }
+ 
+-    long len = getEncodeLength(binaryData, MIME_CHUNK_SIZE, CHUNK_SEPARATOR);
++    long len = getEncodeLength(binaryData, isChunked ? MIME_CHUNK_SIZE : 0, CHUNK_SEPARATOR);
+     if (len > maxResultSize) {
+         throw new IllegalArgumentException("Input array too big, the output array would be bigger (" +
+             len +
+-            ") than the specified maxium size of " +
++            ") than the specified maximum size of " +
+             maxResultSize);
+     }
+             
