@@ -1,9 +1,3 @@
-/**
- * Copyright (C) SEI, PKU, PRC. - All Rights Reserved.
- * Unauthorized copying of this file via any medium is
- * strictly prohibited Proprietary and Confidential.
- */
-
 package mfix;
 
 import mfix.common.conf.Constant;

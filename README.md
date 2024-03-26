@@ -17,7 +17,7 @@ Automated Program Repair (APR) has garnered significant attention due to its pot
 
 ## II. Project Structure
 
-```bash
+```txt
 ├── GiantRepair: GiantRepair's Java implementation
 ├── LLM_Inference: Code to apply LLMs to APR task
 │   ├── Models
