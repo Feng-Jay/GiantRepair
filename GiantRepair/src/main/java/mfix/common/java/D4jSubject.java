@@ -9,7 +9,6 @@ import mfix.common.util.JavaFile;
 import mfix.common.util.LevelLogger;
 import mfix.common.util.Utils;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class D4jSubject extends Subject {
@@ -26,7 +25,6 @@ public class D4jSubject extends Subject {
         super(Utils.join(Constant.SEP, base, name, name + "_" + id + "_buggy"), name);
         _type = NAME;
         _id = id;
-        setClasspath(obtainClasspath(name));
         setSourceLevel(name.equals("chart") ? SOURCE_LEVEL.L_1_8 : SOURCE_LEVEL.L_1_8);
         setCompileFile(!memCompile);
         setCompileProject(memCompile);
@@ -85,63 +83,5 @@ public class D4jSubject extends Subject {
         return "[_name=" + _name + ", " + ", _id=" + _id + ", _ssrc=" + _ssrc
                 + ", _tsrc=" + _tsrc + ", _sbin=" + _sbin
                 + ", _tbin=" + _tbin + "]";
-    }
-
-    private static List<String> obtainClasspath(final String projName) {
-        List<String> classpath = new LinkedList<String>();
-        switch (projName) {
-            case "math":
-                classpath.add(Constant.D4J_LIB_DIR + "/hamcrest-core-1.3.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                break;
-            case "chart":
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/iText-2.1.4.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/servlet.jar");
-                break;
-            case "lang":
-                classpath.add(Constant.D4J_LIB_DIR + "/cglib-nodep-2.2.2.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/commons-io-2.4.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/easymock-3.1.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/hamcrest-core-1.3.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/objenesis-1.2.jar");
-                break;
-            case "closure":
-                classpath.add(Constant.D4J_LIB_DIR + "/caja-r4314.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/jarjar.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/ant.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/ant-launcher.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/args4j.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/jsr305.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/guava.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/json.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/protobuf-java.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/rhino.jar");
-                break;
-            case "time":
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/joda-convert-1.2.jar");
-                break;
-            case "mockito":
-                classpath.add(Constant.D4J_LIB_DIR + "/junit-4.11.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/asm-all-5.0.4.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/assertj-core-2.1.0.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/cglib-and-asm-1.0.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/cobertura-2.0.3.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/fest-assert-1.3.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/fest-util-1.1.4.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/hamcrest-all-1.3.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/hamcrest-core-1.1.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/objenesis-2.1.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/objenesis-2.2.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/powermock-reflect-1.2.5.jar");
-                classpath.add(Constant.D4J_LIB_DIR + "/.jar");
-                break;
-            default:
-                System.err.println("UNKNOWN project name : " + projName);
-        }
-        return classpath;
     }
 }

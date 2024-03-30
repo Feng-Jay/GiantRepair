@@ -260,17 +260,17 @@ public abstract class Node implements NodeComparator, Serializable {
      * @param nodes: nodes to get their data dependency
      * @return all data dependency nodes
      */
-    public Set<Node> recursivelyGetDataDependency(Set<Node> nodes) {
-        if (_datadependency != null) {
-            nodes.add(_datadependency);
-        }
-        if (Constant.EXPAND_PATTERN) {
-            for (Node node : getAllChildren()) {
-                node.recursivelyGetDataDependency(nodes);
-            }
-        }
-        return nodes;
-    }
+//    public Set<Node> recursivelyGetDataDependency(Set<Node> nodes) {
+//        if (_datadependency != null) {
+//            nodes.add(_datadependency);
+//        }
+//        if (Constant.EXPAND_PATTERN) {
+//            for (Node node : getAllChildren()) {
+//                node.recursivelyGetDataDependency(nodes);
+//            }
+//        }
+//        return nodes;
+//    }
 
     /**
      * set control dependency of node

@@ -37,25 +37,41 @@ Automated Program Repair (APR) has garnered significant attention due to its pot
     └── single_function_repair.json
 ```
 
-
-
 ## III. Environment
 
 ### GiantRepair
 
 * OS: Linux (Tested on Ubuntu 20.04.6 LTS)
 * OpenJDK 1.8.0_382 and OpenJDK 11.0.20.1
-* Download and configure Defects4J.
+* Download and configure Defects4J and ExpressAPR.
 * More runtime configurations can be found in the config-file.
 
 ### LLM
 
-* Python==3.9
+* Python==3.9da
 * transformers==4.33.3 
 
 ## III. How to Run
 
-To be done...
+### Prepare
+
+1. Defects4J Setting
+
+```bash
+defects4j checkout -p Chart -v 1b -w ${buggy_program_path}/chart/chart_1_buggy
+```
+
+2. ExpressAPR Setting, shown in [Link](https://github.com/ExpressAPR/ExpressAPR)
+
+2. Modify GiantRepair's setting in [configfile](https://github.com/GiantRepair/ICSE25_GiantRepair/blob/master/GiantRepair/resources/conf/configure.properties)
+
+then 
+
+```bash
+java -jar GiantRepair repair -d4j {bugid} -d4jhome {buggy_program_path} -modelname {modelName}
+```
+
+bugid should be like `proj_idnum` all in **lowercase**.
 
 ## IV. Discussion Result
 

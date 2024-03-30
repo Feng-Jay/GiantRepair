@@ -60,42 +60,7 @@ public class NodeMatcher implements Callable<List<List<List<MyActions>>>> {
     public List<List<List<MyActions>>> call() {
         _timer.start();
         List<List<List<MyActions>>> fixPositions;
-        _level = Constant.PATTERN_MATCH_LEVEL;
-        switch(Constant.PATTERN_MATCH_LEVEL) {
-            case AST:
-                fixPositions = tryMatch(_bNode, _pNode, _buggyLines, MatchLevel.AST);
-                break;
-            case ALL:
-                fixPositions = tryMatch(_bNode, _pNode, _buggyLines);
-                break;
-            case TYPE:
-                fixPositions = tryMatch(_bNode, _pNode, _buggyLines);
-                _level = MatchLevel.ALL;
-                if (fixPositions.isEmpty()) {
-                    fixPositions = tryMatch(_bNode, _pNode, _buggyLines, MatchLevel.TYPE);
-                    _level = MatchLevel.TYPE;
-                }
-                break;
-            case NAME:
-                fixPositions = tryMatch(_bNode, _pNode, _buggyLines);
-                _level = MatchLevel.ALL;
-                if (fixPositions.isEmpty()) {
-                    fixPositions = tryMatch(_bNode, _pNode, _buggyLines, MatchLevel.NAME);
-                    _level = MatchLevel.NAME;
-                }
-                break;
-            default:
-                fixPositions = tryMatch(_bNode, _pNode, _buggyLines);
-//                _level = MatchLevel.ALL;
-//                if (fixPositions.isEmpty()) {
-//                    _level = MatchLevel.TYPE;
-//                    fixPositions = tryMatch(_bNode, _pNode, _buggyLines, MatchLevel.TYPE);
-//                    if (fixPositions.isEmpty()) {
-//                        _level = MatchLevel.FUZZY;
-//                        fixPositions = tryMatch(_bNode, _pNode, _buggyLines, MatchLevel.FUZZY);
-//                    }
-//                }
-        }
+        fixPositions = tryMatch(_bNode, _pNode, _buggyLines);
         return fixPositions;
     }
 
@@ -107,18 +72,18 @@ public class NodeMatcher implements Callable<List<List<List<MyActions>>>> {
      * @param patch : _pattern node
      * @return : a set of possible solutions
      */
-    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch) {
-        return tryMatch(buggy, patch, null);
-    }
-
-    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines) {
-        return tryMatch(buggy, patch, buggyLines, Constant.MAX_INSTANCE_PER_PATTERN, MatchLevel.ALL);
-    }
-
-    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines,
-                                        MatchLevel level) {
-        return tryMatch(buggy, patch, buggyLines, Constant.MAX_INSTANCE_PER_PATTERN, level);
-    }
+//    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch) {
+//        return tryMatch(buggy, patch, null);
+//    }
+//
+//    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines) {
+//        return tryMatch(buggy, patch, buggyLines, Constant.MAX_INSTANCE_PER_PATTERN, MatchLevel.ALL);
+//    }
+//
+//    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines,
+//                                        MatchLevel level) {
+//        return tryMatch(buggy, patch, buggyLines, Constant.MAX_INSTANCE_PER_PATTERN, level);
+//    }
 
 
     /**
@@ -354,8 +319,7 @@ public class NodeMatcher implements Callable<List<List<List<MyActions>>>> {
         return ret;
     }
 
-    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines,
-                                        int topk, MatchLevel level) {
+    public List<List<List<MyActions>>> tryMatch(Node buggy, Node patch, List<Integer> buggyLines) {
         List<Node> bAllStmts = new ArrayList<>(filterStmts(new ArrayList<>(buggy.flattenTreeNode(new ArrayList<>()))));
         List<Node> bLeaves = getLeafNodes(bAllStmts);
         bAllStmts.sort(Comparator.comparing(Node::getStartLine).thenComparing(Node::getChildrenNum));

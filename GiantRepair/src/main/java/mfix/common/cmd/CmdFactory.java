@@ -5,22 +5,6 @@ import mfix.common.java.D4jSubject;
 import mfix.common.java.Subject;
 public class CmdFactory {
 
-    public static String[] createSbflCmd(D4jSubject subject, int timeout){
-        StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("cd ").append(Constant.LOCATOR_HOME)
-                .append(" && ")
-                .append(Constant.CMD_TIMEOUT).append(" ")
-                .append(timeout)
-                .append(" ")
-                .append(Constant.COMMAND_LOCATOR)
-                .append(subject.getName())
-                .append(" ")
-                .append(subject.getId())
-                .append(" ")
-                .append(subject.getHome());
-        String[] cmd = new String[] { "/bin/bash", "-c", stringBuffer.toString() };
-        return cmd;
-    }
     public static String [] createCommand(String command){
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.append(command);

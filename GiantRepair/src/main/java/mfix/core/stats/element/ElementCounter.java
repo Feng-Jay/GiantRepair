@@ -115,12 +115,4 @@ public class ElementCounter {
         }
     }
 
-    public void loadCache() {
-        try {
-            loadCacheWithoutType(Constant.DB_CACHE_FILE);
-            loadCacheWithType(Constant.DB_CACHE_FILE_WITH_TYPE);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

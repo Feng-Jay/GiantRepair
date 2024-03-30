@@ -1,21 +1,13 @@
 
 package mfix.core.node.ast.expr;
 
-import mfix.common.util.LevelLogger;
-import mfix.core.node.NodeUtils;
-import mfix.core.node.abs.CodeAbstraction;
-import mfix.core.node.match.MatchLevel;
 import mfix.core.node.ast.Node;
-import mfix.core.node.ast.VarScope;
 import mfix.core.node.ast.stmt.Stmt;
-import mfix.core.node.match.metric.FVector;
 import org.eclipse.jdt.core.dom.ASTNode;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 
 public class Vdf extends Node {

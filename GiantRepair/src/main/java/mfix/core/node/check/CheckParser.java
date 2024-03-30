@@ -25,7 +25,7 @@ public class CheckParser {
     private final List<Scope> _importScopes; // _importScopes contains all import file's scope
 
     // Max candidates number of Statement node.
-    private final int MAXSTMTRETURNSIZE = 1000;
+    private final int MAXSTMTRETURNSIZE = 500;
 
     // Max candidates number of Expression node.
     private final int MAXSUBMEMBERSIZE = 500;
@@ -618,9 +618,8 @@ public class CheckParser {
      */
     public List<Node> rankAndFilterBySimilarityStmt(Node mut, List<Node> candidates){
         String mutString = mut.toString();
-        int MaxCandidatesLength = 10000;
-
-        if(candidates.size() > MaxCandidatesLength){
+        int MaxCandidatesLength = 100000;
+        if (candidates.size() > MaxCandidatesLength){
             candidates = candidates.subList(0, MaxCandidatesLength);
         }
         for(Node candidate: candidates){
@@ -1106,7 +1105,7 @@ public class CheckParser {
         if(!_combineOption){
             for (Node exprCandidate : exprCandidates) {
                 for (Node thenCandidate : thenCandidates) {
-                    if(ret.size() > 20000) break;
+//                    if(ret.size() > 20000) break;
                     if (elseCandidates.size() == 0) {
                         IfStmt tmp = new IfStmt(node);
                         Expr condition = (Expr) exprCandidate;
@@ -1784,14 +1783,14 @@ public class CheckParser {
                 }
             }
         }else{
-            for(Node lhsCandidate: lhsCandidates){
-                Assign tmp = new Assign(node);
-                tmp.addTrace("Assign");
-                tmp.addAllTrace(lhsCandidate.getTrace());
-                tmp.setLeftHandSide((Expr) lhsCandidate);
-                tmp.setRightHandSide(rhs);
-                ret.add(tmp);
-            }
+//            for(Node lhsCandidate: lhsCandidates){
+//                Assign tmp = new Assign(node);
+//                tmp.addTrace("Assign");
+//                tmp.addAllTrace(lhsCandidate.getTrace());
+//                tmp.setLeftHandSide((Expr) lhsCandidate);
+//                tmp.setRightHandSide(rhs);
+//                ret.add(tmp);
+//            }
             LevelLogger.debug("rhsCandidates size:"+rhsCandidates);
             for(Node rhsCandidate: rhsCandidates){
                 Assign tmp = new Assign(node);

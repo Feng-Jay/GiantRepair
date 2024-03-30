@@ -2,7 +2,6 @@
 
 package mfix.common.cmd;
 
-import mfix.common.conf.Constant;
 import mfix.common.java.Subject;
 import mfix.common.util.LevelLogger;
 

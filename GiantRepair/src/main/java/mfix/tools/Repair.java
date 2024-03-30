@@ -284,7 +284,7 @@ public class Repair {
         int maxPatchRank = 1000;
         List<Triple<String, Double, String>> rankedPatches = new ArrayList<>();
         for(Triple<String, Double, String> tuple: patches){
-            if(patches.size() > 100 && num >= 30 && tuple.getSecond() > 0 && tuple.getSecond() <= 0.1) continue;
+//            if(patches.size() > 100 && num >= 30 && tuple.getSecond() > 0 && tuple.getSecond() <= 0.1) continue;
 //            if(_generatedPatches.contains(tuple.getFirst())){
 //                continue;
 //            }else{
@@ -689,8 +689,8 @@ public class Repair {
 //        String buggyMethodFile = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/potential_bugs_gpt35_real/"+_subject.getName()+"_"+_subject.getId()+"/buggy.java";
 //        String patchesDir      = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/valuable_patches_gpt35_real/"+_subject.getName()+"_"+_subject.getId();
         // for Linux
-        String buggyMethodFile = "/data/PLM4APR/codex_out/potential_bugs_"+_subject.getLLmName()+"_real/"+_subject.getName()+"_"+_subject.getId()+"/buggy.java";
-        String patchesDir      = "/data/PLM4APR/codex_out/valuable_patches_"+_subject.getLLmName()+"_real/"+_subject.getName()+"_"+_subject.getId();
+        String buggyMethodFile = Constant.BUGGY_METHODS_DIR + _subject.getName() + "_" + _subject.getId() + "/buggy.java";
+        String patchesDir      = Constant.PATCHES_DIR + _subject.getName() + "_" + _subject.getId();
 //        String patchesDir      = "/data/PLM4APR/codex_out/200_patches_"+_subject.getLLmName()+"/"+_subject.getName()+"_"+_subject.getId();
         List<String> patchFuncs = new ArrayList<>();
         JavaFile.ergodic(patchesDir, patchFuncs);
@@ -762,6 +762,10 @@ public class Repair {
 //            LevelLogger.debug("Example2:"+fixPositions.get(fixPositions.size()-1));
             assert fixPositions != null;
             for(List<List<MyActions>> fixPosition: fixPositions){
+                JavaFile.writeStringToFile(_logfile, "Current actions:\n", true);
+                for(MyActions actions: fixPosition.get(0)){
+                   JavaFile.writeStringToFile(_logfile, actions.toString() + "\n", true);
+                }
                 List<String> patches = new ArrayList<>();
                 List<Pair<String, Double>> patchesV2 = new ArrayList<>();
                 List<Triple<String, Double, String>> patchesV3 = new ArrayList<>();
@@ -793,13 +797,13 @@ public class Repair {
                     patchesV2.add(new Pair<>(patch, similarity));
                     patchesV3.add(new Triple<>(patch, similarity, tmpTrace));
                 }
-//                boolean fixed = validPatch(patchesV3, buggyMethodFile, patchFunc,srcFile, binFile);
-//                if(fixed){
-//                    LevelLogger.info("FIXED!!!");
-//                    LevelLogger.info("Patch found in "+fixPositions.indexOf(fixPosition)+" th fixpositions!");
-//                    break;
-//                }
-                validPatchExpressAPR(patchesV3, srcFile, binFile, buggyMethodFile);
+                boolean fixed = validPatch(patchesV3, buggyMethodFile, patchFunc,srcFile, binFile);
+                if(fixed){
+                    LevelLogger.info("FIXED!!!");
+                    LevelLogger.info("Patch found in "+fixPositions.indexOf(fixPosition)+" th fixpositions!");
+                    break;
+                }
+//                validPatchExpressAPR(patchesV3, srcFile, binFile, buggyMethodFile);
                 if (shouldStop()) {
                     break;
                 }
@@ -859,7 +863,7 @@ public class Repair {
 
     public void extractDiff(){
 
-        String buggyMethodFile = "/data/PLM4APR/codex_out/buggy_methods/" + _subject.getName() + "-" + _subject.getId() + ".java";
+        String buggyMethodFile = "/data/PLM4APR/codex_out/potential_bugs_" + _subject.getLLmName() + "_real/" + _subject.getName() + "_" + _subject.getId() + "/buggy.java";
         List<String> all_patches_dir = new ArrayList<>();
         List<String> ALL_LLM_NAMES = Arrays.asList("gpt35", "starcoder", "codellama", "llama");
 //        List<String> ALL_LLM_NAMES = Arrays.asList("codellama");
@@ -947,7 +951,6 @@ public class Repair {
         CommandLineParser parser = new DefaultParser();
         HelpFormatter formatter = new HelpFormatter();
         CommandLine cmd = null;
-
         try {
             cmd = parser.parse(options, args);
         } catch (ParseException e) {
@@ -1017,27 +1020,6 @@ public class Repair {
         }
     }
 
-//    public static void statisticAPI(String[] args) throws IOException {
-//        Triple<String, Set<String>, List<Subject>> pair = parseCommandLine(args);
-//        if (pair == null) {
-//            LevelLogger.error("Wrong command line input!");
-//            return;
-//        }
-//
-//        String singlePattern = pair.getFirst();
-//        Set<String> patternRecords = pair.getSecond();
-//        List<Subject> subjects = pair.getThird();
-//        String file = Utils.join(Constant.SEP, Constant.HOME, "repair.rec");
-//        for (Subject subject : subjects) {
-//            JavaFile.writeStringToFile(file, subject.getName() + "_" + subject.getId() + " > PATCH : ", true);
-//            LevelLogger.info(subject.getHome() + ", " + subject.toString());
-//            Repair repair = new Repair(subject, patternRecords, singlePattern);
-////            repair.statisticOfPathes();
-//            JavaFile.writeStringToFile(file, repair.patch() + "\n", true);
-//            LevelLogger.debug("For loop done!/"+subjects.size());
-//        }
-//        LevelLogger.debug("All done!");
-//    }
     public static void diffAPI(String[] args){
         Triple<String, Set<String>, List<Subject>> pair = parseCommandLine(args);
         if (pair == null) {

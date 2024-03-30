@@ -2,23 +2,46 @@ import os
 import subprocess
 import argparse
 
+Mapping_Projects = {
+    "chart": "Chart",
+    "cli": "Cli",
+    "closure": "Closure",
+    "codec": "Codec",
+    "collections": "Collections",
+    "compress": "Compress",
+    "csv": "Csv",
+    "gson": "Gson",
+    "jacksoncore": "JacksonCore",
+    "Jacksoncore": "JacksonCore",
+    "jacksondatabind": "JacksonDatabind",
+    "Jacksondatabind": "JacksonDatabind",
+    "jacksonxml": "JacksonXml",
+    "Jacksonxml": "JacksonXml",
+    "jsoup": "Jsoup",
+    "jxpath": "JxPath",
+    "Jxpath": "JxPath",
+    "lang": "Lang",
+    "math": "Math",
+    "mockito": "Mockito",
+    "time": "Time",
+}
+
 result_on_gpt35 ={
-    "closure":[15, 33, 55, 114, 118, 161],
+    "closure":[15, 33, 55, 118],
     "math":[10,25,58,75]
 }
 result_on_starcoder ={
-    "closure":[5, 15, 19, 33, 36, 55, 161],
-    "math":[10, 27, 48, 94, 106],
+    "closure":[5, 15, 19, 33, 36, 55],
+    "math":[10, 27, 48, 94]
 }
 
 result_on_codellama={
-    "closure": [10, 15, 20, 33, 101, 113, 161],
+    "closure": [10, 15, 20, 33, 101, 113],
     "lang":[14, 57]
 }
 
 result_on_llama={
     "closure": [5, 15],
-    "lang":[55],
     "math":[58,85],
 }
 
@@ -58,7 +81,6 @@ result_on_llama_20 = {
     "compress": [1, 31],
     "jacksoncore":[7, 11],
     "jacksondatabind":[24]
-    # "jacksonxml":[5]
 }
 
 def get_bug_ids():
@@ -114,7 +136,7 @@ def run_apr_tools(llmName, version):
     
     bugids = get_bug_ids(llmName, version)
     
-    RUN_APR_TOOL_CMD = "java -jar GenPat.jar repair -d4j {bugid} -d4jhome /data/PLM4APR/tmp/defects4j_buggy/ -modelname {modelName}"
+    RUN_APR_TOOL_CMD = "java -jar GiantRepair.jar repair -d4j {bugid} -d4jhome /data/PLM4APR/tmp/defects4j_buggy/ -modelname {modelName}"
     CORRECT_FIXES_ORACLE = "Correct fixed!!! Patch Rank:"
 
     RUN_SUCCESS_BUGS = []
@@ -124,6 +146,13 @@ def run_apr_tools(llmName, version):
     FIX_FAILED_BUGS = []
     for bugid in bugids:
         print("Current fix is {}".format(bugid))
+        repo, idnum = bugid.split("_")
+        if not os.path.exists("/data/PLM4APR/tmp/defects4j_buggy/{repo}/{repo}_{id}_buggy".format(repo=repo, id=idnum)):
+            Checkout_CMD = "defects4j checkout -p {Repo} -v {id}b -w /data/PLM4APR/tmp/defects4j_buggy/{repo}/{repo}_{id}_buggy"
+            cmd = Checkout_CMD.format(Repo=Mapping_Projects[repo], repo=repo, id=idnum)
+            print(cmd)
+            os.system(cmd)
+            continue
         result = subprocess.run(RUN_APR_TOOL_CMD.format(bugid=bugid, modelName=llmName), shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         if result.returncode != -1:
             RUN_SUCCESS_BUGS.append(bugid)
@@ -316,6 +345,6 @@ if __name__ == "__main__":
     args = parser.parse_args()
     llmName = args.model
     version = args.version
-    # run_apr_tools(llmName, version)
-    check_out(llmName)
-    run_tools_on_all(llmName)
+    # check_out(llmName)
+    run_apr_tools(llmName, version)
+    # run_tools_on_all(llmName)
