@@ -1,0 +1,116 @@
+[
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName);\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName);\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    stack.add(el); // add the newly created element to the stack\n    insert(el);\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -9,6 +9,7 @@\n     }\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n+    stack.add(el); // add the newly created element to the stack\n     insert(el);\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix: transition to the correct state after inserting the element\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix: transition to the correct state after inserting the element\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    return el;\n}\n\n// The function is not buggy, no fix required.",
+        "diff": "--- \n+++ \n@@ -12,3 +12,5 @@\n     insert(el);\n     return el;\n }\n+\n+// The function is not buggy, no fix required.\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    if (el.parent() != null && el.parent().tagName() != null) {\n        return el;\n    } else {\n        return null;\n    }\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,9 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n-    return el;\n+    if (el.parent() != null && el.parent().tagName() != null) {\n+        return el;\n+    } else {\n+        return null;\n+    }\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix added\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix added\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    if (el.parent() != null) { // check that the element was actually inserted into the tree\n        return el;\n    }\n    return null; // return null if the element was not inserted\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,8 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n-    return el;\n+    if (el.parent() != null) { // check that the element was actually inserted into the tree\n+        return el;\n+    }\n+    return null; // return null if the element was not inserted\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    stack.add(el); // Add the element to the stack\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    stack.add(el); // Add the element to the stack\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n\n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // add this line to ensure proper state transition\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -7,8 +7,9 @@\n         tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n         return el;\n     }\n-    \n+\n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // add this line to ensure proper state transition\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    return el;\n}\n\n// This function does not have any bugs, so no fix is necessary.",
+        "diff": "--- \n+++ \n@@ -12,3 +12,5 @@\n     insert(el);\n     return el;\n }\n+\n+// This function does not have any bugs, so no fix is necessary.\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    stack.add(el); // fixed: add element to stack after creation\n    insert(el);\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -9,6 +9,7 @@\n     }\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n+    stack.add(el); // fixed: add element to stack after creation\n     insert(el);\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.TAG_NAME); // fix: transition to TAG_NAME state after inserting new element\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.TAG_NAME); // fix: transition to TAG_NAME state after inserting new element\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    return el;\n} \n\n// There are no bugs in this function.",
+        "diff": "--- \n+++ \n@@ -11,4 +11,6 @@\n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n     return el;\n-}\n+} \n+\n+// There are no bugs in this function.\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // reset the tokeniser state to before attribute name, to handle cases where attributes are missing\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // reset the tokeniser state to before attribute name, to handle cases where attributes are missing\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    return el;\n}",
+        "diff": "",
+        "finish_reason": "stop",
+        "num": 2
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // transition to next state\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // transition to next state\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.something); // transition to a new state after inserting the element\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.something); // transition to a new state after inserting the element\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix: transition to the correct state\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(TokeniserState.sBeforeAttributeName); // fix: transition to the correct state\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    },
+    {
+        "output": "Element insert(Token.StartTag startTag) {\n    // handle empty unknown tags\n    // when the spec expects an empty tag, will directly hit insertEmpty, so won't generate this fake end tag.\n    if (startTag.isSelfClosing()) {\n        Element el = insertEmpty(startTag);\n        stack.add(el);\n        tokeniser.emit(new Token.EndTag(el.tagName()));  // ensure we get out of whatever state we are in. emitted for yielded processing\n        return el;\n    }\n    \n    Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n    insert(el);\n    tokeniser.transition(Data); // Fixed by adding the transition to Data state\n    return el;\n}",
+        "diff": "--- \n+++ \n@@ -10,5 +10,6 @@\n     \n     Element el = new Element(Tag.valueOf(startTag.name()), baseUri, startTag.attributes);\n     insert(el);\n+    tokeniser.transition(Data); // Fixed by adding the transition to Data state\n     return el;\n }\n",
+        "finish_reason": "stop",
+        "num": 1
+    }
+]
