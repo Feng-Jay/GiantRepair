@@ -7,7 +7,8 @@ Artifact for ICSE 2025 Submission: GiantRepair
 * [II. Project Structure](#ii-project-structure)
 * [III. Environment](#iii-environment)
 * [IV. How to Run](#iii-how-to-run)
-* [V. Discussion Results](#iv-discussion-result)
+* [V. Ablation Results](#v-ablation-results)
+* [VI. Discussion Results](#iv-discussion-result)
 
 ## I. Introduction
 
@@ -51,7 +52,7 @@ Automated Program Repair (APR) has garnered significant attention due to its pot
 * Python==3.9da
 * transformers==4.33.3 
 
-## III. How to Run
+## IV. How to Run
 
 ### Prepare
 
@@ -73,7 +74,26 @@ java -jar GiantRepair repair -d4j {bugid} -d4jhome {buggy_program_path} -modelna
 
 bugid should be like `proj_idnum` all in **lowercase**.
 
-## IV. Discussion Result
+## V. Ablation Results
+
+In oreder to study the contribution of various components in GIANTREPAIR to the overall performance, we have set up the following three variants:
+
+1. GiantRepair<sub>~~selection~~</sub> will randomly select code elements from the project to fill the code skeletons, rather than being constrained by syntatic rules.
+2. GiantRepair<sub>~~context~~</sub> will test the generated patches in the order of generation, rather than rank by the similarities.
+3. GiantRepair<sub>~~adaptive~~</sub> will randomly select modifications from LLM patches, rather than apply coarse-grained modifications.
+
+We conduct the experiment on Defects4J v1.2 single-function bugs, and the results shows in following table:
+
+| variant            | #Plausible Fixes   | #Correct Fixes   | %Precision  |
+| ------------------ | ------------------ | ---------------- | ----------- |
+|GiantRepair<sub>~~selection~~</sub>| 123 | 46 | 37.40% |
+|GiantRepair<sub>~~context~~</sub>  | 129 | 51 | 39.53% |
+|GiantRepair<sub>~~adaptive~~</sub> | 125 | 49 | 39.20% |
+|GiantRepair<sub>ori</sub>          | **135** | **55** | **40.74%** |
+
+Thie table shows the numebr of plausible fixes, correct fixes and precision value for each of the three variants. We first observe that just randomly filling code skeletons, we achieve the lowest number of plausible fixes and precision value. And by disable the Context similarity and Adaptive application, these variant also have drop on the number of plausible and correct fixes. As a result, all the components contribute to the overall effectiveness of GiantRepair. GiantRepair can effectively produce more plausible/correct fixes by utilizing LLM-generated patches.
+
+## VI. Discussion Results
 
 ### Experiment with the GPT-4-1106-preview
 
