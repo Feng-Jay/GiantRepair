@@ -1,0 +1,752 @@
+Repair : math_44
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/1.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[for(StepHandler handler : stepHandlers){
+handler.handleStep(interpolator,isLastStep);
+}, isLastStep=isLastStep||Precision.equals(currentT,tEnd,1);, handler.handleStep(interpolator,isLastStep);, return currentT;, isLastStep=isLastStep||state.stop();]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:protected double acceptStep(AbstractStepInterpolator interpolator,double[] y,double[] yDot,double tEnd) throws MathIllegalStateException{
+double previousT=interpolator.getGlobalPreviousTime();
+ final double currentT=interpolator.getGlobalCurrentTime();
+resetOccurred=false;
+if(!statesInitialized){
+for(EventState state : eventsStates){
+state.reinitializeBegin(interpolator);
+}
+statesInitialized=true;
+}
+ final int orderingSign=interpolator.isForward()?+1:-1;
+SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return orderingSign * Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+for(EventState state : eventsStates){
+if(state.evaluateStep(interpolator)){
+occuringEvents.add(state);
+}
+}
+while(!occuringEvents.isEmpty()){
+ final Iterator<EventState> iterator=occuringEvents.iterator();
+ final EventState currentEvent=iterator.next();
+iterator.remove();
+ final double eventT=currentEvent.getEventTime();
+interpolator.setSoftPreviousTime(previousT);
+interpolator.setSoftCurrentTime(eventT);
+interpolator.setInterpolatedTime(eventT);
+ final double[] eventY=interpolator.getInterpolatedState();
+currentEvent.stepAccepted(eventT,eventY);
+isLastStep=currentEvent.stop();
+for(StepHandler handler : stepHandlers){
+handler.handleStep(interpolator,isLastStep);
+}
+if(isLastStep){
+System.arraycopy(eventY,0,y,0,y.length);
+return eventT;
+}
+if(currentEvent.reset(eventT,eventY)){
+System.arraycopy(eventY,0,y,0,y.length);
+computeDerivatives(eventT,y,yDot);
+resetOccurred=true;
+return eventT;
+}
+previousT=eventT;
+interpolator.setSoftPreviousTime(eventT);
+interpolator.setSoftCurrentTime(currentT);
+if(currentEvent.evaluateStep(interpolator)){
+occuringEvents.add(currentEvent);
+}
+}
+interpolator.setInterpolatedTime(currentT);
+ final double[] currentY=interpolator.getInterpolatedState();
+for(EventState state : eventsStates){
+state.stepAccepted(currentT,currentY);
+isLastStep=isLastStep||state.stop();
+}
+isLastStep=isLastStep||Precision.equals(currentT,tEnd,1);
+for(StepHandler handler : stepHandlers){
+handler.handleStep(interpolator,isLastStep);
+}
+return currentT;
+}
+TO:
+1
+
+DELETE:
+Original line: 62isLastStep=isLastStep||state.stop();
+
+DELETE:
+Original line: 64isLastStep=isLastStep||Precision.equals(currentT,tEnd,1);
+
+DELETE:
+Original line: 65for(StepHandler handler : stepHandlers){
+handler.handleStep(interpolator,isLastStep);
+}
+
+DELETE:
+Original line: 68return currentT;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/2.java
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+28: final EventState currentEvent=occuringEvents.first();
+
+INSERT:
+29:occuringEvents.remove(currentEvent);
+TO:
+29
+
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 1th generated patches:
+Validating 110 patches...
+Current actions:
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+28: final EventState currentEvent=occuringEvents.first();
+
+INSERT:
+29:occuringEvents.remove(currentEvent);
+TO:
+29
+
+Following are 3th generated patches:
+Validating 109 patches...
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+INSERT:
+29:occuringEvents.remove(currentEvent);
+TO:
+29
+
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 4th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+29:occuringEvents.remove(currentEvent);
+TO:
+29
+
+DELETE:
+Original line: 30iterator.remove();
+
+Tested:291 patches
+Compile failed:239 patches
+Compilation rate:0.17869415807560138
+NNNNNNPPPPPPPPNNNNNPPNPPPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPPNPNPNNPPPPPPNPNPNPPPPPNPNPPPNPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/3.java
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+13:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return orderingSign * Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+TO:
+12:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+Following are 1th generated patches:
+Validating 13 patches...
+Current actions:
+UPDATE
+FROM:
+13:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return orderingSign * Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+TO:
+12:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+
+Following are 2th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:319 patches
+Compile failed:263 patches
+Compilation rate:0.1755485893416928
+NPPNNNNNNNNNNNPNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/4.java
+Current actions:
+DELETE:
+Original line: 58interpolator.setInterpolatedTime(currentT);
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+DELETE:
+Original line: 58interpolator.setInterpolatedTime(currentT);
+
+DELETE:
+Original line: 59 final double[] currentY=interpolator.getInterpolatedState();
+
+DELETE:
+Original line: 60for(EventState state : eventsStates){
+state.stepAccepted(currentT,currentY);
+isLastStep=isLastStep||state.stop();
+}
+
+DELETE:
+Original line: 64isLastStep=isLastStep||Precision.equals(currentT,tEnd,1);
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 62isLastStep=isLastStep||state.stop();
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 59 final double[] currentY=interpolator.getInterpolatedState();
+
+DELETE:
+Original line: 60for(EventState state : eventsStates){
+state.stepAccepted(currentT,currentY);
+isLastStep=isLastStep||state.stop();
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 60for(EventState state : eventsStates){
+state.stepAccepted(currentT,currentY);
+isLastStep=isLastStep||state.stop();
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 58interpolator.setInterpolatedTime(currentT);
+
+DELETE:
+Original line: 61state.stepAccepted(currentT,currentY);
+
+DELETE:
+Original line: 62isLastStep=isLastStep||state.stop();
+
+Tested:355 patches
+Compile failed:270 patches
+Compilation rate:0.23943661971830985
+NNNPPPPPPPPNNPPNPPPPPPPPNPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/5.java
+Current actions:
+UPDATE
+FROM:
+47:computeDerivatives(eventT,y,yDot);
+TO:
+47:computeDerivatives(interpolator,y,yDot);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+47:computeDerivatives(eventT,y,yDot);
+TO:
+47:computeDerivatives(interpolator,y,yDot);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:357 patches
+Compile failed:272 patches
+Compilation rate:0.23809523809523808
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/6.java
+Current actions:
+INSERT:
+68:if(interpolator.isForward()&&interpolator.getCurrentSignedStepsize()<0){
+for(int i=0;i<yDot.length;++i){
+yDot[i]=-yDot[i];
+}
+}
+TO:
+67
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+68:if(interpolator.isForward()&&interpolator.getCurrentSignedStepsize()<0){
+for(int i=0;i<yDot.length;++i){
+yDot[i]=-yDot[i];
+}
+}
+TO:
+67
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+69:for(int i=0;i<yDot.length;++i){
+yDot[i]=-yDot[i];
+}
+TO:
+67
+
+Following are 2th generated patches:
+Validating 110 patches...
+Current actions:
+INSERT:
+70:yDot[i]=-yDot[i];
+TO:
+67
+
+Following are 3th generated patches:
+Validating 25 patches...
+Tested:695 patches
+Compile failed:598 patches
+Compilation rate:0.13956834532374102
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNPNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/7.java
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+28: final EventState currentEvent=occuringEvents.pollFirst();
+
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+28: final EventState currentEvent=occuringEvents.pollFirst();
+
+Following are 3th generated patches:
+Validating 48 patches...
+Current actions:
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+28: final EventState currentEvent=occuringEvents.pollFirst();
+
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+Following are 4th generated patches:
+Validating 49 patches...
+Current actions:
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+Tested:847 patches
+Compile failed:748 patches
+Compilation rate:0.11688311688311688
+NNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/8.java
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+27: final EventState currentEvent=occuringEvents.first();
+
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return orderingSign * Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+TO:
+12:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+27: final EventState currentEvent=occuringEvents.first();
+
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+INSERT:
+28:occuringEvents.remove(currentEvent);
+TO:
+29
+
+DELETE:
+Original line: 30iterator.remove();
+
+Following are 3th generated patches:
+Validating 122 patches...
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+UPDATE
+FROM:
+29: final EventState currentEvent=iterator.next();
+TO:
+27: final EventState currentEvent=occuringEvents.first();
+
+Following are 4th generated patches:
+Validating 49 patches...
+Current actions:
+DELETE:
+Original line: 12 final int orderingSign=interpolator.isForward()?+1:-1;
+
+UPDATE
+FROM:
+13:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return orderingSign * Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+TO:
+12:SortedSet<EventState> occuringEvents=new TreeSet<EventState>(new Comparator<EventState>(){
+  /** 
+ * {@inheritDoc} 
+ */
+  public int compare(  EventState es0,  EventState es1){
+    return Double.compare(es0.getEventTime(),es1.getEventTime());
+  }
+}
+);
+
+DELETE:
+Original line: 28 final Iterator<EventState> iterator=occuringEvents.iterator();
+
+DELETE:
+Original line: 30iterator.remove();
+
+Tested:1103 patches
+Compile failed:942 patches
+Compilation rate:0.14596554850407978
+NNNNNNNPPPPPPNPPNNNNPNNNNNPNNNPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPPPPPNNPPPNPNNPNNPNPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNPNPNPNNPPPPNPPNPPNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/9.java
+Current actions:
+INSERT:
+68:if(isLastStep){
+System.arraycopy(currentY,0,y,0,y.length);
+return currentT;
+}
+TO:
+67
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+68:if(isLastStep){
+System.arraycopy(currentY,0,y,0,y.length);
+return currentT;
+}
+TO:
+67
+
+Following are 1th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+69:System.arraycopy(currentY,0,y,0,y.length);
+TO:
+67
+
+INSERT:
+70:return currentT;
+TO:
+67
+
+Following are 2th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+69:System.arraycopy(currentY,0,y,0,y.length);
+TO:
+67
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+70:return currentT;
+TO:
+67
+
+Following are 4th generated patches:
+Validating 23 patches...
+Tested:1300 patches
+Compile failed:1100 patches
+Compilation rate:0.15384615384615385
+NNPPNNNNNNPPPPNPPPNPNPPNNNNNNNNNNNNNNNNNNNNNNPNNNPPPPNNNPNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNPPPPNNNNNNNNNPNPNNNNNNPPNPNPPNNPNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/10.java
+Current actions:
+INSERT:
+68:for(EventState state : eventsStates){
+if(state.evaluateStep(interpolator)){
+state.stepAccepted(interpolator.getCurrentTime(),interpolator.getInterpolatedState());
+isLastStep=isLastStep||state.stop();
+}
+}
+TO:
+67
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+69:if(state.evaluateStep(interpolator)){
+state.stepAccepted(interpolator.getCurrentTime(),interpolator.getInterpolatedState());
+isLastStep=isLastStep||state.stop();
+}
+TO:
+67
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+68:for(EventState state : eventsStates){
+if(state.evaluateStep(interpolator)){
+state.stepAccepted(interpolator.getCurrentTime(),interpolator.getInterpolatedState());
+isLastStep=isLastStep||state.stop();
+}
+}
+TO:
+67
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+71:isLastStep=isLastStep||state.stop();
+TO:
+67
+
+Following are 3th generated patches:
+Validating 95 patches...
+Current actions:
+INSERT:
+70:state.stepAccepted(interpolator.getCurrentTime(),interpolator.getInterpolatedState());
+TO:
+67
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+70:state.stepAccepted(interpolator.getCurrentTime(),interpolator.getInterpolatedState());
+TO:
+67
+
+INSERT:
+71:isLastStep=isLastStep||state.stop();
+TO:
+67
+
+Tested:1801 patches
+Compile failed:1524 patches
+Compilation rate:0.1538034425319267
+NNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPPPNPNNPPNNNNNPPNPPPPNPNPPNNNNNPPNPPPPNNNPPPNNNNNPNPPPNPPPPNNNPNNPPNNNPPPNNNNPPPPNNNNNNNNNNNNNNNNPNNPNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNPPPNPPNNPPPPNPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_44/11.java
+Current actions:
+INSERT:
+68:if(resetOccurred){
+for(EventState state : eventsStates){
+state.reinitializeEnd(interpolator);
+}
+}
+TO:
+67
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+68:if(resetOccurred){
+for(EventState state : eventsStates){
+state.reinitializeEnd(interpolator);
+}
+}
+TO:
+67
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+70:state.reinitializeEnd(interpolator);
+TO:
+67
+
+Following are 2th generated patches:
+Validating 123 patches...
+Current actions:
+INSERT:
+69:for(EventState state : eventsStates){
+state.reinitializeEnd(interpolator);
+}
+TO:
+67
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:1934 patches
+Compile failed:1619 patches
+Compilation rate:0.16287487073422957
+NNNNNNNNNNNNNNNPPPPPPNPPNPNPNNPPNPPPNNNPNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNPPPPPPNNPPPPPPPPPN
+Finish : math-44 > patch : 0 | Start : Sat Apr 06 14:00:06 HKT 2024 | End : 2024.04.06 AD at 14:06:13 HKT

@@ -1,0 +1,3915 @@
+Repair : math_19
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/0.java
+Current actions:
+INSERT:
+28: final double[] tmp=new double[lB.length];
+TO:
+27
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+28: final double[] tmp=new double[lB.length];
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<tmp.length;i++){
+tmp[i]=uB[i]-lB[i];
+}
+TO:
+27
+
+INSERT:
+33:if(max/init.length>1.0E12){
+throw new NumberIsTooLargeException(max/init.length,Double.MAX_VALUE,true);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32: final double max=MathArrays.max(tmp);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 33 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<tmp.length;i++){
+tmp[i]=uB[i]-lB[i];
+}
+TO:
+27
+
+INSERT:
+32: final double max=MathArrays.max(tmp);
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:462 patches
+Compile failed:430 patches
+Compilation rate:0.06926406926406926
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/1.java
+Current actions:
+INSERT:
+28: final double max=Double.MAX_VALUE/2;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+30:if(inputSigma[i]*init[i]>max){
+throw new OutOfRangeException(inputSigma[i],0,max/init[i]);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+if(inputSigma[i]*init[i]>max){
+throw new OutOfRangeException(inputSigma[i],0,max/init[i]);
+}
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 45 patches...
+Tested:714 patches
+Compile failed:680 patches
+Compilation rate:0.047619047619047616
+NNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/2.java
+Current actions:
+INSERT:
+28:int n=init.length;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:int n=init.length;
+TO:
+27
+
+INSERT:
+29:if(n!=2){
+int max=Integer.MAX_VALUE;
+for(int i=0;i<n;i++){
+max=FastMath.min(max,FastMath.round(FastMath.abs(boundaries[1][i]-boundaries[0][i])));
+}
+int k=1;
+while(k<n){
+int j=k;
+while(j<n&&init[j]==boundaries[0][j]){
+j++;
+}
+if(j==n){
+break;
+}
+k=j+1;
+while(k<n&&init[k]==boundaries[1][k-1]){
+k++;
+}
+if(k==n){
+break;
+}
+int m=k-j;
+if(m>max/(n-k)){
+throw new OutOfRangeException(boundaries[1][k-1]-boundaries[0][j],0,max);
+}
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+34:int k=1;
+TO:
+27
+
+INSERT:
+37:while(j<n&&init[j]==boundaries[0][j]){
+j++;
+}
+TO:
+27
+
+INSERT:
+44:while(k<n&&init[k]==boundaries[1][k-1]){
+k++;
+}
+TO:
+27
+
+INSERT:
+50:int m=k-j;
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1162 patches
+Compile failed:1119 patches
+Compilation rate:0.03700516351118761
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/3.java
+Current actions:
+INSERT:
+28:if(boundaries[1][0]-boundaries[0][0]<Double.MAX_VALUE){
+ final double scale=Double.MAX_VALUE/(boundaries[1][0]-boundaries[0][0]);
+for(int i=0;i<init.length;i++){
+inputSigma[i]*=scale;
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+29: final double scale=Double.MAX_VALUE/(boundaries[1][0]-boundaries[0][0]);
+TO:
+27
+
+INSERT:
+31:inputSigma[i]*=scale;
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29: final double scale=Double.MAX_VALUE/(boundaries[1][0]-boundaries[0][0]);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 185 patches...
+Current actions:
+INSERT:
+28:if(boundaries[1][0]-boundaries[0][0]<Double.MAX_VALUE){
+ final double scale=Double.MAX_VALUE/(boundaries[1][0]-boundaries[0][0]);
+for(int i=0;i<init.length;i++){
+inputSigma[i]*=scale;
+}
+}
+TO:
+27
+
+INSERT:
+34:else{
+throw new OutOfRangeException(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE);
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29: final double scale=Double.MAX_VALUE/(boundaries[1][0]-boundaries[0][0]);
+TO:
+27
+
+INSERT:
+31:inputSigma[i]*=scale;
+TO:
+27
+
+INSERT:
+34:else{
+throw new OutOfRangeException(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE);
+}
+TO:
+27
+
+Following are 4th generated patches:
+Validating 185 patches...
+Tested:1752 patches
+Compile failed:1699 patches
+Compilation rate:0.030251141552511414
+NNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/4.java
+Current actions:
+INSERT:
+28: final double[] normalized=encode(init);
+TO:
+27
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+28: final double[] normalized=encode(init);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+28: final double[] normalized=encode(init);
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<normalized.length;i++){
+if(Double.isInfinite(normalized[i])){
+throw new MathUnsupportedOperationException();
+}
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<normalized.length;i++){
+if(Double.isInfinite(normalized[i])){
+throw new MathUnsupportedOperationException();
+}
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2175 patches
+Compile failed:2103 patches
+Compilation rate:0.03310344827586207
+NNNNNNPNNNPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/5.java
+Tested:2175 patches
+Compile failed:2103 patches
+Compilation rate:0.03310344827586207
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/6.java
+Current actions:
+INSERT:
+28:if(boundaries!=null){
+double norm=0;
+for(int i=0;i<init.length;i++){
+ final double delta=boundaries[1][i]-boundaries[0][i];
+if(delta>0){
+norm+=delta*init[i];
+}
+else{
+norm+=delta*delta/4;
+}
+}
+if(norm>Integer.MAX_VALUE){
+throw new NumberIsTooLargeException(norm,Integer.MAX_VALUE,true);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+32:if(delta>0){
+norm+=delta*init[i];
+}
+TO:
+27
+
+INSERT:
+35:else{
+norm+=delta*delta/4;
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:throw new NumberIsTooLargeException(norm,Integer.MAX_VALUE,true);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+36:norm+=delta*delta/4;
+TO:
+27
+
+Following are 3th generated patches:
+Validating 125 patches...
+Current actions:
+INSERT:
+28:if(boundaries!=null){
+double norm=0;
+for(int i=0;i<init.length;i++){
+ final double delta=boundaries[1][i]-boundaries[0][i];
+if(delta>0){
+norm+=delta*init[i];
+}
+else{
+norm+=delta*delta/4;
+}
+}
+if(norm>Integer.MAX_VALUE){
+throw new NumberIsTooLargeException(norm,Integer.MAX_VALUE,true);
+}
+}
+TO:
+27
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:double norm=0;
+TO:
+27
+
+Tested:2724 patches
+Compile failed:2523 patches
+Compilation rate:0.07378854625550661
+NNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPPNNNNNNNNNPPPPPPPPPPPNNPPPNPNPPPNPPPPPPPPPPPPPPPPPPPNNPPNPPPPPPPPPPNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/7.java
+Current actions:
+INSERT:
+28:double norm=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 46 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+ final double tmp=init[i]-lB[i];
+norm+=tmp*tmp;
+}
+TO:
+27
+
+INSERT:
+33: final double sigma=FastMath.sqrt(norm);
+TO:
+27
+
+INSERT:
+35:throw new OutOfRangeException(sigma,0,Double.MAX_VALUE);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+ final double tmp=init[i]-lB[i];
+norm+=tmp*tmp;
+}
+TO:
+27
+
+INSERT:
+33: final double sigma=FastMath.sqrt(norm);
+TO:
+27
+
+INSERT:
+34:if(sigma*10>FastMath.sqrt(Double.MAX_VALUE)){
+throw new OutOfRangeException(sigma,0,Double.MAX_VALUE);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3168 patches
+Compile failed:2962 patches
+Compilation rate:0.06502525252525253
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/8.java
+Current actions:
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+38:if(inputSigma[i]<=0){
+throw new NotStrictlyPositiveException(inputSigma[i]);
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+38:if(inputSigma[i]<=0){
+throw new NotStrictlyPositiveException(inputSigma[i]);
+}
+
+UPDATE
+FROM:
+39:throw new NotPositiveException(inputSigma[i]);
+TO:
+39:throw new NotStrictlyPositiveException(inputSigma[i]);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+38:if(inputSigma[i]<=0){
+throw new NotStrictlyPositiveException(inputSigma[i]);
+}
+
+Following are 2th generated patches:
+Validating 74 patches...
+Current actions:
+UPDATE
+FROM:
+39:throw new NotPositiveException(inputSigma[i]);
+TO:
+39:throw new NotStrictlyPositiveException(inputSigma[i]);
+
+Following are 3th generated patches:
+Validating 146 patches...
+Tested:3591 patches
+Compile failed:3114 patches
+Compilation rate:0.13283208020050125
+NNPNNNPPPPPPPNPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPPPPPPPNPPPPPPPPPPPPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/9.java
+Current actions:
+INSERT:
+28:double maxAbs=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+maxAbs=FastMath.max(maxAbs,FastMath.abs(init[i]));
+}
+TO:
+27
+
+INSERT:
+33:inputSigma[i]=FastMath.max(inputSigma[i],10*maxAbs);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 106 patches...
+Current actions:
+INSERT:
+28:double maxAbs=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+maxAbs=FastMath.max(maxAbs,FastMath.abs(init[i]));
+}
+TO:
+27
+
+INSERT:
+32:for(int i=0;i<init.length;i++){
+inputSigma[i]=FastMath.max(inputSigma[i],10*maxAbs);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:maxAbs=FastMath.max(maxAbs,FastMath.abs(init[i]));
+TO:
+27
+
+INSERT:
+33:inputSigma[i]=FastMath.max(inputSigma[i],10*maxAbs);
+TO:
+27
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+28:double maxAbs=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+maxAbs=FastMath.max(maxAbs,FastMath.abs(init[i]));
+}
+TO:
+27
+
+INSERT:
+33:inputSigma[i]=FastMath.max(inputSigma[i],10*maxAbs);
+TO:
+27
+
+Following are 4th generated patches:
+Validating 107 patches...
+Current actions:
+INSERT:
+32:for(int i=0;i<init.length;i++){
+inputSigma[i]=FastMath.max(inputSigma[i],10*maxAbs);
+}
+TO:
+27
+
+Tested:4019 patches
+Compile failed:3541 patches
+Compilation rate:0.11893505847225679
+NNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/10.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}, else{
+boundaries=null;
+}, {
+boundaries=null;
+}, else{
+boundaries=null;
+}, {
+boundaries=null;
+}, boundaries=null;, boundaries=null;, boundaries=new double[2];, boundaries=new double[2];, boundaries[0]=lB;, boundaries[0]=lB;, boundaries[1]=uB;, boundaries[1]=uB;]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void checkParameters(){
+ final double[] init=getStartPoint();
+ final double[] lB=getLowerBound();
+ final double[] uB=getUpperBound();
+boolean hasFiniteBounds=false;
+for(int i=0;i<lB.length;i++){
+if(!Double.isInfinite(lB[i])||!Double.isInfinite(uB[i])){
+hasFiniteBounds=true;
+break;
+}
+}
+boolean hasInfiniteBounds=false;
+if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+ final double[] normalizedInit=new double[init.length];
+for(int i=0;i<init.length;i++){
+normalizedInit[i]=boundaries[0][i]+(boundaries[1][i]-boundaries[0][i])*init[i];
+}
+this.normalizedStart=normalizedInit;
+if(inputSigma==null){
+this.inputSigma=new double[init.length];
+for(int i=0;i<init.length;i++){
+ final double normalizedStartPoint=this.normalizedStart[i];
+ final double distanceToBoundary=boundaries[1][i]-normalizedStartPoint;
+if(distanceToBoundary==0){
+this.inputSigma[i]=0;
+}
+else{
+this.inputSigma[i]=distanceToBoundary/100;
+}
+}
+}
+else{
+this.inputSigma=inputSigma.clone();
+}
+}
+}
+else{
+boundaries=null;
+this.normalizedStart=init;
+this.inputSigma=inputSigma.clone();
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 25boundaries=new double[2];
+
+DELETE:
+Original line: 26boundaries[0]=lB;
+
+DELETE:
+Original line: 27boundaries[1]=uB;
+
+INSERT:
+28: final double[] normalizedInit=new double[init.length];
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+normalizedInit[i]=boundaries[0][i]+(boundaries[1][i]-boundaries[0][i])*init[i];
+}
+TO:
+27
+
+DELETE:
+Original line: 30else{
+boundaries=null;
+}
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+INSERT:
+33:if(inputSigma==null){
+this.inputSigma=new double[init.length];
+for(int i=0;i<init.length;i++){
+ final double normalizedStartPoint=this.normalizedStart[i];
+ final double distanceToBoundary=boundaries[1][i]-normalizedStartPoint;
+if(distanceToBoundary==0){
+this.inputSigma[i]=0;
+}
+else{
+this.inputSigma[i]=distanceToBoundary/100;
+}
+}
+}
+TO:
+27
+
+INSERT:
+47:this.inputSigma=inputSigma.clone();
+TO:
+27
+
+INSERT:
+54:this.inputSigma=inputSigma.clone();
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:4394 patches
+Compile failed:3890 patches
+Compilation rate:0.11470186618115612
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNNNNNNPNPNNNNNNNPNNNNNNNPNNNPPNNNNNNNNNNPNPNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPPNPPPNNNPNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNPNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/11.java
+Current actions:
+INSERT:
+28:int len=boundaries[0].length;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 103 patches...
+Current actions:
+INSERT:
+30:for(int i=0;i<len;++i){
+numerator*=32;
+long denominator=1;
+for(int j=0;j<len;++j){
+if(i!=j){
+denominator*=(boundaries[1][j]-boundaries[0][j]);
+}
+}
+if(denominator>numerator){
+throw new MathIllegalArgumentException();
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+28:int len=boundaries[0].length;
+TO:
+27
+
+INSERT:
+30:for(int i=0;i<len;++i){
+numerator*=32;
+long denominator=1;
+for(int j=0;j<len;++j){
+if(i!=j){
+denominator*=(boundaries[1][j]-boundaries[0][j]);
+}
+}
+if(denominator>numerator){
+throw new MathIllegalArgumentException();
+}
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 33 patches...
+Current actions:
+INSERT:
+28:int len=boundaries[0].length;
+TO:
+27
+
+INSERT:
+29:long numerator=1;
+TO:
+27
+
+INSERT:
+30:for(int i=0;i<len;++i){
+numerator*=32;
+long denominator=1;
+for(int j=0;j<len;++j){
+if(i!=j){
+denominator*=(boundaries[1][j]-boundaries[0][j]);
+}
+}
+if(denominator>numerator){
+throw new MathIllegalArgumentException();
+}
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 34 patches...
+Current actions:
+INSERT:
+38:if(denominator>numerator){
+throw new MathIllegalArgumentException();
+}
+TO:
+27
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:for(int j=0;j<len;++j){
+if(i!=j){
+denominator*=(boundaries[1][j]-boundaries[0][j]);
+}
+}
+TO:
+27
+
+Tested:4793 patches
+Compile failed:4279 patches
+Compilation rate:0.10723972459837262
+NNNNNNNNNNNNNNNNNNPNPNPPNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/12.java
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+if((boundaries[1][i]-boundaries[0][i])/init[i]>=MAX_NORM){
+throw new MathIllegalArgumentException(LocalizedFormats.INITIAL_STEP_TOO_LARGE,boundaries[1][i]-boundaries[0][i],init[i]);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:if((boundaries[1][i]-boundaries[0][i])/init[i]>=MAX_NORM){
+throw new MathIllegalArgumentException(LocalizedFormats.INITIAL_STEP_TOO_LARGE,boundaries[1][i]-boundaries[0][i],init[i]);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+if((boundaries[1][i]-boundaries[0][i])/init[i]>=MAX_NORM){
+throw new MathIllegalArgumentException(LocalizedFormats.INITIAL_STEP_TOO_LARGE,boundaries[1][i]-boundaries[0][i],init[i]);
+}
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 111 patches...
+Tested:5107 patches
+Compile failed:4593 patches
+Compilation rate:0.1006461719208929
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/13.java
+Current actions:
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+TO:
+13
+
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+INSERT:
+20:if(hasFiniteBounds&&hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+TO:
+23
+
+INSERT:
+23:if(hasFiniteBounds){
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+if(getSigma()!=null){
+for(int i=0;i<getSigma().length;i++){
+if(getSigma()[i]>getUpperBound()[i]-getLowerBound()[i]){
+throw new OutOfRangeException(getSigma()[i],0,getUpperBound()[i]-getLowerBound()[i]);
+}
+}
+}
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+14:for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+TO:
+13
+
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+INSERT:
+20:if(hasFiniteBounds&&hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+TO:
+23
+
+INSERT:
+23:if(hasFiniteBounds){
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+if(getSigma()!=null){
+for(int i=0;i<getSigma().length;i++){
+if(getSigma()[i]>getUpperBound()[i]-getLowerBound()[i]){
+throw new OutOfRangeException(getSigma()[i],0,getUpperBound()[i]-getLowerBound()[i]);
+}
+}
+}
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+INSERT:
+26:boundaries[1]=uB;
+TO:
+23
+
+INSERT:
+27:if(getSigma()!=null){
+for(int i=0;i<getSigma().length;i++){
+if(getSigma()[i]>getUpperBound()[i]-getLowerBound()[i]){
+throw new OutOfRangeException(getSigma()[i],0,getUpperBound()[i]-getLowerBound()[i]);
+}
+}
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+INSERT:
+20:if(hasFiniteBounds&&hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+TO:
+23
+
+INSERT:
+23:if(hasFiniteBounds){
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+if(getSigma()!=null){
+for(int i=0;i<getSigma().length;i++){
+if(getSigma()[i]>getUpperBound()[i]-getLowerBound()[i]){
+throw new OutOfRangeException(getSigma()[i],0,getUpperBound()[i]-getLowerBound()[i]);
+}
+}
+}
+}
+TO:
+23
+
+Following are 4th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+20:if(hasFiniteBounds&&hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+TO:
+23
+
+DELETE:
+Original line: 21if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+
+INSERT:
+24:boundaries=new double[2];
+TO:
+23
+
+DELETE:
+Original line: 24else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+
+INSERT:
+25:boundaries[0]=lB;
+TO:
+23
+
+INSERT:
+30:throw new OutOfRangeException(getSigma()[i],0,getUpperBound()[i]-getLowerBound()[i]);
+TO:
+23
+
+Tested:5305 patches
+Compile failed:4788 patches
+Compilation rate:0.09745523091423186
+NNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/14.java
+Current actions:
+INSERT:
+28:if(boundaries[0][0]>=boundaries[1][0]){
+throw new NotFiniteNumberException();
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+31:for(int i=0;i<init.length;i++){
+ final double min=boundaries[0][i];
+ final double max=boundaries[1][i];
+if(min>=max){
+throw new NotFiniteNumberException();
+}
+if(min*max<0){
+throw new NotFiniteNumberException();
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+32: final double min=boundaries[0][i];
+TO:
+27
+
+INSERT:
+33: final double max=boundaries[1][i];
+TO:
+27
+
+Following are 2th generated patches:
+Validating 148 patches...
+Current actions:
+INSERT:
+28:if(boundaries[0][0]>=boundaries[1][0]){
+throw new NotFiniteNumberException();
+}
+TO:
+27
+
+INSERT:
+38:throw new NotFiniteNumberException();
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5725 patches
+Compile failed:5208 patches
+Compilation rate:0.0903056768558952
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/15.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(uB)-encode(lB))){
+throw new MathUnsupportedOperationException();
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(uB)-encode(lB))){
+throw new MathUnsupportedOperationException();
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new MathUnsupportedOperationException();
+TO:
+27
+
+Following are 2th generated patches:
+Validating 148 patches...
+Tested:6075 patches
+Compile failed:5345 patches
+Compilation rate:0.12016460905349795
+NPNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPNNNNNNNNNPNNNNPNNNPPNPPPPPPPPPPNPPPPPPPPPPNNPNPPPNNNNNPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPNPNNPNPPNNNNNNPNPPPNNNPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPNNNNNNNNPPPPPPPPNPNPPPPPPPPPPNPNPPPPPPNPNPPPPPPPPPPPNPNPPPPPPPNNPNPPPPPPPNPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/16.java
+Current actions:
+INSERT:
+28:for(int i=0;i<boundaries[0].length;i++){
+if(init[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(init[i],boundaries[0][i],boundaries[1][i]);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<boundaries[0].length;i++){
+if(init[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(init[i],boundaries[0][i],boundaries[1][i]);
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:if(init[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(init[i],boundaries[0][i],boundaries[1][i]);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 83 patches...
+Tested:6162 patches
+Compile failed:5430 patches
+Compilation rate:0.11879259980525804
+NNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/17.java
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+ final double sigma=inputSigma==null?1.0:inputSigma[i];
+if(boundaries[1][i]-boundaries[0][i]<2*sigma){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+ final double sigma=inputSigma==null?1.0:inputSigma[i];
+if(boundaries[1][i]-boundaries[0][i]<2*sigma){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+31:throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+29: final double sigma=inputSigma==null?1.0:inputSigma[i];
+TO:
+27
+
+INSERT:
+30:if(boundaries[1][i]-boundaries[0][i]<2*sigma){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:6513 patches
+Compile failed:5658 patches
+Compilation rate:0.1312759097190235
+NNNNNPPNNPPPPPPPPPPNNPPPPPPPPPPNNNPPPPPPPPPPNPPPPPPPPPNNPPPPPPPPPNNPNNPPPPPPPPPPPNNPPPPPPNNPPPPPPPPPPPPPPPPPPPNPNPPPPPPPPPPPPPPPPPPPNPPPNNPPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/18.java
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double sigma=inputSigma==null?1.0:inputSigma[i];
+if(sigma>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double sigma=inputSigma==null?1.0:inputSigma[i];
+if(sigma>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 42if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:double sigma=inputSigma==null?1.0:inputSigma[i];
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 2th generated patches:
+Validating 133 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double sigma=inputSigma==null?1.0:inputSigma[i];
+if(sigma>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:6674 patches
+Compile failed:5799 patches
+Compilation rate:0.1311057836379982
+NNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNPNNNPNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/19.java
+Current actions:
+INSERT:
+28:if(computeOptimalScale(init)>0){
+throw new NoBracketingException();
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(computeOptimalScale(init)>0){
+throw new NoBracketingException();
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new NoBracketingException();
+TO:
+27
+
+Following are 2th generated patches:
+Validating 149 patches...
+Tested:7025 patches
+Compile failed:6028 patches
+Compilation rate:0.14192170818505337
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPNPPPPPPPPPNPNPNPNNNNNPNPPPNPPPPPNPPPPPPPNPPNNPPPPPPPPPPPNPPPPPNNPPNNPPPPPPPPPPPPPPPPPPPNPNPPNPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/20.java
+Current actions:
+INSERT:
+28:if(FastMath.abs(init[0])>FastMath.abs(boundaries[0][0])){
+throw new OutOfRangeException(init[0],boundaries[0][0],boundaries[1][0]);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+31:if(FastMath.abs(init[1])>FastMath.abs(boundaries[0][1])){
+throw new OutOfRangeException(init[1],boundaries[0][1],boundaries[1][1]);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:throw new OutOfRangeException(init[1],boundaries[0][1],boundaries[1][1]);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+28:if(FastMath.abs(init[0])>FastMath.abs(boundaries[0][0])){
+throw new OutOfRangeException(init[0],boundaries[0][0],boundaries[1][0]);
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:7578 patches
+Compile failed:6457 patches
+Compilation rate:0.14792821324887834
+NNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNPNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNPNNPPPPPPPPPPNPPPPPPPNNNPPNPNNPPPPPPPPNPPPPNPPPPPPPNNPPPPNPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/21.java
+Current actions:
+INSERT:
+28:double sum=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+28:double sum=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+sum+=(uB[i]-lB[i])*(uB[i]-lB[i]);
+}
+TO:
+27
+
+INSERT:
+33:throw new MathArithmeticException();
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:double sum=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+sum+=(uB[i]-lB[i])*(uB[i]-lB[i]);
+}
+TO:
+27
+
+INSERT:
+32:if(sum>Double.MAX_VALUE){
+throw new MathArithmeticException();
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7992 patches
+Compile failed:6869 patches
+Compilation rate:0.14051551551551553
+NNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/22.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(uB))||Double.isInfinite(encode(lB))){
+throw new OutOfRangeException(lB,uB);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(uB))||Double.isInfinite(encode(lB))){
+throw new OutOfRangeException(lB,uB);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(lB,uB);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 146 patches...
+Tested:8340 patches
+Compile failed:7095 patches
+Compilation rate:0.14928057553956833
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPNPPPPPPPPPNNPPPNNNNNNPPNPPNPPPPPNNPNPPPPPPPPPPPPPPPPPNPPPPPNPPNPPNNPPPNPPPPPPPPPPPPPPPNPPPNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/23.java
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<inputSigma.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<inputSigma.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<inputSigma.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 34if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+
+DELETE:
+Original line: 37for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:8362 patches
+Compile failed:7095 patches
+Compilation rate:0.15151877541258071
+PPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/24.java
+Current actions:
+Wrap:
+ForStatement
+On:
+[if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 42if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:8367 patches
+Compile failed:7095 patches
+Compilation rate:0.1520258157045536
+PPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/25.java
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+TO:
+27
+
+INSERT:
+32:for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 34if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+
+DELETE:
+Original line: 38if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+32:for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 38if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+
+DELETE:
+Original line: 42if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:8379 patches
+Compile failed:7095 patches
+Compilation rate:0.15324024346580736
+PPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/26.java
+Current actions:
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+38:if(inputSigma[i]<=0){
+throw new NotPositiveException(inputSigma[i]);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+38:if(inputSigma[i]<=0){
+throw new NotPositiveException(inputSigma[i]);
+}
+
+Following are 1th generated patches:
+Validating 74 patches...
+Tested:8454 patches
+Compile failed:7156 patches
+Compilation rate:0.153536787319612
+PNNNNNNNNNNNNNPPPPPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/27.java
+Current actions:
+INSERT:
+28: final double[] sigma=getSigma();
+TO:
+27
+
+Following are 0th generated patches:
+Validating 181 patches...
+Current actions:
+INSERT:
+28: final double[] sigma=getSigma();
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<sigma.length;i++){
+if(sigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<sigma.length;i++){
+if(sigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 34if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+
+DELETE:
+Original line: 43throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:8653 patches
+Compile failed:7302 patches
+Compilation rate:0.1561308216803421
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNPPPPPPPPPPPPPPPPPPPNNNPNNNNNNNNPNNNNNNNNNNNNNPNNNNNNPPNNPPPPPPPPPNPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/28.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(getSigma(init))){
+throw new OutOfRangeException(getSigma(init),0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(getSigma(init),0,Double.POSITIVE_INFINITY);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(getSigma(init))){
+throw new OutOfRangeException(getSigma(init),0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9000 patches
+Compile failed:7528 patches
+Compilation rate:0.16355555555555557
+NNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPNPPPPPPPPPNPPPPPPPPPNNPPPPNPPPPPPPPNPPPPPPPPPNNPNNPPNPPNPNPNPNNPNPPPPPPPPPPPPPPPPPNPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/29.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(init))){
+throw new OutOfRangeException(init[0],boundaries[0][0],boundaries[1][0]);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(encode(init))){
+throw new OutOfRangeException(init[0],boundaries[0][0],boundaries[1][0]);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(init[0],boundaries[0][0],boundaries[1][0]);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 145 patches...
+Tested:9347 patches
+Compile failed:7556 patches
+Compilation rate:0.19161228201561997
+NPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNPNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNPNNPPPPPPPPPNPPPPPPPPPNPNPNNNNPPPPPPPPPNPNPPPPPPPPPNPNPPPPNPPPPPPPNPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/30.java
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+if(inputSigma==null){
+normalization[i]=1.0/(uB[i]-lB[i]);
+}
+else{
+if(inputSigma[i]>(uB[i]-lB[i])){
+throw new OutOfRangeException(inputSigma[i],0,uB[i]-lB[i]);
+}
+normalization[i]=1.0/inputSigma[i];
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(inputSigma[i]>(uB[i]-lB[i])){
+throw new OutOfRangeException(inputSigma[i],0,uB[i]-lB[i]);
+}
+TO:
+30
+
+DELETE:
+Original line: 37for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(inputSigma==null){
+normalization[i]=1.0/(uB[i]-lB[i]);
+}
+TO:
+27
+
+DELETE:
+Original line: 31boundaries=null;
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+INSERT:
+33:if(inputSigma[i]>(uB[i]-lB[i])){
+throw new OutOfRangeException(inputSigma[i],0,uB[i]-lB[i]);
+}
+TO:
+30
+
+INSERT:
+41:else{
+boundaries=null;
+}
+TO:
+47
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9910 patches
+Compile failed:8119 patches
+Compilation rate:0.18072653884964682
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/31.java
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 65 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(inputSigma!=null){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 34if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+
+DELETE:
+Original line: 37for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:9952 patches
+Compile failed:8119 patches
+Compilation rate:0.18418408360128619
+PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/32.java
+Current actions:
+DELETE:
+Original line: 3 final double[] init=getStartPoint();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 3 final double[] init=getStartPoint();
+
+DELETE:
+Original line: 4 final double[] lB=getLowerBound();
+
+DELETE:
+Original line: 5 final double[] uB=getUpperBound();
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3 final double[] init=getStartPoint();
+
+DELETE:
+Original line: 5 final double[] uB=getUpperBound();
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4 final double[] lB=getLowerBound();
+
+DELETE:
+Original line: 5 final double[] uB=getUpperBound();
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3 final double[] init=getStartPoint();
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double[] init=getStartPoint();
+
+DELETE:
+Original line: 4 final double[] lB=getLowerBound();
+
+Tested:9963 patches
+Compile failed:8130 patches
+Compilation rate:0.18398072869617585
+NNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/33.java
+Current actions:
+INSERT:
+28:double max=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 59 patches...
+Current actions:
+INSERT:
+28:double max=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<boundaries[0].length;i++){
+max=Math.max(max,boundaries[1][i]-boundaries[0][i]);
+}
+TO:
+27
+
+INSERT:
+37:if(max>Double.POSITIVE_INFINITY/2){
+throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<boundaries[0].length;i++){
+max=Math.max(max,boundaries[1][i]-boundaries[0][i]);
+}
+TO:
+27
+
+INSERT:
+32:if(inputSigma!=null){
+for(int i=0;i<init.length;i++){
+max=Math.max(max,inputSigma[i]);
+}
+}
+TO:
+27
+
+INSERT:
+37:if(max>Double.POSITIVE_INFINITY/2){
+throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:10419 patches
+Compile failed:8559 patches
+Compilation rate:0.17852001151742009
+NNNNNNNNNNNNNNNNNNNPNPPPPNNNNNNNNNNNPPPPNNNNNNPPNPNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNPNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/34.java
+Current actions:
+INSERT:
+28: final double sigmaMax=FastMath.max(inputSigma);
+TO:
+27
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+28: final double sigmaMax=FastMath.max(inputSigma);
+TO:
+27
+
+INSERT:
+31:throw new OutOfRangeException(sigmaMax,0,initMax);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+31:throw new OutOfRangeException(sigmaMax,0,initMax);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+29: final double initMax=FastMath.max(init);
+TO:
+27
+
+INSERT:
+30:if(sigmaMax>initMax){
+throw new OutOfRangeException(sigmaMax,0,initMax);
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28: final double sigmaMax=FastMath.max(inputSigma);
+TO:
+27
+
+Following are 4th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+30:if(sigmaMax>initMax){
+throw new OutOfRangeException(sigmaMax,0,initMax);
+}
+TO:
+27
+
+Tested:10980 patches
+Compile failed:8969 patches
+Compilation rate:0.1831511839708561
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPNNNNNNNNPPPNNPPPPNPNPPPPPPPPPNPNPPPPPPPPPPPNPPPPPPPNPPNNNPPPPPPPPPPPPPPPPPPPPPPPNPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/35.java
+Current actions:
+INSERT:
+28:if(isNormalized()){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:if(isNormalized()){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(isNormalized()){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 42if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:10988 patches
+Compile failed:8973 patches
+Compilation rate:0.18338187113214416
+NNPPPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/36.java
+Current actions:
+INSERT:
+28:if(isStrictlyPositive(getSigma())){
+double max=0;
+for(int i=0;i<inputSigma.length;i++){
+max+=inputSigma[i]*2;
+}
+if(max>0){
+double[] d=encode(max);
+if(d[0]==0&&d[1]==0){
+throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY,true);
+}
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+28:if(isStrictlyPositive(getSigma())){
+double max=0;
+for(int i=0;i<inputSigma.length;i++){
+max+=inputSigma[i]*2;
+}
+if(max>0){
+double[] d=encode(max);
+if(d[0]==0&&d[1]==0){
+throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY,true);
+}
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 147 patches...
+Current actions:
+INSERT:
+34:double[] d=encode(max);
+TO:
+27
+
+INSERT:
+36:throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY,true);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 162 patches...
+Current actions:
+INSERT:
+29:double max=0;
+TO:
+27
+
+INSERT:
+33:if(max>0){
+double[] d=encode(max);
+if(d[0]==0&&d[1]==0){
+throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY,true);
+}
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+36:throw new OutOfRangeException(max,0,Double.POSITIVE_INFINITY,true);
+TO:
+27
+
+Following are 4th generated patches:
+Validating 145 patches...
+Tested:11480 patches
+Compile failed:9342 patches
+Compilation rate:0.1862369337979094
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPNNNPPPPPPPPPNPPPPPNPPPPPPPPPPPNPPPPNPPPPPPPPPPPPPPPPPPNPPPNNNNNPNPPPPPPPPPPPPPPPPPPNPPPNPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/37.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[else{
+boundaries=null;
+}, break;, if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}, {
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}, throw new MathUnsupportedOperationException();, {
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}, for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+36:if(numEvals>100000){
+throw new TooManyEvaluationsException(maxEval,numEvals);
+}
+TO:
+46
+
+DELETE:
+Original line: 39throw new NotPositiveException(inputSigma[i]);
+
+DELETE:
+Original line: 42if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void checkParameters(){
+ final double[] init=getStartPoint();
+ final double[] lB=getLowerBound();
+ final double[] uB=getUpperBound();
+boolean hasFiniteBounds=false;
+for(int i=0;i<lB.length;i++){
+if(!Double.isInfinite(lB[i])||!Double.isInfinite(uB[i])){
+hasFiniteBounds=true;
+break;
+}
+}
+if(hasFiniteBounds){
+if(hasInfiniteBounds(lB,uB)){
+throw new MathUnsupportedOperationException();
+}
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+int numEvals=0;
+for(int i=0;i<init.length;i++){
+if(inputSigma==null){
+numEvals+=1;
+}
+else{
+ final double sigma=inputSigma[i];
+if(sigma<0){
+throw new NotPositiveException(sigma);
+}
+if(sigma>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+numEvals+=2;
+}
+}
+if(numEvals>100000){
+throw new TooManyEvaluationsException(maxEval,numEvals);
+}
+}
+else{
+boundaries=null;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 10break;
+
+DELETE:
+Original line: 13boolean hasInfiniteBounds=false;
+
+DELETE:
+Original line: 14if(hasFiniteBounds){
+for(int i=0;i<lB.length;i++){
+if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+hasInfiniteBounds=true;
+break;
+}
+}
+if(hasInfiniteBounds){
+throw new MathUnsupportedOperationException();
+}
+else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+}
+
+INSERT:
+20:int numEvals=0;
+TO:
+23
+
+INSERT:
+22:if(inputSigma==null){
+numEvals+=1;
+}
+TO:
+37
+
+DELETE:
+Original line: 30else{
+boundaries=null;
+}
+
+INSERT:
+30:if(sigma>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(sigma,0,boundaries[1][i]-boundaries[0][i]);
+}
+TO:
+44
+
+DELETE:
+Original line: 35throw new DimensionMismatchException(inputSigma.length,init.length);
+
+DELETE:
+Original line: 37for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:12015 patches
+Compile failed:9877 patches
+Compilation rate:0.17794423637120266
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/38.java
+Current actions:
+INSERT:
+28:if(encode(boundaries[1])>encode(boundaries[0])){
+throw new OutOfRangeException(encode(boundaries[1]),0,encode(boundaries[0]));
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(encode(boundaries[1]),0,encode(boundaries[0]));
+TO:
+27
+
+Following are 1th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+28:if(encode(boundaries[1])>encode(boundaries[0])){
+throw new OutOfRangeException(encode(boundaries[1]),0,encode(boundaries[0]));
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:12362 patches
+Compile failed:10103 patches
+Compilation rate:0.1827374211292671
+NNNNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPNPNNPNNPPPPPPPPPPPPPPPPPPPPNPPPPPPNPPPPPPPPNPPPPPPNNPPPPPPNPPPNPNPPPPPPPPPNNNPNNNPPPPPPPPPPPPNPNPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/39.java
+Current actions:
+INSERT:
+28: final double max=getMaximum();
+TO:
+27
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28: final double max=getMaximum();
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+if(inputSigma!=null){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>max-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,max-boundaries[0][i]);
+}
+}
+else{
+if(init[i]<boundaries[0][i]){
+throw new OutOfRangeException(init[i],boundaries[0][i],Double.POSITIVE_INFINITY);
+}
+if(init[i]>max){
+throw new OutOfRangeException(init[i],Double.NEGATIVE_INFINITY,max);
+}
+if(boundaries[0][i]<0){
+throw new OutOfRangeException(boundaries[0][i],0,Double.POSITIVE_INFINITY);
+}
+if(boundaries[1][i]>max){
+throw new OutOfRangeException(boundaries[1][i],Double.NEGATIVE_INFINITY,max);
+}
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+INSERT:
+57:if(inputSigma!=null){
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+}
+}
+TO:
+31
+
+INSERT:
+64:else{
+for(int i=0;i<init.length;i++){
+if(init[i]<Double.NEGATIVE_INFINITY){
+throw new OutOfRangeException(init[i],Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY);
+}
+if(init[i]>Double.POSITIVE_INFINITY){
+throw new OutOfRangeException(init[i],Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY);
+}
+}
+}
+TO:
+40
+
+Following are 1th generated patches:
+Validating 37 patches...
+Tested:12558 patches
+Compile failed:10299 patches
+Compilation rate:0.1798853320592451
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/40.java
+Current actions:
+INSERT:
+28:if(getNormalizingConstant()>0){
+throw new MathIllegalArgumentException();
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(getNormalizingConstant()>0){
+throw new MathIllegalArgumentException();
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new MathIllegalArgumentException();
+TO:
+27
+
+Following are 2th generated patches:
+Validating 149 patches...
+Tested:12909 patches
+Compile failed:10528 patches
+Compilation rate:0.1844449608800062
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPNPPPPPNNNNNNNPPNPPPPPPPNPPPPPPPPPPPPPPPPNPNPNPNPPPPPPPPNNPNNPPPNPPPPPPPPPPPPPPPNPPPPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/41.java
+Current actions:
+INSERT:
+28:checkNormalization();
+TO:
+27
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:checkNormalization();
+TO:
+27
+
+Following are 1th generated patches:
+Validating 143 patches...
+Tested:13053 patches
+Compile failed:10544 patches
+Compilation rate:0.19221634873209223
+NNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNPPNPPPPPPPNPPPPPNPPPPPPPPPPPPPPNPPPPPPPPPPPNPNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/42.java
+Current actions:
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 33if(inputSigma!=null){
+if(inputSigma.length!=init.length){
+throw new DimensionMismatchException(inputSigma.length,init.length);
+}
+for(int i=0;i<init.length;i++){
+if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+}
+}
+
+INSERT:
+33:if(inputSigma==null){
+sigma=new double[init.length];
+Arrays.fill(sigma,1);
+}
+TO:
+32
+
+INSERT:
+40:else{
+sigma=inputSigma.clone();
+}
+TO:
+32
+
+INSERT:
+43:for(int i=0;i<init.length;i++){
+if(sigma[i]<0){
+throw new NotPositiveException(sigma[i]);
+}
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:13422 patches
+Compile failed:10900 patches
+Compilation rate:0.1879004619281776
+NNNNNNNNNNNNNNNNNNNNNPNPPNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/43.java
+Current actions:
+INSERT:
+28:double deltaMax=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:double deltaMax=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<boundaries[0].length;i++){
+double delta=boundaries[1][i]-boundaries[0][i];
+if(delta>deltaMax){
+deltaMax=delta;
+}
+}
+TO:
+27
+
+INSERT:
+36:inputSigma=new double[boundaries[0].length];
+TO:
+27
+
+INSERT:
+39:for(int i=0;i<inputSigma.length;i++){
+if(inputSigma[i]<=0){
+throw new NotPositiveException(inputSigma[i]);
+}
+if(inputSigma[i]>deltaMax){
+throw new OutOfRangeException(inputSigma[i],0,deltaMax);
+}
+}
+TO:
+27
+
+UPDATE
+FROM:
+38:if(inputSigma[i]<0){
+throw new NotPositiveException(inputSigma[i]);
+}
+TO:
+57:if(inputSigma[i]<=0){
+throw new NotPositiveException(inputSigma[i]);
+}
+
+Following are 1th generated patches:
+Validating 128 patches...
+Tested:13747 patches
+Compile failed:11168 patches
+Compilation rate:0.1876045682694406
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNPPPPPNPNNNNNNNNNNPPNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNPNPNNNPPNNNNPPPPPNNNNNNNNNNNNNNNNPNPPPPNNNNNNPNNNNNNNNNNPNPPNNNPPPNPNNNNNNNNNNNNNNPPNPPPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/44.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(lB[0])||Double.isInfinite(uB[0])){
+throw new MathUnsupportedOperationException();
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new MathUnsupportedOperationException();
+TO:
+27
+
+Following are 1th generated patches:
+Validating 148 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(lB[0])||Double.isInfinite(uB[0])){
+throw new MathUnsupportedOperationException();
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14097 patches
+Compile failed:11238 patches
+Compilation rate:0.20280910832091933
+PPNNNPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPNNPPNPNNNNPPNPPPPPPPNNPPPPPPPPPNPPNPPPPNPPPNPPPPPPPPPPPPNPPNPPPPPNPNNPPPPPPPNPPPPPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPNNPPNNNNPNNNNPPPPPPPPPNPPPPPPPPPNPPPPPPPPPNPPPNNNNNNPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPNNPNNNPNPNPPNPPPPPPPPPPNPPPNPPPPPPNPNNNNNNPNPPPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPNPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/45.java
+Current actions:
+INSERT:
+28: final double[] normalized=new double[init.length];
+TO:
+27
+
+Following are 0th generated patches:
+Validating 51 patches...
+Current actions:
+INSERT:
+29:encode(init,normalized);
+TO:
+27
+
+INSERT:
+30: final double[] sigma=new double[normalized.length];
+TO:
+27
+
+INSERT:
+31:for(int i=0;i<normalized.length;i++){
+sigma[i]=boundaries[1][i]-boundaries[0][i];
+}
+TO:
+27
+
+INSERT:
+35:throw new OutOfRangeException(getSigma(normalized,sigma),0,Double.POSITIVE_INFINITY);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:for(int i=0;i<normalized.length;i++){
+sigma[i]=boundaries[1][i]-boundaries[0][i];
+}
+TO:
+27
+
+INSERT:
+35:throw new OutOfRangeException(getSigma(normalized,sigma),0,Double.POSITIVE_INFINITY);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14545 patches
+Compile failed:11683 patches
+Compilation rate:0.19676864902028188
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/46.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new MathUnsupportedOperationException();]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13boolean hasInfiniteBounds=false;
+
+INSERT:
+17:boolean hasInfiniteBounds=false;
+TO:
+14
+
+INSERT:
+30: final double dist=boundaries[1][i]-boundaries[0][i];
+TO:
+27
+
+INSERT:
+38:}
+
+TO:
+27
+
+INSERT:
+39:else{
+boundaries=null;
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 149 patches...
+Current actions:
+INSERT:
+33:for(int i=0;i<init.length;i++){
+if(FastMath.abs(init[i]-lB[i])>maxDistance||FastMath.abs(init[i]-uB[i])>maxDistance){
+throw new MathArithmeticException();
+}
+}
+TO:
+27
+
+INSERT:
+38:}
+
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13boolean hasInfiniteBounds=false;
+
+INSERT:
+14:if(Double.isInfinite(lB[i])||Double.isInfinite(uB[i])){
+throw new MathUnsupportedOperationException();
+}
+TO:
+14
+
+INSERT:
+17:boolean hasInfiniteBounds=false;
+TO:
+14
+
+DELETE:
+Original line: 22throw new MathUnsupportedOperationException();
+
+DELETE:
+Original line: 24else{
+boundaries=new double[2];
+boundaries[0]=lB;
+boundaries[1]=uB;
+}
+
+INSERT:
+29:for(int i=0;i<lB.length;i++){
+ final double dist=boundaries[1][i]-boundaries[0][i];
+maxDistance=FastMath.max(maxDistance,dist);
+}
+TO:
+27
+
+INSERT:
+33:for(int i=0;i<init.length;i++){
+if(FastMath.abs(init[i]-lB[i])>maxDistance||FastMath.abs(init[i]-uB[i])>maxDistance){
+throw new MathArithmeticException();
+}
+}
+TO:
+27
+
+INSERT:
+38:}
+
+TO:
+27
+
+INSERT:
+39:else{
+boundaries=null;
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:15182 patches
+Compile failed:12320 patches
+Compilation rate:0.18851271242260573
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/47.java
+Current actions:
+INSERT:
+28:double sum=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+34:throw new MathUnsupportedOperationException();
+TO:
+27
+
+Following are 1th generated patches:
+Validating 148 patches...
+Current actions:
+INSERT:
+28:double sum=0;
+TO:
+27
+
+INSERT:
+30:sum+=(boundaries[1][i]-boundaries[0][i])*(boundaries[1][i]-boundaries[0][i]);
+TO:
+27
+
+INSERT:
+33:if(sum<Double.POSITIVE_INFINITY){
+throw new MathUnsupportedOperationException();
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:for(int i=0;i<init.length;i++){
+sum+=(boundaries[1][i]-boundaries[0][i])*(boundaries[1][i]-boundaries[0][i]);
+}
+TO:
+27
+
+INSERT:
+32:sum/=init.length;
+TO:
+27
+
+Following are 3th generated patches:
+Validating 151 patches...
+Tested:15710 patches
+Compile failed:12715 patches
+Compilation rate:0.19064290260980268
+NNNNNNNNNNNNNNNNNNNPPNPPPPPPPPPNNNPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPNPNPPNNNNNPPNPPPPPPNPNPPPPPPPPPPNNPPPPNPPPPNPPPPPPPPPPPNPPPPNPPPPNNPNPPPPPPPNPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/48.java
+Current actions:
+INSERT:
+28:if(Double.isInfinite(getNormalizer())){
+throw new MathIllegalStateException(LocalizedFormats.OVERFLOW);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:if(Double.isInfinite(getNormalizer())){
+throw new MathIllegalStateException(LocalizedFormats.OVERFLOW);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:throw new MathIllegalStateException(LocalizedFormats.OVERFLOW);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16112 patches
+Compile failed:13045 patches
+Compilation rate:0.1903550148957299
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNPPPNNNPPNPPPNPPPNNNNNPNNNPNPNNNPNNNNNNNNNNPPNNNPPPNPPPPPPNPPPPPPNNNNNPPNPNNNPNPNPPNNNNNNNPNPPNPPNNNNNNNNNNPNNNNNNNNNNNNPNNNNPPPNPPNNNNNNPNPNNPPPPNPNNNNNNPNNNNPNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/49.java
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double s=inputSigma[i];
+if(s>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(s,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+29:double s=inputSigma[i];
+TO:
+27
+
+Following are 1th generated patches:
+Validating 73 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double s=inputSigma[i];
+if(s>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(s,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 43throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:for(int i=0;i<init.length;i++){
+double s=inputSigma[i];
+if(s>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(s,0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+TO:
+27
+
+DELETE:
+Original line: 41if(boundaries!=null){
+if(inputSigma[i]>boundaries[1][i]-boundaries[0][i]){
+throw new OutOfRangeException(inputSigma[i],0,boundaries[1][i]-boundaries[0][i]);
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:16214 patches
+Compile failed:13127 patches
+Compilation rate:0.19039102010608117
+NNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNPPPNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/50.java
+Current actions:
+INSERT:
+28:if(MathArrays.distance(lB,uB)>1000){
+throw new OutOfRangeException(MathArrays.distance(lB,uB),0,1000);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(MathArrays.distance(lB,uB),0,1000);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 170 patches...
+Current actions:
+INSERT:
+28:if(MathArrays.distance(lB,uB)>1000){
+throw new OutOfRangeException(MathArrays.distance(lB,uB),0,1000);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16586 patches
+Compile failed:13312 patches
+Compilation rate:0.1973953937055348
+PPNNNNNPPPPPPPPNNPPNPPPPPPNPPNPPNPPPPPNNPNNNPPPPPPPPNPPPPPNPPPPNPPPPPNPNPPPNNPPPPPPNPNPNPPPPPPPPNNPPPPPNPPNNNPPNNNNNPPPPPPNPPPPPNPNPNPPNNNPPPPPPNPPPPPPPPNPNPPPPPPPPPNPPPPPPNNNNNNNPPPPPPPPNNNNNNPPNPNPPNNNPPPNNNNPNPNNNNNNNNNNNNNNNNNPNPNNNPPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPPNPPPNNPPNPNNPPNNPPNNPNPPPNNNNNPNPNPNPNNNNPPNNPNNNPPPNPNNNNNPPPNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/51.java
+Current actions:
+INSERT:
+28:double min=Double.POSITIVE_INFINITY;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:double min=Double.POSITIVE_INFINITY;
+TO:
+27
+
+INSERT:
+29:double max=Double.NEGATIVE_INFINITY;
+TO:
+27
+
+INSERT:
+30:for(int i=0;i<init.length;i++){
+if(init[i]<min){
+min=init[i];
+}
+if(init[i]>max){
+max=init[i];
+}
+}
+TO:
+27
+
+INSERT:
+38:for(int i=0;i<lB.length;i++){
+if(lB[i]<min){
+min=lB[i];
+}
+if(lB[i]>max){
+max=lB[i];
+}
+}
+TO:
+27
+
+INSERT:
+46:for(int i=0;i<uB.length;i++){
+if(uB[i]<min){
+min=uB[i];
+}
+if(uB[i]>max){
+max=uB[i];
+}
+}
+TO:
+27
+
+INSERT:
+54:double range=max-min;
+TO:
+27
+
+INSERT:
+55:for(int i=0;i<init.length;i++){
+if(range<init[i]){
+throw new OutOfRangeException(init[i],min,max);
+}
+}
+TO:
+27
+
+INSERT:
+60:for(int i=0;i<lB.length;i++){
+if(range<lB[i]){
+throw new OutOfRangeException(lB[i],min,max);
+}
+}
+TO:
+27
+
+INSERT:
+65:for(int i=0;i<uB.length;i++){
+if(range<uB[i]){
+throw new OutOfRangeException(uB[i],min,max);
+}
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 132 patches...
+Tested:16915 patches
+Compile failed:13637 patches
+Compilation rate:0.1937924918711203
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/52.java
+Current actions:
+INSERT:
+28:if(boundaries[1][0]-boundaries[0][0]>Integer.MAX_VALUE){
+throw new OutOfRangeException(boundaries[1][0],0,Integer.MAX_VALUE);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new OutOfRangeException(boundaries[1][0],0,Integer.MAX_VALUE);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+28:if(boundaries[1][0]-boundaries[0][0]>Integer.MAX_VALUE){
+throw new OutOfRangeException(boundaries[1][0],0,Integer.MAX_VALUE);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 179 patches...
+Tested:17241 patches
+Compile failed:13838 patches
+Compilation rate:0.19737834232353113
+PPNNNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPNNNPPPPPNPPPNPPPPPPPNPPPPPPPPPPPPPNPPNPPPPPPPNPPNNPNPPNNPNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/53.java
+Current actions:
+INSERT:
+28:if(!isFinite()){
+throw new NumberIsTooLargeException(boundaries[1][0],Double.MAX_VALUE,true);
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:throw new NumberIsTooLargeException(boundaries[1][0],Double.MAX_VALUE,true);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+28:if(!isFinite()){
+throw new NumberIsTooLargeException(boundaries[1][0],Double.MAX_VALUE,true);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:17588 patches
+Compile failed:14062 patches
+Compilation rate:0.2004775983625199
+NPPPPPPPPPPNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPNPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPPPPPPNNNNPPNNPPPPPPPPPPPPNPPPPPPPPPPPNNNPNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/54.java
+Current actions:
+INSERT:
+28:double maxInputSigma=0;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+28:double maxInputSigma=0;
+TO:
+27
+
+INSERT:
+33:for(int i=0;i<init.length;i++){
+maxSigma=FastMath.max(maxSigma,FastMath.abs(init[i])+maxInputSigma);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 85 patches...
+Current actions:
+INSERT:
+28:double maxInputSigma=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<inputSigma.length;i++){
+maxInputSigma=FastMath.max(maxInputSigma,inputSigma[i]);
+}
+TO:
+27
+
+INSERT:
+34:maxSigma=FastMath.max(maxSigma,FastMath.abs(init[i])+maxInputSigma);
+TO:
+27
+
+INSERT:
+36:if(maxSigma>=1){
+throw new OutOfRangeException(maxSigma,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:double maxInputSigma=0;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<inputSigma.length;i++){
+maxInputSigma=FastMath.max(maxInputSigma,inputSigma[i]);
+}
+TO:
+27
+
+INSERT:
+32:double maxSigma=0;
+TO:
+27
+
+INSERT:
+33:for(int i=0;i<init.length;i++){
+maxSigma=FastMath.max(maxSigma,FastMath.abs(init[i])+maxInputSigma);
+}
+TO:
+27
+
+INSERT:
+36:if(maxSigma>=1){
+throw new OutOfRangeException(maxSigma,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 99 patches...
+Tested:18038 patches
+Compile failed:14505 patches
+Compilation rate:0.19586428650626456
+NNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/55.java
+Current actions:
+INSERT:
+28:double max=Double.NEGATIVE_INFINITY;
+TO:
+27
+
+Following are 0th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+28:double max=Double.NEGATIVE_INFINITY;
+TO:
+27
+
+INSERT:
+29:for(int i=0;i<init.length;i++){
+ final double s=boundaries[1][i]-boundaries[0][i];
+ final double r=init[i]-boundaries[0][i];
+if(r>s){
+return ;
+}
+max=FastMath.max(max,s-r);
+}
+TO:
+27
+
+INSERT:
+37:throw new OutOfRangeException(max,0,0);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:double max=Double.NEGATIVE_INFINITY;
+TO:
+27
+
+INSERT:
+30: final double s=boundaries[1][i]-boundaries[0][i];
+TO:
+27
+
+INSERT:
+33:return ;
+TO:
+27
+
+INSERT:
+35:max=FastMath.max(max,s-r);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:if(r>s){
+return ;
+}
+TO:
+27
+
+Following are 3th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+28:double max=Double.NEGATIVE_INFINITY;
+TO:
+27
+
+INSERT:
+30: final double s=boundaries[1][i]-boundaries[0][i];
+TO:
+27
+
+INSERT:
+31: final double r=init[i]-boundaries[0][i];
+TO:
+27
+
+INSERT:
+32:if(r>s){
+return ;
+}
+TO:
+27
+
+INSERT:
+35:max=FastMath.max(max,s-r);
+TO:
+27
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:18752 patches
+Compile failed:15203 patches
+Compilation rate:0.18925981228668942
+NNNNNNNNNNNNNNNNNNPNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPNNNNNPNPNNNNPPNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_19/56.java
+Current actions:
+INSERT:
+28: final double range=encode()-getLowerLimit();
+TO:
+27
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+28: final double range=encode()-getLowerLimit();
+TO:
+27
+
+INSERT:
+29:if(range<0){
+throw new OutOfRangeException(range,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(range<0){
+throw new OutOfRangeException(range,0,Double.POSITIVE_INFINITY);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:19156 patches
+Compile failed:15607 patches
+Compilation rate:0.18526832324076006
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : math-19 > patch : 0 | Start : Sun Apr 07 19:43:45 HKT 2024 | End : 2024.04.07 AD at 20:51:52 HKT

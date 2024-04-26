@@ -1,0 +1,493 @@
+Repair : closure_14
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/2.java
+Current actions:
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5return null;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/3.java
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(node==null){
+return null;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 40 patches...
+Current actions:
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+10:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+38:if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+22:if(child==node){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+else{
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+
+Following are 3th generated patches:
+Validating 21 patches...
+Current actions:
+UPDATE
+FROM:
+39:if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+TO:
+23:if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+INSERT:
+6:switch (node.getType()){
+case Token.IF :
+return node.getFirstChild();
+case Token.FOR :
+if(NodeUtil.isForIn(node)){
+return node;
+}
+case Token.WHILE :
+case Token.DO :
+return node.getFirstChild();
+case Token.TRY :
+Node finallyNode=node.getLastChild();
+Node child=node.getFirstChild();
+if(child==node){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+else{
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+case Token.RETURN :
+if(NodeUtil.isReturningFunction(node)){
+return NodeUtil.getSymbolicReturn(node);
+}
+case Token.BREAK :
+case Token.CONTINUE :
+if(node.getType()==Token.BREAK&&cfa!=null&&node.getParent()!=cfa.root){
+cfa.createEdge(fromNode,Branch.UNCOND,cfa.labelMap.get(node.getString()));
+}
+return computeFollowNode(fromNode,node.getParent(),cfa);
+default :
+Node nextSibling=node.getNext();
+while(nextSibling!=null&&nextSibling.isFunction()){
+nextSibling=nextSibling.getNext();
+}
+if(nextSibling!=null){
+return computeFallThrough(nextSibling);
+}
+}
+TO:
+6
+
+DELETE:
+Original line: 7switch (parent.getType()){
+case Token.IF :
+return computeFollowNode(fromNode,parent,cfa);
+case Token.CASE :
+case Token.DEFAULT_CASE :
+if(parent.getNext()!=null){
+if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+else{
+if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+}
+}
+break;
+case Token.FOR :
+if(NodeUtil.isForIn(parent)){
+return parent;
+}
+case Token.WHILE :
+case Token.DO :
+return parent;
+case Token.TRY :
+if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+}
+
+UPDATE
+FROM:
+38:if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+22:if(child==node){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+else{
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+
+UPDATE
+FROM:
+48:return computeFallThrough(node.getNext());
+TO:
+32:return computeFallThrough(finallyNode);
+
+UPDATE
+FROM:
+11:case Token.DEFAULT_CASE :
+TO:
+54:case Token.CONTINUE :
+
+DELETE:
+Original line: 71return computeFollowNode(fromNode,parent,cfa);
+
+Tested:657 patches
+Compile failed:530 patches
+Compilation rate:0.1933028919330289
+NNNNPPNNNNPPPPPNPPNPNNNNNPPPNPPPNNNNPPNPNNPPPPNPPPNNPNPNNPPPPNPPNPNNPNNPPPPNNPPNNNPPNNNNNPNNNPNPNNNNNPNNNNNPNPNNNNNPNNPPPPPNNPPNNNNNNPNPPNNNNPNNNNNNPNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNPNNNPNNPNNPNPPPPNPPPPPNPNNPNPPNNPPPPNPPPPPPPNPNNPNNNNNPPNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/4.java
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(parent.getNext()!=null){
+if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+else{
+if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+}
+}
+TO:
+8:if(node.getNext()!=null){
+if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+else{
+if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+13:if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+TO:
+9:if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+16:if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+TO:
+12:if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+24:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+UPDATE
+FROM:
+9:return computeFollowNode(fromNode,parent,cfa);
+TO:
+5:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+24:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+UPDATE
+FROM:
+36:return parent;
+TO:
+32:return node;
+
+UPDATE
+FROM:
+39:if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+TO:
+35:if(NodeUtil.hasFinally(node)){
+return computeFallThrough(node.getLastChild());
+}
+
+UPDATE
+FROM:
+43:return computeFollowNode(fromNode,parent,cfa);
+TO:
+39:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+47:if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(node.getNext());
+}
+TO:
+43:if(NodeUtil.hasFinally(node)){
+return computeFallThrough(fromNode.getNext());
+}
+
+UPDATE
+FROM:
+54:else{
+if(parent.getLastChild()==node){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(parent)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+50:else{
+if(node.getLastChild()==fromNode){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(node)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,node,cfa);
+}
+}
+
+UPDATE
+FROM:
+71:return computeFollowNode(fromNode,parent,cfa);
+TO:
+67:return computeFollowNode(fromNode,node,cfa);
+
+Tested:1650 patches
+Compile failed:1296 patches
+Compilation rate:0.21454545454545454
+NPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNPPNPNNNNNNPNNNPNNNNNNNNPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNPNPPNPPPPPPPPPNNNNNPPPPPPNPNPPPPNPPNPNNPPPNNPPPPPPPPPPNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNPNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/5.java
+Tested:1650 patches
+Compile failed:1296 patches
+Compilation rate:0.21454545454545454
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/6.java
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+4:if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+TO:
+3:if(node==null||node.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+Following are 1th generated patches:
+Validating 178 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(parent.getNext()!=null){
+if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+else{
+if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+}
+}
+TO:
+11:if(node.getNext()!=null){
+if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+else{
+if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+13:if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+TO:
+12:if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+16:if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+TO:
+15:if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+27:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+Tested:2620 patches
+Compile failed:1925 patches
+Compilation rate:0.2652671755725191
+NPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNPPPPPNNNNNNNNNNNNNNNNNNNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPNNNNPNPPPPNNPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-14 > patch : 0 | Start : Fri Apr 05 16:27:34 HKT 2024 | End : 2024.04.05 AD at 16:41:21 HKT

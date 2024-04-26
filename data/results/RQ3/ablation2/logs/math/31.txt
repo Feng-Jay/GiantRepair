@@ -1,0 +1,4361 @@
+Repair : math_31
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/1.java
+Current actions:
+INSERT:
+3:if(x<=0||epsilon<=0||maxIterations<=0){
+throw new NotStrictlyPositiveException(LocalizedFormats.CONTINUED_FRACTION_ARGUMENTS,maxIterations,epsilon,x);
+}
+TO:
+2
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:if(x<=0||epsilon<=0||maxIterations<=0){
+throw new NotStrictlyPositiveException(LocalizedFormats.CONTINUED_FRACTION_ARGUMENTS,maxIterations,epsilon,x);
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 73 patches...
+Current actions:
+INSERT:
+4:throw new NotStrictlyPositiveException(LocalizedFormats.CONTINUED_FRACTION_ARGUMENTS,maxIterations,epsilon,x);
+TO:
+2
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:76 patches
+Compile failed:76 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/2.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 34else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20: final double scaleFactor=FastMath.max(FastMath.max(a,b),1.0);
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 34else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20: final double scaleFactor=FastMath.max(FastMath.max(a,b),1.0);
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+INSERT:
+25:cN=scaleFactor*hPrev+(b/scaleFactor*p0);
+TO:
+26
+
+INSERT:
+26:q2=scaleFactor*q1+(b/scaleFactor*dPrev);
+TO:
+26
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:669 patches
+Compile failed:437 patches
+Compilation rate:0.34678624813153963
+NNNPPPPPPPPPPNNNNPPPPPPPPPPPPPPPPPPPPNNNNNPPPPPPPNNNNNNNNNPNNNNNNNNNPNNNNNNPNNNPNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNPPNPPPPPPPPPPPNNPPPPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPNNPPNPPPPPPPPPPPPPPPPPPPNNNNPNNNNNNNNNPPPNPNPPPPPPPPPPPPPNPNPPPPPPPNPPNPPPPPPPPNPNPPPPPPNPPPNPPPPPPPPPPNPPNNPPPPPNPPPPPNPPPNPPPPPNPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPNPPNPPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/3.java
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+23: final double scale=FastMath.max(FastMath.abs(a),FastMath.abs(b));
+TO:
+22
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+INSERT:
+23: final double scale=FastMath.max(FastMath.abs(a),FastMath.abs(b));
+TO:
+22
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1071 patches
+Compile failed:688 patches
+Compilation rate:0.357609710550887
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNPNNNPPPPPPPPNPPNPPPPPPPNPPNNNNPNPPPPPPNNPPPPPPPPPPPPPNPNPPPPPNPPPPNPPPPPPNPPPNPPPPPNPPPPNPPNPNPPPNPPPPNPNPPPPNPPPNPNPPPPNNPNPPNNNPPNPPPPPPPPPNPPNPNPPPPPPNNPPNPNPNPPNPPPPPPNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/4.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20: final double max=FastMath.max(FastMath.abs(cN),FastMath.abs(q2));
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+INSERT:
+21:if(max>1.0){
+ final double scale=max;
+cN/=scale;
+q2/=scale;
+if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+}
+TO:
+19
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20: final double max=FastMath.max(FastMath.abs(cN),FastMath.abs(q2));
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+INSERT:
+21:if(max>1.0){
+ final double scale=max;
+cN/=scale;
+q2/=scale;
+if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+}
+TO:
+19
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 28lastScaleFactor=scaleFactor;
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 30if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+
+DELETE:
+Original line: 34else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+
+DELETE:
+Original line: 39break;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1642 patches
+Compile failed:1192 patches
+Compilation rate:0.2740560292326431
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNPNPPPPPPPPNNPPNNNNNNNNNNPNPPNNPNNPPPNNPNPNNNNNNPPNNNNNNNNNNNNNNNNPNPPPPPPPPPNNNNNNNNNNNNNNNNPNNNNNPNNNNNPNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNPNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNPNNNNNNNPNPNNNNNPPNNNNNNNNNNNNNNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPNNPPPNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/5.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+INSERT:
+26:cN=hPrev/scaleFactor+scaledB*p0;
+TO:
+23
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+32:q2=q1/scaleFactor+scaledB*dPrev;
+TO:
+23
+
+Following are 1th generated patches:
+Validating 162 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20: final double scaleFactor=FastMath.max(FastMath.abs(a),FastMath.abs(b));
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+21:if(scaleFactor<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+UPDATE
+FROM:
+23: final double scale=FastMath.max(a,b);
+TO:
+24: final double scaledA=a/scaleFactor;
+
+INSERT:
+25: final double scaledB=b/scaleFactor;
+TO:
+23
+
+INSERT:
+26:cN=hPrev/scaleFactor+scaledB*p0;
+TO:
+23
+
+INSERT:
+27:q2=q1/scaleFactor+scaledB*dPrev;
+TO:
+23
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+28:while(Double.isInfinite(cN)||Double.isInfinite(q2)){
+scaledA*=scaleFactor;
+scaledB*=scaleFactor;
+cN=hPrev/scaleFactor+scaledB*p0;
+q2=q1/scaleFactor+scaledB*dPrev;
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22 final int maxPower=5;
+
+INSERT:
+27:q2=q1/scaleFactor+scaledB*dPrev;
+TO:
+23
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+30:scaledB*=scaleFactor;
+TO:
+23
+
+Following are 3th generated patches:
+Validating 94 patches...
+Tested:2266 patches
+Compile failed:1778 patches
+Compilation rate:0.21535745807590467
+NNNNNNNPPPPNPPNPNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNPPPPPPPNPNNPNPNNNNNNNNNNNNNNNNNPPNNNNPNNNNNPNNNNNNNNNNPPPNPNPNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/6.java
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+24:if(scale==0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+INSERT:
+23: final double scale=FastMath.max(FastMath.abs(a),FastMath.abs(b));
+TO:
+22
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23: final double scale=FastMath.max(FastMath.abs(a),FastMath.abs(b));
+TO:
+22
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2684 patches
+Compile failed:2043 patches
+Compilation rate:0.23882265275707898
+NNNNPPPNNNNNNNNNNNNNPPPPPPPPPNNPNNNPPPPPPPPNPPNPPPPPPPNPNPNNPNNPPPPPPNNPPPPPPPPPPPPPNPNPPPPPNPPPPNPPPPPPNPPPNPPPPPNPPPPNPPNPNPPPNPPPPNPNPPPPNPPNPPNPPPPNNPNPNPNNPPNPPPPPPPPNPPPPNNPPPPPNPNNPPPNPPNPNPPPPPPNPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/7.java
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(FastMath.abs(deltaN-1.0)<=epsilon){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(FastMath.abs(deltaN-1.0)<=epsilon){
+break;
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:2689 patches
+Compile failed:2044 patches
+Compilation rate:0.23986612123465972
+PNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/8.java
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 27 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 4th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Tested:2890 patches
+Compile failed:2166 patches
+Compilation rate:0.2505190311418685
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPNPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPNNPNNPNPPPPPPPPPPNPPNPPPPNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNPPPPPNNNNNNNNNNPPPPPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/9.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);, if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}, {
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 46throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+Following are 4th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 28lastScaleFactor=scaleFactor;
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 34else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+
+DELETE:
+Original line: 39break;
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Tested:3119 patches
+Compile failed:2279 patches
+Compilation rate:0.2693170888105162
+NNNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPNPPPPPPPPPPPNPPNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNNNNNNNNNNNNNNNNPNPPNPNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNPPNNNNNNNNNNPNNNPNNPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/10.java
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+16: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+UPDATE
+FROM:
+5:if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+TO:
+4:if(Precision.equals(hPrev,0.0,0.0)){
+hPrev=0.0;
+}
+
+UPDATE
+FROM:
+6:hPrev=small;
+TO:
+5:hPrev=0.0;
+
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+16: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+17: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+16: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+17: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 30if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+Tested:3325 patches
+Compile failed:2417 patches
+Compilation rate:0.2730827067669173
+NNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNPPNNNNNNNNNPNNNNNNNNNNNPNNNNNPNNNNNNPNNNNNNPNNNNNNNNNNNNPPPPPPPPPPPNPPPPPPPPNNPPPNNNNNNNNNNNNNPNNNNNNNNPNPPNNNNNNNNPPPPPPPPPNNNNNPNNPPPNPPPNPPPPNPNPNPPNNPPNNNNNNPNNPPPNNNPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/11.java
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:3331 patches
+Compile failed:2423 patches
+Compilation rate:0.27259081356949866
+NNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/12.java
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if(Precision.equals(cN,Double.POSITIVE_INFINITY,epsilon)||Precision.equals(cN,Double.NEGATIVE_INFINITY,epsilon)||Precision.equals(q2,Double.POSITIVE_INFINITY,epsilon)||Precision.equals(q2,Double.NEGATIVE_INFINITY,epsilon)){
+if(Precision.equals(cN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+}
+else{
+if(Precision.equals(cN,Double.NEGATIVE_INFINITY,epsilon)){
+hN=Double.NEGATIVE_INFINITY;
+}
+}
+break;
+}
+TO:
+18
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+39:if(Precision.equals(hN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+break;
+}
+TO:
+44
+
+INSERT:
+44:hN=Double.NEGATIVE_INFINITY;
+TO:
+44
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+50:if(Precision.equals(deltaN,1.0,epsilon)){
+break;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if(Precision.equals(cN,Double.POSITIVE_INFINITY,epsilon)||Precision.equals(cN,Double.NEGATIVE_INFINITY,epsilon)||Precision.equals(q2,Double.POSITIVE_INFINITY,epsilon)||Precision.equals(q2,Double.NEGATIVE_INFINITY,epsilon)){
+if(Precision.equals(cN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+}
+else{
+if(Precision.equals(cN,Double.NEGATIVE_INFINITY,epsilon)){
+hN=Double.NEGATIVE_INFINITY;
+}
+}
+break;
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+INSERT:
+39:if(Precision.equals(hN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+break;
+}
+TO:
+44
+
+INSERT:
+43:if(Precision.equals(hN,Double.NEGATIVE_INFINITY,epsilon)){
+hN=Double.NEGATIVE_INFINITY;
+break;
+}
+TO:
+44
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+48:if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+TO:
+47:if(Precision.equals(hN,Double.NaN,epsilon)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+50:if(Precision.equals(deltaN,1.0,epsilon)){
+break;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20:if(Precision.equals(cN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+}
+TO:
+18
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+INSERT:
+23:if(Precision.equals(cN,Double.NEGATIVE_INFINITY,epsilon)){
+hN=Double.NEGATIVE_INFINITY;
+}
+TO:
+26
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+35:break;
+TO:
+41
+
+INSERT:
+39:if(Precision.equals(hN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+break;
+}
+TO:
+44
+
+INSERT:
+43:if(Precision.equals(hN,Double.NEGATIVE_INFINITY,epsilon)){
+hN=Double.NEGATIVE_INFINITY;
+break;
+}
+TO:
+44
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+48:if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+TO:
+47:if(Precision.equals(hN,Double.NaN,epsilon)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+50:if(Precision.equals(deltaN,1.0,epsilon)){
+break;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+INSERT:
+39:if(Precision.equals(hN,Double.POSITIVE_INFINITY,epsilon)){
+hN=Double.POSITIVE_INFINITY;
+break;
+}
+TO:
+44
+
+Following are 4th generated patches:
+Validating 93 patches...
+Tested:4189 patches
+Compile failed:3148 patches
+Compilation rate:0.2485079971353545
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPNPPPPPPPPPNPPPNPPNPPNNNPPPNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNPPNPPNPPPPPPPPNPPPPPPPPNPPPPPPPPNPPPNPPPPPPPNPNNNNPPPPNPNPPPPPPPPPNPPPPNPPNNPPNPNPNPNNPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPPNNPNNNPNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/13.java
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 46throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Tested:4393 patches
+Compile failed:3249 patches
+Compilation rate:0.260414295470066
+NNNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPNNPPPPPPNNPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNPNNNNNPPNNNPPPNNNNNNNPPNNNNNNNNNNNNNNNNPNNNNNNPNNPNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNPNPNNNPPPPPPPPPPPPPPPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/14.java
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(Precision.equals(deltaN-1.0,0,epsilon)){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(Precision.equals(deltaN-1.0,0,epsilon)){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:4395 patches
+Compile failed:3249 patches
+Compilation rate:0.26075085324232083
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/15.java
+Current actions:
+UPDATE
+FROM:
+44:hN=cPrev*deltaN;
+TO:
+44:hN=hPrev*deltaN;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+44:hN=cPrev*deltaN;
+TO:
+44:hN=hPrev*deltaN;
+
+Following are 1th generated patches:
+Validating 43 patches...
+Tested:4439 patches
+Compile failed:3259 patches
+Compilation rate:0.2658256364045956
+PNNPPPPPNNPPPPPPPNPPPNPPNNNNPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/16.java
+Current actions:
+UPDATE
+FROM:
+57:hPrev=cN;
+TO:
+57:hPrev=hN;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+57:hPrev=cN;
+TO:
+57:hPrev=hN;
+
+Following are 1th generated patches:
+Validating 22 patches...
+Tested:4462 patches
+Compile failed:3264 patches
+Compilation rate:0.26848946660690276
+PNNNPPPPPPPPNPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/17.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+UPDATE
+FROM:
+23: final double scale=FastMath.max(a,b);
+TO:
+20: final double scaleFactor=FastMath.max(a,b);
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+21:if(scaleFactor<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+INSERT:
+25:q2=q1/scaleFactor+(b/scaleFactor*dPrev);
+TO:
+26
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+25:q2=q1/scaleFactor+(b/scaleFactor*dPrev);
+TO:
+26
+
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+Following are 2th generated patches:
+Validating 109 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+UPDATE
+FROM:
+23: final double scale=FastMath.max(a,b);
+TO:
+20: final double scaleFactor=FastMath.max(a,b);
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+21:if(scaleFactor<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+INSERT:
+24:cN=hPrev/scaleFactor+(b/scaleFactor*p0);
+TO:
+26
+
+INSERT:
+25:q2=q1/scaleFactor+(b/scaleFactor*dPrev);
+TO:
+26
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5162 patches
+Compile failed:3585 patches
+Compilation rate:0.3055017435102673
+NNNNPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNNNNPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNPPPPNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNPPPPPPPPPPNNPNNNPNNPNNNNNPPPPNPPPPPPPPNPPPPPPPPPPNNNNPPPPPPPPNNPNNPPPPPPPPPPPNPPPPPPNPPPNPNNNNPPNPPNNPNPNPPPPPPPPPNPPPPPPPPNPPNPNNPNNNNNNNPPPPPPPPPNPPNPPNPPPPPPNNPPPPPPPPPPPPNPNPNNNNNPNNPPNPPNNNPPPPPPNNNPPNPPPPPPPPPPNPPNPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPNPNPPPPPPPPPPPNNNPPPPPPPPPPNPPPPPPPPPNPNPPPPPPNNPNPPPPPPPPNPPPPPPPPPPPPNPPPPPPPPNNPPPNPPPPPPNPPPNPPNPPPPPPPPPNNNNNNNNPPNPPPPPPPNPPPPPPNPPPPPPPPPNNNNNNNPPNPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/18.java
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(FastMath.abs(deltaN-1.0)<=epsilon){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(FastMath.abs(deltaN-1.0)<=epsilon){
+break;
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:5167 patches
+Compile failed:3586 patches
+Compilation rate:0.30598025933810724
+PNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/19.java
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 30if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 35cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+Tested:5371 patches
+Compile failed:3714 patches
+Compilation rate:0.30850865760566004
+NNNPPPPPPPPPPNNNNPPPPPPPPPPPPPPPPPPPPNNNNNPPPNPNPPPNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNPNNPNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNPNPPPPPPPPPPPNPPPPPPPNPPPPPPPPNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/20.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);, if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}, {
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 20 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Tested:5565 patches
+Compile failed:3817 patches
+Compilation rate:0.3141060197663971
+NNPPPPPPPPPNPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNPPNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNPNNNNPNNNNNPNNNNNPPPPPPPNPPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/21.java
+Current actions:
+INSERT:
+20: final double scaleFactor=FastMath.max(FastMath.abs(cN),FastMath.abs(q2));
+TO:
+19
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 46throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+INSERT:
+48: final int maxPower=5;
+TO:
+20
+
+INSERT:
+50:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+20
+
+INSERT:
+53:for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+p0/=lastScaleFactor;
+q1/=lastScaleFactor;
+}
+else{
+if(b!=0){
+p0*=lastScaleFactor;
+q1*=lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+TO:
+20
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+20: final double scaleFactor=FastMath.max(FastMath.abs(cN),FastMath.abs(q2));
+TO:
+19
+
+UPDATE
+FROM:
+21:double lastScaleFactor=1.0;
+TO:
+21: final double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+INSERT:
+23: final double scale=FastMath.max(FastMath.abs(hPrev),FastMath.abs(cPrev));
+TO:
+22
+
+INSERT:
+46: final double scaleFactor=FastMath.max(FastMath.abs(p0),FastMath.abs(q1));
+TO:
+45
+
+DELETE:
+Original line: 46throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+UPDATE
+FROM:
+20:double scaleFactor=1.0;
+TO:
+47: final double lastScaleFactor=1.0;
+
+INSERT:
+48: final int maxPower=5;
+TO:
+20
+
+INSERT:
+49: final double scale=FastMath.max(FastMath.abs(hPrev),FastMath.abs(cPrev));
+TO:
+20
+
+INSERT:
+50:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+20
+
+INSERT:
+53:for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+p0/=lastScaleFactor;
+q1/=lastScaleFactor;
+}
+else{
+if(b!=0){
+p0*=lastScaleFactor;
+q1*=lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+TO:
+20
+
+INSERT:
+68:hN=cPrev*deltaN;
+TO:
+20
+
+INSERT:
+69:if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5959 patches
+Compile failed:4203 patches
+Compilation rate:0.29468031548917606
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/22.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+INSERT:
+25:if(a!=0.0&&a>b){
+hNPrev=hPrev/(b/(a*scale)*p0);
+q2=q1/(b/(a*scale)*dPrev);
+}
+TO:
+26
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+INSERT:
+40:else{
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+41
+
+INSERT:
+43:}
+
+TO:
+41
+
+DELETE:
+Original line: 43 final double deltaN=cN/q2/cPrev;
+
+INSERT:
+45:hN=cN/q2/cPrev;
+TO:
+41
+
+Following are 1th generated patches:
+Validating 68 patches...
+Current actions:
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 28lastScaleFactor=scaleFactor;
+
+INSERT:
+33:else{
+hNPrev=hPrev*scale;
+q2=q1*scale;
+}
+TO:
+41
+
+INSERT:
+43:}
+
+TO:
+41
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+INSERT:
+25:if(a!=0.0&&a>b){
+hNPrev=hPrev/(b/(a*scale)*p0);
+q2=q1/(b/(a*scale)*dPrev);
+}
+TO:
+26
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+29:if(b!=0){
+hNPrev=(a/(b*scale)*hPrev)+p0/(b*scale);
+q2=(a/(b*scale)*q1)+dPrev/(b*scale);
+}
+TO:
+41
+
+INSERT:
+37:if(!(Double.isInfinite(hNPrev)||Double.isInfinite(q2))){
+hN=hNPrev;
+}
+TO:
+41
+
+INSERT:
+40:else{
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+41
+
+INSERT:
+43:}
+
+TO:
+41
+
+DELETE:
+Original line: 43 final double deltaN=cN/q2/cPrev;
+
+INSERT:
+44:else{
+hN=cN/q2/cPrev;
+}
+TO:
+41
+
+DELETE:
+Original line: 44hN=cPrev*deltaN;
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:6221 patches
+Compile failed:4424 patches
+Compilation rate:0.2888603118469699
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNPPNNPPPPPNPPPNNNNPNNNNNNNNPNNNNNNNNNNNNPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNPPNPPNPNNPNNNNNNNPPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNPNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/23.java
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+UPDATE
+FROM:
+11:double q1=1.0;
+TO:
+4:double p1=x;
+
+DELETE:
+Original line: 4double hPrev=getA(0,x);
+
+DELETE:
+Original line: 5if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+
+UPDATE
+FROM:
+9:double dPrev=0.0;
+TO:
+7:double hPrev=p1;
+
+UPDATE
+FROM:
+13:double hN=hPrev;
+TO:
+8:double hN=p2;
+
+UPDATE
+FROM:
+8:int n=1;
+TO:
+9:int n=2;
+
+INSERT:
+10:for(int i=1;i<maxIterations;i++){
+delta=2*n*p1-n*p0+p2;
+if(Double.isInfinite(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+if(Double.isNaN(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+deltaPrev=delta;
+n++;
+p0=p1;
+p1=p2;
+p2=delta;
+hN=hPrev+delta*hN;
+hPrev=hN;
+if(FastMath.abs(delta)<FastMath.abs(epsilon*hN)){
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 16 final double b=getB(n,x);
+
+DELETE:
+Original line: 18double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 43 final double deltaN=cN/q2/cPrev;
+
+DELETE:
+Original line: 44hN=cPrev*deltaN;
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 55cPrev=cN/q2;
+
+DELETE:
+Original line: 56p0=hPrev;
+
+DELETE:
+Original line: 57hPrev=cN;
+
+DELETE:
+Original line: 58q1=q2;
+
+Following are 1th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+6:double delta,deltaPrev;
+TO:
+11
+
+DELETE:
+Original line: 12double cPrev=hPrev;
+
+INSERT:
+12:if(Double.isInfinite(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+8
+
+INSERT:
+15:if(Double.isNaN(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+TO:
+47
+
+DELETE:
+Original line: 17double cN=a*hPrev+b*p0;
+
+INSERT:
+19:n++;
+TO:
+50
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+INSERT:
+23:hN=hPrev+delta*hN;
+TO:
+50
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 48if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 55cPrev=cN/q2;
+
+DELETE:
+Original line: 59n++;
+
+Following are 2th generated patches:
+Validating 102 patches...
+Current actions:
+DELETE:
+Original line: 15 final double a=getA(n,x);
+
+INSERT:
+24:hPrev=hN;
+TO:
+50
+
+DELETE:
+Original line: 58q1=q2;
+
+Following are 3th generated patches:
+Validating 29 patches...
+Current actions:
+UPDATE
+FROM:
+11:double q1=1.0;
+TO:
+4:double p1=x;
+
+UPDATE
+FROM:
+8:int n=1;
+TO:
+9:int n=2;
+
+INSERT:
+11:delta=2*n*p1-n*p0+p2;
+TO:
+8
+
+INSERT:
+12:if(Double.isInfinite(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+8
+
+DELETE:
+Original line: 17double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20:p0=p1;
+TO:
+50
+
+INSERT:
+21:p1=p2;
+TO:
+50
+
+INSERT:
+22:p2=delta;
+TO:
+50
+
+INSERT:
+25:if(FastMath.abs(delta)<FastMath.abs(epsilon*hN)){
+break;
+}
+TO:
+50
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+DELETE:
+Original line: 32q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+DELETE:
+Original line: 44hN=cPrev*deltaN;
+
+DELETE:
+Original line: 51if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 5if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+
+INSERT:
+5:double p2=x*x;
+TO:
+11
+
+INSERT:
+6:double delta,deltaPrev;
+TO:
+11
+
+INSERT:
+12:if(Double.isInfinite(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+8
+
+INSERT:
+15:if(Double.isNaN(delta)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+TO:
+47
+
+DELETE:
+Original line: 16 final double b=getB(n,x);
+
+DELETE:
+Original line: 17double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 18double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+INSERT:
+21:p1=p2;
+TO:
+50
+
+INSERT:
+24:hPrev=hN;
+TO:
+50
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 55cPrev=cN/q2;
+
+DELETE:
+Original line: 57hPrev=cN;
+
+DELETE:
+Original line: 58q1=q2;
+
+Tested:6804 patches
+Compile failed:4975 patches
+Compilation rate:0.2688124632569077
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPPPPPPPPPNPPPPPPPNPNNNPNNPNPNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/24.java
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+INSERT:
+21:throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+23:if(b==0.0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+INSERT:
+29:scaleFactor/=2;
+TO:
+23
+
+INSERT:
+31:double lastScaleFactor=1.0;
+TO:
+23
+
+UPDATE
+FROM:
+27:for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+TO:
+32:for(int i=1;i<maxIterations;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+47:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+41
+
+Following are 1th generated patches:
+Validating 56 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+21:throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+23:if(b==0.0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+23: final double scale=FastMath.max(a,b);
+TO:
+26:double scale=FastMath.max(a,b);
+
+INSERT:
+28:while(a*scaleFactor*hPrev+b*scaleFactor*p0>FastMath.getExponent(Double.MAX_VALUE)||FastMath.abs(a*scaleFactor*q1+b*scaleFactor*dPrev)>FastMath.getExponent(Double.MAX_VALUE)){
+scaleFactor/=2;
+}
+TO:
+23
+
+INSERT:
+31:double lastScaleFactor=1.0;
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+INSERT:
+20:if(a==0.0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+19
+
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+UPDATE
+FROM:
+24:if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+23:if(b==0.0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+UPDATE
+FROM:
+23: final double scale=FastMath.max(a,b);
+TO:
+26:double scale=FastMath.max(a,b);
+
+INSERT:
+27:double scaleFactor=FastMath.pow(2,n);
+TO:
+23
+
+INSERT:
+31:double lastScaleFactor=1.0;
+TO:
+23
+
+UPDATE
+FROM:
+27:for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+TO:
+32:for(int i=1;i<maxIterations;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+INSERT:
+47:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+41
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:7420 patches
+Compile failed:5554 patches
+Compilation rate:0.25148247978436655
+NNNNNPPPPPPPPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNPNPPNPPPNNPNNNNNNNNNNNNPPPPPPPPPNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/25.java
+Current actions:
+UPDATE
+FROM:
+44:hN=cPrev*deltaN;
+TO:
+44:hN=hPrev*deltaN;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+44:hN=cPrev*deltaN;
+TO:
+44:hN=hPrev*deltaN;
+
+Following are 1th generated patches:
+Validating 43 patches...
+Tested:7464 patches
+Compile failed:5564 patches
+Compilation rate:0.2545551982851018
+PNNPPPPPNNPPPPPPPNPPPPPNNNNNPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/26.java
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(Precision.equals(deltaN,1.0,epsilon)){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+51:if(FastMath.abs(deltaN-1.0)<epsilon){
+break;
+}
+TO:
+51:if(Precision.equals(deltaN,1.0,epsilon)){
+break;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7466 patches
+Compile failed:5564 patches
+Compilation rate:0.25475488882935976
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/27.java
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+17:double cN=a*hPrev+b*p0;
+TO:
+17: final double cN=a*hPrev+b*p0;
+
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+18:double q2=a*q1+b*dPrev;
+TO:
+18: final double q2=a*q1+b*dPrev;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 21double lastScaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 24if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 34else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+
+DELETE:
+Original line: 39break;
+
+Tested:7670 patches
+Compile failed:5689 patches
+Compilation rate:0.25827900912646673
+NNNNNNNNNNNNNNNNNNNPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPNPPPNPPPPPPNPNPNPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNPNNNNNNNNNNPNNNPNNPNNNNNPNNNNNNNNNNNNNPNPNNNNNNNNNPNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNPNNNNNPNNNNPPPPPPNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/28.java
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if((cN==0&&a!=0)||(q2==0&&b!=0)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+TO:
+18
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:7994 patches
+Compile failed:5837 patches
+Compilation rate:0.2698273705278959
+NNPPPPPPPPNPPNNPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPNNNNNNPNNNNNNNNNNNNNNNNNPPNPNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNPNNNPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNPPPPPPPPPNPNNNNNNNNNPNPPPPPPPPPPPNNNPPPNPNNNNNNNNNNPNPNNNNNNNNPNNPPPPNNPNNNNNPPPPPPNNPPPPNPNPPPPPPPPPPPPPPPNNNPNPPNNNNNNNNPPPPPPPPPPNPPPPNPPPPNPNPPPPPPPPPPPPPPPPNNNNNNNNNNPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/29.java
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+UPDATE
+FROM:
+5:if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+TO:
+4:if(Precision.equals(hPrev,0.0,0.0)){
+hPrev=0.0;
+}
+
+UPDATE
+FROM:
+6:hPrev=small;
+TO:
+5:hPrev=0.0;
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+TO:
+4:if(Precision.equals(hPrev,0.0,0.0)){
+hPrev=0.0;
+}
+
+UPDATE
+FROM:
+6:hPrev=small;
+TO:
+5:hPrev=0.0;
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+UPDATE
+FROM:
+5:if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+TO:
+4:if(Precision.equals(hPrev,0.0,0.0)){
+hPrev=0.0;
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(Precision.equals(hPrev,0.0,small)){
+hPrev=small;
+}
+TO:
+4:if(Precision.equals(hPrev,0.0,0.0)){
+hPrev=0.0;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+6:hPrev=small;
+TO:
+5:hPrev=0.0;
+
+Tested:8012 patches
+Compile failed:5847 patches
+Compilation rate:0.2702196704942586
+NNNPPPPNNPNNPNNPNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/30.java
+Current actions:
+UPDATE
+FROM:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+TO:
+19:if(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+INSERT:
+38:if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+38:if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+TO:
+37
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+UPDATE
+FROM:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+TO:
+19:if(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+INSERT:
+38:if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+TO:
+37
+
+Following are 3th generated patches:
+Validating 23 patches...
+Current actions:
+UPDATE
+FROM:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+TO:
+19:if(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 38if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+19:if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+TO:
+19:if(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Precision.equals(cN,0.0,small)||Precision.equals(q2,0.0,small))){
+break;
+}
+}
+}
+
+Tested:8082 patches
+Compile failed:5885 patches
+Compilation rate:0.2718386537985647
+PPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNPPPPPPPPNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/31.java
+Current actions:
+UPDATE
+FROM:
+20:double scaleFactor=1.0;
+TO:
+20: final double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+20:double scaleFactor=1.0;
+TO:
+20: final double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:8084 patches
+Compile failed:5887 patches
+Compilation rate:0.27177140029688274
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/32.java
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+3: final double small=Precision.SAFE_MIN;
+TO:
+2
+
+Following are 1th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+3: final double small=Precision.SAFE_MIN;
+TO:
+2
+
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 3 final double small=0.0;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:8134 patches
+Compile failed:5935 patches
+Compilation rate:0.2703466928940251
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/33.java
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:8136 patches
+Compile failed:5937 patches
+Compilation rate:0.2702802359882006
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_31/34.java
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 48if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 27for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 49throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 20double scaleFactor=1.0;
+
+DELETE:
+Original line: 22 final int maxPower=5;
+
+DELETE:
+Original line: 23 final double scale=FastMath.max(a,b);
+
+DELETE:
+Original line: 25throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+
+DELETE:
+Original line: 29scaleFactor*=scale;
+
+DELETE:
+Original line: 31cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+
+DELETE:
+Original line: 35cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+
+DELETE:
+Original line: 36q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+
+DELETE:
+Original line: 39break;
+
+DELETE:
+Original line: 45if(Double.isInfinite(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+
+DELETE:
+Original line: 48if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 19if(Double.isInfinite(cN)||Double.isInfinite(q2)){
+double scaleFactor=1.0;
+double lastScaleFactor=1.0;
+ final int maxPower=5;
+ final double scale=FastMath.max(a,b);
+if(scale<=0){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_INFINITY_DIVERGENCE,x);
+}
+for(int i=0;i<maxPower;i++){
+lastScaleFactor=scaleFactor;
+scaleFactor*=scale;
+if(a!=0.0&&a>b){
+cN=hPrev/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*dPrev);
+}
+else{
+if(b!=0){
+cN=(a/scaleFactor*hPrev)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+dPrev/lastScaleFactor;
+}
+}
+if(!(Double.isInfinite(cN)||Double.isInfinite(q2))){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 48if(Double.isNaN(hN)){
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,x);
+}
+
+Tested:8340 patches
+Compile failed:6026 patches
+Compilation rate:0.27745803357314147
+NNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPNNNNNPNNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPNPNNPNNNNNPNNNNNNNNNNPNNPNNPNNNNNNNNNPNNNPNNNNNNNNPNNPNPNNNNNPNNNNNPNNNNNNNNNNNPNNPNNNNNPPPPPN
+Finish : math-31 > patch : 0 | Start : Mon Apr 08 08:36:53 HKT 2024 | End : 2024.04.08 AD at 09:03:57 HKT

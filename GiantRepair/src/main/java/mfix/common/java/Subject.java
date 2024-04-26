@@ -29,6 +29,7 @@ public class Subject implements IExecute {
     protected boolean _compile_file = false;
     protected boolean _compileProject = false;
     protected boolean _test_subject = false;
+    private boolean isStatic = false;
     // for compile
     protected SOURCE_LEVEL _src_level;
     protected List<String> _classpath;
@@ -201,6 +202,10 @@ public class Subject implements IExecute {
     public void setLlmName(String name){_llmName = name;}
 
     public String getLLmName(){return _llmName;}
+
+    public void setIsStatic(boolean value) {isStatic = value;}
+
+    public boolean getIsStatic(){return isStatic;}
 
     public String getPatchFile() {
         return Utils.join(Constant.SEP, Constant.PATCH_PATH, _name, _id + ".diff");

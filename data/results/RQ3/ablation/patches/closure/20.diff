@@ -1,0 +1,21 @@
+Following diff 0:
+-if(value!=null){
+-Nodeaddition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+-n.getParent().replaceChild(n,addition);
+-reportCodeChange();
+-returnaddition;
+-}
++if(value!=null&&NodeUtil.isImmutableValue(value.getLastSibling())){
++Nodeaddition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
++n.getParent().replaceChild(n,addition);
++reportCodeChange();
++returnaddition;
++}
+Following diff 0:
++if(!NodeUtil.isImmutableValue(value.getLastSibling())){
++returncallTarget;
++}
+Following diff 0:
++if(!NodeUtil.isImmutableValue(value.getLastSibling())){
++returnvalue;
++}

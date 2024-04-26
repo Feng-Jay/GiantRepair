@@ -1,0 +1,5041 @@
+Repair : time_16
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/0.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+8:Chronology chrono=instant.getChronology();
+TO:
+7:Chronology chrono=selectChronology(instant.getChronology());
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+Following are 1th generated patches:
+Validating 59 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+8:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 3th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+8:Chronology chrono=instant.getChronology();
+TO:
+7:Chronology chrono=selectChronology(instant.getChronology());
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+8:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+Following are 4th generated patches:
+Validating 81 patches...
+Current actions:
+UPDATE
+FROM:
+8:Chronology chrono=instant.getChronology();
+TO:
+7:Chronology chrono=selectChronology(instant.getChronology());
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+8:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Tested:181 patches
+Compile failed:165 patches
+Compilation rate:0.08839779005524862
+NNNNNNNNNNPPPPPNPPNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/1.java
+Current actions:
+INSERT:
+26:if(bucket.isZoneParsed()){
+bucket.saveZone(instant);
+}
+TO:
+25
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+26:if(bucket.isZoneParsed()){
+bucket.saveZone(instant);
+}
+TO:
+25
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:bucket.saveZone(instant);
+TO:
+25
+
+Following are 2th generated patches:
+Validating 108 patches...
+Tested:491 patches
+Compile failed:396 patches
+Compilation rate:0.1934826883910387
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNPNNNNPPPPPPPPNPNPNNNPPNPPPNNPPPPNPPPNPPNPNPPPPPPPPNNNNPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/2.java
+Tested:491 patches
+Compile failed:396 patches
+Compilation rate:0.1934826883910387
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/3.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 175 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+7:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+16:instant.setChronology(instant.getChronology().withZone(bucket.getZone()));
+TO:
+19
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 1th generated patches:
+Validating 116 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+13:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+Following are 2th generated patches:
+Validating 94 patches...
+Current actions:
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+13:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 98 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+Tested:961 patches
+Compile failed:741 patches
+Compilation rate:0.22892819979188345
+NNPPPPPPPPPNPPPPNPPPNNPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPNNPPPPNPPPNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPNNNNNPPPNNNNNPPNNPNPNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNPPPPPNNNNPPPPPNPPNPPPNNPPPNNNNNNNNNPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPPPPPNPNNNPPPPPPPPPPPNNPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/4.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[long instantMillis=instant.getMillis();, {
+throw new IllegalArgumentException("Instant must not be null");
+}, if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}, throw new IllegalArgumentException("Instant must not be null");, Chronology chrono=instant.getChronology();, long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);, chrono=selectChronology(chrono);, DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:public int parseInto(ReadWritableInstant instant,String text,int position){
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+Chronology chrono=instant.getChronology();
+long instantMillis=instant.getMillis();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+instant.setChronology(chrono);
+if(iZone!=null){
+instant.setZone(iZone);
+}
+return newPos;
+}
+TO:
+1
+
+DELETE:
+Original line: 4if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:963 patches
+Compile failed:742 patches
+Compilation rate:0.22949117341640707
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/5.java
+Current actions:
+INSERT:
+7:DateTimeZone zone=iZone;
+TO:
+6
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+7:DateTimeZone zone=iZone;
+TO:
+6
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+6
+
+INSERT:
+10:Chronology chrono=instant.getChronology();
+TO:
+6
+
+INSERT:
+11:zone=chrono.getZone();
+TO:
+6
+
+INSERT:
+12:instantMillis+=zone.getOffset(instantMillis);
+TO:
+6
+
+INSERT:
+14:instant.setChronology(chrono);
+TO:
+6
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+16:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+21:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+INSERT:
+24:zone=bucket.getZone();
+TO:
+19
+
+Following are 1th generated patches:
+Validating 168 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+7:DateTimeZone zone=iZone;
+TO:
+6
+
+INSERT:
+8:if(zone==null){
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+zone=chrono.getZone();
+instantMillis+=zone.getOffset(instantMillis);
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+6
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+16:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+21:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+INSERT:
+24:zone=bucket.getZone();
+TO:
+19
+
+INSERT:
+26:instant.setZone(zone);
+TO:
+25
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(zone==null){
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+zone=chrono.getZone();
+instantMillis+=zone.getOffset(instantMillis);
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+6
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+16:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+21:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+INSERT:
+24:zone=bucket.getZone();
+TO:
+19
+
+INSERT:
+26:instant.setZone(zone);
+TO:
+25
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(zone==null){
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+zone=chrono.getZone();
+instantMillis+=zone.getOffset(instantMillis);
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+6
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 4th generated patches:
+Validating 40 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+7:DateTimeZone zone=iZone;
+TO:
+6
+
+INSERT:
+8:if(zone==null){
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+zone=chrono.getZone();
+instantMillis+=zone.getOffset(instantMillis);
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+6
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+16:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+21:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+INSERT:
+24:zone=bucket.getZone();
+TO:
+19
+
+INSERT:
+26:instant.setZone(zone);
+TO:
+25
+
+Tested:1658 patches
+Compile failed:1437 patches
+Compilation rate:0.13329312424607961
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/6.java
+Current actions:
+UPDATE
+FROM:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+13:instant.setMillis(bucket.computeMillis(true,text));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+13:instant.setMillis(bucket.computeMillis(true,text));
+
+Following are 1th generated patches:
+Validating 94 patches...
+Tested:1753 patches
+Compile failed:1466 patches
+Compilation rate:0.16371933827723903
+PNNNNNNNNNNNNNNNPPPNPPPNPPPPNNPPPPPPNPNPPPNNPPPPNNPPNPPPPPPNPPPPPPPPPPPNPPPNPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/7.java
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:instant.setChronology(chrono.withZone(parsedZone));
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:instant.setChronology(chrono.withZone(parsedZone));
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setChronology(chrono.withZone(bucket.getZone()));
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:instant.setChronology(chrono.withZone(parsedZone));
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setChronology(chrono.withZone(bucket.getZone()));
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:instant.setChronology(chrono.withZone(parsedZone));
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:instant.setChronology(chrono.withZone(parsedZone));
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setChronology(chrono.withZone(bucket.getZone()));
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Tested:1764 patches
+Compile failed:1466 patches
+Compilation rate:0.1689342403628118
+PPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/8.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+7:int newPos=parser.parseInto(instant,text,position);
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(iOffsetParsed&&instant.getZone()!=null){
+DateTimeZone parsedZone=instant.getZone();
+DateTimeZone fixedZone=DateTimeZone.forOffsetMillis(parsedZone.getOffset(instant.getMillis()));
+instant.setZone(fixedZone);
+}
+TO:
+12
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+16:DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+10:DateTimeZone fixedZone=DateTimeZone.forOffsetMillis(parsedZone.getOffset(instant.getMillis()));
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+11:instant.setZone(fixedZone);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+INSERT:
+8:if(iOffsetParsed&&instant.getZone()!=null){
+DateTimeZone parsedZone=instant.getZone();
+DateTimeZone fixedZone=DateTimeZone.forOffsetMillis(parsedZone.getOffset(instant.getMillis()));
+instant.setZone(fixedZone);
+}
+TO:
+12
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+11:instant.setZone(fixedZone);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2350 patches
+Compile failed:2015 patches
+Compilation rate:0.1425531914893617
+NNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNPNNNPPPPNNNNNNNNNPNNNNNPPPPPPPPPPNPNNNNPNPNNPNPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNPNNNPNNPNPPNNPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/9.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(iZone!=null){
+instant.setZone(iZone);
+}, {
+throw new IllegalArgumentException("Instant must not be null");
+}, if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}, throw new IllegalArgumentException("Instant must not be null");, long instantMillis=instant.getMillis();, Chronology chrono=instant.getChronology();, long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);, DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);, int newPos=parser.parseInto(bucket,text,position);, instant.setMillis(bucket.computeMillis(false,text));, instant.setChronology(chrono);, return newPos;]
+Following are 0th generated patches:
+Validating 42 patches...
+Current actions:
+INSERT:
+2:public int parseInto(ReadWritableInstant instant,String text,int position){
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+if(iZone!=null){
+instant.setZone(iZone);
+}
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+instant.setChronology(chrono);
+return newPos;
+}
+TO:
+1
+
+DELETE:
+Original line: 4if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+DELETE:
+Original line: 26return newPos;
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:public int parseInto(ReadWritableInstant instant,String text,int position){
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+if(iZone!=null){
+instant.setZone(iZone);
+}
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+instant.setChronology(chrono);
+return newPos;
+}
+TO:
+1
+
+DELETE:
+Original line: 4if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+DELETE:
+Original line: 26return newPos;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Tested:2379 patches
+Compile failed:2044 patches
+Compilation rate:0.14081546868432115
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/10.java
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+10:DateTimeZone zone=chrono.getZone();
+TO:
+10
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis+zone.getOffset(instantMillis),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+22:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+22
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+10:DateTimeZone zone=chrono.getZone();
+TO:
+10
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+22:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+22
+
+Following are 2th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+10:DateTimeZone zone=chrono.getZone();
+TO:
+10
+
+Following are 3th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+10:DateTimeZone zone=chrono.getZone();
+TO:
+10
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis+zone.getOffset(instantMillis),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 4th generated patches:
+Validating 49 patches...
+Current actions:
+INSERT:
+10:DateTimeZone zone=chrono.getZone();
+TO:
+10
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis+zone.getOffset(instantMillis),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+22:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+22
+
+Tested:2515 patches
+Compile failed:2156 patches
+Compilation rate:0.14274353876739562
+NNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPPPNNPNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNPPNPNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/11.java
+Current actions:
+INSERT:
+11:DateTimeZone parseZone=chrono.getZone();
+TO:
+10
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+11:DateTimeZone parseZone=chrono.getZone();
+TO:
+10
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+12:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear,parseZone);
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+12:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear,parseZone);
+
+Following are 2th generated patches:
+Validating 33 patches...
+Current actions:
+INSERT:
+11:DateTimeZone parseZone=chrono.getZone();
+TO:
+10
+
+Following are 3th generated patches:
+Validating 17 patches...
+Tested:2617 patches
+Compile failed:2231 patches
+Compilation rate:0.14749713412304166
+NNPNNNNNNNNNNNNNNNNNPNPPPPPNNPNPNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNPNPPNNPPPPPNNNPPPPNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/12.java
+Current actions:
+INSERT:
+26:if(bucket.getZone()!=null&&bucket.getOffsetInteger()!=null){
+iOffsetParsed=true;
+}
+TO:
+25
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+26:if(bucket.getZone()!=null&&bucket.getOffsetInteger()!=null){
+iOffsetParsed=true;
+}
+TO:
+25
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:iOffsetParsed=true;
+TO:
+25
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:2821 patches
+Compile failed:2435 patches
+Compilation rate:0.1368309110244594
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/13.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[instant.setChronology(chrono);]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+11:if(chrono!=instant.getChronology()){
+instant.setChronology(chrono);
+}
+TO:
+10
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(chrono!=instant.getChronology()){
+instant.setChronology(chrono);
+}
+TO:
+10
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+24:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+24:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+21
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:3223 patches
+Compile failed:2803 patches
+Compilation rate:0.13031337263419174
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/14.java
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:int offset=chrono.getZone().getOffset(instantMillis);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:int offset=chrono.getZone().getOffset(instantMillis);
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:int offset=chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis+offset,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 2th generated patches:
+Validating 97 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis+offset,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 3th generated patches:
+Validating 37 patches...
+Tested:3419 patches
+Compile failed:2979 patches
+Compilation rate:0.12869260017548992
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNPPPNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/15.java
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+Following are 3th generated patches:
+Validating 17 patches...
+Tested:3838 patches
+Compile failed:3372 patches
+Compilation rate:0.12141740489838458
+NPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNPNNNPNNPNNNNNNNNNPNNNNPNNNNNNPNNPNNNNNNNNNNNNPNNNNNNPNNNPNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/16.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 148 patches...
+Current actions:
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+9:chrono=chrono.withZone(iZone);
+TO:
+8
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Tested:4184 patches
+Compile failed:3607 patches
+Compilation rate:0.13790630975143403
+NNNNNNNNNNNNPPPPPPPNNNPNPNPNPPPPPPPPPPNPPPPPPPNPPPNNNNNPPPNPPNPNNNNPPPPPPPPPPPPPPPPPPPPPPNPNNNNPNNNPNPPNNNNNNNNPNNNNNPNNNNNNNNNNNNPPNNNPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNPNNNNNPPNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNPNNNNNNNNPNPNNPNNNNPPPNPPPNNNPNNNNNPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNPNNNNPNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/17.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+8:long instantLocal=instant.getMillis()+chrono.getZone().getOffset(instant.getMillis());
+
+Following are 1th generated patches:
+Validating 149 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+8:long instantLocal=instant.getMillis()+chrono.getZone().getOffset(instant.getMillis());
+
+Following are 2th generated patches:
+Validating 150 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:4486 patches
+Compile failed:3897 patches
+Compilation rate:0.13129736959429336
+NPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/18.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[instant.setChronology(chrono);, DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);, chrono=chrono.withZone(parsedZone);, int parsedOffset=bucket.getOffsetInteger();]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+instant.setChronology(chrono);
+}
+TO:
+1
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+instant.setChronology(chrono);
+}
+TO:
+1
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+22:instant.setChronology(chrono);
+TO:
+20
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4494 patches
+Compile failed:3905 patches
+Compilation rate:0.1310636404094348
+NNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/19.java
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+UPDATE
+FROM:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+TO:
+13:if(bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+Following are 1th generated patches:
+Validating 32 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 3th generated patches:
+Validating 30 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+TO:
+13:if(bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Tested:4565 patches
+Compile failed:3954 patches
+Compilation rate:0.13384446878422782
+NNPPPPPNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/20.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+11:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+INSERT:
+12:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+13:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 1th generated patches:
+Validating 118 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+11:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+INSERT:
+12:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+INSERT:
+13:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 2th generated patches:
+Validating 96 patches...
+Current actions:
+INSERT:
+13:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+Following are 3th generated patches:
+Validating 89 patches...
+Current actions:
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),instant.getChronology(),iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+12:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+INSERT:
+13:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 115 patches...
+Current actions:
+INSERT:
+13:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+Tested:5104 patches
+Compile failed:4461 patches
+Compilation rate:0.1259796238244514
+NNNNNNNNNNNNNNNNNNNNNNNNPNPNPNNPPPNNNPNPNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNPPPPPPNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/21.java
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+INSERT:
+11:if(iZone==null){
+chrono=selectChronology(chrono);
+}
+TO:
+9
+
+INSERT:
+15:zone=iZone;
+TO:
+9
+
+INSERT:
+16:chrono=chrono.withZone(zone);
+TO:
+9
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+24:if(!zone.equals(parsedZone)){
+chrono=chrono.withZone(parsedZone);
+instant.setChronology(chrono);
+}
+TO:
+16
+
+UPDATE
+FROM:
+19:else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+TO:
+29:else{
+if(bucket.getZone()!=null&&!zone.equals(bucket.getZone())){
+chrono=chrono.withZone(bucket.getZone());
+instant.setChronology(chrono);
+}
+}
+
+INSERT:
+31:instant.setChronology(chrono);
+TO:
+20
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+24:if(!zone.equals(parsedZone)){
+chrono=chrono.withZone(parsedZone);
+instant.setChronology(chrono);
+}
+TO:
+16
+
+UPDATE
+FROM:
+19:else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+TO:
+29:else{
+if(bucket.getZone()!=null&&!zone.equals(bucket.getZone())){
+chrono=chrono.withZone(bucket.getZone());
+instant.setChronology(chrono);
+}
+}
+
+Following are 2th generated patches:
+Validating 105 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+INSERT:
+14:else{
+zone=iZone;
+chrono=chrono.withZone(zone);
+}
+TO:
+9
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+INSERT:
+11:if(iZone==null){
+chrono=selectChronology(chrono);
+}
+TO:
+9
+
+INSERT:
+14:else{
+zone=iZone;
+chrono=chrono.withZone(zone);
+}
+TO:
+9
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+24:if(!zone.equals(parsedZone)){
+chrono=chrono.withZone(parsedZone);
+instant.setChronology(chrono);
+}
+TO:
+16
+
+UPDATE
+FROM:
+19:else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+TO:
+29:else{
+if(bucket.getZone()!=null&&!zone.equals(bucket.getZone())){
+chrono=chrono.withZone(bucket.getZone());
+instant.setChronology(chrono);
+}
+}
+
+INSERT:
+31:instant.setChronology(chrono);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:5834 patches
+Compile failed:5093 patches
+Compilation rate:0.1270140555365101
+NNNNNNNNNNNNNNNNPPPPPNNPPPNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNPPNNNNPPNPNNPPNPNPNNNPNNNNNNNNNNPNNNNNNNNNNNNNPNPNPNNNNPNNPNPNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNPPNNPNNNPPNPPPNPPNNNNNNPNNNNPPPPPPNPPNNNNNPNNNNNNNPNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNPPPNNNPPNNNPNNNNNNNNNNNNNNNNNNPNNNNPPNNNNNPPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNPPNNNNNNNNNPNNNNPNNNNNNNNNPNNNNNNNNNNPPNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/22.java
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 1th generated patches:
+Validating 31 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 3th generated patches:
+Validating 30 patches...
+Tested:5898 patches
+Compile failed:5139 patches
+Compilation rate:0.12868769074262462
+NPPNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/23.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[DateTimeParser parser=requireParser();, {
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+instant.setChronology(chrono);
+if(iZone!=null){
+instant.setZone(iZone);
+}
+return newPos;
+}, {
+throw new IllegalArgumentException("Instant must not be null");
+}, if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}, throw new IllegalArgumentException("Instant must not be null");, long instantMillis=instant.getMillis();, Chronology chrono=instant.getChronology();, long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:public int parseInto(ReadWritableInstant instant,String text,int position){
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+DateTimeParser parser=requireParser();
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+instant.setChronology(chrono);
+if(iZone!=null){
+instant.setZone(iZone);
+}
+return newPos;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+instant.setChronology(chrono);
+if(iZone!=null){
+instant.setZone(iZone);
+}
+return newPos;
+}
+
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+DELETE:
+Original line: 4if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:5900 patches
+Compile failed:5140 patches
+Compilation rate:0.1288135593220339
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/24.java
+Current actions:
+INSERT:
+9:DateTimeZone zone=instant.getZone();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 129 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+INSERT:
+17:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+18:chrono=chrono.withZone(zone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+22:chrono=chrono.withZone(zone);
+
+UPDATE
+FROM:
+23:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+25:if(zone!=null){
+instant.setZone(zone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+18:chrono=chrono.withZone(zone);
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+26:instant.setZone(zone);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+INSERT:
+17:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+18:chrono=chrono.withZone(zone);
+
+INSERT:
+21:zone=bucket.getZone();
+TO:
+19
+
+UPDATE
+FROM:
+23:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+25:if(zone!=null){
+instant.setZone(zone);
+}
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+26:instant.setZone(zone);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:6624 patches
+Compile failed:5834 patches
+Compilation rate:0.11926328502415459
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNNNNNNPNNPPNPNNNNNNNNPPPPPPPPPPNPPPPPPPPPNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/25.java
+Current actions:
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 140 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+INSERT:
+11:long instantMillis=instant.getMillis();
+TO:
+17
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+11:long instantMillis=instant.getMillis();
+TO:
+17
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:7119 patches
+Compile failed:6286 patches
+Compilation rate:0.11701081612586037
+PPPPNPPPPPPNNNNNNNNNNNNNNNNNNPPPNPPPNNPPPPNNPNNNNNNNNNNNPNPPPPNPNPPNPPPNNNNNNNPNNNNNNNNPNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/26.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+9:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+9:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 2th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+9:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 3th generated patches:
+Validating 23 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+9:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+Tested:7190 patches
+Compile failed:6351 patches
+Compilation rate:0.11668984700973574
+NNNNPPPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/27.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+14:long instantLocal=instant.getMillis()+chrono.getZone().getOffset(instant.getMillis());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+22:instant.setZone(parsedZone);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+10:if(position<0){
+throw new IndexOutOfBoundsException(Integer.toString(position));
+}
+TO:
+6
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+14:long instantLocal=instant.getMillis()+chrono.getZone().getOffset(instant.getMillis());
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+22:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+25:instant.setZone(bucket.getZone());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+10:if(position<0){
+throw new IndexOutOfBoundsException(Integer.toString(position));
+}
+TO:
+6
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+14:long instantLocal=instant.getMillis()+chrono.getZone().getOffset(instant.getMillis());
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+25:instant.setZone(bucket.getZone());
+
+Following are 3th generated patches:
+Validating 145 patches...
+Tested:7924 patches
+Compile failed:7026 patches
+Compilation rate:0.11332660272589601
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNPPPPNPNPNPPPPNPPPPPPPPPPNPPNNNPPPPPNPPPPPPPPPPPNPPPPNPNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/28.java
+Current actions:
+UPDATE
+FROM:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+TO:
+14:if(bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+TO:
+14:if(bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7926 patches
+Compile failed:7026 patches
+Compilation rate:0.11355034065102196
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/29.java
+Current actions:
+INSERT:
+7:if(instant.getChronology()==null){
+instant.setChronology(Chronology.getInstance(DateTimeZone.UTC));
+}
+TO:
+6
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+7:if(instant.getChronology()==null){
+instant.setChronology(Chronology.getInstance(DateTimeZone.UTC));
+}
+TO:
+6
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:instant.setChronology(Chronology.getInstance(DateTimeZone.UTC));
+TO:
+6
+
+Following are 2th generated patches:
+Validating 94 patches...
+Tested:8222 patches
+Compile failed:7279 patches
+Compilation rate:0.11469228898078326
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPNPPNPNPPNNNNNNPNNPNPNPPPNNNNPPPPPPPNPPPPPPPPPPPNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/30.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(chrono==null){
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+8
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+INSERT:
+17:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 2th generated patches:
+Validating 39 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(chrono==null){
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+8
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+15:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+16:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+INSERT:
+17:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 3th generated patches:
+Validating 61 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(chrono==null){
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+8
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+15:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+16:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+INSERT:
+17:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 60 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(chrono==null){
+chrono=selectChronology(chrono);
+instant.setChronology(chrono);
+}
+TO:
+8
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+15:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+17:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Tested:8448 patches
+Compile failed:7478 patches
+Compilation rate:0.11482007575757576
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNPPNPNNPPNPNPPNNPNPNNNPNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPNNNNNNNNNPPNPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/31.java
+Current actions:
+UPDATE
+FROM:
+7:long instantMillis=instant.getMillis();
+TO:
+8:long instantLocal=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+UPDATE
+FROM:
+7:long instantMillis=instant.getMillis();
+TO:
+8:long instantLocal=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+16:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+19:instant.setZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 195 patches...
+Current actions:
+UPDATE
+FROM:
+7:long instantMillis=instant.getMillis();
+TO:
+8:long instantLocal=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+19:instant.setZone(bucket.getZone());
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 96 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+16:instant.setZone(parsedZone);
+
+Following are 3th generated patches:
+Validating 99 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+16:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 101 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+16:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Tested:8990 patches
+Compile failed:7961 patches
+Compilation rate:0.11446051167964405
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPPPPNNNPPPPPNNPPPPPPPPNPPPNNNPPPNNPPPPPPPPPPNPPNPPPPPPPNNNPNPPPNPNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/32.java
+Current actions:
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+UPDATE
+FROM:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11:int newPos=ISODateTimeFormat.dateTimeParser().parseInto(bucket,text,position);
+
+Following are 1th generated patches:
+Validating 61 patches...
+Current actions:
+UPDATE
+FROM:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11:int newPos=ISODateTimeFormat.dateTimeParser().parseInto(bucket,text,position);
+
+Following are 2th generated patches:
+Validating 60 patches...
+Current actions:
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:9114 patches
+Compile failed:8085 patches
+Compilation rate:0.11290322580645161
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/33.java
+Current actions:
+INSERT:
+8:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+Following are 1th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+8
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+INSERT:
+17:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+18:chrono=chrono.withZone(zone);
+
+INSERT:
+21:zone=bucket.getZone();
+TO:
+19
+
+UPDATE
+FROM:
+22:instant.setChronology(chrono);
+TO:
+23:instant.setChronology(chrono.withZone(zone));
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+8
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+INSERT:
+17:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+21:zone=bucket.getZone();
+TO:
+19
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:DateTimeZone zone=chrono.getZone();
+TO:
+8
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+8
+
+UPDATE
+FROM:
+22:instant.setChronology(chrono);
+TO:
+23:instant.setChronology(chrono.withZone(zone));
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 4th generated patches:
+Validating 115 patches...
+Tested:9778 patches
+Compile failed:8749 patches
+Compilation rate:0.10523624463080385
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/34.java
+Current actions:
+INSERT:
+7:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+7:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:throw new IllegalArgumentException("Text must not be null");
+TO:
+6
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+13:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 2th generated patches:
+Validating 39 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+7:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+13:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+13:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+Tested:10226 patches
+Compile failed:9149 patches
+Compilation rate:0.1053197731273225
+NNNNNNPPPPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNPNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPNNNNNNNNNNNNPNNNNNNNNNNNNPNNPNPNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPNNNNNPNNPNPPNNPPPNPPNPNPNPNNNNNNPNPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/35.java
+Current actions:
+INSERT:
+8:DateTimeZone zone=DateTimeZone.forChronology(chrono);
+TO:
+8
+
+Following are 0th generated patches:
+Validating 100 patches...
+Current actions:
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+8
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:DateTimeZone zone=DateTimeZone.forChronology(chrono);
+TO:
+8
+
+INSERT:
+9:long instantMillis=instant.getMillis();
+TO:
+8
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:DateTimeZone zone=DateTimeZone.forChronology(chrono);
+TO:
+8
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+10:long instantLocal=instantMillis+zone.getOffset(instantMillis);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Tested:10493 patches
+Compile failed:9393 patches
+Compilation rate:0.10483179262365386
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNPNNPNNNNPNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/36.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 1th generated patches:
+Validating 135 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+INSERT:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 4th generated patches:
+Validating 114 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instant.getMillis(),chrono,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+Tested:11259 patches
+Compile failed:10119 patches
+Compilation rate:0.1012523314681588
+NNNNNNNNNNNNNNPPPNNPNPNNNNPPPNPNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPPPPPPPNPNNNPPNNNPPPPPPPNPNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/37.java
+Current actions:
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setZone(bucket.getZone());
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+17:instant.setZone(parsedZone);
+
+Following are 2th generated patches:
+Validating 102 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+17:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setZone(bucket.getZone());
+
+Following are 3th generated patches:
+Validating 104 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+17:instant.setZone(parsedZone);
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setZone(bucket.getZone());
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 4th generated patches:
+Validating 105 patches...
+Current actions:
+UPDATE
+FROM:
+24:instant.setZone(iZone);
+TO:
+17:instant.setZone(parsedZone);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+20:instant.setZone(bucket.getZone());
+
+Tested:11580 patches
+Compile failed:10308 patches
+Compilation rate:0.10984455958549223
+NNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNPPPPPNPPNPNPNNNPPPPPPNNPPPPPPPNPPPNPPPNPNNNPPPPPPPPPPPNNPPPPPPNPPPPPPNPNNPNPPPPPPPPNNNNNNNNNNNNNNNNNNPNPPPPNPPNNPPNNNPPPPPPNNPPPPPPPNPPPPPPNNNPNNPPPPPPPPPPPNNPPPPPPNPPPPNPPNPPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/38.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+9:long instantLocal=instant.getMillis()+zone.getOffset(instant.getMillis());
+
+INSERT:
+16:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+INSERT:
+16:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+INSERT:
+20:zone=bucket.getZone();
+TO:
+19
+
+Following are 2th generated patches:
+Validating 93 patches...
+Current actions:
+INSERT:
+7:DateTimeZone zone=iZone==null?DateTimeZone.getDefault():iZone;
+TO:
+6
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+INSERT:
+16:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+17:chrono=chrono.withZone(zone);
+
+INSERT:
+20:zone=bucket.getZone();
+TO:
+19
+
+INSERT:
+23:instant.setZone(zone);
+TO:
+22
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:DateTimeZone zone=iZone==null?DateTimeZone.getDefault():iZone;
+TO:
+6
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+9:long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+TO:
+9:long instantLocal=instant.getMillis()+zone.getOffset(instant.getMillis());
+
+INSERT:
+16:zone=DateTimeZone.forOffsetMillis(parsedOffset);
+TO:
+15
+
+INSERT:
+20:zone=bucket.getZone();
+TO:
+19
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+INSERT:
+23:instant.setZone(zone);
+TO:
+22
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:12461 patches
+Compile failed:11058 patches
+Compilation rate:0.11259128480860284
+NNNNNNNNNNNNNPPNPPNPPNNNNPPPPNPPPPPPPPPPNPPPPNNNNNPNNNPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNPNNNPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPNPPPPPPNNPPPPPPPNPPNNNPNPPNPPPNPNPPPPPPPPPPNPPPNNPPNPPPPPPPPPPPPNNPNPNNPNPNNNNNNNNNNNNNNPNNPNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNPNNPPNNNNNNNNNNNNNNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNPNPPNNNNNNNNNPNNNNNNNNNNNNNPPNPPPNNNNPPNNNNNNPNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/39.java
+Current actions:
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3DateTimeParser parser=requireParser();
+
+INSERT:
+6:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+9:if(position<0){
+throw new IllegalArgumentException("Position must not be negative");
+}
+TO:
+6
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+12:if(position>text.length()){
+throw new IndexOutOfBoundsException("Position must not be greater than the length of the text");
+}
+TO:
+6
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+INSERT:
+15:int length=text.length();
+TO:
+6
+
+INSERT:
+16:DateTimeZone zone=iZone;
+TO:
+6
+
+UPDATE
+FROM:
+8:Chronology chrono=instant.getChronology();
+TO:
+17:Chronology chrono=iChronology;
+
+INSERT:
+18:DateTimeZone parsedZone=null;
+TO:
+8
+
+INSERT:
+19:DateTimeZone defaultZone=DateTimeZone.getDefault();
+TO:
+8
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+INSERT:
+20:if(iOffsetParsed&&zone==null){
+DateTimeParserBucket bucket=new DateTimeParserBucket(0L,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=bucket.parseMillis(text,position,length);
+if(bucket.getOffsetInteger()!=null){
+int offset=bucket.getOffsetInteger();
+parsedZone=DateTimeZone.forOffsetMillis(offset);
+zone=parsedZone;
+if(defaultZone!=null){
+if(!defaultZone.equals(zone)){
+}
+}
+chrono=bucket.getChronology().withZone(parsedZone);
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+INSERT:
+34:else{
+if(zone==null){
+zone=defaultZone;
+}
+}
+TO:
+18
+
+INSERT:
+37:if(zone!=null){
+if(chrono!=null){
+chrono=chrono.withZone(zone);
+}
+else{
+chrono=DateTimeUtils.getChronology(zone);
+}
+}
+TO:
+21
+
+INSERT:
+45:if(chrono==null){
+chrono=DateTimeUtils.getChronology(DateTimeZone.getDefault());
+}
+TO:
+21
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+48:DateTimeParserBucket bucket=new DateTimeParserBucket(0L,chrono,iLocale,iPivotYear,iDefaultYear);
+
+UPDATE
+FROM:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+49:int newPos=bucket.parseMillis(text,position,length);
+
+INSERT:
+50:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+12
+
+INSERT:
+51:instant.setChronology(bucket.getChronology());
+TO:
+12
+
+INSERT:
+55:else{
+if(parsedZone!=null){
+instant.setZone(parsedZone);
+}
+}
+TO:
+25
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:12852 patches
+Compile failed:11423 patches
+Compilation rate:0.11118892001244943
+NNNNNNNNNNNNNNNNNNPNPNPPNPNNNNPPNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNPNNPNNNNNNNNNNNNNNNPNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/40.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+6
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instant,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+15:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+INSERT:
+18:instant.setChronology(instant.getChronology().withZone(bucket.getZone()));
+TO:
+19
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+7:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+6
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+15:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 97 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+7:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+6
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instant,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 3th generated patches:
+Validating 29 patches...
+Current actions:
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+INSERT:
+15:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+INSERT:
+18:instant.setChronology(instant.getChronology().withZone(bucket.getZone()));
+TO:
+19
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 184 patches...
+Current actions:
+INSERT:
+7:if(iZone!=null){
+instant.setZone(iZone);
+}
+TO:
+6
+
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+10:DateTimeParserBucket bucket=new DateTimeParserBucket(instant,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+15:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+INSERT:
+18:instant.setChronology(instant.getChronology().withZone(bucket.getZone()));
+TO:
+19
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Tested:13470 patches
+Compile failed:12041 patches
+Compilation rate:0.10608760207869339
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/41.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+INSERT:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 15int parsedOffset=bucket.getOffsetInteger();
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+9:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+INSERT:
+12:int newPos=parser.parseInto(bucket,text,position);
+TO:
+11
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+13:instant.setMillis(bucket.computeMillis(false,text));
+TO:
+11
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 16DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+14:instant.setChronology(bucket.getChronology());
+TO:
+11
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Tested:14002 patches
+Compile failed:12533 patches
+Compilation rate:0.10491358377374661
+NNNNNNNNNNNNNNPPPPNNPNPNNNNPPPNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPPPNNNPNNPPNPPPPPPNNNNNPNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/42.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+7:DateTimeParserBucket bucket=new DateTimeParserBucket(instant,iLocale,iPivotYear,iDefaultYear);
+
+INSERT:
+12:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+14:if(bucket.getZone()!=null){
+instant.setZone(bucket.getZone());
+}
+TO:
+18
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+INSERT:
+15:instant.setZone(bucket.getZone());
+TO:
+18
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+Following are 2th generated patches:
+Validating 92 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+15:instant.setZone(bucket.getZone());
+TO:
+18
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 4th generated patches:
+Validating 89 patches...
+Current actions:
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+INSERT:
+12:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Tested:14571 patches
+Compile failed:13048 patches
+Compilation rate:0.10452268203966783
+NNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNPNPNNNPPNNNNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPPPNPPPPPNPPPPPPPPPPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/43.java
+Current actions:
+INSERT:
+7:if(text==null){
+throw new IllegalArgumentException("Text must not be null");
+}
+TO:
+6
+
+Following are 0th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+13:if(position>text.length()){
+throw new IllegalArgumentException("Position must not be greater than text length");
+}
+TO:
+6
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:throw new IllegalArgumentException("Text must not be null");
+TO:
+6
+
+INSERT:
+13:if(position>text.length()){
+throw new IllegalArgumentException("Position must not be greater than text length");
+}
+TO:
+6
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14996 patches
+Compile failed:13452 patches
+Compilation rate:0.10296078954387837
+NNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNNNPNNPNNNNPNPNNNNNNNNNNPNNNNNPPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/44.java
+Current actions:
+INSERT:
+11:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 98 patches...
+Current actions:
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+12:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 1th generated patches:
+Validating 115 patches...
+Current actions:
+INSERT:
+11:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+10
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+12:chrono=chrono.withZone(iZone);
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+10
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+12:chrono=chrono.withZone(iZone);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:15602 patches
+Compile failed:13986 patches
+Compilation rate:0.10357646455582617
+NNNNNNPPPPPPPPNPPNNNNNNNNNNNNNNNPPPPNPPPNPNPPNNNNNPNNNNNNNPNNNNNPPPPPPPPPPNPNNNPNNNNNPPPPNNPPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNNNPNNNPNNNNNPNNNNNNNNNPNNNNNNNNNNPNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNPNNPPPNPNPPNNPNPPNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/45.java
+Current actions:
+INSERT:
+9:if(iZone!=null){
+instantMillis+=iZone.getOffset(instantMillis);
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+9:if(iZone!=null){
+instantMillis+=iZone.getOffset(instantMillis);
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:chrono=chrono.withZone(iZone);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 40 patches...
+Current actions:
+INSERT:
+10:instantMillis+=iZone.getOffset(instantMillis);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 33 patches...
+Current actions:
+INSERT:
+10:instantMillis+=iZone.getOffset(instantMillis);
+TO:
+8
+
+INSERT:
+11:chrono=chrono.withZone(iZone);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 73 patches...
+Tested:15951 patches
+Compile failed:14292 patches
+Compilation rate:0.1040060184314463
+PPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNNNNNNNNNNNPNNNPNPPNNNNNPNNPNNNNNPNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNPNPNPNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPNNNNNNNPNNNNNNPPPPNNNNNNNNNNNNNNNPNPNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/46.java
+Current actions:
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:15955 patches
+Compile failed:14292 patches
+Compilation rate:0.10423064869946726
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/47.java
+Current actions:
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:15959 patches
+Compile failed:14292 patches
+Compilation rate:0.10445516636380725
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/48.java
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+Following are 0th generated patches:
+Validating 113 patches...
+Current actions:
+INSERT:
+9:if(iZone!=null){
+instantMillis-=iZone.getOffset(instantMillis);
+}
+TO:
+8
+
+INSERT:
+12:else{
+if(chrono.getZone()!=null){
+instantMillis-=chrono.getZone().getOffset(instantMillis);
+}
+}
+TO:
+8
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+22:instant.setChronology(chrono.withZone(parsedZone));
+
+INSERT:
+26:}
+
+TO:
+20
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+9:if(iZone!=null){
+instantMillis-=iZone.getOffset(instantMillis);
+}
+TO:
+8
+
+INSERT:
+12:else{
+if(chrono.getZone()!=null){
+instantMillis-=chrono.getZone().getOffset(instantMillis);
+}
+}
+TO:
+8
+
+UPDATE
+FROM:
+11:DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+TO:
+16:DateTimeParserBucket bucket=new DateTimeParserBucket(instantMillis,chrono,iLocale,iPivotYear,iDefaultYear);
+
+UPDATE
+FROM:
+17:chrono=chrono.withZone(parsedZone);
+TO:
+22:instant.setChronology(chrono.withZone(parsedZone));
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+UPDATE
+FROM:
+20:chrono=chrono.withZone(bucket.getZone());
+TO:
+25:instant.setChronology(chrono.withZone(bucket.getZone()));
+
+INSERT:
+26:}
+
+TO:
+20
+
+INSERT:
+27:else{
+instant.setChronology(chrono);
+}
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16435 patches
+Compile failed:14721 patches
+Compilation rate:0.10428962579860054
+NNNNNNNPPPPPPNPPPPNNNPNPPPPNNNNNPNPPPPNNPPNPPNNPNNNPPPPPPPPPPNNPNNPPPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/49.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(iZone!=null){
+instant.setZone(iZone);
+}, instant.setMillis(bucket.computeMillis(false,text));, instant.setChronology(chrono);, return newPos;, Chronology chrono=instant.getChronology();, long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);, chrono=selectChronology(chrono);, DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);, int newPos=parser.parseInto(bucket,text,position);]
+Following are 0th generated patches:
+Validating 42 patches...
+Current actions:
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+2:public int parseInto(ReadWritableInstant instant,String text,int position){
+DateTimeParser parser=requireParser();
+if(instant==null){
+throw new IllegalArgumentException("Instant must not be null");
+}
+long instantMillis=instant.getMillis();
+Chronology chrono=instant.getChronology();
+long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+chrono=selectChronology(chrono);
+if(iZone!=null){
+instant.setZone(iZone);
+}
+DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+int newPos=parser.parseInto(bucket,text,position);
+instant.setMillis(bucket.computeMillis(false,text));
+instant.setChronology(chrono);
+return newPos;
+}
+TO:
+1
+
+DELETE:
+Original line: 8Chronology chrono=instant.getChronology();
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+DELETE:
+Original line: 11DateTimeParserBucket bucket=new DateTimeParserBucket(instantLocal,chrono,iLocale,iPivotYear,iDefaultYear);
+
+DELETE:
+Original line: 12int newPos=parser.parseInto(bucket,text,position);
+
+DELETE:
+Original line: 13instant.setMillis(bucket.computeMillis(false,text));
+
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+DELETE:
+Original line: 26return newPos;
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 17chrono=chrono.withZone(parsedZone);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14if(iOffsetParsed&&bucket.getOffsetInteger()!=null){
+int parsedOffset=bucket.getOffsetInteger();
+DateTimeZone parsedZone=DateTimeZone.forOffsetMillis(parsedOffset);
+chrono=chrono.withZone(parsedZone);
+}
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+Tested:16464 patches
+Compile failed:14750 patches
+Compilation rate:0.10410592808551992
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_16/50.java
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7long instantMillis=instant.getMillis();
+
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+DELETE:
+Original line: 9long instantLocal=instantMillis+chrono.getZone().getOffset(instantMillis);
+
+INSERT:
+11:long instantLocal=chrono.getZone().getMillisKeepLocal(instant.getMillis(),chrono.getZone().getOffset(instant.getMillis()));
+TO:
+17
+
+INSERT:
+18:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 20chrono=chrono.withZone(bucket.getZone());
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 23if(iZone!=null){
+instant.setZone(iZone);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(iZone!=null){
+chrono=chrono.withZone(iZone);
+}
+TO:
+8
+
+DELETE:
+Original line: 10chrono=selectChronology(chrono);
+
+INSERT:
+11:long instantLocal=chrono.getZone().getMillisKeepLocal(instant.getMillis(),chrono.getZone().getOffset(instant.getMillis()));
+TO:
+17
+
+INSERT:
+18:instant.setChronology(instant.getChronology().withZone(parsedZone));
+TO:
+16
+
+DELETE:
+Original line: 19else{
+if(bucket.getZone()!=null){
+chrono=chrono.withZone(bucket.getZone());
+}
+}
+
+DELETE:
+Original line: 22instant.setChronology(chrono);
+
+DELETE:
+Original line: 24instant.setZone(iZone);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:17058 patches
+Compile failed:15344 patches
+Compilation rate:0.10048071286200023
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : time-16 > patch : 0 | Start : Mon Apr 08 22:30:43 HKT 2024 | End : 2024.04.08 AD at 23:06:41 HKT

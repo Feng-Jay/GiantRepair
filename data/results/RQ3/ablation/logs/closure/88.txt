@@ -1,0 +1,2038 @@
+Repair : closure_88
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/0.java
+Current actions:
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:2 patches
+Compilation rate:0.0
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/1.java
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return NodeUtil.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return NodeUtil.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:418 patches
+Compile failed:410 patches
+Compilation rate:0.019138755980861243
+NNNNNNNNPNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/2.java
+Tested:418 patches
+Compile failed:410 patches
+Compilation rate:0.019138755980861243
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/3.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[return VariableLiveness.KILL;, if(NodeUtil.isName(n)&&variable.equals(n.getString())){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+else{
+return VariableLiveness.READ;
+}
+}, {
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+else{
+return VariableLiveness.READ;
+}
+}]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+3:if(NodeUtil.isName(n)&&variable.equals(n.getString())){
+return VariableLiveness.KILL;
+}
+TO:
+2
+
+DELETE:
+Original line: 3if(NodeUtil.isName(n)&&variable.equals(n.getString())){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(NodeUtil.isName(n)&&variable.equals(n.getString())){
+return VariableLiveness.KILL;
+}
+TO:
+2
+
+DELETE:
+Original line: 3if(NodeUtil.isName(n)&&variable.equals(n.getString())){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:824 patches
+Compile failed:716 patches
+Compilation rate:0.13106796116504854
+NNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPNPPPNNNPPPPPPPPPPPPPPPPPPPPNPNNNNNNNNNNPPNPPNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNPNNNPPPNPNPNNPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/4.java
+Current actions:
+Wrap:
+ForStatement
+On:
+[VariableLiveness state=isVariableReadBeforeKill(child,variable);, if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}, {
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}, for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:829 patches
+Compile failed:716 patches
+Compilation rate:0.13630880579010857
+PPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/5.java
+Current actions:
+UPDATE
+FROM:
+12:if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+12:if(NodeUtil.isExpressionNode(child)&&!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+12:if(NodeUtil.isExpressionNode(child)&&!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:831 patches
+Compile failed:716 patches
+Compilation rate:0.13838748495788206
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/6.java
+Current actions:
+INSERT:
+11:if(n.isExprResult()){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(n.isExprResult()){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:return VariableLiveness.KILL;
+TO:
+10
+
+Following are 2th generated patches:
+Validating 15 patches...
+Tested:1048 patches
+Compile failed:931 patches
+Compilation rate:0.11164122137404581
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/7.java
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+11:if(!ControlFlowGraph.isEnteringNewCfgNode(n)){
+for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+11:if(!ControlFlowGraph.isEnteringNewCfgNode(n)){
+for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+12:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1654 patches
+Compile failed:1535 patches
+Compilation rate:0.07194679564691657
+NNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/8.java
+Current actions:
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:1656 patches
+Compile failed:1537 patches
+Compilation rate:0.07185990338164251
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/9.java
+Current actions:
+UPDATE
+FROM:
+12:if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+12:if(ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+12:if(ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:1658 patches
+Compile failed:1537 patches
+Compilation rate:0.07297949336550061
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/10.java
+Current actions:
+INSERT:
+11:if(n.isBlock()){
+Node blockEnd=NodeUtil.getEnclosingStatement(n);
+Node blockStart=n.getParent();
+if(n.equals(blockStart)||n.equals(blockEnd)){
+return VariableLiveness.MAYBE_LIVE;
+}
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+11:if(n.isBlock()){
+Node blockEnd=NodeUtil.getEnclosingStatement(n);
+Node blockStart=n.getParent();
+if(n.equals(blockStart)||n.equals(blockEnd)){
+return VariableLiveness.MAYBE_LIVE;
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(n.equals(blockStart)||n.equals(blockEnd)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:Node blockStart=n.getParent();
+TO:
+10
+
+INSERT:
+15:return VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:Node blockEnd=NodeUtil.getEnclosingStatement(n);
+TO:
+10
+
+INSERT:
+13:Node blockStart=n.getParent();
+TO:
+10
+
+INSERT:
+15:return VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:2470 patches
+Compile failed:2346 patches
+Compilation rate:0.05020242914979757
+NNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/11.java
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+INSERT:
+14:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+INSERT:
+14:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:3076 patches
+Compile failed:2942 patches
+Compilation rate:0.043563068920676205
+NNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/12.java
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+14:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+12:return VariableLiveness.KILL;
+TO:
+10
+
+INSERT:
+14:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 16 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+12:return VariableLiveness.KILL;
+TO:
+10
+
+INSERT:
+14:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+11:if(ControlFlowGraph.isEnteringNewCfgNode(n)){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Tested:3512 patches
+Compile failed:3370 patches
+Compilation rate:0.040432801822323464
+NNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/13.java
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+TO:
+15:if(state==VariableLiveness.KILL){
+return state;
+}
+
+Following are 1th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 2th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+UPDATE
+FROM:
+14:if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+TO:
+15:if(state==VariableLiveness.KILL){
+return state;
+}
+
+DELETE:
+Original line: 19return VariableLiveness.MAYBE_LIVE;
+
+INSERT:
+20:return state;
+TO:
+18
+
+Following are 3th generated patches:
+Validating 45 patches...
+Current actions:
+DELETE:
+Original line: 13VariableLiveness state=isVariableReadBeforeKill(child,variable);
+
+DELETE:
+Original line: 19return VariableLiveness.MAYBE_LIVE;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+INSERT:
+14:state=state.combine(isVariableReadBeforeKill(child,variable));
+TO:
+12
+
+Tested:3627 patches
+Compile failed:3481 patches
+Compilation rate:0.04025365315687896
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/14.java
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 72 patches...
+Current actions:
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+12:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+break;
+}
+}
+}
+TO:
+10
+
+INSERT:
+20:return state;
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+DELETE:
+Original line: 11for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+INSERT:
+12:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+break;
+}
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 19return VariableLiveness.MAYBE_LIVE;
+
+INSERT:
+20:return state;
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4071 patches
+Compile failed:3920 patches
+Compilation rate:0.03709162367968558
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/15.java
+Current actions:
+INSERT:
+11:if(NodeUtil.isControlStructure(n)){
+if(isNodeReachableFrom(n,n.getNext())&&isNodeReachableFrom(n.getNext(),n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+11:if(NodeUtil.isControlStructure(n)){
+if(isNodeReachableFrom(n,n.getNext())&&isNodeReachableFrom(n.getNext(),n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(isNodeReachableFrom(n,n.getNext())&&isNodeReachableFrom(n.getNext(),n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:return VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 15 patches...
+Tested:4489 patches
+Compile failed:4338 patches
+Compilation rate:0.03363778124303854
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/16.java
+Current actions:
+INSERT:
+11:if(n.getLastChild()==null){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 20 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_88_buggy/src/com/google/javascript/jscomp/DeadAssignmentsElimination.java
+SUCCESS
+//Following are generated patch:
+  private VariableLiveness isVariableReadBeforeKill(  Node n,  String variable){
+    if (NodeUtil.isName(n) && variable.equals(n.getString())) {
+      if (NodeUtil.isLhs(n,n.getParent())) {
+        return VariableLiveness.KILL;
+      }
+ else {
+        return VariableLiveness.READ;
+      }
+    }
+if(n.getLastChild()==null){
+return VariableLiveness.MAYBE_LIVE;
+}
+else{
+VariableLiveness state=isVariableReadBeforeKill(n.getLastChild(),variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+    for (Node child=n.getFirstChild(); child != null; child=child.getNext()) {
+      if (!ControlFlowGraph.isEnteringNewCfgNode(child)) {
+        VariableLiveness state=isVariableReadBeforeKill(child,variable);
+        if (state != VariableLiveness.MAYBE_LIVE) {
+          return state;
+        }
+      }
+    }
+    return VariableLiveness.MAYBE_LIVE;
+  }
+
+1 th patch/20
+Trace:
+
+START : 
+2024.04.08 AD at 01:49:49 HKT
+---------TIME : 
+2024.04.08 AD at 02:00:50 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+11:if(n.getLastChild()==null){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:return VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+11:if(n.getLastChild()==null){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+INSERT:
+14:else{
+VariableLiveness state=isVariableReadBeforeKill(n.getLastChild(),variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(n.getLastChild()==null){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+INSERT:
+15:VariableLiveness state=isVariableReadBeforeKill(n.getLastChild(),variable);
+TO:
+10
+
+INSERT:
+16:if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+TO:
+10
+
+Tested:5124 patches
+Compile failed:4966 patches
+Compilation rate:0.03083528493364559
+NNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/17.java
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+15:if(stateChild!=VariableLiveness.MAYBE_LIVE){
+state=stateChild;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 192 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+UPDATE
+FROM:
+13:VariableLiveness state=isVariableReadBeforeKill(child,variable);
+TO:
+14:VariableLiveness stateChild=isVariableReadBeforeKill(child,variable);
+
+DELETE:
+Original line: 14if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+
+INSERT:
+16:state=stateChild;
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+UPDATE
+FROM:
+13:VariableLiveness state=isVariableReadBeforeKill(child,variable);
+TO:
+14:VariableLiveness stateChild=isVariableReadBeforeKill(child,variable);
+
+DELETE:
+Original line: 14if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+
+INSERT:
+15:if(stateChild!=VariableLiveness.MAYBE_LIVE){
+state=stateChild;
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5751 patches
+Compile failed:5582 patches
+Compilation rate:0.029386193705442532
+NNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/18.java
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return isNameReadBeforeKill(n);
+TO:
+3
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return isNameReadBeforeKill(n);
+TO:
+3
+
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Tested:6169 patches
+Compile failed:5993 patches
+Compilation rate:0.028529745501702057
+NNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/19.java
+Current actions:
+INSERT:
+11:if(!NodeUtil.isLhs(n,n.getParent())){
+VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=(state==VariableLiveness.MAYBE_LIVE)?isVariableReadBeforeKill(child,variable):state.join(isVariableReadBeforeKill(child,variable));
+}
+}
+return state;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(!NodeUtil.isLhs(n,n.getParent())){
+VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=(state==VariableLiveness.MAYBE_LIVE)?isVariableReadBeforeKill(child,variable):state.join(isVariableReadBeforeKill(child,variable));
+}
+}
+return state;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=(state==VariableLiveness.MAYBE_LIVE)?isVariableReadBeforeKill(child,variable):state.join(isVariableReadBeforeKill(child,variable));
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(!NodeUtil.isLhs(n,n.getParent())){
+VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+state=(state==VariableLiveness.MAYBE_LIVE)?isVariableReadBeforeKill(child,variable):state.join(isVariableReadBeforeKill(child,variable));
+}
+}
+return state;
+}
+TO:
+10
+
+DELETE:
+Original line: 13VariableLiveness state=isVariableReadBeforeKill(child,variable);
+
+DELETE:
+Original line: 14if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+
+DELETE:
+Original line: 19return VariableLiveness.MAYBE_LIVE;
+
+INSERT:
+20:VariableLiveness state=VariableLiveness.KILL;
+TO:
+10
+
+INSERT:
+23:state=(state==VariableLiveness.KILL)?isVariableReadBeforeKill(child,variable):state.join(isVariableReadBeforeKill(child,variable));
+TO:
+12
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:6924 patches
+Compile failed:6741 patches
+Compilation rate:0.026429809358752165
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/20.java
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return NodeUtil.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return NodeUtil.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:7356 patches
+Compile failed:7063 patches
+Compilation rate:0.03983143012506797
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNPPPPNPPPNNNPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/21.java
+Current actions:
+INSERT:
+19:if(NodeUtil.isCall(n)){
+String name=n.getLastChild().getString();
+if(variable.equals(name)){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.WRITE;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+}
+TO:
+18
+
+Following are 0th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+19:if(NodeUtil.isCall(n)){
+String name=n.getLastChild().getString();
+if(variable.equals(name)){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.WRITE;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+21:if(variable.equals(name)){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.WRITE;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:String name=n.getLastChild().getString();
+TO:
+18
+
+INSERT:
+21:if(variable.equals(name)){
+if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.WRITE;
+}
+else{
+return VariableLiveness.READ;
+}
+}
+TO:
+18
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:String name=n.getLastChild().getString();
+TO:
+18
+
+INSERT:
+22:if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.WRITE;
+}
+TO:
+18
+
+INSERT:
+25:else{
+return VariableLiveness.READ;
+}
+TO:
+18
+
+Tested:7975 patches
+Compile failed:7681 patches
+Compilation rate:0.036865203761755484
+NNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/22.java
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return isVariableReadBeforeKill(n.getParent(),variable);
+TO:
+3
+
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 1th generated patches:
+Validating 187 patches...
+Current actions:
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return isVariableReadBeforeKill(n.getParent(),variable);
+TO:
+3
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Tested:8195 patches
+Compile failed:7894 patches
+Compilation rate:0.03672971323978035
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/23.java
+Current actions:
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+12:if(child.isControlStructure()||child.isBreak()||child.isContinue()){
+return VariableLiveness.KILL;
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(child.isControlStructure()||child.isBreak()||child.isContinue()){
+return VariableLiveness.KILL;
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+INSERT:
+15:else{
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+12:if(child.isControlStructure()||child.isBreak()||child.isContinue()){
+return VariableLiveness.KILL;
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+
+INSERT:
+15:else{
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+11
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:8807 patches
+Compile failed:8504 patches
+Compilation rate:0.03440445100488248
+NNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/24.java
+Current actions:
+INSERT:
+11:if(NodeUtil.isLhs(n)){
+if(n.isQualifiedName()){
+String variableName=n.getLastChild().getString();
+if(variableName.equals(variable)){
+return VariableLiveness.KILL;
+}
+}
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+11:if(NodeUtil.isLhs(n)){
+if(n.isQualifiedName()){
+String variableName=n.getLastChild().getString();
+if(variableName.equals(variable)){
+return VariableLiveness.KILL;
+}
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(n.isQualifiedName()){
+String variableName=n.getLastChild().getString();
+if(variableName.equals(variable)){
+return VariableLiveness.KILL;
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:String variableName=n.getLastChild().getString();
+TO:
+10
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+13:String variableName=n.getLastChild().getString();
+TO:
+10
+
+INSERT:
+14:if(variableName.equals(variable)){
+return VariableLiveness.KILL;
+}
+TO:
+10
+
+Tested:9225 patches
+Compile failed:8914 patches
+Compilation rate:0.03371273712737127
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/25.java
+Current actions:
+INSERT:
+11:VariableLiveness state=VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 0th generated patches:
+Validating 149 patches...
+Current actions:
+INSERT:
+15:if(childState==VariableLiveness.KILL){
+return VariableLiveness.KILL;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(childState==VariableLiveness.READ){
+state=VariableLiveness.READ;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+13:VariableLiveness state=isVariableReadBeforeKill(child,variable);
+TO:
+14:VariableLiveness childState=isVariableReadBeforeKill(child,variable);
+
+DELETE:
+Original line: 15return state;
+
+INSERT:
+18:if(childState==VariableLiveness.READ){
+state=VariableLiveness.READ;
+}
+TO:
+13
+
+INSERT:
+26:return state;
+TO:
+18
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:9898 patches
+Compile failed:9570 patches
+Compilation rate:0.03313800767831885
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNPNPNPNNNNNNNNNNPNNNPNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/26.java
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return ControlFlowGraph.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+DELETE:
+Original line: 7else{
+return VariableLiveness.READ;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 5return VariableLiveness.KILL;
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4if(NodeUtil.isLhs(n,n.getParent())){
+return VariableLiveness.KILL;
+}
+
+INSERT:
+4:return ControlFlowGraph.isLhs(n,n.getParent())?VariableLiveness.KILL:VariableLiveness.READ;
+TO:
+3
+
+UPDATE
+FROM:
+11:for(Node child=n.getFirstChild();child!=null;child=child.getNext()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+TO:
+6:for(Node child=n.getLastChild();child!=null;child=child.getPrevious()){
+if(!ControlFlowGraph.isEnteringNewCfgNode(child)){
+VariableLiveness state=isVariableReadBeforeKill(child,variable);
+if(state!=VariableLiveness.MAYBE_LIVE){
+return state;
+}
+}
+}
+
+DELETE:
+Original line: 8return VariableLiveness.READ;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:10328 patches
+Compile failed:9993 patches
+Compilation rate:0.032436096049573974
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_88/27.java
+Current actions:
+INSERT:
+11:if(NodeUtil.mayHaveSideEffects(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(NodeUtil.mayHaveSideEffects(n)){
+return VariableLiveness.MAYBE_LIVE;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:return VariableLiveness.MAYBE_LIVE;
+TO:
+10
+
+Following are 2th generated patches:
+Validating 15 patches...
+Tested:10545 patches
+Compile failed:10203 patches
+Compilation rate:0.032432432432432434
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-88 > patch : 1 | Start : Mon Apr 08 01:49:49 HKT 2024 | End : 2024.04.08 AD at 02:27:22 HKT

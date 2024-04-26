@@ -1,0 +1,3636 @@
+Repair : closure_53
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/1.java
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFromForTree(replace);
+TO:
+33
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFromForTree(replace);
+TO:
+33
+
+INSERT:
+38:replacement.copyInformationFromForTree(replace);
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFromForTree(replace);
+TO:
+33
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:402 patches
+Compile failed:371 patches
+Compilation rate:0.07711442786069651
+PPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNPNPPPPPPPPNPPNPNNNNNPNNNPNPNNNNNPNNPNNNNNNPNNNPPPPNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/2.java
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+INSERT:
+10:Node assign=Node.newAssignNode(Node.newString(Token.NAME,varmap.get(var)),value);
+TO:
+10
+
+INSERT:
+11:assign.copyInformationFromForTree(key);
+TO:
+10
+
+INSERT:
+12:key.getParent().replaceChild(key,assign);
+TO:
+10
+
+DELETE:
+Original line: 15nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null)));
+
+INSERT:
+16:Node assign=Node.newAssignNode(Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null));
+TO:
+14
+
+INSERT:
+17:assign.copyInformationFromForTree(ref.getParent());
+TO:
+14
+
+INSERT:
+18:ref.getParent().addChildBefore(assign,ref.getParent().getFirstChild());
+TO:
+14
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+20:if(ref.getParent().getType()==Token.RETURN){
+Node trueNode=Node.newBoolean(true);
+trueNode.copyInformationFromForTree(ref.getParent());
+Node replacement=Node.newExpr(trueNode);
+replacement.copyInformationFromForTree(ref.getParent());
+ref.getParent().getParent().replaceChild(ref.getParent(),replacement);
+}
+TO:
+16
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+25:ref.getParent().getParent().replaceChild(ref.getParent(),replacement);
+
+INSERT:
+28:ref.getParent().removeChild(ref.getParent().getLastChild());
+TO:
+36
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+INSERT:
+29:ref.getParent().replaceChild(ref.getParent().getLastChild(),NodeUtil.newBooleanNode(true));
+TO:
+36
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+DELETE:
+Original line: 31Node replace=ref.getParent();
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:600 patches
+Compile failed:569 patches
+Compilation rate:0.051666666666666666
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/3.java
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+INSERT:
+19:Node replacement=NodeUtil.newExpr(new Node(Token.COMMA,nodes));
+TO:
+19
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:Node replacement=NodeUtil.newExpr(new Node(Token.COMMA,nodes));
+TO:
+19
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1197 patches
+Compile failed:1151 patches
+Compilation rate:0.03842940685045948
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPPPPNPNNNPNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/4.java
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+34:NodeUtil.addExpr(replace,replacement);
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+INSERT:
+34:NodeUtil.addExpr(replace,replacement);
+TO:
+33
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1599 patches
+Compile failed:1265 patches
+Compilation rate:0.20888055034396497
+NNPNNNPPPPNPPPPNPNPPPPPPPPPPPNNPNPPPPNPNPPPNNNPNNNNPPPPPPNPPPNNPNPPPPNPNPNNPNPPPPPPNNPNNPPNPNPNNNPPPPPPNPPNPPNPPNNPPNPPNPPPNPPPPPNPPPNPPPNPNPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPNPPPPPNPPPPPPPNPNPPNPPPPPPNNPPPPPPPNPPPNNPPPPPPPNPPNPPPPNPPNPNNPPNPNPNNPNPPNPPPPNPPPNNPPPPPNPPNPNNNPNPPPPPNNPNPPPPNNNNPNNPPPPPNPPNNPPPPNNPPPNPNPPNPPPPNPPPPNPPPNPPNPPPPPNPNPPNPPPPPPPPPPPPPPPPPPPPPPNPNPPPPPPNPPPPPPPPPNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/5.java
+Current actions:
+INSERT:
+11:replacement.putBooleanProp(Node.FREE_CALL,true);
+TO:
+10
+
+INSERT:
+16:parent.replaceChild(idx,replacement);
+TO:
+12
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+19:Node replacement=IR.exprResult(IR.assign(Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(ref.getNode())));
+TO:
+14
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+22:Node parent=val.getParent();
+TO:
+14
+
+INSERT:
+26:Node replacement=IR.exprResult(IR.trueNode());
+TO:
+16
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1798 patches
+Compile failed:1464 patches
+Compilation rate:0.185761957730812
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/6.java
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFrom(replace);
+TO:
+33
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+38:NodeUtil.newExpr(replacement).copyInformationFrom(replace);
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFrom(replace);
+TO:
+33
+
+INSERT:
+38:NodeUtil.newExpr(replacement).copyInformationFrom(replace);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:NodeUtil.newExpr(replacement).copyInformationFrom(replace);
+TO:
+33
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2400 patches
+Compile failed:2060 patches
+Compilation rate:0.14166666666666666
+PPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/7.java
+Current actions:
+INSERT:
+32:Node expr=NodeUtil.newExpr(replacement);
+TO:
+31
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+32:Node expr=NodeUtil.newExpr(replacement);
+TO:
+31
+
+UPDATE
+FROM:
+32:replacement.copyInformationFromForTree(replace);
+TO:
+33:expr.copyInformationFromForTree(replace);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2624 patches
+Compile failed:2100 patches
+Compilation rate:0.19969512195121952
+NNNNNNNNNNNNPPPPPPNPPPPPPPPPPPPPPPNPPPPPPPPNPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNPPNPPPNPPPPPPPPPPPNNNPPNPNPNPPPNNPNNPPPPNPPPPNPPPPNNPPNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/8.java
+Current actions:
+DELETE:
+Original line: 22int i;
+
+Following are 0th generated patches:
+Validating 51 patches...
+Current actions:
+INSERT:
+22:for(Node node : nodes){
+cur.addChildToFront(node);
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+21
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+INSERT:
+23:cur.addChildToFront(node);
+TO:
+21
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:for(Node node : nodes){
+cur.addChildToFront(node);
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+23:cur.addChildToFront(node);
+TO:
+21
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Tested:2876 patches
+Compile failed:2336 patches
+Compilation rate:0.18776077885952713
+NNNNNNNNNNNNNNNNNNNNNNNNPNNNPNPPNNPPNPNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/9.java
+Current actions:
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+DELETE:
+Original line: 12all.remove(var);
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+DELETE:
+Original line: 36else{
+replace.getParent().replaceChild(replace,replacement);
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+DELETE:
+Original line: 15nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null)));
+
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 31Node replace=ref.getParent();
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+INSERT:
+13:v.scope.declare(varmap.get(var),getNativeType(UNDEFINED_TYPE),false);
+TO:
+14
+
+DELETE:
+Original line: 15nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null)));
+
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+DELETE:
+Original line: 12all.remove(var);
+
+INSERT:
+13:v.scope.declare(varmap.get(var),getNativeType(UNDEFINED_TYPE),false);
+TO:
+14
+
+DELETE:
+Original line: 15nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null)));
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 27cur=t;
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 31Node replace=ref.getParent();
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+DELETE:
+Original line: 36else{
+replace.getParent().replaceChild(replace,replacement);
+}
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+10:v.scope.declare(varmap.get(var),value.getType(),false);
+TO:
+10
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+DELETE:
+Original line: 12all.remove(var);
+
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+DELETE:
+Original line: 37replace.getParent().replaceChild(replace,replacement);
+
+Tested:2880 patches
+Compile failed:2340 patches
+Compilation rate:0.1875
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/10.java
+Current actions:
+DELETE:
+Original line: 22int i;
+
+Following are 0th generated patches:
+Validating 178 patches...
+Current actions:
+INSERT:
+22:for(Node node : nodes){
+cur.addChildToFront(node);
+cur=new Node(Token.COMMA);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 27cur=t;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:for(Node node : nodes){
+cur.addChildToFront(node);
+cur=new Node(Token.COMMA);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+22:for(Node node : nodes){
+cur.addChildToFront(node);
+cur=new Node(Token.COMMA);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Tested:3062 patches
+Compile failed:2460 patches
+Compilation rate:0.19660352710646636
+NNNNNNNNPPPPPPNPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNPPPPNPNNPNPPNPPNPNNNNNPPPPPNPNNPNNNPNPNNPNNNNNNNNNPNPPPNPPPPPPPNNNNPPPPPNNNNNNNPNNNNNNPNNPPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/11.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+21:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA,n);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+21:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA,n);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+21:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA,n);
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+22:cur.addChildToFront(n);
+TO:
+21
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+23:cur=new Node(Token.COMMA,n);
+TO:
+21
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Tested:3462 patches
+Compile failed:2805 patches
+Compilation rate:0.18977469670710573
+NNNNNNNNNNNPPPPPPPPNNNPPNNNNNNNNNNPPNNPPNPPPPNNPNNNNPNNNNNNNPNNPNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNPPPNNPNNPNPPNNNNNNNNNNNNPNNNNNNNNNNNNNPPPPPPNNPNPPPNNNNNNNNNNNNPNPNNNNNPNNPPPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/12.java
+Current actions:
+INSERT:
+20:replacement2.addChildToBack(replacement);
+TO:
+16
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node replacement=new Node(Token.TRUE);
+TO:
+16
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:nodes.add(replacement);
+TO:
+16
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+20:replacement2.addChildToBack(replacement);
+TO:
+16
+
+INSERT:
+21:replacement2.addChildToBack(NodeUtil.newExpr(new Node(Token.BLOCK,nodes)));
+TO:
+16
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+25:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement2));
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3860 patches
+Compile failed:3203 patches
+Compilation rate:0.17020725388601035
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/13.java
+Current actions:
+DELETE:
+Original line: 22int i;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA);
+cur.addChildToFront(cur);
+cur=cur.getFirstChild();
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+22:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA);
+cur.addChildToFront(cur);
+cur=cur.getFirstChild();
+}
+TO:
+21
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 27cur=t;
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA);
+cur.addChildToFront(cur);
+cur=cur.getFirstChild();
+}
+TO:
+21
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Tested:4064 patches
+Compile failed:3353 patches
+Compilation rate:0.1749507874015748
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNPPNPPPNPPNNNPPNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPPPPNPPPPPNPPPNPNNPNNNPPPPPPPPPPPPPNPPNNNNNNPPPNNNNNNNPPNNNPPPNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/14.java
+Current actions:
+INSERT:
+18:if(val.isDefaultValue()){
+replacement=new Node(Token.FALSE);
+}
+TO:
+17
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+19:replacement=new Node(Token.FALSE);
+TO:
+17
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+21:else{
+nodes.add(new Node(Token.TRUE));
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:if(val.isDefaultValue()){
+replacement=new Node(Token.FALSE);
+}
+TO:
+17
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+21:else{
+nodes.add(new Node(Token.TRUE));
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4466 patches
+Compile failed:3753 patches
+Compilation rate:0.15965069413345276
+NPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/15.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+UPDATE
+FROM:
+25:Node t=new Node(Token.COMMA);
+TO:
+23:Node t=new Node(Token.COMMA,cur,replacement);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:replacement=NodeUtil.newExpr(nodes.get(0));
+TO:
+18
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+20:for(int i=1;i<nodes.size();i++){
+Node cur=replacement;
+replacement=new Node(Token.COMMA,nodes.get(i));
+Node t=new Node(Token.COMMA,cur,replacement);
+replacement=t;
+}
+TO:
+18
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5038 patches
+Compile failed:4217 patches
+Compilation rate:0.1629614926558158
+PPPPPPPPPPPPPPPNPPNNPPPNPNPPPPNPNNPNPNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPPPPNPPPPPPPPNPPPNPPPNPPPNNNPPNPPPPPPNNPNNNNNPPNNNPPPNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNNNNNPNNNNNNPNNNPNPNNNNNNNNPPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNPNPPPNPNPNNNPNNNNNNNNNPNNNPNNNPNPNNNNNNNNPNNNNPNPNNNPPNPNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/16.java
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+INSERT:
+19:Node replacement=new Node(Token.COMMA);
+TO:
+19
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+INSERT:
+19:Node replacement=new Node(Token.COMMA);
+TO:
+19
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:5445 patches
+Compile failed:4366 patches
+Compilation rate:0.19816345270890726
+NNNNNPPNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPNPPNNNPNPPPPNPNPPNPNPNNNPPNPPNPPNPNPNPNNPNNPPPPNPNPNNPPNPNNNNNNNNNNNNPNNPPPNNPNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPNPNNNNPNNNPPPPPPNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPNNPPNNPPPPPPNNNNPPPNNNPNPPPNPPPNNPNNPPNNPNNPNPPPPNPNPNNNNNPNPNNNNNNNNNNPPPPNNPNNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPNNNNNNPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/17.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:5447 patches
+Compile failed:4366 patches
+Compilation rate:0.19845786671562327
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/18.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+23:for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+21:for(int i=0;i<nodes.size();i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Following are 3th generated patches:
+Validating 72 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+UPDATE
+FROM:
+23:for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+21:for(int i=0;i<nodes.size();i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Tested:5547 patches
+Compile failed:4458 patches
+Compilation rate:0.196322336398053
+NNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/19.java
+Current actions:
+INSERT:
+15:replacement.copyInformationFromForTree(ref);
+TO:
+15
+
+INSERT:
+16:ref.getParent().replaceChild(ref,replacement);
+TO:
+15
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+UPDATE
+FROM:
+32:replacement.copyInformationFromForTree(replace);
+TO:
+19:replacement.copyInformationFromForTree(ref);
+
+INSERT:
+21:Node comma=new Node(Token.COMMA,ref,replacement);
+TO:
+31
+
+DELETE:
+Original line: 22int i;
+
+INSERT:
+22:comma.copyInformationFromForTree(replace);
+TO:
+31
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+UPDATE
+FROM:
+37:replace.getParent().replaceChild(replace,replacement);
+TO:
+27:replace.getParent().replaceChild(replace,comma);
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:5743 patches
+Compile failed:4654 patches
+Compilation rate:0.18962214870276858
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/20.java
+Current actions:
+INSERT:
+7:Node cur=val.getFirstChild();
+TO:
+7
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+24:Node newAssign=Node.newString(Token.NAME,varmap.get(var));
+TO:
+14
+
+INSERT:
+30:val.addChildToFront(newAssign);
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:5941 patches
+Compile failed:4852 patches
+Compilation rate:0.18330247433092073
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/21.java
+Current actions:
+INSERT:
+33:Node expr=NodeUtil.newExpr(replacement);
+TO:
+32
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:Node expr=NodeUtil.newExpr(replacement);
+TO:
+32
+
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+INSERT:
+35:Node var=new Node(Token.VAR,replacement);
+TO:
+33
+
+DELETE:
+Original line: 36else{
+replace.getParent().replaceChild(replace,replacement);
+}
+
+INSERT:
+36:var.copyInformationFromForTree(replace);
+TO:
+33
+
+INSERT:
+37:Node decl=new Node(Token.EXPR_RESULT,var);
+TO:
+33
+
+INSERT:
+38:decl.copyInformationFromForTree(replace);
+TO:
+33
+
+INSERT:
+39:replace.getParent().replaceChild(replace,decl);
+TO:
+33
+
+INSERT:
+40:expr=decl;
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6339 patches
+Compile failed:5250 patches
+Compilation rate:0.17179365830572646
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/22.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:if(ref.getParent().getType()==Token.ASSIGN){
+replacement=new Node(Token.TRUE);
+}
+TO:
+17
+
+INSERT:
+21:else{
+replacement=new Node(Token.EXPR_RESULT,new Node(Token.TRUE));
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+21:else{
+replacement=new Node(Token.EXPR_RESULT,new Node(Token.TRUE));
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+19:replacement=new Node(Token.TRUE);
+TO:
+17
+
+INSERT:
+21:else{
+replacement=new Node(Token.EXPR_RESULT,new Node(Token.TRUE));
+}
+TO:
+17
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:6558 patches
+Compile failed:5455 patches
+Compilation rate:0.16819152180542848
+NNNPPPPPPPPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/23.java
+Current actions:
+DELETE:
+Original line: 22int i;
+
+Following are 0th generated patches:
+Validating 178 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+INSERT:
+22:for(Node n : nodes){
+cur.addChildToFront(n);
+cur=new Node(Token.COMMA,n,cur);
+}
+TO:
+21
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+23:cur.addChildToFront(n);
+TO:
+21
+
+INSERT:
+24:cur=new Node(Token.COMMA,n,cur);
+TO:
+21
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6934 patches
+Compile failed:5787 patches
+Compilation rate:0.1654167868474185
+NNNNNNNNPPPPPPNNNNPPNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNNNNNNNNNNNNNPPPPPNNNPNNNPNNPPPNNPNNNNNNNNPNPPNPPNNNNNNNNNNPPPPNPNNNNNPPNNNPPNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/24.java
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+INSERT:
+39:replace.getParent().replaceChild(replace,expr);
+TO:
+33
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+INSERT:
+34:Node expr=NodeUtil.newExpr(replacement);
+TO:
+33
+
+INSERT:
+36:name.setString("");
+TO:
+33
+
+INSERT:
+37:name.setType(Token.NAME);
+TO:
+33
+
+INSERT:
+38:expr.addChildToFront(name);
+TO:
+33
+
+INSERT:
+39:replace.getParent().replaceChild(replace,expr);
+TO:
+33
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7206 patches
+Compile failed:6041 patches
+Compilation rate:0.16167082986400222
+NNNNNNNNNNNNNNNNNNPPPPPPNNPNNNNNNNPNNNNNPNNNNNPNNNNPNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/25.java
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+INSERT:
+12:ref.getParent().getParent().addChildToFront(assign);
+TO:
+10
+
+INSERT:
+16:Node assign=new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null));
+TO:
+14
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+21:replacement=NodeUtil.newExpr(Node.newBoolean(true));
+TO:
+17
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:7402 patches
+Compile failed:6237 patches
+Compilation rate:0.15738989462307484
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/26.java
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+INSERT:
+11:assign.addChildToFront(value);
+TO:
+10
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+INSERT:
+12:assign.setType(Token.ASSIGN);
+TO:
+10
+
+INSERT:
+13:v.scope.getVar(varmap.get(var)).addReference(assign);
+TO:
+10
+
+DELETE:
+Original line: 15nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),NodeUtil.newUndefinedNode(null)));
+
+INSERT:
+17:Node assign=Node.newString(Token.NAME,varmap.get(var));
+TO:
+14
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:assign.addChildToFront(NodeUtil.newUndefinedNode(null));
+TO:
+14
+
+INSERT:
+19:assign.setType(Token.ASSIGN);
+TO:
+14
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+20:v.scope.getVar(varmap.get(var)).addReference(assign);
+TO:
+14
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+23:Node trueNode=Node.newBoolean(true);
+TO:
+17
+
+INSERT:
+24:trueNode.setLength(0);
+TO:
+17
+
+INSERT:
+29:cur.addChildToFront(NodeUtil.newUndefinedNode(null));
+TO:
+22
+
+INSERT:
+30:cur.setType(Token.COMMA);
+TO:
+22
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+INSERT:
+32:cur=Node.newString(Token.COMMA);
+TO:
+22
+
+UPDATE
+FROM:
+24:cur.addChildToFront(nodes.get(i));
+TO:
+33:cur.addChildToFront(Node.newBoolean(true));
+
+INSERT:
+34:cur.setLength(0);
+TO:
+24
+
+UPDATE
+FROM:
+29:cur.addChildToFront(nodes.get(i));
+TO:
+37:cur.addChildToFront(replace);
+
+INSERT:
+39:cur.setLength(0);
+TO:
+29
+
+INSERT:
+40:replacement=cur;
+TO:
+29
+
+UPDATE
+FROM:
+32:replacement.copyInformationFromForTree(replace);
+TO:
+42:replacement.copyInformationFromForTree(replaceNode);
+
+UPDATE
+FROM:
+33:if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+TO:
+43:if(replaceNode.getType()==Token.VAR){
+replaceNode.getParent().replaceChild(replaceNode,NodeUtil.newExpr(replacement));
+}
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+44:replaceNode.getParent().replaceChild(replaceNode,NodeUtil.newExpr(replacement));
+
+UPDATE
+FROM:
+37:replace.getParent().replaceChild(replace,replacement);
+TO:
+47:replaceNode.getParent().replaceChild(replaceNode,replacement);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:7599 patches
+Compile failed:6434 patches
+Compilation rate:0.15330964600605343
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/27.java
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+34:Node parent=replace.getParent();
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:Node parent=replace.getParent();
+TO:
+33
+
+INSERT:
+38:stmt.addChildToBack(replacement);
+TO:
+33
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8040 patches
+Compile failed:6709 patches
+Compilation rate:0.16554726368159203
+NNNNNNNNNNNNNNNNNNNNNNNPPPNPNPNNNPNNPPPPPNNNPPPNPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPNPPPNPPPPNNNNNPPNPPPPPPPPPPPPPPPPPPNNNPPPPPPPPPPPPPPPPPPPPPPNNPNNNNPPNPPPPPNNNNNPPNNNNNNPPPPNPPPPPPPPPPNNPPPPNNPNNPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/28.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 27cur=t;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:Node value=NodeUtil.newExpr(Node.newBoolean(true));
+TO:
+17
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+21:replacement=new Node(Token.VAR,value);
+TO:
+33
+
+DELETE:
+Original line: 22int i;
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+23:replace.getParent().replaceChild(replace,replacement);
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+INSERT:
+26:replacement=new Node(Token.COMMA);
+TO:
+36
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8419 patches
+Compile failed:7041 patches
+Compilation rate:0.16367739636536405
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPNPPPPPNNNPNNNNNNNPPPNNPPNPNPNNPNPNPNNPNPNPNNNNNPNNNNNNNNNPNNNNPPNNPNNPPNNNNPNNNPNPNNNNNNNPNNPNPNPNNNNNNNNNNNNNNNNNNNPNNNPNPPPPNNNPNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/29.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+20:replacement=new Node(Token.COMMA);
+TO:
+18:replacement=new Node(Token.TRUE);
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+19:replacement.copyInformationFromForTree(ref.getParent());
+TO:
+20
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:8821 patches
+Compile failed:7347 patches
+Compilation rate:0.16710123568756377
+NNNNNNPPPPPNPPPNNNPNNNPNNNNNNNNNNNNPNPPPPNNNPPPPPNPNNPNPPPNNPNNPPPNPNPPPNPNNNNNNNNNNNPNNNNPNNNPPPNNNNPPPPPPNPPPPNNNPPPNPPPPNNPPNNNPPPPNNPNNNPPPPNNNNNNNNNNNPNPNNPNNPPNNNNNNPNNPPPPPNPPPNNPNPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/30.java
+Current actions:
+INSERT:
+32:Node expr=NodeUtil.newExpr(replacement);
+TO:
+31
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+32:Node expr=NodeUtil.newExpr(replacement);
+TO:
+31
+
+INSERT:
+33:expr.useSourceInfoIfMissingFromForTree(replace);
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9027 patches
+Compile failed:7432 patches
+Compilation rate:0.1766921457848676
+NNNPPPPNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPNPNPNNPPNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPNPNNNNNNPPPPNPPNNNPNNPNNNNNNPPPPNPNNNPNPNPPNNNPNPNPPPNNNPNPPPPPPNPPPPPPPPNPNNNNNNPNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/31.java
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+INSERT:
+18:nodes=Lists.reverse(nodes);
+TO:
+16
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+19:Node replacement=new Node(Token.COMMA);
+TO:
+16
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+20:Node cur=replacement;
+TO:
+16
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+21:for(int i=0;i<nodes.size()-1;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+16
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+27:cur.addChildToFront(nodes.get(nodes.size()-1));
+TO:
+16
+
+INSERT:
+28:Node replace=ref.getParent();
+TO:
+16
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+INSERT:
+29:replacement.copyInformationFromForTree(replace);
+TO:
+16
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+DELETE:
+Original line: 31Node replace=ref.getParent();
+
+DELETE:
+Original line: 32replacement.copyInformationFromForTree(replace);
+
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+DELETE:
+Original line: 36else{
+replace.getParent().replaceChild(replace,replacement);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9327 patches
+Compile failed:7576 patches
+Compilation rate:0.18773453414817198
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPNPPPNNPNPNNNPNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPNNNNPNPNPNPPNPNPNNPNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPNNPNNNPNNPPPPNNPPPNNPPNNNPPNNPPPNPPPNNNPNNPPNNPPPNNPPPNNNNPPPPPPPPPPNPPPPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/32.java
+Current actions:
+INSERT:
+32:Node parent=replace.getParent();
+TO:
+31
+
+Following are 0th generated patches:
+Validating 140 patches...
+Current actions:
+DELETE:
+Original line: 33if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+INSERT:
+34:Node newExpr=NodeUtil.newExpr(replacement);
+TO:
+32
+
+INSERT:
+35:parent.replaceChild(replace,newExpr);
+TO:
+32
+
+DELETE:
+Original line: 36else{
+replace.getParent().replaceChild(replace,replacement);
+}
+
+INSERT:
+38:parent.replaceChild(newExpr,replacement);
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9665 patches
+Compile failed:7886 patches
+Compilation rate:0.18406621831350234
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNNPNNNNNNNNPNNNPPPNNNNPNPPNNPNNNPNNNNNNNNNNNNNPNNNPPPPPPNNPPNNPNNPNPNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/33.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+19:replacement=nodes.get(0);
+TO:
+17
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+}
+TO:
+17
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+21:else{
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:replacement=nodes.get(0);
+TO:
+17
+
+Following are 3th generated patches:
+Validating 59 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+19:replacement=nodes.get(0);
+TO:
+17
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+21:else{
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 4th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+}
+TO:
+17
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+21:else{
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Tested:10046 patches
+Compile failed:8245 patches
+Compilation rate:0.17927533346605615
+PPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/34.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+22:else{
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+replacement.addChildToBack(new Node(Token.TRUE));
+}
+TO:
+17
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+22:else{
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+replacement.addChildToBack(new Node(Token.TRUE));
+}
+TO:
+17
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:10455 patches
+Compile failed:8594 patches
+Compilation rate:0.17800095648015304
+NNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNPNNNNNNNNNNNNPNNNPPPPPPPNNPNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNPPNPNNPNNNPNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNPPPPPPPNNNPNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNPPNNPNNNPNNNNNNNNNNNNPNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/35.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:Node trueNode=NodeUtil.newExpr(Node.newBoolean(true));
+TO:
+17
+
+INSERT:
+21:replacement=new Node(Token.BLOCK);
+TO:
+17
+
+DELETE:
+Original line: 31Node replace=ref.getParent();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:10854 patches
+Compile failed:8974 patches
+Compilation rate:0.1732080339045513
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNPNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNPNPNNNNPNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/36.java
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+32:replace.getParent().replaceChild(replace,NodeUtil.newExpr(cur));
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+INSERT:
+19:Node cur=new Node(Token.COMMA);
+TO:
+19
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+UPDATE
+FROM:
+32:replacement.copyInformationFromForTree(replace);
+TO:
+30:cur.copyInformationFromForTree(replace);
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+32:replace.getParent().replaceChild(replace,NodeUtil.newExpr(cur));
+
+UPDATE
+FROM:
+37:replace.getParent().replaceChild(replace,replacement);
+TO:
+35:replace.getParent().replaceChild(replace,cur);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:11121 patches
+Compile failed:9060 patches
+Compilation rate:0.18532506069598056
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNPPNNNNNNNNPNPPNPPPPNNNNNNNPNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPNPPPPPPPPPPPPNPPPPPPPNPPPPPPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPNPNNNPPPPPPPPPNPPNNNNNPPNPPNPNPPPNPNPNPPNPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/37.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+20:replacement=new Node(Token.COMMA);
+TO:
+18:replacement=new Node(Token.TRUE);
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+UPDATE
+FROM:
+20:replacement=new Node(Token.COMMA);
+TO:
+18:replacement=new Node(Token.TRUE);
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:11721 patches
+Compile failed:9438 patches
+Compilation rate:0.1947786025083184
+NNNNNNNNNNNNNNNPPPPPPPPNNNNPPPPNNPPNPNNNPNNNPPPNNNNNNNNNNNPNNPNNNPNPPPPNNNPNPPPNNNNNNNNNNNNNNNNNNPPPPPPNNPPPNPNNNPPNPPPPNNNPNNPPNNPPPNNNNPPNPNNNNNNNNNNNNPPNNNNNPPPPPNNPPNPNPPPPNNNPPNPPPPNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNPPNNPPPPNNPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNNPNNNNNNNNNNNNPNPNPPPNNNNNNPNPNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNNNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/38.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+20:replacement=new Node(Token.COMMA);
+TO:
+18:replacement=NodeUtil.newExpr(new Node(Token.COMMA));
+
+INSERT:
+19:for(Node n : nodes){
+replacement.addChildToBack(n);
+}
+TO:
+20
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+20:replacement=new Node(Token.COMMA);
+TO:
+18:replacement=NodeUtil.newExpr(new Node(Token.COMMA));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+19:for(Node n : nodes){
+replacement.addChildToBack(n);
+}
+TO:
+20
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:12322 patches
+Compile failed:9936 patches
+Compilation rate:0.19363739652653789
+NNNNNPPPPPPPPNNNPNNPNNNNPPPPPNPPPPNNNNNNNNPNNNNNNNNNNNPNNNPNNNNPPNNNNPNPPPPPPPNNNPPNNNNNPNNPPNPPPPNNPNPNNNNNNPPPPPNNNPPPPPNPNNNPNPPNNNPPPPPNNPNNNPPPNPNNNNNNNNNNNPPNNPNNNNNPNNPNNNNNNPNNNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNPPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNPNNPNNNNNNPPNNPNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/39.java
+Current actions:
+INSERT:
+33:Node parent=replace.getParent();
+TO:
+32
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+33:Node parent=replace.getParent();
+TO:
+32
+
+UPDATE
+FROM:
+33:if(replace.getType()==Token.VAR){
+replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+TO:
+34:if(parent.getType()==Token.VAR){
+parent.replaceChild(replace,NodeUtil.newExpr(replacement));
+}
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+35:parent.replaceChild(replace,NodeUtil.newExpr(replacement));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:12535 patches
+Compile failed:10123 patches
+Compilation rate:0.19242122058236938
+NNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/40.java
+Current actions:
+INSERT:
+18:if(v.scope.isDeclared(v.name)){
+replacement=Node.newString(Token.NAME,v.name);
+}
+TO:
+17
+
+Following are 0th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+18:if(v.scope.isDeclared(v.name)){
+replacement=Node.newString(Token.NAME,v.name);
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(v.scope.isDeclared(v.name)){
+replacement=Node.newString(Token.NAME,v.name);
+}
+TO:
+17
+
+INSERT:
+21:else{
+String name=this.newTempName();
+replacement=Node.newString(Token.NAME,name);
+Node decl=Node.newVarNode(v.getJSDocInfo(),Node.newString(Token.NAME,name),new Node(Token.OBJECTLIT),v.getJSType());
+Node expr=Node.newExpr(decl);
+expr.copyInformationFromForTree(ref);
+nodes.add(expr);
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:13023 patches
+Compile failed:10610 patches
+Compilation rate:0.18528756814866007
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/41.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+UPDATE
+FROM:
+23:for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+22:for(i=0;i<nodes.size()-1;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 74 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+UPDATE
+FROM:
+23:for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+TO:
+22:for(i=0;i<nodes.size()-1;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+Tested:13106 patches
+Compile failed:10678 patches
+Compilation rate:0.1852586601556539
+PPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNPNNNNNNPNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/42.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:13108 patches
+Compile failed:10678 patches
+Compilation rate:0.1853829722306988
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/43.java
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+34:Node var=replace.cloneNode();
+TO:
+33
+
+INSERT:
+35:var.getFirstChild().setType(Token.VAR);
+TO:
+33
+
+INSERT:
+36:var.getLastChild().setType(Token.BLOCK);
+TO:
+33
+
+INSERT:
+37:var.getLastChild().addChildToFront(replacement);
+TO:
+33
+
+INSERT:
+38:replace.getParent().replaceChild(replace,var);
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+35:var.getFirstChild().setType(Token.VAR);
+TO:
+33
+
+INSERT:
+38:replace.getParent().replaceChild(replace,var);
+TO:
+33
+
+Following are 2th generated patches:
+Validating 20 patches...
+Current actions:
+DELETE:
+Original line: 34replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+
+INSERT:
+34:Node var=replace.cloneNode();
+TO:
+33
+
+INSERT:
+36:var.getLastChild().setType(Token.BLOCK);
+TO:
+33
+
+INSERT:
+37:var.getLastChild().addChildToFront(replacement);
+TO:
+33
+
+INSERT:
+38:replace.getParent().replaceChild(replace,var);
+TO:
+33
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:13563 patches
+Compile failed:10829 patches
+Compilation rate:0.20157782201577823
+NNNNNNNNPPPPNNPPNPNNNNPPNPNNNNNNNNPPPPPPPNPPPPPPNPPNPPNNPPPPPPPPPPNPPPPPPPPPPNPPNPPPPPNNPNPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPNNNNPNPPNPNNNNPPPPNNNPNNNNNNNNPPPPNNPNPNPPNNNNNNNNNPNNNNNPPPPNNPNNNNNPNNNPPNPNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNPPPPPPNNPNPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNPPPPPPPPPPPPPPPPPPPPPPPPNPPNNPNPPPNNNPPPPPNNPPNPNNNNNNPPPPNNPNNPNNNNPPPPPPPPPNPPPPPPPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/44.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 22int i;
+
+INSERT:
+22:cur.addChildToFront(n);
+TO:
+21
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+23:cur=new Node(Token.COMMA);
+TO:
+21
+
+INSERT:
+24:cur.addChildToFront(n);
+TO:
+21
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:13934 patches
+Compile failed:11135 patches
+Compilation rate:0.20087555619348357
+NNNNNNNNNNNNNNNNPPNPPPPPPPPNNNNNPPNPPPNNNNNNPPPNPNNNNNNNPNPPPNPPNNPNNPNNPPPNNNNNNPNNNNNNNNNNNNNNNNNNNPPNPNPNPPPNNPNNNNPNPNPNNNNNNNNNNNNNNPPPNNPPPPPPNNNPNNNPPPPPPNPNPNPNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/45.java
+Current actions:
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+}
+TO:
+17
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:replacement=nodes.get(0);
+TO:
+17
+
+Following are 2th generated patches:
+Validating 59 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:if(nodes.size()==1){
+replacement=nodes.get(0);
+}
+TO:
+17
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+21:else{
+nodes.add(new Node(Token.TRUE));
+nodes=Lists.reverse(nodes);
+replacement=new Node(Token.COMMA);
+Node cur=replacement;
+int i;
+for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+cur.addChildToFront(nodes.get(i));
+cur.addChildToFront(nodes.get(i+1));
+}
+TO:
+17
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:14396 patches
+Compile failed:11574 patches
+Compilation rate:0.19602667407613225
+PPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/46.java
+Current actions:
+DELETE:
+Original line: 17Node replacement;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node replacement=NodeUtil.newExpr(nodes);
+TO:
+16
+
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 24cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 25Node t=new Node(Token.COMMA);
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+DELETE:
+Original line: 27cur=t;
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node replacement=NodeUtil.newExpr(nodes);
+TO:
+16
+
+DELETE:
+Original line: 17Node replacement;
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14985 patches
+Compile failed:12135 patches
+Compilation rate:0.19019019019019018
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNPPNNNNNNNNNNNNPPNNNNNPNNNNNNNNNPNNPNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/47.java
+Current actions:
+INSERT:
+34:Node exprNode=NodeUtil.newExpr(replacement);
+TO:
+33
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+34:Node exprNode=NodeUtil.newExpr(replacement);
+TO:
+33
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+36:replace.getParent().replaceChild(replace,exprNode);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+35:exprNode.copyInformationFrom(replace);
+TO:
+33
+
+UPDATE
+FROM:
+34:replace.getParent().replaceChild(replace,NodeUtil.newExpr(replacement));
+TO:
+36:replace.getParent().replaceChild(replace,exprNode);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:15391 patches
+Compile failed:12473 patches
+Compilation rate:0.18959131960236503
+NNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNPNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPPNNPPPPPPPNPNNNNNNNPPNNNNNNNNNNNNNNPPPNPPPPPNPPNNNNPNPNNNPNNNPNNNPPNPPPNNPNPNNNPPPNNPPNPNNNPPPPPNPNNNNNNPNPNNNNPPNNNPNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/48.java
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+INSERT:
+18:Node cur=new Node(Token.COMMA);
+TO:
+17
+
+INSERT:
+19:Node trueNode=new Node(Token.TRUE);
+TO:
+17
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+INSERT:
+20:cur.addChildToFront(trueNode);
+TO:
+17
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+INSERT:
+31:replacement=cur;
+TO:
+30
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:15652 patches
+Compile failed:12535 patches
+Compilation rate:0.19914387937643752
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPPNNNNNPNNNNNNNPNNNNNPNNPPPPNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/49.java
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:replacement=NodeUtil.newExpr(nodes);
+TO:
+18
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+19:replacement=NodeUtil.newExpr(nodes);
+TO:
+18
+
+DELETE:
+Original line: 20replacement=new Node(Token.COMMA);
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+DELETE:
+Original line: 29cur.addChildToFront(nodes.get(i));
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16247 patches
+Compile failed:13083 patches
+Compilation rate:0.1947436449806118
+NNNNNNNNNNNNNNNNNPPPPPPPNNPNNNNNNNPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNPPNNNNNPNNNNNPPPPPPNNNNPNNPNNNPNPNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNPNPNPNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_53/50.java
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+UPDATE
+FROM:
+17:Node replacement;
+TO:
+7:Node replacement=null;
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+INSERT:
+12:if(replacement==null){
+replacement=assign;
+}
+TO:
+10
+
+INSERT:
+15:else{
+replacement=new Node(Token.COMMA,replacement,assign);
+}
+TO:
+10
+
+DELETE:
+Original line: 18nodes.add(new Node(Token.TRUE));
+
+DELETE:
+Original line: 19nodes=Lists.reverse(nodes);
+
+INSERT:
+21:Node assign=NodeUtil.newAssignNode(varmap.get(var),NodeUtil.newUndefinedNode(null));
+TO:
+14
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+INSERT:
+22:if(replacement==null){
+replacement=assign;
+}
+TO:
+14
+
+DELETE:
+Original line: 23for(i=0;i<nodes.size()-2;i++){
+cur.addChildToFront(nodes.get(i));
+Node t=new Node(Token.COMMA);
+cur.addChildToFront(t);
+cur=t;
+}
+
+INSERT:
+25:else{
+replacement=new Node(Token.COMMA,replacement,assign);
+}
+TO:
+14
+
+DELETE:
+Original line: 30cur.addChildToFront(nodes.get(i+1));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3List<Node> nodes=Lists.newArrayList();
+
+INSERT:
+11:Node assign=NodeUtil.newAssignNode(varmap.get(var),value);
+TO:
+10
+
+DELETE:
+Original line: 11nodes.add(new Node(Token.ASSIGN,Node.newString(Token.NAME,varmap.get(var)),value));
+
+INSERT:
+12:if(replacement==null){
+replacement=assign;
+}
+TO:
+10
+
+DELETE:
+Original line: 21Node cur=replacement;
+
+DELETE:
+Original line: 22int i;
+
+DELETE:
+Original line: 26cur.addChildToFront(t);
+
+INSERT:
+26:replacement=new Node(Token.COMMA,replacement,assign);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16633 patches
+Compile failed:13469 patches
+Compilation rate:0.1902242529910419
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-53 > patch : 0 | Start : Wed Apr 10 13:40:04 HKT 2024 | End : 2024.04.10 AD at 14:39:58 HKT

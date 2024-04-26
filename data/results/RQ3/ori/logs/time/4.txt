@@ -1,0 +1,5153 @@
+Repair : time_4
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/0.java
+Current actions:
+INSERT:
+6:if(fieldType==getFieldType(0)){
+return withField0(value);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(fieldType==getFieldType(1)){
+return withField1(value);
+}
+TO:
+40
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+INSERT:
+6:if(fieldType==getFieldType(0)){
+return withField0(value);
+}
+TO:
+5
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+INSERT:
+9:if(fieldType==getFieldType(1)){
+return withField1(value);
+}
+TO:
+40
+
+INSERT:
+12:if(fieldType==getFieldType(2)){
+return withField2(value);
+}
+TO:
+43
+
+INSERT:
+16:return withField3(value);
+TO:
+43
+
+INSERT:
+18:if(fieldType==getFieldType(4)){
+return withField4(value);
+}
+TO:
+43
+
+INSERT:
+21:return withField(fieldType,value);
+TO:
+43
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Tested:25 patches
+Compile failed:23 patches
+Compilation rate:0.08
+NNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/1.java
+Tested:25 patches
+Compile failed:23 patches
+Compilation rate:0.08
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/2.java
+Current actions:
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+8:return this;
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+Following are 3th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 19break;
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 4th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 19break;
+
+Tested:29 patches
+Compile failed:27 patches
+Compilation rate:0.06896551724137931
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/3.java
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+UPDATE
+FROM:
+9:int[] newValues=new int[newTypes.length];
+TO:
+9:int[] newValues=Arrays.copyOf(iValues,newTypes.length);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:int[] newValues=new int[newTypes.length];
+TO:
+9:int[] newValues=Arrays.copyOf(iValues,newTypes.length);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:64 patches
+Compile failed:58 patches
+Compilation rate:0.09375
+PPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/4.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+8:return super.with(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 3th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+8:return super.with(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 23DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+Tested:68 patches
+Compile failed:62 patches
+Compilation rate:0.08823529411764706
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/5.java
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(this,getValues(),index,value);
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(this,getValues(),index,value);
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(this,getValues(),index,value);
+
+Tested:112 patches
+Compile failed:104 patches
+Compilation rate:0.07142857142857142
+NNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/6.java
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+44:return withFieldValue(index,value);
+TO:
+43
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:return withFieldValue(index,value);
+TO:
+43
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:return withFieldValue(index,value);
+TO:
+43
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Tested:159 patches
+Compile failed:150 patches
+Compilation rate:0.05660377358490566
+NNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/7.java
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+INSERT:
+5:return set(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+INSERT:
+5:return set(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:197 patches
+Compile failed:188 patches
+Compilation rate:0.04568527918781726
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/8.java
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+37:return new Partial(iChronology,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+37:return new Partial(iChronology,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:return new Partial(iChronology,newTypes,newValues);
+TO:
+36
+
+Tested:242 patches
+Compile failed:227 patches
+Compilation rate:0.06198347107438017
+NNNNNNPPPNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/9.java
+Current actions:
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:return with(fieldType,value,iChronology);
+TO:
+2
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:return with(fieldType,value,iChronology);
+TO:
+2
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:280 patches
+Compile failed:265 patches
+Compilation rate:0.05357142857142857
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/10.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[return this;]
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+6:if(value==getValue(fieldType)){
+return this;
+}
+TO:
+5
+
+DELETE:
+Original line: 42return this;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:316 patches
+Compile failed:301 patches
+Compilation rate:0.04746835443037975
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/11.java
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+45:newPartial.setValue(index,value);
+TO:
+43
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:Partial newPartial=new Partial(iChronology,iTypes,iValues);
+TO:
+43
+
+INSERT:
+45:newPartial.setValue(index,value);
+TO:
+43
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:361 patches
+Compile failed:344 patches
+Compilation rate:0.04709141274238227
+NNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/12.java
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' not supported");
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 23DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Tested:382 patches
+Compile failed:365 patches
+Compilation rate:0.04450261780104712
+NNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/13.java
+Current actions:
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+INSERT:
+46:Partial newPartial=new Partial(this,newValues);
+TO:
+45
+
+INSERT:
+47:return newPartial;
+TO:
+45
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:Partial newPartial=new Partial(this,newValues);
+TO:
+45
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+INSERT:
+46:Partial newPartial=new Partial(this,newValues);
+TO:
+45
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+46:Partial newPartial=new Partial(this,newValues);
+TO:
+45
+
+INSERT:
+47:return newPartial;
+TO:
+45
+
+Tested:439 patches
+Compile failed:415 patches
+Compilation rate:0.05466970387243736
+NNNNPPNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/14.java
+Current actions:
+INSERT:
+13:result.iTypes[result.iTypes.length-1]=fieldType;
+TO:
+36
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+8:Partial result=new Partial(this);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+9:result.iTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+INSERT:
+13:result.iTypes[result.iTypes.length-1]=fieldType;
+TO:
+36
+
+INSERT:
+14:result.iValues[result.iTypes.length-1]=value;
+TO:
+36
+
+INSERT:
+15:return result;
+TO:
+36
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Partial result=new Partial(this);
+TO:
+7
+
+INSERT:
+10:result.iValues=new int[result.iTypes.length];
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+11:System.arraycopy(iTypes,0,result.iTypes,0,iTypes.length);
+
+INSERT:
+15:return result;
+TO:
+36
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 18if(compare>0){
+break;
+}
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:result.iValues=new int[result.iTypes.length];
+TO:
+7
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+11:System.arraycopy(iTypes,0,result.iTypes,0,iTypes.length);
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+INSERT:
+15:return result;
+TO:
+36
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+9:result.iTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+7
+
+INSERT:
+10:result.iValues=new int[result.iTypes.length];
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+INSERT:
+14:result.iValues[result.iTypes.length-1]=value;
+TO:
+36
+
+INSERT:
+15:return result;
+TO:
+36
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Tested:486 patches
+Compile failed:462 patches
+Compilation rate:0.04938271604938271
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/15.java
+Current actions:
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+47:iChronology.validate(newPartial,newValues);
+TO:
+45
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:Partial newPartial=new Partial(this,newValues);
+TO:
+45
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+INSERT:
+47:iChronology.validate(newPartial,newValues);
+TO:
+45
+
+INSERT:
+48:return newPartial;
+TO:
+45
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:524 patches
+Compile failed:485 patches
+Compilation rate:0.07442748091603053
+NNNNNNNPPNNNNNNNNNPPPPPPNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/16.java
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+46:return new Partial(iChronology,newTypes,newValues);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+46:return new Partial(iChronology,newTypes,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:542 patches
+Compile failed:501 patches
+Compilation rate:0.07564575645756458
+NNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/17.java
+Current actions:
+UPDATE
+FROM:
+9:int[] newValues=new int[newTypes.length];
+TO:
+8:int[] newValues=new int[iTypes.length+1];
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+9:System.arraycopy(iValues,0,newValues,0,iTypes.length);
+
+DELETE:
+Original line: 10int i=0;
+
+UPDATE
+FROM:
+37:Partial newPartial=new Partial(iChronology,newTypes,newValues);
+TO:
+11:Partial newPartial=new Partial(iChronology,iTypes,newValues);
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+9:System.arraycopy(iValues,0,newValues,0,iTypes.length);
+
+DELETE:
+Original line: 10int i=0;
+
+INSERT:
+10:newValues[iTypes.length]=value;
+TO:
+36
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+Following are 2th generated patches:
+Validating 15 patches...
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+INSERT:
+10:newValues[iTypes.length]=value;
+TO:
+36
+
+DELETE:
+Original line: 17int compare=unitField.compareTo(loopUnitField);
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 8 patches...
+Current actions:
+UPDATE
+FROM:
+9:int[] newValues=new int[newTypes.length];
+TO:
+8:int[] newValues=new int[iTypes.length+1];
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+10:newValues[iTypes.length]=value;
+TO:
+36
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+Following are 4th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+9:System.arraycopy(iValues,0,newValues,0,iTypes.length);
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 18if(compare>0){
+break;
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+Tested:574 patches
+Compile failed:533 patches
+Compilation rate:0.07142857142857142
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/18.java
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+44:int[] newValues=Arrays.copyOf(iValues,iValues.length);
+TO:
+43
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:int[] newValues=Arrays.copyOf(iValues,iValues.length);
+TO:
+43
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:int[] newValues=Arrays.copyOf(iValues,iValues.length);
+TO:
+43
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+INSERT:
+44:int[] newValues=Arrays.copyOf(iValues,iValues.length);
+TO:
+43
+
+Tested:621 patches
+Compile failed:575 patches
+Compilation rate:0.07407407407407407
+NNNNNNPPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/19.java
+Current actions:
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+UPDATE
+FROM:
+34:newValues[i]=value;
+TO:
+11:newValues[0]=value;
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+12:System.arraycopy(iTypes,0,newTypes,1,iTypes.length);
+
+INSERT:
+14:return new Partial(iChronology,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+UPDATE
+FROM:
+34:newValues[i]=value;
+TO:
+11:newValues[0]=value;
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+13:System.arraycopy(iValues,0,newValues,1,iValues.length);
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 3th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 10int i=0;
+
+UPDATE
+FROM:
+33:newTypes[i]=fieldType;
+TO:
+10:newTypes[0]=fieldType;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+UPDATE
+FROM:
+34:newValues[i]=value;
+TO:
+11:newValues[0]=value;
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+12:System.arraycopy(iTypes,0,newTypes,1,iTypes.length);
+
+INSERT:
+14:return new Partial(iChronology,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+33:newTypes[i]=fieldType;
+TO:
+10:newTypes[0]=fieldType;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+12:System.arraycopy(iTypes,0,newTypes,1,iTypes.length);
+
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+13:System.arraycopy(iValues,0,newValues,1,iValues.length);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Tested:660 patches
+Compile failed:613 patches
+Compilation rate:0.07121212121212121
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/20.java
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+45:newValues=getField(index).set(this,index,newValues,value);
+TO:
+46:newValues=getField(index).set(thisCopy,index,newValues,value);
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+47:return new Partial(thisCopy,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:Partial thisCopy=this;
+TO:
+43
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+47:return new Partial(thisCopy,newValues);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+47:return new Partial(thisCopy,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:723 patches
+Compile failed:674 patches
+Compilation rate:0.0677731673582296
+NNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/21.java
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(iChronology,iTypes,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 39return newPartial;
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(iChronology,iTypes,newValues);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(iChronology,iTypes,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+44:return new Partial(iChronology,iTypes,newValues);
+
+Tested:783 patches
+Compile failed:724 patches
+Compilation rate:0.07535121328224777
+NNNNNNPPPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/22.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+Following are 0th generated patches:
+Validating 129 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+33:return new Partial(this,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+INSERT:
+33:return new Partial(this,newValues);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:int[] newValues=new int[newTypes.length];
+TO:
+8:int[] newValues=new int[iTypes.length+1];
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+INSERT:
+33:return new Partial(this,newValues);
+TO:
+36
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+INSERT:
+33:return new Partial(this,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Tested:852 patches
+Compile failed:787 patches
+Compilation rate:0.07629107981220658
+NNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/23.java
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 24if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 4th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+INSERT:
+3:return (Partial)super.with(fieldType,value);
+TO:
+2
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 42return this;
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Tested:856 patches
+Compile failed:790 patches
+Compilation rate:0.07710280373831775
+NPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/24.java
+Current actions:
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+3:return super.with(fieldType,value);
+TO:
+2
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 42return this;
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 2th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 3th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 42return this;
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 18if(compare>0){
+break;
+}
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Tested:860 patches
+Compile failed:793 patches
+Compilation rate:0.07790697674418605
+NNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/25.java
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+9:int[] newValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+TO:
+8:DateTimeFieldType[] newTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+
+Tested:904 patches
+Compile failed:833 patches
+Compilation rate:0.07853982300884955
+NNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/26.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 23DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+8:Partial result=new Partial(this);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+9:result.addFieldType(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+INSERT:
+10:return result;
+TO:
+7
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Partial result=new Partial(this);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+9:result.addFieldType(fieldType,value);
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+INSERT:
+10:return result;
+TO:
+7
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:939 patches
+Compile failed:863 patches
+Compilation rate:0.08093716719914804
+NNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/27.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Partial newPartial=new Partial(this);
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+9:newPartial.iTypes=Arrays.copyOf(iTypes,iTypes.length+1);
+TO:
+7
+
+INSERT:
+10:newPartial.iValues=Arrays.copyOf(iValues,iValues.length+1);
+TO:
+7
+
+INSERT:
+11:int lastField=iTypes.length-1;
+TO:
+7
+
+INSERT:
+12:DateTimeFieldType[] newTypes=newPartial.iTypes;
+TO:
+7
+
+INSERT:
+13:int[] newValues=newPartial.iValues;
+TO:
+7
+
+UPDATE
+FROM:
+13:for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+TO:
+17:for(;i<lastField;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+UPDATE
+FROM:
+31:System.arraycopy(iTypes,0,newTypes,0,i);
+TO:
+35:System.arraycopy(newTypes,0,newTypes,0,i);
+
+UPDATE
+FROM:
+32:System.arraycopy(iValues,0,newValues,0,i);
+TO:
+36:System.arraycopy(newValues,0,newValues,0,i);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+UPDATE
+FROM:
+35:System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+TO:
+39:System.arraycopy(newTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 39return newPartial;
+
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+40:System.arraycopy(newValues,i,newValues,i+1,newValues.length-i-1);
+
+INSERT:
+41:return new Partial(newPartial,newValues);
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:975 patches
+Compile failed:899 patches
+Compilation rate:0.07794871794871795
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/28.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' is not supported");
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' is not supported");
+TO:
+7
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 17int compare=unitField.compareTo(loopUnitField);
+
+DELETE:
+Original line: 18if(compare>0){
+break;
+}
+
+DELETE:
+Original line: 22DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' is not supported");
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' is not supported");
+TO:
+7
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:throw new IllegalArgumentException("Field '"+fieldType+"' is not supported");
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Tested:1057 patches
+Compile failed:980 patches
+Compilation rate:0.0728476821192053
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/29.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];, int[] newValues=new int[newTypes.length];, System.arraycopy(iValues,0,newValues,0,i);, newTypes[i]=fieldType;, if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}, {
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}, int i=0;, DurationField unitField=fieldType.getDurationType().getField(iChronology);, {
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}, if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}, System.arraycopy(iTypes,0,newTypes,0,i);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+7:if(index==-1){
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+TO:
+6
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+Following are 1th generated patches:
+Validating 36 patches...
+Tested:1067 patches
+Compile failed:988 patches
+Compilation rate:0.07403936269915651
+PNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/30.java
+Current actions:
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+11:System.arraycopy(iValues,0,newValues,0,iValues.length);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+36:System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+TO:
+11:System.arraycopy(iValues,0,newValues,0,iValues.length);
+
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 21else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+INSERT:
+13:newValues[iValues.length]=value;
+TO:
+36
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+Tested:1073 patches
+Compile failed:991 patches
+Compilation rate:0.07642124883504194
+NPNPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/31.java
+Current actions:
+INSERT:
+3:return with(fieldType,value,getFieldType(fieldType));
+TO:
+2
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4throw new IllegalArgumentException("The field type must not be null");
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3if(fieldType==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+
+INSERT:
+3:return with(fieldType,value,getFieldType(fieldType));
+TO:
+2
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+DELETE:
+Original line: 41if(value==getValue(index)){
+return this;
+}
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1108 patches
+Compile failed:1019 patches
+Compilation rate:0.08032490974729242
+NNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/32.java
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_4_buggy/src/main/java/org/joda/time/Partial.java
+SUCCESS
+//Following are generated patch:
+  public Partial with(  DateTimeFieldType fieldType,  int value){
+    if (fieldType == null) {
+      throw new IllegalArgumentException("The field type must not be null");
+    }
+    int index=indexOf(fieldType);
+    if (index == -1) {
+      DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length + 1];
+      int[] newValues=new int[newTypes.length];
+      int i=0;
+      DurationField unitField=fieldType.getDurationType().getField(iChronology);
+      if (unitField.isSupported()) {
+        for (; i < iTypes.length; i++) {
+          DateTimeFieldType loopType=iTypes[i];
+          DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+          if (loopUnitField.isSupported()) {
+            int compare=unitField.compareTo(loopUnitField);
+            if (compare > 0) {
+              break;
+            }
+ else             if (compare == 0) {
+              DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+              DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+              if (rangeField.compareTo(loopRangeField) > 0) {
+                break;
+              }
+            }
+          }
+        }
+      }
+      System.arraycopy(iTypes,0,newTypes,0,i);
+      System.arraycopy(iValues,0,newValues,0,i);
+      newTypes[i]=fieldType;
+      newValues[i]=value;
+      System.arraycopy(iTypes,i,newTypes,i + 1,newTypes.length - i - 1);
+      System.arraycopy(iValues,i,newValues,i + 1,newValues.length - i - 1);
+return new Partial(newTypes,newValues);
+    }
+    if (value == getValue(index)) {
+      return this;
+    }
+    int[] newValues=getValues();
+    newValues=getField(index).set(this,index,newValues,value);
+    return new Partial(this,newValues);
+  }
+
+1 th patch/414
+Trace:
+ReturnStmt;ClassInstCreation
+START : 
+2024.04.12 AD at 09:14:47 HKT
+---------TIME : 
+2024.04.12 AD at 09:21:27 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Tested:1188 patches
+Compile failed:1093 patches
+Compilation rate:0.07996632996632996
+NNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/33.java
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(fieldType)){
+return this;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(fieldType)){
+return this;
+}
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+INSERT:
+11:return result;
+TO:
+43
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 3th generated patches:
+Validating 12 patches...
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(fieldType)){
+return this;
+}
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+INSERT:
+9:Partial result=new Partial(this,fieldType,value);
+TO:
+43
+
+INSERT:
+10:result.iChronology.validate(result,result.iValues);
+TO:
+43
+
+INSERT:
+11:return result;
+TO:
+43
+
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(fieldType)){
+return this;
+}
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+INSERT:
+9:Partial result=new Partial(this,fieldType,value);
+TO:
+43
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Tested:1243 patches
+Compile failed:1146 patches
+Compilation rate:0.07803700724054706
+NNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/34.java
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+46:return new Partial(iChronology,newValues);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+46:return new Partial(this,newValues);
+TO:
+46:return new Partial(iChronology,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1262 patches
+Compile failed:1162 patches
+Compilation rate:0.07923930269413629
+NNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/35.java
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+8:int[] newTypes=new int[iTypes.length+1];
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+INSERT:
+33:newTypes[i]=fieldType.getDurationType().getFieldType();
+TO:
+32
+
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:int[] newTypes=new int[iTypes.length+1];
+TO:
+7
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+INSERT:
+33:newTypes[i]=fieldType.getDurationType().getFieldType();
+TO:
+32
+
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:int[] newTypes=new int[iTypes.length+1];
+TO:
+7
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:int[] newTypes=new int[iTypes.length+1];
+TO:
+7
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+INSERT:
+33:newTypes[i]=fieldType.getDurationType().getFieldType();
+TO:
+32
+
+INSERT:
+37:return new Partial(this,newTypes,newValues);
+TO:
+36
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Tested:1326 patches
+Compile failed:1226 patches
+Compilation rate:0.07541478129713423
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/36.java
+Current actions:
+INSERT:
+8:return null;
+TO:
+7
+
+DELETE:
+Original line: 19break;
+
+DELETE:
+Original line: 24if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+INSERT:
+8:return null;
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+8:return null;
+TO:
+7
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 15DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 12if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 34newValues[i]=value;
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+Tested:1330 patches
+Compile failed:1229 patches
+Compilation rate:0.07593984962406015
+NNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/37.java
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(indexOf(fieldType))){
+return this;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(indexOf(fieldType))){
+return this;
+}
+
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 8DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+
+UPDATE
+FROM:
+45:newValues=getField(index).set(this,index,newValues,value);
+TO:
+10:newValues=getField(indexOf(fieldType)).set(this,indexOf(fieldType),newValues,value);
+
+DELETE:
+Original line: 13for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+
+DELETE:
+Original line: 32System.arraycopy(iValues,0,newValues,0,i);
+
+DELETE:
+Original line: 35System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+
+DELETE:
+Original line: 36System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+
+DELETE:
+Original line: 37Partial newPartial=new Partial(iChronology,newTypes,newValues);
+
+DELETE:
+Original line: 38iChronology.validate(newPartial,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+UPDATE
+FROM:
+45:newValues=getField(index).set(this,index,newValues,value);
+TO:
+10:newValues=getField(indexOf(fieldType)).set(this,indexOf(fieldType),newValues,value);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:1402 patches
+Compile failed:1299 patches
+Compilation rate:0.07346647646219687
+NNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/38.java
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:return new Partial(this,getField(index).set(this,index,getValues(),value));
+TO:
+43
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:return new Partial(this,getField(index).set(this,index,getValues(),value));
+TO:
+43
+
+DELETE:
+Original line: 45newValues=getField(index).set(this,index,newValues,value);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+INSERT:
+44:return new Partial(this,getField(index).set(this,index,getValues(),value));
+TO:
+43
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 44int[] newValues=getValues();
+
+DELETE:
+Original line: 46return new Partial(this,newValues);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+44:return new Partial(this,getField(index).set(this,index,getValues(),value));
+TO:
+43
+
+Tested:1464 patches
+Compile failed:1356 patches
+Compilation rate:0.07377049180327869
+NNNNNNNNPNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_4/39.java
+Current actions:
+UPDATE
+FROM:
+41:if(value==getValue(index)){
+return this;
+}
+TO:
+6:if(value==getValue(fieldType)){
+return this;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 9int[] newValues=new int[newTypes.length];
+
+DELETE:
+Original line: 10int i=0;
+
+UPDATE
+FROM:
+45:newValues=getField(index).set(this,index,newValues,value);
+TO:
+10:newValues=getField(fieldType).set(this,fieldType,newValues,value);
+
+DELETE:
+Original line: 11DurationField unitField=fieldType.getDurationType().getField(iChronology);
+
+DELETE:
+Original line: 14DateTimeFieldType loopType=iTypes[i];
+
+DELETE:
+Original line: 16if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+
+DELETE:
+Original line: 31System.arraycopy(iTypes,0,newTypes,0,i);
+
+DELETE:
+Original line: 33newTypes[i]=fieldType;
+
+DELETE:
+Original line: 39return newPartial;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int index=indexOf(fieldType);
+
+DELETE:
+Original line: 7if(index==-1){
+DateTimeFieldType[] newTypes=new DateTimeFieldType[iTypes.length+1];
+int[] newValues=new int[newTypes.length];
+int i=0;
+DurationField unitField=fieldType.getDurationType().getField(iChronology);
+if(unitField.isSupported()){
+for(;i<iTypes.length;i++){
+DateTimeFieldType loopType=iTypes[i];
+DurationField loopUnitField=loopType.getDurationType().getField(iChronology);
+if(loopUnitField.isSupported()){
+int compare=unitField.compareTo(loopUnitField);
+if(compare>0){
+break;
+}
+else{
+if(compare==0){
+DurationField rangeField=fieldType.getRangeDurationType().getField(iChronology);
+DurationField loopRangeField=loopType.getRangeDurationType().getField(iChronology);
+if(rangeField.compareTo(loopRangeField)>0){
+break;
+}
+}
+}
+}
+}
+}
+System.arraycopy(iTypes,0,newTypes,0,i);
+System.arraycopy(iValues,0,newValues,0,i);
+newTypes[i]=fieldType;
+newValues[i]=value;
+System.arraycopy(iTypes,i,newTypes,i+1,newTypes.length-i-1);
+System.arraycopy(iValues,i,newValues,i+1,newValues.length-i-1);
+Partial newPartial=new Partial(iChronology,newTypes,newValues);
+iChronology.validate(newPartial,newValues);
+return newPartial;
+}
+
+UPDATE
+FROM:
+45:newValues=getField(index).set(this,index,newValues,value);
+TO:
+10:newValues=getField(fieldType).set(this,fieldType,newValues,value);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1518 patches
+Compile failed:1410 patches
+Compilation rate:0.07114624505928854
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : time-4 > patch : 1 | Start : Fri Apr 12 09:14:47 HKT 2024 | End : 2024.04.12 AD at 09:22:56 HKT

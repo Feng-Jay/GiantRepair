@@ -1,0 +1,3647 @@
+Repair : closure_17
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/1.java
+Current actions:
+INSERT:
+21:if(info.hasType()){
+return info.getType();
+}
+TO:
+20
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+21:if(info.hasType()){
+return info.getType();
+}
+TO:
+20
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:return info.getType();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:402 patches
+Compile failed:402 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/2.java
+Current actions:
+INSERT:
+40:if(rValue!=null&&rValue.getJSType()!=null){
+return rValue.getJSType();
+}
+TO:
+39
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+40:if(rValue!=null&&rValue.getJSType()!=null){
+return rValue.getJSType();
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:return rValue.getJSType();
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:804 patches
+Compile failed:802 patches
+Compilation rate:0.0024875621890547263
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/3.java
+Current actions:
+INSERT:
+3:if(info!=null){
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(lValue,sourceName,info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(lValue,sourceName,info,lValue);
+}
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+11:if(info.hasType()){
+JSType t=info.getType();
+if(info.isTypedef()){
+if(!t.isFunctionType()&&!t.isUnknownType()){
+t=t.restrictByNotNullOrUndefined();
+}
+}
+return t;
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+3:if(info!=null){
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(lValue,sourceName,info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(lValue,sourceName,info,lValue);
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+INSERT:
+22:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Tested:806 patches
+Compile failed:803 patches
+Compilation rate:0.0037220843672456576
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/4.java
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 15return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1205 patches
+Compile failed:1202 patches
+Compilation rate:0.0024896265560165973
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/5.java
+Current actions:
+INSERT:
+40:if(info!=null&&info.hasTypedefType()){
+return info.getTypedefType();
+}
+TO:
+39
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+40:if(info!=null&&info.hasTypedefType()){
+return info.getTypedefType();
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+41:return info.getTypedefType();
+TO:
+39
+
+INSERT:
+43:else{
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+43:else{
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+39
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+40:if(info!=null&&info.hasTypedefType()){
+return info.getTypedefType();
+}
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+43:else{
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:1808 patches
+Compile failed:1804 patches
+Compilation rate:0.0022123893805309734
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/6.java
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+7:return createTypeFromNodes(sourceName,lValue.getQualifiedName(),info,lValue);
+TO:
+21
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2006 patches
+Compile failed:2002 patches
+Compilation rate:0.0019940179461615153
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/7.java
+Current actions:
+INSERT:
+6:if(lValue.isGetProp()&&lValue.getFirstChild().isQualifiedName()){
+String prop=lValue.getLastChild().getString();
+Node object=lValue.getFirstChild().cloneNode();
+object.setDeclaredTypeExpression(info.getOriginalTypeExpression(prop));
+JSDocInfo objectInfo=NodeUtil.getBestJSDocInfo(object);
+return getDeclaredType(sourceName,objectInfo,object,null);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+6:if(lValue.isGetProp()&&lValue.getFirstChild().isQualifiedName()){
+String prop=lValue.getLastChild().getString();
+Node object=lValue.getFirstChild().cloneNode();
+object.setDeclaredTypeExpression(info.getOriginalTypeExpression(prop));
+JSDocInfo objectInfo=NodeUtil.getBestJSDocInfo(object);
+return getDeclaredType(sourceName,objectInfo,object,null);
+}
+TO:
+5
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+13:return null;
+TO:
+8
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2205 patches
+Compile failed:2201 patches
+Compilation rate:0.0018140589569160999
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/8.java
+Current actions:
+INSERT:
+36:else{
+knownType=rValue.getFirstKnownValue();
+}
+TO:
+35
+
+Following are 0th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+40:if(knownType!=null){
+JSType resultType=knownType.autobox().getBestType();
+if(resultType!=null){
+return resultType;
+}
+}
+TO:
+35
+
+Following are 1th generated patches:
+Validating 128 patches...
+Current actions:
+INSERT:
+42:if(resultType!=null){
+return resultType;
+}
+TO:
+35
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:knownType=rValue.getFirstKnownValue();
+TO:
+35
+
+INSERT:
+39:}
+
+TO:
+35
+
+INSERT:
+41:JSType resultType=knownType.autobox().getBestType();
+TO:
+35
+
+INSERT:
+43:return resultType;
+TO:
+35
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2752 patches
+Compile failed:2730 patches
+Compilation rate:0.007994186046511628
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNPNNNNNNPNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNPNNPNNNPNPNNNNPNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/9.java
+Current actions:
+DELETE:
+Original line: 21else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 147 patches...
+Current actions:
+INSERT:
+21:if(info.isConstant()&&rValue!=null){
+return rValue.getJSType();
+}
+TO:
+20
+
+DELETE:
+Original line: 26return rValue.getJSType();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+21:if(info.isConstant()&&rValue!=null){
+return rValue.getJSType();
+}
+TO:
+20
+
+INSERT:
+21:else{
+if(info.isConstant()&&rValue!=null){
+return rValue.getJSType();
+}
+}
+TO:
+20
+
+DELETE:
+Original line: 21else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3253 patches
+Compile failed:3143 patches
+Compilation rate:0.03381494005533354
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNNNNNNPNPNNNPPPNNNNNPNNPNPNNNNNNNNNNNPNNNNNNNNNNPNNNNNPNNNNPPPPPPNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNPNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNPPPPPPNPPNPPNNPNNNNNNNNNNNNNNNNNNNPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNPNPNPNNNNNNNNNNNNNPNPNNNNNNPNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/10.java
+Current actions:
+INSERT:
+3:if(lValue.getJSType()!=null){
+return lValue.getJSType();
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(info!=null&&info.hasType()){
+if(info.hasEnumParameterType()){
+jsType=createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+jsType=createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:if(lValue.getJSType()!=null){
+return lValue.getJSType();
+}
+TO:
+1
+
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:JSType jsType=null;
+TO:
+8
+
+INSERT:
+7:if(info!=null&&info.hasType()){
+if(info.hasEnumParameterType()){
+jsType=createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+jsType=createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+8
+
+INSERT:
+18:if(jsType==null){
+jsType=getGlobalType(sourceName,lValue);
+}
+TO:
+39
+
+INSERT:
+21:if(jsType==null){
+jsType=getNativeType(UNKNOWN_TYPE);
+}
+TO:
+39
+
+INSERT:
+24:return jsType;
+TO:
+39
+
+Tested:3255 patches
+Compile failed:3144 patches
+Compilation rate:0.034101382488479264
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/11.java
+Current actions:
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:3257 patches
+Compile failed:3146 patches
+Compilation rate:0.03408044212465459
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/12.java
+Current actions:
+INSERT:
+3:if(info==null){
+return null;
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+6:if(info.hasType()){
+return info.getType();
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+12:if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+8
+
+Tested:3658 patches
+Compile failed:3524 patches
+Compilation rate:0.036632039365773646
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNNNPNNNNNNNPNNNPNNNNNNNNPNNNPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNPNNNNPNNNPNNNNNNNNNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/13.java
+Current actions:
+INSERT:
+6:if(info!=null&&info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(info!=null&&info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:if(info!=null&&info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+5
+
+INSERT:
+22:return getNativeType(UNKNOWN_TYPE);
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Tested:4058 patches
+Compile failed:3901 patches
+Compilation rate:0.038689009364218825
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNPPNPNNNNNNNNNNNNNNNPNNNNNNNNNNNPPNPNPNPNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/14.java
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+if(type.isRecordType()){
+type=createRecordTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+else{
+if(type.isEnumType()){
+type=createEnumTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+}
+return type;
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+5:if(type!=null){
+if(type.isRecordType()){
+type=createRecordTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+else{
+if(type.isEnumType()){
+type=createEnumTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+}
+return type;
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+6:if(type.isRecordType()){
+type=createRecordTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+TO:
+1
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+if(type.isRecordType()){
+type=createRecordTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+else{
+if(type.isEnumType()){
+type=createEnumTypeFromTypeAnnotation(sourceName,lValue,type,info);
+}
+}
+return type;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+21:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Tested:4061 patches
+Compile failed:3901 patches
+Compilation rate:0.039399162767791186
+PPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/15.java
+Current actions:
+INSERT:
+4:if(info!=null){
+jsType=info.getEnclosingType();
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(jsType==null&&lValue.getParent() instanceof Var){
+jsType=((Var)lValue.getParent()).getType();
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 132 patches...
+Current actions:
+INSERT:
+10:if(jsType==null){
+return null;
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+17:if(currentType.getOriginalType() instanceof JSTypeNative){
+JSTypeNative nativeType=(JSTypeNative)currentType.getOriginalType();
+if(nativeType.isObjectType()||nativeType.isTypeVariable()||nativeType.isUnknownType()||nativeType.isArrayType()){
+return jsType;
+}
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:JSType jsType=null;
+TO:
+1
+
+INSERT:
+4:if(info!=null){
+jsType=info.getEnclosingType();
+}
+TO:
+1
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+INSERT:
+14:while(currentType.getOriginalType() instanceof JSTyped){
+currentType=currentType.getOriginalType();
+}
+TO:
+8
+
+INSERT:
+17:if(currentType.getOriginalType() instanceof JSTypeNative){
+JSTypeNative nativeType=(JSTypeNative)currentType.getOriginalType();
+if(nativeType.isObjectType()||nativeType.isTypeVariable()||nativeType.isUnknownType()||nativeType.isArrayType()){
+return jsType;
+}
+}
+TO:
+8
+
+INSERT:
+23:return null;
+TO:
+39
+
+Tested:4259 patches
+Compile failed:4046 patches
+Compilation rate:0.05001173984503404
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPPPPNNPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/16.java
+Current actions:
+INSERT:
+4:if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,sourceName,info,lValue);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,sourceName,info,lValue);
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,sourceName,info,lValue);
+}
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+INSERT:
+7:if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,sourceName,info,lValue);
+}
+TO:
+17
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+INSERT:
+14:return null;
+TO:
+39
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4856 patches
+Compile failed:4643 patches
+Compilation rate:0.04386326194398682
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/17.java
+Current actions:
+INSERT:
+4:if(declaredType==null){
+declaredType=getNativeType(UNKNOWN_TYPE);
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(declaredType==null){
+return null;
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+10:if(!lValue.hasChildren()){
+return getNativeType(UNKNOWN_TYPE);
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+3:JSType declaredType=info.getType();
+TO:
+1
+
+INSERT:
+5:declaredType=getNativeType(UNKNOWN_TYPE);
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+8:return null;
+TO:
+5
+
+INSERT:
+13:boolean isOptional=!lValue.getLastChild().isDefaultValue();
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:5122 patches
+Compile failed:4804 patches
+Compilation rate:0.06208512299882858
+PNNPPPPPPPNNNPNNNNNPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNPPPPPPPPNNNNNNNPNPNNPNNPNNNPNNNPNPNPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/18.java
+Current actions:
+INSERT:
+5:if(typeNode!=null&&typeNode.isFunction()){
+return typeNode.getJSType();
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(typeNode!=null&&typeNode.isQualifiedName()){
+return createEnumTypeFromNode(typeNode,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+3
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+4:Node typeNode=info.getTypeNode();
+TO:
+3
+
+INSERT:
+5:if(typeNode!=null&&typeNode.isFunction()){
+return typeNode.getJSType();
+}
+TO:
+3
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+8:if(typeNode!=null&&typeNode.isQualifiedName()){
+return createEnumTypeFromNode(typeNode,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+3
+
+INSERT:
+18:else{
+return null;
+}
+TO:
+39
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5720 patches
+Compile failed:5402 patches
+Compilation rate:0.055594405594405594
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/19.java
+Current actions:
+INSERT:
+36:else{
+if(rValue.isStringKey()){
+Node key=rValue.getStringKey();
+Node value=rValue.getFirstChild().getFirstChild();
+if(key!=null&&value!=null&&key.getString().equals("key")&&value.isString()&&value.getString().equals("value")){
+return value.getJSType();
+}
+}
+}
+TO:
+35
+
+Following are 0th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+39:if(key!=null&&value!=null&&key.getString().equals("key")&&value.isString()&&value.getString().equals("value")){
+return value.getJSType();
+}
+TO:
+35
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Node value=rValue.getFirstChild().getFirstChild();
+TO:
+35
+
+INSERT:
+39:if(key!=null&&value!=null&&key.getString().equals("key")&&value.isString()&&value.getString().equals("value")){
+return value.getJSType();
+}
+TO:
+35
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5932 patches
+Compile failed:5612 patches
+Compilation rate:0.05394470667565745
+NNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/20.java
+Current actions:
+INSERT:
+40:if(info!=null&&info.isConstant()&&info.hasConstAnnotation()&&rValue!=null){
+return rValue.getJSType();
+}
+TO:
+39
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+40:if(info!=null&&info.isConstant()&&info.hasConstAnnotation()&&rValue!=null){
+return rValue.getJSType();
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+41:return rValue.getJSType();
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6135 patches
+Compile failed:5815 patches
+Compilation rate:0.05215973920130399
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/21.java
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 10if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+
+DELETE:
+Original line: 19return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 29Node firstClause=rValue.getFirstChild();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+40:return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+6:return getDeclaredTypeInAnnotationImpl(sourceName,lValue);
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6532 patches
+Compile failed:6212 patches
+Compilation rate:0.04898958971218616
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/22.java
+Current actions:
+INSERT:
+4:if(type!=null&&type.isInterface()){
+String typeName=lValue.getQualifiedName();
+JSType knownType=nativeTypeOf(typeName);
+if(knownType!=null){
+return knownType;
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+7:if(knownType!=null){
+return knownType;
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+4:if(type!=null&&type.isInterface()){
+String typeName=lValue.getQualifiedName();
+JSType knownType=nativeTypeOf(typeName);
+if(knownType!=null){
+return knownType;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+INSERT:
+11:return type;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 3th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+3:JSType type=info==null?null:info.getType();
+TO:
+1
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+5:String typeName=lValue.getQualifiedName();
+TO:
+1
+
+INSERT:
+6:JSType knownType=nativeTypeOf(typeName);
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+7:if(knownType!=null){
+return knownType;
+}
+TO:
+1
+
+INSERT:
+11:return type;
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:6566 patches
+Compile failed:6244 patches
+Compilation rate:0.04904051172707889
+PPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/23.java
+Current actions:
+INSERT:
+6:if(info.hasEnumParameterType()&&typeName.lastIndexOf('.')==-1){
+type=createEnumTypeFromNodes(lValue,sourceName,info,null);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:if(info.isConstructor()||info.isInterface()){
+type=createFunctionTypeFromNodes(lValue,sourceName,info,null);
+}
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:JSType type=null;
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:if(info.hasEnumParameterType()&&typeName.lastIndexOf('.')==-1){
+type=createEnumTypeFromNodes(lValue,sourceName,info,null);
+}
+TO:
+3
+
+INSERT:
+21:return type;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:if(info.hasEnumParameterType()&&typeName.lastIndexOf('.')==-1){
+type=createEnumTypeFromNodes(lValue,sourceName,info,null);
+}
+TO:
+3
+
+INSERT:
+10:if(info.isConstructor()||info.isInterface()){
+type=createFunctionTypeFromNodes(lValue,sourceName,info,null);
+}
+TO:
+14
+
+INSERT:
+14:type=getNativeType(typeName);
+TO:
+21
+
+INSERT:
+18:if(type==null){
+type=getNativeType(lValue.getQualifiedName());
+}
+TO:
+39
+
+Tested:7162 patches
+Compile failed:6840 patches
+Compilation rate:0.04495950851717397
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/24.java
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+return type;
+}
+else{
+return unknownType;
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+5:if(type!=null){
+return type;
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+return type;
+}
+else{
+return unknownType;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+12:return unknownType;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 3th generated patches:
+Validating 96 patches...
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+return type;
+}
+else{
+return unknownType;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+DELETE:
+Original line: 12return rValue.getJSType();
+
+INSERT:
+12:return unknownType;
+TO:
+39
+
+DELETE:
+Original line: 14else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 4th generated patches:
+Validating 98 patches...
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+return type;
+}
+else{
+return unknownType;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 11if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+
+INSERT:
+12:return unknownType;
+TO:
+39
+
+DELETE:
+Original line: 15return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Tested:7226 patches
+Compile failed:6902 patches
+Compilation rate:0.04483808469415998
+PPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/25.java
+Current actions:
+INSERT:
+6:if(info!=null&&info.hasEnumParameterType()){
+return createEnumTypeFromNodes(lValue,sourceName,info,lValue);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:if(info!=null&&info.hasEnumParameterType()){
+return createEnumTypeFromNodes(lValue,sourceName,info,lValue);
+}
+TO:
+5
+
+INSERT:
+12:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7623 patches
+Compile failed:7267 patches
+Compilation rate:0.046700773973501246
+NNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNPNNNNNNNNNNPNNNNNNNNNNPNNPNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNPNNNNPPNNPNNNNNNNNNNNNNPPNNPNNNNPNPNNNNNNNNPNNPNPPPNNNNPNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/26.java
+Current actions:
+INSERT:
+5:if(type==null){
+return null;
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+8:if(info.isConstructor()){
+type=type.getConstructorClass();
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(info.isInterface()){
+type=type.getInterfaceClass();
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+8:if(info.isConstructor()){
+type=type.getConstructorClass();
+}
+TO:
+17
+
+INSERT:
+14:return type;
+TO:
+38
+
+INSERT:
+16:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Tested:8086 patches
+Compile failed:7730 patches
+Compilation rate:0.04402671283700223
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/27.java
+Tested:8086 patches
+Compile failed:7730 patches
+Compilation rate:0.04402671283700223
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/28.java
+Current actions:
+INSERT:
+5:if(type.isFunctionType()){
+return caseFunctionTypeInAnnotation(type,lValue,info);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:JSType type=info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+5:if(type.isFunctionType()){
+return caseFunctionTypeInAnnotation(type,lValue,info);
+}
+TO:
+3
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+8:else{
+if(type.isEnumType()){
+return caseEnumTypeInAnnotation(type,lValue,info);
+}
+}
+TO:
+20
+
+INSERT:
+12:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8484 patches
+Compile failed:8128 patches
+Compilation rate:0.041961338991041965
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/29.java
+Current actions:
+INSERT:
+4:return info.getType().evaluate(sourceName,info.isSuppressionsSuppressed(),info.isEnclosingTypeSuppressed(),lValue);
+TO:
+3
+
+INSERT:
+7:return null;
+TO:
+21
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 12return rValue.getJSType();
+
+DELETE:
+Original line: 14else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 31boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:return info.getType().evaluate(sourceName,info.isSuppressionsSuppressed(),info.isEnclosingTypeSuppressed(),lValue);
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:8879 patches
+Compile failed:8523 patches
+Compilation rate:0.04009460524833878
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/30.java
+Current actions:
+INSERT:
+3:if(info!=null){
+if(info.hasType()){
+return getDeclaredTypeFromAnnotation(sourceName,lValue,info.getType());
+}
+else{
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:if(info.hasType()){
+return getDeclaredTypeFromAnnotation(sourceName,lValue,info.getType());
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+UPDATE
+FROM:
+40:return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+14:return getDeclaredTypeFromAnnotation(sourceName,lValue,null);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+3:if(info!=null){
+if(info.hasType()){
+return getDeclaredTypeFromAnnotation(sourceName,lValue,info.getType());
+}
+else{
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+UPDATE
+FROM:
+40:return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+14:return getDeclaredTypeFromAnnotation(sourceName,lValue,null);
+
+Tested:9079 patches
+Compile failed:8721 patches
+Compilation rate:0.03943165546866395
+PPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/31.java
+Current actions:
+INSERT:
+5:if(type.isNominalType()&&lValue.isQualifiedName()&&lValue.getJSDocInfo()!=null&&lValue.getJSDocInfo().getVisibility()==Visibility.PRIVATE){
+String localType=lValue.getJSDocInfo().getType().toString();
+String globalType=type.toString();
+if(globalType.endsWith(localType)){
+String globalTypeWithoutLocal=globalType.substring(0,globalType.length()-localType.length());
+return typeRegistry.getGlobalType(globalTypeWithoutLocal);
+}
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:if(globalType.endsWith(localType)){
+String globalTypeWithoutLocal=globalType.substring(0,globalType.length()-localType.length());
+return typeRegistry.getGlobalType(globalTypeWithoutLocal);
+}
+TO:
+3
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+6:String localType=lValue.getJSDocInfo().getType().toString();
+TO:
+3
+
+INSERT:
+7:String globalType=type.toString();
+TO:
+3
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+INSERT:
+8:if(globalType.endsWith(localType)){
+String globalTypeWithoutLocal=globalType.substring(0,globalType.length()-localType.length());
+return typeRegistry.getGlobalType(globalTypeWithoutLocal);
+}
+TO:
+3
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+INSERT:
+14:return typeRegistry.getGlobalType(type.toString());
+TO:
+17
+
+INSERT:
+16:return type;
+TO:
+20
+
+INSERT:
+17:}
+
+TO:
+20
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:9478 patches
+Compile failed:9120 patches
+Compilation rate:0.03777168178940705
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/32.java
+Current actions:
+INSERT:
+40:String typedefName=null;
+TO:
+39
+
+Following are 0th generated patches:
+Validating 37 patches...
+Current actions:
+INSERT:
+41:if(info!=null){
+typedefName=info.getTypedefType();
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:if(typedefName!=null){
+JSType typedefType=getTypedefType(typedefName);
+if(typedefType!=null){
+return typedefType;
+}
+}
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:String typedefName=null;
+TO:
+39
+
+INSERT:
+41:if(info!=null){
+typedefName=info.getTypedefType();
+}
+TO:
+39
+
+INSERT:
+45:JSType typedefType=getTypedefType(typedefName);
+TO:
+39
+
+INSERT:
+46:if(typedefType!=null){
+return typedefType;
+}
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:10113 patches
+Compile failed:9754 patches
+Compilation rate:0.03549886284979729
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/33.java
+Current actions:
+Wrap:
+Block
+On:
+[else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}, else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}, {
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}, return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);, return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);, return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);, return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);]
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+21:if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+TO:
+20
+
+DELETE:
+Original line: 23JSType knownType=null;
+
+DELETE:
+Original line: 24if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 18else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+
+INSERT:
+21:if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:10514 patches
+Compile failed:10102 patches
+Compilation rate:0.03918584744150656
+PPNNNNNNNNNNPNNNNPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNPNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPPPPPPPPPNNNNNPNNNNPPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPPPPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/34.java
+Current actions:
+INSERT:
+40:if(lValue.isName()&&lValue.isFromExterns()){
+JSType type=getDeclaredTypeInAnnotation(sourceName,lValue,info);
+if(type!=null){
+return type;
+}
+}
+TO:
+39
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+40:if(lValue.isName()&&lValue.isFromExterns()){
+JSType type=getDeclaredTypeInAnnotation(sourceName,lValue,info);
+if(type!=null){
+return type;
+}
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+42:if(type!=null){
+return type;
+}
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:JSType type=getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+39
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:JSType type=getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+39
+
+INSERT:
+42:if(type!=null){
+return type;
+}
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:11121 patches
+Compile failed:10703 patches
+Compilation rate:0.03758654797230465
+NNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/35.java
+Current actions:
+INSERT:
+3:if(info==null){
+return null;
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+7:if(result==null&&info.hasTypedefType()){
+String typeName=info.getTypedefType();
+JSType typeFromTypedef=getTypeFromTypedef(sourceName,lValue,typeName,info.isTypedefTypeResolved());
+if(typeFromTypedef!=null){
+result=typeFromTypedef;
+}
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(typeFromTypedef!=null){
+result=typeFromTypedef;
+}
+TO:
+5
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+4:return null;
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+8:String typeName=info.getTypedefType();
+TO:
+5
+
+INSERT:
+9:JSType typeFromTypedef=getTypeFromTypedef(sourceName,lValue,typeName,info.isTypedefTypeResolved());
+TO:
+5
+
+INSERT:
+10:if(typeFromTypedef!=null){
+result=typeFromTypedef;
+}
+TO:
+5
+
+INSERT:
+14:return result;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:11519 patches
+Compile failed:11100 patches
+Compilation rate:0.036374685302543626
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/36.java
+Current actions:
+INSERT:
+7:if(sourceName.equals("String")&&lValue.isQualifiedName()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+INSERT:
+7:if(sourceName.equals("String")&&lValue.isQualifiedName()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+TO:
+21
+
+INSERT:
+10:return null;
+TO:
+38
+
+DELETE:
+Original line: 10if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:11916 patches
+Compile failed:11496 patches
+Compilation rate:0.035246727089627394
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/37.java
+Current actions:
+INSERT:
+3:if(info==null){
+return null;
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+8:if(type==null){
+Node target=lValue.getFirstChild();
+if(target!=null){
+type=getDeclaredTypeInAnnotationViaPropertyOf(sourceName,lValue,info,target);
+}
+}
+TO:
+14
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(target!=null){
+type=getDeclaredTypeInAnnotationViaPropertyOf(sourceName,lValue,info,target);
+}
+TO:
+14
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 25if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+
+Tested:12118 patches
+Compile failed:11697 patches
+Compilation rate:0.034741706552236344
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/38.java
+Current actions:
+INSERT:
+40:if(lValue.isQualifiedName()){
+String qName=lValue.getQualifiedName();
+JSType qType=findTypeFromQualifiedName(qName);
+if(qType!=null){
+return qType;
+}
+if(!qName.equals(sourceName)){
+return getDeclaredType(sourceName,info,lValue.getParent(),null);
+}
+}
+TO:
+39
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+40:if(lValue.isQualifiedName()){
+String qName=lValue.getQualifiedName();
+JSType qType=findTypeFromQualifiedName(qName);
+if(qType!=null){
+return qType;
+}
+if(!qName.equals(sourceName)){
+return getDeclaredType(sourceName,info,lValue.getParent(),null);
+}
+}
+TO:
+39
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+43:if(qType!=null){
+return qType;
+}
+TO:
+39
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:String qName=lValue.getQualifiedName();
+TO:
+39
+
+INSERT:
+46:if(!qName.equals(sourceName)){
+return getDeclaredType(sourceName,info,lValue.getParent(),null);
+}
+TO:
+39
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:12550 patches
+Compile failed:12119 patches
+Compilation rate:0.034342629482071715
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/39.java
+Current actions:
+INSERT:
+4:return info.getType().evaluate(registry,sourceName,registry.getNativeObjectType(UNKNOWN_TYPE));
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:else{
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return info.getType().evaluate(registry,sourceName,registry.getNativeObjectType(UNKNOWN_TYPE));
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:else{
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+8
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:12948 patches
+Compile failed:12517 patches
+Compilation rate:0.03328699413036763
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/40.java
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+4:JSType result=info.getType();
+TO:
+3
+
+INSERT:
+7:return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+TO:
+5
+
+DELETE:
+Original line: 11if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:13146 patches
+Compile failed:12715 patches
+Compilation rate:0.03278563821694812
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/41.java
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+7:return getDeclaredTypeFromNode(sourceName,lValue);
+TO:
+21
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+INSERT:
+7:return getDeclaredTypeFromNode(sourceName,lValue);
+TO:
+21
+
+DELETE:
+Original line: 10if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+
+DELETE:
+Original line: 18if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:13542 patches
+Compile failed:13111 patches
+Compilation rate:0.0318269088760892
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/42.java
+Current actions:
+INSERT:
+32:if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+40:if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:return secondClause.getJSType();
+TO:
+27
+
+INSERT:
+36:}
+
+TO:
+27
+
+INSERT:
+37:}
+
+TO:
+27
+
+INSERT:
+38:}
+
+TO:
+27
+
+INSERT:
+39:}
+
+TO:
+27
+
+INSERT:
+49:return rValue.getJSType();
+TO:
+27
+
+INSERT:
+58:else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}
+TO:
+27
+
+Tested:13743 patches
+Compile failed:13307 patches
+Compilation rate:0.03172524194135196
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/43.java
+Current actions:
+INSERT:
+4:return info.getType();
+TO:
+3
+
+INSERT:
+6:return unknownType;
+TO:
+5
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+4:return info.getType();
+TO:
+3
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:return unknownType;
+TO:
+5
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14139 patches
+Compile failed:13703 patches
+Compilation rate:0.03083669283541976
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/44.java
+Current actions:
+INSERT:
+3:if(info!=null){
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+3:if(info!=null){
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+UPDATE
+FROM:
+40:return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+TO:
+11:return getDeclaredType(sourceName,lValue);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14337 patches
+Compile failed:13900 patches
+Compilation rate:0.030480574736695264
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/45.java
+Current actions:
+INSERT:
+36:else{
+if(rValue.isAssign()){
+Node rhs=rValue.getLastChild();
+Node lhs=rValue.getFirstChild();
+if(lhs.isName()&&rhs.isObjectLit()){
+return rValue.getJSType();
+}
+}
+}
+TO:
+35
+
+Following are 0th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+39:if(lhs.isName()&&rhs.isObjectLit()){
+return rValue.getJSType();
+}
+TO:
+35
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:Node rhs=rValue.getLastChild();
+TO:
+35
+
+INSERT:
+38:Node lhs=rValue.getFirstChild();
+TO:
+35
+
+INSERT:
+39:if(lhs.isName()&&rhs.isObjectLit()){
+return rValue.getJSType();
+}
+TO:
+35
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14748 patches
+Compile failed:14287 patches
+Compilation rate:0.0312584757255221
+NNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNPNNNNNNNNNNNNPNNNNPNNPNNNPNNNNNNNNNNNNNNPNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/46.java
+Current actions:
+INSERT:
+5:if(topType!=null){
+topType=caseTopType(topType);
+topType=topType.restrictByNotNullOrUndefined();
+if(topType.isUnionType()){
+return topType;
+}
+else{
+return topType;
+}
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+8:if(topType.isUnionType()){
+return topType;
+}
+TO:
+3
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(info.hasEnumParameterType()||info.isConstructor()){
+return caseTopType(createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue));
+}
+TO:
+17
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+INSERT:
+5:if(topType!=null){
+topType=caseTopType(topType);
+topType=topType.restrictByNotNullOrUndefined();
+if(topType.isUnionType()){
+return topType;
+}
+else{
+return topType;
+}
+}
+TO:
+3
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+15:if(info.hasEnumParameterType()||info.isConstructor()){
+return caseTopType(createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue));
+}
+TO:
+17
+
+Tested:15210 patches
+Compile failed:14749 patches
+Compilation rate:0.030309007232084156
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/47.java
+Current actions:
+INSERT:
+3:if(info==null){
+return null;
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+7:if(info.hasType()){
+type=info.getType();
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(info.isEnumParameterType()){
+if(info.hasEnumParameterType()){
+return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+}
+return type;
+}
+TO:
+14
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(info!=null&&info.hasType()){
+return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+}
+
+INSERT:
+6:JSType type;
+TO:
+5
+
+INSERT:
+8:type=info.getType();
+TO:
+5
+
+DELETE:
+Original line: 11if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+
+INSERT:
+12:}
+
+TO:
+14
+
+DELETE:
+Original line: 15return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+INSERT:
+16:return createEnumTypeFromNodes(null,lValue.getQualifiedName(),info,lValue);
+TO:
+14
+
+DELETE:
+Original line: 19return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+INSERT:
+22:if(inferredType!=null){
+return inferredType;
+}
+TO:
+17
+
+DELETE:
+Original line: 23JSType knownType=null;
+
+DELETE:
+Original line: 26return rValue.getJSType();
+
+INSERT:
+26:if(info.hasType()&&info.isTypeInferredFromUsage()&&lValue!=null&&lValue.isName()){
+if(info.getReturnType()!=null&&info.getReturnType().isFunction()){
+return info.getReturnType();
+}
+return declaredType;
+}
+TO:
+20
+
+DELETE:
+Original line: 28else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+
+INSERT:
+32:if(declaredType.isFunction()&&rValue!=null&&rValue.isFunction()){
+JSType inferredType=inferFunctionTypeFromBody(rValue,lValue.getString(),info,lValue);
+if(inferredType!=null){
+return inferredType;
+}
+}
+TO:
+20
+
+INSERT:
+38:if(declaredType.isObjectType()&&lValue!=null&&lValue.isName()&&info.isConstructor()&&rValue!=null&&rValue.isObjectLit()){
+return declaredType;
+}
+TO:
+39
+
+INSERT:
+41:return type;
+TO:
+39
+
+Tested:15412 patches
+Compile failed:14950 patches
+Compilation rate:0.029976641577991174
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/48.java
+Current actions:
+INSERT:
+3:if(info!=null){
+JSType type=info.getType();
+if(type!=null){
+if(type.isAllType()&&lValue!=null){
+type=getNativeType(ARRAY_TYPE);
+}
+return type;
+}
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+5:if(type!=null){
+if(type.isAllType()&&lValue!=null){
+type=getNativeType(ARRAY_TYPE);
+}
+return type;
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:JSType type=info.getType();
+TO:
+1
+
+INSERT:
+7:type=getNativeType(ARRAY_TYPE);
+TO:
+1
+
+INSERT:
+12:return createNativeType(sourceName);
+TO:
+39
+
+DELETE:
+Original line: 19return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 29Node firstClause=rValue.getFirstChild();
+
+DELETE:
+Original line: 31boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:15415 patches
+Compile failed:14951 patches
+Compilation rate:0.030100551410963346
+PPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/49.java
+Current actions:
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+4:return info.getType().evaluate(sourceName,lValue);
+TO:
+3
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return info.getType().evaluate(sourceName,lValue);
+TO:
+3
+
+DELETE:
+Original line: 15return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 19return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+
+DELETE:
+Original line: 33return secondClause.getJSType();
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:15813 patches
+Compile failed:15349 patches
+Compilation rate:0.029342945677607032
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/50.java
+Current actions:
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 7return rValue.getJSType();
+
+DELETE:
+Original line: 9else{
+if(info!=null){
+if(info.hasEnumParameterType()){
+if(rValue!=null&&rValue.isObjectLit()){
+return rValue.getJSType();
+}
+else{
+return createEnumTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+else{
+if(info.isConstructor()||info.isInterface()){
+return createFunctionTypeFromNodes(rValue,lValue.getQualifiedName(),info,lValue);
+}
+}
+}
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+4:return info.getType().substituteGenerics(getNominalType(sourceName,lValue),getJSTypeRegistry());
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+6:return null;
+TO:
+5
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:return info.getType().substituteGenerics(getNominalType(sourceName,lValue),getJSTypeRegistry());
+TO:
+3
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:16211 patches
+Compile failed:15747 patches
+Compilation rate:0.028622540250447227
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/51.java
+Current actions:
+DELETE:
+Original line: 21else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+TO:
+22:if(rValue!=null&&rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+25:if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+TO:
+26:if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 23JSType knownType=null;
+
+INSERT:
+24:Node secondClause=firstClause.getNext();
+TO:
+24
+
+UPDATE
+FROM:
+25:if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+TO:
+26:if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+
+DELETE:
+Original line: 30Node secondClause=firstClause.getNext();
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 21else{
+if(info.isConstant()){
+JSType knownType=null;
+if(rValue!=null){
+if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+else{
+if(rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+}
+}
+
+INSERT:
+21:else{
+if(info.isConstant()){
+if(rValue!=null&&rValue.isOr()){
+Node firstClause=rValue.getFirstChild();
+Node secondClause=firstClause.getNext();
+boolean namesMatch=firstClause.isName()&&lValue.isName()&&firstClause.getString().equals(lValue.getString());
+if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+}
+}
+}
+TO:
+20
+
+UPDATE
+FROM:
+25:if(rValue.getJSType()!=null&&!rValue.getJSType().isUnknownType()){
+return rValue.getJSType();
+}
+TO:
+26:if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+
+UPDATE
+FROM:
+26:return rValue.getJSType();
+TO:
+27:return secondClause.getJSType();
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 32if(namesMatch&&secondClause.getJSType()!=null&&!secondClause.getJSType().isUnknownType()){
+return secondClause.getJSType();
+}
+
+Tested:16496 patches
+Compile failed:16012 patches
+Compilation rate:0.029340446168768186
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNPNNPNNNPNNNNNNPNPPPNNNPNNNNPNNNNPNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_17/52.java
+Current actions:
+INSERT:
+4:if(info.isConstructor()||info.isInterface()){
+return getNativeType(FUNCTION_TYPE);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(info.isConstructor()||info.isInterface()){
+return getNativeType(FUNCTION_TYPE);
+}
+TO:
+3
+
+DELETE:
+Original line: 4return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+DELETE:
+Original line: 6if(rValue!=null&&rValue.isFunction()&&shouldUseFunctionLiteralType(JSType.toMaybeFunctionType(rValue.getJSType()),info,lValue)){
+return rValue.getJSType();
+}
+
+INSERT:
+7:return info.getType();
+TO:
+38
+
+INSERT:
+9:return null;
+TO:
+39
+
+DELETE:
+Original line: 40return getDeclaredTypeInAnnotation(sourceName,lValue,info);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16893 patches
+Compile failed:16409 patches
+Compilation rate:0.028650920499615224
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-17 > patch : 0 | Start : Thu Apr 11 14:12:25 HKT 2024 | End : 2024.04.11 AD at 15:05:31 HKT

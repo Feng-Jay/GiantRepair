@@ -1,0 +1,1167 @@
+Repair : closure_160
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/0.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/1.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(options.checkGlobalThisLevel.isOn()){
+options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+}, else{
+if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}
+}, {
+if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}
+}, {
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}, else{
+if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}
+}, {
+if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}
+}, {
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}, if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}, if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}, options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);, options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);, List<WarningsGuard> guards=Lists.newArrayList();, guards.add(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()));, guards.add(options.getWarningsGuard());, {
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}, if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}, guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:public void initOptions(CompilerOptions options){
+this.options=options;
+if(errorManager==null){
+if(outStream==null){
+setErrorManager(new LoggerErrorManager(createMessageFormatter(),logger));
+}
+else{
+PrintStreamErrorManager printer=new PrintStreamErrorManager(createMessageFormatter(),outStream);
+printer.setSummaryDetailLevel(options.summaryDetailLevel);
+setErrorManager(printer);
+}
+}
+if(options.enables(DiagnosticGroups.CHECK_TYPES)){
+options.checkTypes=true;
+}
+else{
+if(options.disables(DiagnosticGroups.CHECK_TYPES)){
+options.checkTypes=false;
+}
+}
+List<WarningsGuard> guards=Lists.newArrayList();
+guards.add(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()));
+guards.add(options.getWarningsGuard());
+if(options.checkGlobalThisLevel.isOn()){
+options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+}
+if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+this.warningsGuard=new ComposeWarningsGuard(guards);
+}
+TO:
+1
+
+DELETE:
+Original line: 20else{
+if(!options.checkTypes){
+options.setWarningLevel(DiagnosticGroup.forType(RhinoErrorReporter.TYPE_PARSE_ERROR),CheckLevel.OFF);
+}
+}
+
+DELETE:
+Original line: 23if(options.checkGlobalThisLevel.isOn()){
+options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+}
+
+DELETE:
+Original line: 26List<WarningsGuard> guards=Lists.newArrayList();
+
+DELETE:
+Original line: 27guards.add(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()));
+
+DELETE:
+Original line: 28guards.add(options.getWarningsGuard());
+
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/3.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.getWarningLevel(DiagnosticGroups.CHECK_VARIABLES).isOn()){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.getWarningLevel(DiagnosticGroups.CHECK_VARIABLES).isOn()){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/4.java
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:if(!options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(!options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/5.java
+Current actions:
+INSERT:
+33:this.dependencyOptions=new DependencyOptions(options);
+TO:
+32
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+33:this.dependencyOptions=new DependencyOptions(options);
+TO:
+32
+
+INSERT:
+34:this.dependencyOptions.setDependencySorting(options.dependencySorting);
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:this.dependencyOptions.setDependencySorting(options.dependencySorting);
+TO:
+32
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+33:this.dependencyOptions=new DependencyOptions(options);
+TO:
+32
+
+INSERT:
+35:this.dependencyOptions.setDependencyOptions(options.dependencyOptions);
+TO:
+32
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/6.java
+Current actions:
+DELETE:
+Original line: 23if(options.checkGlobalThisLevel.isOn()){
+options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 23if(options.checkGlobalThisLevel.isOn()){
+options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 24options.setWarningLevel(DiagnosticGroups.GLOBAL_THIS,options.checkGlobalThisLevel);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/7.java
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/8.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 111 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/9.java
+Current actions:
+INSERT:
+32:if(options.checkTypes&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_TYPES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_TYPES,CheckLevel.ERROR));
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+32:if(options.checkTypes&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_TYPES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_TYPES,CheckLevel.ERROR));
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_TYPES,CheckLevel.ERROR));
+TO:
+31
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/10.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+
+Following are 1th generated patches:
+Validating 111 patches...
+Current actions:
+UPDATE
+FROM:
+30:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+TO:
+30:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+
+UPDATE
+FROM:
+30:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+TO:
+30:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/11.java
+Current actions:
+DELETE:
+Original line: 32this.warningsGuard=new ComposeWarningsGuard(guards);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 32this.warningsGuard=new ComposeWarningsGuard(guards);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/12.java
+Current actions:
+INSERT:
+32:if(!options.checkMissingProperties&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.MISSING_PROPERTIES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_PROPERTIES,CheckLevel.OFF));
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+32:if(!options.checkMissingProperties&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.MISSING_PROPERTIES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_PROPERTIES,CheckLevel.OFF));
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_PROPERTIES,CheckLevel.OFF));
+TO:
+31
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/13.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.getWarningsGuard().disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.getWarningsGuard().disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/14.java
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+TO:
+28
+
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+INSERT:
+32:else{
+if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+}
+TO:
+28
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.ERROR));
+}
+TO:
+28
+
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/15.java
+Current actions:
+INSERT:
+33:aliasCheck=new AliasCheck(getRoot(),this.options.checkSymbols,this.options.aliasableStrings);
+TO:
+32
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+33:aliasCheck=new AliasCheck(getRoot(),this.options.checkSymbols,this.options.aliasableStrings);
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/16.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/17.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols||options.getWarningLevel(DiagnosticGroups.CHECK_VARIABLES).compareTo(CheckLevel.OFF)==0){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(options.checkSymbols||options.getWarningLevel(DiagnosticGroups.CHECK_VARIABLES).compareTo(CheckLevel.OFF)==0){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/18.java
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.WARNING));
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.WARNING));
+}
+TO:
+28
+
+INSERT:
+32:else{
+if(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+}
+TO:
+28
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:if(options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.WARNING));
+}
+TO:
+28
+
+INSERT:
+32:else{
+if(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES)){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+}
+TO:
+28
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/19.java
+Current actions:
+INSERT:
+32:if(options.warningLevel!=CheckLevel.OFF||(options.getWarningsGuard()!=null&&options.getWarningsGuard().getLevel()!=CheckLevel.OFF)){
+guards.add(new SuppressWarningsGuard(getDiagnosticGroups().getRegisteredGroups(),options));
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+32:if(options.warningLevel!=CheckLevel.OFF||(options.getWarningsGuard()!=null&&options.getWarningsGuard().getLevel()!=CheckLevel.OFF)){
+guards.add(new SuppressWarningsGuard(getDiagnosticGroups().getRegisteredGroups(),options));
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:guards.add(new SuppressWarningsGuard(getDiagnosticGroups().getRegisteredGroups(),options));
+TO:
+31
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/20.java
+Current actions:
+INSERT:
+32:if(!options.isIdeMode){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.NON_STANDARD_JSDOC,CheckLevel.OFF));
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+32:if(!options.isIdeMode){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.NON_STANDARD_JSDOC,CheckLevel.OFF));
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.NON_STANDARD_JSDOC,CheckLevel.OFF));
+TO:
+31
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/21.java
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+29:if(options.checksOnly&&!options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:if(options.checksOnly&&!options.checkSymbols){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+28
+
+DELETE:
+Original line: 29if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/22.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&(!options.enables(DiagnosticGroups.CHECK_VARIABLES)||options.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&(!options.enables(DiagnosticGroups.CHECK_VARIABLES)||options.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/23.java
+Current actions:
+INSERT:
+33:if(options.getIdeMode()!=null){
+this.warningsGuard=new ComposeWarningsGuard(Lists.newArrayList(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()),options.getWarningsGuard()));
+}
+TO:
+32
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+33:if(options.getIdeMode()!=null){
+this.warningsGuard=new ComposeWarningsGuard(Lists.newArrayList(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()),options.getWarningsGuard()));
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:this.warningsGuard=new ComposeWarningsGuard(Lists.newArrayList(new SuppressDocWarningsGuard(getDiagnosticGroups().getRegisteredGroups()),options.getWarningsGuard()));
+TO:
+32
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/24.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.shouldCheckMissingVars()){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&!options.shouldCheckMissingVars()){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 194 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/25.java
+Current actions:
+INSERT:
+33:for(TypeCheckPass pass : passes){
+pass.initOptions(options);
+}
+TO:
+32
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+33:for(TypeCheckPass pass : passes){
+pass.initOptions(options);
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+34:pass.initOptions(options);
+TO:
+32
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/26.java
+Current actions:
+INSERT:
+33:if(options.preserveTypeAnnotations){
+options.setWarningLevel(DiagnosticGroups.MISSING_RETURN_ANNOTATION,CheckLevel.OFF);
+options.setWarningLevel(DiagnosticGroups.MISSING_JSDOC_ANNOTATION,CheckLevel.OFF);
+}
+TO:
+32
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+33:if(options.preserveTypeAnnotations){
+options.setWarningLevel(DiagnosticGroups.MISSING_RETURN_ANNOTATION,CheckLevel.OFF);
+options.setWarningLevel(DiagnosticGroups.MISSING_JSDOC_ANNOTATION,CheckLevel.OFF);
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:options.setWarningLevel(DiagnosticGroups.MISSING_RETURN_ANNOTATION,CheckLevel.OFF);
+TO:
+32
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+35:options.setWarningLevel(DiagnosticGroups.MISSING_JSDOC_ANNOTATION,CheckLevel.OFF);
+TO:
+32
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/27.java
+Current actions:
+INSERT:
+32:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_RETURN_TYPE,CheckLevel.OFF));
+TO:
+31
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+32:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_RETURN_TYPE,CheckLevel.OFF));
+TO:
+31
+
+INSERT:
+33:guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.MISSING_JSDOC_TAG_OVERRIDE,CheckLevel.OFF));
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/28.java
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&(!warningsGuard.enables(DiagnosticGroups.CHECK_VARIABLES)&&!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(!options.checkSymbols&&(warningsGuard==null||!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+TO:
+29:if(!options.checkSymbols&&(!warningsGuard.enables(DiagnosticGroups.CHECK_VARIABLES)&&!warningsGuard.disables(DiagnosticGroups.CHECK_VARIABLES))){
+guards.add(new DiagnosticGroupWarningsGuard(DiagnosticGroups.CHECK_VARIABLES,CheckLevel.OFF));
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_160/29.java
+Current actions:
+INSERT:
+33:if(options.getLanguageIn()==null){
+options.setLanguageIn(JSTypes.languageMode);
+}
+TO:
+32
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+33:if(options.getLanguageIn()==null){
+options.setLanguageIn(JSTypes.languageMode);
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:options.setLanguageIn(JSTypes.languageMode);
+TO:
+32
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Finish : closure-160 > patch : 0 | Start : Tue Apr 09 13:31:04 HKT 2024 | End : 2024.04.09 AD at 13:34:49 HKT

@@ -70,6 +70,21 @@ public class StaticCheck {
         parseFunc();
         // Parse buggy file, get usable vars and functions.
         _curFileScope = parseFile();
+//        Queue<Scope> scopes = new LinkedList<>();
+//        scopes.add(_curFileScope);
+//        int layer = 0;
+//        Queue<Scope> scopes1 = new LinkedList<>();
+//        while (!scopes.isEmpty()){
+//            Scope tmp = scopes.poll();
+//            if(tmp.getClassName().contains("Method") || tmp.getClassName().contains("Constructor"))
+//                LevelLogger.debug("Layer " + layer + ": " + tmp.getClassName());
+//            scopes1.addAll(tmp.getChildScopes());
+//            if(scopes.isEmpty()){
+//                layer += 1;
+//                scopes.addAll(scopes1);
+//                scopes1.clear();
+//            }
+//        }
         // Parse import files, get usable vars and functions.
         parseImports();
     }
@@ -564,6 +579,8 @@ class CandidateVisitor extends ASTVisitor{
     private final Scope _rootScope;
     private Scope _currentScope;
 
+    private Scope _currentScopeCopy;
+
     public CandidateVisitor(CompilationUnit cu, String fileName, String basePath){
         _cu = cu;
         _fileName = fileName;
@@ -578,6 +595,7 @@ class CandidateVisitor extends ASTVisitor{
 
         _rootScope = new Scope(null, _fileName);
         _currentScope = _rootScope;
+        _currentScopeCopy = _currentScope;
     }
 
     public Scope getRootScope(){return _rootScope;}
@@ -774,11 +792,11 @@ class CandidateVisitor extends ASTVisitor{
                 _currentScope.addVar(thisVar);
             }
         }
-        Scope _currentScopeTmp = new Scope(_currentScope, "SwitchBody");
-        _currentScopeTmp.setStartLine(_cu.getLineNumber(((Statement)node.statements().get(0)).getStartPosition()));
-        _currentScopeTmp.setEndLine(_cu.getLineNumber(((Statement)node.statements().get(node.statements().size()-1)).getStartPosition()+((Statement)node.statements().get(node.statements().size()-1)).getLength()));
-        _currentScope.addChildScope(_currentScopeTmp);
-        _currentScope = _currentScopeTmp;
+//        Scope _currentScopeTmp = new Scope(_currentScope, "SwitchBody");
+//        _currentScopeTmp.setStartLine(_cu.getLineNumber(((Statement)node.statements().get(0)).getStartPosition()));
+//        _currentScopeTmp.setEndLine(_cu.getLineNumber(((Statement)node.statements().get(node.statements().size()-1)).getStartPosition()+((Statement)node.statements().get(node.statements().size()-1)).getLength()));
+//        _currentScope.addChildScope(_currentScopeTmp);
+//        _currentScope = _currentScopeTmp;
         return true;
     }
 
@@ -872,13 +890,13 @@ class CandidateVisitor extends ASTVisitor{
             if(tmpNode.isConstructor()) {
                 _currentScopeTmp = new Scope(_currentScope, "Constructor:"+tmpNode.getName().toString());
                 _currentScopeTmp.setStartLine(_cu.getLineNumber(tmpNode.getStartPosition()));
-                _currentScopeTmp.setEndLine(_cu.getLineNumber(tmpNode.getStartPosition()+tmpNode.getLength()));
+                _currentScopeTmp.setEndLine(_cu.getLineNumber(tmpNode.getName().getStartPosition()+tmpNode.getLength()));
                 _currentScope.addConstructor(new ConstructorNode(_cu.getLineNumber(tmpNode.getStartPosition()), tmpNode, _fileName));
                 _currentScope.addChildScope(_currentScopeTmp);
                 _currentScope = _currentScopeTmp;
             }else if(tmpNode.getReturnType2() != null){
                 _currentScopeTmp = new Scope(_currentScope, "Method:"+tmpNode.getName().toString());
-                _currentScopeTmp.setStartLine(_cu.getLineNumber(tmpNode.getStartPosition()));
+                _currentScopeTmp.setStartLine(_cu.getLineNumber(tmpNode.getName().getStartPosition()));
                 _currentScopeTmp.setEndLine(_cu.getLineNumber(tmpNode.getStartPosition()+tmpNode.getLength()));
                 FuncSignature thisMethod = new FuncSignature(_cu.getLineNumber(tmpNode.getStartPosition()), tmpNode, _fileName);
                 _currentScope.addFunction(thisMethod);
@@ -963,25 +981,25 @@ class CandidateVisitor extends ASTVisitor{
             _currentScope.addChildScope(_currentScopeTmp);
             _currentScope = _currentScopeTmp;
         }
-        else if(node.getParent() instanceof IfStatement){
-            // due to if-statement's then part and else part maybe not block
-            // so do some special processes.
-            IfStatement parent = (IfStatement) node.getParent();
-            if(parent.getThenStatement().equals(node)){
-                _currentScopeTmp = new Scope(_currentScope, "IfThen");
-                _currentScopeTmp.setStartLine(_cu.getLineNumber(parent.getThenStatement().getStartPosition()));
-                _currentScopeTmp.setEndLine(_cu.getLineNumber(parent.getThenStatement().getStartPosition()+parent.getThenStatement().getLength()));
-                _currentScope.addChildScope(_currentScopeTmp);
-                _currentScope = _currentScopeTmp;
-            }
-            if(parent.getElseStatement() != null && parent.getElseStatement() == node){
-                _currentScopeTmp = new Scope(_currentScope, "IfElse");
-                _currentScopeTmp.setStartLine(_cu.getLineNumber(parent.getElseStatement().getStartPosition()));
-                _currentScopeTmp.setEndLine(_cu.getLineNumber(parent.getElseStatement().getStartPosition()+parent.getElseStatement().getLength()));
-                _currentScope.addChildScope(_currentScopeTmp);
-                _currentScope = _currentScopeTmp;
-            }
-        }
+//        else if(node.getParent() instanceof IfStatement){
+//            // due to if-statement's then part and else part maybe not block
+//            // so do some special processes.
+//            IfStatement parent = (IfStatement) node.getParent();
+//            if(parent.getThenStatement().equals(node)){
+//                _currentScopeTmp = new Scope(_currentScope, "IfThen");
+//                _currentScopeTmp.setStartLine(_cu.getLineNumber(parent.getThenStatement().getStartPosition()));
+//                _currentScopeTmp.setEndLine(_cu.getLineNumber(parent.getThenStatement().getStartPosition()+parent.getThenStatement().getLength()));
+//                _currentScope.addChildScope(_currentScopeTmp);
+//                _currentScope = _currentScopeTmp;
+//            }
+//            if(parent.getElseStatement() != null && parent.getElseStatement() == node){
+//                _currentScopeTmp = new Scope(_currentScope, "IfElse");
+//                _currentScopeTmp.setStartLine(_cu.getLineNumber(parent.getElseStatement().getStartPosition()));
+//                _currentScopeTmp.setEndLine(_cu.getLineNumber(parent.getElseStatement().getStartPosition()+parent.getElseStatement().getLength()));
+//                _currentScope.addChildScope(_currentScopeTmp);
+//                _currentScope = _currentScopeTmp;
+//            }
+//        }
         return;
     }
 
@@ -995,13 +1013,56 @@ class CandidateVisitor extends ASTVisitor{
     @Override
     public void postVisit(ASTNode node){
         if(hasBlock(node)) {
+//            LevelLogger.debug("Current scope:" + _currentScope.getClassName());
             _currentScope = _currentScope.getParent();
-        }else if(node.getParent() instanceof SwitchStatement){
-            SwitchStatement parent = (SwitchStatement) node.getParent();
-            if(parent.statements().get(parent.statements().size()-1) == node){
+//            LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+        }
+//        else if(node.getParent() instanceof SwitchStatement){
+//            SwitchStatement parent = (SwitchStatement) node.getParent();
+//            LevelLogger.debug("Last stmt: " + parent.statements().get(parent.statements().size()-1));
+//            if(parent.statements().get(parent.statements().size()-1).equals(node)){
+//                LevelLogger.debug("Current scope:" + _currentScope.getClassName());
+//                _currentScope = _currentScope.getParent();
+//                LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+//            }
+//        }
+        else if(node.getParent() instanceof ForStatement){
+            ForStatement tmp = (ForStatement) node.getParent();
+            if(node.equals(tmp.getBody())){
+//                LevelLogger.debug("Current scope:" + _currentScope.getClassName());
                 _currentScope = _currentScope.getParent();
+//                LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+            }
+        }else if(node.getParent() instanceof DoStatement){
+            DoStatement tmp = (DoStatement) node.getParent();
+            if(node.equals(tmp.getBody())){
+//                LevelLogger.debug("Current scope:" + _currentScope.getClassName());
+                _currentScope = _currentScope.getParent();
+//                LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+            }
+        }else if(node.getParent() instanceof EnhancedForStatement){
+            EnhancedForStatement tmp = (EnhancedForStatement) node.getParent();
+            if(node.equals(tmp.getBody())){
+//                LevelLogger.debug("Current scope:" + _currentScope.getClassName());
+                _currentScope = _currentScope.getParent();
+//                LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+            }
+        }else if(node.getParent() instanceof WhileStatement){
+            WhileStatement tmp = (WhileStatement) node.getParent();
+            if(node.equals(tmp.getBody())){
+//                LevelLogger.debug("Current scope:" + _currentScope.getClassName());
+                _currentScope = _currentScope.getParent();
+//                LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
             }
         }
+
+//        else if(node.getParent() instanceof ForStatement || node.getParent() instanceof DoStatement ||
+//                node.getParent() instanceof EnhancedForStatement || node.getParent() instanceof ForStatement
+//                || node.getParent() instanceof WhileStatement){
+//            LevelLogger.debug("Current scope:" + _currentScope.getClassName());
+//            _currentScope = _currentScope.getParent();
+//            LevelLogger.debug("Parent scope:" + _currentScope.getClassName());
+//        }
     }
 
     /*Collect the used import library information*/

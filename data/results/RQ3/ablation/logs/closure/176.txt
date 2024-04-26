@@ -1,0 +1,4902 @@
+Repair : closure_176
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/0.java
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(indexType!=null){
+JSType indexValueType=indexType.restrictByNotNullOrUndefined();
+JSType elementType=left.getLastChild().getJSType();
+JSType elementValueType=elementType==null?null:elementType.restrictByNotNullOrUndefined();
+if(indexValueType.isNumber()&&elementValueType!=null){
+JSType elementValueTypeOnIndex=indexValueType.isSubtype(elementType)?elementValueType:null;
+elementValueType=elementValueTypeOnIndex==null?elementValueType:elementValueTypeOnIndex.getLeastSupertype(elementValueType);
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+33:if(indexValueType.isNumber()&&elementValueType!=null){
+JSType elementValueTypeOnIndex=indexValueType.isSubtype(elementType)?elementValueType:null;
+elementValueType=elementValueTypeOnIndex==null?elementValueType:elementValueTypeOnIndex.getLeastSupertype(elementValueType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+13:left.setJSType(resultType);
+TO:
+12
+
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:JSType indexType=left.getFirstChild().getJSType();
+TO:
+26
+
+INSERT:
+29:if(indexType!=null){
+JSType indexValueType=indexType.restrictByNotNullOrUndefined();
+JSType elementType=left.getLastChild().getJSType();
+JSType elementValueType=elementType==null?null:elementType.restrictByNotNullOrUndefined();
+if(indexValueType.isNumber()&&elementValueType!=null){
+JSType elementValueTypeOnIndex=indexValueType.isSubtype(elementType)?elementValueType:null;
+elementValueType=elementValueTypeOnIndex==null?elementValueType:elementValueTypeOnIndex.getLeastSupertype(elementValueType);
+}
+}
+TO:
+26
+
+INSERT:
+38:left.setJSType(elementType);
+TO:
+26
+
+INSERT:
+39:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/1.java
+Current actions:
+INSERT:
+24:if(!left.isEnumDef()){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:if(!left.isEnumDef()){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/2.java
+Current actions:
+INSERT:
+10:if(!isVarDeclaration&&var!=null&&var.isTypeInferred()&&var.getType()!=null){
+isVarTypeBetter=var.getType().isSubtype(resultType);
+}
+TO:
+9
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+10:if(!isVarDeclaration&&var!=null&&var.isTypeInferred()&&var.getType()!=null){
+isVarTypeBetter=var.getType().isSubtype(resultType);
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:isVarTypeBetter=var.getType().isSubtype(resultType);
+TO:
+9
+
+Following are 2th generated patches:
+Validating 18 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/3.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+33:if(propValueType!=null){
+updateScopeForTypeChange(scope,left,objType,propValueType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:Node prop=obj.getNext();
+TO:
+26
+
+INSERT:
+31:JSType propType=prop.getJSType();
+TO:
+26
+
+INSERT:
+32:JSType propValueType=getInferredTypeOfProp(objType,propType);
+TO:
+26
+
+INSERT:
+33:if(propValueType!=null){
+updateScopeForTypeChange(scope,left,objType,propValueType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node obj=left.getFirstChild();
+TO:
+26
+
+INSERT:
+29:Node prop=obj.getNext();
+TO:
+26
+
+INSERT:
+36:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/4.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/5.java
+Current actions:
+INSERT:
+27:case Token.STRING_KEY :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(parentNode.getType()==Token.OBJECTLIT&&parentNode.getJSType()!=null){
+JSType objectType=parentNode.getJSType();
+String stringKey=left.getString();
+JSType stringKeyType=objectType.getProp(stringKey)==null?unknownType:objectType.getProp(stringKey).getType();
+if(stringKeyType==unknownType){
+scope.inferQualifiedSlot(left,objectType.toString(),leftType==null?unknownType:leftType,resultType);
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(stringKeyType==unknownType){
+scope.inferQualifiedSlot(left,objectType.toString(),leftType==null?unknownType:leftType,resultType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node parentNode=left.getParent();
+TO:
+26
+
+INSERT:
+31:String stringKey=left.getString();
+TO:
+26
+
+INSERT:
+39:case Token.NUMBER_KEY :
+TO:
+26
+
+INSERT:
+41:if(parentNode.getType()==Token.OBJECTLIT&&parentNode.getJSType()!=null){
+JSType objectType=parentNode.getJSType();
+JSType numberKeyType=objectType.getIndexType()==null?unknownType:objectType.getIndexType();
+if(numberKeyType==unknownType){
+scope.inferQualifiedSlot(left,objectType.toString(),leftType==null?unknownType:leftType,resultType);
+}
+}
+TO:
+26
+
+INSERT:
+48:left.setJSType(resultType);
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/6.java
+Current actions:
+INSERT:
+10:JSType betterType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+10:JSType betterType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+12:redeclareSimpleVar(scope,left,betterType);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:JSType betterType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+10:JSType betterType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+12:redeclareSimpleVar(scope,left,betterType);
+
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+14:left.setJSType(leftType==null?resultType:null);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/7.java
+Current actions:
+INSERT:
+30:if(target.getType()==Token.NAME){
+String targetName=target.getString();
+Var var=syntacticScope.getVar(targetName);
+JSType targetType=var==null?null:var.getType();
+if(targetType!=null&&targetType.isUnknownType()){
+targetType=target.getJSType().restrictByNotNullOrUndefined();
+}
+if(targetType!=null){
+JSType propType=getPropTypeFromType(targetType,propName);
+if(propType!=null){
+updateScopeForTypeChange(scope,target,null,propType);
+}
+else{
+if(targetType.isSubtype(TOP_OBJECT_TYPE)||targetType.isSubtype(TOP_OBJECT_LITERAL_TYPE)){
+targetType=targetType.restrictByNotNullOrUndefined();
+JSType inferredType=typeInference.inferPropertyValue(targetType,propName);
+if(inferredType!=null){
+updateScopeForTypeChange(scope,target,null,inferredType);
+}
+}
+}
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:if(targetType!=null&&targetType.isUnknownType()){
+targetType=target.getJSType().restrictByNotNullOrUndefined();
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node target=left.getFirstChild();
+TO:
+26
+
+INSERT:
+29:String propName=left.getLastChild().getString();
+TO:
+26
+
+INSERT:
+30:if(target.getType()==Token.NAME){
+String targetName=target.getString();
+Var var=syntacticScope.getVar(targetName);
+JSType targetType=var==null?null:var.getType();
+if(targetType!=null&&targetType.isUnknownType()){
+targetType=target.getJSType().restrictByNotNullOrUndefined();
+}
+if(targetType!=null){
+JSType propType=getPropTypeFromType(targetType,propName);
+if(propType!=null){
+updateScopeForTypeChange(scope,target,null,propType);
+}
+else{
+if(targetType.isSubtype(TOP_OBJECT_TYPE)||targetType.isSubtype(TOP_OBJECT_LITERAL_TYPE)){
+targetType=targetType.restrictByNotNullOrUndefined();
+JSType inferredType=typeInference.inferPropertyValue(targetType,propName);
+if(inferredType!=null){
+updateScopeForTypeChange(scope,target,null,inferredType);
+}
+}
+}
+}
+}
+TO:
+26
+
+INSERT:
+51:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+52:ensurePropertyDefined(left,resultType);
+TO:
+26
+
+INSERT:
+53:break;
+TO:
+26
+
+INSERT:
+54:case Token.CALL :
+TO:
+26
+
+INSERT:
+56:JSType targetType=target.getJSType();
+TO:
+26
+
+INSERT:
+57:if(targetType!=null){
+if(targetType.isFunctionType()){
+JSType inferredType=typeInference.inferFunctionType(targetType,left.getLastChild());
+if(inferredType!=null){
+updateScopeForTypeChange(scope,target,null,inferredType);
+}
+}
+else{
+if(targetType.isSubtype(TOP_OBJECT_TYPE)||targetType.isSubtype(TOP_OBJECT_LITERAL_TYPE)){
+targetType=targetType.restrictByNotNullOrUndefined();
+JSType inferredType=typeInference.inferPropertyValue(targetType,"call");
+if(inferredType!=null){
+updateScopeForTypeChange(scope,target,null,inferredType);
+}
+}
+}
+}
+TO:
+26
+
+INSERT:
+72:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/8.java
+Current actions:
+INSERT:
+24:JSType objType=left.getFirstChild().getJSType();
+TO:
+23
+
+Following are 0th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+25:if(objType!=null&&objType.isSubtype(globalThisType)){
+String propertyName=left.getLastChild().getString();
+if(globalThisType.getSlot(propertyName)!=null){
+left.setJSType(resultType);
+}
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:if(globalThisType.getSlot(propertyName)!=null){
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:JSType objType=left.getFirstChild().getJSType();
+TO:
+23
+
+INSERT:
+26:String propertyName=left.getLastChild().getString();
+TO:
+23
+
+Following are 3th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+24:JSType objType=left.getFirstChild().getJSType();
+TO:
+23
+
+INSERT:
+25:if(objType!=null&&objType.isSubtype(globalThisType)){
+String propertyName=left.getLastChild().getString();
+if(globalThisType.getSlot(propertyName)!=null){
+left.setJSType(resultType);
+}
+}
+TO:
+23
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:JSType objType=left.getFirstChild().getJSType();
+TO:
+23
+
+INSERT:
+27:if(globalThisType.getSlot(propertyName)!=null){
+left.setJSType(resultType);
+}
+TO:
+23
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/9.java
+Current actions:
+INSERT:
+24:if(leftType==null){
+break;
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+24:if(leftType==null){
+break;
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+25:break;
+TO:
+23
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/10.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 177 patches...
+Current actions:
+INSERT:
+29:if(firstChild.getType()==Token.STRING){
+Node parent=firstChild.getParent();
+Node grandparent=parent.getParent();
+String propertyName=firstChild.getString();
+if(propertyName!=null){
+scope.inferQualifiedSlot(grandparent,grandparent.getQualifiedName(),leftType==null?unknownType:leftType,resultType);
+}
+ensurePropertyDefined(grandparent,resultType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(propertyName!=null){
+scope.inferQualifiedSlot(grandparent,grandparent.getQualifiedName(),leftType==null?unknownType:leftType,resultType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:Node parent=firstChild.getParent();
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node firstChild=left.getFirstChild();
+TO:
+26
+
+INSERT:
+29:if(firstChild.getType()==Token.STRING){
+Node parent=firstChild.getParent();
+Node grandparent=parent.getParent();
+String propertyName=firstChild.getString();
+if(propertyName!=null){
+scope.inferQualifiedSlot(grandparent,grandparent.getQualifiedName(),leftType==null?unknownType:leftType,resultType);
+}
+ensurePropertyDefined(grandparent,resultType);
+}
+TO:
+26
+
+INSERT:
+38:left.setJSType(resultType);
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/11.java
+Current actions:
+UPDATE
+FROM:
+10:if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+10:if(isVarTypeBetter&&!resultType.isSubtype(var.getType())){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+10:if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+10:if(isVarTypeBetter&&!resultType.isSubtype(var.getType())){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:Node index=left.getLastChild();
+TO:
+26
+
+INSERT:
+30:index.setJSType(objectType==null?unknownType:objectType.getIndexedType());
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+10:if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+10:if(isVarTypeBetter&&!resultType.isSubtype(var.getType())){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+INSERT:
+29:Node index=left.getLastChild();
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/12.java
+Current actions:
+INSERT:
+27:case Token.CALL :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+29:if(fnType!=null){
+left.setJSType(fnType.getReturnType());
+updateScopeForCall(scope,left,fnType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.CALL :
+TO:
+26
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:FunctionType fnType=resultType.restrictByNotNullOrUndefined().toMaybeFunctionType();
+TO:
+26
+
+Following are 3th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+30:left.setJSType(fnType.getReturnType());
+TO:
+26
+
+INSERT:
+33:break;
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.CALL :
+TO:
+26
+
+INSERT:
+33:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/13.java
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 0th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+24:if(leftType!=null){
+left.setJSType(leftType);
+ensurePropertyDefined(left,leftType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(leftType!=null){
+left.setJSType(leftType);
+ensurePropertyDefined(left,leftType);
+}
+TO:
+23
+
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+DELETE:
+Original line: 25ensurePropertyDefined(left,resultType);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+INSERT:
+25:left.setJSType(leftType);
+TO:
+23
+
+INSERT:
+26:ensurePropertyDefined(left,leftType);
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/14.java
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+24:if(leftType!=null){
+left.setJSType(leftType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(leftType!=null){
+left.setJSType(leftType);
+}
+TO:
+23
+
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+INSERT:
+25:left.setJSType(leftType);
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/15.java
+Current actions:
+INSERT:
+24:if(leftType!=null&&resultType.isFunction()){
+left.setJSType(leftType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+24:if(leftType!=null&&resultType.isFunction()){
+left.setJSType(leftType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:left.setJSType(leftType);
+TO:
+23
+
+INSERT:
+27:else{
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:left.setJSType(leftType);
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/16.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:null);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:null);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/17.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(propType==null||propType.isAllType()){
+propType=unknownType;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:Node prop=obj.getNext();
+TO:
+26
+
+INSERT:
+31:JSType objType=obj.getJSType();
+TO:
+26
+
+INSERT:
+33:if(propType==null||propType.isAllType()){
+propType=unknownType;
+}
+TO:
+26
+
+INSERT:
+37:JSType elementType=objType!=null&&objType.isSubtype(arrayType)?arrayType.getArrayElementType():null;
+TO:
+26
+
+INSERT:
+39:name.setJSType(resultType);
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/18.java
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/19.java
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+16:if(oldType==null||oldType.isSubtype(resultType)){
+var.setType(resultType);
+}
+TO:
+15
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:var.setType(resultType);
+TO:
+15
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+16:if(oldType==null||oldType.isSubtype(resultType)){
+var.setType(resultType);
+}
+TO:
+15
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+17:var.setType(resultType);
+TO:
+15
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/20.java
+Current actions:
+INSERT:
+31:if(getElemLeftType==null||getElemRightType==null){
+return ;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:if(getElemLeftType.isMapType()){
+JSType indexType=getElemRightType.restrictByNotNullOrUndefined();
+JSType resultMapType=getElemLeftType.getTemplateTypeMap().getResolvedType(MAP_KEY_TYPE_ARGUMENT);
+JSType resultType2=indexType.getLeastSupertype(resultMapType);
+if(!indexType.isSubtype(resultMapType)){
+return ;
+}
+if(resultType2.isAllType()){
+getElemLeft.setJSType(getElemLeftType.getTemplateTypeMap().getResolvedType(MAP_VALUE_TYPE_ARGUMENT));
+}
+else{
+getElemLeft.setJSType(resultType2);
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:if(!indexType.isSubtype(resultMapType)){
+return ;
+}
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(getElemLeftType==null||getElemRightType==null){
+return ;
+}
+TO:
+26
+
+INSERT:
+39:return ;
+TO:
+26
+
+INSERT:
+45:getElemLeft.setJSType(resultType2);
+TO:
+26
+
+INSERT:
+48:break;
+TO:
+26
+
+INSERT:
+49:case Token.CALL :
+TO:
+26
+
+INSERT:
+52:JSType callLeftType=callLeft.getJSType();
+TO:
+26
+
+INSERT:
+55:return ;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/21.java
+Current actions:
+INSERT:
+10:JSType bestType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+10:JSType bestType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+12:redeclareSimpleVar(scope,left,bestType);
+
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+14:left.setJSType(isVarDeclaration||leftType==null?bestType:null);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+14:left.setJSType(isVarDeclaration||leftType==null?bestType:null);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/22.java
+Current actions:
+INSERT:
+10:JSType newType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+11:if(newType==null){
+newType=resultType;
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+10:if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+14:if(var!=null){
+redeclareSimpleVar(scope,left,newType);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:JSType newType=isVarTypeBetter?resultType:leftType;
+TO:
+9
+
+INSERT:
+11:if(newType==null){
+newType=resultType;
+}
+TO:
+9
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+UPDATE
+FROM:
+10:if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+14:if(var!=null){
+redeclareSimpleVar(scope,left,newType);
+}
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+15:redeclareSimpleVar(scope,left,newType);
+
+INSERT:
+17:left.setJSType(newType);
+TO:
+11
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/23.java
+Current actions:
+INSERT:
+10:if(leftType!=null&&isVarTypeBetter){
+resultType=leftType;
+}
+TO:
+9
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+10:if(leftType!=null&&isVarTypeBetter){
+resultType=leftType;
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(leftType!=null&&isVarTypeBetter){
+resultType=leftType;
+}
+TO:
+9
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+16:left.setJSType(resultType);
+TO:
+12
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/24.java
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/25.java
+Current actions:
+Wrap:
+Block
+On:
+[left.setJSType(resultType);, {
+redeclareSimpleVar(scope,left,resultType);
+}, if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}, redeclareSimpleVar(scope,left,resultType);, if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}, {
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}, JSType oldType=var.getType();, var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));, {
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}, if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}, scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);, ensurePropertyDefined(left,resultType);, break;]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:{
+Preconditions.checkNotNull(resultType);
+switch (left.getType()){
+case Token.NAME :
+String varName=left.getString();
+Var var=syntacticScope.getVar(varName);
+boolean isVarDeclaration=left.hasChildren();
+boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+break;
+case Token.GETPROP :
+String qualifiedName=left.getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+ensurePropertyDefined(left,resultType);
+left.setJSType(resultType);
+break;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 10if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+DELETE:
+Original line: 21if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+DELETE:
+Original line: 25ensurePropertyDefined(left,resultType);
+
+DELETE:
+Original line: 26break;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:{
+Preconditions.checkNotNull(resultType);
+switch (left.getType()){
+case Token.NAME :
+String varName=left.getString();
+Var var=syntacticScope.getVar(varName);
+boolean isVarDeclaration=left.hasChildren();
+boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+break;
+case Token.GETPROP :
+String qualifiedName=left.getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+ensurePropertyDefined(left,resultType);
+left.setJSType(resultType);
+break;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 10if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+DELETE:
+Original line: 21if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+DELETE:
+Original line: 25ensurePropertyDefined(left,resultType);
+
+DELETE:
+Original line: 26break;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/26.java
+Current actions:
+INSERT:
+9:JSType varType=var!=null?var.getType():null;
+TO:
+8
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+9:boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+TO:
+10:boolean isVarTypeBetter=!isVarDeclaration||var==null||varType==null||var.isTypeInferred();
+
+UPDATE
+FROM:
+15:JSType oldType=var.getType();
+TO:
+16:JSType oldType=varType;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType varType=var!=null?var.getType():null;
+TO:
+8
+
+UPDATE
+FROM:
+9:boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+TO:
+10:boolean isVarTypeBetter=!isVarDeclaration||var==null||varType==null||var.isTypeInferred();
+
+UPDATE
+FROM:
+15:JSType oldType=var.getType();
+TO:
+16:JSType oldType=varType;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/27.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:left.setJSType(leftType==null?resultType:leftType.restrictByNotNullOrUndefined().getLeastSupertype(getNativeType(OBJECT_TYPE)));
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+28:left.setJSType(leftType==null?resultType:leftType.restrictByNotNullOrUndefined().getLeastSupertype(getNativeType(OBJECT_TYPE)));
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/28.java
+Current actions:
+INSERT:
+24:if(leftType==null){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:if(leftType==null){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/29.java
+Current actions:
+INSERT:
+27:case Token.STRING_KEY :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+27:case Token.STRING_KEY :
+TO:
+26
+
+INSERT:
+28:scope.inferUnqualifiedSlot(left,leftType==null?unknownType:leftType,resultType);
+TO:
+26
+
+INSERT:
+29:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+30:ensurePropertyDefined(left,resultType);
+TO:
+26
+
+INSERT:
+31:break;
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/30.java
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+INSERT:
+15:if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+TO:
+12
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:else{
+left.setJSType(resultType);
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+}
+TO:
+12
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+13:else{
+left.setJSType(resultType);
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+}
+TO:
+12
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/31.java
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+Following are 0th generated patches:
+Validating 47 patches...
+Current actions:
+INSERT:
+13:if(isVarDeclaration||leftType==null){
+left.setJSType(resultType);
+}
+TO:
+12
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(varInScope==null){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+12
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+13:if(isVarDeclaration||leftType==null){
+left.setJSType(resultType);
+}
+TO:
+12
+
+INSERT:
+32:if(leftType==null||left.isQualifiedName()){
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/32.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:leftType==null?resultType:null);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:leftType==null?resultType:null);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/33.java
+Current actions:
+INSERT:
+33:if(callee!=null&&callee.getType()==Token.GETPROP){
+Node receiver=parent.getFirstChild().getNext();
+if(receiver!=null&&receiver.getType()==Token.THIS){
+JSType receiverType=receiver.getJSType();
+if(receiverType!=null){
+JSType resultTypeCopy=resultType.clone();
+JSType receiverSlotType=receiverType.getSlotType(left.getString());
+if(receiverSlotType!=null){
+resultTypeCopy=resultTypeCopy.restrictByNotNullOrUndefined();
+resultTypeCopy=resultTypeCopy.getLeastSupertype(receiverSlotType);
+}
+resultType=resultTypeCopy;
+}
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+35:if(receiver!=null&&receiver.getType()==Token.THIS){
+JSType receiverType=receiver.getJSType();
+if(receiverType!=null){
+JSType resultTypeCopy=resultType.clone();
+JSType receiverSlotType=receiverType.getSlotType(left.getString());
+if(receiverSlotType!=null){
+resultTypeCopy=resultTypeCopy.restrictByNotNullOrUndefined();
+resultTypeCopy=resultTypeCopy.getLeastSupertype(receiverSlotType);
+}
+resultType=resultTypeCopy;
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node parent=left.getParent();
+TO:
+26
+
+INSERT:
+30:case Token.CALL :
+TO:
+26
+
+INSERT:
+31:case Token.NEW :
+TO:
+26
+
+INSERT:
+36:JSType receiverType=receiver.getJSType();
+TO:
+26
+
+INSERT:
+37:if(receiverType!=null){
+JSType resultTypeCopy=resultType.clone();
+JSType receiverSlotType=receiverType.getSlotType(left.getString());
+if(receiverSlotType!=null){
+resultTypeCopy=resultTypeCopy.restrictByNotNullOrUndefined();
+resultTypeCopy=resultTypeCopy.getLeastSupertype(receiverSlotType);
+}
+resultType=resultTypeCopy;
+}
+TO:
+26
+
+INSERT:
+48:break;
+TO:
+26
+
+INSERT:
+49:default :
+TO:
+26
+
+INSERT:
+52:updateScopeForTypeChange(scope,left.getFirstChild(),leftType,resultType);
+TO:
+26
+
+INSERT:
+53:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/34.java
+Current actions:
+INSERT:
+9:JSType oldType=var==null?null:var.getType();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 43 patches...
+Current actions:
+INSERT:
+15:if(var!=null){
+if(isVarTypeBetter){
+var.setType(resultType);
+}
+if(var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:if(isVarTypeBetter){
+var.setType(resultType);
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType oldType=var==null?null:var.getType();
+TO:
+8
+
+UPDATE
+FROM:
+9:boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+TO:
+10:boolean isVarTypeBetter=!isVarDeclaration||(oldType==null||!resultType.isSubtype(oldType));
+
+INSERT:
+15:if(var!=null){
+if(isVarTypeBetter){
+var.setType(resultType);
+}
+if(var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+}
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/35.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 59 patches...
+Current actions:
+INSERT:
+29:if(child!=null&&child.getType()==Token.NAME){
+Var var=syntacticScope.getVar(child.getString());
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node child=left.getFirstChild();
+TO:
+26
+
+INSERT:
+30:Var var=syntacticScope.getVar(child.getString());
+TO:
+26
+
+INSERT:
+31:if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+TO:
+26
+
+INSERT:
+36:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/36.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 166 patches...
+Current actions:
+INSERT:
+32:if(name!=null){
+scope.inferIndexedSlot(left,name,leftType==null?unknownType:leftType,elemType,resultType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node arrayNode=left.getFirstChild();
+TO:
+26
+
+INSERT:
+29:JSType arrayType=getJSType(arrayNode);
+TO:
+26
+
+INSERT:
+30:JSType elemType=arrayType!=null?arrayType.getElementType():unknownType;
+TO:
+26
+
+INSERT:
+31:String name=getPropertyName(left.getLastChild());
+TO:
+26
+
+INSERT:
+32:if(name!=null){
+scope.inferIndexedSlot(left,name,leftType==null?unknownType:leftType,elemType,resultType);
+}
+TO:
+26
+
+INSERT:
+35:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+36:ensurePropertyDefined(left,resultType);
+TO:
+26
+
+INSERT:
+37:break;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/37.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 161 patches...
+Current actions:
+INSERT:
+28:if(leftType!=null){
+Node receiver=left.getFirstChild();
+Node index=receiver.getNext();
+JSType type=caseElementType(leftType);
+if(index!=null&&index.getType()==Token.STRING){
+type=caseElementType(getNativeType(STRING_OBJECT_TYPE));
+}
+else{
+if(type.isSubtype(getNativeType(STRING_OBJECT_TYPE))){
+type=getNativeType(STRING_TYPE);
+}
+}
+left.setJSType(type);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 58 patches...
+Current actions:
+INSERT:
+32:if(index!=null&&index.getType()==Token.STRING){
+type=caseElementType(getNativeType(STRING_OBJECT_TYPE));
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+29:Node receiver=left.getFirstChild();
+TO:
+26
+
+INSERT:
+32:if(index!=null&&index.getType()==Token.STRING){
+type=caseElementType(getNativeType(STRING_OBJECT_TYPE));
+}
+TO:
+26
+
+INSERT:
+35:else{
+if(type.isSubtype(getNativeType(STRING_OBJECT_TYPE))){
+type=getNativeType(STRING_TYPE);
+}
+}
+TO:
+26
+
+INSERT:
+38:left.setJSType(type);
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/38.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+INSERT:
+30:if(qualifiedName!=null){
+scope.inferQualifiedSlot(getPropNode,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+29:qualifiedName=getPropNode.getQualifiedName();
+TO:
+26
+
+INSERT:
+30:if(qualifiedName!=null){
+scope.inferQualifiedSlot(getPropNode,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+TO:
+26
+
+INSERT:
+33:getPropNode.setJSType(resultType);
+TO:
+26
+
+INSERT:
+34:ensurePropertyDefined(getPropNode,resultType);
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/39.java
+Current actions:
+INSERT:
+34:if(objType!=null&&result!=null){
+scope.inferSlot(left,obj,objType,result);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:if(indexType!=null&&indexType.isSubtype(getNativeType(NUMBER_TYPE))){
+if(index.getType()==Token.GETPROP){
+String propName=index.getString();
+JSType propType=getPropDeclaredType(objType,propName);
+if(propType!=null){
+JSType nonNegativeIndexType=propType.restrictByNotNullOrUndefined().isSubtype(getNativeType(NUMBER_TYPE));
+if(nonNegativeIndexType!=null&&indexType.isSubtype(nonNegativeIndexType)){
+}
+else{
+scope.report(JSError.make(index,INCOMPATIBLE_THIS_VALUE,objType.toString(),"non-negative index"));
+}
+}
+}
+else{
+if(index.getType()==Token.NUMBER){
+double indexValue=index.getDouble();
+if(indexValue>=0){
+}
+else{
+scope.report(JSError.make(index,INCOMPATIBLE_THIS_VALUE,objType.toString(),"non-negative index"));
+}
+}
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node obj=left.getFirstChild();
+TO:
+26
+
+INSERT:
+29:Node index=obj.getNext();
+TO:
+26
+
+INSERT:
+30:Node originalIndex=index.cloneTree();
+TO:
+26
+
+INSERT:
+31:JSType indexType=scope.getTypeOf(index);
+TO:
+26
+
+INSERT:
+32:JSType objType=scope.getTypeOf(obj);
+TO:
+26
+
+INSERT:
+34:if(objType!=null&&result!=null){
+scope.inferSlot(left,obj,objType,result);
+}
+TO:
+26
+
+INSERT:
+37:if(indexType!=null&&indexType.isSubtype(getNativeType(NUMBER_TYPE))){
+if(index.getType()==Token.GETPROP){
+String propName=index.getString();
+JSType propType=getPropDeclaredType(objType,propName);
+if(propType!=null){
+JSType nonNegativeIndexType=propType.restrictByNotNullOrUndefined().isSubtype(getNativeType(NUMBER_TYPE));
+if(nonNegativeIndexType!=null&&indexType.isSubtype(nonNegativeIndexType)){
+}
+else{
+scope.report(JSError.make(index,INCOMPATIBLE_THIS_VALUE,objType.toString(),"non-negative index"));
+}
+}
+}
+else{
+if(index.getType()==Token.NUMBER){
+double indexValue=index.getDouble();
+if(indexValue>=0){
+}
+else{
+scope.report(JSError.make(index,INCOMPATIBLE_THIS_VALUE,objType.toString(),"non-negative index"));
+}
+}
+}
+}
+TO:
+26
+
+INSERT:
+59:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+60:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/40.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+28:JSType newType=updateScopeForGetElem(left,leftType,resultType);
+TO:
+26
+
+INSERT:
+29:left.setJSType(newType);
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:left.setJSType(newType);
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/41.java
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+DELETE:
+Original line: 25ensurePropertyDefined(left,resultType);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 24left.setJSType(resultType);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 25ensurePropertyDefined(left,resultType);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/42.java
+Current actions:
+INSERT:
+32:break;
+TO:
+26
+
+INSERT:
+35:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+42:scope.inferObjectSlot(left,resultType);
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/43.java
+Current actions:
+INSERT:
+28:if(left.getJSType()==null){
+JSType lhsType=left.getFirstChild().getJSType();
+if(lhsType!=null){
+if(lhsType.isArrayType()){
+lhsType=lhsType.toObjectType();
+}
+left.setJSType(getNativeType(OBJECT_TYPE).getPrototypeProperty(getNativeType(NUMBER_TYPE),lhsType));
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:if(lhsType!=null){
+if(lhsType.isArrayType()){
+lhsType=lhsType.toObjectType();
+}
+left.setJSType(getNativeType(OBJECT_TYPE).getPrototypeProperty(getNativeType(NUMBER_TYPE),lhsType));
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:if(left.getJSType()==null){
+JSType lhsType=left.getFirstChild().getJSType();
+if(lhsType!=null){
+if(lhsType.isArrayType()){
+lhsType=lhsType.toObjectType();
+}
+left.setJSType(getNativeType(OBJECT_TYPE).getPrototypeProperty(getNativeType(NUMBER_TYPE),lhsType));
+}
+}
+TO:
+26
+
+INSERT:
+38:case Token.GETTER_DEF :
+TO:
+26
+
+INSERT:
+39:case Token.SETTER_DEF :
+TO:
+26
+
+INSERT:
+45:case Token.INC :
+TO:
+26
+
+INSERT:
+46:case Token.DEC :
+TO:
+26
+
+INSERT:
+47:case Token.POS :
+TO:
+26
+
+INSERT:
+48:case Token.NEG :
+TO:
+26
+
+INSERT:
+50:case Token.NOT :
+TO:
+26
+
+INSERT:
+51:case Token.SHEQ :
+TO:
+26
+
+INSERT:
+55:case Token.ASSIGN :
+TO:
+26
+
+INSERT:
+56:Node right=left.getLastChild();
+TO:
+26
+
+INSERT:
+57:if(right.getType()==Token.HOOK){
+Node n=right.getFirstChild();
+if(n==left){
+n=right.getLastChild();
+}
+updateScopeForTypeChange(scope,n,left.getJSType(),resultType);
+}
+TO:
+26
+
+INSERT:
+65:break;
+TO:
+26
+
+INSERT:
+66:default :
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/44.java
+Current actions:
+INSERT:
+10:JSType varType=var==null?null:var.getType();
+TO:
+9
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+10:JSType varType=var==null?null:var.getType();
+TO:
+9
+
+UPDATE
+FROM:
+15:JSType oldType=var.getType();
+TO:
+16:JSType oldType=varType;
+
+Following are 1th generated patches:
+Validating 118 patches...
+Current actions:
+INSERT:
+10:JSType varType=var==null?null:var.getType();
+TO:
+9
+
+Following are 2th generated patches:
+Validating 90 patches...
+Current actions:
+UPDATE
+FROM:
+15:JSType oldType=var.getType();
+TO:
+16:JSType oldType=varType;
+
+Following are 3th generated patches:
+Validating 28 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/45.java
+Current actions:
+INSERT:
+10:JSType newType=resultType;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+INSERT:
+17:if(newType!=null){
+redeclareSimpleVar(scope,left,newType);
+}
+TO:
+12
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:JSType newType=resultType;
+TO:
+9
+
+INSERT:
+12:newType=resultType;
+TO:
+10
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+14:else{
+newType=leftType==null?resultType:leftType;
+}
+TO:
+12
+
+INSERT:
+17:if(newType!=null){
+redeclareSimpleVar(scope,left,newType);
+}
+TO:
+12
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+18:redeclareSimpleVar(scope,left,newType);
+
+INSERT:
+20:left.setJSType(newType);
+TO:
+11
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/46.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 43 patches...
+Current actions:
+INSERT:
+28:if(left.getFirstChild().isQualifiedName()){
+String qualifiedName=left.getFirstChild().getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:if(left.getFirstChild().isQualifiedName()){
+String qualifiedName=left.getFirstChild().getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+}
+TO:
+26
+
+INSERT:
+34:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+35:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/47.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:if(targetType==null||targetType.isNullType()){
+target.setJSType(resultType.restrictByNotNullOrUndefined());
+break;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:if(targetType.isUnknownType()||resultType.isUnknownType()){
+target.setJSType(targetType.getLeastSupertype(resultType).restrictByNotNullOrUndefined());
+break;
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+48:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/48.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:left.setJSType(resultType);
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/49.java
+Current actions:
+INSERT:
+24:if(!leftType.isNullType()&&!leftType.isVoidType()){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:if(!leftType.isNullType()&&!leftType.isVoidType()){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/50.java
+Current actions:
+INSERT:
+10:JSType varType=null;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+11:if(isVarDeclaration){
+varType=var==null?null:var.getType();
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:JSType varType=null;
+TO:
+9
+
+INSERT:
+11:if(isVarDeclaration){
+varType=var==null?null:var.getType();
+}
+TO:
+9
+
+DELETE:
+Original line: 15JSType oldType=var.getType();
+
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+19:JSType oldType=varType==null?resultType:varType.getLeastSupertype(resultType);
+TO:
+14
+
+INSERT:
+20:var.setType(oldType);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/51.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:leftType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:leftType);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/52.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(parent==null||parent.getType()!=Token.GETELEM){
+break;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:if(targetName!=null){
+JSType targetType=targetNode.getJSType();
+if(targetType!=null){
+targetType=targetType.restrictByNotNullOrUndefined();
+JSType resultElementType=resultType.restrictByNotNullOrUndefined();
+JSType newElementType=targetType.getIndexedType(resultElementType,left.getLastChild().getString());
+if(newElementType!=null){
+resultType=targetType.replaceElementType(newElementType,left.getLastChild().getString());
+}
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:Node parent=root.getParent();
+TO:
+26
+
+INSERT:
+31:if(parent==null||parent.getType()!=Token.GETELEM){
+break;
+}
+TO:
+26
+
+INSERT:
+34:root=parent;
+TO:
+26
+
+INSERT:
+38:if(targetName!=null){
+JSType targetType=targetNode.getJSType();
+if(targetType!=null){
+targetType=targetType.restrictByNotNullOrUndefined();
+JSType resultElementType=resultType.restrictByNotNullOrUndefined();
+JSType newElementType=targetType.getIndexedType(resultElementType,left.getLastChild().getString());
+if(newElementType!=null){
+resultType=targetType.replaceElementType(newElementType,left.getLastChild().getString());
+}
+}
+}
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/53.java
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+16:if(oldType==null||!oldType.isSubtype(resultType)){
+var.setType(resultType);
+}
+TO:
+15
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+16:if(oldType==null||!oldType.isSubtype(resultType)){
+var.setType(resultType);
+}
+TO:
+15
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+17:var.setType(resultType);
+TO:
+15
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:var.setType(resultType);
+TO:
+15
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/54.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:leftType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:leftType);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/55.java
+Current actions:
+INSERT:
+10:JSType oldType=resultType;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+13:if(oldType==null){
+oldType=resultType;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11redeclareSimpleVar(scope,left,resultType);
+
+INSERT:
+12:oldType=scope.getTypeOfSlot(varName);
+TO:
+10
+
+INSERT:
+13:if(oldType==null){
+oldType=resultType;
+}
+TO:
+10
+
+DELETE:
+Original line: 15JSType oldType=var.getType();
+
+INSERT:
+17:redeclareSimpleVar(scope,left,resultType);
+TO:
+12
+
+UPDATE
+FROM:
+16:var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+TO:
+20:var.setType(oldType.getLeastSupertype(resultType));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:JSType oldType=resultType;
+TO:
+9
+
+DELETE:
+Original line: 11redeclareSimpleVar(scope,left,resultType);
+
+INSERT:
+12:oldType=scope.getTypeOfSlot(varName);
+TO:
+10
+
+INSERT:
+14:oldType=resultType;
+TO:
+10
+
+DELETE:
+Original line: 15JSType oldType=var.getType();
+
+INSERT:
+17:redeclareSimpleVar(scope,left,resultType);
+TO:
+12
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/56.java
+Current actions:
+INSERT:
+24:if(resultType!=null&&resultType.isNullable()){
+left.setJSType(leftType==null?resultType:leftType.getLeastSupertype(resultType));
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+24:if(resultType!=null&&resultType.isNullable()){
+left.setJSType(leftType==null?resultType:leftType.getLeastSupertype(resultType));
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:else{
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:left.setJSType(leftType==null?resultType:leftType.getLeastSupertype(resultType));
+TO:
+23
+
+INSERT:
+27:else{
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:left.setJSType(leftType==null?resultType:leftType.getLeastSupertype(resultType));
+TO:
+23
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/57.java
+Current actions:
+INSERT:
+27:case Token.THIS :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+27:case Token.THIS :
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+27:case Token.THIS :
+TO:
+26
+
+INSERT:
+28:this.thisType=resultType;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+27:case Token.THIS :
+TO:
+26
+
+INSERT:
+28:this.thisType=resultType;
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+28:this.thisType=resultType;
+TO:
+26
+
+INSERT:
+29:break;
+TO:
+26
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+28:this.thisType=resultType;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/58.java
+Current actions:
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+INSERT:
+9:JSType varType=(var==null?null:var.getType());
+TO:
+8
+
+INSERT:
+10:boolean isVarTypeBetter=!isVarDeclaration||var==null||varType==null||var.isTypeInferred()||(resultType.isSubtype(varType)&&!varType.isSubtype(resultType));
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:boolean isVarTypeBetter=!isVarDeclaration||var==null||varType==null||var.isTypeInferred()||(resultType.isSubtype(varType)&&!varType.isSubtype(resultType));
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/59.java
+Current actions:
+INSERT:
+27:case Token.OBJECTLIT :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+29:if(objectLit.hasChildren()&&objectLit.isUnscoped()){
+for(Node keyNode : objectLit.children()){
+if(keyNode.isDefaultValue()){
+updateScopeForTypeChange(scope,keyNode.getFirstChild(),keyNode.getFirstChild().getJSType(),resultType);
+}
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(keyNode.isDefaultValue()){
+updateScopeForTypeChange(scope,keyNode.getFirstChild(),keyNode.getFirstChild().getJSType(),resultType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+36:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+30:for(Node keyNode : objectLit.children()){
+if(keyNode.isDefaultValue()){
+updateScopeForTypeChange(scope,keyNode.getFirstChild(),keyNode.getFirstChild().getJSType(),resultType);
+}
+}
+TO:
+26
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:Node objectLit=left;
+TO:
+26
+
+INSERT:
+31:if(keyNode.isDefaultValue()){
+updateScopeForTypeChange(scope,keyNode.getFirstChild(),keyNode.getFirstChild().getJSType(),resultType);
+}
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/60.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:if(isArrayTypeBetter){
+redeclareVarIfPresent(scope,array,getNativeType(ARRAY_TYPE));
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+36:if(index!=null){
+index.setJSType(getNativeType(NUMBER_TYPE));
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+33:redeclareVarIfPresent(scope,array,getNativeType(ARRAY_TYPE));
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node array=left.getFirstChild();
+TO:
+26
+
+INSERT:
+32:if(isArrayTypeBetter){
+redeclareVarIfPresent(scope,array,getNativeType(ARRAY_TYPE));
+}
+TO:
+26
+
+INSERT:
+37:index.setJSType(getNativeType(NUMBER_TYPE));
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/61.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/61.java
+Current actions:
+INSERT:
+27:case Token.ASSIGN :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+29:updateScopeForTypeChange(scope,left.getFirstChild(),null,scope.getTypeOf(rhs));
+TO:
+26
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+27:case Token.ASSIGN :
+TO:
+26
+
+INSERT:
+28:Node rhs=left.getLastChild();
+TO:
+26
+
+INSERT:
+29:updateScopeForTypeChange(scope,left.getFirstChild(),null,scope.getTypeOf(rhs));
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.ASSIGN :
+TO:
+26
+
+INSERT:
+28:Node rhs=left.getLastChild();
+TO:
+26
+
+INSERT:
+29:updateScopeForTypeChange(scope,left.getFirstChild(),null,scope.getTypeOf(rhs));
+TO:
+26
+
+INSERT:
+30:break;
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.ASSIGN :
+TO:
+26
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:Node rhs=left.getLastChild();
+TO:
+26
+
+INSERT:
+29:updateScopeForTypeChange(scope,left.getFirstChild(),null,scope.getTypeOf(rhs));
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/62.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/62.java
+Current actions:
+Wrap:
+Block
+On:
+[left.setJSType(isVarDeclaration||leftType==null?resultType:null);, break;, boolean isVarDeclaration=left.hasChildren();, case Token.GETPROP :, boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();, String qualifiedName=left.getQualifiedName();, {
+redeclareSimpleVar(scope,left,resultType);
+}, if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}, if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}, {
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}]
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+13:if(oldType!=null&&resultType!=null&&!oldType.isSubtypeOf(resultType)){
+reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11redeclareSimpleVar(scope,left,resultType);
+
+INSERT:
+12:JSType oldType=var.getType();
+TO:
+14
+
+INSERT:
+13:if(oldType!=null&&resultType!=null&&!oldType.isSubtypeOf(resultType)){
+reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+}
+TO:
+14
+
+DELETE:
+Original line: 15JSType oldType=var.getType();
+
+INSERT:
+16:var.setType(resultType);
+TO:
+14
+
+INSERT:
+18:else{
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:{
+Preconditions.checkNotNull(resultType);
+switch (left.getType()){
+case Token.NAME :
+String varName=left.getString();
+Var var=syntacticScope.getVar(varName);
+boolean isVarDeclaration=left.hasChildren();
+boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+if(isVarTypeBetter){
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+if(oldType!=null&&resultType!=null&&!oldType.isSubtypeOf(resultType)){
+reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+}
+var.setType(resultType);
+}
+else{
+redeclareSimpleVar(scope,left,resultType);
+}
+}
+left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+break;
+case Token.GETPROP :
+String qualifiedName=left.getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+break;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 8boolean isVarDeclaration=left.hasChildren();
+
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+DELETE:
+Original line: 10if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+INSERT:
+12:JSType oldType=var.getType();
+TO:
+14
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+INSERT:
+14:reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+TO:
+14
+
+INSERT:
+18:else{
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+14
+
+DELETE:
+Original line: 18break;
+
+DELETE:
+Original line: 19case Token.GETPROP :
+
+DELETE:
+Original line: 20String qualifiedName=left.getQualifiedName();
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+2:{
+Preconditions.checkNotNull(resultType);
+switch (left.getType()){
+case Token.NAME :
+String varName=left.getString();
+Var var=syntacticScope.getVar(varName);
+boolean isVarDeclaration=left.hasChildren();
+boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+if(isVarTypeBetter){
+if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+if(oldType!=null&&resultType!=null&&!oldType.isSubtypeOf(resultType)){
+reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+}
+var.setType(resultType);
+}
+else{
+redeclareSimpleVar(scope,left,resultType);
+}
+}
+left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+break;
+case Token.GETPROP :
+String qualifiedName=left.getQualifiedName();
+if(qualifiedName!=null){
+scope.inferQualifiedSlot(left,qualifiedName,leftType==null?unknownType:leftType,resultType);
+}
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+break;
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 8boolean isVarDeclaration=left.hasChildren();
+
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+DELETE:
+Original line: 10if(isVarTypeBetter){
+redeclareSimpleVar(scope,left,resultType);
+}
+
+INSERT:
+12:JSType oldType=var.getType();
+TO:
+14
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+13:if(oldType!=null&&resultType!=null&&!oldType.isSubtypeOf(resultType)){
+reportInconsistentDeclaration(left.srcref,varName,oldType,resultType);
+}
+TO:
+14
+
+DELETE:
+Original line: 14if(var!=null&&var.isTypeInferred()){
+JSType oldType=var.getType();
+var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+}
+
+INSERT:
+16:var.setType(resultType);
+TO:
+14
+
+INSERT:
+18:else{
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+14
+
+DELETE:
+Original line: 18break;
+
+DELETE:
+Original line: 19case Token.GETPROP :
+
+DELETE:
+Original line: 20String qualifiedName=left.getQualifiedName();
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/63.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/63.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+30:if(indexType==null){
+indexType=unknownType;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node indexNode=left.getLastChild();
+TO:
+26
+
+INSERT:
+29:JSType indexType=indexNode.getJSType();
+TO:
+26
+
+INSERT:
+30:if(indexType==null){
+indexType=unknownType;
+}
+TO:
+26
+
+INSERT:
+33:indexNode.setJSType(indexType.restrictByNotNullOrUndefined().getGreatestSubtype(numberType));
+TO:
+26
+
+INSERT:
+34:JSType resultElementType=resultType.restrictByNotNullOrUndefined().getBestElementType();
+TO:
+26
+
+INSERT:
+35:left.setJSType(resultElementType);
+TO:
+26
+
+INSERT:
+36:break;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/64.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/64.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(targetType!=null){
+id=targetType.toString();
+indexType=index.getJSType();
+if(id.indexOf("Array")!=-1){
+int numElements=targetType.evaluateType(registry).getArrayLength();
+if(numElements!=-1&&indexType!=null){
+int indexValue=indexType.evaluateType(registry).asNumber();
+if(indexValue>=0&&indexValue<numElements){
+JSType resultElementType=targetType.evaluateType(registry).getElementType();
+resultType=resultElementType.isUnknownType()?unknownType:resultElementType;
+}
+else{
+resultType=unknownType;
+}
+}
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+36:if(id.indexOf("Array")!=-1){
+int numElements=targetType.evaluateType(registry).getArrayLength();
+if(numElements!=-1&&indexType!=null){
+int indexValue=indexType.evaluateType(registry).asNumber();
+if(indexValue>=0&&indexValue<numElements){
+JSType resultElementType=targetType.evaluateType(registry).getElementType();
+resultType=resultElementType.isUnknownType()?unknownType:resultElementType;
+}
+else{
+resultType=unknownType;
+}
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:if(numElements!=-1&&indexType!=null){
+int indexValue=indexType.evaluateType(registry).asNumber();
+if(indexValue>=0&&indexValue<numElements){
+JSType resultElementType=targetType.evaluateType(registry).getElementType();
+resultType=resultElementType.isUnknownType()?unknownType:resultElementType;
+}
+else{
+resultType=unknownType;
+}
+}
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:if(indexValue>=0&&indexValue<numElements){
+JSType resultElementType=targetType.evaluateType(registry).getElementType();
+resultType=resultElementType.isUnknownType()?unknownType:resultElementType;
+}
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+30:String id=null;
+TO:
+26
+
+INSERT:
+31:JSType indexType=null;
+TO:
+26
+
+INSERT:
+32:JSType targetType=target.getJSType();
+TO:
+26
+
+INSERT:
+35:indexType=index.getJSType();
+TO:
+26
+
+INSERT:
+36:if(id.indexOf("Array")!=-1){
+int numElements=targetType.evaluateType(registry).getArrayLength();
+if(numElements!=-1&&indexType!=null){
+int indexValue=indexType.evaluateType(registry).asNumber();
+if(indexValue>=0&&indexValue<numElements){
+JSType resultElementType=targetType.evaluateType(registry).getElementType();
+resultType=resultElementType.isUnknownType()?unknownType:resultElementType;
+}
+else{
+resultType=unknownType;
+}
+}
+}
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/65.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/65.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 103 patches...
+Current actions:
+INSERT:
+30:if(objType!=null&&objType.isSubtype(externs.getObject())){
+String propName=left.getLastChild().getString();
+objType=objType.getIndexedType(propName);
+left.setJSType(objType);
+objNode.setJSType(objType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:Node objNode=left.getFirstChild();
+TO:
+26
+
+INSERT:
+31:String propName=left.getLastChild().getString();
+TO:
+26
+
+INSERT:
+36:break;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:Node objNode=left.getFirstChild();
+TO:
+26
+
+INSERT:
+30:if(objType!=null&&objType.isSubtype(externs.getObject())){
+String propName=left.getLastChild().getString();
+objType=objType.getIndexedType(propName);
+left.setJSType(objType);
+objNode.setJSType(objType);
+}
+TO:
+26
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/66.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/66.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?null:resultType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?null:resultType);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/67.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/67.java
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(type==null||!type.isUnknownType()){
+Node target=left.getFirstChild();
+Node index=left.getLastChild();
+JSType indexType=index.getJSType();
+if(indexType==null||!indexType.isUnknownType()){
+updateScopeForTypeChange(scope,target,target.getJSType(),unknownType);
+}
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(indexType==null||!indexType.isUnknownType()){
+updateScopeForTypeChange(scope,target,target.getJSType(),unknownType);
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:JSType type=left.getJSType();
+TO:
+26
+
+INSERT:
+29:if(type==null||!type.isUnknownType()){
+Node target=left.getFirstChild();
+Node index=left.getLastChild();
+JSType indexType=index.getJSType();
+if(indexType==null||!indexType.isUnknownType()){
+updateScopeForTypeChange(scope,target,target.getJSType(),unknownType);
+}
+}
+TO:
+26
+
+INSERT:
+38:case Token.STRING_KEY :
+TO:
+26
+
+INSERT:
+39:if(left.getJSType()!=null){
+Node target=left.getFirstChild();
+updateScopeForTypeChange(scope,target,target.getJSType(),unknownType);
+}
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/68.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/68.java
+Current actions:
+INSERT:
+9:JSType inferredType=left.getJSType();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:JSType inferredType=left.getJSType();
+TO:
+8
+
+Following are 1th generated patches:
+Validating 64 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/69.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/69.java
+Current actions:
+INSERT:
+24:if(!left.isStringKey()){
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+24:if(!left.isStringKey()){
+left.setJSType(resultType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(!left.isStringKey()){
+left.setJSType(resultType);
+}
+TO:
+23
+
+INSERT:
+29:case Token.STRING_KEY :
+TO:
+26
+
+INSERT:
+30:left.setJSType(resultType);
+TO:
+26
+
+INSERT:
+31:break;
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/70.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/70.java
+Current actions:
+INSERT:
+10:JSType inferredType=isVarDeclaration&&isVarTypeBetter?resultType:null;
+TO:
+9
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+10:JSType inferredType=isVarDeclaration&&isVarTypeBetter?resultType:null;
+TO:
+9
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+12:redeclareSimpleVar(scope,left,inferredType);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+16:var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+TO:
+17:var.setType(oldType==null?inferredType:oldType.getLeastSupertype(resultType));
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:JSType inferredType=isVarDeclaration&&isVarTypeBetter?resultType:null;
+TO:
+9
+
+UPDATE
+FROM:
+11:redeclareSimpleVar(scope,left,resultType);
+TO:
+12:redeclareSimpleVar(scope,left,inferredType);
+
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+14:left.setJSType(isVarDeclaration||leftType==null?inferredType:null);
+
+UPDATE
+FROM:
+16:var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+TO:
+17:var.setType(oldType==null?inferredType:oldType.getLeastSupertype(resultType));
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/71.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/71.java
+Current actions:
+INSERT:
+24:if(leftType==null){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+24:if(leftType==null){
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:if(resultType.isSubtype(leftType)&&resultType.isSubtype(left.getJSTypeBeforeTypeInference())){
+left.setJSType(leftType);
+}
+TO:
+25
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:else{
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+25
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:left.setJSType(leftType);
+TO:
+25
+
+INSERT:
+31:else{
+left.setJSType(resultType);
+ensurePropertyDefined(left,resultType);
+}
+TO:
+25
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:left.setJSType(resultType);
+TO:
+25
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/72.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/72.java
+Current actions:
+INSERT:
+31:if(recv.getType()==Token.THIS){
+left.setJSType(resultType);
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:if(recv.getType()==Token.NAME){
+String varName=recv.getString();
+Var var=syntacticScope.getVar(varName);
+if(var!=null&&var.isTypeInferred()){
+JSType varType=var.getType();
+JSType elementType=null;
+if(varType!=null){
+elementType=varType.getElementType();
+}
+if(elementType!=null){
+if(index.getType()==Token.NUMBER){
+left.setJSType(elementType);
+}
+else{
+left.setJSType(elementType.getObjectType());
+}
+}
+}
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:case Token.GETELEM :
+TO:
+26
+
+INSERT:
+28:{
+Node recv=left.getFirstChild();
+Node index=recv.getNext();
+if(recv.getType()==Token.THIS){
+left.setJSType(resultType);
+}
+else{
+if(recv.getType()==Token.NAME){
+String varName=recv.getString();
+Var var=syntacticScope.getVar(varName);
+if(var!=null&&var.isTypeInferred()){
+JSType varType=var.getType();
+JSType elementType=null;
+if(varType!=null){
+elementType=varType.getElementType();
+}
+if(elementType!=null){
+if(index.getType()==Token.NUMBER){
+left.setJSType(elementType);
+}
+else{
+left.setJSType(elementType.getObjectType());
+}
+}
+}
+}
+}
+ensurePropertyDefined(left,resultType);
+break;
+}
+TO:
+26
+
+INSERT:
+29:Node recv=left.getFirstChild();
+TO:
+26
+
+INSERT:
+30:Node index=recv.getNext();
+TO:
+26
+
+INSERT:
+31:if(recv.getType()==Token.THIS){
+left.setJSType(resultType);
+}
+TO:
+26
+
+INSERT:
+35:String varName=recv.getString();
+TO:
+26
+
+INSERT:
+36:Var var=syntacticScope.getVar(varName);
+TO:
+26
+
+INSERT:
+37:if(var!=null&&var.isTypeInferred()){
+JSType varType=var.getType();
+JSType elementType=null;
+if(varType!=null){
+elementType=varType.getElementType();
+}
+if(elementType!=null){
+if(index.getType()==Token.NUMBER){
+left.setJSType(elementType);
+}
+else{
+left.setJSType(elementType.getObjectType());
+}
+}
+}
+TO:
+26
+
+INSERT:
+53:else{
+if(recv.getType()==Token.GETPROP){
+String recvType=recv.getQualifiedName();
+if(recvType!=null){
+left.setJSType(resultType);
+}
+}
+}
+TO:
+26
+
+INSERT:
+59:ensurePropertyDefined(left,resultType);
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/73.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/73.java
+Current actions:
+INSERT:
+35:if(!indexType.isNumber()&&!indexType.isString()){
+obj.setJSType(unknownType);
+return ;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:if(objType==null){
+obj.setJSType(unknownType);
+return ;
+}
+TO:
+26
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:Node index=array.getNext();
+TO:
+26
+
+INSERT:
+36:obj.setJSType(unknownType);
+TO:
+26
+
+INSERT:
+39:JSType objType=obj.getJSType();
+TO:
+26
+
+INSERT:
+40:if(objType==null){
+obj.setJSType(unknownType);
+return ;
+}
+TO:
+26
+
+INSERT:
+44:JSType objElementType=objType.getElementType();
+TO:
+26
+
+INSERT:
+47:if(!arrayElementType.isSubtype(resultElementType)){
+array.setJSType(unknownType);
+isLhsKnown=false;
+}
+TO:
+26
+
+INSERT:
+51:if(objType==null||objType.isAllType()){
+return ;
+}
+TO:
+26
+
+INSERT:
+54:if(isLhsKnown){
+obj.setJSType(objType.getRestrictedType(resultElementType,indexType.restrictByNotNullOrUndefined()));
+}
+TO:
+26
+
+INSERT:
+57:break;
+TO:
+26
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/74.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/74.java
+Current actions:
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:if(isVarDeclaration){
+if(inferredType==null){
+redeclareSimpleVar(scope,left,resultType);
+}
+else{
+if(!inferredType.isSubtype(resultType)){
+redeclareSimpleVar(scope,left,resultType);
+}
+}
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11redeclareSimpleVar(scope,left,resultType);
+
+INSERT:
+11:if(inferredType==null){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+15:if(!inferredType.isSubtype(resultType)){
+redeclareSimpleVar(scope,left,resultType);
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType inferredType=(var==null)?leftType:var.getType();
+TO:
+8
+
+DELETE:
+Original line: 9boolean isVarTypeBetter=!isVarDeclaration||var==null||var.isTypeInferred();
+
+DELETE:
+Original line: 13left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+
+INSERT:
+20:else{
+if(inferredType==null){
+left.setJSType(resultType);
+}
+else{
+left.setJSType(inferredType.isSubtype(resultType)?inferredType:resultType);
+}
+}
+TO:
+8
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/75.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/75.java
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:null);
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+17:if(newType==null){
+newType=resultType;
+}
+TO:
+15
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+13:left.setJSType(isVarDeclaration||leftType==null?resultType:null);
+TO:
+13:left.setJSType(isVarDeclaration?resultType:null);
+
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+17:if(newType==null){
+newType=resultType;
+}
+TO:
+15
+
+INSERT:
+20:else{
+if(oldType!=null){
+newType=oldType.getLeastSupertype(newType);
+}
+}
+TO:
+15
+
+INSERT:
+23:var.setType(newType);
+TO:
+15
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/76.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_176/76.java
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+16:JSType newType=isVarDeclaration?(oldType==null?resultType:oldType.getLeastSupertype(resultType)):resultType;
+TO:
+15
+
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+17:var.setType(newType);
+TO:
+15
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 16var.setType(oldType==null?resultType:oldType.getLeastSupertype(resultType));
+
+INSERT:
+17:var.setType(newType);
+TO:
+15
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Finish : closure-176 > patch : 0 | Start : Tue Apr 09 13:50:42 HKT 2024 | End : 2024.04.09 AD at 14:31:20 HKT

@@ -1,0 +1,2376 @@
+Repair : lang_61
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/1.java
+Current actions:
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+19:outer: for (int i=startIndex; i <= len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+19:outer: for (int i=startIndex; i <= len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/2.java
+Current actions:
+UPDATE
+FROM:
+17:char[] thisBuf=buffer;
+TO:
+17:char[] thisBuf=value;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+17:char[] thisBuf=buffer;
+TO:
+17:char[] thisBuf=value;
+
+Following are 1th generated patches:
+Validating 14 patches...
+Tested:17 patches
+Compile failed:14 patches
+Compilation rate:0.17647058823529413
+NNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/3.java
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+INSERT:
+8:return startIndex>=0?(startIndex<size?startIndex:size):0;
+TO:
+7
+
+DELETE:
+Original line: 11if(strLen==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+INSERT:
+18:if(startIndex==size-len){
+if(regionMatches(this,true,startIndex,str,0,len)){
+return startIndex;
+}
+else{
+return -1;
+}
+}
+TO:
+16
+
+DELETE:
+Original line: 19outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+UPDATE
+FROM:
+17:char[] thisBuf=buffer;
+TO:
+28:char[] thisBuf=value;
+
+INSERT:
+29:char[] valueBuf=str.value;
+TO:
+17
+
+INSERT:
+30:int i=0;
+TO:
+17
+
+INSERT:
+31:char ch=valueBuf[i];
+TO:
+17
+
+INSERT:
+32:int max=sublen+startIndex;
+TO:
+17
+
+INSERT:
+34:for(int j=startIndex>=0?startIndex:0;j<max&&i<max2;j++){
+if(thisBuf[j]!=ch){
+while(++i<max2&&valueBuf[i]!=ch){
+;
+}
+}
+if(i==max2){
+return -1;
+}
+if(regionMatches(true,thisBuf,j,valueBuf,i,len)){
+return j;
+}
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+UPDATE
+FROM:
+7:int strLen=str.length();
+TO:
+6:int len=str.length();
+
+INSERT:
+8:return startIndex>=0?(startIndex<size?startIndex:size):0;
+TO:
+7
+
+DELETE:
+Original line: 9return indexOf(str.charAt(0),startIndex);
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(len>size){
+return -1;
+}
+
+DELETE:
+Original line: 12return startIndex;
+
+INSERT:
+16:return -1;
+TO:
+16
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+INSERT:
+19:if(regionMatches(this,true,startIndex,str,0,len)){
+return startIndex;
+}
+TO:
+16
+
+INSERT:
+23:return -1;
+TO:
+23
+
+INSERT:
+29:char[] valueBuf=str.value;
+TO:
+17
+
+INSERT:
+33:int max2=valueBuf.length;
+TO:
+17
+
+INSERT:
+35:if(thisBuf[j]!=ch){
+while(++i<max2&&valueBuf[i]!=ch){
+;
+}
+}
+TO:
+17
+
+INSERT:
+38:if(i==max2){
+return -1;
+}
+TO:
+17
+
+INSERT:
+42:return j;
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:590 patches
+Compile failed:553 patches
+Compilation rate:0.06271186440677966
+NNNNNNNNNNPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNPPNNNNNPNNNNPNNPNNNNPNNNNPNPNPNPNNPNNNNNNNNNPNNNNNNPNNPNPNPNNPNNNPPPNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/4.java
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.length()==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+14:int len=thisBuf.length-str.length();
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+15:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < str.length(); j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.length()==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+15:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < str.length(); j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 116 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.length()==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 9return indexOf(str.charAt(0),startIndex);
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+14:int len=thisBuf.length-str.length();
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+DELETE:
+Original line: 9return indexOf(str.charAt(0),startIndex);
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+14:int len=thisBuf.length-str.length();
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+15:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < str.length(); j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.length()==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 9return indexOf(str.charAt(0),startIndex);
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+14:int len=thisBuf.length-str.length();
+
+Tested:1354 patches
+Compile failed:1231 patches
+Compilation rate:0.09084194977843427
+NNNNPPPPPPPPPPNNNPNPNNPPPPNNNNNNNPNPPPPPPPPPPNPNPPPPPPNPPNNNNNNNNPNPPNNNNNNNPPNPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNPNPNNNNNNNPPNNNNNPNPNNNNNPNNNNNPPNNNNNNNPNNPNPNNNPNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNPNNPNPNNNPNNPNNNPNPNNNNNNPNPNNNPNPNNNNNNNPNNNPPNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNPNNNNNPNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/5.java
+Current actions:
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+17:int len=size-strLen;
+TO:
+16
+
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+18:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != buffer[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:int len=size-strLen;
+TO:
+16
+
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+18:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != buffer[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Following are 3th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+17:int len=size-strLen;
+TO:
+16
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+18:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != buffer[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Following are 4th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Tested:1438 patches
+Compile failed:1297 patches
+Compilation rate:0.09805285118219749
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/6.java
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+    if (str == null || startIndex >= size) {
+      return -1;
+    }
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+      return startIndex;
+    }
+int endIndex=size-strLen;
+    if (strLen > size) {
+      return -1;
+    }
+    char[] thisBuf=buffer;
+    int len=thisBuf.length - strLen;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+1 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:57:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    startIndex=(startIndex < 0 ? 0 : startIndex);
+    if (str == null || startIndex >= size) {
+      return -1;
+    }
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+      return startIndex;
+    }
+int endIndex=size-strLen;
+    if (strLen > size) {
+      return -1;
+    }
+    char[] thisBuf=buffer;
+    int len=thisBuf.length - strLen;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:57:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+    startIndex=(startIndex < 0 ? 0 : startIndex);
+    if (str == null || startIndex >= size) {
+      return -1;
+    }
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+      return startIndex;
+    }
+int endIndex=size-strLen;
+    if (strLen > size) {
+      return -1;
+    }
+    char[] thisBuf=buffer;
+    int len=thisBuf.length - strLen;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+3 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:57:43 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+16:int endIndex=size-strLen;
+TO:
+13
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+21:outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 1th generated patches:
+Validating 26 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+INSERT:
+11:return startIndex<size?startIndex:size;
+TO:
+11
+
+DELETE:
+Original line: 12return startIndex;
+
+INSERT:
+13:if(startIndex<0){
+startIndex=0;
+}
+TO:
+13
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+17:if(startIndex>endIndex){
+return -1;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+21:outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 86 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+INSERT:
+11:return startIndex<size?startIndex:size;
+TO:
+11
+
+DELETE:
+Original line: 12return startIndex;
+
+INSERT:
+13:if(startIndex<0){
+startIndex=0;
+}
+TO:
+13
+
+INSERT:
+16:int endIndex=size-strLen;
+TO:
+13
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+17:if(startIndex>endIndex){
+return -1;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+21:outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 3th generated patches:
+Validating 137 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+4 th patch/449
+Trace:
+
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:03 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=newLine.length();
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+5 th patch/449
+Trace:
+Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH;IfStmt;Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:03 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<=size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+6 th patch/449
+Trace:
+ReturnStmt;ConditionalExpr;InfixExpr;CMPOP
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=nullText.length();
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+7 th patch/449
+Trace:
+Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH;IfStmt;Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>=endIndex){
+return -1;
+}
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+8 th patch/449
+Trace:
+UPDATEIfStmt;InfixExpr;CMPOP;UPDATEInfixExpr
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<=0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+9 th patch/449
+Trace:
+InfixExpr;CMPOP;IfStmt;InfixExpr;CMPOP
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:strLen;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+10 th patch/449
+Trace:
+ReturnStmt;ConditionalExpr;SName
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(!(startIndex>0)){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+11 th patch/449
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;CMPOP
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:CAPACITY;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+12 th patch/449
+Trace:
+ReturnStmt;ConditionalExpr;SName
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:startIndex;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+13 th patch/449
+Trace:
+ReturnStmt;ConditionalExpr;SName
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=0;
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+return -1;
+}
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+14 th patch/449
+Trace:
+VarDeclarationStmt;Vdf;InfixExpr;SName
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_61_buggy/src/java/org/apache/commons/lang/text/StrBuilder.java
+SUCCESS
+//Following are generated patch:
+  public int indexOf(  String str,  int startIndex){
+if(str==null){
+return -1;
+}
+    int strLen=str.length();
+    if (strLen == 1) {
+      return indexOf(str.charAt(0),startIndex);
+    }
+    if (strLen == 0) {
+return startIndex<size?startIndex:size;
+    }
+if(startIndex<0){
+startIndex=str.length();
+}
+int endIndex=size-strLen;
+if(startIndex>endIndex){
+      return -1;
+    }
+    char[] thisBuf=buffer;
+outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+    return -1;
+  }
+
+15 th patch/449
+Trace:
+Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH;IfStmt;Blk;ExpressionStmt;Assign;ADDSTRINGLENGTH
+START : 
+2024.04.07 AD at 15:53:32 HKT
+---------TIME : 
+2024.04.07 AD at 15:59:04 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+INSERT:
+11:return startIndex<size?startIndex:size;
+TO:
+11
+
+DELETE:
+Original line: 12return startIndex;
+
+INSERT:
+14:startIndex=0;
+TO:
+13
+
+INSERT:
+16:int endIndex=size-strLen;
+TO:
+13
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+17:if(startIndex>endIndex){
+return -1;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+21:outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 4th generated patches:
+Validating 93 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+INSERT:
+11:return startIndex<size?startIndex:size;
+TO:
+11
+
+INSERT:
+13:if(startIndex<0){
+startIndex=0;
+}
+TO:
+13
+
+INSERT:
+16:int endIndex=size-strLen;
+TO:
+13
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+21:outer: for (int i=startIndex; i <= endIndex; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Tested:1957 patches
+Compile failed:1660 patches
+Compilation rate:0.15176290240163515
+NNNNNNNNNPPNPNNPPNPPPNNNNNPNNNNPNNNPPNPNNNNPNNPNNNPNPNNPNNNNNPPPPNNNNPNPNNNPPNNNPNNPNPPNNNNNNNNNNNNNNNPNNNNNNPPPPNPPNNPNPPNNNNNPNPPPNPNNNPPNNNNNNPPPNNPNPNNNNPNPPPNPNNPPPPNPNNNNNNPNPNPNNPNNPNNNNNPPPPPPNNNNNNNNNNNNNPNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNPNNPNNPNPPPNNNNPPPPNPPPNNPNNNPNNNNPNPNNNNNNNNNNPNNNNNNNPNPNNNNNNPPPPNPNNNNNPPNNNNNNPNPNNNNNNNNNPPPNPPNNPNNPNNPPPNPPPPPPNNNNNNNNNNNNNPNNNPNNNNNNNPNPNNNPPPPPNNNNNNNNNNPNNPNNNPNNNNNNPPPNPPNNPPNNNNPNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/7.java
+Current actions:
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+17:char[] thisBuf=value.toCharArray();
+TO:
+16
+
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+17:char[] thisBuf=value.toCharArray();
+TO:
+16
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 17char[] thisBuf=buffer;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:1971 patches
+Compile failed:1672 patches
+Compilation rate:0.15169964485032977
+NNNNNNPPNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/8.java
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+TO:
+7:if(len==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+INSERT:
+10:if(len==0){
+return (startIndex<0?0:startIndex);
+}
+TO:
+10
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+13:if(len>size){
+return -1;
+}
+
+UPDATE
+FROM:
+4:if(str==null||startIndex>=size){
+return -1;
+}
+TO:
+19:if(startIndex>size-len){
+return -1;
+}
+
+INSERT:
+24:int max=strStartIndex+len;
+TO:
+17
+
+INSERT:
+27:for(int i=startIndex;i<=endIndex;i++){
+if(thisBuf[i]==ch){
+if(max>thisBuf.length){
+return indexOf(str,i+1);
+}
+if(regionMatches(i,str,true)){
+return i;
+}
+}
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2369 patches
+Compile failed:2046 patches
+Compilation rate:0.13634444913465596
+NNNNNNNNNNNNNPPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNPNNPNNPNPNNNNNNNNNNNPNPNNNPPNPNNPNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/9.java
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+18:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < str.length(); j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+8:if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+TO:
+7:if(str.length()==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+13:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+17:int len=thisBuf.length-str.length();
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+18:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < str.length(); j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+10:if(str.length()==0){
+return startIndex;
+}
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+13:if(str.length()>size){
+return -1;
+}
+
+Following are 3th generated patches:
+Validating 115 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+10:if(str.length()==0){
+return startIndex;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+17:int len=thisBuf.length-str.length();
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+TO:
+7:if(str.length()==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+10:if(str.length()==0){
+return startIndex;
+}
+
+Tested:2924 patches
+Compile failed:2551 patches
+Compilation rate:0.12756497948016415
+NNPPPPPPPPPPNNNNNNNNNNPPPPPPPPPPNNPPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNPNNNPNNNNPNPNNNNNNNNPNNNPNNPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/10.java
+Current actions:
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+18:int len=thisBuf.length-strLen+1;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+18:int len=thisBuf.length-strLen+1;
+
+Following are 1th generated patches:
+Validating 26 patches...
+Tested:2951 patches
+Compile failed:2573 patches
+Compilation rate:0.12809217214503557
+PNNNNNNNNNNNNNNNPPNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/11.java
+Current actions:
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+INSERT:
+6:int offset=0;
+TO:
+6
+
+UPDATE
+FROM:
+7:int strLen=str.length();
+TO:
+7:int len=str.length();
+
+DELETE:
+Original line: 12return startIndex;
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+14:if(len>size){
+return -1;
+}
+
+INSERT:
+17:startIndex=(startIndex<0?0:startIndex);
+TO:
+16
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+19:outer: for (int i=startIndex; i < size - len + 1; i++) {
+  for (int j=0; j < len; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 1th generated patches:
+Validating 190 patches...
+Current actions:
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+UPDATE
+FROM:
+7:int strLen=str.length();
+TO:
+7:int len=str.length();
+
+DELETE:
+Original line: 12return startIndex;
+
+INSERT:
+12:return startIndex>=size?startIndex:(startIndex<0?0:startIndex);
+TO:
+10
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+14:if(len>size){
+return -1;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+INSERT:
+6:int offset=0;
+TO:
+6
+
+DELETE:
+Original line: 11if(strLen==0){
+return startIndex;
+}
+
+INSERT:
+12:return startIndex>=size?startIndex:(startIndex<0?0:startIndex);
+TO:
+10
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+Following are 3th generated patches:
+Validating 68 patches...
+Current actions:
+INSERT:
+3:if(str==null){
+return -1;
+}
+TO:
+2
+
+INSERT:
+6:int offset=0;
+TO:
+6
+
+UPDATE
+FROM:
+8:if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+TO:
+8:if(len==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+DELETE:
+Original line: 11if(strLen==0){
+return startIndex;
+}
+
+INSERT:
+11:if(len==0){
+return startIndex>=size?startIndex:(startIndex<0?0:startIndex);
+}
+TO:
+10
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+14:if(len>size){
+return -1;
+}
+
+DELETE:
+Original line: 18int len=thisBuf.length-strLen;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+19:outer: for (int i=startIndex; i < size - len + 1; i++) {
+  for (int j=0; j < len; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:3764 patches
+Compile failed:3351 patches
+Compilation rate:0.10972369819341127
+NNNNNNNNNPNPPPPNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNPNPNNNNNNPNNNNNNPNNPPNNNNNNNNNNNNNNPNNPNNNNNNNNNNNPNNNPNPNNNPNPNPNNPNNPNNNNNPNNNPNNNPNNNNNNPNNNNNNNNPNNNNNNNNNNPNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/12.java
+Current actions:
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+3:if(str==null){
+return -1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+DELETE:
+Original line: 5return -1;
+
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+7:int len=thisBuf.length-str.length();
+
+INSERT:
+8:startIndex=(startIndex<0?0:startIndex);
+TO:
+18
+
+INSERT:
+9:for(int i=startIndex;i<=len;i++){
+if(str.regionMatches(0,thisBuf,i,str.length())){
+return i;
+}
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3startIndex=(startIndex<0?0:startIndex);
+
+DELETE:
+Original line: 4if(str==null||startIndex>=size){
+return -1;
+}
+
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+7:int len=thisBuf.length-str.length();
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+INSERT:
+8:startIndex=(startIndex<0?0:startIndex);
+TO:
+18
+
+INSERT:
+9:for(int i=startIndex;i<=len;i++){
+if(str.regionMatches(0,thisBuf,i,str.length())){
+return i;
+}
+}
+TO:
+18
+
+DELETE:
+Original line: 11if(strLen==0){
+return startIndex;
+}
+
+DELETE:
+Original line: 19outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4324 patches
+Compile failed:3835 patches
+Compilation rate:0.11308973172987974
+NNNNPPPPNPPPPNNNNNPPPNNPPPPNNNNNNNNPNNPPNPPPNNPNPPNPPNNPNNNNNPNPNNNNNNNNPNNPNNNPNPNPPPNPPNNNPPPPPNNPPNPNNPNPPPNNPPNPPNPPNNNPNPNPNNNPNNNPNNPPPPNPNNPNNPNNPNPNNNPNNPNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_61/13.java
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.isEmpty()){
+return startIndex;
+}
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+15:int len=thisBuf.length-thatBuf.length;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+16:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < thatBuf.length; j++) {
+    if (thatBuf[j] != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(strLen>size){
+return -1;
+}
+TO:
+10:if(str.length()>size){
+return -1;
+}
+
+INSERT:
+14:char[] thatBuf=str.toCharArray();
+TO:
+17
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+15:int len=thisBuf.length-thatBuf.length;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+16:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < thatBuf.length; j++) {
+    if (thatBuf[j] != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 2th generated patches:
+Validating 74 patches...
+Current actions:
+DELETE:
+Original line: 7int strLen=str.length();
+
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.isEmpty()){
+return startIndex;
+}
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+INSERT:
+14:char[] thatBuf=str.toCharArray();
+TO:
+17
+
+UPDATE
+FROM:
+18:int len=thisBuf.length-strLen;
+TO:
+15:int len=thisBuf.length-thatBuf.length;
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+16:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < thatBuf.length; j++) {
+    if (thatBuf[j] != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 3th generated patches:
+Validating 50 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.isEmpty()){
+return startIndex;
+}
+
+DELETE:
+Original line: 8if(strLen==1){
+return indexOf(str.charAt(0),startIndex);
+}
+
+INSERT:
+14:char[] thatBuf=str.toCharArray();
+TO:
+17
+
+UPDATE
+FROM:
+19:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < strLen; j++) {
+    if (str.charAt(j) != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+TO:
+16:outer: for (int i=startIndex; i < len; i++) {
+  for (int j=0; j < thatBuf.length; j++) {
+    if (thatBuf[j] != thisBuf[i + j]) {
+      continue outer;
+    }
+  }
+  return i;
+}
+
+
+Following are 4th generated patches:
+Validating 20 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(strLen==0){
+return startIndex;
+}
+TO:
+7:if(str.isEmpty()){
+return startIndex;
+}
+
+Tested:4602 patches
+Compile failed:4064 patches
+Compilation rate:0.11690569317687961
+NNNNNNNNPPNPPNPPPNNPNNNNPNNPPPNNNNNNPNNNPNNNPNNNNNNNNNNPNNPPNPPNNPNNPNPNPNNPNPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNPPNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPP
+Finish : lang-61 > patch : 15 | Start : Sun Apr 07 15:53:32 HKT 2024 | End : 2024.04.07 AD at 16:05:10 HKT

@@ -1,0 +1,1420 @@
+Repair : closure_172
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/0.java
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+24:if(contents!=null){
+for(String name : contents.getEscapedQualifiedNames()){
+if(name.equals(qName)){
+return false;
+}
+}
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 68 patches...
+Current actions:
+DELETE:
+Original line: 25return false;
+
+INSERT:
+26:if(name.equals(qName)){
+return false;
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 198 patches...
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+INSERT:
+24:if(contents!=null){
+for(String name : contents.getEscapedQualifiedNames()){
+if(name.equals(qName)){
+return false;
+}
+}
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+INSERT:
+26:if(name.equals(qName)){
+return false;
+}
+TO:
+23
+
+Following are 4th generated patches:
+Validating 199 patches...
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/1.java
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+23:if(!inInnerScope()){
+return false;
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+23:if(!inInnerScope()){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+23:if(!inInnerScope()){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+23:if(!inInnerScope()){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/3.java
+Current actions:
+UPDATE
+FROM:
+25:return false;
+TO:
+25:return true;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+25:return false;
+TO:
+25:return true;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/4.java
+Current actions:
+DELETE:
+Original line: 9boolean inferred=true;
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+10:if(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())){
+return false;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:if(FunctionTypeBuilder.isFunctionTypeDeclaration(info)){
+return false;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 104 patches...
+Current actions:
+UPDATE
+FROM:
+13:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+TO:
+17:if(rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 9boolean inferred=true;
+
+INSERT:
+10:if(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())){
+return false;
+}
+TO:
+10
+
+DELETE:
+Original line: 11inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+
+INSERT:
+13:if(FunctionTypeBuilder.isFunctionTypeDeclaration(info)){
+return false;
+}
+TO:
+10
+
+UPDATE
+FROM:
+29:return inferred;
+TO:
+33:return true;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:return false;
+TO:
+10
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/5.java
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+23:current=current.getParent();
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+19:while(!(current.isScript()||current.isFunction())){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+current=current.getParent();
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+18:Node current=n.getParent();
+TO:
+17
+
+INSERT:
+19:while(!(current.isScript()||current.isFunction())){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+current=current.getParent();
+}
+TO:
+17
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/6.java
+Current actions:
+INSERT:
+29:if(inferred){
+for(Node current=n.getParent();current!=null;current=current.getParent()){
+if(current.isMemberOfClass()){
+return true;
+}
+}
+}
+TO:
+28
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+29:if(inferred){
+for(Node current=n.getParent();current!=null;current=current.getParent()){
+if(current.isMemberOfClass()){
+return true;
+}
+}
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(current.isMemberOfClass()){
+return true;
+}
+TO:
+28
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:for(Node current=n.getParent();current!=null;current=current.getParent()){
+if(current.isMemberOfClass()){
+return true;
+}
+}
+TO:
+28
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:return true;
+TO:
+28
+
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/7.java
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 1th generated patches:
+Validating 72 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/8.java
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+19:if(current.isIf()){
+current=current.getParent();
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:current=current.getParent();
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+19:if(current.isIf()){
+current=current.getParent();
+}
+TO:
+17
+
+INSERT:
+22:if(NodeUtil.isControlStructure(current)){
+return true;
+}
+TO:
+17
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+18:Node current=n.getParent();
+TO:
+17
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/9.java
+Current actions:
+INSERT:
+29:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+return false;
+}
+TO:
+28
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+return false;
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:return false;
+TO:
+28
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/10.java
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&contents.getEscapedQualifiedNames().contains(qName)){
+return true;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&contents.getEscapedQualifiedNames().contains(qName)){
+return true;
+}
+
+Following are 1th generated patches:
+Validating 72 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&contents.getEscapedQualifiedNames().contains(qName)){
+return true;
+}
+
+UPDATE
+FROM:
+25:return false;
+TO:
+25:return true;
+
+Following are 2th generated patches:
+Validating 73 patches...
+Current actions:
+UPDATE
+FROM:
+25:return false;
+TO:
+25:return true;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/11.java
+Current actions:
+DELETE:
+Original line: 29return inferred;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 29return inferred;
+
+INSERT:
+29:return inferred&&!scope.hasGlobalScope(qName);
+TO:
+28
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 29return inferred;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:return inferred&&!scope.hasGlobalScope(qName);
+TO:
+28
+
+Following are 3th generated patches:
+Validating 9 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/12.java
+Current actions:
+INSERT:
+29:if(rhsValue!=null){
+return inferred;
+}
+TO:
+28
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+29:if(rhsValue!=null){
+return inferred;
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:if(jsdoc!=null&&jsdoc.isOptionalArg()){
+return true;
+}
+TO:
+28
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:return inferred;
+TO:
+28
+
+INSERT:
+33:if(jsdoc!=null&&jsdoc.isOptionalArg()){
+return true;
+}
+TO:
+28
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(rhsValue!=null){
+return inferred;
+}
+TO:
+28
+
+INSERT:
+32:JSDocInfo jsdoc=n.getJSDocInfo();
+TO:
+28
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/13.java
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+23:if(!getFunctionAnalysisResults(scope.getRootNode()).getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+23:if(!getFunctionAnalysisResults(scope.getRootNode()).getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/14.java
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+24:if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+TO:
+24:if(contents!=null&&!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 1th generated patches:
+Validating 36 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/15.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[return false;]
+Following are 0th generated patches:
+Validating 148 patches...
+Current actions:
+INSERT:
+9:if(info!=null&&(info.hasType()||info.hasEnumParameterType())){
+return false;
+}
+TO:
+8
+
+DELETE:
+Original line: 25return false;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(info!=null&&(info.hasType()||info.hasEnumParameterType())){
+return false;
+}
+TO:
+8
+
+DELETE:
+Original line: 11inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+
+INSERT:
+13:if(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType()){
+inferred=false;
+}
+TO:
+9
+
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+DELETE:
+Original line: 25return false;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/16.java
+Current actions:
+INSERT:
+29:if(info!=null&&info.isConstant()&&info.isEnum()){
+return false;
+}
+TO:
+28
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+29:if(info!=null&&info.isConstant()&&info.isEnum()){
+return false;
+}
+TO:
+28
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+30:return false;
+TO:
+28
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/17.java
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+23:if(scope.getScopeType()==Scope.LOCAL_FUNCTION){
+return false;
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:if(scope.getScopeType()==Scope.LOCAL_FUNCTION){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:if(scope.getScopeType()==Scope.LOCAL_FUNCTION){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:if(scope.getScopeType()==Scope.LOCAL_FUNCTION){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/18.java
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+Following are 0th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+20:if(NodeUtil.isControlStructure(parent)){
+return true;
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+23:parent=parent.getParent();
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:Node parent=n.getParent();
+TO:
+17
+
+DELETE:
+Original line: 18for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+
+INSERT:
+20:if(NodeUtil.isControlStructure(parent)){
+return true;
+}
+TO:
+17
+
+INSERT:
+23:parent=parent.getParent();
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/19.java
+Current actions:
+DELETE:
+Original line: 9boolean inferred=true;
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+UPDATE
+FROM:
+13:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+TO:
+9:if(rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+29:return inferred;
+TO:
+25:return true;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9boolean inferred=true;
+
+UPDATE
+FROM:
+13:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+TO:
+9:if(rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+
+DELETE:
+Original line: 11inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+
+UPDATE
+FROM:
+29:return inferred;
+TO:
+25:return true;
+
+Following are 3th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9boolean inferred=true;
+
+UPDATE
+FROM:
+13:if(inferred&&rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+TO:
+9:if(rhsValue!=null&&rhsValue.isFunction()){
+if(info!=null){
+return false;
+}
+else{
+if(!scope.isDeclared(qName,false)&&n.isUnscopedQualifiedName()){
+for(Node current=n.getParent();!(current.isScript()||current.isFunction());current=current.getParent()){
+if(NodeUtil.isControlStructure(current)){
+return true;
+}
+}
+AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+}
+}
+}
+
+DELETE:
+Original line: 10if(info!=null){
+inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+}
+
+UPDATE
+FROM:
+29:return inferred;
+TO:
+25:return true;
+
+Following are 4th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 10if(info!=null){
+inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+}
+
+UPDATE
+FROM:
+29:return inferred;
+TO:
+25:return true;
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/20.java
+Current actions:
+DELETE:
+Original line: 11inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11inferred=!(info.hasType()||info.hasEnumParameterType()||(isConstantSymbol(info,n)&&valueType!=null&&!valueType.isUnknownType())||FunctionTypeBuilder.isFunctionTypeDeclaration(info));
+
+INSERT:
+11:inferred=!(info.hasType()||info.hasEnumParameterType());
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:inferred=!(info.hasType()||info.hasEnumParameterType());
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/21.java
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 0th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+24:if(contents!=null){
+if(contents.getEscapedQualifiedNames().contains(qName)){
+inferredTypes.put(qName,TypeInference.createInferredType(valueType));
+declaredTypes.put(qName,TypeInference.createDeclaredType(valueType));
+}
+else{
+return false;
+}
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:if(contents.getEscapedQualifiedNames().contains(qName)){
+inferredTypes.put(qName,TypeInference.createInferredType(valueType));
+declaredTypes.put(qName,TypeInference.createDeclaredType(valueType));
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(contents!=null){
+if(contents.getEscapedQualifiedNames().contains(qName)){
+inferredTypes.put(qName,TypeInference.createInferredType(valueType));
+declaredTypes.put(qName,TypeInference.createDeclaredType(valueType));
+}
+else{
+return false;
+}
+}
+TO:
+23
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+INSERT:
+33:else{
+return false;
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:else{
+return false;
+}
+TO:
+23
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_172/22.java
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+23:if(scope.getClosestHoistScope().isDeclared(qName,false)){
+return false;
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 152 patches...
+Current actions:
+INSERT:
+23:if(scope.getClosestHoistScope().isDeclared(qName,false)){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 2th generated patches:
+Validating 154 patches...
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+23:if(scope.getClosestHoistScope().isDeclared(qName,false)){
+return false;
+}
+TO:
+22
+
+DELETE:
+Original line: 24if(contents==null||!contents.getEscapedQualifiedNames().contains(qName)){
+return false;
+}
+
+Following are 4th generated patches:
+Validating 153 patches...
+Current actions:
+DELETE:
+Original line: 23AstFunctionContents contents=getFunctionAnalysisResults(scope.getRootNode());
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Finish : closure-172 > patch : 0 | Start : Tue Apr 09 13:49:23 HKT 2024 | End : 2024.04.09 AD at 13:50:41 HKT

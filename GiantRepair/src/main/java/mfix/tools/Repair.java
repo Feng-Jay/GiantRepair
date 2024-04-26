@@ -23,6 +23,7 @@ import org.apache.commons.cli.*;
 import org.eclipse.jdt.core.dom.ASTVisitor;
 import org.eclipse.jdt.core.dom.CompilationUnit;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
+import org.eclipse.jdt.core.dom.Modifier;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,6 +57,8 @@ public class Repair {
     private List<String> _currentFailedTests = new ArrayList<>();
 
     private Set<String> _generatedPatches = new HashSet<>();
+
+    private String _compileResults = "";
 
     private int _allTestedPatches;
 
@@ -275,6 +278,9 @@ public class Repair {
     }
 
     private List<Triple<String, Double, String>> rankPatches1(List<Triple<String, Double, String>> patches, int num){
+        if (!Constant.RANK_PATCHES){
+            return patches.subList(0, Math.min(patches.size(), Constant.MAX_INSTANCE_PER_SKELETON));
+        }
         patches.sort(new Comparator<Triple<String, Double, String>>() {
             @Override
             public int compare(Triple<String, Double, String> o1, Triple<String, Double, String> o2) {
@@ -284,7 +290,7 @@ public class Repair {
         int maxPatchRank = 1000;
         List<Triple<String, Double, String>> rankedPatches = new ArrayList<>();
         for(Triple<String, Double, String> tuple: patches){
-//            if(patches.size() > 100 && num >= 30 && tuple.getSecond() > 0 && tuple.getSecond() <= 0.1) continue;
+            if(patches.size() > 100 && num >= 30 && tuple.getSecond() > 0 && tuple.getSecond() <= 0.1) continue;
 //            if(_generatedPatches.contains(tuple.getFirst())){
 //                continue;
 //            }else{
@@ -293,7 +299,9 @@ public class Repair {
             rankedPatches.add(new Triple<>(tuple.getFirst(), tuple.getSecond(), tuple.getThird()));
             if(rankedPatches.size() >= maxPatchRank) break;
         }
-        return rankedPatches;
+//        System.out.println(rankedPatches);
+        return rankedPatches.subList(0, Math.min(rankedPatches.size(), Constant.MAX_INSTANCE_PER_SKELETON));
+//        return rankedPatches;
     }
 
     public List<String> preprocessFunction(List<String> pre, List<String> oricontent){
@@ -470,9 +478,16 @@ public class Repair {
                 String patch = tmpPatches.get(Integer.parseInt(id));
                 String trace = tmpTraces.get(Integer.parseInt(id));
                 boolean fixed = tmp.get("succlist") != null && tmp.get("succlist").equals("s");
-                _allTestedPatches += 1;
+                if (tmp.get("succlist") != null){
+                    _allTestedPatches += 1;
+                }
                 if(tmp.get("succlist") != null && tmp.get("succlist").equals("C")){
                     _compileFailedPatches += 1;
+                    _compileResults = _compileResults + "N";
+                    JavaFile.writeStringToFile("./uncompile.txt", "Compile Error:\n" + patch, true);
+                }
+                if (tmp.get("succlist") != null && !tmp.get("succlist").equals("C")){
+                    _compileResults = _compileResults + "P";
                 }
                 if(fixed){
                     if(_generatedPatches.contains(patch)) {
@@ -592,6 +607,16 @@ public class Repair {
         final List<MethodDeclaration> lst = new ArrayList<>();
         unit.accept(new ASTVisitor() {
             public boolean visit(MethodDeclaration node) {
+                for (Object modifierObj : node.modifiers()) {
+                    if (modifierObj instanceof Modifier) {
+                        Modifier modifier = (Modifier) modifierObj;
+                        // Check if the modifier is static
+                        if (modifier.isStatic()) {
+                            _subject.setIsStatic(true);
+                            break;
+                        }
+                    }
+                }
                 lst.add(node);
                 return false;
             }
@@ -686,14 +711,19 @@ public class Repair {
 //        String buggyMethodFile = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/potential_bugs_starcoder/"+_subject.getName()+"_"+_subject.getId()+"/buggy.java";
 //        String patchesDir      = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/valuable_patches_starcoder/"+_subject.getName()+"_"+_subject.getId();
         // for Mac
-//        String buggyMethodFile = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/potential_bugs_gpt35_real/"+_subject.getName()+"_"+_subject.getId()+"/buggy.java";
-//        String patchesDir      = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/valuable_patches_gpt35_real/"+_subject.getName()+"_"+_subject.getId();
+//        String buggyMethodFile = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/buggy_methods/" + _subject.getName() + "-" + _subject.getId() + ".java";
+//        String patchesDir      = "/Users/ffengjay/Postgraduate/PLM4APR/codex_out/200_patches_"+_subject.getLLmName()+"_all/"+_subject.getName()+"_"+_subject.getId();
         // for Linux
-        String buggyMethodFile = Constant.BUGGY_METHODS_DIR + _subject.getName() + "_" + _subject.getId() + "/buggy.java";
-        String patchesDir      = Constant.PATCHES_DIR + _subject.getName() + "_" + _subject.getId();
-//        String patchesDir      = "/data/PLM4APR/codex_out/200_patches_"+_subject.getLLmName()+"/"+_subject.getName()+"_"+_subject.getId();
+        String buggyMethodFile = "/data/PLM4APR/codex_out/buggy_methods/" + _subject.getName() + "-" + _subject.getId() + ".java";
+        String patchesDir      = "/data/PLM4APR/codex_out/200_patches_"+_subject.getLLmName()+"_all/"+_subject.getName()+"_"+_subject.getId();
+        List<String> patchFuncsTmp = new ArrayList<>();
+        JavaFile.ergodic(patchesDir, patchFuncsTmp);
         List<String> patchFuncs = new ArrayList<>();
-        JavaFile.ergodic(patchesDir, patchFuncs);
+        for (int i = 0; i < patchFuncsTmp.size(); ++i){
+            if (i!=2) continue;
+            if (i>2) break;
+            patchFuncs.add(patchesDir + "/" + i + ".java");
+        }
 //        LevelLogger.debug("patchFuncs:"+patchFuncs);
 //        for(int patchid =0; patchid < patchFuncs.size(); ++patchid) {
 //            if(patchid > 59){
@@ -761,7 +791,11 @@ public class Repair {
             // apply all changes
 //            LevelLogger.debug("Example2:"+fixPositions.get(fixPositions.size()-1));
             assert fixPositions != null;
+//            LevelLogger.debug("fixpositions: " + fixPositions);
             for(List<List<MyActions>> fixPosition: fixPositions){
+                if (fixPosition == null || fixPosition.isEmpty()){
+                    continue;
+                }
                 JavaFile.writeStringToFile(_logfile, "Current actions:\n", true);
                 for(MyActions actions: fixPosition.get(0)){
                    JavaFile.writeStringToFile(_logfile, actions.toString() + "\n", true);
@@ -797,13 +831,13 @@ public class Repair {
                     patchesV2.add(new Pair<>(patch, similarity));
                     patchesV3.add(new Triple<>(patch, similarity, tmpTrace));
                 }
-                boolean fixed = validPatch(patchesV3, buggyMethodFile, patchFunc,srcFile, binFile);
-                if(fixed){
-                    LevelLogger.info("FIXED!!!");
-                    LevelLogger.info("Patch found in "+fixPositions.indexOf(fixPosition)+" th fixpositions!");
-                    break;
-                }
-//                validPatchExpressAPR(patchesV3, srcFile, binFile, buggyMethodFile);
+//                boolean fixed = validPatch(patchesV3, buggyMethodFile, patchFunc,srcFile, binFile);
+//                if(fixed){
+//                    LevelLogger.info("FIXED!!!");
+//                    LevelLogger.info("Patch found in "+fixPositions.indexOf(fixPosition)+" th fixpositions!");
+//                    break;
+//                }
+                validPatchExpressAPR(patchesV3, srcFile, binFile, buggyMethodFile);
                 if (shouldStop()) {
                     break;
                 }
@@ -812,6 +846,8 @@ public class Repair {
             JavaFile.writeStringToFile(_logfile, "Compile failed:" + _compileFailedPatches + " patches\n", true);
             double compilationRate = (_allTestedPatches - _compileFailedPatches)*1.0/_allTestedPatches;
             JavaFile.writeStringToFile(_logfile, "Compilation rate:" + compilationRate + "\n", true);
+            JavaFile.writeStringToFile(_logfile, _compileResults + "\n", true);
+            _compileResults = "";
         }
     }
 

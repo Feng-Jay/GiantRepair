@@ -1,0 +1,819 @@
+Repair : closure_132
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/1.java
+Current actions:
+INSERT:
+141:if(thenBranchIsExpressionBlock&&thenBranch.getFirstChild().isIf()&&elseBranchIsExpressionBlock){
+Node innerThen=thenBranch.getFirstChild();
+Node innerElse=elseBranch.getFirstChild();
+if(innerThen.getFirstChild().isNot()&&innerThen.getFirstChild().getFirstChild().getNext()==innerElse){
+Node innerCond=innerThen.getFirstChild().getFirstChild();
+Node innerThenBranch=innerCond.getNext();
+Node innerElseBranch=innerThenBranch.getNext();
+if(innerElseBranch==null){
+Node innerThenExpr=getBlockExpression(innerThenBranch);
+Node innerElseExpr=getBlockExpression(innerElseBranch);
+n.removeChild(cond);
+innerCond.detachFromParent();
+innerThenExpr.detachFromParent();
+innerElseExpr.detachFromParent();
+Node and=IR.and(cond,innerCond).srcref(n);
+Node innerHookNode=IR.hook(and,innerThenExpr,innerElseExpr).srcref(n);
+Node expr=NodeUtil.newExpr(innerHookNode);
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+}
+}
+TO:
+140
+
+INSERT:
+164:if(thenBranchIsExpressionBlock&&thenBranch.getFirstChild().isIf()&&elseBranchIsExpressionBlock&&elseBranch.getFirstChild().isIf()){
+Node innerThen=thenBranch.getFirstChild();
+Node innerElse=elseBranch.getFirstChild();
+if(innerThen.getFirstChild().isNot()&&innerElse.getFirstChild().isNot()){
+Node innerCondThen=innerThen.getFirstChild().getFirstChild();
+Node innerCondElse=innerElse.getFirstChild().getFirstChild();
+Node innerThenBranch=innerCondThen.getNext();
+Node innerElseBranch=innerCondElse.getNext();
+if(innerElseBranch==null){
+Node innerThenExpr=getBlockExpression(innerThenBranch);
+Node innerElseExpr=getBlockExpression(innerElseBranch);
+n.removeChild(cond);
+innerCondThen.detachFromParent();
+innerThenExpr.detachFromParent();
+innerCondElse.detachFromParent();
+innerElseExpr.detachFromParent();
+Node andThen=IR.and(cond,innerCondThen).srcref(n);
+Node andElse=IR.and(cond,innerCondElse).srcref(n);
+Node innerThenHookNode=IR.hook(andThen,innerThenExpr,innerElseExpr).srcref(n);
+Node innerElseHookNode=IR.hook(andElse,innerElseExpr,innerElseExpr).srcref(n);
+Node hookNode=IR.hook(cond,innerThenHookNode,innerElseHookNode).srcref(n);
+Node expr=NodeUtil.newExpr(hookNode);
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+}
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:1 patches
+Compile failed:0 patches
+Compilation rate:1.0
+P
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/2.java
+Current actions:
+DELETE:
+Original line: 55tryRemoveRepeatedStatements(n);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 55tryRemoveRepeatedStatements(n);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:3 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/3.java
+Current actions:
+INSERT:
+141:n.removeChild(cond);
+TO:
+140
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+INSERT:
+146:reportCodeChange();
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+143:Node elseOp=elseBranch.detachFromParent();
+TO:
+140
+
+INSERT:
+145:parent.replaceChild(n,expr);
+TO:
+140
+
+INSERT:
+146:reportCodeChange();
+TO:
+140
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:465 patches
+Compile failed:327 patches
+Compilation rate:0.2967741935483871
+PNNNNNNPNNNNNNNNPPPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNPNPPPPNNNNNNNNPNPPPPPNNNNNNNPNPNPNNNPNPNPNPNNNNPPNNPNPNNPNNPNNNPNPPPPPNNNNPNNNPNNPPPNNPPNNPPNNNPNNPNPPNPPPNNPNNNPNPNNNPPPPPNNNPPNPNNPNNPNNNNNNNPNPNPPNNPNNNNPNNNNNNNPNPNNNPNPNNNPNNPNPPNNPNNNPNPNPNPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNPNPPPNNNNNNNNNNNNNNPNNNNNNNNPNPNNPPPPNPNNNNNPPNNNNNNNPNNPNNNNNNNNNNNPNNPNNNNNNNNPNNNNPNPNNNNPNNPNNNNNNNNNNNNNNNPNPNNNPPPNNNNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/4.java
+Current actions:
+INSERT:
+141:if(elseBranch.isIf()&&!consumesDanglingElse(elseBranch.getLastChild())&&!isDanglingElse(elseBranch.getLastChild())){
+Node outerCond=cond.detachFromParent();
+Node outerThenBranch=thenBranch.detachFromParent();
+Node outerElseBranch=elseBranch.detachFromParent();
+elseBranch=outerElseBranch.getNext();
+Node innerIf=elseBranch.detachFirstChild();
+Node innerCond=innerIf.getFirstChild();
+Node innerThenBranch=innerCond.getNext();
+Node innerElseBranch=innerThenBranch.getNext();
+innerIf.detachChildren();
+innerIf.addChildToBack(IR.and(innerCond.detachFromParent(),outerCond).srcref(innerCond));
+innerIf.addChildrenToBack(innerThenBranch.detachFromParent());
+elseBranch.addChildToBack(innerIf);
+outerIf.addChildToBack(outerThenBranch);
+outerIf.addChildrenToBack(outerElseBranch);
+reportCodeChange();
+return outerIf;
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+151:innerIf.addChildToBack(IR.and(innerCond.detachFromParent(),outerCond).srcref(innerCond));
+TO:
+140
+
+INSERT:
+152:innerIf.addChildrenToBack(innerThenBranch.detachFromParent());
+TO:
+140
+
+INSERT:
+153:elseBranch.addChildToBack(innerIf);
+TO:
+140
+
+INSERT:
+154:outerIf.addChildToBack(outerThenBranch);
+TO:
+140
+
+INSERT:
+155:outerIf.addChildrenToBack(outerElseBranch);
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:864 patches
+Compile failed:711 patches
+Compilation rate:0.17708333333333334
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNPPNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNPNNNPNNNPNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/5.java
+Current actions:
+INSERT:
+141:if(n.isIf()){
+Node ifNode=n;
+if(n.getParent().isBlock()){
+Node block=n.getParent();
+Node parent=block.getParent();
+if(parent!=null&&parent.isBlock()){
+return n;
+}
+if(block.hasOneChild()){
+return n;
+}
+}
+Node elseBranch=ifNode.getLastChild();
+if(!ifNode.isIf()||elseBranch.getNext()!=null){
+return n;
+}
+Node testNode=ifNode.getFirstChild();
+if(testNode.isOr()){
+return n;
+}
+Node thenBranch=testNode.getNext();
+if(!isVarAssignExpressBlock(thenBranch)){
+return n;
+}
+Node elseAssign=getBlockExpression(elseBranch).getFirstChild();
+if(!elseAssign.isAssign()||!elseAssign.getLastChild().isIf()){
+return n;
+}
+Node elseTestNode=elseAssign.getLastChild().getFirstChild();
+if(elseTestNode.getType()!=Token.NAME){
+return n;
+}
+Node elseAssignName=elseAssign.getFirstChild();
+if(!areNodesEqualForInlining(testNode,elseTestNode)||!areNodesEqualForInlining(elseAssignName,elseTestNode)||!areNodesEqualForInlining(thenBranch.getFirstChild(),elseAssignName)){
+return n;
+}
+if(thenBranch.getNext()!=null){
+return n;
+}
+Node elseIf=elseAssign.getLastChild();
+Node ifBranch=elseIf.getLastChild();
+if(!isVarAssignExpressBlock(ifBranch)){
+return n;
+}
+Node ifAssignName=ifBranch.getFirstChild();
+if(!areNodesEqualForInlining(ifAssignName,elseAssignName)){
+return n;
+}
+Node ifAssign=getBlockExpression(ifBranch).getFirstChild();
+if(!ifAssign.isAssign()||!areNodesEqualForInlining(ifAssign.getFirstChild(),ifAssignName)){
+return n;
+}
+Node ifExpr=ifAssign.getLastChild();
+if(!isFoldableExpressBlock(ifExpr)){
+return n;
+}
+Node ifOp=ifExpr.getFirstChild();
+if(!ifOp.isAssign()){
+return n;
+}
+Node ifAssignName2=ifOp.getFirstChild();
+if(!areNodesEqualForInlining(ifAssignName2,elseAssignName)){
+return n;
+}
+if(!areNodesEqualForInlining(ifAssignName2,ifAssignName)){
+return n;
+}
+Node ifAssignRHS=ifOp.getLastChild();
+Node elseAssignRHS=elseAssign.getLastChild();
+Node ifCond=ifNode.getFirstChild();
+Node elseCond=elseAssign.getFirstChild();
+if(ifAssignRHS.getType()!=elseAssignRHS.getType()){
+return n;
+}
+Node assign=new Node(ifOp.getType(),elseAssignName,IR.hook(ifCond,ifAssignRHS,elseAssignRHS).srcref(ifNode)).srcref(ifOp);
+Node expr=NodeUtil.newExpr(assign);
+parent.replaceChild(ifNode,expr);
+reportCodeChange();
+return expr;
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+153:Node elseBranch=ifNode.getLastChild();
+TO:
+140
+
+INSERT:
+180:Node elseIf=elseAssign.getLastChild();
+TO:
+140
+
+INSERT:
+198:if(!ifOp.isAssign()){
+return n;
+}
+TO:
+140
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1065 patches
+Compile failed:912 patches
+Compilation rate:0.14366197183098592
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/6.java
+Current actions:
+INSERT:
+141:if(elseBranchIsExpressionBlock){
+Node elseOp=getBlockExpression(elseBranch).getFirstChild();
+if(elseOp.isVar()){
+Node expr=IR.exprResult(elseOp);
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+142:Node elseOp=getBlockExpression(elseBranch).getFirstChild();
+TO:
+140
+
+INSERT:
+143:if(elseOp.isVar()){
+Node expr=IR.exprResult(elseOp);
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1292 patches
+Compile failed:1031 patches
+Compilation rate:0.2020123839009288
+NNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNPPPPPPPNPNNPNPPPPNPPPNNPPNNNNNNPNNNNPPPPNPNPPPPPPNNPNPPPPNPNPNPPNNNNNNNNNPNPPPNNPNPNPPNPNPPPPPPNNNNPNPPNPNPPPNPPPNNNNNNNNPPPPNNNPNNNNNNPPPPPNNPNNPPPPNNNPNNNPPPNNPNPNNPPPNNNPPNPNPNPPNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/7.java
+Current actions:
+INSERT:
+141:if(thenBranchIsExpressionBlock&&elseBranchIsExpressionBlock){
+Node thenOp=getBlockExpression(thenBranch).getFirstChild();
+Node elseOp=getBlockExpression(elseBranch).getFirstChild();
+n.removeChild(cond);
+thenOp.detachFromParent();
+elseOp.detachFromParent();
+Node expr=IR.exprResult(IR.hook(cond,thenOp,elseOp).srcref(n));
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 130 patches...
+Current actions:
+INSERT:
+142:Node thenOp=getBlockExpression(thenBranch).getFirstChild();
+TO:
+140
+
+INSERT:
+148:parent.replaceChild(n,expr);
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1621 patches
+Compile failed:1317 patches
+Compilation rate:0.1875385564466379
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNPNNNNNPNNNNNNNPPPNNNNPNNNNNPNNNPPNNNNNNNNNNPPNNPPNNNPNPNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNPPNNPPNNNNNNNNNNPNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNPPNNNNNNNNPNNNNNPNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/8.java
+Current actions:
+INSERT:
+141:if(cond.isName()){
+String condName=cond.getString();
+if(isUsedInExpression(cond,thenBranch)){
+Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(IR.not(cond)).srcref(cond));
+parent.replaceChild(cond,simplifiedCond);
+cond=simplifiedCond.getFirstChild();
+}
+else{
+if(isUsedInExpression(cond,elseBranch)){
+Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(cond).srcref(cond));
+parent.replaceChild(cond,simplifiedCond);
+cond=simplifiedCond.getFirstChild();
+}
+}
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+141:if(cond.isName()){
+String condName=cond.getString();
+if(isUsedInExpression(cond,thenBranch)){
+Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(IR.not(cond)).srcref(cond));
+parent.replaceChild(cond,simplifiedCond);
+cond=simplifiedCond.getFirstChild();
+}
+else{
+if(isUsedInExpression(cond,elseBranch)){
+Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(cond).srcref(cond));
+parent.replaceChild(cond,simplifiedCond);
+cond=simplifiedCond.getFirstChild();
+}
+}
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+142:String condName=cond.getString();
+TO:
+140
+
+INSERT:
+143:if(isUsedInExpression(cond,thenBranch)){
+Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(IR.not(cond)).srcref(cond));
+parent.replaceChild(cond,simplifiedCond);
+cond=simplifiedCond.getFirstChild();
+}
+TO:
+140
+
+INSERT:
+149:Node simplifiedCond=NodeUtil.newExpr(IR.exprResult(cond).srcref(cond));
+TO:
+140
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1895 patches
+Compile failed:1424 patches
+Compilation rate:0.24854881266490766
+NNNNNNNNNNNNNNNNNNNNNNNNPNNPPPNNPNNPNNNNNNPNNNNNPNNNNPPNNNNNPNNNNNNPPPPPPPNNNPPPPPPPPPNPNNNNNPPPPPNPPPNPPNNPPPPNPPPPPPPPPPPNPPNPPNNPPNPPPPNPNNPPPPNNPPPNPPPPNPNNPPPPNNPPPPNPPPPPPPPPPPPPPPPPPNPPPPPPPPPNPPPPNPPPPNPNPNPPPPNPPPPPPNPPPPPNNNPNPPNPPNPPNPNPPPPPPPPPNNNPNPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/9.java
+Current actions:
+INSERT:
+141:if(thenBranchIsExpressionBlock&&elseBranchIsExpressionBlock){
+n.removeChild(cond);
+Node thenOp=getBlockExpression(thenBranch).detachFromParent();
+Node elseOp=getBlockExpression(elseBranch).detachFromParent();
+Node expr=IR.exprResult(IR.hook(cond,thenOp,elseOp).srcref(n));
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+144:Node elseOp=getBlockExpression(elseBranch).detachFromParent();
+TO:
+140
+
+INSERT:
+145:Node expr=IR.exprResult(IR.hook(cond,thenOp,elseOp).srcref(n));
+TO:
+140
+
+INSERT:
+147:reportCodeChange();
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2158 patches
+Compile failed:1671 patches
+Compilation rate:0.22567191844300277
+NNNNNNNNNNNNNNNNNPPPPNNPNNPNNNPNNNNNNNNNPPNNNNNNNNNNNNPNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/10.java
+Current actions:
+INSERT:
+141:if(thenBranch.isBlock()&&elseBranch.isBlock()&&!thenBranch.isEmpty()&&!elseBranch.isEmpty()){
+Node then=thenBranch.getLastChild();
+Node elseBranch2=elseBranch.getLastChild();
+if(then.isVar()&&elseBranch2.isVar()){
+Node thenVar=then.detachFromParent();
+Node elseVar=elseBranch2.detachFromParent();
+Node newIf=IR.ifNode(cond).srcref(n);
+Node thenBlock=IR.block();
+Node elseBlock=IR.block();
+thenBlock.addChildrenToBack(thenVar);
+thenBlock.addChildrenToBack(then);
+elseBlock.addChildrenToBack(elseVar);
+elseBlock.addChildrenToBack(elseBranch2);
+newIf.addChildToBack(thenBlock);
+newIf.addChildToBack(elseBlock);
+parent.replaceChild(n,newIf);
+reportCodeChange();
+return newIf;
+}
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+143:Node elseBranch2=elseBranch.getLastChild();
+TO:
+140
+
+INSERT:
+145:Node thenVar=then.detachFromParent();
+TO:
+140
+
+INSERT:
+146:Node elseVar=elseBranch2.detachFromParent();
+TO:
+140
+
+INSERT:
+154:newIf.addChildToBack(thenBlock);
+TO:
+140
+
+INSERT:
+155:newIf.addChildToBack(elseBlock);
+TO:
+140
+
+INSERT:
+157:reportCodeChange();
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2557 patches
+Compile failed:2042 patches
+Compilation rate:0.20140789988267502
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNPPPNPNNNNNPNNNNPNNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNPPNNPNPNNPPNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/11.java
+Current actions:
+INSERT:
+141:if(mayLoseOpportunityForOtherPeepholeOptimizations(n)){
+return n;
+}
+TO:
+140
+
+INSERT:
+144:if(thenBranchIsExpressionBlock&&elseBranch.isIf()){
+Node ifCond=elseBranch.getFirstChild();
+Node ifBranch=ifCond.getNext();
+Node ifElse=ifBranch.getNext();
+if(ifElse==null&&isLowerPrecedenceInExpression(ifCond,OR_PRECEDENCE)&&isLowerPrecedenceInExpression(cond,OR_PRECEDENCE)){
+Node thenOp=getBlockExpression(thenBranch).getFirstChild();
+Node ifOp=getBlockExpression(ifBranch).getFirstChild();
+if(NodeUtil.isAssignmentOp(thenOp)&&NodeUtil.isAssignmentOp(ifOp)){
+Node lhs=thenOp.getFirstChild();
+if(areNodesEqualForInlining(lhs,ifOp.getFirstChild())&&!mayEffectMutableState(lhs)){
+n.removeChild(cond);
+Node assignName=thenOp.removeFirstChild();
+Node thenExpr=thenOp.removeFirstChild();
+Node ifExpr=ifOp.getLastChild();
+ifOp.removeChild(ifExpr);
+Node hookNode=IR.hook(cond,thenExpr,IR.hook(ifCond,ifExpr,assignName).srcref(n)).srcref(n);
+Node assign=new Node(thenOp.getType(),assignName,hookNode).srcref(thenOp);
+Node expr=NodeUtil.newExpr(assign);
+parent.replaceChild(n,expr);
+reportCodeChange();
+return expr;
+}
+}
+}
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2756 patches
+Compile failed:2122 patches
+Compilation rate:0.23004354136429608
+NNNNPPPPPPPNPPNNPPPPPPPPPPNPPPPPPPPNPPNPPPPPNPNPNNNPPPNPNPPPPNPPNPNPPPNPPPNPPPPPPPNPPPPNPPNNNNPNNNPNPNPNNPNNNNNNNNNNNNNPPPPPNNNNPPNNNNNNNNNNNNNPPPPPNPPPPPNNNNPPPPPPPNNPPNPPPNPPPPPNPPNNPPNNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/12.java
+Current actions:
+INSERT:
+141:if(thenBranchIsVar&&elseBranchIsVar){
+Node name1=getBlockVar(thenBranch).getFirstChild();
+Node name2=getBlockVar(elseBranch).getFirstChild();
+if(name1.hasChildren()&&name1.getString().equals(name2.getString())){
+Node thenExpr=name1.removeChildren();
+Node elseExpr=name2.removeChildren();
+cond.detachFromParent();
+Node hookNode=IR.hook(cond,thenExpr,elseExpr).srcref(n);
+Node var=IR.var(name2,hookNode).srcref(thenBranch);
+parent.replaceChild(n,var);
+reportCodeChange();
+return var;
+}
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 180 patches...
+Current actions:
+INSERT:
+141:if(thenBranchIsVar&&elseBranchIsVar){
+Node name1=getBlockVar(thenBranch).getFirstChild();
+Node name2=getBlockVar(elseBranch).getFirstChild();
+if(name1.hasChildren()&&name1.getString().equals(name2.getString())){
+Node thenExpr=name1.removeChildren();
+Node elseExpr=name2.removeChildren();
+cond.detachFromParent();
+Node hookNode=IR.hook(cond,thenExpr,elseExpr).srcref(n);
+Node var=IR.var(name2,hookNode).srcref(thenBranch);
+parent.replaceChild(n,var);
+reportCodeChange();
+return var;
+}
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 46 patches...
+Current actions:
+INSERT:
+142:Node name1=getBlockVar(thenBranch).getFirstChild();
+TO:
+140
+
+INSERT:
+143:Node name2=getBlockVar(elseBranch).getFirstChild();
+TO:
+140
+
+INSERT:
+146:Node elseExpr=name2.removeChildren();
+TO:
+140
+
+INSERT:
+148:Node hookNode=IR.hook(cond,thenExpr,elseExpr).srcref(n);
+TO:
+140
+
+INSERT:
+149:Node var=IR.var(name2,hookNode).srcref(thenBranch);
+TO:
+140
+
+INSERT:
+151:reportCodeChange();
+TO:
+140
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3181 patches
+Compile failed:2485 patches
+Compilation rate:0.21879911977365607
+NNNNNNNNNNNNNNNNNNNNNNNNPNNPPNPPNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNPNPNPNNNPNNNNNNNNNNNNNPNNPPNNPNNNPNPPNNNNNNNNNNPNNNNNNNNNPPPPPPPPPPPPNNNNNPPPPPPPPNPPPPPPNPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/13.java
+Current actions:
+UPDATE
+FROM:
+43:if(innerElseBranch==null&&!(isLowerPrecedenceInExpression(cond,AND_PRECEDENCE)&&isLowerPrecedenceInExpression(innerCond,AND_PRECEDENCE))){
+n.detachChildren();
+n.addChildToBack(IR.and(cond,innerCond.detachFromParent()).srcref(cond));
+n.addChildrenToBack(innerThenBranch.detachFromParent());
+reportCodeChange();
+return n;
+}
+TO:
+43:if(innerElseBranch==null&&!isLowerPrecedenceInExpression(cond,AND_PRECEDENCE)&&!isLowerPrecedenceInExpression(innerCond,AND_PRECEDENCE)){
+n.detachChildren();
+n.addChildToBack(IR.and(cond,innerCond.detachFromParent()).srcref(cond));
+n.addChildrenToBack(innerThenBranch.detachFromParent());
+reportCodeChange();
+return n;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+43:if(innerElseBranch==null&&!(isLowerPrecedenceInExpression(cond,AND_PRECEDENCE)&&isLowerPrecedenceInExpression(innerCond,AND_PRECEDENCE))){
+n.detachChildren();
+n.addChildToBack(IR.and(cond,innerCond.detachFromParent()).srcref(cond));
+n.addChildrenToBack(innerThenBranch.detachFromParent());
+reportCodeChange();
+return n;
+}
+TO:
+43:if(innerElseBranch==null&&!isLowerPrecedenceInExpression(cond,AND_PRECEDENCE)&&!isLowerPrecedenceInExpression(innerCond,AND_PRECEDENCE)){
+n.detachChildren();
+n.addChildToBack(IR.and(cond,innerCond.detachFromParent()).srcref(cond));
+n.addChildrenToBack(innerThenBranch.detachFromParent());
+reportCodeChange();
+return n;
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Tested:3189 patches
+Compile failed:2485 patches
+Compilation rate:0.22075885857635622
+PPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/14.java
+Current actions:
+INSERT:
+141:n.removeChild(cond);
+TO:
+140
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+INSERT:
+141:n.removeChild(cond);
+TO:
+140
+
+INSERT:
+142:thenBranch.detachFromParent();
+TO:
+140
+
+INSERT:
+146:reportCodeChange();
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:3451 patches
+Compile failed:2598 patches
+Compilation rate:0.24717473196175022
+NNNNNNPPPPPPNNPNPPNNPNNPPNPPPPPNNNNPPNPNNNPNPPNPNPPNPNPPPPPPPPPNNNNNNNNNNPPPPPNNPPNNPPPNNPPNPPPPPNNPPPNNNNNNNPNNNPNPPPNPNPPPPNPPPNPPPPNNNPPNNPPPPPPPPNPNNPNNPNPPNPPNPNNPPPPNNNPPNNPPPPPPNPNPNPPPNPNPNPPNNPPNNPNPNNNPPNPPNPPNNNNPNPNNPNNPPNPPNPNPNNPNPPPPPPPNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_132/15.java
+Current actions:
+INSERT:
+141:if(n.getNext()!=null&&n.getNext().isIf()){
+Node nextIf=n.getNext();
+Node cond2=nextIf.getFirstChild();
+Node thenBranch2=cond2.getNext();
+Node elseBranch2=thenBranch2.getNext();
+if(isVarBlock(elseBranch)&&isVarBlock(elseBranch2)&&getBlockVar(elseBranch).getFirstChild().getString().equals(getBlockVar(elseBranch2).getFirstChild().getString())&&getBlockVar(elseBranch2).getFirstChild().getString().equals(getBlockVar(thenBranch).getFirstChild().getString())&&getBlockVar(thenBranch).getFirstChild().getString().equals(getBlockVar(thenBranch2).getFirstChild().getString())){
+Node elseAssign=getBlockExpression(elseBranch).getFirstChild();
+Node name=elseAssign.getFirstChild();
+Node ifNode=IR.ifNode(cond,thenBranch,elseBranch2).srcref(n);
+n.replaceWith(ifNode);
+reportCodeChange();
+return ifNode;
+}
+}
+TO:
+140
+
+Following are 0th generated patches:
+Validating 187 patches...
+Current actions:
+INSERT:
+142:Node nextIf=n.getNext();
+TO:
+140
+
+INSERT:
+143:Node cond2=nextIf.getFirstChild();
+TO:
+140
+
+INSERT:
+146:if(isVarBlock(elseBranch)&&isVarBlock(elseBranch2)&&getBlockVar(elseBranch).getFirstChild().getString().equals(getBlockVar(elseBranch2).getFirstChild().getString())&&getBlockVar(elseBranch2).getFirstChild().getString().equals(getBlockVar(thenBranch).getFirstChild().getString())&&getBlockVar(thenBranch).getFirstChild().getString().equals(getBlockVar(thenBranch2).getFirstChild().getString())){
+Node elseAssign=getBlockExpression(elseBranch).getFirstChild();
+Node name=elseAssign.getFirstChild();
+Node ifNode=IR.ifNode(cond,thenBranch,elseBranch2).srcref(n);
+n.replaceWith(ifNode);
+reportCodeChange();
+return ifNode;
+}
+TO:
+140
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:3837 patches
+Compile failed:2970 patches
+Compilation rate:0.2259577795152463
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNPNNNNNNNPNPNNNPNPNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-132 > patch : 0 | Start : Thu Apr 11 00:18:14 HKT 2024 | End : 2024.04.11 AD at 00:36:34 HKT

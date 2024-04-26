@@ -1,0 +1,5219 @@
+Repair : time_17
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/0.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iMillis==DateTimeConstants.MILLIS_PER_DAY){
+long start=iStartMillis;
+long end=iStartMillis+iMillis;
+if(instant<start){
+instant=end;
+}
+else{
+if(instant>end){
+instant=start;
+}
+}
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+6:if(instant<start){
+instant=end;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iMillis==DateTimeConstants.MILLIS_PER_DAY){
+long start=iStartMillis;
+long end=iStartMillis+iMillis;
+if(instant<start){
+instant=end;
+}
+else{
+if(instant>end){
+instant=start;
+}
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 3th generated patches:
+Validating 75 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+6:if(instant<start){
+instant=end;
+}
+TO:
+2
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+9:else{
+if(instant>end){
+instant=start;
+}
+}
+TO:
+2
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:long start=iStartMillis;
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+5:long end=iStartMillis+iMillis;
+TO:
+2
+
+INSERT:
+7:instant=end;
+TO:
+2
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:else{
+if(instant>end){
+instant=start;
+}
+}
+TO:
+2
+
+INSERT:
+13:return instant+(earlierOrLater?-1:1)*iMillis;
+TO:
+7
+
+Tested:743 patches
+Compile failed:741 patches
+Compilation rate:0.0026917900403768506
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/1.java
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+
+Following are 1th generated patches:
+Validating 131 patches...
+Tested:875 patches
+Compile failed:866 patches
+Compilation rate:0.010285714285714285
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/2.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    if (instantBefore == instantAfter) {
+      return instant;
+    }
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+1 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+2 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    if (instantBefore == instantAfter) {
+    }
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+3 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:22:54 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 131 patches...
+Current actions:
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 3th generated patches:
+Validating 130 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 4th generated patches:
+Validating 132 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+4 th patch/430
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:23:40 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+3*DateTimeConstants.MILLIS_PER_HOUR:local-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:1296 patches
+Compile failed:1276 patches
+Compilation rate:0.015432098765432098
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/3.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+9:if(earlierOrLater){
+return convertLocalToUTC(local,false,instantAfter);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:return convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+12:else{
+return convertLocalToUTC(local,false,instantBefore);
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 132 patches...
+Current actions:
+INSERT:
+9:if(earlierOrLater){
+return convertLocalToUTC(local,false,instantAfter);
+}
+TO:
+8
+
+INSERT:
+13:return convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierOrLater){
+return convertLocalToUTC(local,false,instantAfter);
+}
+TO:
+8
+
+INSERT:
+12:else{
+return convertLocalToUTC(local,false,instantBefore);
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:2041 patches
+Compile failed:2007 patches
+Compilation rate:0.016658500734933857
+NNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/4.java
+Tested:2041 patches
+Compile failed:2007 patches
+Compilation rate:0.016658500734933857
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/5.java
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,true,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,true,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 130 patches...
+Tested:2172 patches
+Compile failed:2134 patches
+Compilation rate:0.017495395948434623
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/6.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 129 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(later==instant){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long localInstant=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+4:long local=convertUTCToLocal(instant);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+5:long later=convertLocalToUTC(local,false,earlierOrLater?localInstant+3*DateTimeConstants.MILLIS_PER_HOUR:localInstant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(later==instant){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long earlier=convertLocalToUTC(local,false,earlierOrLater?localInstant-3*DateTimeConstants.MILLIS_PER_HOUR:localInstant+3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+7
+
+INSERT:
+10:return earlier;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+long localInstant=convertUTCToLocal(instant);
+long local=convertUTCToLocal(instant);
+long later=convertLocalToUTC(local,false,earlierOrLater?localInstant+3*DateTimeConstants.MILLIS_PER_HOUR:localInstant-3*DateTimeConstants.MILLIS_PER_HOUR);
+if(later==instant){
+      return instant;
+    }
+long earlier=convertLocalToUTC(local,false,earlierOrLater?localInstant-3*DateTimeConstants.MILLIS_PER_HOUR:localInstant+3*DateTimeConstants.MILLIS_PER_HOUR);
+return later;
+  }
+
+5 th patch/330
+Trace:
+ReturnStmt;SName
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:25:39 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+5:long later=convertLocalToUTC(local,false,earlierOrLater?localInstant+3*DateTimeConstants.MILLIS_PER_HOUR:localInstant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+2
+
+INSERT:
+9:long earlier=convertLocalToUTC(local,false,earlierOrLater?localInstant-3*DateTimeConstants.MILLIS_PER_HOUR:localInstant+3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+7
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long localInstant=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+5:long later=convertLocalToUTC(local,false,earlierOrLater?localInstant+3*DateTimeConstants.MILLIS_PER_HOUR:localInstant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(later==instant){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long earlier=convertLocalToUTC(local,false,earlierOrLater?localInstant-3*DateTimeConstants.MILLIS_PER_HOUR:localInstant+3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+7
+
+INSERT:
+10:return earlier;
+TO:
+7
+
+Tested:2658 patches
+Compile failed:2610 patches
+Compilation rate:0.01805869074492099
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNPPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/7.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long nextInstant=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:long prevInstant=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:long nextInstant=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 128 patches...
+Current actions:
+INSERT:
+9:long nextInstant=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:long prevInstant=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long prevInstant=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+Tested:3191 patches
+Compile failed:3126 patches
+Compilation rate:0.020369790034471952
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/8.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+9:if(earlierOrLater){
+if(instantAfter<instantBefore){
+return local<instantAfter?instantAfter:instantBefore;
+}
+return local<instantBefore?instantBefore:instantAfter;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(instantAfter<instantBefore){
+return local<instantAfter?instantAfter:instantBefore;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierOrLater){
+if(instantAfter<instantBefore){
+return local<instantAfter?instantAfter:instantBefore;
+}
+return local<instantBefore?instantBefore:instantAfter;
+}
+TO:
+8
+
+INSERT:
+15:if(instantAfter<instantBefore){
+return local>instantAfter?instantAfter:instantBefore;
+}
+TO:
+8
+
+INSERT:
+18:return local>instantBefore?instantBefore:instantAfter;
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:3651 patches
+Compile failed:3450 patches
+Compilation rate:0.05505341002465078
+NNNNNNNNNNNNNNNPPNNPPPPPPNNNNNNNNNNNNNNNNNNNNPPNPNNPPNNNNNNPPPNNNNNNNNNNNNNNNNNNPPPNNNNPNNPPPPPNNPNNNPNNNNNNPPNNPNNNNPNNNPNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNPNNNNPNNNPNNNNPNNPPPPPNNPPPNNPNPNNNNNNNNPNNPNNPPNPNPPNNNPNPPNPNNPPNNNPNPPPPNNNNNNNNNNPPNPPPNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPPPPPNPNNNNNNNNPPNNPNNNNNNNPNPPNNPNNNNNNNNNNNPNNPNNNNNNNNNPNNNNPNNNNNNNNNPNNNNNPNPNNPPNPPNPPNPPPNNNNNNNPPNNPNNPNPPPNPPNPNNNNPPNPPPNNNNNPPPNNPPNNNNNNNNNNNPPPPNPNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/9.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long result=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:return result>instant?result+DateTimeConstants.MILLIS_PER_HOUR:result-DateTimeConstants.MILLIS_PER_HOUR;
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:long result=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 130 patches...
+Current actions:
+INSERT:
+9:long result=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:return result>instant?result+DateTimeConstants.MILLIS_PER_HOUR:result-DateTimeConstants.MILLIS_PER_HOUR;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:return result>instant?result+DateTimeConstants.MILLIS_PER_HOUR:result-DateTimeConstants.MILLIS_PER_HOUR;
+TO:
+8
+
+Following are 4th generated patches:
+Validating 72 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long result=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Tested:4257 patches
+Compile failed:4038 patches
+Compilation rate:0.05144467935165609
+NNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/10.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+3:if(instant==Long.MIN_VALUE||instant==Long.MAX_VALUE){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+3:if(instant==Long.MIN_VALUE||instant==Long.MAX_VALUE){
+return instant;
+}
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+6:return convertLocalToUTC(convertUTCToLocal(instant),true,earlierOrLater?getLaterOffset(instant):getEarlierOffset(instant));
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 4th generated patches:
+Validating 135 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Tested:4432 patches
+Compile failed:4208 patches
+Compilation rate:0.05054151624548736
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/11.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+3:return convertLocalToUTC(convertUTCToLocal(instant),false,earlierOrLater?instant+1:instant-1);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 4th generated patches:
+Validating 133 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Tested:4601 patches
+Compile failed:4361 patches
+Compilation rate:0.05216257335361878
+NNNNNNNNNNNNNNNNNNNNPNPNNPPNPNNPPPPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/12.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long[] instants=getInstantsForLocalMillis(local,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 131 patches...
+Current actions:
+INSERT:
+9:long[] instants=getInstantsForLocalMillis(local,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 130 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:4865 patches
+Compile failed:4625 patches
+Compilation rate:0.04933196300102775
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/13.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+INSERT:
+3:if(earlierOrLater==(iType==PeriodType.standard())){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:if(earlierOrLater==(iType==PeriodType.standard())){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+6:return getPeriodType().getCalendarField().set(instant,iValues,!earlierOrLater);
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+6:return getPeriodType().getCalendarField().set(instant,iValues,!earlierOrLater);
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 4th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:if(earlierOrLater==(iType==PeriodType.standard())){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:5451 patches
+Compile failed:5204 patches
+Compilation rate:0.04531278664465236
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/14.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+9:long start=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+11:return (start+end)/2;
+TO:
+8
+
+Following are 1th generated patches:
+Validating 171 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+11:return (start+end)/2;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+11:return (start+end)/2;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 42 patches...
+Current actions:
+INSERT:
+9:long start=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+11:return (start+end)/2;
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+Tested:6071 patches
+Compile failed:5801 patches
+Compilation rate:0.044473727557239336
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNPNNNNNNNNNNNNNNNNNNPNNPNNNNPNNNNNNPNNPNNNNPNNPNNNNNNPNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/15.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant+1:instant-1);
+
+Following are 1th generated patches:
+Validating 131 patches...
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant+1:instant-1);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 3th generated patches:
+Validating 133 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Tested:6354 patches
+Compile failed:6072 patches
+Compilation rate:0.044381491973559964
+NNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/16.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR):convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR));
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 133 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR):convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR));
+TO:
+8
+
+Following are 4th generated patches:
+Validating 130 patches...
+Current actions:
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR):convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR));
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:6650 patches
+Compile failed:6359 patches
+Compilation rate:0.0437593984962406
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/17.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iChronology==null){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(earlierOrLater==(offset<0)){
+return instant-offset;
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iChronology==null){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+7:if(earlierOrLater==(offset<0)){
+return instant-offset;
+}
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:7448 patches
+Compile failed:7136 patches
+Compilation rate:0.04189044038668099
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNPPPNPNNNNPPNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/18.java
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,earlierOrLater,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,earlierOrLater,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 128 patches...
+Tested:7577 patches
+Compile failed:7259 patches
+Compilation rate:0.04196911706480137
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/19.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    if (instantBefore == instantAfter) {
+      return instant;
+    }
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+6 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:36:32 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+7 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:36:32 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long instantBefore=convertUTCToLocal(instant - 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    long instantAfter=convertUTCToLocal(instant + 3 * DateTimeConstants.MILLIS_PER_HOUR);
+    if (instantBefore == instantAfter) {
+    }
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+8 th patch/36
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:36:32 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 133 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//time/time_17_buggy/src/main/java/org/joda/time/DateTimeZone.java
+SUCCESS
+//Following are generated patch:
+  public long adjustOffset(  long instant,  boolean earlierOrLater){
+    long local=convertUTCToLocal(instant);
+return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+  }
+
+9 th patch/169
+Trace:
+
+START : 
+2024.04.10 AD at 17:21:06 HKT
+---------TIME : 
+2024.04.10 AD at 17:36:50 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 6return instant;
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant+3*DateTimeConstants.MILLIS_PER_HOUR:instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 4th generated patches:
+Validating 131 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Tested:8001 patches
+Compile failed:7676 patches
+Compilation rate:0.04061992250968629
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/20.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:return convertLocalToUTC(local,earlierOrLater,false);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 131 patches...
+Current actions:
+INSERT:
+9:return convertLocalToUTC(local,earlierOrLater,false);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 130 patches...
+Tested:8265 patches
+Compile failed:7936 patches
+Compilation rate:0.03980641258318209
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/21.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Tested:8305 patches
+Compile failed:7973 patches
+Compilation rate:0.03997591812161349
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/22.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iType==null){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(limits[0]<=instant&&instant<=limits[1]){
+int[] values=iType.getFieldType(0).getRangeDurationField().getUnitMillis();
+for(int i=0;i<4;i++){
+int min=limits[2+i*2];
+int max=limits[2+i*2+1];
+if(min<=instant&&instant<=max){
+long unit=values[i];
+if(unit!=DateTimeConstants.MILLIS_PER_SECOND){
+instant-=instant%unit;
+}
+}
+}
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+7:if(limits[0]<=instant&&instant<=limits[1]){
+int[] values=iType.getFieldType(0).getRangeDurationField().getUnitMillis();
+for(int i=0;i<4;i++){
+int min=limits[2+i*2];
+int max=limits[2+i*2+1];
+if(min<=instant&&instant<=max){
+long unit=values[i];
+if(unit!=DateTimeConstants.MILLIS_PER_SECOND){
+instant-=instant%unit;
+}
+}
+}
+}
+TO:
+7
+
+INSERT:
+20:return instant;
+TO:
+7
+
+Tested:8706 patches
+Compile failed:8362 patches
+Compilation rate:0.03951297955433035
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/23.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long before=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:long after=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+11:return (before!=after)?(before+(after-before)/2):before;
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long after=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+11:return (before!=after)?(before+(after-before)/2):before;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:long after=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 130 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:long before=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+11:return (before!=after)?(before+(after-before)/2):before;
+TO:
+8
+
+Tested:9246 patches
+Compile failed:8864 patches
+Compilation rate:0.041315163313865456
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNPNNPPNNNPNNNNNNNPNPPNNNNNNPNNNNNPNPNNNPNPNNNNNNNNNNPNNNNPPNPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/24.java
+Current actions:
+INSERT:
+7:if(earlierOrLater){
+for(int i=0;i<2;i++){
+long adjInstant=convertLocalToUTC(localInstant,false,instant);
+if(adjInstant==instant){
+return instant;
+}
+long difference=Math.abs(localInstant-adjInstant);
+if(difference<bestDifference){
+bestInstant=adjInstant;
+bestLocal=localInstant;
+bestDifference=difference;
+}
+localInstant=adjInstant;
+}
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6return instant;
+
+INSERT:
+10:if(adjInstant==instant){
+return instant;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 90 patches...
+Current actions:
+INSERT:
+14:if(difference<bestDifference){
+bestInstant=adjInstant;
+bestLocal=localInstant;
+bestDifference=difference;
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 94 patches...
+Current actions:
+INSERT:
+25:if(adjInstant==instant){
+return instant;
+}
+TO:
+7
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+8:long local=convertUTCToLocal(instant);
+TO:
+3:long localInstant=convertUTCToLocal(instant);
+
+INSERT:
+4:long bestInstant=instant;
+TO:
+8
+
+INSERT:
+5:long bestLocal=localInstant;
+TO:
+8
+
+DELETE:
+Original line: 6return instant;
+
+INSERT:
+7:if(earlierOrLater){
+for(int i=0;i<2;i++){
+long adjInstant=convertLocalToUTC(localInstant,false,instant);
+if(adjInstant==instant){
+return instant;
+}
+long difference=Math.abs(localInstant-adjInstant);
+if(difference<bestDifference){
+bestInstant=adjInstant;
+bestLocal=localInstant;
+bestDifference=difference;
+}
+localInstant=adjInstant;
+}
+}
+TO:
+8
+
+INSERT:
+22:else{
+for(int i=0;i<2;i++){
+long adjInstant=convertLocalToUTC(localInstant,true,instant);
+if(adjInstant==instant){
+return instant;
+}
+long difference=Math.abs(localInstant-adjInstant);
+if(difference<bestDifference){
+bestInstant=adjInstant;
+bestLocal=localInstant;
+bestDifference=difference;
+}
+localInstant=adjInstant;
+}
+}
+TO:
+7
+
+Tested:9631 patches
+Compile failed:9245 patches
+Compilation rate:0.04007891184716021
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/25.java
+Current actions:
+INSERT:
+9:if(local==instantBefore){
+return instantAfter;
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+9:if(local==instantBefore){
+return instantAfter;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(local==instantBefore){
+return instantAfter;
+}
+TO:
+8
+
+INSERT:
+12:else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:return instantAfter;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+12:else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:return instantAfter;
+TO:
+8
+
+INSERT:
+12:else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+TO:
+8
+
+Tested:10053 patches
+Compile failed:9595 patches
+Compilation rate:0.04555853973938128
+NPPNNNNNNNNNNNNNNNNNNNNNNNPNPPNPNNNNPPNNNNNNPNNNPNNNNNNNPNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNPPPNPPNNNNNNNNNNNPNNPNPNNPNNNNNNNNNNNNNNNNNPNPPNPPNNNNNNNNNPNPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNPPNPNPNNNNNNPNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNNNNNNNNNNNNNNPPPPPNNPNNNNNNNNNNNNNPNNNPPNNPNNNPNNNNNNNNNNPNNPNPPNPNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/26.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+8:long local=convertUTCToLocal(instant);
+TO:
+3:long instantAfter=convertUTCToLocal(instant);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(instantAfter,false,earlierOrLater?instantAfter:instant);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(instantAfter,false,earlierOrLater?instantAfter:instant);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 2th generated patches:
+Validating 126 patches...
+Current actions:
+UPDATE
+FROM:
+8:long local=convertUTCToLocal(instant);
+TO:
+3:long instantAfter=convertUTCToLocal(instant);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(instantAfter,false,earlierOrLater?instantAfter:instant);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+8:long local=convertUTCToLocal(instant);
+TO:
+3:long instantAfter=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Tested:10608 patches
+Compile failed:10130 patches
+Compilation rate:0.04506033182503771
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNPNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/27.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 166 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(earlierInstant==laterInstant){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:if(earlierInstant<laterInstant){
+return earlierInstant;
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long local=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+4:long earlierInstant=convertLocalToUTC(local,false,earlierOrLater?instant:-1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+5:long laterInstant=convertLocalToUTC(local,false,earlierOrLater?-1:instant);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(earlierInstant==laterInstant){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierInstant<laterInstant){
+return earlierInstant;
+}
+TO:
+7
+
+INSERT:
+12:return laterInstant;
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long local=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+4:long earlierInstant=convertLocalToUTC(local,false,earlierOrLater?instant:-1);
+TO:
+2
+
+INSERT:
+5:long laterInstant=convertLocalToUTC(local,false,earlierOrLater?-1:instant);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(earlierInstant==laterInstant){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:return earlierInstant;
+TO:
+7
+
+INSERT:
+12:return laterInstant;
+TO:
+7
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:11321 patches
+Compile failed:10779 patches
+Compilation rate:0.04787562936136384
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPPNNNNNNNNPPNNNNNNNPNNNNNNNNNPPNNPNNNNPNNPNNNNNNNNNNPNPPNNNNNPNPNNNNNNNPPNNPPPPNPPPNPPPPNPNPPNNPPPNPPNNPNPNNNPNPNNNNPNPPPPNNNPNNNNNNNNNNNPPPNNPNNPNPNPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/28.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+11:if(convertLocalToUTC(local,false,min)>=min){
+return max;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long min=Math.min(instantBefore,instantAfter);
+TO:
+8
+
+INSERT:
+10:long max=Math.max(instantBefore,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(convertLocalToUTC(local,false,min)>=min){
+return max;
+}
+TO:
+8
+
+INSERT:
+14:return min;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long min=Math.min(instantBefore,instantAfter);
+TO:
+8
+
+INSERT:
+12:return max;
+TO:
+8
+
+INSERT:
+14:return min;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 173 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:long max=Math.max(instantBefore,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(convertLocalToUTC(local,false,min)>=min){
+return max;
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 133 patches...
+Tested:12055 patches
+Compile failed:11478 patches
+Compilation rate:0.04786395686437163
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNPPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNPNNNPNNNNNNNNNNNNNPNNPNNNNPPNNNPNNNNPNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNPNPNNNPNNNPNNNNNNNNNNNNNNNNNPNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/29.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(earlierOrLater){
+localResult=local-offset;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long offset=getOffset(instant);
+TO:
+2
+
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+8:long localResult;
+TO:
+8
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierOrLater){
+localResult=local-offset;
+}
+TO:
+8
+
+INSERT:
+12:else{
+localResult=local+offset;
+}
+TO:
+8
+
+INSERT:
+15:return convertLocalToUTC(localResult,offset,false);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:12848 patches
+Compile failed:12256 patches
+Compilation rate:0.0460772104607721
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNPNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNPNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/30.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long end=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 128 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:long start=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:long end=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Tested:13381 patches
+Compile failed:12772 patches
+Compilation rate:0.04551229355055676
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/31.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+8:if(instantAfter-instantBefore<1000){
+return instant;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long instantBefore=getPreviousTransition(instant);
+TO:
+2
+
+INSERT:
+8:if(instantAfter-instantBefore<1000){
+return instant;
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:long instantBefore=getPreviousTransition(instant);
+TO:
+2
+
+INSERT:
+4:long instantAfter=getNextTransition(instant);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+8:if(instantAfter-instantBefore<1000){
+return instant;
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:14012 patches
+Compile failed:13359 patches
+Compilation rate:0.046602911789894376
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNPNNNPNNNNNPPNNNNNNNNNPNPNNPNNNNNNPPNNNNNNPNPNNNNNPNNNNPNNNNPNPPNPNPPNPPNNNNNNPNNPNNNNPNPNNPNNNNPNNPNNNNNNPNPNNNPPNPNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/32.java
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter-1:instantBefore-1);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter-1:instantBefore-1);
+
+Following are 1th generated patches:
+Validating 127 patches...
+Tested:14140 patches
+Compile failed:13482 patches
+Compilation rate:0.046534653465346534
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/33.java
+Current actions:
+INSERT:
+10:long result=convertLocalToUTC(local,true,instant);
+TO:
+9
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+10:long result=convertLocalToUTC(local,true,instant);
+TO:
+9
+
+Following are 1th generated patches:
+Validating 129 patches...
+Current actions:
+INSERT:
+11:return result;
+TO:
+9
+
+Following are 2th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+10:long result=convertLocalToUTC(local,true,instant);
+TO:
+9
+
+INSERT:
+11:return result;
+TO:
+9
+
+Following are 3th generated patches:
+Validating 149 patches...
+Tested:14440 patches
+Compile failed:13782 patches
+Compilation rate:0.04556786703601108
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/34.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+11:if(instant1==instant){
+return instant2;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(instant2==instant){
+return instant1;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:long instant1=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:long instant2=convertLocalToUTC(local,false,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+11:if(instant1==instant){
+return instant2;
+}
+TO:
+8
+
+INSERT:
+14:if(instant2==instant){
+return instant1;
+}
+TO:
+8
+
+INSERT:
+17:return instant;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:15115 patches
+Compile failed:14421 patches
+Compilation rate:0.04591465431690374
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNPNNNNNNNNNNNNNPPNNPNNPNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNPNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNPNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/35.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+11:if(earlier==later){
+return instant;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:long earlier=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+10:long later=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+12:return instant;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:long later=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(earlier==later){
+return instant;
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long earlier=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+10:long later=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 132 patches...
+Tested:15863 patches
+Compile failed:15162 patches
+Compilation rate:0.04419088444808674
+NNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/36.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+11:if(earlierOrLater){
+long tmp=start;
+start=end;
+end=tmp;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 44 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,true,instantBefore);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,true,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(earlierOrLater){
+long tmp=start;
+start=end;
+end=tmp;
+}
+TO:
+8
+
+INSERT:
+16:return start<end?start:end;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:long end=convertLocalToUTC(local,true,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(earlierOrLater){
+long tmp=start;
+start=end;
+end=tmp;
+}
+TO:
+8
+
+INSERT:
+16:return start<end?start:end;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,true,instantBefore);
+TO:
+8
+
+INSERT:
+11:if(earlierOrLater){
+long tmp=start;
+start=end;
+end=tmp;
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 174 patches...
+Current actions:
+INSERT:
+9:long start=convertLocalToUTC(local,true,instantBefore);
+TO:
+8
+
+INSERT:
+13:start=end;
+TO:
+8
+
+INSERT:
+14:end=tmp;
+TO:
+8
+
+INSERT:
+16:return start<end?start:end;
+TO:
+8
+
+Tested:16546 patches
+Compile failed:15805 patches
+Compilation rate:0.04478423788226762
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNPPNNNNPNNPPNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNPNNNPNNPPPPNNNNNNNNPPPNNNNNNNNNNNNNNNNNPNNNNNNNNPNNPNPNNNNNNNNNPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/37.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+3:if(instant<getEndMillis()){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(instant>=getStartMillis()){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+10:return convertLocalToUTC(local,false,earlierOrLater?instant:instant-1);
+
+Following are 3th generated patches:
+Validating 130 patches...
+Current actions:
+INSERT:
+3:if(instant<getEndMillis()){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(instant>=getStartMillis()){
+return instant;
+}
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+10:return convertLocalToUTC(local,false,earlierOrLater?instant:instant-1);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Tested:17110 patches
+Compile failed:16367 patches
+Compilation rate:0.04342489772063121
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/38.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+1:local-1);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+1:local-1);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 3th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+1:local-1);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 4th generated patches:
+Validating 133 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?local+1:local-1);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Tested:17522 patches
+Compile failed:16763 patches
+Compilation rate:0.04331697294829357
+NNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/39.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?getEndMillis():getStartMillis());
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 131 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?getEndMillis():getStartMillis());
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 3th generated patches:
+Validating 131 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?getEndMillis():getStartMillis());
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 4th generated patches:
+Validating 130 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Tested:17928 patches
+Compile failed:17163 patches
+Compilation rate:0.0426706827309237
+NNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/40.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iType.isStandard()&&iValues[4]==0&&iValues[5]==0&&iValues[6]==0&&iValues[7]==0){
+if(iValues[0]==0&&iValues[1]==0&&iValues[2]==0){
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+else{
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:if(iValues[0]==0&&iValues[1]==0&&iValues[2]==0){
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:if(iValues[0]==0&&iValues[1]==0&&iValues[2]==0){
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+11:else{
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:if(iValues[0]==0&&iValues[1]==0&&iValues[2]==0){
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+7:else{
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+11:else{
+return convertLocalToUTC(convertUTCToLocal(instant),false,convertUTCToLocal(instant));
+}
+TO:
+2
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:18660 patches
+Compile failed:17893 patches
+Compilation rate:0.04110396570203644
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/41.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(instant>iEndMillis){
+result=iEndMillis;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(instant<iStartMillis){
+result=iStartMillis;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:result=iEndMillis;
+TO:
+2
+
+INSERT:
+7:if(instant<iStartMillis){
+result=iStartMillis;
+}
+TO:
+2
+
+Tested:19260 patches
+Compile failed:18489 patches
+Compilation rate:0.04003115264797508
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/42.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(earlierResult==laterResult){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:long earlierResult=convertLocalToUTC(local,false,earlierOrLater);
+TO:
+2
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 130 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long local=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+5:long laterResult=convertLocalToUTC(local,true,earlierOrLater?instant:instant+1);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(earlierResult==laterResult){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+9:return earlierOrLater?earlierResult:laterResult;
+TO:
+7
+
+Following are 4th generated patches:
+Validating 186 patches...
+Current actions:
+INSERT:
+3:long local=convertUTCToLocal(instant);
+TO:
+2
+
+INSERT:
+4:long earlierResult=convertLocalToUTC(local,false,earlierOrLater);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+9:return earlierOrLater?earlierResult:laterResult;
+TO:
+7
+
+Tested:19638 patches
+Compile failed:18866 patches
+Compilation rate:0.03931153885324371
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/43.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+5:if(before==after){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:long before=convertLocalToUTC(convertUTCToLocal(instant),true,instant-1);
+TO:
+2
+
+INSERT:
+4:long after=convertLocalToUTC(convertUTCToLocal(instant),true,instant+1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+5:if(before==after){
+return instant;
+}
+
+INSERT:
+8:return earlierOrLater?before:after;
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:long after=convertLocalToUTC(convertUTCToLocal(instant),true,instant+1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+5:if(before==after){
+return instant;
+}
+
+INSERT:
+8:return earlierOrLater?before:after;
+TO:
+7
+
+Following are 3th generated patches:
+Validating 183 patches...
+Current actions:
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long before=convertLocalToUTC(convertUTCToLocal(instant),true,instant-1);
+TO:
+2
+
+INSERT:
+4:long after=convertLocalToUTC(convertUTCToLocal(instant),true,instant+1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+5:if(before==after){
+return instant;
+}
+
+INSERT:
+8:return earlierOrLater?before:after;
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:20107 patches
+Compile failed:19319 patches
+Compilation rate:0.039190331725269804
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNPNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/44.java
+Current actions:
+Move
+FROM:
+Former Line 8:long local=convertUTCToLocal(instant);
+TO:
+Current Line 2:Block
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(local==localBefore||local==localAfter){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:if(newInstant!=instant&&newLocal==local){
+if((newInstant<instant)==earlierOrLater){
+bestInstant=newInstant;
+bestLocal=newLocal;
+bestOffset=getOffset(bestInstant);
+}
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if((newInstant<instant)==earlierOrLater){
+bestInstant=newInstant;
+bestLocal=newLocal;
+bestOffset=getOffset(bestInstant);
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+3:long local=convertUTCToLocal(instant);
+TO:
+2
+
+UPDATE
+FROM:
+3:long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+4:long localBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+4:long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+5:long localAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(local==localBefore||local==localAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+9:long bestLocal=local;
+TO:
+7
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+11:long bestOffset=getOffset(instant);
+TO:
+7
+
+INSERT:
+13:long newInstant=convertLocalToUTC(local,false,instant+i*DateTimeConstants.MILLIS_PER_HOUR);
+TO:
+7
+
+INSERT:
+14:long newLocal=convertUTCToLocal(newInstant);
+TO:
+7
+
+INSERT:
+15:if(newInstant!=instant&&newLocal==local){
+if((newInstant<instant)==earlierOrLater){
+bestInstant=newInstant;
+bestLocal=newLocal;
+bestOffset=getOffset(bestInstant);
+}
+}
+TO:
+7
+
+INSERT:
+23:return bestInstant;
+TO:
+7
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:20488 patches
+Compile failed:19696 patches
+Compilation rate:0.038656774697383836
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/45.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 195 patches...
+Current actions:
+INSERT:
+4:if(offset!=0){
+if(earlierOrLater){
+offset=-offset;
+}
+instant-=offset;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:if(earlierOrLater){
+offset=-offset;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:long offset=getOffset(instant);
+TO:
+2
+
+DELETE:
+Original line: 6return instant;
+
+INSERT:
+8:instant-=offset;
+TO:
+2
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:return instant;
+TO:
+7
+
+Following are 4th generated patches:
+Validating 148 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:if(offset!=0){
+if(earlierOrLater){
+offset=-offset;
+}
+instant-=offset;
+}
+TO:
+2
+
+Tested:21178 patches
+Compile failed:20372 patches
+Compilation rate:0.03805836245160072
+NNNNNNNNNNNNNNNNNNNNNNNPPNPNPNPNNPNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNPPNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/46.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+9:if(earlierOrLater){
+instant=instantAfter;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 38 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierOrLater){
+instant=instantAfter;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+INSERT:
+14:else{
+instant=instantBefore;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+INSERT:
+19:return instant;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 59 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:if(earlierOrLater){
+instant=instantAfter;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+INSERT:
+14:else{
+instant=instantBefore;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 40 patches...
+Current actions:
+INSERT:
+10:instant=instantAfter;
+TO:
+8
+
+INSERT:
+11:instant=getDateTimeZone().convertUTCToLocal(instant);
+TO:
+8
+
+INSERT:
+17:instant=getDateTimeZone().convertLocalToUTC(instant,false);
+TO:
+8
+
+INSERT:
+19:return instant;
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:instant=getDateTimeZone().convertLocalToUTC(instant,false);
+TO:
+8
+
+INSERT:
+14:else{
+instant=instantBefore;
+instant=getDateTimeZone().convertUTCToLocal(instant);
+instant=getDateTimeZone().convertLocalToUTC(instant,false);
+}
+TO:
+8
+
+Tested:21612 patches
+Compile failed:20800 patches
+Compilation rate:0.03757171941513974
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/47.java
+Current actions:
+INSERT:
+9:long test=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+Following are 0th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+10:if(test<instantBefore){
+test=convertLocalToUTC(local,false,instantAfter);
+if(test>instantAfter){
+return instant;
+}
+else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 82 patches...
+Current actions:
+INSERT:
+12:if(test>instantAfter){
+return instant;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:if(test<instantBefore){
+test=convertLocalToUTC(local,false,instantAfter);
+if(test>instantAfter){
+return instant;
+}
+else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+}
+TO:
+8
+
+INSERT:
+20:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 133 patches...
+Current actions:
+INSERT:
+12:if(test>instantAfter){
+return instant;
+}
+TO:
+8
+
+INSERT:
+20:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:if(test<instantBefore){
+test=convertLocalToUTC(local,false,instantAfter);
+if(test>instantAfter){
+return instant;
+}
+else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+}
+TO:
+8
+
+INSERT:
+19:else{
+return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+}
+TO:
+8
+
+Tested:22262 patches
+Compile failed:21437 patches
+Compilation rate:0.03705866498966849
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNPNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/48.java
+Current actions:
+INSERT:
+9:long localBefore=convertUTCToLocal(instantBefore);
+TO:
+8
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+11:if(localBefore==localAfter){
+return instant;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long localAfter=convertUTCToLocal(instantAfter);
+TO:
+8
+
+INSERT:
+11:if(localBefore==localAfter){
+return instant;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long localAfter=convertUTCToLocal(instantAfter);
+TO:
+8
+
+INSERT:
+12:return instant;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 150 patches...
+Current actions:
+INSERT:
+9:long localBefore=convertUTCToLocal(instantBefore);
+TO:
+8
+
+INSERT:
+10:long localAfter=convertUTCToLocal(instantAfter);
+TO:
+8
+
+INSERT:
+11:if(localBefore==localAfter){
+return instant;
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:23020 patches
+Compile failed:22162 patches
+Compilation rate:0.03727193744569939
+NNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPPNNNNNNNPNNPNNPNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNPPNNNNNNNPNNNPNNNNNNNNNNNNPNNPNNNNNNNPNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNPPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/49.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(offset>0){
+local-=offset;
+if(!earlierOrLater&&local<instant){
+return instant;
+}
+return convertLocalToUTC(local,false,instant);
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 40 patches...
+Current actions:
+INSERT:
+10:if(!earlierOrLater&&local<instant){
+return instant;
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long offset=getOffsetFromLocal(instant);
+TO:
+2
+
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+8:if(offset>0){
+local-=offset;
+if(!earlierOrLater&&local<instant){
+return instant;
+}
+return convertLocalToUTC(local,false,instant);
+}
+TO:
+8
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+15:local+=offset;
+TO:
+8
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+16:if(!earlierOrLater&&local>instant){
+return instant;
+}
+
+INSERT:
+17:return instant;
+TO:
+5
+
+INSERT:
+19:return convertLocalToUTC(local,false,instant);
+TO:
+5
+
+Tested:23660 patches
+Compile failed:22766 patches
+Compilation rate:0.03778529163144548
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPNPNNNNNNNNNNNNNNNPNNNPPPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNPNNNPNPNNNNNNNPNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNPNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/50.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iRule==null){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(iRule.getOffset(instant)==iRule.getOffset(instant+1)){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+14:if(earlierOrLater){
+adjusted+=iRule.getDurationMillis();
+}
+TO:
+5
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+11:{
+DateTimeUtils.setInstantMillis(instant);
+long adjusted=iRule.getOffset(instant);
+if(earlierOrLater){
+adjusted+=iRule.getDurationMillis();
+}
+return adjusted;
+}
+TO:
+5
+
+INSERT:
+17:return adjusted;
+TO:
+5
+
+Following are 4th generated patches:
+Validating 20 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:if(iRule==null){
+return instant;
+}
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+6:if(iRule.getOffset(instant)==iRule.getOffset(instant+1)){
+return instant;
+}
+
+INSERT:
+7:return instant;
+TO:
+5
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+INSERT:
+9:int save=iType.ordinal();
+TO:
+5
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:iType=PeriodType.standard();
+TO:
+5
+
+INSERT:
+11:{
+DateTimeUtils.setInstantMillis(instant);
+long adjusted=iRule.getOffset(instant);
+if(earlierOrLater){
+adjusted+=iRule.getDurationMillis();
+}
+return adjusted;
+}
+TO:
+5
+
+INSERT:
+12:DateTimeUtils.setInstantMillis(instant);
+TO:
+5
+
+INSERT:
+13:long adjusted=iRule.getOffset(instant);
+TO:
+5
+
+INSERT:
+14:if(earlierOrLater){
+adjusted+=iRule.getDurationMillis();
+}
+TO:
+5
+
+INSERT:
+17:return adjusted;
+TO:
+5
+
+INSERT:
+19:{
+iType=PeriodType.forOrdinal(save);
+}
+TO:
+5
+
+INSERT:
+20:iType=PeriodType.forOrdinal(save);
+TO:
+5
+
+Tested:24279 patches
+Compile failed:23374 patches
+Compilation rate:0.0372750113266609
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNPNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/51.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant:instant+DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 2th generated patches:
+Validating 134 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant:instant+DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 6return instant;
+
+Following are 3th generated patches:
+Validating 134 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant:instant+DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 4th generated patches:
+Validating 132 patches...
+Current actions:
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+4:return convertLocalToUTC(local,false,earlierOrLater?instant:instant+DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Tested:24694 patches
+Compile failed:23779 patches
+Compilation rate:0.037053535271725925
+NNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/52.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertLocalToUTC(local,false,instant+1):convertLocalToUTC(local,false,instant-1));
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 133 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertLocalToUTC(local,false,instant+1):convertLocalToUTC(local,false,instant-1));
+TO:
+8
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertLocalToUTC(local,false,instant+1):convertLocalToUTC(local,false,instant-1));
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Following are 4th generated patches:
+Validating 132 patches...
+Current actions:
+INSERT:
+4:return convertLocalToUTC(local,false,earlierOrLater?convertLocalToUTC(local,false,instant+1):convertLocalToUTC(local,false,instant-1));
+TO:
+8
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+Tested:25118 patches
+Compile failed:24194 patches
+Compilation rate:0.036786368341428455
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/53.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:return convertLocalToUTC(instant,true,instant);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 3th generated patches:
+Validating 133 patches...
+Current actions:
+INSERT:
+3:return convertLocalToUTC(instant,true,instant);
+TO:
+2
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+Following are 4th generated patches:
+Validating 131 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:return convertLocalToUTC(instant,true,instant);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:25437 patches
+Compile failed:24511 patches
+Compilation rate:0.036403663954082635
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/54.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 191 patches...
+Current actions:
+INSERT:
+12:if(offsetBefore!=offsetAfter){
+if(offsetAfter<offsetBefore){
+if(!earlierOrLater){
+result-=offsetAfter-offsetBefore;
+}
+}
+else{
+if(earlierOrLater){
+result+=offsetBefore-offsetAfter;
+}
+}
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:if(offsetAfter<offsetBefore){
+if(!earlierOrLater){
+result-=offsetAfter-offsetBefore;
+}
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long offsetBefore=getOffsetFromLocal(local);
+TO:
+8
+
+INSERT:
+11:long result=instant-offsetAfter;
+TO:
+8
+
+INSERT:
+12:if(offsetBefore!=offsetAfter){
+if(offsetAfter<offsetBefore){
+if(!earlierOrLater){
+result-=offsetAfter-offsetBefore;
+}
+}
+else{
+if(earlierOrLater){
+result+=offsetBefore-offsetAfter;
+}
+}
+}
+TO:
+8
+
+Tested:25829 patches
+Compile failed:24898 patches
+Compilation rate:0.03604475589453715
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/55.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:if(earlierOrLater){
+instant+=offset;
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long offset=getOffset(instant);
+TO:
+2
+
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+10:else{
+instant-=offset;
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long offset=getOffset(instant);
+TO:
+2
+
+INSERT:
+4:if(offset==0){
+return instant;
+}
+TO:
+2
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+7:if(earlierOrLater){
+instant+=offset;
+}
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+11:instant-=offset;
+TO:
+7
+
+INSERT:
+13:return instant;
+TO:
+7
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:26821 patches
+Compile failed:25856 patches
+Compilation rate:0.03597926997501957
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPPNPPPNPPNNNPNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPNPPNPPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/56.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(earlierOrLater){
+if(iType==null||iType.equals(PeriodType.standard())){
+return instant+getMillis();
+}
+else{
+return instant+getMillis()+get(DurationFieldType.hours());
+}
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:if(iType==null||iType.equals(PeriodType.standard())){
+return instant+getMillis();
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:if(earlierOrLater){
+if(iType==null||iType.equals(PeriodType.standard())){
+return instant+getMillis();
+}
+else{
+return instant+getMillis()+get(DurationFieldType.hours());
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 6return instant;
+
+INSERT:
+12:if(iType==null||iType.equals(PeriodType.standard())){
+return instant-getMillis();
+}
+TO:
+2
+
+INSERT:
+16:return instant-getMillis()-get(DurationFieldType.hours());
+TO:
+2
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:27419 patches
+Compile failed:26452 patches
+Compilation rate:0.03526751522666764
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/57.java
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+11:if(start>=instant){
+return instant;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(end<=instant){
+return instant;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+10:long end=convertLocalToUTC(local,true,earlierOrLater?instantBefore:instantAfter);
+TO:
+8
+
+INSERT:
+11:if(start>=instant){
+return instant;
+}
+TO:
+8
+
+INSERT:
+15:return instant;
+TO:
+8
+
+INSERT:
+17:return adjustOffset(instant,(earlierOrLater?start:end),(earlierOrLater?end:start));
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+INSERT:
+9:long start=convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+8
+
+INSERT:
+11:if(start>=instant){
+return instant;
+}
+TO:
+8
+
+INSERT:
+15:return instant;
+TO:
+8
+
+INSERT:
+17:return adjustOffset(instant,(earlierOrLater?start:end),(earlierOrLater?end:start));
+TO:
+8
+
+Following are 4th generated patches:
+Validating 128 patches...
+Tested:28208 patches
+Compile failed:27216 patches
+Compilation rate:0.03516732841747022
+NNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNPPPNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/58.java
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+4:if(newInstant==instant){
+return instant;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long newInstant=convertLocalToUTC(convertUTCToLocal(instant),false,earlierOrLater?instant+1:instant-1);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+4:if(newInstant==instant){
+return instant;
+}
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+7:else{
+return newInstant;
+}
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 2th generated patches:
+Validating 136 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long newInstant=convertLocalToUTC(convertUTCToLocal(instant),false,earlierOrLater?instant+1:instant-1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+7:else{
+return newInstant;
+}
+TO:
+7
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 3th generated patches:
+Validating 135 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long newInstant=convertLocalToUTC(convertUTCToLocal(instant),false,earlierOrLater?instant+1:instant-1);
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 8long local=convertUTCToLocal(instant);
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Following are 4th generated patches:
+Validating 134 patches...
+Current actions:
+DELETE:
+Original line: 3long instantBefore=convertUTCToLocal(instant-3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+3:long newInstant=convertLocalToUTC(convertUTCToLocal(instant),false,earlierOrLater?instant+1:instant-1);
+TO:
+2
+
+UPDATE
+FROM:
+5:if(instantBefore==instantAfter){
+return instant;
+}
+TO:
+4:if(newInstant==instant){
+return instant;
+}
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+INSERT:
+7:else{
+return newInstant;
+}
+TO:
+7
+
+DELETE:
+Original line: 9return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+
+Tested:28685 patches
+Compile failed:27686 patches
+Compilation rate:0.034826564406484226
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/59.java
+Current actions:
+INSERT:
+3:if(iType==null){
+iType=PeriodType.standard();
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:if(iType.getIndexedField(DateTimeFieldType.hourOfDay())!=null){
+instant=convertUTCToLocal(instant);
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(iType==null){
+iType=PeriodType.standard();
+}
+TO:
+2
+
+DELETE:
+Original line: 4long instantAfter=convertUTCToLocal(instant+3*DateTimeConstants.MILLIS_PER_HOUR);
+
+DELETE:
+Original line: 5if(instantBefore==instantAfter){
+return instant;
+}
+
+INSERT:
+6:if(iType.getIndexedField(DateTimeFieldType.hourOfDay())!=null){
+instant=convertUTCToLocal(instant);
+}
+TO:
+7
+
+INSERT:
+9:long result=0L;
+TO:
+7
+
+INSERT:
+10:long previous=0L;
+TO:
+7
+
+INSERT:
+11:for(int i=0;i<iValues.length;i++){
+int current=iValues[i];
+if(current==0){
+continue;
+}
+long add=0L;
+if(i<4){
+add=current*DateTimeConstants.MILLIS_PER_HOUR;
+}
+else{
+add=current*DateTimeConstants.MILLIS_PER_DAY;
+}
+if(previous>instant){
+add=-add;
+}
+result=add+instant;
+if((i==0||i==4)&&(result<instant)){
+result=Long.MIN_VALUE;
+break;
+}
+if(i==4){
+if(result<instant){
+result=Long.MIN_VALUE;
+break;
+}
+if(result==instant){
+if(previous==instant){
+result=instant;
+}
+else{
+result=Long.MIN_VALUE;
+break;
+}
+}
+if(result>instant){
+result=Long.MAX_VALUE;
+break;
+}
+}
+previous=result;
+instant=result;
+}
+TO:
+7
+
+INSERT:
+53:return (result==Long.MIN_VALUE)?instant:result;
+TO:
+7
+
+Tested:29085 patches
+Compile failed:28086 patches
+Compilation rate:0.03434760185662713
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_17/60.java
+Current actions:
+INSERT:
+9:long laterOffset=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+Following are 0th generated patches:
+Validating 93 patches...
+Current actions:
+INSERT:
+11:if(earlierOffset==instantBefore){
+if(laterOffset==instantAfter){
+return instant;
+}
+return convertLocalToUTC(local,false,laterOffset);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 110 patches...
+Current actions:
+INSERT:
+12:if(laterOffset==instantAfter){
+return instant;
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:long earlierOffset=convertLocalToUTC(local,false,instantBefore);
+TO:
+8
+
+INSERT:
+12:if(laterOffset==instantAfter){
+return instant;
+}
+TO:
+8
+
+INSERT:
+15:return convertLocalToUTC(local,false,laterOffset);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:long laterOffset=convertLocalToUTC(local,false,instantAfter);
+TO:
+8
+
+INSERT:
+11:if(earlierOffset==instantBefore){
+if(laterOffset==instantAfter){
+return instant;
+}
+return convertLocalToUTC(local,false,laterOffset);
+}
+TO:
+8
+
+UPDATE
+FROM:
+9:return convertLocalToUTC(local,false,earlierOrLater?instantAfter:instantBefore);
+TO:
+20:return convertLocalToUTC(local,false,earlierOrLater?laterOffset:earlierOffset);
+
+Tested:29686 patches
+Compile failed:28669 patches
+Compilation rate:0.03425857306474432
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNPNPNNNNPNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : time-17 > patch : 9 | Start : Wed Apr 10 17:21:06 HKT 2024 | End : 2024.04.10 AD at 18:21:10 HKT

@@ -1,0 +1,5515 @@
+Repair : closure_1
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/0.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+14:if(referenced.contains(var)){
+lastArg=null;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+lastArg=null;
+}
+else{
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+Following are 3th generated patches:
+Validating 177 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+lastArg=null;
+}
+else{
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+}
+TO:
+10
+
+Following are 4th generated patches:
+Validating 182 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+INSERT:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+lastArg=null;
+}
+else{
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Tested:724 patches
+Compile failed:446 patches
+Compilation rate:0.3839779005524862
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPNPPNPNNNNNNPPPPPPNPPPPPPNNNNNNNNNNPNPPNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNPNNNPNPNNNPNNNPNNNNPNNNNNNNNNNNPNNPNNNNNNNNNNNNPPPPPPPNNNNNPPPPPPNNNPNNPPNPPPPPPNPNNNNPPPPPNPPPPPPPPNPPPPPPPPNPPNPPPPNPPPPPPNPNPPPNPPPPPPPPPPNPPNNPPNPPNPPNPPNPPPPPPNNNPPNPNNPPNNNNPPPNNNPPPNPPNPNNNNPPPNNPNPNPNPNNPNPPNPNNPNPNNNPNNNPNNPPNNPPPPNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNPPPPPPPPPPPPNPPPPNPPNPPPPPNPNPPPPPPNPPPPPNNPPPPPNPPPPNPPNPPNNPPNPPNPNPPNNNPPPNNNPPPPNPNPPNNNPNNPNNPPNNNPNPNNNNPNPNNPPNNNNPNPNNNPPPPNNPPPNPPNPPPPNNPNPPNPNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/1.java
+Tested:724 patches
+Compile failed:446 patches
+Compilation rate:0.3839779005524862
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/2.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 120 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int argCount=argList.getChildCount();
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+12:for(int i=argCount-1;i>=0;i--){
+Var var=fnScope.getVar(argList.getChildAtIndex(i).getString());
+if(!referenced.contains(var)){
+argList.removeChildAtIndex(i);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:Var var=fnScope.getVar(argList.getChildAtIndex(i).getString());
+TO:
+10
+
+DELETE:
+Original line: 19break;
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+12:for(int i=argCount-1;i>=0;i--){
+Var var=fnScope.getVar(argList.getChildAtIndex(i).getString());
+if(!referenced.contains(var)){
+argList.removeChildAtIndex(i);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:1091 patches
+Compile failed:798 patches
+Compilation rate:0.2685609532538955
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/3.java
+Current actions:
+INSERT:
+17:compiler.reportChangeToChangeScope(fnScope);
+TO:
+16
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:compiler.reportChangeToChangeScope(fnScope);
+TO:
+16
+
+Following are 1th generated patches:
+Validating 153 patches...
+Tested:1245 patches
+Compile failed:842 patches
+Compilation rate:0.3236947791164659
+NNNNNNPPPPPPPPPNNPPPPNPPPNPNPPNPPPPPPPPPPNPNPPPPNPNPPPPPPPPPPPPPPPPPPPNPPPPNPNPNNNPPNPPPPPPNNNPPPPPPNPNPPNPPNPNPNNPPPPNPPPPNPPNNNPNPPPPPPNNNPPPNPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/4.java
+Current actions:
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+Following are 0th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+26:if(NodeUtil.isCall(c)&&NodeUtil.isExprCall(c)){
+callSiteOptimizer.optimize(c,fnScope,referenced);
+compiler.reportCodeChange();
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Node parentNode=function.getParent();
+TO:
+23
+
+INSERT:
+25:for(Node c=parentNode.getFirstChild();c!=null;c=c.getNext()){
+if(NodeUtil.isCall(c)&&NodeUtil.isExprCall(c)){
+callSiteOptimizer.optimize(c,fnScope,referenced);
+compiler.reportCodeChange();
+}
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 178 patches...
+Current actions:
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+INSERT:
+24:Node parentNode=function.getParent();
+TO:
+23
+
+INSERT:
+25:for(Node c=parentNode.getFirstChild();c!=null;c=c.getNext()){
+if(NodeUtil.isCall(c)&&NodeUtil.isExprCall(c)){
+callSiteOptimizer.optimize(c,fnScope,referenced);
+compiler.reportCodeChange();
+}
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 179 patches...
+Tested:1821 patches
+Compile failed:1411 patches
+Compilation rate:0.22515101592531575
+NNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/5.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 120 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+12:for(int i=end-1;i>=0;i--){
+Var var=fnScope.getVar(argList.getChildAtIndex(i).getString());
+if(!referenced.contains(var)){
+argList.removeChild(i);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+12:for(int i=end-1;i>=0;i--){
+Var var=fnScope.getVar(argList.getChildAtIndex(i).getString());
+if(!referenced.contains(var)){
+argList.removeChild(i);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:1943 patches
+Compile failed:1518 patches
+Compilation rate:0.21873391662377767
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNNNNNPPNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPPPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/6.java
+Current actions:
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+14:if(var!=null&&referenced.contains(var)){
+break;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+INSERT:
+14:if(var!=null&&referenced.contains(var)){
+break;
+}
+TO:
+13
+
+INSERT:
+17:argList.removeChild(lastArg);
+TO:
+20
+
+INSERT:
+18:compiler.reportCodeChange();
+TO:
+20
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(var!=null&&referenced.contains(var)){
+break;
+}
+TO:
+13
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+INSERT:
+17:argList.removeChild(lastArg);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(var!=null&&referenced.contains(var)){
+break;
+}
+TO:
+13
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+17:argList.removeChild(lastArg);
+TO:
+20
+
+INSERT:
+18:compiler.reportCodeChange();
+TO:
+20
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:2746 patches
+Compile failed:2034 patches
+Compilation rate:0.25928623452294247
+NPPPPPPPNNNNNNNNNNNNNNNPPPPPPNNNNNPNNNNNNNNNNNNNPNPNPNPNPNNNNNNNPNNNNNNPNNPNNNPNNNPNNNNNPNNNNPNNPNNNNNNNPNNPNNNNPNNPPPPNNNPPPNPNNNPPNPNPPNNNPNNNPNPPPNPPPPNNNNPPPPNPNNNNPNPNNPPPPNNNPNNNNPNNPNPNPNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNPNNPNNPNPNNPNPNPNNPNNNNNNNNNNNPPNNNNPNNNNNNNNPPNNNNPNNNNNPNNNPPPNNNPNNPPPPNNPNPNNPNNPPPNNPPNNNPNNNNPPPNPPPPPNNPNPPPPNNNNNNPNPPPPPPPNNPNNNPNNNPNNPPNNPPPPPPPPPNNNNNNNNNNNNNNNNNPPPPNNPNNNNPNNNPNNNPNPNNNNNNNPPPNNNNNNNNPNNNPPNPNNNNNNNNNNNPPPNNNNNNPNNNNPNNNNNNNNNNPNPPNNNPPPNPPNNPNNPNNPPPNNPPPNNNPNNPNNPPPNPPPPPNNNPPPNNPPNNPNNPNNPPNPNNPNNNNNNNPNNPPNNNPNNPPPPPPPPNNNNNNNNNNNNNNPNPNPPNNNNNNPNNNPPNNNNPNNNNNPPNPNNNNNNPPNNNNNNNNNNNPPNNNPNNNPNNNNNNPNNPNPNNNNNNNNNNPNNNNNPPPNNPPPNPPNNPPNNNNPPNPNPPNNNPNNNPNPPPNPPPPNNNPNPPPNPNNNNNNNPPPPPPPNNNPNNNNNNPNPNPNPNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/7.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int lastUnreferencedArgIndex=findLastUnreferencedArg(fnScope);
+TO:
+10
+
+INSERT:
+12:int argCount=argList.getChildCount();
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+13:for(int i=argCount-1;i>=lastUnreferencedArgIndex;i--){
+argList.removeChild(i);
+}
+TO:
+10
+
+INSERT:
+28:}
+
+TO:
+26
+
+INSERT:
+29:}
+
+TO:
+26
+
+INSERT:
+31:}
+
+TO:
+26
+
+INSERT:
+37:}
+
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:int lastUnreferencedArgIndex=findLastUnreferencedArg(fnScope);
+TO:
+10
+
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+INSERT:
+28:}
+
+TO:
+26
+
+INSERT:
+29:}
+
+TO:
+26
+
+INSERT:
+31:}
+
+TO:
+26
+
+INSERT:
+37:}
+
+TO:
+26
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+28:}
+
+TO:
+26
+
+INSERT:
+29:}
+
+TO:
+26
+
+INSERT:
+31:}
+
+TO:
+26
+
+INSERT:
+37:}
+
+TO:
+26
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+13:for(int i=argCount-1;i>=lastUnreferencedArgIndex;i--){
+argList.removeChild(i);
+}
+TO:
+10
+
+INSERT:
+28:}
+
+TO:
+26
+
+INSERT:
+29:}
+
+TO:
+26
+
+INSERT:
+31:}
+
+TO:
+26
+
+INSERT:
+37:}
+
+TO:
+26
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:3343 patches
+Compile failed:2631 patches
+Compilation rate:0.21298235118157344
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/8.java
+Current actions:
+INSERT:
+25:compiler.reportCodeChange();
+TO:
+24
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:compiler.reportCodeChange();
+TO:
+24
+
+Following are 1th generated patches:
+Validating 113 patches...
+Tested:3457 patches
+Compile failed:2685 patches
+Compilation rate:0.22331501301706683
+PNNNNNNNPPPPPPNPNPPPNPPPPPNPPPPPPPNPNPPPNNPPPNNNNPNNNNNNPPPPNNPNPPPNNNNNNNPNNNPNNNNNNPNPPNNNNPNPNNNNPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/9.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+INSERT:
+20:for(int i=argList.getChildCount()-1;i>lastIndex;i--){
+argList.removeChild(argList.getChildAtIndex(i));
+}
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+12:while(lastIndex>=0){
+Node lastArg=argList.getChildAtIndex(lastIndex);
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+break;
+}
+lastIndex--;
+}
+TO:
+10
+
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+INSERT:
+20:for(int i=argList.getChildCount()-1;i>lastIndex;i--){
+argList.removeChild(argList.getChildAtIndex(i));
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4137 patches
+Compile failed:3298 patches
+Compilation rate:0.20280396422528402
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPPPNPNNNPPNPPPPPNNPNPPPNPPNPNNNNNNNNNNNNNNNNNNPNNNPNNNPNNNNPPPPNPPNNNNNNNNPNNNNNNNNNNPNNNNNNPNPNNNPPPNPPPNNNNPNPNNNNNNNNNNNNNNPNNPNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNPNNNPNPPNNNNPNNNNNNNPNNNNNNNNNNNNNNPPNNNNNNPNPNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/10.java
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+INSERT:
+15:removeNode(lastArg);
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:removeNode(lastArg);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:4540 patches
+Compile failed:3372 patches
+Compilation rate:0.25726872246696036
+NNPNPPPPPPPPNPPPPPPPPPPPPNNPPPPPPPPPPPPNPNPPPNPPPPPNNNPPNPPPPPPPPPPPPPPPNPNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNPPNNPPPNPNPNNPPPNNPPPPPPPPPPPNNNPPPPPPPPPPNPPPPPPPPPPNPPPPNPPPNPPPPPNPPPPPPPNPNPNPNPPPPPPPPPPNNNPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPNPPNPPPNPPPPPNPNPNPNPPPPPNPPPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNPPNPNPPNPPPNNPPNPPNPPPPPPPPNPPNPPPPPPPPPNPPPPPPPPPPNPPPPPNNPPPPPPPNPPPPPPPPPNNNNPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/11.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!referenced.contains(var.getName())){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!referenced.contains(var.getName())){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:4542 patches
+Compile failed:3372 patches
+Compilation rate:0.2575957727873184
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/12.java
+Current actions:
+INSERT:
+24:Var argsVar=function.getJSDocInfo().getVarargs();
+TO:
+23
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+25:if(argsVar!=null){
+referenced.add(argsVar);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Var argsVar=function.getJSDocInfo().getVarargs();
+TO:
+23
+
+INSERT:
+25:if(argsVar!=null){
+referenced.add(argsVar);
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Var argsVar=function.getJSDocInfo().getVarargs();
+TO:
+23
+
+INSERT:
+26:referenced.add(argsVar);
+TO:
+23
+
+Following are 3th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+24:Var argsVar=function.getJSDocInfo().getVarargs();
+TO:
+23
+
+Following are 4th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+26:referenced.add(argsVar);
+TO:
+23
+
+Tested:5055 patches
+Compile failed:3885 patches
+Compilation rate:0.2314540059347181
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/13.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!mayBeReferencedRecursively.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!mayBeReferencedRecursively.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:5057 patches
+Compile failed:3887 patches
+Compilation rate:0.23136246786632392
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/14.java
+Current actions:
+INSERT:
+26:if(function.isAssign()){
+Node assign=function.getFirstChild();
+Preconditions.checkState(assign.isAssign());
+Node value=assign.getLastChild();
+Preconditions.checkState(value.isFunction());
+argList=getFunctionArgList(value);
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+25
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+26:if(function.isAssign()){
+Node assign=function.getFirstChild();
+Preconditions.checkState(assign.isAssign());
+Node value=assign.getLastChild();
+Preconditions.checkState(value.isFunction());
+argList=getFunctionArgList(value);
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+25
+
+Following are 1th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+34:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+25
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:Node assign=function.getFirstChild();
+TO:
+25
+
+INSERT:
+29:Node value=assign.getLastChild();
+TO:
+25
+
+INSERT:
+30:Preconditions.checkState(value.isFunction());
+TO:
+25
+
+INSERT:
+36:compiler.reportCodeChange();
+TO:
+25
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+36:compiler.reportCodeChange();
+TO:
+25
+
+Following are 4th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+27:Node assign=function.getFirstChild();
+TO:
+25
+
+INSERT:
+28:Preconditions.checkState(assign.isAssign());
+TO:
+25
+
+INSERT:
+32:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+25
+
+Tested:5786 patches
+Compile failed:4449 patches
+Compilation rate:0.23107500864154856
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPNPPPPPNNNPNNNNNNNNNNNNPPPPPNNNPNPNPPNPNPNPPPPPPPPPPPPPNNPPPPNNPNNNNPNNNNNPNNPPNPNPPNNPPPPNNNNNNNPNPPPPNPPNNNPNPPPPNNNPPNNPPPNNPNNNNNNPPPPPPNPNNPPNPNPPPNNNPNNPNPPNNPNPNNPPNNPNPNNPPPPPPPNNNNNNNNNPPPPPNPNNPPNPNPPPPPNPPPNPNNPPPPPPPPPNPPNPNNNNPPNPNNPPNNNPNPNPPNNNNPPNPPNNNNNNPNNPNPNNNNPNPNNNNNNNNNPNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/15.java
+Current actions:
+INSERT:
+15:Node newArg=IR.param(lastArg.getString(),lastArg.getJSType());
+TO:
+14
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:if(NodeUtil.isParameterDeclaredByFunction(function,lastArg.getString())){
+NodeUtil.addParamToFunction(function,newArg);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+19:if(function.isFromExterns()){
+lastArg.replaceWith(newArg);
+}
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node newArg=IR.param(lastArg.getString(),lastArg.getJSType());
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+17:NodeUtil.addParamToFunction(function,newArg);
+TO:
+14
+
+INSERT:
+19:if(function.isFromExterns()){
+lastArg.replaceWith(newArg);
+}
+TO:
+14
+
+INSERT:
+22:else{
+Node nameNode=NodeUtil.getNameNode(function);
+if(nameNode!=null){
+newArg.setJSType(lastArg.getJSType());
+newArg.useSourceInfoIfMissingFromForTree(nameNode);
+}
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:6496 patches
+Compile failed:5150 patches
+Compilation rate:0.20720443349753695
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPPNNPNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/16.java
+Current actions:
+INSERT:
+24:while(argList.hasChildren()){
+Node arg=argList.getLastChild();
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+arg.detachFromParent();
+compiler.reportCodeChange();
+if(!NodeUtil.isExprAssign(arg.getParent())){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+else{
+break;
+}
+}
+TO:
+23
+
+Following are 0th generated patches:
+Validating 102 patches...
+Current actions:
+INSERT:
+27:if(!referenced.contains(var)){
+argList.removeChild(arg);
+arg.detachFromParent();
+compiler.reportCodeChange();
+if(!NodeUtil.isExprAssign(arg.getParent())){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 92 patches...
+Current actions:
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+INSERT:
+31:if(!NodeUtil.isExprAssign(arg.getParent())){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:while(argList.hasChildren()){
+Node arg=argList.getLastChild();
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+arg.detachFromParent();
+compiler.reportCodeChange();
+if(!NodeUtil.isExprAssign(arg.getParent())){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+else{
+break;
+}
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+25:Node arg=argList.getLastChild();
+TO:
+23
+
+INSERT:
+36:break;
+TO:
+23
+
+Following are 4th generated patches:
+Validating 181 patches...
+Current actions:
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+INSERT:
+25:Node arg=argList.getLastChild();
+TO:
+23
+
+INSERT:
+29:arg.detachFromParent();
+TO:
+23
+
+INSERT:
+30:compiler.reportCodeChange();
+TO:
+23
+
+INSERT:
+31:if(!NodeUtil.isExprAssign(arg.getParent())){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+23
+
+INSERT:
+35:else{
+break;
+}
+TO:
+23
+
+Tested:7057 patches
+Compile failed:5674 patches
+Compilation rate:0.19597562703698457
+NNNNNNNNNNNNNNNNNNNNNNNPPPPNPPNNNNNNNNNNNPNPPNPNNNNNNNNNNNPNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNPPPPPPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/17.java
+Current actions:
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:for(Node cur=argList.getLastChild();cur!=null;cur=cur.getPrevious()){
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 28 patches...
+Current actions:
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+INSERT:
+6:for(Node cur=argList.getLastChild();cur!=null;cur=cur.getPrevious()){
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+16:callSiteOptimizer.optimize(fnScope,referenced);
+TO:
+25
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 29 patches...
+Current actions:
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+INSERT:
+6:for(Node cur=argList.getLastChild();cur!=null;cur=cur.getPrevious()){
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 26 patches...
+Current actions:
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:argList.removeChild(cur);
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:compiler.reportCodeChange();
+TO:
+8
+
+INSERT:
+12:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Tested:7460 patches
+Compile failed:6062 patches
+Compilation rate:0.1873994638069705
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNPNNPNNNNNNPNNNNNNNPNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/18.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&NodeUtil.isCallTarget(function,lastArg.getString())){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&NodeUtil.isCallTarget(function,lastArg.getString())){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7462 patches
+Compile failed:6064 patches
+Compilation rate:0.18734923612972393
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/19.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[Node lastArg;, while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}, {
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}, Node function=fnScope.getRootNode();, Node argList=getFunctionArgList(function);, else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}, {
+callSiteOptimizer.optimize(fnScope,referenced);
+}, else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}, {
+callSiteOptimizer.optimize(fnScope,referenced);
+}]
+Following are 0th generated patches:
+Validating 113 patches...
+Current actions:
+DELETE:
+Original line: 4Preconditions.checkState(function.isFunction());
+
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+12:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 2{
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3Node function=fnScope.getRootNode();
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4Preconditions.checkState(function.isFunction());
+
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+
+DELETE:
+Original line: 3Node function=fnScope.getRootNode();
+
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+12:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+
+DELETE:
+Original line: 3Node function=fnScope.getRootNode();
+
+DELETE:
+Original line: 4Preconditions.checkState(function.isFunction());
+
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+12:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Tested:7518 patches
+Compile failed:6097 patches
+Compilation rate:0.18901303538175046
+NNNNNNNNPPPPPNNPPPNNNNNNPPNNNNNPPPNPNNPPNNPNNNPNPPPPNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/20.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 154 patches...
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:for(Node cur=argList.getLastChild();cur!=null;){
+Node next=cur.getPrevious();
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+cur=next;
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 2th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+11:for(Node cur=argList.getLastChild();cur!=null;){
+Node next=cur.getPrevious();
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+cur=next;
+}
+TO:
+10
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 19break;
+
+Following are 3th generated patches:
+Validating 28 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:for(Node cur=argList.getLastChild();cur!=null;){
+Node next=cur.getPrevious();
+Var var=fnScope.getVar(cur.getString());
+if(!referenced.contains(var)){
+argList.removeChild(cur);
+compiler.reportCodeChange();
+}
+cur=next;
+}
+TO:
+10
+
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+DELETE:
+Original line: 19break;
+
+Tested:7726 patches
+Compile failed:6297 patches
+Compilation rate:0.18495987574424022
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNPNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/21.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!NodeUtil.isLhsByDestructuring(lastArg)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!NodeUtil.isLhsByDestructuring(lastArg)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7728 patches
+Compile failed:6299 patches
+Compilation rate:0.1849120082815735
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/22.java
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+10:if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+9:if(stripTypeInformation&&!callSiteOptimizer.canModifyCallers(function)){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+UPDATE
+FROM:
+10:if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+TO:
+9:if(stripTypeInformation&&!callSiteOptimizer.canModifyCallers(function)){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:7735 patches
+Compile failed:6306 patches
+Compilation rate:0.18474466709760828
+NNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/23.java
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+15:removeFunctionArg(function,lastArg);
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:removeFunctionArg(function,lastArg);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8137 patches
+Compile failed:6416 patches
+Compilation rate:0.21150301093769203
+NNPNNNNNNNPPPNPNNNPPPPPPNPPPPNPPNPNPPPPNPPPPPPPPPPNPPPPPNPPPPPNNNPPPNPPPPPPPPNNNNNNPPPPPNPPPPPNPPPPPNPNPPPNPPPPPPPPNPPPPNPNPPPPPPPPPPPPNNPPPPPPNPPPPPPNNPPPPPPPNNPNNPPPPPPPPPNNNNPNNPNPPNNPPPPPPPPPPPPPPPPNNNNNNNPPPPPNNPNNPPPPNPPNPPPPPPNNPPNPPNPPPPPPPPPPPPPPNPPPPNNNPPPPPNPPPPPPPNNPNNNNPPNNPPPPPPPPPPPPNPNPPPPPPPPPPPNPPPPNPPPPNPPPPPPPPNPNPPPPNNPPPPPPPPPNPPPPPPPPNPNNNPPPPPPNPNPNNNPNNPNNPNPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/24.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+lastArg.detachFromParent();
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+
+INSERT:
+15:lastArg.detachFromParent();
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+INSERT:
+17:lastArg=argList.getLastChild();
+TO:
+16
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+lastArg.detachFromParent();
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+
+INSERT:
+15:lastArg.detachFromParent();
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+INSERT:
+17:lastArg=argList.getLastChild();
+TO:
+16
+
+Following are 3th generated patches:
+Validating 178 patches...
+Tested:8553 patches
+Compile failed:6709 patches
+Compilation rate:0.21559686659651583
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNPPPNPPPPPPNPNPPPPPPNPNPPPPNPNPPPPNPPPPPPPPPPPNNPPPPPNNPPPPNPNNNPPNNNPPPPPNNPPNNNNPNNPPPPNNNNNPNNNNNPNPPPNNPPNNNNPNPNNPPPPPPNNPPNNPPPPPPNNPPPNPNNNNPPPPPNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/25.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(var==null||!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(var==null||!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:8555 patches
+Compile failed:6709 patches
+Compilation rate:0.2157802454704851
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/26.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 161 patches...
+Current actions:
+INSERT:
+12:for(int i=childCount-1;i>=0;i--){
+Node child=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(child.getString());
+if(!referenced.contains(var)){
+argList.removeChild(child);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+11:int childCount=argList.getChildCount();
+TO:
+10
+
+INSERT:
+12:for(int i=childCount-1;i>=0;i--){
+Node child=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(child.getString());
+if(!referenced.contains(var)){
+argList.removeChild(child);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+12:for(int i=childCount-1;i>=0;i--){
+Node child=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(child.getString());
+if(!referenced.contains(var)){
+argList.removeChild(child);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int childCount=argList.getChildCount();
+TO:
+10
+
+INSERT:
+12:for(int i=childCount-1;i>=0;i--){
+Node child=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(child.getString());
+if(!referenced.contains(var)){
+argList.removeChild(child);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+INSERT:
+14:Var var=fnScope.getVar(child.getString());
+TO:
+10
+
+INSERT:
+16:argList.removeChild(child);
+TO:
+14
+
+Tested:9155 patches
+Compile failed:7137 patches
+Compilation rate:0.22042599672310212
+NNNNNNNNNNNNNNNNNNNNNNPNNPNPNPPNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPNNNNNNNNNPPPPPPNNNNNNNPPPNNNPNNNPPPPPPPNNNNNNNPPPPPPPPNNNNPPPNNNNNNPPNNNNNNPPPNNPNNNNNNNNPNNPPNNNPPPPPNPPNNNPNNNNNNNPNPPNNPNPPNNNNNNNPNNNNNNNNNNNNPNNNNNPPPNNPPNPPNNPPPNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNPNNNPNNNPPPPNNNNNPNPNPPNPNNNNNNPPPPPPPPPNPNNNNNNPPPNNPNNPPPPNNNNNPNNNPNNNPPPNNNNNNNNNNPPPNNNNNPPPPPPNPNNPNNNNNNPNPPNPNNPPNNPNNNNNNPNNNNNNNNNNNNPNNNNNPPPNNPNPPPNNPPPPNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/27.java
+Current actions:
+INSERT:
+10:for(Node arg=argList.getFirstChild();arg!=null;arg=arg.getNext()){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+removeArgAndVar(arg,var);
+compiler.reportCodeChange();
+}
+}
+TO:
+9
+
+Following are 0th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+12:if(!referenced.contains(var)){
+removeArgAndVar(arg,var);
+compiler.reportCodeChange();
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:for(Node arg=argList.getFirstChild();arg!=null;arg=arg.getNext()){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+removeArgAndVar(arg,var);
+compiler.reportCodeChange();
+}
+}
+TO:
+9
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:Var var=fnScope.getVar(arg.getString());
+TO:
+9
+
+INSERT:
+13:removeArgAndVar(arg,var);
+TO:
+9
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:removeArgAndVar(arg,var);
+TO:
+9
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:9964 patches
+Compile failed:7900 patches
+Compilation rate:0.20714572460859093
+NNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNPNNNPNNNNNNPNNNPNNNPPNNNNNNNNPNPNPPNNNNNPNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNPPNNNNNNPNNNPNNNPNNPPPNNPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNPNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/28.java
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:int count=argList.getChildCount();
+TO:
+9
+
+INSERT:
+11:for(int i=count-1;i>=0;i--){
+Node arg=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+}
+TO:
+9
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:for(int i=count-1;i>=0;i--){
+Node arg=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+}
+TO:
+9
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+10:int count=argList.getChildCount();
+TO:
+9
+
+INSERT:
+11:for(int i=count-1;i>=0;i--){
+Node arg=argList.getChildAtIndex(i);
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+}
+TO:
+9
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Tested:10752 patches
+Compile failed:8498 patches
+Compilation rate:0.20963541666666666
+NNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNPNNNNNNPNNNNNNNNNPNNPPNNNNNNNNNPNNNNNPNPNNNNPPNPNNPPPNNNNNNNNNNNNNNPNNPPPPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNPNNNPPPPPNNNNPPNNNPNNPNNNNNPPPPNPPPNNNNNNPPPPPPNNNNPPPPNNNNNNPNNPNPNNPPNNPNNNNNPNNNPNPNNPNNPPPPNPNPNNNNNPNNPNNPPNNNPPNPPNNNNNNNNNNNNNPNNNNNPPNNNNPPNNNPPPPNNPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPNNNNNNNNNPPPPPPNNNNNPPNNNNNPNPPNNPPPPPNPNNNNNNPPPPPPNNNNPPPPPNNNNNNNNNNNPNPPPNNNNNPNNNNPNNNNPNPNPPPPPNPPPNNNNPNNNPNNNNPNNNPNPPNNNPNPNPNNNNNNPNNNNNNNNNNNNPNNPPNPPNNPPPNNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/29.java
+Current actions:
+INSERT:
+17:Node formalArg=NodeUtil.getBestLValue(function,lastArg.getString());
+TO:
+16
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+18:if(formalArg!=null&&!formalArg.isName()){
+formalArg=NodeUtil.getBestLValue(formalArg,lastArg.getString());
+}
+TO:
+16
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+21:if(formalArg!=null){
+Node nameNode=NodeUtil.newQName(compiler,formalArg.getString());
+nameNode.setFirstChild(null);
+nameNode.setJSType(formalArg.getJSType());
+nameNode.setJSDocInfo(formalArg.getJSDocInfo());
+NodeUtil.addChildToFront(argList,nameNode);
+compiler.reportCodeChange();
+}
+TO:
+16
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+17:Node formalArg=NodeUtil.getBestLValue(function,lastArg.getString());
+TO:
+16
+
+INSERT:
+21:if(formalArg!=null){
+Node nameNode=NodeUtil.newQName(compiler,formalArg.getString());
+nameNode.setFirstChild(null);
+nameNode.setJSType(formalArg.getJSType());
+nameNode.setJSDocInfo(formalArg.getJSDocInfo());
+NodeUtil.addChildToFront(argList,nameNode);
+compiler.reportCodeChange();
+}
+TO:
+16
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:Node nameNode=NodeUtil.newQName(compiler,formalArg.getString());
+TO:
+16
+
+INSERT:
+24:nameNode.setJSType(formalArg.getJSType());
+TO:
+16
+
+INSERT:
+26:NodeUtil.addChildToFront(argList,nameNode);
+TO:
+16
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:11532 patches
+Compile failed:9277 patches
+Compilation rate:0.1955428373222338
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/30.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 141 patches...
+Current actions:
+INSERT:
+14:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+17:argList.removeChild(lastArg);
+TO:
+20
+
+INSERT:
+18:lastArg=argList.getLastChild();
+TO:
+20
+
+INSERT:
+19:compiler.reportCodeChange();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+INSERT:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+break;
+}
+argList.removeChild(lastArg);
+lastArg=argList.getLastChild();
+compiler.reportCodeChange();
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(referenced.contains(var)){
+break;
+}
+argList.removeChild(lastArg);
+lastArg=argList.getLastChild();
+compiler.reportCodeChange();
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 29 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+19:compiler.reportCodeChange();
+TO:
+20
+
+Tested:12103 patches
+Compile failed:9809 patches
+Compilation rate:0.18953978352474593
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNPPPNPPNNNNNNPPNNNNPNNPNNNNNNPNNPPPPPNNNNNNNNNNNNNNNNNNNPNPNNNNNNPNNNPNPNNNNNNPNNNNNNNPNNNPNNNNNNNNNPPNNNNNPNNNNNNPNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/31.java
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+15:if(referenced.contains(function)){
+NodeUtil.removeChild(lastArg.getParent(),lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(referenced.contains(function)){
+NodeUtil.removeChild(lastArg.getParent(),lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+20:Node stringNode=NodeUtil.newStringNode(lastArg,"null");
+TO:
+14
+
+INSERT:
+22:compiler.reportCodeChange();
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:12543 patches
+Compile failed:10126 patches
+Compilation rate:0.1926971219006617
+NNNNNNNNNNNNNNNNNNNNPPNPPNNNNNPNNNNNPPPPPPPNNNNNNNNNPPPPPNPPPPPPPNPPNPPNPPPPPNNPNPPPPNNNPNPNNNPNNPPPPNNPNPPNPPPNPPPPNPPPNPNPPPNNNNNNNNNPPPPPNNNNNPNNNNNNNPNPPPNNNPNPPPNNPNPNNNNNNPNPPPPPPNPPNPNPNPPPPNPNPPNPPPPPPNPPNPNPPNPPPPPPNPNNNPPNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/32.java
+Current actions:
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+15:if(lastArg==argList.getLastChild()){
+NodeUtil.getEnclosingFunction(function).getLastChild().removeChild(function);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:NodeUtil.getEnclosingFunction(function).getLastChild().removeChild(function);
+TO:
+14
+
+INSERT:
+19:callSiteOptimizer.optimize(fnScope,referenced);
+TO:
+14
+
+INSERT:
+22:return ;
+TO:
+16
+
+Following are 2th generated patches:
+Validating 138 patches...
+Current actions:
+INSERT:
+16:NodeUtil.getEnclosingFunction(function).getLastChild().removeChild(function);
+TO:
+14
+
+INSERT:
+22:return ;
+TO:
+16
+
+Following are 3th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+15:if(lastArg==argList.getLastChild()){
+NodeUtil.getEnclosingFunction(function).getLastChild().removeChild(function);
+}
+TO:
+14
+
+INSERT:
+18:else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(lastArg==argList.getLastChild()){
+NodeUtil.getEnclosingFunction(function).getLastChild().removeChild(function);
+}
+TO:
+14
+
+INSERT:
+18:else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+14
+
+INSERT:
+22:return ;
+TO:
+16
+
+Tested:13130 patches
+Compile failed:10706 patches
+Compilation rate:0.18461538461538463
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/33.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 61 patches...
+Current actions:
+INSERT:
+11:while(argList.getLastChild()!=null){
+Var var=fnScope.getVar(argList.getLastChild().getString());
+if(!referenced.contains(var)){
+argList.removeChild(argList.getLastChild());
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+UPDATE
+FROM:
+13:Var var=fnScope.getVar(lastArg.getString());
+TO:
+12:Var var=fnScope.getVar(argList.getLastChild().getString());
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 1th generated patches:
+Validating 132 patches...
+Current actions:
+UPDATE
+FROM:
+13:Var var=fnScope.getVar(lastArg.getString());
+TO:
+12:Var var=fnScope.getVar(argList.getLastChild().getString());
+
+INSERT:
+14:argList.removeChild(argList.getLastChild());
+TO:
+14
+
+DELETE:
+Original line: 15argList.removeChild(lastArg);
+
+DELETE:
+Original line: 19break;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:13520 patches
+Compile failed:10964 patches
+Compilation rate:0.18905325443786983
+NNNNNNNPPPPPPPPPPNNNNNPPNPNPPPNNNPPPNNNNNNPPPPPPPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPNNNNNNPPPNPPNNNNPPNNNNNPNNNNNNNNNNNNPPPPPPPPPPPNPPNPNPNPPNNNNPNNNNNPPNNNNNNNNNNPPNPPPPPPPPPPNPPPPPNNPNNNPNPNPNNNPPNPNNPPNNNNNNNNNNNPNNNNPPNNPNNPNNPNNPPNPPNPPPNPNPPPPNPPNPNPPPNPPNPPNNNPNNNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/34.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+13:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:while(argList.hasChildren()){
+Var var=fnScope.getVar(argList.getFirstChild().getString());
+if(referenced.contains(var)){
+break;
+}
+argList.removeChild(argList.getFirstChild());
+compiler.reportCodeChange();
+}
+TO:
+10
+
+UPDATE
+FROM:
+13:Var var=fnScope.getVar(lastArg.getString());
+TO:
+12:Var var=fnScope.getVar(argList.getFirstChild().getString());
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+Following are 2th generated patches:
+Validating 187 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+13:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+INSERT:
+16:argList.removeChild(argList.getFirstChild());
+TO:
+20
+
+INSERT:
+17:compiler.reportCodeChange();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:while(argList.hasChildren()){
+Var var=fnScope.getVar(argList.getFirstChild().getString());
+if(referenced.contains(var)){
+break;
+}
+argList.removeChild(argList.getFirstChild());
+compiler.reportCodeChange();
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 58 patches...
+Tested:14131 patches
+Compile failed:11473 patches
+Compilation rate:0.18809709150095535
+NNNNPPPPPPPNNPPNNNNNPNNPPPPNPPPPPPNPPPPPPPPPNNNNNNNNNNNNNNNNNPPPNNNNNPNPNNPNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNPPNNNPNNNNNNPNNNPNNNNPPNNNNNPNNNNNNPNPNNNNNNNNNNNNNNNNNPNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNPNPPPPPPPPPNPNPPPPNPPPPNNNPPNPNNPNNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/35.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:for(Node lastArg=argList.getLastChild();lastArg!=null;){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 27 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+16:lastArg=argList.getLastChild();
+TO:
+16
+
+Following are 2th generated patches:
+Validating 179 patches...
+Current actions:
+INSERT:
+11:for(Node lastArg=argList.getLastChild();lastArg!=null;){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Tested:14370 patches
+Compile failed:11677 patches
+Compilation rate:0.1874043145441893
+NNNNPPPPPPPNNNNNPPPPPPNNNPPNPPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNPPPNNNPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/36.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+
+INSERT:
+17:lastArg=argList.getLastChild();
+TO:
+16
+
+Following are 2th generated patches:
+Validating 190 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 191 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+Following are 4th generated patches:
+Validating 177 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+else{
+break;
+}
+}
+
+INSERT:
+17:lastArg=argList.getLastChild();
+TO:
+16
+
+Tested:14942 patches
+Compile failed:12127 patches
+Compilation rate:0.18839512782760007
+NNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNPPNPNNNPPPPPPNPPPPPPNPPPPPPPPNPPPPPPNPPPPPPPPNNNPNPPPPPPPPPPPNPPNPPNNPNPPPPNNPNPPNPPPNNPNPNNNPPNNPNPPPPNNPPPNNNNPNNPNNPNNPPNNPPNNPNPNNPNPPNNNNPNNNPNPPPPNNPPNPNNPPPPPNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/37.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int removedCount=0;
+TO:
+10
+
+INSERT:
+12:for(Node lastArg=argList.getLastChild();lastArg!=null;lastArg=argList.getLastChild()){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+removedCount++;
+}
+else{
+break;
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 28 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int removedCount=0;
+TO:
+10
+
+INSERT:
+12:for(Node lastArg=argList.getLastChild();lastArg!=null;lastArg=argList.getLastChild()){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+removedCount++;
+}
+else{
+break;
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 2th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+11:int removedCount=0;
+TO:
+10
+
+INSERT:
+12:for(Node lastArg=argList.getLastChild();lastArg!=null;lastArg=argList.getLastChild()){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+removedCount++;
+}
+else{
+break;
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+22:compiler.reportCodeChange();
+TO:
+21
+
+Following are 3th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:removedCount++;
+TO:
+15
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:int removedCount=0;
+TO:
+10
+
+INSERT:
+12:for(Node lastArg=argList.getLastChild();lastArg!=null;lastArg=argList.getLastChild()){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+removedCount++;
+}
+else{
+break;
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+22:compiler.reportCodeChange();
+TO:
+21
+
+Tested:15043 patches
+Compile failed:12190 patches
+Compilation rate:0.18965631855348003
+NNNNNNNNNNPPPPNPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNPNPPNPPPPNNNNNNPPPPPPNNPPNPNNNPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/38.java
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+Following are 0th generated patches:
+Validating 161 patches...
+Current actions:
+INSERT:
+9:if(!callSiteOptimizer.canModifyCallers(function)){
+for(Node arg=argList.getLastChild();arg!=null;){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+else{
+arg=arg.getPrevious();
+}
+}
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:if(!callSiteOptimizer.canModifyCallers(function)){
+for(Node arg=argList.getLastChild();arg!=null;){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+else{
+arg=arg.getPrevious();
+}
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:if(!callSiteOptimizer.canModifyCallers(function)){
+for(Node arg=argList.getLastChild();arg!=null;){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+else{
+arg=arg.getPrevious();
+}
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:15801 patches
+Compile failed:12943 patches
+Compilation rate:0.18087462818808936
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/39.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[callSiteOptimizer.optimize(fnScope,referenced);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+INSERT:
+24:if(function.getParent()==null){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:16002 patches
+Compile failed:13122 patches
+Compilation rate:0.17997750281214847
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNPNNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNPNPNNNNPNNNNNNNNNNNPNNNNNNNNNPNPPNNNNNNNNNNNNNNNPNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/40.java
+Current actions:
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+14:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+18:compiler.reportCodeChange();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:if(referenced.contains(var)){
+break;
+}
+TO:
+13
+
+DELETE:
+Original line: 16compiler.reportCodeChange();
+
+INSERT:
+18:compiler.reportCodeChange();
+TO:
+20
+
+Tested:16099 patches
+Compile failed:13191 patches
+Compilation rate:0.18063233741226162
+NPPPPPPPNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNPNPNNNNNNNNPNNNNNNNNPPNNNPNNPNNNNNNNNNNNNNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/41.java
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+if(modifyCallers){
+callSiteOptimizer.optimizeCallSites(var,fnScope);
+}
+compiler.reportCodeChange();
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 86 patches...
+Current actions:
+INSERT:
+15:if(modifyCallers){
+callSiteOptimizer.optimizeCallSites(var,fnScope);
+}
+TO:
+9
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:Node lastArg=argList.getLastChild();
+TO:
+9
+
+INSERT:
+11:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+if(modifyCallers){
+callSiteOptimizer.optimizeCallSites(var,fnScope);
+}
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+lastArg=argList.getLastChild();
+}
+TO:
+9
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 184 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+13:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+if(modifyCallers){
+callSiteOptimizer.optimizeCallSites(var,fnScope);
+}
+compiler.reportCodeChange();
+}
+TO:
+9
+
+Following are 4th generated patches:
+Validating 87 patches...
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+11:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+if(modifyCallers){
+callSiteOptimizer.optimizeCallSites(var,fnScope);
+}
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+lastArg=argList.getLastChild();
+}
+TO:
+9
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Tested:16745 patches
+Compile failed:13760 patches
+Compilation rate:0.17826216781128695
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNNNNNPNNPNPNNNNNNNNNNNNNNNNNNNNNPNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPNNPPNPNNNNPNPNNPNNNNNPNPPNNNNPNNNNNNPPNNPPNPPNPNNNNNNPPNNNNNNNNPPNNNPNPNNNNNNNNNPNPPNNPNNNNNNNPNNPNNNNPNNNNNPPPNPNNNNNNPPPNNNPNNPNNPPNNNPNPNNNNPNPNPNNNPPNPNNNPNPNPPNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/42.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 178 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+INSERT:
+12:while(lastArg!=null&&!referenced.contains(fnScope.getVar(lastArg.getString()))){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+lastArg=argList.getLastChild();
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+13:argList.removeChild(lastArg);
+TO:
+10
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+INSERT:
+14:compiler.reportCodeChange();
+TO:
+10
+
+DELETE:
+Original line: 14if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+DELETE:
+Original line: 18else{
+break;
+}
+
+Following are 4th generated patches:
+Validating 180 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Tested:17208 patches
+Compile failed:14175 patches
+Compilation rate:0.17625523012552302
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNPNNNNNPPPNPNNPPNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNPPNNNNNPPNPPNPNNNNNNNNNNNNNNNPPNNPPNPNNNNNNPNNPPNNNNNPNNNNNNNNPPNNNNNNNNNPNNNNNPPNNNNNNPNNNNPNNNNNPNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/43.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+lastArg=argList.getLastChild();
+}
+
+INSERT:
+21:lastArg=argList.getLastChild();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 191 patches...
+Current actions:
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+lastArg=argList.getLastChild();
+}
+
+INSERT:
+21:lastArg=argList.getLastChild();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+UPDATE
+FROM:
+12:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+12:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+lastArg=argList.getLastChild();
+}
+
+Following are 4th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:Node lastArg=argList.getLastChild();
+TO:
+10
+
+INSERT:
+21:lastArg=argList.getLastChild();
+TO:
+20
+
+Tested:17626 patches
+Compile failed:14589 patches
+Compilation rate:0.17230228072166118
+NNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/44.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!var.isFormalArg()){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(!referenced.contains(var)&&!var.isFormalArg()){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:17628 patches
+Compile failed:14591 patches
+Compilation rate:0.17228273201724528
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/45.java
+Current actions:
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+23:else{
+if(!lastArgRemovesAll){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+23:else{
+if(!lastArgRemovesAll){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+}
+TO:
+22
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:17634 patches
+Compile failed:14595 patches
+Compilation rate:0.1723375297720313
+NNPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/46.java
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(var!=null&&!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+14:if(var!=null&&!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:17636 patches
+Compile failed:14595 patches
+Compilation rate:0.1724313903379451
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/47.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[Node lastArg;, while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}, callSiteOptimizer.optimize(fnScope,referenced);, else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}, {
+callSiteOptimizer.optimize(fnScope,referenced);
+}, else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}, {
+callSiteOptimizer.optimize(fnScope,referenced);
+}, return ;, Node argList=getFunctionArgList(function);]
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+1
+
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+16:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+1
+
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+16:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+16:else{
+break;
+}
+TO:
+21
+
+DELETE:
+Original line: 19break;
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:private void removeUnreferencedFunctionArgs(Scope fnScope){
+Node function=fnScope.getRootNode();
+Preconditions.checkState(function.isFunction());
+if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+Node argList=getFunctionArgList(function);
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+1
+
+DELETE:
+Original line: 6return ;
+
+DELETE:
+Original line: 8Node argList=getFunctionArgList(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Tested:17646 patches
+Compile failed:14602 patches
+Compilation rate:0.1725036835543466
+NNNNPPNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/48.java
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+Following are 0th generated patches:
+Validating 48 patches...
+Current actions:
+INSERT:
+27:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+INSERT:
+25:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 107 patches...
+Current actions:
+INSERT:
+26:Var var=fnScope.getVar(lastArg.getString());
+TO:
+23
+
+INSERT:
+28:argList.removeChild(lastArg);
+TO:
+23
+
+INSERT:
+29:compiler.reportCodeChange();
+TO:
+23
+
+INSERT:
+31:else{
+break;
+}
+TO:
+23
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:break;
+TO:
+23
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+INSERT:
+26:Var var=fnScope.getVar(lastArg.getString());
+TO:
+23
+
+INSERT:
+27:if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+TO:
+23
+
+INSERT:
+31:else{
+break;
+}
+TO:
+23
+
+Tested:18198 patches
+Compile failed:15072 patches
+Compilation rate:0.17177711836465545
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNPPPNPPPPPPNPPPPNNNNNPPPPPPPPPPNPNPPPPPPNPPPPNPPPPPPPPPNPNNPPPPPPPPPPPNPPPPPNPPNPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/49.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 81 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 13Var var=fnScope.getVar(lastArg.getString());
+
+DELETE:
+Original line: 19break;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+11:for(Node arg : argList.children()){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+14:argList.removeChild(arg);
+TO:
+14
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:for(Node arg : argList.children()){
+Var var=fnScope.getVar(arg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(arg);
+compiler.reportCodeChange();
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+Tested:18481 patches
+Compile failed:15221 patches
+Compilation rate:0.17639738109409664
+NNNNNNNNNNNNNNNNNNNNNNNPPPNPPNPNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNNNNNNNNNNNPPPPPPPNPNNPPPPNNNNNNNNPPPPPNNPPPPPNNPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPPNNPPPNNPPPPPPPPPPNNPNNNNNNNNNNNPNPNPPNPNNPNNPNNNNPNNNNNNNNNPNPPPPPPNPNNNNNNNPPPPNPPPPPNNNPPNNNPPPPNNNPNNPPPPNPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/50.java
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(!referenced.contains(var)){
+Node replacement=IR.block().srcref(lastArg);
+replacement.addChildToBack(lastArg);
+lastArg=lastArg.getPrevious();
+argList.replaceChild(lastArg,replacement);
+compiler.reportCodeChange();
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+9:Node lastArg=argList.getLastChild();
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+Node replacement=IR.block().srcref(lastArg);
+replacement.addChildToBack(lastArg);
+lastArg=lastArg.getPrevious();
+argList.replaceChild(lastArg,replacement);
+compiler.reportCodeChange();
+}
+else{
+lastArg=null;
+}
+}
+TO:
+8
+
+INSERT:
+23:callSiteOptimizer.optimize(fnScope,referenced);
+TO:
+25
+
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+Following are 2th generated patches:
+Validating 181 patches...
+Current actions:
+INSERT:
+9:Node lastArg=argList.getLastChild();
+TO:
+8
+
+INSERT:
+10:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+Node replacement=IR.block().srcref(lastArg);
+replacement.addChildToBack(lastArg);
+lastArg=lastArg.getPrevious();
+argList.replaceChild(lastArg,replacement);
+compiler.reportCodeChange();
+}
+else{
+lastArg=null;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+23:callSiteOptimizer.optimize(fnScope,referenced);
+TO:
+25
+
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+Following are 3th generated patches:
+Validating 181 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:Node lastArg=argList.getLastChild();
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+Node replacement=IR.block().srcref(lastArg);
+replacement.addChildToBack(lastArg);
+lastArg=lastArg.getPrevious();
+argList.replaceChild(lastArg,replacement);
+compiler.reportCodeChange();
+}
+else{
+lastArg=null;
+}
+}
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:Node lastArg=argList.getLastChild();
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:while(lastArg!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+Node replacement=IR.block().srcref(lastArg);
+replacement.addChildToBack(lastArg);
+lastArg=lastArg.getPrevious();
+argList.replaceChild(lastArg,replacement);
+compiler.reportCodeChange();
+}
+else{
+lastArg=null;
+}
+}
+TO:
+8
+
+INSERT:
+23:callSiteOptimizer.optimize(fnScope,referenced);
+TO:
+25
+
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+Tested:19258 patches
+Compile failed:15988 patches
+Compilation rate:0.16979956381763422
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/51.java
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(argToRemove!=null){
+argList.removeChild(argToRemove);
+compiler.reportCodeChange();
+argToRemove=null;
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+24:if(argToRemove!=null){
+argList.removeChild(argToRemove);
+compiler.reportCodeChange();
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:continue;
+TO:
+14
+
+INSERT:
+24:if(argToRemove!=null){
+argList.removeChild(argToRemove);
+compiler.reportCodeChange();
+}
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Node lastArg;
+
+INSERT:
+24:if(argToRemove!=null){
+argList.removeChild(argToRemove);
+compiler.reportCodeChange();
+}
+TO:
+21
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:20085 patches
+Compile failed:16791 patches
+Compilation rate:0.16400298730395818
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNPNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPPPPNNNPNPNNNPNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/52.java
+Current actions:
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+17:if(modifyCallSites){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+17:if(modifyCallSites){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6return ;
+
+INSERT:
+7:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 5if(NodeUtil.isGetOrSetKey(function.getParent())){
+return ;
+}
+
+INSERT:
+6:Node lastArg;
+TO:
+8
+
+INSERT:
+7:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+17:if(modifyCallSites){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Tested:20521 patches
+Compile failed:17071 patches
+Compilation rate:0.16812046196579114
+NNNNNPPNPPPNPNNNPNPNNNNNPPPPPPPPPPPPPNNNNNNNNNNNNPPPPPNNNNNPNPNNNPNPNPNNNNNNNNNPPPNNNPPPNNNNPNNNPNNNPNNNNNPPNNNNPPNPNNNNPPNNNNNNNNPPNNPPNNNNPNPNNNPNPNPNNPNNNNNNNPPNNNNNPNPPNPNNNPPPNNNNNNNNNNPPNNPPNPNPPNNNNNPPNPNNPNNNPNPNPPNNNNNPNNPPPPPPPNNNNNNNNNNNNNPPPPNNNNNNNPNNPPNPNNPNPNNNNPNPNNNNNNPPNPNNPNNNNPPPNNNNNNPNNNNPPNNNNNNNNNNPNPNNNPPNPPNNNNNPNNPPNNNNNPNNPNPNNPPPPNPNNNPNNNNNNNPNPNPPPNNNNNNNNPNPPNNNPNNNNPNPPNNPNNNNPPNNPPPNNNNNPNNPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/53.java
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+27:if(!referenced.contains(var)){
+callSiteOptimizer.optimize(fnScope,referenced);
+break;
+}
+TO:
+23
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+DELETE:
+Original line: 24callSiteOptimizer.optimize(fnScope,referenced);
+
+INSERT:
+25:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+callSiteOptimizer.optimize(fnScope,referenced);
+break;
+}
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:break;
+TO:
+23
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:Node lastArg;
+TO:
+23
+
+INSERT:
+25:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+callSiteOptimizer.optimize(fnScope,referenced);
+break;
+}
+}
+TO:
+23
+
+Tested:20935 patches
+Compile failed:17403 patches
+Compilation rate:0.16871268211129686
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNPPPNNNPPPNNNNNNNPPPPPPPPNNNNNPNPPPPPNPPNNNNNNNNNNNNPPNNNPNNNNPNNNNNNNPNNPPNNPNPNPPPPNNPNPNNPNNNPNNNPNPPNNPNPPNNNNNNNPNNPPPPNPNNPPNNNPNPNNPNNNNPNNNNNNNNNNNPNNPNPPPNNNNNPPPPPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/54.java
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:if(referenced.isEmpty()){
+if(argList.hasChildren()){
+compiler.reportCodeChange();
+function.replaceChild(argList,new Node(Token.EMPTY,argList));
+}
+return ;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(argList.hasChildren()){
+compiler.reportCodeChange();
+function.replaceChild(argList,new Node(Token.EMPTY,argList));
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:if(referenced.isEmpty()){
+if(argList.hasChildren()){
+compiler.reportCodeChange();
+function.replaceChild(argList,new Node(Token.EMPTY,argList));
+}
+return ;
+}
+TO:
+8
+
+DELETE:
+Original line: 11Node lastArg;
+
+DELETE:
+Original line: 12while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+
+INSERT:
+16:Node lastArg;
+TO:
+22
+
+INSERT:
+17:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 19break;
+
+INSERT:
+21:compiler.reportCodeChange();
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+INSERT:
+23:else{
+break;
+}
+TO:
+22
+
+Following are 4th generated patches:
+Validating 117 patches...
+Current actions:
+DELETE:
+Original line: 9boolean modifyCallers=modifyCallSites&&callSiteOptimizer.canModifyCallers(function);
+
+INSERT:
+9:if(referenced.isEmpty()){
+if(argList.hasChildren()){
+compiler.reportCodeChange();
+function.replaceChild(argList,new Node(Token.EMPTY,argList));
+}
+return ;
+}
+TO:
+8
+
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+16:Node lastArg;
+TO:
+22
+
+INSERT:
+17:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Tested:21320 patches
+Compile failed:17627 patches
+Compilation rate:0.17321763602251408
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPPPPNNPPNPNPPPPPPPPPPNNNNNNPPPPPPPNNNNNNNNNNNPNNPPPNNPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPNPNPPNPPNPPPPNNPPNNPPPPPNNNNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPNPNPNPPNPNPNPPPNPPPNNNNNNNPNNNPNNNNNNPPPPPPPNPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_1/55.java
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+21:if(modifyCallers){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+21:if(modifyCallers){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 10if(!modifyCallers){
+Node lastArg;
+while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+}
+
+INSERT:
+10:Node lastArg;
+TO:
+9
+
+INSERT:
+11:while((lastArg=argList.getLastChild())!=null){
+Var var=fnScope.getVar(lastArg.getString());
+if(!referenced.contains(var)){
+argList.removeChild(lastArg);
+compiler.reportCodeChange();
+}
+else{
+break;
+}
+}
+TO:
+9
+
+INSERT:
+21:if(modifyCallers){
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+TO:
+22
+
+DELETE:
+Original line: 23else{
+callSiteOptimizer.optimize(fnScope,referenced);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:21923 patches
+Compile failed:17980 patches
+Compilation rate:0.17985677142726816
+NPPPPPPPNNNNNNNNNNNNNNPPPPPPPNNNNNNNPNPPNNPPPPNNNPNNNNNPPNNNPPNNNNNNPPPNPNPNNPNNPNNNNNNPPNNNNNPPNNNNNPNPNNNPPNNPPPPNNNNPPNPNPNNNNPNNPPNNNNNNNNNNNPNPNPPNNNPNPNPNPNNNPNNNPPPNPNPNNNPNPPPNNNNNNPNNPNNPPNNPNPPPPPPPNNNNNNNNNNNNNNNPPPPNNNPPPNPNNNPPPNNNPNNNNNNPPNPNPNPNPPNNNNNNPPNPNPNNPNPNNPNNNNNNNPPNNNNNNPNNPPPNNNNNNPNPNNPNNNNNNNPNNPNPNNPNNPNPPNNPNPPNNPPNNNNNNNPPNPNNPNNPNNPNPPNNNNPNPPNNPNNPNNNPPNNNPPNPNNPPPPPPPPNNNNNNNNNNNNPPPPPPPPNNNPPPNPPPNNPPNPNNNNPPPPPPPPNPPNPNNPNPNNNPNPPPPNNNNNNPPNPPPPNPNNNPPPPPPPPPNNPPNNNPPPNNPNNNNNNNNNNPNPNPNNNNNPNPNNNPPPNNPNNPNPNNPNPPNNNPNPNNNNPPPPPNNNPNNNPPNPNNNNPNPNPPPPPNNPPPPPP
+Finish : closure-1 > patch : 0 | Start : Fri Apr 12 14:17:46 HKT 2024 | End : 2024.04.12 AD at 18:14:08 HKT

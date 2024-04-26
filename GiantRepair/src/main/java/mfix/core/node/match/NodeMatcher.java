@@ -549,7 +549,7 @@ public class NodeMatcher implements Callable<List<List<List<MyActions>>>> {
 //        List<List<MyActions>> retList = new ArrayList<>(randomActions);
 
         // one by one select v2
-        List<List<List<MyActions>>> randomActionsV2 = actionGenerator.oneByoneSelectionV2(4000);
+        List<List<List<MyActions>>> randomActionsV2 = actionGenerator.oneByoneSelectionV2(1000);
         LevelLogger.debug("Return Actions size:"+randomActionsV2.size());
         List<List<List<MyActions>>> retList = new ArrayList<>(randomActionsV2);
 

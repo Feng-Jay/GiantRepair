@@ -1,0 +1,33 @@
+Following diff 0:
+-if(n==parent.getLastChild()){
+-for(Nodean:parent.getAncestors()){
+-intancestorType=an.getType();
+-if(ancestorType==Token.COMMA)continue;
+-if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK)return;
+-elsebreak;
+-}
+-}
+Following diff 0:
+-for(Nodean:parent.getAncestors()){
+-intancestorType=an.getType();
+-if(ancestorType==Token.COMMA)continue;
+-if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK)return;
+-elsebreak;
+-}
+Following diff 0:
+-if(n==parent.getLastChild()){
+-for(Nodean:parent.getAncestors()){
+-intancestorType=an.getType();
+-if(ancestorType==Token.COMMA)continue;
+-if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK)return;
+-elsebreak;
+-}
+-}
++if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
++t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"Thiscodelacksside-effects.Isthereabug?"));
++}
+Following diff 0:
+-if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK)return;
++if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
++t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"Thiscodelacksside-effects.Isthereabug?"));
++}

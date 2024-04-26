@@ -7,6 +7,7 @@ import mfix.core.node.ast.stmt.*;
 import mfix.core.node.ast.expr.*;
 import mfix.core.node.match.metric.LevenShteinDistance;
 
+import javax.naming.Context;
 import java.util.*;
 
 public class UpdateCheckParser {
@@ -54,12 +55,14 @@ public class UpdateCheckParser {
             LevenShteinDistance calculator = new LevenShteinDistance(mutString, candidateString);
             candidate.setSimilarity((calculator.compute()*1.0) / (mutString.length()*1.0));
         }
-        candidates.sort(new Comparator<Node>() {
-            @Override
-            public int compare(Node o1, Node o2) {
-                return Double.compare(o1.getSimilarity(), o2.getSimilarity());
-            }
-        });
+        if (Constant.RANK_PATCHES) {
+            candidates.sort(new Comparator<Node>() {
+                @Override
+                public int compare(Node o1, Node o2) {
+                    return Double.compare(o1.getSimilarity(), o2.getSimilarity());
+                }
+            });
+        }
         if(candidates.get(0).getSimilarity() == 0.0 && candidates.get(candidates.size()-1).getSimilarity() == 0.0){
             LevelLogger.error("All candidates' similarity are 0.0, please check!!!");
         }
@@ -195,7 +198,7 @@ public class UpdateCheckParser {
         ret.add(mut);
         List<Node> conditionCandidates = new ArrayList<>();
         if(!oriCondition.toString().equals(mutCondition.toString())){
-            conditionCandidates = process(oriCondition, mutCondition, "Boolean");
+            conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriCondition, mutCondition, "Boolean") : process(oriCondition, mutCondition, "");
         }
         for(Node candidate: conditionCandidates){
             DoStmt tmp = new DoStmt(mut);
@@ -255,7 +258,7 @@ public class UpdateCheckParser {
     public List<Node> check(ExpressionStmt ori, ExpressionStmt mut, String type){
         Expr oriExpression = ori.getExpression();
         Expr mutExpression = mut.getExpression();
-        List<Node> candidates = rankAndFilterBySimilarityStmt(mut, process(oriExpression, mutExpression, type));
+        List<Node> candidates = Constant.CONTEXT_AWARE_OPTION ? rankAndFilterBySimilarityStmt(mut, process(oriExpression, mutExpression, type)) : rankAndFilterBySimilarityStmt(mut, process(oriExpression, mutExpression, ""));
         List<Node> ret = new ArrayList<>();
         for (Node candidate: candidates){
             ExpressionStmt tmp = new ExpressionStmt(mut);
@@ -280,7 +283,7 @@ public class UpdateCheckParser {
         ret.add(mut);
         List<Node> conditionCandidates = new ArrayList<>();
         if(!oriCondition.toString().equals(mutCondition.toString())){
-            conditionCandidates = process(oriCondition, mutCondition, "Boolean");
+            conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriCondition, mutCondition, "Boolean") : process(oriCondition, mutCondition, "");
         }
         for(Node candidate: conditionCandidates){
             ForStmt tmp = new ForStmt(mut);
@@ -307,7 +310,7 @@ public class UpdateCheckParser {
         ret.add(mut);
         List<Node> conditionCandidates = new ArrayList<>();
         if(!oriCondition.toString().equals(mutCondition.toString())){
-            conditionCandidates = process(oriCondition, mutCondition, "Boolean");
+            conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriCondition, mutCondition, "Boolean") : process(oriCondition, mutCondition, "");
         }
         for(Node candidate: conditionCandidates){
             IfStmt tmp = new IfStmt(mut);
@@ -557,7 +560,7 @@ public class UpdateCheckParser {
         List<Node> ret = new ArrayList<>();
         List<Node> conditionCandidates = new ArrayList<>();
         if(!oriCondition.toString().equals(mutCondition.toString())){
-            conditionCandidates = process(oriCondition, mutCondition, "Boolean");
+            conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriCondition, mutCondition, "Boolean") : process(oriCondition, mutCondition, "");
         }
         for(Node candidate: conditionCandidates){
             WhileStmt tmp = new WhileStmt(mut);
@@ -690,7 +693,7 @@ public class UpdateCheckParser {
         Expr mutFirst = mut.getfirst();
         Expr mutSecond = mut.getSecond();
 
-        List<Node> conditionCandidates = process(oriCondition, mutCondition, "Boolean");
+        List<Node> conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriCondition, mutCondition, "Boolean") : process(oriCondition, mutCondition, "");
         List<Node> firstCandidates = process(oriFirst, mutFirst, "");
         List<Node> secondCandidates = process(oriSecond, mutSecond, "");
 
@@ -1228,7 +1231,7 @@ public class UpdateCheckParser {
         ret.add(mut);
         List<Node> exprCandidates = new ArrayList<>();
         if(!oriExpr.toString().equals(mutExpr.toString())){
-            exprCandidates = process(oriExpr, mutExpr, type);
+            exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriExpr, mutExpr, type) : process(oriExpr, mutExpr, "");
         }
         for(Node candidate: exprCandidates){
             ParenthesiszedExpr tmp = new ParenthesiszedExpr(mut);
@@ -1282,7 +1285,7 @@ public class UpdateCheckParser {
         if(oriExpr.toString().equals(mutExpr.toString())){
             return ret;
         }
-        List<Node> exprCandidates = process(oriExpr, mutExpr, type);
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(oriExpr, mutExpr, type) : process(oriExpr, mutExpr, "");
         for(Node candidate: exprCandidates){
             PrefixExpr tmp = new PrefixExpr(mut);
             tmp.addTrace("UPDATEPrefixExpr");
@@ -1317,7 +1320,7 @@ public class UpdateCheckParser {
         List<Node> ret = new ArrayList<>();
         ret.add(mut);
         if(!ori.toString().equals(mut.toString())){
-            ret = _checkParser.process(mut, type);
+            ret = Constant.CONTEXT_AWARE_OPTION ? _checkParser.process(mut, type) : _checkParser.process(mut, "");
             ret.add(mut);
         }
         ret = rankAndFilterBySimilarityStmt(mut, ret);
@@ -1334,7 +1337,7 @@ public class UpdateCheckParser {
     public List<Node> check(SName ori, SName mut, String type){
         List<Node> ret = new ArrayList<>();
         if(!ori.toString().equals(mut.toString())){
-            ret = _checkParser.process(mut, type);
+            ret = Constant.CONTEXT_AWARE_OPTION ? _checkParser.process(mut, type) : _checkParser.process(mut, "");
             ret.add(mut);
         }else{
             ret.add(mut);

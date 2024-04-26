@@ -3,13 +3,11 @@ package mfix.core.node.check;
 
 import mfix.common.conf.Constant;
 import mfix.common.java.Subject;
-import mfix.common.util.JavaFile;
 import mfix.common.util.LevelLogger;
 import mfix.core.node.ast.Node;
 import mfix.core.node.ast.expr.*;
 import mfix.core.node.ast.stmt.*;
 import mfix.core.node.match.metric.LevenShteinDistance;
-import org.eclipse.jdt.core.dom.InfixExpression;
 
 import java.util.*;
 
@@ -176,6 +174,9 @@ public class CheckParser {
      */
     public boolean typesAreCompatible(String type1, String type2) {
         // first convert primitive type to wrapper type
+        if (!Constant.CONTEXT_AWARE_OPTION){
+           return true;
+        }
         if(type1.isEmpty() || type2.isEmpty())
             return true;
         Map<String, List<String>> compatibleTable = getCompatibleTable();
@@ -445,7 +446,10 @@ public class CheckParser {
     public List<String> getTypes(List<Expr> exprs){
         List<String> ret = new ArrayList<>();
         for(Expr expr: exprs){
-            ret.add(getType(expr));
+            if(Constant.CONTEXT_AWARE_OPTION)
+                ret.add(getType(expr));
+            else
+                ret.add("");
         }
         return ret;
     }
@@ -456,6 +460,9 @@ public class CheckParser {
      * @return: type of expression
      */
     public String getType(Expr expr){
+        if (!Constant.CONTEXT_AWARE_OPTION){
+            return "";
+        }
         if(expr instanceof SName){
             return getVarType(((SName) expr).getName(), expr.getStartLine());
         }else if(expr instanceof QName){
@@ -584,11 +591,14 @@ public class CheckParser {
                 children.addAll(scopePointer.getChildScopes());
             }
         }
+        LevelLogger.debug("GetUsableVars Func vars:" + ret);
+        LevelLogger.debug("Function Scope name:" + _funcScope.getClassName() + "; Start Line:" + _subject.getFuncBeginLine());
         // search method in _local scope, add all usable vars to ret.
         scopePointer = _localScope;
         children.add(scopePointer);
         while(!children.isEmpty()){
             scopePointer = children.poll();
+            LevelLogger.debug("Scope name:" + scopePointer.getClassName() + "; Star Line:" + scopePointer.getStartLine());
             if(scopePointer.getClassName().equals(_funcScope.getClassName()) && scopePointer.getStartLine() == _subject.getFuncBeginLine()){
                 LevelLogger.debug("Find corresponding function!!!");
                break;
@@ -607,6 +617,7 @@ public class CheckParser {
                 retNew.add(newVar);
             }
         }
+        LevelLogger.debug("GetVariables: " + ret);
         return retNew;
     }
 
@@ -628,12 +639,15 @@ public class CheckParser {
             LevenShteinDistance calculator = new LevenShteinDistance(mutString, candidateString);
             candidate.setSimilarity((calculator.compute()*1.0) / (mutString.length()*1.0));
         }
-        candidates.sort(new Comparator<Node>() {
-            @Override
-            public int compare(Node o1, Node o2) {
-                return Double.compare(o1.getSimilarity(), o2.getSimilarity());
-            }
-        });
+        if (Constant.RANK_PATCHES){
+            candidates.sort(new Comparator<Node>() {
+                @Override
+                public int compare(Node o1, Node o2) {
+                    return Double.compare(o1.getSimilarity(), o2.getSimilarity());
+                }
+            });
+        }
+
         if(candidates.get(0).getSimilarity() == 0.0 && candidates.get(candidates.size()-1).getSimilarity() == 0.0){
             LevelLogger.error("All candidates' similarity are 0.0, please check!!!");
         }
@@ -677,7 +691,8 @@ public class CheckParser {
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("AssertStmt");
         ret.add(node);
-        for(Node node1: process(expr, "Boolean")){
+        List<Node> candidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, "Boolean") : process(expr, "");
+        for(Node node1: candidates){
             AssertStmt tmp = new AssertStmt(node);
             tmp.setExpression((Expr)node1);
             ret.add(tmp);
@@ -838,7 +853,7 @@ public class CheckParser {
         Expr expr = node.getExpression();
 
         List<Node> bodyCandidates = process(body, "");
-        List<Node> exprCandidates = process(expr, "Boolean");
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, "Boolean") : process(expr, "");
 
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("DoStmt");
@@ -930,7 +945,7 @@ public class CheckParser {
     public List<Node> check(ForStmt node){
         Expr condition = node.getCondition();
         Stmt body      = node.getBody();
-        List<Node> conditionCandidatesTmp = process(condition, "Boolean");
+        List<Node> conditionCandidatesTmp = Constant.CONTEXT_AWARE_OPTION ? process(condition, "Boolean") : process(condition, "");
         List<Node> conditionCandidates = new ArrayList<>();
         List<Node> bodyCandidates      = process(body, "");
         if(condition instanceof InfixExpr){
@@ -1090,7 +1105,7 @@ public class CheckParser {
         Stmt then = node.getThen();
         Stmt elseBlock = node.getElse();
 
-        List<Node> exprCandidates = process(expr, "Boolean");
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, "Boolean") : process(expr, "");
         exprCandidates.addAll(randomCombineOfIfCondition(expr));
         List<Node> thenCandidates = process(then, "");
         List<Node> elseCandidates = new ArrayList<>();
@@ -1563,7 +1578,7 @@ public class CheckParser {
      */
     public List<Node> check(VarDeclarationStmt node){
         List<Vdf> fragments = node.getFragments();
-        String type = node.getDeclType().getTypeStr();
+        String type = Constant.CONTEXT_AWARE_OPTION ? node.getDeclType().getTypeStr() : "";
         Queue<List<Vdf>> building = combineAllVdf(fragments, type); // use type to check each expr's component
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("VarDeclarationStmt");
@@ -1590,7 +1605,7 @@ public class CheckParser {
     public List<Node> check(WhileStmt node){
         Expr expr = node.getExpression();
         Stmt body = node.getBody();
-        List<Node> exprCandidates = process(expr, "Boolean");
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, "Boolean") : process(expr, "");
         List<Node> bodyCandidates = process(body, "");
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("WhileStmt");
@@ -1640,7 +1655,7 @@ public class CheckParser {
     public List<Node> check(AryAcc node, String type){
         Expr index = node.getIndex();
         Expr array = node.getArray();
-        List<Node> indexCandidates = process(index, "Integer");
+        List<Node> indexCandidates = Constant.CONTEXT_AWARE_OPTION ? process(index, "Integer") : process(index, "");
         List<Node> arrayCandidates = process(array, "");
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("AryAcc");
@@ -1881,6 +1896,47 @@ public class CheckParser {
         int parameterNumber = node.getArguments().getExpr().size(); // original parameter amount
         int PARAMETERNUMBERDIFFTHRESHOLD = 2; //argument amount tolerance
         Map<String, List<Variable>> allVars = getAllUsableVars(node.getStartLine());
+        List<Variable> varsList = new ArrayList<>();
+        if (!Constant.CONTEXT_AWARE_OPTION){
+            for(String key: allVars.keySet()){
+                varsList.addAll(allVars.get(key));
+            }
+            for(Scope importScope: _importScopes){
+                MType tmpMtype = new MType(node.getClassType().getFileName(), node.getClassType().getStartLine(), node.getClassType().getEndLine(), node.getClassType().type());
+                tmpMtype.setTypeStr(importScope.getClassName());
+                List<List<Variable>> parametersCombination = new ArrayList<>();
+                for (ConstructorNode constructor: importScope.getConstructors()){
+                    List<Variable> parameters = constructor.getParameterList();
+                    if(parameters.isEmpty()){
+                        Variable tmp = new Variable(node.getStartLine(), "", "", node);
+                        List<Variable> tmpVars = new ArrayList<>();
+                        tmpVars.add(tmp);
+                        parametersCombination.add(tmpVars);
+                    }else{
+                        Collections.shuffle(varsList);
+                        parametersCombination.add(varsList.subList(0, parameters.size()));
+                    }
+                }
+                for(List<Variable> parameterList: parametersCombination){
+                    ClassInstCreation tmp = new ClassInstCreation(node);
+                    tmp.setClassType(tmpMtype);
+                    ExprList exprList = new ExprList(node.getArguments());
+                    List<Expr> exprs = new ArrayList<>();
+                    for(Variable var: parameterList){
+                        SName tmpExpr = new SName(node.getArguments().getFileName(), node.getArguments().getStartLine(), node.getArguments().getEndLine(), node.getArguments().getOriNode());
+                        tmpExpr.setName(var.getName());
+                        exprs.add(tmpExpr);
+                    }
+                    exprList.setExprs(exprs);
+                    tmp.setArguments(exprList);
+                    tmp.addTrace("ClassInstCreation");
+                    ret.add(tmp);
+                    if(ret.size() > MAXCANDIDATESNUM) break;
+                }
+            }
+            ret = rankAndFilterBySimilarityStmt(node, ret);
+            return ret;
+        }
         // check all import classes
         for(Scope importScope: _importScopes){
             if(node.getStmtParent() instanceof ThrowStmt){
@@ -1999,9 +2055,9 @@ public class CheckParser {
         Expr condition = node.getCondition();
         Expr first     = node.getfirst();
         Expr second    = node.getSecond();
-        List<Node> conditionCandidates = process(condition, "Boolean");
-        List<Node> firstCandidates     = process(first, type);
-        List<Node> secondCandidates    = process(second, type);
+        List<Node> conditionCandidates = Constant.CONTEXT_AWARE_OPTION ? process(condition, "Boolean") : process(condition, "");
+        List<Node> firstCandidates     = Constant.CONTEXT_AWARE_OPTION ? process(first, type) : process(first, "");
+        List<Node> secondCandidates    = Constant.CONTEXT_AWARE_OPTION ? process(second, type) : process(second, "");
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("ConditionalExpr");
         ret.add(node);
@@ -2098,6 +2154,9 @@ public class CheckParser {
     public List<Variable> findVar(String name, String type, int lineNUm){
         LevelLogger.debug("Get usable vars in findVar");
         List<Variable> localUsableVars = getUsableVars(lineNUm);
+        if (!Constant.CONTEXT_AWARE_OPTION){
+            return localUsableVars;
+        }
         Variable tmpVar = null;
         List<Variable> ret = new ArrayList<>();
         for(Variable variable: localUsableVars){
@@ -2222,8 +2281,8 @@ public class CheckParser {
         else{
             type = "";
         }
-        List<Node> lhsCandidates = process(lhs, type);
-        List<Node> rhsCandidates = process(rhs, type);
+        List<Node> lhsCandidates = Constant.CONTEXT_AWARE_OPTION ? process(lhs, type) : process(lhs, "");
+        List<Node> rhsCandidates = Constant.CONTEXT_AWARE_OPTION ? process(rhs, type) : process(rhs, "");
 //        node.addTrace("InfixExpr");
         ret.add(node);
         if(_combineOption){
@@ -2263,7 +2322,7 @@ public class CheckParser {
                expr.addTrace("InfixExpr");
                expr.addAllTrace(lhsCandidate.getTrace());
                ret.add(expr);
-               if(type.equals("Boolean")){
+               if(type.equals("Boolean") && (node.getOperator().toString().equals("&&") || node.getOperator().toString().equals("||"))){
                    InfixExpr tmp = new InfixExpr(node);
 
                    InfixOperator tmpEmpty = new InfixOperator(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
@@ -2289,7 +2348,7 @@ public class CheckParser {
                expr.addAllTrace(rhsCandidate.getTrace());
                ret.add(expr);
 
-               if(type.equals("Boolean")){
+               if(type.equals("Boolean") && (node.getOperator().toString().equals("&&") || node.getOperator().toString().equals("||"))){
                    PrefixExpr tmp = new PrefixExpr(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
                    tmp.setExpression((Expr) rhsCandidate);
                    PrefixOperator tmpOp = new PrefixOperator(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
@@ -2308,7 +2367,7 @@ public class CheckParser {
                    tmpExpr.addAllTrace(rhsCandidate.getTrace());
                    ret.add(tmpExpr);
                }
-               if(type.equals("Boolean")){
+               if(type.equals("Boolean") && (node.getOperator().toString().equals("&&") || node.getOperator().toString().equals("||"))){
                    InfixExpr tmp = new InfixExpr(node);
 
                    InfixOperator tmpEmpty = new InfixOperator(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
@@ -2448,6 +2507,54 @@ public class CheckParser {
         LevelLogger.debug("CURRENT SCOPE:" + scope.getClassName());
         LevelLogger.debug("CURRENT METHODINV:" + node);
         List<FuncSignature> funcs;
+        List<MethodInv> ret = new ArrayList<>();
+        if (!Constant.CONTEXT_AWARE_OPTION){
+            ret.add(node);
+            funcs = getUsableFuncs();
+            for(Scope scope1: _importScopes){
+                funcs.addAll(scope1.getFuncs());
+            }
+            Map<String, List<Variable>> allVarsMap = getAllUsableVars(node.getStartLine());
+            LevelLogger.debug("run here selection functions");
+            List<Variable> allVarList = new ArrayList<>();
+            for (String key: allVarsMap.keySet()){
+                allVarList.addAll(allVarsMap.get(key));
+            }
+            for(FuncSignature func: funcs){
+                SName funcName = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
+                funcName.setName(func.getFuncName());
+                List<List<Variable>> parameterLists = new ArrayList<>();
+                List<Variable> parameters = func.getParameters();
+                if(parameters.isEmpty()){
+                    Variable tmp = new Variable(node.getStartLine(), "", "", node);
+                    List<Variable> tmplist = new ArrayList<>();
+                    parameterLists.add(tmplist);
+                }else {
+                    Collections.shuffle(allVarList);
+                    parameterLists.add(allVarList.subList(0, parameters.size()));
+                }
+
+                for (List<Variable> parametersCandidates : parameterLists) {
+                    MethodInv tmp = new MethodInv(node);
+                    ExprList tmpExprList = new ExprList(node.getArguments());
+                    List<Expr> tmpExprs = new ArrayList<>();
+                    for (Variable parameter : parametersCandidates) {
+                        SName tmpName = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
+                        tmpName.setName(parameter.getName());
+                        tmpExprs.add(tmpName);
+                    }
+                    tmpExprList.setExprs(tmpExprs);
+                    tmp.setName(funcName);
+                    tmp.setArguments(tmpExprList);
+                    tmp.addTrace("MethodInv");
+                    tmp.addTrace("SCOPEMETHODINV");
+                    ret.add(tmp);
+                }
+            }
+            return ret;
+        }
+
+
         if (scope.equals(_localScope)){
             funcs = getUsableFuncs();
         }else{
@@ -2465,7 +2572,6 @@ public class CheckParser {
             }
         }
 
-        List<MethodInv> ret = new ArrayList<>();
         MethodInv tmpMethodInv = new MethodInv(node);
         ret.add(tmpMethodInv);
         Map<String, List<Variable>> allVars = getAllUsableVars(node.getStartLine());
@@ -2519,6 +2625,10 @@ public class CheckParser {
         // Select candidates from current scope's all functions
         int PARAMETERNUMTHRESHOLE = 1;
 //        LevelLogger.debug("All variables:"+allVars);
+        List<Variable> allVarList = new ArrayList<>();
+        for(List<Variable> tmp: allVars.values()){
+            allVarList.addAll(tmp);
+        }
         for (FuncSignature func : funcs) {
             // if function return type is not compatible with expectation
             // or the candidate's amount of arguments exceed the threshold
@@ -2562,29 +2672,36 @@ public class CheckParser {
                 }
             }
 
-            for (Variable parameter : parameters) {
-                if (!allVars.containsKey(parameter.getType())) {
-                    break;
-                }
-                if (parametersCombination.isEmpty()) {
-                    for (Variable var : allVars.get(parameter.getType())) {
-                        List<Variable> tmp = new ArrayList<>();
-                        tmp.add(var);
-                        parametersCombination.add(tmp);
+            if(!Constant.CONTEXT_AWARE_OPTION){
+                Collections.shuffle(allVarList);
+                parametersCombination.add(allVarList.subList(0, parameters.size()));
+            }else{
+                for (Variable parameter : parameters) {
+                    if (!allVars.containsKey(parameter.getType())) {
+                        break;
                     }
-                    continue;
-                }
-                while (!parametersCombination.isEmpty()) {
-                    List<Variable> tmp = parametersCombination.poll();
-                    for (Variable var : allVars.get(parameter.getType())) {
-                        List<Variable> newTmp = new ArrayList<>(tmp);
-                        newTmp.add(var);
-                        parametersCombinationTmp.add(newTmp);
+                    if (parametersCombination.isEmpty()) {
+                        for (Variable var : allVars.get(parameter.getType())) {
+                            List<Variable> tmp = new ArrayList<>();
+                            tmp.add(var);
+                            parametersCombination.add(tmp);
+                        }
+                        continue;
                     }
+                    while (!parametersCombination.isEmpty()) {
+                        List<Variable> tmp = parametersCombination.poll();
+                        for (Variable var : allVars.get(parameter.getType())) {
+                            List<Variable> newTmp = new ArrayList<>(tmp);
+                            newTmp.add(var);
+                            parametersCombinationTmp.add(newTmp);
+                        }
+                    }
+                    parametersCombination.addAll(parametersCombinationTmp);
+                    parametersCombinationTmp.clear();
                 }
-                parametersCombination.addAll(parametersCombinationTmp);
-                parametersCombinationTmp.clear();
             }
+
+
             finalParameters.addAll(parametersCombination);
 
             // judge whether the generated parametersCombination is value
@@ -2631,6 +2748,19 @@ public class CheckParser {
         List<Variable> allUsableVars = getUsableVars(node.getStartLine());
         LevelLogger.debug("Get usable vars in selectFunctionsForVars: "+allUsableVars);
         String varType = "";
+        if(!Constant.CONTEXT_AWARE_OPTION){
+            ret.add(node);
+            List<MethodInv> result = selectFunctions(_localScope, node, type);
+            for(MethodInv methodInv: result){
+                SName tmp = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
+                tmp.setName(varExpr);
+                methodInv.setExpression(tmp);
+                methodInv.addTrace("MethodInv");
+                methodInv.addTrace("MethodInvForVar");
+                ret.add(methodInv);
+            }
+            return ret;
+        }
         for(Variable var: allUsableVars){
            if(var.getName().equals(varExpr)){
                varType = var.getType();
@@ -2734,20 +2864,23 @@ public class CheckParser {
                     ret.addAll(selectFunctions(scopePointer, node, type));
                     LevelLogger.debug("Check MethodInvocation: Imported class' method searching done.");
                 }
-                // If the expr is not a variable or imported class, then just try this.methodCall()
-                // Try to use keyword `this` substitute expr and find functions from _localScope
-                LevelLogger.info("Check MethodInvocation: Searching for this.method...");
-                List<MethodInv> currentFileCandidates = selectFunctions(_localScope, node, type);
-                for(MethodInv tmp : currentFileCandidates){
-                    MethodInv tmp1= new MethodInv(tmp);
-                    SName tmpExpr = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getExpression().getOriNode());
-                    tmpExpr.setName("this");
-                    tmp1.setExpression(tmpExpr);
-                    tmp1.addTrace("MethodInv");
-                    tmp1.addTrace("THISMETHOD");
-                    ret.add(tmp1);
+                if(!_subject.getIsStatic()){
+                    // If the expr is not a variable or imported class, then just try this.methodCall()
+                    // Try to use keyword `this` substitute expr and find functions from _localScope
+                    LevelLogger.info("Check MethodInvocation: Searching for this.method...");
+                    List<MethodInv> currentFileCandidates = selectFunctions(_localScope, node, type);
+                    for(MethodInv tmp : currentFileCandidates){
+                        MethodInv tmp1= new MethodInv(tmp);
+                        SName tmpExpr = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getExpression().getOriNode());
+                        tmpExpr.setName("this");
+                        tmp1.setExpression(tmpExpr);
+                        tmp1.addTrace("MethodInv");
+                        tmp1.addTrace("THISMETHOD");
+                        ret.add(tmp1);
+                    }
+                    LevelLogger.info("Check MethodInvocation: this.method searching done.");
                 }
-                LevelLogger.info("Check MethodInvocation: this.method searching done.");
+
             }
             else if(expr instanceof QName){
                 // Nothing.
@@ -2840,7 +2973,7 @@ public class CheckParser {
      */
     public List<Node> check(ParenthesiszedExpr node, String type){
         Expr expr = node.getExpression();
-        List<Node> exprCandidates = process(expr, type);
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, type) : process(expr, "");
 
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("ParenthesiszedExpr");
@@ -2892,7 +3025,7 @@ public class CheckParser {
      */
     public List<Node> check(PrefixExpr node, String type){
         Expr expr = node.getExpression();
-        List<Node> exprCandidates = process(expr, type);
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(expr, type) : process(expr, "");
 
         List<Node> ret = new ArrayList<>();
 //        node.addTrace("PrefixExpr");
@@ -2977,6 +3110,19 @@ public class CheckParser {
        List<Variable> usableVars = findVar(node.getName(), type, node.getStartLine());
        List<Node> ret = new ArrayList<>();
        ret.add(node);
+       if(!Constant.CONTEXT_AWARE_OPTION){
+           Collections.shuffle(usableVars);
+           List<Variable> tmpVars = usableVars.subList(0, Math.min(500, usableVars.size()));
+           for (Variable candidate: tmpVars){
+               SName tmp = new SName(node.getFileName(), node.getStartLine(), node.getEndLine(), node.getOriNode());
+               tmp.setName(candidate.getName());
+               tmp.addTrace("SName");
+               ret.add(tmp);
+           }
+           ret = rankAndFilterBySimilarityStmt(node, ret);
+           return ret;
+       }
+
        if(usableVars != null){
            for (Variable candidate : usableVars) {
                if(!typesAreCompatible(candidate.getType(), type)) continue;
@@ -3096,7 +3242,7 @@ public class CheckParser {
         if(node.getInitializer() == null){
             return ret;
         }
-        List<Node> initCandidates = process(node.getInitializer(), node.getDeclType().toString());
+        List<Node> initCandidates = Constant.CONTEXT_AWARE_OPTION ? process(node.getInitializer(), node.getDeclType().toString()) : process(node.getInitializer(), "");
         for (Node initCandidate : initCandidates) {
             Svd tmp = new Svd(node);
             tmp.addTrace("Svd");
@@ -3153,7 +3299,7 @@ public class CheckParser {
 
         String type = node.getDeclType().typeStr();
         List<Vdf> vdfs= node.getFragments();
-        Queue<List<Vdf>> tmpVdfs = combineAllVdf(vdfs, type);
+        Queue<List<Vdf>> tmpVdfs = Constant.CONTEXT_AWARE_OPTION ? combineAllVdf(vdfs, type) : combineAllVdf(vdfs, "");
         List<List<Vdf>> vdfCandidates = new ArrayList<>(tmpVdfs);
 
         for (List<Vdf> vdfCandidate : vdfCandidates) {
@@ -3182,7 +3328,7 @@ public class CheckParser {
             return ret;
         }
 
-        List<Node> exprCandidates = process(node.getExpression(), type);
+        List<Node> exprCandidates = Constant.CONTEXT_AWARE_OPTION ? process(node.getExpression(), type) : process(node.getExpression(), "");
         for (Node exprCandidate : exprCandidates) {
             Vdf tmp = new Vdf(node);
             tmp.addTrace("Vdf");

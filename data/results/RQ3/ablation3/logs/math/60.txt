@@ -1,0 +1,4779 @@
+Repair : math_60
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/0.java
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:if(FastMath.abs(z)<2.22){
+ final double t=0.5*FastMath.erf(z);
+return 0.5*(1.0+t);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10: final double t=1/(FastMath.sqrt(FastMath.PI)*standardDeviation);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 186 patches...
+Current actions:
+INSERT:
+4: final double z=(dev)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5:if(FastMath.abs(z)<2.22){
+ final double t=0.5*FastMath.erf(z);
+return 0.5*(1.0+t);
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+10: final double t=1/(FastMath.sqrt(FastMath.PI)*standardDeviation);
+TO:
+14
+
+INSERT:
+11:return 0.5*(1+FastMath.erf(z/FastMath.SQRT2)-t);
+TO:
+14
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:781 patches
+Compile failed:735 patches
+Compilation rate:0.058898847631242
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNPNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNPNPNPNNNNNNNNNNNNNNNNPNNNNNNPNPPNPPPNNNPPNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/1.java
+Current actions:
+Wrap:
+TryStatement
+On:
+[ final double dev=x-mean;, {
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}, try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}, return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));, {
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:try{
+ final double dev=x-mean;
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:783 patches
+Compile failed:736 patches
+Compilation rate:0.06002554278416347
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/2.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:double z=(x-mean)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:return 0.5*(1.0+Erf.erf(z));
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 98 patches...
+Current actions:
+INSERT:
+3:double z=(x-mean)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:return 0.5*(1.0+Erf.erf(z));
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 2th generated patches:
+Validating 98 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:return 0.5*(1.0+Erf.erf(z));
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 3th generated patches:
+Validating 49 patches...
+Current actions:
+INSERT:
+3:double z=(x-mean)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:return 0.5*(1.0+Erf.erf(z));
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 97 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 15throw ex;
+
+Tested:1306 patches
+Compile failed:1256 patches
+Compilation rate:0.03828483920367534
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/3.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-5*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-5*standardDeviation)){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+5*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-5*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+5*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:1313 patches
+Compile failed:1256 patches
+Compilation rate:0.04341203351104341
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/4.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev/(standardDeviation*FastMath.sqrt(2.0)))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev/(standardDeviation*FastMath.sqrt(2.0)))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:1315 patches
+Compile failed:1256 patches
+Compilation rate:0.044866920152091254
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/5.java
+Tested:1315 patches
+Compile failed:1256 patches
+Compilation rate:0.044866920152091254
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/6.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-100*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-100*standardDeviation)){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+100*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-100*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+100*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:1322 patches
+Compile failed:1256 patches
+Compilation rate:0.049924357034795766
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/7.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));, {
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+},  final double dev=x-mean;]
+Following are 0th generated patches:
+Validating 65 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+ final double dev=x-mean;
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+ final double dev=x-mean;
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:1366 patches
+Compile failed:1298 patches
+Compilation rate:0.04978038067349927
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/8.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(x<(mean-20*standardDeviation)){
+return 0;
+}, {
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}, else{
+throw ex;
+}, {
+throw ex;
+}, else{
+throw ex;
+}, {
+throw ex;
+}]
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:1376 patches
+Compile failed:1307 patches
+Compilation rate:0.0501453488372093
+NNNNNPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/9.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+4:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 9return 0;
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+INSERT:
+4:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Tested:1446 patches
+Compile failed:1373 patches
+Compilation rate:0.050484094052558784
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNPNNNNNNNNNNNNNNNNPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/10.java
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6: final double a2=-0.35656378;
+TO:
+3
+
+INSERT:
+7: final double a3=1.7814779;
+TO:
+3
+
+INSERT:
+8: final double a4=-1.8212559;
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+4: final double z=(dev)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+INSERT:
+10: final double erf=1.0-((((a5*z)+a4)*z)+a3)*z*z+(a2*z)+a1;
+TO:
+3
+
+INSERT:
+11:return 0.5*(1.0+erf);
+TO:
+3
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 109 patches...
+Current actions:
+INSERT:
+4: final double z=(dev)/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5: final double a1=0.31938154;
+TO:
+3
+
+INSERT:
+6: final double a2=-0.35656378;
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+8: final double a4=-1.8212559;
+TO:
+3
+
+INSERT:
+9: final double a5=1.3302745;
+TO:
+3
+
+INSERT:
+10: final double erf=1.0-((((a5*z)+a4)*z)+a3)*z*z+(a2*z)+a1;
+TO:
+3
+
+INSERT:
+11:return 0.5*(1.0+erf);
+TO:
+3
+
+Following are 3th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+6: final double a2=-0.35656378;
+TO:
+3
+
+INSERT:
+7: final double a3=1.7814779;
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+8: final double a4=-1.8212559;
+TO:
+3
+
+INSERT:
+9: final double a5=1.3302745;
+TO:
+3
+
+INSERT:
+10: final double erf=1.0-((((a5*z)+a4)*z)+a3)*z*z+(a2*z)+a1;
+TO:
+3
+
+INSERT:
+11:return 0.5*(1.0+erf);
+TO:
+3
+
+Following are 4th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+8: final double a4=-1.8212559;
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:1924 patches
+Compile failed:1823 patches
+Compilation rate:0.0524948024948025
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNPNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPPNNPPNNPPNNNNNNNNNNNNNNNNNNNPPPNPPPNNNNNNNNPNNPNPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/11.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-20*standardDeviation){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-20*standardDeviation){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>mean+20*standardDeviation){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-20*standardDeviation){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>mean+20*standardDeviation){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:1931 patches
+Compile failed:1823 patches
+Compilation rate:0.055929570170895906
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/12.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4: final double exponent=-0.5*(dev*dev)/(standardDeviation*standardDeviation);
+TO:
+3
+
+INSERT:
+5:return 0.5*(1.0+Erf.erf(exponent));
+TO:
+3
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 114 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 2th generated patches:
+Validating 33 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4: final double exponent=-0.5*(dev*dev)/(standardDeviation*standardDeviation);
+TO:
+3
+
+INSERT:
+5:return 0.5*(1.0+Erf.erf(exponent));
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 83 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:2351 patches
+Compile failed:2198 patches
+Compilation rate:0.06507868991918332
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNPNPPPPPPNNPPPPNNNNNNNNNNNNNNNPPNNNNPPPNNNNPPPNNPNNNNPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/13.java
+Current actions:
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+8:if(FastMath.abs(x)>40){
+return 0.0;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(FastMath.abs(x)>40){
+return 0.0;
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(FastMath.abs(x)>40){
+return 0.0;
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+9:return 0;
+TO:
+9:return 0.0;
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2970 patches
+Compile failed:2675 patches
+Compilation rate:0.09932659932659933
+NNNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNPPPPNNNPNPPNNNNNNNNNNNNNPNNNNNPPNNNNNPNNNNPPPNNNNNNPPNNPNNNNPPPPNNNNNNNPNPPNNPNPPNNNNPPNNNNNNNNNPPPPPPPNPPNNNPPPPPPPNNPNNPPNNNNPNNNPNNNNNNPNNPNPPNNNNPPNNPPPNNNNNNNPNNNNNPPNPNPNNNNNPPPNNNNNNNNNNNNNNNNNNNPNPPPNNNPPNNNNNNNNNNNNPNPNNPNNNNNNNNNPNNPPPNNPNNPPNPNNNNNNPNNPPNNPNNNNNNNNNPPPPPPNNNPNNNNNNNNPPNNPPPPPPPNNNPPPPPPNPNPPNNPNNNPNNNNPNNNNNPNNPNNPNPPNPNNPNPPPNNNNNNNNNNNNNNNPPPPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/14.java
+Current actions:
+INSERT:
+4:if(dev<-20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+Following are 0th generated patches:
+Validating 8 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_60_buggy/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java
+SUCCESS
+//Following are generated patch:
+  public double cumulativeProbability(  double x) throws MathException {
+    final double dev=x - mean;
+if(dev<-20*standardDeviation){
+return 0;
+}
+if(dev>20*standardDeviation){
+return 1;
+}
+    try {
+      return 0.5 * (1.0 + Erf.erf((dev) / (standardDeviation * FastMath.sqrt(2.0))));
+    }
+ catch (    MaxIterationsExceededException ex) {
+      if (x < (mean - 20 * standardDeviation)) {
+        return 0;
+      }
+ else       if (x > (mean + 20 * standardDeviation)) {
+        return 1;
+      }
+ else {
+        throw ex;
+      }
+    }
+  }
+
+1 th patch/8
+Trace:
+
+START : 
+2024.04.10 AD at 09:18:05 HKT
+---------TIME : 
+2024.04.10 AD at 09:25:13 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+4:if(dev<-20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+7:if(dev>20*standardDeviation){
+return 1;
+}
+TO:
+3
+
+Following are 2th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+4:if(dev<-20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+INSERT:
+7:if(dev>20*standardDeviation){
+return 1;
+}
+TO:
+3
+
+Following are 3th generated patches:
+Validating 183 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_60_buggy/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java
+SUCCESS
+//Following are generated patch:
+  public double cumulativeProbability(  double x) throws MathException {
+    final double dev=x - mean;
+if(dev<-20*serialVersionUID){
+return 0;
+}
+if(dev>20*standardDeviation){
+return 1;
+}
+    try {
+      return 0.5 * (1.0 + Erf.erf((dev) / (standardDeviation * FastMath.sqrt(2.0))));
+    }
+ catch (    MaxIterationsExceededException ex) {
+      if (x < (mean - 20 * standardDeviation)) {
+        return 0;
+      }
+ else       if (x > (mean + 20 * standardDeviation)) {
+        return 1;
+      }
+ else {
+        throw ex;
+      }
+    }
+  }
+
+2 th patch/419
+Trace:
+InfixExpr;InfixExpr;SName;IfStmt;InfixExpr;InfixExpr;SName
+START : 
+2024.04.10 AD at 09:18:05 HKT
+---------TIME : 
+2024.04.10 AD at 09:28:40 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_60_buggy/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java
+SUCCESS
+//Following are generated patch:
+  public double cumulativeProbability(  double x) throws MathException {
+    final double dev=x - mean;
+if(dev<-20*standardDeviation){
+return 0;
+}
+if(dev>20*serialVersionUID){
+return 1;
+}
+    try {
+      return 0.5 * (1.0 + Erf.erf((dev) / (standardDeviation * FastMath.sqrt(2.0))));
+    }
+ catch (    MaxIterationsExceededException ex) {
+      if (x < (mean - 20 * standardDeviation)) {
+        return 0;
+      }
+ else       if (x > (mean + 20 * standardDeviation)) {
+        return 1;
+      }
+ else {
+        throw ex;
+      }
+    }
+  }
+
+3 th patch/419
+Trace:
+InfixExpr;InfixExpr;SName;IfStmt;InfixExpr;InfixExpr;SName
+START : 
+2024.04.10 AD at 09:18:05 HKT
+---------TIME : 
+2024.04.10 AD at 09:28:40 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+8:return 1;
+TO:
+3
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+5:return 0;
+TO:
+3
+
+Tested:3391 patches
+Compile failed:2723 patches
+Compilation rate:0.1969920377469773
+NNNNNPPPPPPPPPPPPPNPPPPPPPPPNNPNPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNPPPPPPPPNNNPPPPPPPPNPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPNPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNNPPPPPPPPPPNPPPPPPPPPNNPPPPPPNPPPPPPPPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPNNNPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPNPPPPPNPPPNPPPPPPPPPPNNPPPPPPPNNPPPPPPPPPPPPNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/15.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 145 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 12return 1;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return cdf(x);
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return cdf(x);
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:3580 patches
+Compile failed:2904 patches
+Compilation rate:0.1888268156424581
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/16.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 145 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 180 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+3:return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 12return 1;
+
+Following are 4th generated patches:
+Validating 182 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Tested:4083 patches
+Compile failed:3406 patches
+Compilation rate:0.16580945383296597
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/17.java
+Current actions:
+UPDATE
+FROM:
+9:return 0;
+TO:
+9:return 0.0;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+9:return 0;
+TO:
+9:return 0.0;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:return 0;
+TO:
+9:return 0.0;
+
+UPDATE
+FROM:
+12:return 1;
+TO:
+12:return 1.0;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+12:return 1;
+TO:
+12:return 1.0;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:4089 patches
+Compile failed:3406 patches
+Compilation rate:0.16703350452433358
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/18.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:if(x<mean){
+return 0.5-y;
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:double t=dev/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+INSERT:
+5:double y=0.5*Erf.erfc(-t);
+TO:
+3
+
+INSERT:
+6:if(x<mean){
+return 0.5-y;
+}
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+INSERT:
+10:return 0.5+y;
+TO:
+14
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:double t=dev/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+INSERT:
+5:double y=0.5*Erf.erfc(-t);
+TO:
+3
+
+INSERT:
+6:if(x<mean){
+return 0.5-y;
+}
+TO:
+3
+
+INSERT:
+10:return 0.5+y;
+TO:
+14
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4879 patches
+Compile failed:4126 patches
+Compilation rate:0.15433490469358474
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNPPNNNNNPNPNNNNPNNPNNNPNNNPNPPPNNNNNNNPPPPNNNNNNPPPPNNNPNNPPPNPNNPNPNNNPPPPNNNNNPPPNPPNNNPNPPNNNNNNNPNPPNNNPNNNNNNNNNNNNPNNPNPPNNNNNNNNPNNNNNPNNNNNNPNPNNPPNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/19.java
+Current actions:
+Move
+FROM:
+Former Line 8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+Current Line 2:Block
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+6:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+2
+
+DELETE:
+Original line: 12return 1;
+
+Following are 1th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 7{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 12return 1;
+
+INSERT:
+13:catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+6
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 3th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+INSERT:
+6:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+2
+
+DELETE:
+Original line: 7{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 12return 1;
+
+INSERT:
+13:catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+6
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 4th generated patches:
+Validating 142 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+DELETE:
+Original line: 7{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+INSERT:
+13:catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+6
+
+Tested:5307 patches
+Compile failed:4552 patches
+Compilation rate:0.14226493310721688
+NNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/20.java
+Current actions:
+Move
+FROM:
+Former Line 3: final double dev=x-mean;
+TO:
+Current Line 3:Block
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+4: final double dev=x-mean;
+TO:
+4
+
+INSERT:
+5: final double t=(dev/standardDeviation)/FastMath.sqrt(2.0);
+TO:
+4
+
+Following are 1th generated patches:
+Validating 194 patches...
+Current actions:
+INSERT:
+5: final double t=(dev/standardDeviation)/FastMath.sqrt(2.0);
+TO:
+4
+
+INSERT:
+6:return 0.5*(1.0+FastMath.erf(t));
+TO:
+4
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+4: final double dev=x-mean;
+TO:
+4
+
+INSERT:
+5: final double t=(dev/standardDeviation)/FastMath.sqrt(2.0);
+TO:
+4
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:return 0.5*(1.0+FastMath.erf(t));
+TO:
+4
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+4: final double dev=x-mean;
+TO:
+4
+
+INSERT:
+5: final double t=(dev/standardDeviation)/FastMath.sqrt(2.0);
+TO:
+4
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Tested:5905 patches
+Compile failed:5112 patches
+Compilation rate:0.1342929720575783
+NNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNPNNNNNNPNNPNNNPNNNNNPNPPNNNNNNPNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPNPPNNNNNNNNNNNPNNNNNNNNNPNNNPPPNPNNNNNPPNNNNNNNNNPNPNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/21.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+4:return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+4:return 0.5*(1.0+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:5911 patches
+Compile failed:5114 patches
+Compilation rate:0.13483336152935205
+NPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/22.java
+Current actions:
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+8:if(x<mean){
+return 0;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+11:if(x>mean){
+return 1;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 114 patches...
+Current actions:
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+INSERT:
+8:if(x<mean){
+return 0;
+}
+TO:
+7
+
+INSERT:
+11:if(x>mean){
+return 1;
+}
+TO:
+10
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+INSERT:
+8:if(x<mean){
+return 0;
+}
+TO:
+7
+
+Following are 4th generated patches:
+Validating 115 patches...
+Current actions:
+INSERT:
+8:if(x<mean){
+return 0;
+}
+TO:
+7
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:6464 patches
+Compile failed:5176 patches
+Compilation rate:0.19925742574257427
+NNPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPNNPPPPPPNPPPPNNPNPPPNPNPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPNPNPPPPPPPPPNPNNPPPPPPPPNNPNPPPPPPPNPNPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPNPNNNPPPPPPPNPNPPPPPPNPPPPPNNPPPPPPNPPPPPNNNPPPPPNNPPPPNPNNPPPPPPPPPNNPNPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPNPNNPPPPPPPNPPPNNPPPPPNPNPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/23.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:6466 patches
+Compile failed:5176 patches
+Compilation rate:0.19950510361892979
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/24.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:double z=(x-mean)/standardDeviation;
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5:return 0.5*(1.0+Erf.erf(z/FastMath.sqrt(2.0)));
+TO:
+4
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:double z=(x-mean)/standardDeviation;
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5:return 0.5*(1.0+Erf.erf(z/FastMath.sqrt(2.0)));
+TO:
+4
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5:return 0.5*(1.0+Erf.erf(z/FastMath.sqrt(2.0)));
+TO:
+4
+
+Following are 4th generated patches:
+Validating 180 patches...
+Current actions:
+INSERT:
+3:double z=(x-mean)/standardDeviation;
+TO:
+2
+
+Tested:7054 patches
+Compile failed:5721 patches
+Compilation rate:0.1889707967110859
+NNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNPPNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNNNNNNNNPNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/25.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 145 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*Math.sqrt(2))));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 47 patches...
+Current actions:
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*Math.sqrt(2))));
+TO:
+2
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Tested:7246 patches
+Compile failed:5902 patches
+Compilation rate:0.18548164504554238
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/26.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:double dev=x-getMean();
+TO:
+2
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 99 patches...
+Current actions:
+INSERT:
+3:double dev=x-getMean();
+TO:
+2
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev)/(getStandardDeviation()*FastMath.sqrt(2.0))));
+
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Following are 4th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+3:double dev=x-getMean();
+TO:
+2
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev)/(getStandardDeviation()*FastMath.sqrt(2.0))));
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Tested:7469 patches
+Compile failed:6086 patches
+Compilation rate:0.18516535011380372
+NNNNNNNNNNPPPPPPNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNPNPNPNPNPPNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNNNNNNPNPPNNNPPNPNNNPPNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/27.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev/standardDeviation)*FastMath.sqrt(2)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev/standardDeviation)*FastMath.sqrt(2)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7471 patches
+Compile failed:6086 patches
+Compilation rate:0.18538348280016062
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/28.java
+Current actions:
+Wrap:
+TryStatement
+On:
+[return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));, {
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}, try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}, {
+return 0;
+}, if(x<(mean-20*standardDeviation)){
+return 0;
+}, return 0;, else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}, {
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}, {
+return 1;
+}, else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}, {
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}, {
+return 1;
+}, if(x>(mean+20*standardDeviation)){
+return 1;
+}, if(x>(mean+20*standardDeviation)){
+return 1;
+}, return 1;, return 1;]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 4try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+4:try{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 3 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_60_buggy/src/main/java/org/apache/commons/math/distribution/NormalDistributionImpl.java
+SUCCESS
+//Following are generated patch:
+  public double cumulativeProbability(  double x) throws MathException {
+    final double dev=x - mean;
+try{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+  }
+
+4 th patch/14
+Trace:
+
+START : 
+2024.04.10 AD at 09:18:05 HKT
+---------TIME : 
+2024.04.10 AD at 09:38:53 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 4try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+4:try{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+3
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+13:catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+4:try{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+4:try{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+3
+
+Tested:7479 patches
+Compile failed:6091 patches
+Compilation rate:0.18558630832999065
+NNNPPNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/29.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev/standardDeviation)/FastMath.sqrt(2.0)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev/standardDeviation)/FastMath.sqrt(2.0)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7481 patches
+Compile failed:6091 patches
+Compilation rate:0.18580403689346345
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/30.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+4:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+10:else{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+TO:
+6
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+INSERT:
+4:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+INSERT:
+10:else{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+TO:
+6
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+INSERT:
+4:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+7:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+3
+
+Tested:7497 patches
+Compile failed:6105 patches
+Compilation rate:0.18567426970788314
+NNNNNNNNNNPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/31.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(x<(mean-20*standardDeviation)){
+return 0;
+}, {
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}, else{
+throw ex;
+}, {
+throw ex;
+}, else{
+throw ex;
+}, {
+throw ex;
+}, throw ex;, throw ex;]
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+9:else{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+}
+TO:
+6
+
+Following are 1th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+11:try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+TO:
+14
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 2{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+}
+
+INSERT:
+2:public double cumulativeProbability(double x) throws MathException{
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+INSERT:
+9:else{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+}
+TO:
+6
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+9:else{
+ final double dev=x-mean;
+try{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}catch(MaxIterationsExceededException ex){
+throw ex;
+}
+}
+TO:
+6
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Tested:7521 patches
+Compile failed:6127 patches
+Compilation rate:0.18534769312591412
+NNPPNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/32.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev/standardDeviation)/FastMath.sqrt(2.0)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1+Erf.erf((dev/standardDeviation)/FastMath.sqrt(2.0)));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:7523 patches
+Compile failed:6127 patches
+Compilation rate:0.18556426957330852
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/33.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-10*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-10*standardDeviation)){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+10*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-10*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+10*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:7530 patches
+Compile failed:6127 patches
+Compilation rate:0.18632138114209829
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/34.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev)/(getStandardDeviation()*FastMath.sqrt(2.0))));
+
+Following are 3th generated patches:
+Validating 96 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev)/(getStandardDeviation()*FastMath.sqrt(2.0))));
+
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+Following are 4th generated patches:
+Validating 97 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+Erf.erf((dev)/(getStandardDeviation()*FastMath.sqrt(2.0))));
+
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+
+Tested:7737 patches
+Compile failed:6295 patches
+Compilation rate:0.18637714876567144
+PPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPNPPNNNNNNNPPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNPNPNPNNPPNNPNNPNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/35.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+Following are 0th generated patches:
+Validating 195 patches...
+Current actions:
+INSERT:
+5:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+TO:
+3
+
+DELETE:
+Original line: 12return 1;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3: final double dev=x-getMean();
+
+INSERT:
+4: final double erfValue=Erf.erf(dev/(getStandardDeviation()*FastMath.sqrt(2.0)));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+5:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+TO:
+3
+
+INSERT:
+8:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:if(x<(getMean()-20*getStandardDeviation())){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+8:if(x>(getMean()+20*getStandardDeviation())){
+return 1;
+}
+TO:
+3
+
+Tested:8436 patches
+Compile failed:6985 patches
+Compilation rate:0.1720009483167378
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNPNNNNNNNNNPNPNNNNNNNNNNNNNNPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/36.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(FastMath.abs(dev)<20*standardDeviation){
+return 0.5;
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(FastMath.abs(dev)<20*standardDeviation){
+return 0.5;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+11:if(dev>0){
+return 1;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 66 patches...
+Current actions:
+INSERT:
+11:if(dev>0){
+return 1;
+}
+TO:
+10
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 3th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+11:if(dev>0){
+return 1;
+}
+TO:
+10
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 4th generated patches:
+Validating 67 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(FastMath.abs(dev)<20*standardDeviation){
+return 0.5;
+}
+
+DELETE:
+Original line: 15throw ex;
+
+Tested:8666 patches
+Compile failed:7077 patches
+Compilation rate:0.18336025848142165
+NNNNNNNPPPPPNPPNPPNNNNNPPPPPPPPPNNNPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/37.java
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+3
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4: final double z=dev/(standardDeviation*FastMath.sqrt(2.0));
+TO:
+3
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+5: final double ret=0.5*(1.0+Erf.erf(z));
+TO:
+3
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+9:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+3
+
+Following are 3th generated patches:
+Validating 80 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 15throw ex;
+
+Tested:8800 patches
+Compile failed:7208 patches
+Compilation rate:0.1809090909090909
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/38.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[return 0;]
+Following are 0th generated patches:
+Validating 112 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)||x>(mean+20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+DELETE:
+Original line: 9return 0;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)||x>(mean+20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6: final double dev=x-mean;
+TO:
+17
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+7:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(x<(mean-20*standardDeviation)||x>(mean+20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6: final double dev=x-mean;
+TO:
+17
+
+INSERT:
+7:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+DELETE:
+Original line: 9return 0;
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+7:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Tested:9429 patches
+Compile failed:7835 patches
+Compilation rate:0.1690529218368862
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/39.java
+Current actions:
+Move
+FROM:
+Former Line 8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+Current Line 2:Block
+
+Following are 0th generated patches:
+Validating 129 patches...
+Current actions:
+INSERT:
+6:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+6
+
+DELETE:
+Original line: 12return 1;
+
+Following are 1th generated patches:
+Validating 140 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+TO:
+6
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+INSERT:
+9: final double dev=x-mean;
+TO:
+17
+
+INSERT:
+10:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+Following are 2th generated patches:
+Validating 146 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+6:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+6
+
+INSERT:
+9: final double dev=x-mean;
+TO:
+17
+
+INSERT:
+10:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+DELETE:
+Original line: 12return 1;
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 3th generated patches:
+Validating 144 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+INSERT:
+10:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+17
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Tested:9871 patches
+Compile failed:8275 patches
+Compilation rate:0.16168574612501266
+NNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/40.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-60*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-60*standardDeviation)){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+60*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-60*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+60*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:9878 patches
+Compile failed:8275 patches
+Compilation rate:0.1622798137274752
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/41.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-10*standardDeviation){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-10*standardDeviation){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>mean+10*standardDeviation){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<mean-10*standardDeviation){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>mean+10*standardDeviation){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:9885 patches
+Compile failed:8275 patches
+Compilation rate:0.16287303995953464
+PPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/42.java
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+Following are 0th generated patches:
+Validating 75 patches...
+Current actions:
+INSERT:
+4:if(FastMath.abs(dev)>20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 9return 0;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+INSERT:
+4:if(FastMath.abs(dev)>20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(FastMath.abs(dev)>20*standardDeviation){
+return 0;
+}
+TO:
+3
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:10513 patches
+Compile failed:8901 patches
+Compilation rate:0.1533339674688481
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/43.java
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 145 patches...
+Current actions:
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 8if(x<(mean-20*standardDeviation)){
+return 0;
+}
+
+DELETE:
+Original line: 14else{
+throw ex;
+}
+
+Following are 2th generated patches:
+Validating 180 patches...
+Current actions:
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 11if(x>(mean+20*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 180 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 15throw ex;
+
+Following are 4th generated patches:
+Validating 181 patches...
+Current actions:
+DELETE:
+Original line: 3 final double dev=x-mean;
+
+INSERT:
+3:return 0.5*(1+Erf.erf((x-mean)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+2
+
+DELETE:
+Original line: 4{
+return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+}
+
+DELETE:
+Original line: 5return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+DELETE:
+Original line: 7catch(MaxIterationsExceededException ex){
+if(x<(mean-20*standardDeviation)){
+return 0;
+}
+else{
+if(x>(mean+20*standardDeviation)){
+return 1;
+}
+}
+}
+
+Tested:11193 patches
+Compile failed:9580 patches
+Compilation rate:0.14410792459572946
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/44.java
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+4:if(dev<-20*standardDeviation||dev>20*standardDeviation){
+throw new MathException(LocalizedFormats.OUT_OF_RANGE_SIMPLE,x,mean-20*standardDeviation,mean+20*standardDeviation);
+}
+TO:
+3
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:throw new MathException(LocalizedFormats.OUT_OF_RANGE_SIMPLE,x,mean-20*standardDeviation,mean+20*standardDeviation);
+TO:
+3
+
+Following are 2th generated patches:
+Validating 11 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+INSERT:
+4:if(dev<-20*standardDeviation||dev>20*standardDeviation){
+throw new MathException(LocalizedFormats.OUT_OF_RANGE_SIMPLE,x,mean-20*standardDeviation,mean+20*standardDeviation);
+}
+TO:
+3
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3: final double dev=x-mean;
+TO:
+3:double dev=x-mean;
+
+INSERT:
+5:throw new MathException(LocalizedFormats.OUT_OF_RANGE_SIMPLE,x,mean-20*standardDeviation,mean+20*standardDeviation);
+TO:
+3
+
+Tested:11609 patches
+Compile failed:9717 patches
+Compilation rate:0.16297700060298045
+NNPPPNNNNNPPPPPPPPPNPNNNPPPPPPNNPPNPNPPPPPPNPPNNNNPNPNPPPNPNPPNPPPNNNPNNNNPNPPNPPPPPNNPNNNPNNNNPPPPNPPPPPPPPNPPPPPPPNNNNPNPPPPPPPPNPPPPNPPPPPPNPPPPPPPPPNNNPPPPPPPPPPNNNPPPPPPPNNPNPPPPPPPNPPPPPPPPNPPPPPPPPPNNNNNNNNNNNNNNNNPPPPPPPPPNPNNNNNNPPPPPPPNPNPPNPPPPPNPNNNNPNPPPPNPNPPNPPNNNNPPNNPNPPPPNPPPPNNNNNNNPNNPPPNPNPPPPPPPPPPPPPNPPNNNPPPNPPPPPPNPPPPPNPPPPNPPNPPPPPPPNPNPPPPPPPPNPPNPPPPNPPPNPPNNPPPPPPNPPPPPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/45.java
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:return 0.5*(1.0+Erf.erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+TO:
+5:return 0.5*(1.0+erf((dev)/(standardDeviation*FastMath.sqrt(2.0))));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:11611 patches
+Compile failed:9719 patches
+Compilation rate:0.1629489277409353
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_60/46.java
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-6*standardDeviation)){
+return 0;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-6*standardDeviation)){
+return 0;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+6*standardDeviation)){
+return 1;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(x<(mean-20*standardDeviation)){
+return 0;
+}
+TO:
+8:if(x<(mean-6*standardDeviation)){
+return 0;
+}
+
+UPDATE
+FROM:
+11:if(x>(mean+20*standardDeviation)){
+return 1;
+}
+TO:
+11:if(x>(mean+6*standardDeviation)){
+return 1;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:11618 patches
+Compile failed:9719 patches
+Compilation rate:0.16345326217937683
+PPPPPPP
+Finish : math-60 > patch : 4 | Start : Wed Apr 10 09:18:05 HKT 2024 | End : 2024.04.10 AD at 09:49:58 HKT

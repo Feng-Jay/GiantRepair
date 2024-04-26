@@ -1,0 +1,3412 @@
+Repair : math_32
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/0.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:10 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/1.java
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:24 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/2.java
+Current actions:
+UPDATE
+FROM:
+23:for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+TO:
+23:for(Vector2D[] loop : v){
+ final double x1=loop[loop.length-1].getX();
+ final double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=point.getX();
+ final double y2=point.getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 30y1=point.getY();
+
+UPDATE
+FROM:
+33:sumX+=factor*(x0+x1);
+TO:
+33:sumX+=factor*(x0+x2);
+
+Following are 1th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+30: final double y2=point.getY();
+TO:
+28
+
+UPDATE
+FROM:
+33:sumX+=factor*(x0+x1);
+TO:
+33:sumX+=factor*(x0+x2);
+
+Following are 2th generated patches:
+Validating 83 patches...
+Current actions:
+UPDATE
+FROM:
+23:for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+TO:
+23:for(Vector2D[] loop : v){
+ final double x1=loop[loop.length-1].getX();
+ final double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=point.getX();
+ final double y2=point.getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+}
+}
+
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+INSERT:
+29: final double x2=point.getX();
+TO:
+28
+
+DELETE:
+Original line: 29x1=point.getX();
+
+INSERT:
+30: final double y2=point.getY();
+TO:
+28
+
+DELETE:
+Original line: 30y1=point.getY();
+
+UPDATE
+FROM:
+31: final double factor=x0*y1-y0*x1;
+TO:
+31: final double factor=x0*y2-y0*x2;
+
+UPDATE
+FROM:
+33:sumX+=factor*(x0+x1);
+TO:
+33:sumX+=factor*(x0+x2);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Following are 3th generated patches:
+Validating 157 patches...
+Current actions:
+UPDATE
+FROM:
+34:sumY+=factor*(y0+y1);
+TO:
+34:sumY+=factor*(y0+y2);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 4th generated patches:
+Validating 62 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+INSERT:
+29: final double x2=point.getX();
+TO:
+28
+
+UPDATE
+FROM:
+34:sumY+=factor*(y0+y1);
+TO:
+34:sumY+=factor*(y0+y2);
+
+Tested:576 patches
+Compile failed:418 patches
+Compilation rate:0.2743055555555556
+NNNNNNPPPPPPNPNNPNPNPNNNNNNNNNPNNNNPPNNNNNPPNPNNNNNNPNNNNPNNPPPNNPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNPNNPNNNNNPNPPNNNPNPNNNNPNNNNPPPNPPPNPPPPNNPNNNPPPNPNNNPNNPPNNPNNNPNPNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNNPPNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNPPNNNNNNNNNNNNNNNNNNNPPPNNPNPNPNNNNNNNPNNPPNNNNNNNNNPNNNPNPNNNNNNNNPNNNPPNPPPPNNPNNNPNPNNNNNPNPPNNPPNPPPPPNNNNPNNPNNNNNNNPPNPNPPPPNNPNNPPNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNNPNPNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/3.java
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+INSERT:
+26:for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+x1=x2;
+y1=y2;
+}
+TO:
+25
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+Following are 1th generated patches:
+Validating 70 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+INSERT:
+26:for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+x1=x2;
+y1=y2;
+}
+TO:
+25
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+Following are 2th generated patches:
+Validating 70 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+INSERT:
+26:for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+x1=x2;
+y1=y2;
+}
+TO:
+25
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+DELETE:
+Original line: 31 final double factor=x0*y1-y0*x1;
+
+DELETE:
+Original line: 33sumX+=factor*(x0+x1);
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+Following are 3th generated patches:
+Validating 74 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+29: final double x2=loop[i].getX();
+TO:
+28
+
+INSERT:
+31: final double factor=x0*y2-y0*x2;
+TO:
+28
+
+INSERT:
+33:sumX+=factor*(x0+x2);
+TO:
+32
+
+INSERT:
+34:sumY+=factor*(y0+y2);
+TO:
+32
+
+INSERT:
+35:x1=x2;
+TO:
+32
+
+INSERT:
+36:y1=y2;
+TO:
+32
+
+Following are 4th generated patches:
+Validating 155 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+INSERT:
+26:for(int i=0;i<loop.length;i++){
+ final double x0=x1;
+ final double y0=y1;
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y2-y0*x2;
+sum+=factor;
+sumX+=factor*(x0+x2);
+sumY+=factor*(y0+y2);
+x1=x2;
+y1=y2;
+}
+TO:
+25
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+DELETE:
+Original line: 33sumX+=factor*(x0+x1);
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+Tested:1127 patches
+Compile failed:944 patches
+Compilation rate:0.16237799467613132
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNPNPNNPNNPNNNPNNNPPNNPPNPPNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/4.java
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isNaN(sum)){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isNaN(sum)){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:1129 patches
+Compile failed:944 patches
+Compilation rate:0.16386182462356066
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/5.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:1139 patches
+Compile failed:944 patches
+Compilation rate:0.17120280948200176
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/6.java
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+DELETE:
+Original line: 17setBarycenter(Vector2D.NaN);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 17setBarycenter(Vector2D.NaN);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:1147 patches
+Compile failed:944 patches
+Compilation rate:0.17698343504795117
+PPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/7.java
+Current actions:
+INSERT:
+24: final int n=loop.length;
+TO:
+23
+
+Following are 0th generated patches:
+Validating 99 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+25:double x1=loop[n-1].getX();
+
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+26:double y1=loop[n-1].getY();
+
+INSERT:
+27:for(int i=0;i<n;++i){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+25
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+26:double y1=loop[n-1].getY();
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+25:double x1=loop[n-1].getX();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+27:for(int i=0;i<n;++i){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+25
+
+Following are 3th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+24: final int n=loop.length;
+TO:
+23
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+27:for(int i=0;i<n;++i){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+25
+
+Following are 4th generated patches:
+Validating 26 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+25:double x1=loop[n-1].getX();
+
+INSERT:
+27:for(int i=0;i<n;++i){
+ final double x0=x1;
+ final double y0=y1;
+x1=loop[i].getX();
+y1=loop[i].getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+25
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+Tested:1287 patches
+Compile failed:1055 patches
+Compilation rate:0.18026418026418026
+NNNNNNNNNNNNNNNPPPPPPNNNNPNNNNNNNNNNNNPNPPPPPPNNPPNNNNNNPNPNPNNNNNPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/8.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.sqrt(FastMath.abs(sum))/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(FastMath.abs(sum))/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(FastMath.abs(sum))/2);
+TO:
+41
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Tested:1308 patches
+Compile failed:1055 patches
+Compilation rate:0.19342507645259938
+PPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/9.java
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Tested:1312 patches
+Compile failed:1055 patches
+Compilation rate:0.19588414634146342
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/10.java
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.NaN);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.NaN);
+
+Following are 1th generated patches:
+Validating 5 patches...
+Tested:1318 patches
+Compile failed:1056 patches
+Compilation rate:0.19878603945371776
+PNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/11.java
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isInfinite(sum)){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isInfinite(sum)){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:1320 patches
+Compile failed:1056 patches
+Compilation rate:0.2
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/12.java
+Current actions:
+INSERT:
+42: final double factor=1/(3*sum);
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(3*sum);
+TO:
+41
+
+Following are 1th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*factor);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*factor,sumY*factor));
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(3*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*factor);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*factor,sumY*factor));
+
+Following are 3th generated patches:
+Validating 20 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*factor,sumY*factor));
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(3*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*factor);
+
+Tested:1367 patches
+Compile failed:1087 patches
+Compilation rate:0.20482809070958302
+NNNPPPPNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNPPPPPPPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/13.java
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(0.5*sumX,0.5*sumY));
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(0.5*sumX,0.5*sumY));
+
+Tested:1398 patches
+Compile failed:1090 patches
+Compilation rate:0.22031473533619456
+PPPPPPPNPPPPPPNPPPPPPPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/14.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(0.5*sum));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(0.5*sum));
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(0.5*sum));
+TO:
+41
+
+Tested:1417 patches
+Compile failed:1090 patches
+Compilation rate:0.23076923076923078
+PPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/15.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.abs(sum/2));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+42:setSize(Math.abs(sum/2));
+TO:
+41
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:1427 patches
+Compile failed:1090 patches
+Compilation rate:0.23615977575332867
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/16.java
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 1th generated patches:
+Validating 5 patches...
+Tested:1433 patches
+Compile failed:1091 patches
+Compilation rate:0.23866015352407538
+PNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/17.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:1443 patches
+Compile failed:1091 patches
+Compilation rate:0.24393624393624394
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/18.java
+Current actions:
+INSERT:
+42: final double scale=1/(3*sum);
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*scale);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*scale,sumY*scale));
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*scale);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double scale=1/(3*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*scale);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*scale,sumY*scale));
+
+Following are 3th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+42: final double scale=1/(3*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*scale);
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+42: final double scale=1/(3*sum);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX*scale,sumY*scale));
+
+Tested:1492 patches
+Compile failed:1122 patches
+Compilation rate:0.2479892761394102
+NNNPPPPNNNNNNPPNNNNNNNNNNNPPPPPPPNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/19.java
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX/(3*size),sumY/(3*size)));
+
+Following are 1th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+Following are 2th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX/(3*size),sumY/(3*size)));
+
+Following are 3th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX/(3*size),sumY/(3*size)));
+
+Tested:1539 patches
+Compile failed:1153 patches
+Compilation rate:0.2508122157244964
+NNNPPPPNNNNNNNNNNNPPPPPPPNNNNNNNNNNNPPPNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/20.java
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX/(6*size),sumY/(6*size)));
+
+Following are 1th generated patches:
+Validating 20 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+Following are 3th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(sumX/(6*size),sumY/(6*size)));
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Tested:1586 patches
+Compile failed:1184 patches
+Compilation rate:0.25346784363177804
+NNNPPPPNNNNNNNNNNNPPPPPPPNPPNNNNNNNNNNNPPPNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/21.java
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/sum,sumY/sum));
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/sum,sumY/sum));
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:1600 patches
+Compile failed:1184 patches
+Compilation rate:0.26
+PPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/22.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.abs(0.5*sum));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+42:setSize(Math.abs(0.5*sum));
+TO:
+41
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:1610 patches
+Compile failed:1184 patches
+Compilation rate:0.2645962732919255
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/23.java
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+INSERT:
+24: final Vector2D previous=loop[0];
+TO:
+23
+
+INSERT:
+25:for(Vector2D current : loop){
+ final double factor=previous.getX()*current.getY()-previous.getY()*current.getX();
+sum+=factor;
+sumX+=factor*(previous.getX()+current.getX());
+sumY+=factor*(previous.getY()+current.getY());
+previous.setCoordinates(current);
+}
+TO:
+23
+
+DELETE:
+Original line: 25double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+Following are 1th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+INSERT:
+25:for(Vector2D current : loop){
+ final double factor=previous.getX()*current.getY()-previous.getY()*current.getX();
+sum+=factor;
+sumX+=factor*(previous.getX()+current.getX());
+sumY+=factor*(previous.getY()+current.getY());
+previous.setCoordinates(current);
+}
+TO:
+23
+
+DELETE:
+Original line: 25double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+INSERT:
+24: final Vector2D previous=loop[0];
+TO:
+23
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+26: final double factor=previous.getX()*current.getY()-previous.getY()*current.getX();
+TO:
+23
+
+INSERT:
+28:sumX+=factor*(previous.getX()+current.getX());
+TO:
+32
+
+INSERT:
+30:previous.setCoordinates(current);
+TO:
+32
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+INSERT:
+25:for(Vector2D current : loop){
+ final double factor=previous.getX()*current.getY()-previous.getY()*current.getX();
+sum+=factor;
+sumX+=factor*(previous.getX()+current.getX());
+sumY+=factor*(previous.getY()+current.getY());
+previous.setCoordinates(current);
+}
+TO:
+23
+
+DELETE:
+Original line: 30y1=point.getY();
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+28:sumX+=factor*(previous.getX()+current.getX());
+TO:
+32
+
+INSERT:
+29:sumY+=factor*(previous.getY()+current.getY());
+TO:
+32
+
+Tested:2021 patches
+Compile failed:1574 patches
+Compilation rate:0.22117763483424047
+NNNNNNNNNNNNNNNNNNNNPPNNNPNPPNNNNNNPPNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNPPPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/24.java
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 16 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+DELETE:
+Original line: 17setBarycenter(Vector2D.NaN);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+INSERT:
+38:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+Tested:2043 patches
+Compile failed:1574 patches
+Compilation rate:0.22956436612824277
+PPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/25.java
+Current actions:
+UPDATE
+FROM:
+23:for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+TO:
+23:for(Vector2D[] loop : v){
+ final Vector2D last=loop[loop.length-1];
+double x1=last.getX();
+double y1=last.getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+23:for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+TO:
+23:for(Vector2D[] loop : v){
+ final Vector2D last=loop[loop.length-1];
+double x1=last.getX();
+double y1=last.getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:double x1=last.getX();
+TO:
+23
+
+Following are 2th generated patches:
+Validating 22 patches...
+Current actions:
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+DELETE:
+Original line: 25double y1=loop[loop.length-1].getY();
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+23:for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+TO:
+23:for(Vector2D[] loop : v){
+ final Vector2D last=loop[loop.length-1];
+double x1=last.getX();
+double y1=last.getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+
+INSERT:
+24: final Vector2D last=loop[loop.length-1];
+TO:
+23
+
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+DELETE:
+Original line: 25double y1=loop[loop.length-1].getY();
+
+INSERT:
+25:double x1=last.getX();
+TO:
+23
+
+INSERT:
+26:double y1=last.getY();
+TO:
+23
+
+Following are 4th generated patches:
+Validating 79 patches...
+Current actions:
+INSERT:
+24: final Vector2D last=loop[loop.length-1];
+TO:
+23
+
+DELETE:
+Original line: 24double x1=loop[loop.length-1].getX();
+
+DELETE:
+Original line: 25double y1=loop[loop.length-1].getY();
+
+INSERT:
+25:double x1=last.getX();
+TO:
+23
+
+Tested:2183 patches
+Compile failed:1695 patches
+Compilation rate:0.22354557947778286
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPPNNPPNNPPNNNNPNNNNNNNNNNNNNNPNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/26.java
+Current actions:
+INSERT:
+42: final double size=FastMath.abs(sum)/2;
+TO:
+41
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+42: final double size=FastMath.abs(sum)/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+DELETE:
+Original line: 43setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+
+INSERT:
+45: final double sy=sumY/(6*size);
+TO:
+42
+
+Following are 1th generated patches:
+Validating 39 patches...
+Current actions:
+INSERT:
+44: final double sx=sumX/(6*size);
+TO:
+42
+
+INSERT:
+45: final double sy=sumY/(6*size);
+TO:
+42
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+DELETE:
+Original line: 43setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+
+INSERT:
+44: final double sx=sumX/(6*size);
+TO:
+42
+
+INSERT:
+45: final double sy=sumY/(6*size);
+TO:
+42
+
+INSERT:
+46:setBarycenter(new Vector2D(sx,sy));
+TO:
+42
+
+Following are 3th generated patches:
+Validating 66 patches...
+Current actions:
+INSERT:
+42: final double size=FastMath.abs(sum)/2;
+TO:
+41
+
+DELETE:
+Original line: 43setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+
+INSERT:
+45: final double sy=sumY/(6*size);
+TO:
+42
+
+INSERT:
+46:setBarycenter(new Vector2D(sx,sy));
+TO:
+42
+
+Following are 4th generated patches:
+Validating 39 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Tested:2420 patches
+Compile failed:1909 patches
+Compilation rate:0.21115702479338844
+NNNNNNNNNNNNNNNNNPPNNNNPPPNNNNPPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/27.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum)/2);
+TO:
+41
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum)/2);
+TO:
+41
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:2430 patches
+Compile failed:1909 patches
+Compilation rate:0.21440329218106996
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/28.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum)/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum)/2);
+TO:
+41
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum)/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 4th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Tested:2453 patches
+Compile failed:1909 patches
+Compilation rate:0.22176926212800652
+PPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/29.java
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 2th generated patches:
+Validating 8 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 3th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Tested:2482 patches
+Compile failed:1912 patches
+Compilation rate:0.22965350523771152
+PPPPPPPNPPPPNPPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/30.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum)/6);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 1th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum)/6);
+TO:
+41
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum)/6);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Tested:2503 patches
+Compile failed:1912 patches
+Compilation rate:0.23611666000799042
+PPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/31.java
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(0.3333*sumX,0.3333*sumY));
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+42:setSize(0.5*sum);
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(0.3333*sumX,0.3333*sumY));
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:2517 patches
+Compile failed:1912 patches
+Compilation rate:0.24036551450139054
+PPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/32.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.sqrt(sum/2));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+42:setSize(Math.sqrt(sum/2));
+TO:
+41
+
+Following are 3th generated patches:
+Validating 3 patches...
+Tested:2527 patches
+Compile failed:1912 patches
+Compilation rate:0.24337158686189156
+PPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/33.java
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+INSERT:
+16: final Vector2D[] loop=v[0];
+TO:
+19
+
+INSERT:
+20:double y0=0;
+TO:
+19
+
+INSERT:
+25:x0=x1;
+TO:
+22
+
+INSERT:
+28:y1=point.getY();
+TO:
+22
+
+INSERT:
+30:sum+=factor;
+TO:
+22
+
+INSERT:
+31:sumX+=factor*(x0+x1);
+TO:
+22
+
+INSERT:
+32:sumY+=factor*(y0+y1);
+TO:
+22
+
+Following are 1th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+INSERT:
+16: final Vector2D[] loop=v[0];
+TO:
+19
+
+INSERT:
+19:double x0=0;
+TO:
+19
+
+INSERT:
+20:double y0=0;
+TO:
+19
+
+INSERT:
+24:for(Vector2D point : loop){
+x0=x1;
+y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+22
+
+INSERT:
+34:setSize(sum/2);
+TO:
+44
+
+INSERT:
+35:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44
+
+Following are 2th generated patches:
+Validating 28 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+INSERT:
+19:double x0=0;
+TO:
+19
+
+INSERT:
+20:double y0=0;
+TO:
+19
+
+INSERT:
+25:x0=x1;
+TO:
+22
+
+INSERT:
+31:sumX+=factor*(x0+x1);
+TO:
+22
+
+INSERT:
+32:sumY+=factor*(y0+y1);
+TO:
+22
+
+DELETE:
+Original line: 33sumX+=factor*(x0+x1);
+
+INSERT:
+34:setSize(sum/2);
+TO:
+44
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+INSERT:
+35:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44
+
+DELETE:
+Original line: 37if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+DELETE:
+Original line: 43setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+
+Following are 3th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+INSERT:
+16: final Vector2D[] loop=v[0];
+TO:
+19
+
+INSERT:
+18:double y1=loop[loop.length-1].getY();
+TO:
+19
+
+INSERT:
+19:double x0=0;
+TO:
+19
+
+INSERT:
+24:for(Vector2D point : loop){
+x0=x1;
+y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+TO:
+22
+
+INSERT:
+35:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44
+
+Following are 4th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+20:double y0=0;
+TO:
+19
+
+DELETE:
+Original line: 39setBarycenter(Vector2D.NaN);
+
+Tested:2599 patches
+Compile failed:1984 patches
+Compilation rate:0.23662947287418237
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/34.java
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isNaN(sum)||sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+37:if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+TO:
+37:if(Double.isNaN(sum)||sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:2604 patches
+Compile failed:1984 patches
+Compilation rate:0.23809523809523808
+PPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/35.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.sqrt(sum/2));
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 1th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+42:setSize(Math.sqrt(sum/2));
+TO:
+41
+
+Tested:2623 patches
+Compile failed:1984 patches
+Compilation rate:0.2436141822340831
+PPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/36.java
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+UPDATE
+FROM:
+12:setBarycenter(new Vector2D(0,0));
+TO:
+12:setBarycenter(Vector2D.ZERO);
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 3th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.abs(sum/2));
+TO:
+41
+
+Tested:2646 patches
+Compile failed:1986 patches
+Compilation rate:0.2494331065759637
+PPPPPPPPNPPPPPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/37.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Tested:2669 patches
+Compile failed:1986 patches
+Compilation rate:0.2559010865492694
+PPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/38.java
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+45:setArea(FastMath.abs(size));
+TO:
+43
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Following are 2th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+INSERT:
+45:setArea(FastMath.abs(size));
+TO:
+43
+
+Following are 3th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+42: final double size=sum/2;
+TO:
+41
+
+INSERT:
+45:setArea(FastMath.abs(size));
+TO:
+43
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(size);
+
+Tested:2729 patches
+Compile failed:2033 patches
+Compilation rate:0.2550384756320997
+NNNNNPPNPPNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/39.java
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+INSERT:
+27: final double x0=(i==0)?loop[loop.length-1].getX():loop[i-1].getX();
+TO:
+25
+
+INSERT:
+28: final double y0=(i==0)?loop[loop.length-1].getY():loop[i-1].getY();
+TO:
+25
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+DELETE:
+Original line: 31 final double factor=x0*y1-y0*x1;
+
+INSERT:
+33:sumX+=factor*(x0+x1+x2);
+TO:
+32
+
+DELETE:
+Original line: 33sumX+=factor*(x0+x1);
+
+INSERT:
+34:sumY+=factor*(y0+y1+y2);
+TO:
+32
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+Following are 1th generated patches:
+Validating 118 patches...
+Current actions:
+UPDATE
+FROM:
+24:double x1=loop[loop.length-1].getX();
+TO:
+24: final double x1=loop[loop.length-1].getX();
+
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+26:for(int i=0;i<loop.length;++i){
+ final double x0=(i==0)?loop[loop.length-1].getX():loop[i-1].getX();
+ final double y0=(i==0)?loop[loop.length-1].getY():loop[i-1].getY();
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y1-y0*x1+x1*y2-y1*x2+x2*y0-y2*x0;
+sum+=factor;
+sumX+=factor*(x0+x1+x2);
+sumY+=factor*(y0+y1+y2);
+}
+TO:
+25
+
+Following are 2th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+26:for(int i=0;i<loop.length;++i){
+ final double x0=(i==0)?loop[loop.length-1].getX():loop[i-1].getX();
+ final double y0=(i==0)?loop[loop.length-1].getY():loop[i-1].getY();
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y1-y0*x1+x1*y2-y1*x2+x2*y0-y2*x0;
+sum+=factor;
+sumX+=factor*(x0+x1+x2);
+sumY+=factor*(y0+y1+y2);
+}
+TO:
+25
+
+DELETE:
+Original line: 27 final double x0=x1;
+
+DELETE:
+Original line: 29x1=point.getX();
+
+DELETE:
+Original line: 30y1=point.getY();
+
+DELETE:
+Original line: 33sumX+=factor*(x0+x1);
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+Following are 3th generated patches:
+Validating 73 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 26for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+
+INSERT:
+26:for(int i=0;i<loop.length;++i){
+ final double x0=(i==0)?loop[loop.length-1].getX():loop[i-1].getX();
+ final double y0=(i==0)?loop[loop.length-1].getY():loop[i-1].getY();
+ final double x2=loop[i].getX();
+ final double y2=loop[i].getY();
+ final double factor=x0*y1-y0*x1+x1*y2-y1*x2+x2*y0-y2*x0;
+sum+=factor;
+sumX+=factor*(x0+x1+x2);
+sumY+=factor*(y0+y1+y2);
+}
+TO:
+25
+
+Following are 4th generated patches:
+Validating 70 patches...
+Current actions:
+UPDATE
+FROM:
+25:double y1=loop[loop.length-1].getY();
+TO:
+25: final double y1=loop[loop.length-1].getY();
+
+DELETE:
+Original line: 28 final double y0=y1;
+
+INSERT:
+29: final double x2=loop[i].getX();
+TO:
+25
+
+INSERT:
+30: final double y2=loop[i].getY();
+TO:
+25
+
+DELETE:
+Original line: 34sumY+=factor*(y0+y1);
+
+Tested:3242 patches
+Compile failed:2512 patches
+Compilation rate:0.22516964836520667
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNPNNNNNNNNNNNNNPNNPNNNNNPNNNNNNNNNNNNNPNNNNNPNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNPNNNNNNNNPNNNPNNNNNNPNNNNNPNNNNNNNNPNNNNNPNNNNNNNNNPPNPNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/40.java
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 0th generated patches:
+Validating 16 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 15if(v[0][0]==null){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+
+INSERT:
+38:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 16setSize(Double.POSITIVE_INFINITY);
+
+DELETE:
+Original line: 17setBarycenter(Vector2D.NaN);
+
+INSERT:
+38:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+38:setSize(FastMath.sqrt(sum/2));
+TO:
+41
+
+DELETE:
+Original line: 42setSize(sum/2);
+
+Tested:3266 patches
+Compile failed:2512 patches
+Compilation rate:0.23086344151867727
+PPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/41.java
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 42setSize(sum/2);
+
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Following are 4th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+42:setSize(Math.abs(sum)/2);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+43:setBarycenter(new Vector2D(sumX/(6*sum),sumY/(6*sum)));
+
+Tested:3285 patches
+Compile failed:2512 patches
+Compilation rate:0.23531202435312024
+PPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/42.java
+Current actions:
+INSERT:
+42: final double factor=1/(6*sum);
+TO:
+41
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(factor*sumX,factor*sumY));
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(6*sum);
+TO:
+41
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(factor*sumX,factor*sumY));
+
+Following are 2th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(6*sum);
+TO:
+41
+
+Following are 3th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(6*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*factor);
+
+UPDATE
+FROM:
+43:setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+TO:
+44:setBarycenter(new Vector2D(factor*sumX,factor*sumY));
+
+Following are 4th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+42: final double factor=1/(6*sum);
+TO:
+41
+
+UPDATE
+FROM:
+42:setSize(sum/2);
+TO:
+43:setSize(sum*factor);
+
+Tested:3343 patches
+Compile failed:2549 patches
+Compilation rate:0.23751121746933893
+NNNPPPPNPPNNNNNNNNNNNPPPPPNNNNNNNNNNNPPPNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_32/43.java
+Current actions:
+Wrap:
+ElseStatement
+On:
+[for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}, double sum=0;, double sum=0;, double sumX=0;, double sumX=0;, double sumY=0;, double sumY=0;, double x1=loop[loop.length-1].getX();, double x1=loop[loop.length-1].getX();, double y1=loop[loop.length-1].getY();, double y1=loop[loop.length-1].getY();, for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}, for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}, {
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}, {
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+19:else{
+double sum=0;
+double sumX=0;
+double sumY=0;
+for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+if(sum<0){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}
+else{
+setSize(sum/2);
+setBarycenter(new Vector2D(sumX/(3*sum),sumY/(3*sum)));
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 20double sum=0;
+
+DELETE:
+Original line: 21double sumX=0;
+
+DELETE:
+Original line: 22double sumY=0;
+
+DELETE:
+Original line: 23for(Vector2D[] loop : v){
+double x1=loop[loop.length-1].getX();
+double y1=loop[loop.length-1].getY();
+for(Vector2D point : loop){
+ final double x0=x1;
+ final double y0=y1;
+x1=point.getX();
+y1=point.getY();
+ final double factor=x0*y1-y0*x1;
+sum+=factor;
+sumX+=factor*(x0+x1);
+sumY+=factor*(y0+y1);
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:3345 patches
+Compile failed:2550 patches
+Compilation rate:0.23766816143497757
+PN
+Finish : math-32 > patch : 0 | Start : Fri Apr 12 00:47:24 HKT 2024 | End : 2024.04.12 AD at 01:01:44 HKT

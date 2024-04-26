@@ -212,7 +212,9 @@ def get_bugids(model_name):
                 all_bug_ids.append(bugid)
     
     # then, get all fixed bugs, they do not need rerun...
-    already_fix_bugs_paths = [SUCCESSFUL_FIX_IDS_PATH_10, SUCCESSFUL_FIX_IDS_PATH_20, EXPECTATION_FIX_IDS_PATH_10, EXPECTATION_FIX_IDS_PATH_20]
+    # already_fix_bugs_paths = [SUCCESSFUL_FIX_IDS_PATH_10, SUCCESSFUL_FIX_IDS_PATH_20, EXPECTATION_FIX_IDS_PATH_10, EXPECTATION_FIX_IDS_PATH_20]
+    already_fix_bugs_paths = [EXPECTATION_FIX_IDS_PATH_10, EXPECTATION_FIX_IDS_PATH_20]
+
     all_fixed_bug_ids = []
     for pathDef in already_fix_bugs_paths:
         path_str = pathDef.format(modelname=model_name)
@@ -244,7 +246,7 @@ def get_bugids(model_name):
         "Mockito": []
     }
     for bugid in all_bug_ids:
-        if bugid in all_fixed_bug_ids:
+        if bugid not in all_fixed_bug_ids:
             continue
         # print(bugid)
         proj, idnum = bugid.split("-")
@@ -253,18 +255,24 @@ def get_bugids(model_name):
         ret[key].sort()
 
     # target_repo = ["Csv", "Gson", "JacksonCore", "JacksonDatabind", "JacksonXml", "Jsoup", "JxPath", "Mockito"]
-    # target_repo = ["Chart", "Lang", "Math"]
-    target_repo = ["Time", "Closure"] # server: 5
+    # target_repo = ["Chart", "Lang", "Math", "Time"] # server 8
+    # target_repo = ["Mockito"] # server: 12 new...
+    target_repo = ["Closure"] # server: 25
+    # target_repo = ["Time", "Closure"] # server: 5
     # target_repo = ["Chart", "Lang"] # server: 12
-    # target_repo = ["Math"] # server: 12 new...
+    # target_repo = ["Mockito"] # server: 12 new...
     # target_repo = ["Closure"] # server: 25
     bugids = []
     for key in target_repo:
         idnums = ret[key]
         for idnum in idnums:
-            # server 5
-            if key == "Closure" and (idnum < 100  or idnum > 133):
+            # server 12
+            # if idnum < 70 or idnum > 133:
+            #     continue
+            # server 25
+            if idnum > 133:
                 continue
+            # server 8
             # if key == "Math" and idnum < 23:
             #     continue
 
@@ -291,7 +299,7 @@ def check_out(llmName):
 
 def run_tools_on_all(llmName):
     bugids = get_bugids(llmName)
-    RUN_APR_TOOL_CMD = "java -jar GenPat.jar repair -d4j {bugid} -d4jhome /data/PLM4APR/tmp/defects4j_buggy/ -modelname {modelName}"
+    RUN_APR_TOOL_CMD = "java -jar GiantRepair.jar repair -d4j {bugid} -d4jhome /data/PLM4APR/tmp/defects4j_buggy/ -modelname {modelName}"
     CORRECT_FIXES_ORACLE = "Correct fixed!!! Patch Rank:"
 
     RUN_SUCCESS_BUGS = []
@@ -346,5 +354,5 @@ if __name__ == "__main__":
     llmName = args.model
     version = args.version
     # check_out(llmName)
-    run_apr_tools(llmName, version)
-    # run_tools_on_all(llmName)
+    # run_apr_tools(llmName, version)
+    run_tools_on_all(llmName)

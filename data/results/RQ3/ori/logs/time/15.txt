@@ -1,0 +1,6685 @@
+Repair : time_15
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/0.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+val1=-val1;
+val2=-val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:if(val1!=Long.MIN_VALUE){
+val1=-val1;
+val2=-val2;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+5:val1=-val1;
+TO:
+2
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 8case 1 :
+
+UPDATE
+FROM:
+15:return total;
+TO:
+12:return val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:}
+
+TO:
+15
+
+Following are 3th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+3:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+val1=-val1;
+val2=-val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+15:return total;
+TO:
+12:return val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:}
+
+TO:
+15
+
+Following are 4th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+val1=-val1;
+val2=-val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+15:return total;
+TO:
+12:return val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:}
+
+TO:
+15
+
+Tested:286 patches
+Compile failed:192 patches
+Compilation rate:0.32867132867132864
+NNNNNPPPPPNPPPPPNNNNNPPPNPPPNNPPNNPNNNNNNNNPPNPPPPPPNNPNNPNNNNPPNNNPPNNNPPNPPPNNNNNNNPNNPNPPNPPNPNPNNPNNNPNPNNPNNNPPPPPPPNPPNNPPNPPPNNPNPNPPPNNNPNNPPPNPNNPPNPPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/1.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1==0||(val1>0?(total/val1):-(total/val1))!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1==0||(val1>0?(total/val1):-(total/val1))!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 31 patches...
+Tested:318 patches
+Compile failed:196 patches
+Compilation rate:0.3836477987421384
+PNNPPPPPPPPPPPPPPPPNPPPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/2.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:return MathUtils.safeMultiply(val1,val2);
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 137 patches...
+Current actions:
+INSERT:
+11:return MathUtils.safeMultiply(val1,val2);
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 3th generated patches:
+Validating 136 patches...
+Current actions:
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return MathUtils.safeMultiply(val1,val2);
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Tested:611 patches
+Compile failed:487 patches
+Compilation rate:0.20294599018003273
+NNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/3.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+11:return val1*val2;
+TO:
+10
+
+Following are 1th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return val1*val2;
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:return val1*val2;
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+11:return val1*val2;
+TO:
+10
+
+DELETE:
+Original line: 15return total;
+
+Tested:654 patches
+Compile failed:525 patches
+Compilation rate:0.19724770642201836
+NNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNPPPNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/4.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((val2>0&&total<val1)||(val2<0&&total>val1)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((val2>0&&total<val1)||(val2<0&&total>val1)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 24 patches...
+Tested:679 patches
+Compile failed:525 patches
+Compilation rate:0.2268041237113402
+PPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/5.java
+Current actions:
+INSERT:
+15:if(total<val1||total<val2){
+throw new ArithmeticException("Multiplication underflows a long: "+val1+" * "+val2);
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:if(total<val1||total<val2){
+throw new ArithmeticException("Multiplication underflows a long: "+val1+" * "+val2);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 56 patches...
+Current actions:
+INSERT:
+16:throw new ArithmeticException("Multiplication underflows a long: "+val1+" * "+val2);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:738 patches
+Compile failed:561 patches
+Compilation rate:0.23983739837398374
+NPNNNNNNNNNNNNNNNNNPPNNPPPPPNPNNNNPPPPPPNPPNPNNNNPNNNNPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/6.java
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+INSERT:
+12:case 3 :
+TO:
+9
+
+INSERT:
+13:return safeAdd(val1,safeAdd(val1,val1));
+TO:
+9
+
+INSERT:
+14:case 4 :
+TO:
+9
+
+INSERT:
+15:return safeAdd(safeAdd(val1,val1),safeAdd(val1,val1));
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+INSERT:
+11:return safeAdd(val1,val1);
+TO:
+9
+
+INSERT:
+12:case 3 :
+TO:
+9
+
+INSERT:
+13:return safeAdd(val1,safeAdd(val1,val1));
+TO:
+9
+
+INSERT:
+14:case 4 :
+TO:
+9
+
+INSERT:
+15:return safeAdd(safeAdd(val1,val1),safeAdd(val1,val1));
+TO:
+9
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:return safeAdd(val1,val1);
+TO:
+9
+
+INSERT:
+13:return safeAdd(val1,safeAdd(val1,val1));
+TO:
+9
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1369 patches
+Compile failed:849 patches
+Compilation rate:0.3798392987582177
+NNNNNNNNNPPPPPNPNPPPPNNNNNNNNNPPPPPPPPPPPNNNPPPPPPPPPPNNPPPNPPPPPPPPPPPPPPPPPPPPPPPPNPPPNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPNNNPPPPPPNPNPPNPPNNPPNPPPPPPPPPPPPPNPNPPPPPPPNPNPPPPPPPNPNPPPPNPNNPPPPPPPPPPPPPPPPPPNNNPPPPPPPPPPPPPPPPPPPPNNPPNPNPPPPPPPNNPPPPNPPPNPNPNPPPPPPPPPPPNPNNNPPPNNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPPPPPPPPPPPPPPPNNPPPPPPPPPPPNPPPPPPPPPNNNPPPNNNPPPPNNPNNPPNNPPPPPPNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/7.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((val2>0&&total<0)||(val2<0&&total>0)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((val2>0&&total<0)||(val2<0&&total>0)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 24 patches...
+Tested:1394 patches
+Compile failed:849 patches
+Compilation rate:0.39096126255380204
+PPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/8.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1!=0&&total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1!=0&&total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 18 patches...
+Tested:1413 patches
+Compile failed:849 patches
+Compilation rate:0.3991507430997877
+PPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/9.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+4:if(val1!=0&&total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 1th generated patches:
+Validating 96 patches...
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 2th generated patches:
+Validating 96 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+8:}
+
+TO:
+12
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+INSERT:
+4:if(val1!=0&&total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 4th generated patches:
+Validating 98 patches...
+Current actions:
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+Tested:1673 patches
+Compile failed:1084 patches
+Compilation rate:0.35206216377764493
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPPNNPNNPPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPPNNPPPPNPNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/10.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2<0){
+return -safeMultiply(-val1,-val2);
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:if(val1==0){
+return 0;
+}
+TO:
+1
+
+Following are 2th generated patches:
+Validating 30 patches...
+Current actions:
+INSERT:
+9:if(val2==0){
+return 0;
+}
+TO:
+1
+
+Following are 3th generated patches:
+Validating 30 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+4:return -safeMultiply(-val1,-val2);
+TO:
+1
+
+INSERT:
+7:return 0;
+TO:
+1
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+12:long total=val1*val2;
+TO:
+1
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+1
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+16:return total;
+TO:
+1
+
+INSERT:
+17:}
+
+TO:
+1
+
+Following are 4th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+3:if(val2<0){
+return -safeMultiply(-val1,-val2);
+}
+TO:
+1
+
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+6:if(val1==0){
+return 0;
+}
+TO:
+1
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+9:if(val2==0){
+return 0;
+}
+TO:
+1
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+1
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+16:return total;
+TO:
+1
+
+INSERT:
+17:}
+
+TO:
+1
+
+Tested:1700 patches
+Compile failed:1095 patches
+Compilation rate:0.3558823529411765
+NNNNNNNPPPPPPNPPPPNNPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/11.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+6:if(val2==0){
+return 0L;
+}
+TO:
+5
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+9:if(val2==1){
+return val1;
+}
+TO:
+5
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 3th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+12:long total=val1*val2;
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+16:return total;
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Tested:1788 patches
+Compile failed:1171 patches
+Compilation rate:0.34507829977628635
+NNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPNPPPPPNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/12.java
+Tested:1788 patches
+Compile failed:1171 patches
+Compilation rate:0.34507829977628635
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/13.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(val2==0){
+return 0L;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+14:if(val1==Long.MIN_VALUE&&val2==-1){
+return Long.MAX_VALUE;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:if(val1>=0&&val1<Integer.MAX_VALUE/val2){
+return val1*val2;
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:if(val1<=0&&val1>Integer.MIN_VALUE/val2){
+return val1*val2;
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+INSERT:
+23:throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+TO:
+14
+
+Tested:2581 patches
+Compile failed:1882 patches
+Compilation rate:0.2708252615265401
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNPNNNPNNNPNNNNPPNNNNPNNNNNNNNNNPNNNNNNNNPNNNNNNPNNPNNPNNNNPNNNNPPNPPNNPNNPNNNNNNNNPNNPNNNNNNNNNNNNNNPNNNNPNNNNNPNNNPPPNNNNNNNNNNNPNPPPNPPPPPNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNPNNNNNNNNNNNNNNPNNNNNNNNPNNNNPNNNNNPNNNNNNNNPNPNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNPNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/14.java
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return MathUtils.safeMultiply(val1,val2);
+TO:
+9
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 139 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return MathUtils.safeMultiply(val1,val2);
+TO:
+9
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 137 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 15return total;
+
+Tested:2889 patches
+Compile failed:2184 patches
+Compilation rate:0.24402907580477673
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/15.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 181 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+11:}
+
+TO:
+15
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+7:if((result/val2!=val1)&&(val2!=Integer.MIN_VALUE)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+INSERT:
+11:}
+
+TO:
+15
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 2th generated patches:
+Validating 110 patches...
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 3th generated patches:
+Validating 110 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+7:if((result/val2!=val1)&&(val2!=Integer.MIN_VALUE)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+UPDATE
+FROM:
+15:return total;
+TO:
+10:return result;
+
+INSERT:
+11:}
+
+TO:
+15
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 4th generated patches:
+Validating 126 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+UPDATE
+FROM:
+11:long total=val1*val2;
+TO:
+6:long result=val1*val2;
+
+INSERT:
+7:if((result/val2!=val1)&&(val2!=Integer.MIN_VALUE)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+UPDATE
+FROM:
+15:return total;
+TO:
+10:return result;
+
+INSERT:
+11:}
+
+TO:
+15
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Tested:3233 patches
+Compile failed:2528 patches
+Compilation rate:0.2180637179090628
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/16.java
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+13:return val1*val2;
+TO:
+9
+
+Following are 1th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+INSERT:
+11:return val1*val2;
+TO:
+9
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+INSERT:
+11:return val1*val2;
+TO:
+9
+
+INSERT:
+12:case 3 :
+TO:
+9
+
+INSERT:
+13:return val1*val2;
+TO:
+9
+
+Following are 3th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+12:case 3 :
+TO:
+9
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:case 3 :
+TO:
+9
+
+INSERT:
+13:return val1*val2;
+TO:
+9
+
+Tested:3281 patches
+Compile failed:2560 patches
+Compilation rate:0.21975007619628162
+NNNNNPPPPPPPNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/17.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1==0||val2==0||total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(val1==0||val2==0||total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 22 patches...
+Tested:3304 patches
+Compile failed:2560 patches
+Compilation rate:0.22518159806295399
+PPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/18.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(total<0&&val1!=Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if(total<0&&val1!=Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 16 patches...
+Tested:3321 patches
+Compile failed:2564 patches
+Compilation rate:0.22794339054501656
+PNNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/19.java
+Current actions:
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 30 patches...
+Current actions:
+INSERT:
+14:if(val2==0){
+return 0;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 30 patches...
+Current actions:
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+10
+
+INSERT:
+14:if(val2==0){
+return 0;
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+12:return 0;
+TO:
+10
+
+INSERT:
+15:return 0;
+TO:
+10
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+12:return 0;
+TO:
+10
+
+INSERT:
+14:if(val2==0){
+return 0;
+}
+TO:
+10
+
+Tested:3452 patches
+Compile failed:2645 patches
+Compilation rate:0.23377752027809964
+NNNNPPPNNNNNNNNNNNNNNNNNPPPPPPNPPPPPPNNNNNNNNNNNNNNNNNPPPPPPNPPPPPPNNPPPPPPPNPPPNNNNNNNNNNNNNNNNPNNPNNNNNPNPPNPPNNNNNNNNPPPPPPNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/20.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[long total=val1*val2;, if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, return total;, {
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}]
+Following are 0th generated patches:
+Validating 65 patches...
+Current actions:
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 9return val1;
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 7return 0L;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+Tested:3499 patches
+Compile failed:2692 patches
+Compilation rate:0.2306373249499857
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/21.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Tested:3679 patches
+Compile failed:2825 patches
+Compilation rate:0.23212829573253602
+NNNNNNNNNNNNNPPPPPPPPNPNNNNNNNNNNNNPNNNNNNNNPNPNNPNNNPPPNNNNNNNNNNNNNNNNPPPPNNPPNNNNNNNNNNNPNNPNNNNNNNPNPPPPPPNNNNNPNNPNNPNPNNNNNNPNNNNNPNNNNNPNNPNNNNNNNNNNNNNPNNNNNNNNNPPPPPPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/22.java
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+14:if(val1<0){
+if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return val1/-val2*-val2;
+}
+TO:
+9
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+INSERT:
+15:if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+9
+
+Following are 3th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+21:if(val2==Integer.MAX_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+9
+
+Following are 4th generated patches:
+Validating 16 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:if(val1<0){
+if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return val1/-val2*-val2;
+}
+TO:
+9
+
+Tested:3907 patches
+Compile failed:3041 patches
+Compilation rate:0.22165344253903252
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/23.java
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:return 0L;
+TO:
+12
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+13:return 0L;
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 3th generated patches:
+Validating 5 patches...
+Tested:3919 patches
+Compile failed:3046 patches
+Compilation rate:0.22276090839499874
+NPPPNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/24.java
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+11:return val1*2;
+TO:
+9
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+INSERT:
+11:return val1*2;
+TO:
+9
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+10:case 2 :
+TO:
+9
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:3933 patches
+Compile failed:3055 patches
+Compilation rate:0.22323925756420035
+NPPNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/25.java
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+INSERT:
+17:}
+
+TO:
+16
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:3935 patches
+Compile failed:3056 patches
+Compilation rate:0.22337992376111818
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/26.java
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+12:return total/val2!=val1?-1:total;
+TO:
+11
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+12:return total/val2!=val1?-1:total;
+TO:
+11
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:return total/val2!=val1?-1:total;
+TO:
+11
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Tested:3982 patches
+Compile failed:3090 patches
+Compilation rate:0.2240080361627323
+NNNNNNNNPPPNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/27.java
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+13:return -1;
+TO:
+12
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:return -1;
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:3988 patches
+Compile failed:3092 patches
+Compilation rate:0.2246740220661986
+NPPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/28.java
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+12:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+total--;
+}
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:if(val1!=Long.MIN_VALUE){
+total--;
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+12:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+total--;
+}
+}
+TO:
+11
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+INSERT:
+17:else{
+if(val1!=Long.MAX_VALUE){
+total++;
+}
+}
+TO:
+11
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+total--;
+}
+}
+TO:
+11
+
+INSERT:
+18:total++;
+TO:
+11
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:if(val2<0){
+if(val1!=Long.MIN_VALUE){
+total--;
+}
+}
+TO:
+11
+
+INSERT:
+17:else{
+if(val1!=Long.MAX_VALUE){
+total++;
+}
+}
+TO:
+11
+
+Tested:4639 patches
+Compile failed:3600 patches
+Compilation rate:0.22397068333692607
+NNPPPPNPPPPPPNPPPPNPPPNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNPNNNNNNPNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNPNNNNNNNNNPNNPNNNNNNNPPNPNPPNPPPNNNNNPNNNPPPPPPNPNNNPNPPNNNNNNNNNNNNNNNNNNNPPNNNNPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNPNNNNNNNNNPNPNNNNPNPNNPPNNNNPPPPPNNNNNNNPPPPNPNNNPPPNNNNNPNNNPPNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNPNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNPPNNNPNNPNPNNPPPPNNPPNNNNNNNNPPNPPPPPPNNNNPNPNNNNNNPNNNNNNNNNPNNNNNPNNPNNNNNNNNNNNPNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/29.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+6:if(val2==1){
+return val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+9:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 3th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+12:long total=val1*val2;
+TO:
+5
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+16:return total;
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+9:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+12:long total=val1*val2;
+TO:
+5
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Tested:4736 patches
+Compile failed:3685 patches
+Compilation rate:0.22191722972972974
+NNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNPPPPPNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/30.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 145 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+14:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+6:if(val2==1){
+return val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+14:}
+
+TO:
+2
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+6:if(val2==1){
+return val1;
+}
+TO:
+2
+
+INSERT:
+9:long total=val1*val2;
+TO:
+2
+
+INSERT:
+10:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:return total;
+TO:
+2
+
+INSERT:
+14:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+6:if(val2==1){
+return val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:}
+
+TO:
+2
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 5return -val1;
+
+INSERT:
+6:if(val2==1){
+return val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:return total;
+TO:
+2
+
+INSERT:
+14:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Tested:4801 patches
+Compile failed:3745 patches
+Compilation rate:0.2199541762132889
+NNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/31.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+4:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 32 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+INSERT:
+7:return total;
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+INSERT:
+4:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+5:long total=val1*val2;
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 4th generated patches:
+Validating 66 patches...
+Current actions:
+INSERT:
+4:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+INSERT:
+5:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+7:return total;
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Tested:5062 patches
+Compile failed:3929 patches
+Compilation rate:0.223824575266693
+NNNNNNNNNPPPNPPPPPPPNNNPPNPNPNNNNPNPPPPNPNNNNNNNNNNNNNPNPPNPPPNNNNNPNPPNPPPPNPPNPNNPNPPPPNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNPPNPPPPPNPPNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/32.java
+Current actions:
+INSERT:
+12:long diff=total/val2-val1;
+TO:
+11
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if(diff!=0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+12:long diff=total/val2-val1;
+TO:
+11
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if(diff!=0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+12:long diff=total/val2-val1;
+TO:
+11
+
+Following are 3th generated patches:
+Validating 16 patches...
+Tested:5103 patches
+Compile failed:3949 patches
+Compilation rate:0.22614148540074466
+NPPNPPNNNNNNNNPPNPPPPPPPPNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/33.java
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:return total/val2==val1?total:0L;
+TO:
+11
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:return total/val2==val1?total:0L;
+TO:
+11
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Tested:5150 patches
+Compile failed:3982 patches
+Compilation rate:0.22679611650485437
+NNNNNNNNPPPPNNNNNNNNNNNNNNNNNPNNNNNNNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/34.java
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+13:return Long.MIN_VALUE;
+TO:
+12
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+13:return Long.MIN_VALUE;
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:5166 patches
+Compile failed:3994 patches
+Compilation rate:0.22686798296554395
+NPPNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/35.java
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+12:if(val1==0||(total/val2)==val1){
+return total;
+}
+TO:
+11
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 96 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:if(val1==0||(total/val2)==val1){
+return total;
+}
+TO:
+11
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 98 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+15:else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11
+
+Tested:5364 patches
+Compile failed:4170 patches
+Compilation rate:0.2225950782997763
+NNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPNPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNPPPPNNNNNNPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/36.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return Math.multiplyExact(val1,val2);
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 139 patches...
+Current actions:
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return Math.multiplyExact(val1,val2);
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Tested:5524 patches
+Compile failed:4326 patches
+Compilation rate:0.2168718320057929
+NNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/37.java
+Current actions:
+INSERT:
+15:if(total!=(val1*val2)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:if(total!=(val1*val2)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+16:throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:5553 patches
+Compile failed:4340 patches
+Compilation rate:0.21844048262200613
+NPNNNNNNNNNNNNPPPPPPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/38.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11:if(val1==Long.MIN_VALUE||val2==-1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11:if(val1==Long.MIN_VALUE||val2==-1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+11:if(val1==Long.MIN_VALUE||val2==-1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+UPDATE
+FROM:
+15:return total;
+TO:
+14:return val1*val2;
+
+Following are 4th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+15:return total;
+TO:
+14:return val1*val2;
+
+Tested:5599 patches
+Compile failed:4365 patches
+Compilation rate:0.22039649937488837
+NNNPPPPNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/39.java
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+13:if(total==Long.MAX_VALUE){
+return Long.MAX_VALUE;
+}
+TO:
+12
+
+Following are 1th generated patches:
+Validating 120 patches...
+Current actions:
+INSERT:
+14:return Long.MAX_VALUE;
+TO:
+12
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+13:if(total==Long.MAX_VALUE){
+return Long.MAX_VALUE;
+}
+TO:
+12
+
+INSERT:
+16:return Long.MIN_VALUE;
+TO:
+12
+
+Following are 3th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+14:return Long.MAX_VALUE;
+TO:
+12
+
+INSERT:
+16:return Long.MIN_VALUE;
+TO:
+12
+
+Following are 4th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+INSERT:
+13:if(total==Long.MAX_VALUE){
+return Long.MAX_VALUE;
+}
+TO:
+12
+
+INSERT:
+16:return Long.MIN_VALUE;
+TO:
+12
+
+Tested:5872 patches
+Compile failed:4626 patches
+Compilation rate:0.21219346049046323
+NNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/40.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 30 patches...
+Current actions:
+INSERT:
+4:return 0;
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0;
+}
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+10:return total;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 34 patches...
+Current actions:
+INSERT:
+4:return 0;
+TO:
+2
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0;
+}
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Tested:6023 patches
+Compile failed:4732 patches
+Compilation rate:0.21434501079196414
+NNNNNNNNNNNNNNNPNPNNPPPPPPNPNNNNNNNNNNNNNNNNNNPNPPNPPPPPPNNNNNPPNPNNNPNPPPPPPNNNPPPPPNNNNNNNNNNNNNNNNNPPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/41.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+6:if(val2==0){
+return 0L;
+}
+TO:
+5
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+9:if(val2==1){
+return val1;
+}
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 3th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+17:}
+
+TO:
+5
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+6:if(val2==0){
+return 0L;
+}
+TO:
+5
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+5
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+16:return total;
+TO:
+5
+
+INSERT:
+17:}
+
+TO:
+5
+
+Tested:6124 patches
+Compile failed:4820 patches
+Compilation rate:0.21293272370999347
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNPPPPPNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/42.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 47 patches...
+Current actions:
+INSERT:
+11:if(val1==Long.MIN_VALUE){
+if(val2>0||val2<-1){
+return val1*val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:if(val2>0||val2<-1){
+return val1*val2;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:if(val1==Long.MIN_VALUE){
+if(val2>0||val2<-1){
+return val1*val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:return val1*val2;
+TO:
+10
+
+INSERT:
+15:else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:if(val1==Long.MIN_VALUE){
+if(val2>0||val2<-1){
+return val1*val2;
+}
+else{
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+UPDATE
+FROM:
+15:return total;
+TO:
+19:return val1*val2;
+
+Tested:6362 patches
+Compile failed:5001 patches
+Compilation rate:0.21392643822697266
+NNNNNNNNNNNPPNPPPNPPPNNNPPPPPPNNNNNNNNNNNNNNNNNNPPPPPPPPPNPNNPNNNNNNNNPPNPPNNNNNNNNPNNPNNNNNNNNNNNPPPPPPPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPPPPPPPPPNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/43.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+3:if(val1==0||val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 38 patches...
+Current actions:
+DELETE:
+Original line: 5return -val1;
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:return total;
+TO:
+2
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val1==0||val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+10:return total;
+TO:
+2
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 40 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 5return -val1;
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val1==0||val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+INSERT:
+10:return total;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Tested:6467 patches
+Compile failed:5095 patches
+Compilation rate:0.21215401267975878
+NNNNNNNNNNNNPPPPPNPPPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/44.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2<0){
+if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return -safeMultiply(val1,-val2);
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+4:if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 20 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2<0){
+if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return -safeMultiply(val1,-val2);
+}
+TO:
+2
+
+INSERT:
+14:}
+
+TO:
+2
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+4:if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+9:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:return total;
+TO:
+2
+
+INSERT:
+14:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 27 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+4:if(val2==Integer.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+9:long total=val1*val2;
+TO:
+2
+
+INSERT:
+10:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:}
+
+TO:
+2
+
+Tested:6610 patches
+Compile failed:5199 patches
+Compilation rate:0.213464447806354
+NNNNNNNNPPPPPPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPPNPNNPNNNPNNNNNNNNPPPNPNPNNNPPNNNNPPNNNPNNNNNPPPPPPPPNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/45.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:return total;
+TO:
+2
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+INSERT:
+10:return total;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:long total=val1*val2;
+TO:
+2
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+10:return total;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Tested:6659 patches
+Compile failed:5237 patches
+Compilation rate:0.21354557741402613
+NNNNNNNNNNNNPPPPPNPPPPNNNPPNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/46.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+6:if(val2<0){
+val1=-val1;
+val2=-val2;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 108 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+7:val1=-val1;
+TO:
+2
+
+INSERT:
+10:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 3th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+6:if(val2<0){
+val1=-val1;
+val2=-val2;
+}
+TO:
+2
+
+INSERT:
+10:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:return total;
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 4th generated patches:
+Validating 107 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+6:if(val2<0){
+val1=-val1;
+val2=-val2;
+}
+TO:
+2
+
+INSERT:
+10:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+14:return total;
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Tested:6953 patches
+Compile failed:5492 patches
+Compilation rate:0.21012512584495902
+NNNNNNNNNNNPNNPNNPPPPPNPPNNNNNNNNNNNNPNPPNPNPNPPNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNPNPNNPNNPNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/47.java
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 15return total;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+INSERT:
+11:return val1*val2;
+TO:
+9
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+10:default :
+TO:
+9
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:return val1*val2;
+TO:
+9
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 15return total;
+
+Tested:7005 patches
+Compile failed:5536 patches
+Compilation rate:0.20970735189150608
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/48.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+4:if(val2!=0&&total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 1th generated patches:
+Validating 96 patches...
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 2th generated patches:
+Validating 96 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+INSERT:
+4:if(val2!=0&&total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+7:return total;
+TO:
+12
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 99 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+4:if(val2!=0&&total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+7:return total;
+TO:
+12
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 98 patches...
+Current actions:
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+4:if(val2!=0&&total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Tested:7360 patches
+Compile failed:5885 patches
+Compilation rate:0.20040760869565216
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/49.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+7:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+6:return val1*val2;
+TO:
+2
+
+INSERT:
+7:}
+
+TO:
+2
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:return val1*val2;
+TO:
+2
+
+INSERT:
+7:}
+
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+6:return val1*val2;
+TO:
+2
+
+INSERT:
+7:}
+
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 4case -1 :
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+7:}
+
+TO:
+2
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Tested:7536 patches
+Compile failed:6036 patches
+Compilation rate:0.19904458598726116
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNPPPNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPPPNNNPNNNNPPNNNNNNNNNNNNNNNNNPNPNNPNNNNPNNNNPPNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/50.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(val2<0){
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+10:if(total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+INSERT:
+9:else{
+if(total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+14:return total;
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+4:if(val2<0){
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+9:else{
+if(total/val1!=val2){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:return total;
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Following are 4th generated patches:
+Validating 19 patches...
+Current actions:
+DELETE:
+Original line: 4case -1 :
+
+INSERT:
+4:if(val2<0){
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+14:return total;
+TO:
+2
+
+DELETE:
+Original line: 15return total;
+
+INSERT:
+15:}
+
+TO:
+2
+
+Tested:7659 patches
+Compile failed:6159 patches
+Compilation rate:0.19584802193497847
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/51.java
+Current actions:
+INSERT:
+12:long remainder=total%val2;
+TO:
+11
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+13:if(remainder<0){
+remainder+=val2;
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+16:if(remainder!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+13:if(remainder<0){
+remainder+=val2;
+}
+TO:
+11
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+16:if(remainder!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 30 patches...
+Current actions:
+INSERT:
+12:long remainder=total%val2;
+TO:
+11
+
+INSERT:
+13:if(remainder<0){
+remainder+=val2;
+}
+TO:
+11
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+16:if(remainder!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 4th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+14:remainder+=val2;
+TO:
+11
+
+Tested:7770 patches
+Compile failed:6243 patches
+Compilation rate:0.19652509652509653
+NNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPPPNNNNNNNNNNNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/52.java
+Current actions:
+Wrap:
+Block
+On:
+[return 0L;, return val1;, case -1 :, return -val1;, {
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}, switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}, case 0 :, case 1 :, {
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:{
+long total=val1*val2;
+switch (val2){
+case 0 :
+return 0L;
+case 1 :
+return val1;
+case -1 :
+return -val1;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+switch (val2){
+case 0 :
+return 0L;
+case 1 :
+return val1;
+case -1 :
+return -val1;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+switch (val2){
+case 0 :
+return 0L;
+case 1 :
+return val1;
+case -1 :
+return -val1;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:{
+long total=val1*val2;
+switch (val2){
+case 0 :
+return 0L;
+case 1 :
+return val1;
+case -1 :
+return -val1;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:7774 patches
+Compile failed:6246 patches
+Compilation rate:0.19655261126833032
+PNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/53.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 106 patches...
+Current actions:
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+12:if(val2==Integer.MIN_VALUE){
+if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return 0;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 131 patches...
+Current actions:
+INSERT:
+13:if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+16:if(val1==Integer.MIN_VALUE){
+return val2==Integer.MIN_VALUE?1:0;
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 128 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:if(val1==0){
+return 0;
+}
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+12:if(val2==Integer.MIN_VALUE){
+if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return 0;
+}
+TO:
+10
+
+INSERT:
+16:if(val1==Integer.MIN_VALUE){
+return val2==Integer.MIN_VALUE?1:0;
+}
+TO:
+14
+
+UPDATE
+FROM:
+15:return total;
+TO:
+17:return val1*val2;
+
+Tested:8179 patches
+Compile failed:6574 patches
+Compilation rate:0.19623425846680523
+NNNNNNNNNNNNNPPPNPPPPPPPNPPNPPPPPNPPPNNNNNNNNNNNNPNNPNNNPNNNNNNNNNPPNPPNPPPPPNPPPNPPNNNNNPPPPNPPPPPNPPPPPPNNNNNNNNNNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/54.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+4:if(val2==-1&&val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 1th generated patches:
+Validating 78 patches...
+Current actions:
+Wrap:
+IfStatement
+On:
+[throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 2th generated patches:
+Validating 78 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+INSERT:
+4:if(val2==-1&&val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+7:return total;
+TO:
+12
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 81 patches...
+Current actions:
+INSERT:
+4:if(val2==-1&&val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 4th generated patches:
+Validating 81 patches...
+Current actions:
+INSERT:
+8:}
+
+TO:
+12
+
+DELETE:
+Original line: 8case 1 :
+
+Tested:8480 patches
+Compile failed:6861 patches
+Compilation rate:0.19091981132075472
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNPNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNPNNNNNPNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/55.java
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+Following are 0th generated patches:
+Validating 166 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 32 patches...
+Current actions:
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+9:default :
+TO:
+8
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+10:return val1*val2;
+TO:
+8
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 43 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 6case 0 :
+
+INSERT:
+8:return val1;
+TO:
+8
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+9:default :
+TO:
+8
+
+INSERT:
+10:return val1*val2;
+TO:
+8
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+DELETE:
+Original line: 15return total;
+
+Following are 4th generated patches:
+Validating 45 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+9:default :
+TO:
+8
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Tested:8711 patches
+Compile failed:7060 patches
+Compilation rate:0.18953047870508552
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNPNPNNPNNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNPNNPPPPPPNNNNNNNNNNNNPPPNPPPPPNNPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/56.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val1==0L){
+return 0L;
+}
+TO:
+2
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+13:}
+
+TO:
+15
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+6:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+9:if(val2<0){
+throw new ArithmeticException("Negative value: "+val2);
+}
+TO:
+5
+
+Following are 3th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val1==0L){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:}
+
+TO:
+15
+
+Following are 4th generated patches:
+Validating 42 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val1==0L){
+return 0L;
+}
+TO:
+2
+
+INSERT:
+6:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+INSERT:
+9:if(val2<0){
+throw new ArithmeticException("Negative value: "+val2);
+}
+TO:
+5
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+UPDATE
+FROM:
+15:return total;
+TO:
+12:return val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+INSERT:
+13:}
+
+TO:
+15
+
+Tested:8930 patches
+Compile failed:7240 patches
+Compilation rate:0.18924972004479285
+NNNNNNNPPPPNPPNPNPNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNNNNNNNNPNNPNNNNPNNNPNPNNPPNNNNPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/57.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[long total=val1*val2;, if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, return total;]
+Following are 0th generated patches:
+Validating 65 patches...
+Current actions:
+INSERT:
+2:public static long safeMultiply(long val1,long val2){
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 7return 0L;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5return -val1;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+Tested:8977 patches
+Compile failed:7287 patches
+Compilation rate:0.1882588838141918
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/58.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[long total=val1*val2;, {
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}, switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}, case -1 :, case 0 :, return 0L;, case 1 :, {
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}, throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);]
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+5:return -val1;
+TO:
+6:return -total;
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+switch (val2){
+case -1 :
+return -total;
+case 0 :
+return 0L;
+case 1 :
+return total;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+UPDATE
+FROM:
+9:return val1;
+TO:
+10:return total;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+switch (val2){
+case -1 :
+return -total;
+case 0 :
+return 0L;
+case 1 :
+return total;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 2{
+switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+long total=val1*val2;
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+
+INSERT:
+2:public static long safeMultiply(long val1,int val2){
+long total=val1*val2;
+switch (val2){
+case -1 :
+return -total;
+case 0 :
+return 0L;
+case 1 :
+return total;
+}
+if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return total;
+}
+TO:
+1
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+UPDATE
+FROM:
+5:return -val1;
+TO:
+6:return -total;
+
+UPDATE
+FROM:
+9:return val1;
+TO:
+10:return total;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+UPDATE
+FROM:
+9:return val1;
+TO:
+10:return total;
+
+Tested:9001 patches
+Compile failed:7308 patches
+Compilation rate:0.1880902121986446
+NNNPNNNPPNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/59.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(val2<0){
+if(val1==Long.MIN_VALUE){
+if(val2==-1){
+return 0L;
+}
+else{
+if(val2==-2){
+return 1L;
+}
+}
+}
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+5:if(val1==Long.MIN_VALUE){
+if(val2==-1){
+return 0L;
+}
+else{
+if(val2==-2){
+return 1L;
+}
+}
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:long total=val1*val2;
+TO:
+2
+
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+4:if(val2<0){
+if(val1==Long.MIN_VALUE){
+if(val2==-1){
+return 0L;
+}
+else{
+if(val2==-2){
+return 1L;
+}
+}
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+INSERT:
+14:if(val2>0&&total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+2
+
+INSERT:
+18:}
+
+TO:
+12
+
+Tested:9262 patches
+Compile failed:7569 patches
+Compilation rate:0.18278989419131936
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/60.java
+Current actions:
+INSERT:
+12:long rem=total%val2;
+TO:
+11
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if(rem!=0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+12:long rem=total%val2;
+TO:
+11
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if(rem!=0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+UPDATE
+FROM:
+15:return total;
+TO:
+16:return total/val2;
+
+Following are 2th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+12:long rem=total%val2;
+TO:
+11
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+12:long rem=total%val2;
+TO:
+11
+
+UPDATE
+FROM:
+15:return total;
+TO:
+16:return total/val2;
+
+Following are 4th generated patches:
+Validating 12 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if(rem!=0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+UPDATE
+FROM:
+15:return total;
+TO:
+16:return total/val2;
+
+Tested:9308 patches
+Compile failed:7590 patches
+Compilation rate:0.18457241082939407
+NNPPPPPNPPNNNNNNPPPPPPPPNNNNNNPPPPPNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/61.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/61.java
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+11:if(val2==Integer.MIN_VALUE){
+if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return (val1==0)?0:-val1;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 137 patches...
+Current actions:
+INSERT:
+12:if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Following are 2th generated patches:
+Validating 16 patches...
+Current actions:
+UPDATE
+FROM:
+15:return total;
+TO:
+17:return val1*val2;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:if(val2==Integer.MIN_VALUE){
+if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+return (val1==0)?0:-val1;
+}
+TO:
+10
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+UPDATE
+FROM:
+15:return total;
+TO:
+17:return val1*val2;
+
+Following are 4th generated patches:
+Validating 156 patches...
+Current actions:
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+12:if(val1==Long.MIN_VALUE){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+10
+
+DELETE:
+Original line: 13throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+
+Tested:9637 patches
+Compile failed:7903 patches
+Compilation rate:0.17993151395662552
+NNNNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/62.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/62.java
+Current actions:
+INSERT:
+12:long diff=total-val1;
+TO:
+11
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if((diff^val2)<0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+12:long diff=total-val1;
+TO:
+11
+
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+13:if((diff^val2)<0){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+12:long diff=total-val1;
+TO:
+11
+
+Following are 3th generated patches:
+Validating 11 patches...
+Tested:9688 patches
+Compile failed:7930 patches
+Compilation rate:0.1814616019818332
+NPPNNNNNNNNNNPPPNNNPPNPPNPPPPPPNNNNNPPPPNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/63.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/63.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(val2==-1){
+return -val1;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+6:if(val2==0){
+return 0L;
+}
+TO:
+5
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+20:}
+
+TO:
+5
+
+Following are 2th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+9:if(val2==1){
+return val1;
+}
+TO:
+5
+
+INSERT:
+20:}
+
+TO:
+5
+
+Following are 3th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+12:if(val2==2){
+return safeAdd(val1,val1);
+}
+TO:
+5
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 15return total;
+
+INSERT:
+19:return total;
+TO:
+5
+
+INSERT:
+20:}
+
+TO:
+5
+
+Tested:10001 patches
+Compile failed:8229 patches
+Compilation rate:0.17718228177182282
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/64.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/64.java
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((total<0&&val2>0)||(total>0&&val2<0)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+12:if((total<0&&val2>0)||(total>0&&val2<0)){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 1th generated patches:
+Validating 24 patches...
+Tested:10026 patches
+Compile failed:8229 patches
+Compilation rate:0.17923399162178336
+PPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/65.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/time_15/65.java
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+Following are 0th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+1
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+11:}
+
+TO:
+1
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+6:long total=val1*val2;
+TO:
+1
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+1
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+1
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 3switch (val2){
+case -1 :
+return -val1;
+case 0 :
+return 0L;
+case 1 :
+return val1;
+}
+
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+1
+
+INSERT:
+6:long total=val1*val2;
+TO:
+1
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+1
+
+INSERT:
+10:return total;
+TO:
+1
+
+DELETE:
+Original line: 11long total=val1*val2;
+
+INSERT:
+11:}
+
+TO:
+1
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+DELETE:
+Original line: 15return total;
+
+Following are 3th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+1
+
+DELETE:
+Original line: 5return -val1;
+
+DELETE:
+Original line: 7return 0L;
+
+INSERT:
+7:if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+TO:
+1
+
+DELETE:
+Original line: 8case 1 :
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+11:}
+
+TO:
+1
+
+DELETE:
+Original line: 12if(total/val2!=val1){
+throw new ArithmeticException("Multiplication overflows a long: "+val1+" * "+val2);
+}
+
+Following are 4th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+3:if(val2==0){
+return 0L;
+}
+TO:
+1
+
+DELETE:
+Original line: 6case 0 :
+
+DELETE:
+Original line: 7return 0L;
+
+DELETE:
+Original line: 9return val1;
+
+INSERT:
+10:return total;
+TO:
+1
+
+INSERT:
+11:}
+
+TO:
+1
+
+DELETE:
+Original line: 15return total;
+
+Tested:10057 patches
+Compile failed:8247 patches
+Compilation rate:0.17997414736004771
+NNNNNNNNNNNNPPPPPPPNPNNNPPPPNNP
+Finish : time-15 > patch : 0 | Start : Fri Apr 12 12:42:32 HKT 2024 | End : 2024.04.12 AD at 13:16:02 HKT

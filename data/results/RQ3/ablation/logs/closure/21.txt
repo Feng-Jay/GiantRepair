@@ -1,0 +1,1164 @@
+Repair : closure_21
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/1.java
+Current actions:
+DELETE:
+Original line: 35if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+Following are 0th generated patches:
+Validating 48 patches...
+Current actions:
+INSERT:
+35:if(isSimpleOp){
+String msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+TO:
+34
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 35if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+INSERT:
+35:if(isSimpleOp){
+String msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+TO:
+34
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 35if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+INSERT:
+36:String msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+TO:
+34
+
+Following are 3th generated patches:
+Validating 22 patches...
+Current actions:
+DELETE:
+Original line: 36String msg="This code lacks side-effects. Is there a bug?";
+
+DELETE:
+Original line: 41msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+35:if(isSimpleOp){
+String msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+TO:
+34
+
+DELETE:
+Original line: 36String msg="This code lacks side-effects. Is there a bug?";
+
+DELETE:
+Original line: 37if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+
+DELETE:
+Original line: 41msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+
+Tested:82 patches
+Compile failed:49 patches
+Compilation rate:0.4024390243902439
+NNNNNNNNNNNNNPPPPPPNNNNNNNNPNNPNPNNNPNPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/2.java
+Current actions:
+Wrap:
+EnhancedForStatement
+On:
+[if(ancestorType==Token.COMMA){
+continue;
+}, for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}, {
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}, int ancestorType=an.getType();]
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+22:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 25if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+
+INSERT:
+27:else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+TO:
+23
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+22:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+22:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+22:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Tested:95 patches
+Compile failed:57 patches
+Compilation rate:0.4
+NNNNNNNPPNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/3.java
+Current actions:
+DELETE:
+Original line: 6if(parent==null){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 6if(parent==null){
+return ;
+}
+
+INSERT:
+22:continue;
+TO:
+23
+
+INSERT:
+24:else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+TO:
+23
+
+DELETE:
+Original line: 25if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+
+DELETE:
+Original line: 26else{
+break;
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+24:{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+TO:
+23
+
+DELETE:
+Original line: 26else{
+break;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7return ;
+
+INSERT:
+19:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+19:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+19:for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+else{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 22for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 6if(parent==null){
+return ;
+}
+
+INSERT:
+22:continue;
+TO:
+23
+
+INSERT:
+24:{
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+}
+TO:
+23
+
+DELETE:
+Original line: 26else{
+break;
+}
+
+INSERT:
+28:break;
+TO:
+23
+
+Tested:108 patches
+Compile failed:64 patches
+Compilation rate:0.4074074074074074
+NNNNNNPPNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/4.java
+Current actions:
+UPDATE
+FROM:
+35:if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+TO:
+35:if(isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler())){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+35:if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+TO:
+35:if(isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler())){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:110 patches
+Compile failed:64 patches
+Compilation rate:0.41818181818181815
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/5.java
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(  NodeTraversal t,  Node n,  Node parent){
+    if (n.isEmpty() || n.isComma()) {
+      return;
+    }
+    if (parent == null) {
+      return;
+    }
+    if (n.isExprResult()) {
+      return;
+    }
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+    boolean isResultUsed=NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp=NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+    }
+ else     if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (!(parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if ((isSimpleOp || !NodeUtil.mayHaveSideEffects(n,t.getCompiler()))) {
+      String msg="This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg="Is there a missing '+' on the previous line?";
+      }
+ else       if (isSimpleOp) {
+        msg="The result of the '" + Token.name(n.getType()).toLowerCase() + "' operator is not being used.";
+      }
+      t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+1 th patch/200
+Trace:
+
+START : 
+2024.04.06 AD at 00:41:05 HKT
+---------TIME : 
+2024.04.06 AD at 00:47:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(  NodeTraversal t,  Node n,  Node parent){
+    if (n.isEmpty() || n.isComma()) {
+      return;
+    }
+    if (parent == null) {
+      return;
+    }
+    if (n.isExprResult()) {
+      return;
+    }
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+    boolean isResultUsed=NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp=NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+      if (n == parent.getLastChild()) {
+      }
+    }
+ else     if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (!(parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if ((isSimpleOp || !NodeUtil.mayHaveSideEffects(n,t.getCompiler()))) {
+      String msg="This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg="Is there a missing '+' on the previous line?";
+      }
+ else       if (isSimpleOp) {
+        msg="The result of the '" + Token.name(n.getType()).toLowerCase() + "' operator is not being used.";
+      }
+      t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.06 AD at 00:41:05 HKT
+---------TIME : 
+2024.04.06 AD at 00:47:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(  NodeTraversal t,  Node n,  Node parent){
+    if (n.isEmpty() || n.isComma()) {
+      return;
+    }
+    if (parent == null) {
+      return;
+    }
+if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+    if (n.isExprResult()) {
+      return;
+    }
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+    boolean isResultUsed=NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp=NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+    }
+ else     if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (!(parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if ((isSimpleOp || !NodeUtil.mayHaveSideEffects(n,t.getCompiler()))) {
+      String msg="This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg="Is there a missing '+' on the previous line?";
+      }
+ else       if (isSimpleOp) {
+        msg="The result of the '" + Token.name(n.getType()).toLowerCase() + "' operator is not being used.";
+      }
+      t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+3 th patch/200
+Trace:
+
+START : 
+2024.04.06 AD at 00:41:05 HKT
+---------TIME : 
+2024.04.06 AD at 00:47:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_21_buggy/src/com/google/javascript/jscomp/CheckSideEffects.java
+SUCCESS
+//Following are generated patch:
+  public void visit(  NodeTraversal t,  Node n,  Node parent){
+    if (n.isEmpty() || n.isComma()) {
+      return;
+    }
+    if (parent == null) {
+      return;
+    }
+if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+    if (n.isExprResult()) {
+      return;
+    }
+    if (n.isQualifiedName() && n.getJSDocInfo() != null) {
+      return;
+    }
+    boolean isResultUsed=NodeUtil.isExpressionResultUsed(n);
+    boolean isSimpleOp=NodeUtil.isSimpleOperatorType(n.getType());
+    if (parent.getType() == Token.COMMA) {
+      if (isResultUsed) {
+        return;
+      }
+      if (n == parent.getLastChild()) {
+        for (        Node an : parent.getAncestors()) {
+          int ancestorType=an.getType();
+          if (ancestorType == Token.COMMA)           continue;
+ else           break;
+        }
+      }
+    }
+ else     if (parent.getType() != Token.EXPR_RESULT && parent.getType() != Token.BLOCK) {
+      if (!(parent.getType() == Token.FOR && parent.getChildCount() == 4 && (n == parent.getFirstChild() || n == parent.getFirstChild().getNext().getNext()))) {
+        return;
+      }
+    }
+    if ((isSimpleOp || !NodeUtil.mayHaveSideEffects(n,t.getCompiler()))) {
+      String msg="This code lacks side-effects. Is there a bug?";
+      if (n.isString()) {
+        msg="Is there a missing '+' on the previous line?";
+      }
+ else       if (isSimpleOp) {
+        msg="The result of the '" + Token.name(n.getType()).toLowerCase() + "' operator is not being used.";
+      }
+      t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+      if (!NodeUtil.isStatement(n)) {
+        problemNodes.add(n);
+      }
+    }
+  }
+
+4 th patch/200
+Trace:
+
+START : 
+2024.04.06 AD at 00:41:05 HKT
+---------TIME : 
+2024.04.06 AD at 00:47:38 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+INSERT:
+9:if(n.getType()==Token.BLOCK&&parent.isLabel()&&parent.getFirstChild()==n&&NodeUtil.isStatement(n)&&!NodeUtil.isStatement(parent.getNext())){
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+}
+TO:
+8
+
+DELETE:
+Original line: 9if(n.isExprResult()){
+return ;
+}
+
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+DELETE:
+Original line: 16boolean isSimpleOp=NodeUtil.isSimpleOperatorType(n.getType());
+
+DELETE:
+Original line: 18if(isResultUsed){
+return ;
+}
+
+DELETE:
+Original line: 21if(n==parent.getLastChild()){
+for(Node an : parent.getAncestors()){
+int ancestorType=an.getType();
+if(ancestorType==Token.COMMA){
+continue;
+}
+if(ancestorType!=Token.EXPR_RESULT&&ancestorType!=Token.BLOCK){
+return ;
+}
+else{
+break;
+}
+}
+}
+
+DELETE:
+Original line: 30else{
+if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+if(!(parent.getType()==Token.FOR&&parent.getChildCount()==4&&(n==parent.getFirstChild()||n==parent.getFirstChild().getNext().getNext()))){
+return ;
+}
+}
+}
+
+DELETE:
+Original line: 35if((isSimpleOp||!NodeUtil.mayHaveSideEffects(n,t.getCompiler()))){
+String msg="This code lacks side-effects. Is there a bug?";
+if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+else{
+if(isSimpleOp){
+msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+}
+}
+t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+if(!NodeUtil.isStatement(n)){
+problemNodes.add(n);
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,"This code lacks side-effects. Is there a bug?"));
+TO:
+8
+
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+DELETE:
+Original line: 15boolean isResultUsed=NodeUtil.isExpressionResultUsed(n);
+
+DELETE:
+Original line: 18if(isResultUsed){
+return ;
+}
+
+DELETE:
+Original line: 23int ancestorType=an.getType();
+
+DELETE:
+Original line: 30else{
+if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+if(!(parent.getType()==Token.FOR&&parent.getChildCount()==4&&(n==parent.getFirstChild()||n==parent.getFirstChild().getNext().getNext()))){
+return ;
+}
+}
+}
+
+DELETE:
+Original line: 37if(n.isString()){
+msg="Is there a missing '+' on the previous line?";
+}
+
+DELETE:
+Original line: 41msg="The result of the '"+Token.name(n.getType()).toLowerCase()+"' operator is not being used.";
+
+DELETE:
+Original line: 43t.getCompiler().report(t.makeError(n,level,USELESS_CODE_ERROR,msg));
+
+Tested:712 patches
+Compile failed:445 patches
+Compilation rate:0.375
+NNPPPPPPPPPPNNNPPPNPPPPPPPPPNPNPPPPPPPNPPNNNPPNPPPPPPPPNNPPPPPPNPNPNPPPNPPPPPPPPNNPPPPPPPNNNPPPPNPPPPPPPPPNPNPPPPPPPPPPPPNNPNPPPPPPPNPPPPPPNNPPPPPPPPPPPNNPNPPPNNPPPPPPPNNNPPPPPPPPPPNPNNNPPNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNPPPNNPPPNNNNNNNPPNNNNNNPPNPNPNNPPNPNNNNNNPPNNNNNPPNNNNNNPNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNPNNNNPPNNPNNPNPNNNNNNNNNPPNPPNPPNNNNNPNPNNNNPPPNNNNNNPPNPNNPNPNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/6.java
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 10return ;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3:if(n.isEmpty()||n.isComma()){
+return ;
+}
+TO:
+3:if(n.isEmpty()){
+return ;
+}
+
+DELETE:
+Original line: 9if(n.isExprResult()){
+return ;
+}
+
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 10return ;
+
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 9if(n.isExprResult()){
+return ;
+}
+
+DELETE:
+Original line: 12if(n.isQualifiedName()&&n.getJSDocInfo()!=null){
+return ;
+}
+
+Tested:734 patches
+Compile failed:445 patches
+Compilation rate:0.39373297002724794
+PPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_21/7.java
+Current actions:
+DELETE:
+Original line: 6if(parent==null){
+return ;
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 7return ;
+
+INSERT:
+27:if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+return ;
+}
+TO:
+29
+
+DELETE:
+Original line: 30else{
+if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+if(!(parent.getType()==Token.FOR&&parent.getChildCount()==4&&(n==parent.getFirstChild()||n==parent.getFirstChild().getNext().getNext()))){
+return ;
+}
+}
+}
+
+INSERT:
+105:}
+
+TO:
+48
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7return ;
+
+INSERT:
+27:if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+return ;
+}
+TO:
+29
+
+DELETE:
+Original line: 30else{
+if(parent.getType()!=Token.EXPR_RESULT&&parent.getType()!=Token.BLOCK){
+if(!(parent.getType()==Token.FOR&&parent.getChildCount()==4&&(n==parent.getFirstChild()||n==parent.getFirstChild().getNext().getNext()))){
+return ;
+}
+}
+}
+
+INSERT:
+105:}
+
+TO:
+48
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1140 patches
+Compile failed:851 patches
+Compilation rate:0.2535087719298246
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-21 > patch : 4 | Start : Sat Apr 06 00:41:05 HKT 2024 | End : 2024.04.06 AD at 00:50:00 HKT

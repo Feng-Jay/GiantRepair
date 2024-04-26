@@ -1,0 +1,3977 @@
+Repair : closure_78
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/0.java
+Current actions:
+DELETE:
+Original line: 6double result;
+
+DELETE:
+Original line: 31result=lval-rval;
+
+INSERT:
+40:return Node.newNumber(lval/rval);
+TO:
+47
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 61return Node.newString(Token.NAME,"Infinity");
+
+DELETE:
+Original line: 63else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:return Node.newNumber(ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval));
+TO:
+21
+
+INSERT:
+24:return Node.newNumber(lval+rval);
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:394 patches
+Compile failed:394 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/1.java
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+INSERT:
+54:if(Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+if(Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+else{
+if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+}
+}
+TO:
+52
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:599 patches
+Compile failed:584 patches
+Compilation rate:0.025041736227045076
+NPPPPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/2.java
+Current actions:
+UPDATE
+FROM:
+15:double lval=lValObj;
+TO:
+6:double lval=0;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+15:double lval=lValObj;
+TO:
+6:double lval=0;
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+8:Node lvalNode=NodeUtil.getRValueOfLValue(left);
+
+UPDATE
+FROM:
+11:Double rValObj=NodeUtil.getNumberValue(right);
+TO:
+9:Node rvalNode=NodeUtil.getRValueOfLValue(right);
+
+INSERT:
+10:if(lvalNode!=null){
+lval=NodeUtil.getDoubleValue(lvalNode);
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+INSERT:
+13:if(rvalNode!=null){
+rval=NodeUtil.getDoubleValue(rvalNode);
+}
+TO:
+10
+
+INSERT:
+16:if((opType==Token.ADD||opType==Token.SUB)&&(NodeUtil.mayBeString(lvalNode,false)||NodeUtil.mayBeString(rvalNode,false))){
+JSType type=NodeUtil.getBestJSDestructuringType(lvalNode,rvalNode,true);
+if(type!=null&&(type.isString()||type.isUnknown())){
+return Node.newString(opType==Token.ADD?Token.ADD:Token.SUB,NodeUtil.getStringValue(lvalNode)+NodeUtil.getStringValue(rvalNode));
+}
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:976 patches
+Compile failed:933 patches
+Compilation rate:0.04405737704918033
+NNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNPNNNNNPNNPNNNNNNNNPNNNPNNNNNNNPNNNNNNNPNNNNNNNPPNNPPNNNNNNPNPPPPNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/3.java
+Current actions:
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:978 patches
+Compile failed:933 patches
+Compilation rate:0.046012269938650305
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/4.java
+Current actions:
+UPDATE
+FROM:
+15:double lval=lValObj;
+TO:
+7:double lval=0;
+
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+UPDATE
+FROM:
+16:double rval=rValObj;
+TO:
+8:double rval=0;
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+11:lval=NodeUtil.getDoubleValue(left);
+TO:
+18
+
+INSERT:
+12:rval=NodeUtil.getDoubleValue(right);
+TO:
+18
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+INSERT:
+16:lval=NodeUtil.getDoubleValue(left);
+TO:
+21
+
+INSERT:
+21:lval=NodeUtil.getDoubleValue(left);
+TO:
+24
+
+INSERT:
+22:rval=NodeUtil.getDoubleValue(right);
+TO:
+24
+
+INSERT:
+26:lval=NodeUtil.getDoubleValue(left);
+TO:
+27
+
+INSERT:
+37:rval=NodeUtil.getDoubleValue(right);
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1173 patches
+Compile failed:1128 patches
+Compilation rate:0.03836317135549872
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/5.java
+Current actions:
+INSERT:
+55:if(NodeUtil.mayBeString(newNumber,false)){
+return null;
+}
+TO:
+54
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+55:if(NodeUtil.mayBeString(newNumber,false)){
+return null;
+}
+TO:
+54
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+56:return null;
+TO:
+54
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:1376 patches
+Compile failed:1223 patches
+Compilation rate:0.11119186046511628
+NPNNNNPPPPPPNNPNPNPNNPPPNPPPPPNNNPNPPNPPPPPNNNNNPPPNNPNNPPNPPPNPNPPPPNPPPNNNPNPNPPNNPPPNNPPNPNPNNNPNPPPPNNNNPNNPNPNNPPNNNNPPPPPPNNPNNNNNPNNPPNPNPNNPNNNPPNPNPPPNNNNPPNNPPPNPNPNNNPPNPPPPPNPPPPNNNPNNPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/6.java
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+INSERT:
+3:if(opType==Token.ADD){
+if(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false)){
+return null;
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+INSERT:
+20:return Node.newNumber(ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval));
+TO:
+18
+
+DELETE:
+Original line: 23break;
+
+INSERT:
+24:return Node.newNumber(ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval));
+TO:
+24
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+INSERT:
+26:return Node.newNumber(lval+rval);
+TO:
+27
+
+INSERT:
+28:return Node.newNumber(lval-rval);
+TO:
+30
+
+DELETE:
+Original line: 28result=lval+rval;
+
+INSERT:
+30:return Node.newNumber(lval*rval);
+TO:
+33
+
+DELETE:
+Original line: 31result=lval-rval;
+
+DELETE:
+Original line: 32break;
+
+DELETE:
+Original line: 34result=lval*rval;
+
+DELETE:
+Original line: 35break;
+
+INSERT:
+36:return Node.newNumber(lval%rval);
+TO:
+40
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 42break;
+
+DELETE:
+Original line: 49break;
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1573 patches
+Compile failed:1420 patches
+Compilation rate:0.09726636999364272
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/7.java
+Current actions:
+UPDATE
+FROM:
+11:Double rValObj=NodeUtil.getNumberValue(right);
+TO:
+7:Node rVal=NodeUtil.getNumberValue(right,true);
+
+INSERT:
+8:if(NodeUtil.isUnknown(lVal)||NodeUtil.isUnknown(rVal)){
+return null;
+}
+TO:
+11
+
+INSERT:
+11:if(opType==Token.ADD&&NodeUtil.isNumber(lVal)){
+Node rValue=rVal.isNumber()?rVal:NodeUtil.getStringValue(rVal);
+return Node.newString(Token.NAME,NodeUtil.getStringValue(lVal)+rValue);
+}
+TO:
+10
+
+DELETE:
+Original line: 13return null;
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+INSERT:
+17:return Node.newString(Token.NAME,lValue+NodeUtil.getStringValue(rVal));
+TO:
+14
+
+DELETE:
+Original line: 17switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+
+INSERT:
+20:{
+double lval=Double.parseDouble(NodeUtil.getStringValue(lVal));
+double rval=Double.parseDouble(NodeUtil.getStringValue(rVal));
+switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+}
+TO:
+14
+
+INSERT:
+21:double lval=Double.parseDouble(NodeUtil.getStringValue(lVal));
+TO:
+14
+
+INSERT:
+22:double rval=Double.parseDouble(NodeUtil.getStringValue(rVal));
+TO:
+14
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+INSERT:
+60:catch(NumberFormatException e){
+return null;
+}
+TO:
+52
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1772 patches
+Compile failed:1619 patches
+Compilation rate:0.0863431151241535
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/8.java
+Tested:1772 patches
+Compile failed:1619 patches
+Compilation rate:0.0863431151241535
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/9.java
+Current actions:
+DELETE:
+Original line: 6double result;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6double result;
+
+INSERT:
+18:lval=lval&rval;
+TO:
+18
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+INSERT:
+21:lval=lval|rval;
+TO:
+21
+
+INSERT:
+24:lval=lval^rval;
+TO:
+24
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+UPDATE
+FROM:
+28:result=lval+rval;
+TO:
+27:lval=lval+rval;
+
+UPDATE
+FROM:
+31:result=lval-rval;
+TO:
+30:lval=lval-rval;
+
+UPDATE
+FROM:
+48:result=lval/rval;
+TO:
+47:lval=lval/rval;
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52:if(String.valueOf(lval).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(lval)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(lval);
+return newNumber;
+}
+
+UPDATE
+FROM:
+54:Node newNumber=Node.newNumber(result);
+TO:
+53:Node newNumber=Node.newNumber(lval);
+
+UPDATE
+FROM:
+57:if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+56:if(Double.isNaN(lval)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+UPDATE
+FROM:
+63:else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+TO:
+62:else{
+if(lval==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2144 patches
+Compile failed:1980 patches
+Compilation rate:0.07649253731343283
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPPPPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/10.java
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+53:if(Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+INSERT:
+53:if(Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2547 patches
+Compile failed:2361 patches
+Compilation rate:0.07302709069493522
+NPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNPPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/11.java
+Current actions:
+INSERT:
+53:if(Double.isNaN(result)||Double.isInfinite(result)){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 0th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+INSERT:
+57:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+INSERT:
+53:if(Double.isNaN(result)||Double.isInfinite(result)){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+INSERT:
+57:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3020 patches
+Compile failed:2799 patches
+Compilation rate:0.07317880794701986
+NNNNNNNNNNNNPPPPNPNNNPPPPNPNNNNNNNNNNNNPNNPPPPPNNNNNNNNNPPNPNPPNNPPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/12.java
+Current actions:
+INSERT:
+48:if(Double.isInfinite(rval)){
+error(DiagnosticType.error("JSC_DIVIDE_BY_INFINITY_ERROR","Divide by Infinity"),right);
+return null;
+}
+TO:
+47
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+49:error(DiagnosticType.error("JSC_DIVIDE_BY_INFINITY_ERROR","Divide by Infinity"),right);
+TO:
+47
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+48:if(Double.isInfinite(rval)){
+error(DiagnosticType.error("JSC_DIVIDE_BY_INFINITY_ERROR","Divide by Infinity"),right);
+return null;
+}
+TO:
+47
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3424 patches
+Compile failed:3024 patches
+Compilation rate:0.11682242990654206
+NNPPNNNPPPPPPPPNPNPNPPPPPPPPNNNPPPPPPPPPNPPPNNNNPPPPPNNPNPPPNPPPPNPNPPPPNNPPPPNNNNPNPPPPPPNPPPPPPPPNPPPPNPPPPPPNPPPNPPNNPPPNPPNPNPPNNPPNPPNPPPNPNPPNPPPPPNNPPNPPPPPPPPNNPPPPNPNPPNNPNPPPPPNPNPPPNPPNPNPPPPPPNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNPPNNPPNPPPPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNPPPPPPPPNNNNNPNPNPNPPPNNNNNNNNNPNPPPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/13.java
+Current actions:
+INSERT:
+14:double lval=lValObj.doubleValue();
+TO:
+14
+
+INSERT:
+20:return Node.newNumber(ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval));
+TO:
+21
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+6:Number lValObj=NodeUtil.getNumberValue(left);
+
+DELETE:
+Original line: 6double result;
+
+INSERT:
+14:double lval=lValObj.doubleValue();
+TO:
+14
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+INSERT:
+15:double rval=rValObj.doubleValue();
+TO:
+14
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+INSERT:
+20:return Node.newNumber(ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval));
+TO:
+21
+
+DELETE:
+Original line: 20break;
+
+DELETE:
+Original line: 22result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 23break;
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+INSERT:
+26:return Node.newNumber(lval-rval);
+TO:
+30
+
+INSERT:
+28:return Node.newNumber(lval*rval);
+TO:
+33
+
+DELETE:
+Original line: 28result=lval+rval;
+
+DELETE:
+Original line: 29break;
+
+DELETE:
+Original line: 31result=lval-rval;
+
+INSERT:
+34:return Node.newNumber(lval%rval);
+TO:
+40
+
+DELETE:
+Original line: 34result=lval*rval;
+
+DELETE:
+Original line: 35break;
+
+INSERT:
+40:return Node.newNumber(lval/rval);
+TO:
+47
+
+DELETE:
+Original line: 48result=lval/rval;
+
+DELETE:
+Original line: 49break;
+
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 55return newNumber;
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 61return Node.newString(Token.NAME,"Infinity");
+
+DELETE:
+Original line: 63else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3813 patches
+Compile failed:3413 patches
+Compilation rate:0.1049042748492001
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/14.java
+Current actions:
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+7:double lval;
+TO:
+6
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+8:double rval;
+TO:
+6
+
+INSERT:
+12:if(NodeUtil.isLiteralValue(left,false)&&NodeUtil.isLiteralValue(right,false)){
+lval=NodeUtil.getDoubleValue(left);
+rval=NodeUtil.getDoubleValue(right);
+}
+TO:
+10
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+INSERT:
+7:double lval;
+TO:
+6
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+8:double rval;
+TO:
+6
+
+INSERT:
+9:if(!NodeUtil.isNumber(left)||!NodeUtil.isNumber(right)){
+return null;
+}
+TO:
+6
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+INSERT:
+12:if(NodeUtil.isLiteralValue(left,false)&&NodeUtil.isLiteralValue(right,false)){
+lval=NodeUtil.getDoubleValue(left);
+rval=NodeUtil.getDoubleValue(right);
+}
+TO:
+10
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+INSERT:
+16:else{
+return null;
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4210 patches
+Compile failed:3807 patches
+Compilation rate:0.09572446555819478
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/15.java
+Current actions:
+UPDATE
+FROM:
+6:double result;
+TO:
+6:Double result;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+6:double result;
+TO:
+6:Double result;
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+53:if(result!=null&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 3th generated patches:
+Validating 96 patches...
+Current actions:
+UPDATE
+FROM:
+6:double result;
+TO:
+6:Double result;
+
+INSERT:
+53:if(result!=null&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+Following are 4th generated patches:
+Validating 97 patches...
+Tested:4411 patches
+Compile failed:4005 patches
+Compilation rate:0.09204262072092496
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/16.java
+Current actions:
+UPDATE
+FROM:
+6:double result;
+TO:
+6:Double result=null;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:double result;
+TO:
+6:Double result=null;
+
+INSERT:
+19:result=(lval!=lval)||(rval!=rval)?null:(lval>=0&&rval>=0)?Math.floor(lval)&Math.floor(rval):Math.ceil(lval)&Math.ceil(rval);
+TO:
+18
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+INSERT:
+22:result=(lval!=lval)||(rval!=rval)?null:(lval>=0&&rval>=0)?Math.floor(lval)|Math.floor(rval):Math.ceil(lval)|Math.ceil(rval);
+TO:
+21
+
+DELETE:
+Original line: 22result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+
+INSERT:
+25:result=(lval!=lval)||(rval!=rval)?null:(lval>=0&&rval>=0)?Math.floor(lval)^Math.floor(rval):Math.ceil(lval)^Math.ceil(rval);
+TO:
+24
+
+DELETE:
+Original line: 28result=lval+rval;
+
+INSERT:
+28:result=(lval!=lval)||(rval!=rval)?null:lval+rval;
+TO:
+27
+
+DELETE:
+Original line: 31result=lval-rval;
+
+INSERT:
+31:result=(lval!=lval)||(rval!=rval)?null:lval-rval;
+TO:
+30
+
+INSERT:
+34:result=(lval!=lval)||(rval!=rval)?null:lval*rval;
+TO:
+33
+
+DELETE:
+Original line: 34result=lval*rval;
+
+INSERT:
+41:result=(lval!=lval)||(rval!=rval)?null:lval%rval;
+TO:
+40
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 48result=lval/rval;
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+53:if(result!=null&&String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+UPDATE
+FROM:
+57:if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+57:if(result==null||Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:4808 patches
+Compile failed:4382 patches
+Compilation rate:0.08860232945091515
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNPNNNNNNPPNNNPPNPPNNNNNNNNNNNPNNNPNPPNPNNNNNNNNNNNNPPNNNPNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/17.java
+Current actions:
+INSERT:
+40:if(lval==Double.POSITIVE_INFINITY&&rval==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+30
+
+INSERT:
+59:return Node.newString(Token.NAME,"Infinity");
+TO:
+33
+
+INSERT:
+68:return Node.newString(Token.NAME,"-Infinity");
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:5007 patches
+Compile failed:4581 patches
+Compilation rate:0.08508088675853805
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/18.java
+Current actions:
+INSERT:
+28:if(rval!=Double.NaN&&lval!=Double.NaN){
+result=lval+rval;
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+28:if(rval!=Double.NaN&&lval!=Double.NaN){
+result=lval+rval;
+}
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:5208 patches
+Compile failed:4762 patches
+Compilation rate:0.08563748079877112
+PNNNNNNNNNNNNNNNNNNNNPNNPNNNPNNNNNNNNNPNNNNNNNNPNNNPNNPNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPPNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/19.java
+Current actions:
+INSERT:
+53:if(result<0||result>MAX_FOLD_NUMBER){
+return null;
+}
+TO:
+52
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+53:if(result<0||result>MAX_FOLD_NUMBER){
+return null;
+}
+TO:
+52
+
+Following are 1th generated patches:
+Validating 56 patches...
+Current actions:
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+53:if(result<0||result>MAX_FOLD_NUMBER){
+return null;
+}
+TO:
+52
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 3th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+54:return null;
+TO:
+52
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+54:return null;
+TO:
+52
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Tested:5327 patches
+Compile failed:4833 patches
+Compilation rate:0.09273512295851323
+NNPPPNNNNNNNNPNPPPPNNPNNNNPNPNNNNNNNNNPPPPNPPNNNNNPPPPNNNPPPPPNNNNNNNNNNNPNNPNPPPNNPPNNNNNNNNPNPPPPNPNPNNNNNNPNPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/20.java
+Current actions:
+INSERT:
+66:else{
+if(opType==Token.DIV){
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+if(lval%rval!=0){
+int res=(int)result;
+result=res;
+}
+}
+}
+TO:
+64
+
+Following are 0th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+65:}
+
+TO:
+64
+
+INSERT:
+66:else{
+if(opType==Token.DIV){
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+if(lval%rval!=0){
+int res=(int)result;
+result=res;
+}
+}
+}
+TO:
+64
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+65:}
+
+TO:
+64
+
+INSERT:
+67:if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+TO:
+64
+
+INSERT:
+71:if(lval%rval!=0){
+int res=(int)result;
+result=res;
+}
+TO:
+64
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5551 patches
+Compile failed:5057 patches
+Compilation rate:0.08899297423887588
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/21.java
+Current actions:
+INSERT:
+55:if(lval==0&&opType==Token.DIV){
+newNumber.setType(Token.GETELEM);
+newNumber.setFirstChild(Node.newString(Token.NAME,"NaN"));
+}
+TO:
+54
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+55:if(lval==0&&opType==Token.DIV){
+newNumber.setType(Token.GETELEM);
+newNumber.setFirstChild(Node.newString(Token.NAME,"NaN"));
+}
+TO:
+54
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+57:newNumber.setFirstChild(Node.newString(Token.NAME,"NaN"));
+TO:
+54
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5756 patches
+Compile failed:5129 patches
+Compilation rate:0.10892981236970119
+NNNPNNNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPNNNNNNPNNNNNNNNNNNNNPNPNNNNNPPPPPPPPNPPPPPPPPPNNNNPPPNNNNNNNNNNNNNNPPNNNPNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/22.java
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+7:double lval=NodeUtil.getDoubleValue(left,lval);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+7:double lval=NodeUtil.getDoubleValue(left,lval);
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+9:return Node.newString(Token.NAME,"NaN");
+TO:
+7
+
+UPDATE
+FROM:
+11:Double rValObj=NodeUtil.getNumberValue(right);
+TO:
+11:double rval=NodeUtil.getDoubleValue(right,rval);
+
+INSERT:
+12:if(Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+11
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6154 patches
+Compile failed:5519 patches
+Compilation rate:0.10318492037699058
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/23.java
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+53:if(Math.abs(result)<=MAX_FOLD_NUMBER){
+return Node.newNumber(result);
+}
+TO:
+52
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+INSERT:
+54:return Node.newNumber(result);
+TO:
+52
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6566 patches
+Compile failed:5919 patches
+Compilation rate:0.09853792263173926
+NNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/24.java
+Current actions:
+INSERT:
+66:else{
+if(opType==Token.DIV&&lval==0&&rval==-1){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+TO:
+64
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+65:}
+
+TO:
+64
+
+INSERT:
+66:else{
+if(opType==Token.DIV&&lval==0&&rval==-1){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+TO:
+64
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+65:}
+
+TO:
+64
+
+INSERT:
+67:return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+TO:
+64
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6769 patches
+Compile failed:6122 patches
+Compilation rate:0.09558280395922589
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/25.java
+Current actions:
+INSERT:
+38:return Node.newString(Token.NAME,"NaN");
+TO:
+27
+
+INSERT:
+40:else{
+result=lval+rval;
+}
+TO:
+27
+
+INSERT:
+48:if(lval==0&&rval!=0&&Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+30
+
+INSERT:
+65:if(rval==0){
+return Node.newNumber(0);
+}
+TO:
+33
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6967 patches
+Compile failed:6320 patches
+Compilation rate:0.0928663700301421
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/26.java
+Current actions:
+INSERT:
+55:newNumber.useSourceInfoIfMissingFromForTree(left);
+TO:
+54
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+56:newNumber.useSourceInfoIfMissingFromForTree(right);
+TO:
+54
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+55:newNumber.useSourceInfoIfMissingFromForTree(left);
+TO:
+54
+
+INSERT:
+56:newNumber.useSourceInfoIfMissingFromForTree(right);
+TO:
+54
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7370 patches
+Compile failed:6596 patches
+Compilation rate:0.10502035278154681
+NNNNNNNNNNNNNNPPPPPNPPNNNNPNNNNNPNPNNPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPNNNNNNNNNNPNPNNPNNNNPPPPPPNNNNPPNNNPPPPPNNNPPPNNPNPPPPPNNPNPNNNPNPPPPNNNNPPNPPPNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/27.java
+Current actions:
+INSERT:
+53:if(!Double.isFinite(result)){
+return null;
+}
+TO:
+52
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+53:if(!Double.isFinite(result)){
+return null;
+}
+TO:
+52
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+54:return null;
+TO:
+52
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 61return Node.newString(Token.NAME,"Infinity");
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+54:return null;
+TO:
+52
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+56:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 60if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+
+Tested:7640 patches
+Compile failed:6865 patches
+Compilation rate:0.10143979057591623
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/28.java
+Current actions:
+INSERT:
+55:if(NodeUtil.isNumber(newNumber)&&newNumber.getDouble()==0&&opType==Token.DIV){
+if(lval==0&&rval==Double.NEGATIVE_INFINITY){
+return Node.newString(Token.NAME,"-0");
+}
+}
+TO:
+54
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+55:if(NodeUtil.isNumber(newNumber)&&newNumber.getDouble()==0&&opType==Token.DIV){
+if(lval==0&&rval==Double.NEGATIVE_INFINITY){
+return Node.newString(Token.NAME,"-0");
+}
+}
+TO:
+54
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+56:if(lval==0&&rval==Double.NEGATIVE_INFINITY){
+return Node.newString(Token.NAME,"-0");
+}
+TO:
+54
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7844 patches
+Compile failed:7051 patches
+Compilation rate:0.10109637939826618
+NNPNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNPNNNPNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNPNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/29.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}, default :, throw new Error("Unexpected arithmetic operator");, return Node.newString(Token.NAME,"NaN");, return Node.newString(Token.NAME,"NaN");, else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+return Node.newString(Token.NAME,"Infinity");
+}, else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+return Node.newString(Token.NAME,"Infinity");
+}, if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}, if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}]
+Following are 0th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:private Node performArithmeticOp(int opType,Node left,Node right){
+if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+double result;
+Double lValObj=NodeUtil.getNumberValue(left);
+if(lValObj==null){
+return null;
+}
+Double rValObj=NodeUtil.getNumberValue(right);
+if(rValObj==null){
+return null;
+}
+double lval=lValObj;
+double rval=rValObj;
+switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}
+return null;
+}
+TO:
+1
+
+DELETE:
+Original line: 50default :
+
+DELETE:
+Original line: 51throw new Error("Unexpected arithmetic operator");
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 55return newNumber;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:private Node performArithmeticOp(int opType,Node left,Node right){
+if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+double result;
+Double lValObj=NodeUtil.getNumberValue(left);
+if(lValObj==null){
+return null;
+}
+Double rValObj=NodeUtil.getNumberValue(right);
+if(rValObj==null){
+return null;
+}
+double lval=lValObj;
+double rval=rValObj;
+switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}
+return null;
+}
+TO:
+1
+
+DELETE:
+Original line: 50default :
+
+DELETE:
+Original line: 51throw new Error("Unexpected arithmetic operator");
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Tested:7853 patches
+Compile failed:7056 patches
+Compilation rate:0.101489876480326
+NNPPPNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/30.java
+Current actions:
+INSERT:
+55:newNumber.srcref(left);
+TO:
+54
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+55:newNumber.srcref(left);
+TO:
+54
+
+INSERT:
+56:newNumber.srcref(right);
+TO:
+54
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8055 patches
+Compile failed:7258 patches
+Compilation rate:0.0989447548106766
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/31.java
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 40 patches...
+Current actions:
+INSERT:
+53:if(Double.isNaN(result)||String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+return Node.newNumber(result);
+}
+TO:
+52
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+53:if(Double.isNaN(result)||String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1){
+return Node.newNumber(result);
+}
+TO:
+52
+
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 55return newNumber;
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:8098 patches
+Compile failed:7281 patches
+Compilation rate:0.10088910842183255
+NNNNNNNNNNNNPPPPPNPNNPNPPNNNNPNNPPPPPPPPPNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/32.java
+Current actions:
+INSERT:
+7:double lval;
+TO:
+6
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(NodeUtil.mayBeString(left,false)){
+lValNode=Node.newString(Token.STRING,left.getString());
+}
+TO:
+6
+
+INSERT:
+15:rValNode=Node.newString(Token.STRING,right.getString());
+TO:
+6
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+INSERT:
+26:rval=rValObj;
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8497 patches
+Compile failed:7670 patches
+Compilation rate:0.09732846887136637
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNPPNPNNPNNNNNNNNNNPNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/33.java
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+INSERT:
+9:}
+
+TO:
+10
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 21case Token.BITOR :
+
+DELETE:
+Original line: 22result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 29break;
+
+DELETE:
+Original line: 30case Token.SUB :
+
+DELETE:
+Original line: 33case Token.MUL :
+
+DELETE:
+Original line: 39return null;
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 42break;
+
+DELETE:
+Original line: 48result=lval/rval;
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 60if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+INSERT:
+6:else{
+return foldArithmeticOp(opType,left,right,true);
+}
+TO:
+5
+
+DELETE:
+Original line: 9return null;
+
+INSERT:
+9:}
+
+TO:
+10
+
+DELETE:
+Original line: 11Double rValObj=NodeUtil.getNumberValue(right);
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 20break;
+
+DELETE:
+Original line: 21case Token.BITOR :
+
+DELETE:
+Original line: 24case Token.BITXOR :
+
+DELETE:
+Original line: 27case Token.ADD :
+
+DELETE:
+Original line: 28result=lval+rval;
+
+DELETE:
+Original line: 35break;
+
+DELETE:
+Original line: 37if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 42break;
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 2th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+DELETE:
+Original line: 6double result;
+
+INSERT:
+6:else{
+return foldArithmeticOp(opType,left,right,true);
+}
+TO:
+5
+
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+INSERT:
+9:}
+
+TO:
+10
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+DELETE:
+Original line: 18case Token.BITAND :
+
+DELETE:
+Original line: 19result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 20break;
+
+DELETE:
+Original line: 22result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 23break;
+
+DELETE:
+Original line: 24case Token.BITXOR :
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 26break;
+
+DELETE:
+Original line: 30case Token.SUB :
+
+DELETE:
+Original line: 32break;
+
+DELETE:
+Original line: 33case Token.MUL :
+
+DELETE:
+Original line: 34result=lval*rval;
+
+DELETE:
+Original line: 36case Token.MOD :
+
+DELETE:
+Original line: 37if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+
+DELETE:
+Original line: 41result=lval%rval;
+
+DELETE:
+Original line: 42break;
+
+DELETE:
+Original line: 43case Token.DIV :
+
+DELETE:
+Original line: 46return null;
+
+DELETE:
+Original line: 49break;
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 63else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 3th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+3:if(opType==Token.ADD){
+return foldArithmeticOp(Token.ADD,left,right,false);
+}
+TO:
+2
+
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+INSERT:
+6:else{
+return foldArithmeticOp(opType,left,right,true);
+}
+TO:
+5
+
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+9:}
+
+TO:
+10
+
+DELETE:
+Original line: 11Double rValObj=NodeUtil.getNumberValue(right);
+
+DELETE:
+Original line: 13return null;
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 17switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:}
+
+TO:
+10
+
+DELETE:
+Original line: 38error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+
+Tested:8689 patches
+Compile failed:7862 patches
+Compilation rate:0.09517781102543446
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/34.java
+Current actions:
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+54:return Node.newNumber(result);
+TO:
+53
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 55return newNumber;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 54Node newNumber=Node.newNumber(result);
+
+INSERT:
+54:return Node.newNumber(result);
+TO:
+53
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:9096 patches
+Compile failed:8265 patches
+Compilation rate:0.09135883905013192
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/35.java
+Current actions:
+INSERT:
+66:if(opType==Token.ADD){
+if(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false)){
+return Node.newString(Token.STRING,String.valueOf(result));
+}
+}
+TO:
+65
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+66:if(opType==Token.ADD){
+if(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false)){
+return Node.newString(Token.STRING,String.valueOf(result));
+}
+}
+TO:
+65
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+68:return Node.newString(Token.STRING,String.valueOf(result));
+TO:
+65
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9300 patches
+Compile failed:8466 patches
+Compilation rate:0.08967741935483871
+NPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/36.java
+Current actions:
+INSERT:
+67:String rightValue=NodeUtil.printableValue(right,true,true);
+TO:
+65
+
+INSERT:
+70:case Token.ADD :
+TO:
+65
+
+INSERT:
+74:op=" - ";
+TO:
+65
+
+INSERT:
+78:break;
+TO:
+65
+
+INSERT:
+89:op=" | ";
+TO:
+65
+
+INSERT:
+98:return newString;
+TO:
+65
+
+Following are 1th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+66:String leftValue=NodeUtil.printableValue(left,true,true);
+TO:
+65
+
+INSERT:
+73:case Token.SUB :
+TO:
+65
+
+INSERT:
+74:op=" - ";
+TO:
+65
+
+INSERT:
+76:case Token.MUL :
+TO:
+65
+
+INSERT:
+77:op=" * ";
+TO:
+65
+
+INSERT:
+78:break;
+TO:
+65
+
+INSERT:
+79:case Token.MOD :
+TO:
+65
+
+INSERT:
+80:op=" % ";
+TO:
+65
+
+INSERT:
+81:break;
+TO:
+65
+
+INSERT:
+84:break;
+TO:
+65
+
+INSERT:
+87:break;
+TO:
+65
+
+INSERT:
+89:op=" | ";
+TO:
+65
+
+INSERT:
+92:op=" ^ ";
+TO:
+65
+
+INSERT:
+93:break;
+TO:
+65
+
+INSERT:
+97:Node newString=Node.newString(Token.ADD,leftValue,op,rightValue);
+TO:
+65
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+66:String leftValue=NodeUtil.printableValue(left,true,true);
+TO:
+65
+
+DELETE:
+Original line: 66return null;
+
+INSERT:
+69:switch (opType){
+case Token.ADD :
+op=" + ";
+break;
+case Token.SUB :
+op=" - ";
+break;
+case Token.MUL :
+op=" * ";
+break;
+case Token.MOD :
+op=" % ";
+break;
+case Token.DIV :
+op=" / ";
+break;
+case Token.BITAND :
+op=" & ";
+break;
+case Token.BITOR :
+op=" | ";
+break;
+case Token.BITXOR :
+op=" ^ ";
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+TO:
+65
+
+INSERT:
+97:Node newString=Node.newString(Token.ADD,leftValue,op,rightValue);
+TO:
+65
+
+Following are 3th generated patches:
+Validating 4 patches...
+Tested:9518 patches
+Compile failed:8684 patches
+Compilation rate:0.08762345030468585
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/37.java
+Current actions:
+INSERT:
+17:return Node.newNumber(ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval));
+TO:
+21
+
+INSERT:
+25:return Node.newNumber(lval*rval);
+TO:
+33
+
+DELETE:
+Original line: 29break;
+
+DELETE:
+Original line: 34result=lval*rval;
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 60if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9717 patches
+Compile failed:8883 patches
+Compilation rate:0.08582895955541833
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/38.java
+Current actions:
+INSERT:
+55:if(String.valueOf(result).length()<16){
+newNumber.putBooleanProp(Node.DOUBLE_PROP,true);
+newNumber.setDoubleBits(Double.doubleToLongBits(result));
+}
+TO:
+54
+
+Following are 0th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+59:else{
+if(String.valueOf(result).length()==16){
+newNumber.putBooleanProp(Node.STRING_PROP,true);
+newNumber.setString(String.valueOf(result));
+}
+}
+TO:
+54
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+55:if(String.valueOf(result).length()<16){
+newNumber.putBooleanProp(Node.DOUBLE_PROP,true);
+newNumber.setDoubleBits(Double.doubleToLongBits(result));
+}
+TO:
+54
+
+INSERT:
+59:else{
+if(String.valueOf(result).length()==16){
+newNumber.putBooleanProp(Node.STRING_PROP,true);
+newNumber.setString(String.valueOf(result));
+}
+}
+TO:
+54
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+56:newNumber.putBooleanProp(Node.DOUBLE_PROP,true);
+TO:
+54
+
+INSERT:
+57:newNumber.setDoubleBits(Double.doubleToLongBits(result));
+TO:
+54
+
+INSERT:
+59:else{
+if(String.valueOf(result).length()==16){
+newNumber.putBooleanProp(Node.STRING_PROP,true);
+newNumber.setString(String.valueOf(result));
+}
+}
+TO:
+54
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:10140 patches
+Compile failed:9305 patches
+Compilation rate:0.08234714003944774
+NNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/39.java
+Current actions:
+INSERT:
+48:if(Double.isNaN(lval)||Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+47
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+52:return Node.newString(Token.NAME,lval==Double.POSITIVE_INFINITY?"Infinity":"-Infinity");
+TO:
+47
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+48:if(Double.isNaN(lval)||Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+47
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:10553 patches
+Compile failed:9708 patches
+Compilation rate:0.08007201743580025
+NNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/40.java
+Tested:10553 patches
+Compile failed:9708 patches
+Compilation rate:0.08007201743580025
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/41.java
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+6:double lval=NodeUtil.getDoubleValue(left);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+6:double lval=NodeUtil.getDoubleValue(left);
+
+INSERT:
+7:if(Double.isNaN(lval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+INSERT:
+11:if(Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:10919 patches
+Compile failed:10065 patches
+Compilation rate:0.0782122905027933
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNPPNNNNNNNNNNNNPNNNNPNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/42.java
+Current actions:
+INSERT:
+48:if(Double.isNaN(rval)||Double.isNaN(lval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+47
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+48:if(Double.isNaN(rval)||Double.isNaN(lval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+47
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+49:return Node.newString(Token.NAME,"NaN");
+TO:
+47
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:11321 patches
+Compile failed:10459 patches
+Compilation rate:0.0761416835968554
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/43.java
+Current actions:
+INSERT:
+6:if(left.isStatic()){
+double value=left.getDoubleValue();
+if(value==Double.NEGATIVE_INFINITY){
+if(opType==Token.ADD){
+return new Node(Token.NEG,right.cloneTree());
+}
+else{
+if(opType==Token.SUB){
+return right.cloneTree();
+}
+}
+}
+else{
+if(value==Double.POSITIVE_INFINITY){
+if(opType==Token.SUB){
+return new Node(Token.NEG,right.cloneTree());
+}
+else{
+if(opType==Token.ADD){
+return right.cloneTree();
+}
+}
+}
+}
+}
+TO:
+5
+
+INSERT:
+38:if(value==Double.NEGATIVE_INFINITY){
+if(opType==Token.ADD){
+return new Node(Token.NEG,left.cloneTree());
+}
+else{
+if(opType==Token.SUB){
+return left.cloneTree();
+}
+}
+}
+TO:
+5
+
+INSERT:
+46:if(value==Double.POSITIVE_INFINITY){
+if(opType==Token.SUB){
+return new Node(Token.NEG,left.cloneTree());
+}
+else{
+if(opType==Token.ADD){
+return left.cloneTree();
+}
+}
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:11322 patches
+Compile failed:10460 patches
+Compilation rate:0.07613495848789967
+N
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/44.java
+Current actions:
+INSERT:
+10:return mul(left,right);
+TO:
+10
+
+INSERT:
+28:}
+
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+INSERT:
+4:return add(left,right);
+TO:
+2
+
+DELETE:
+Original line: 7Double lValObj=NodeUtil.getNumberValue(left);
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+INSERT:
+13:return mod(left,right);
+TO:
+14
+
+INSERT:
+16:return div(left,right);
+TO:
+14
+
+DELETE:
+Original line: 22result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+
+DELETE:
+Original line: 23break;
+
+DELETE:
+Original line: 25result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+
+INSERT:
+25:return bitXor(left,right);
+TO:
+14
+
+DELETE:
+Original line: 26break;
+
+DELETE:
+Original line: 27case Token.ADD :
+
+INSERT:
+28:}
+
+TO:
+14
+
+DELETE:
+Original line: 29break;
+
+DELETE:
+Original line: 30case Token.SUB :
+
+DELETE:
+Original line: 35break;
+
+DELETE:
+Original line: 39return null;
+
+DELETE:
+Original line: 49break;
+
+DELETE:
+Original line: 50default :
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+DELETE:
+Original line: 61return Node.newString(Token.NAME,"Infinity");
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:11721 patches
+Compile failed:10859 patches
+Compilation rate:0.07354321303643034
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/45.java
+Current actions:
+INSERT:
+48:if(rval==-1&&lval==-0.0){
+return Node.newNumber(-0.0);
+}
+TO:
+47
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+48:if(rval==-1&&lval==-0.0){
+return Node.newNumber(-0.0);
+}
+TO:
+47
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+49:return Node.newNumber(-0.0);
+TO:
+47
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:12123 patches
+Compile failed:11237 patches
+Compilation rate:0.07308422007753856
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPNPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNPPNNNNNNNNPPNNNNNNNNNPNPNPNNNNNNNPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/46.java
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+53:if(Double.isNaN(result)||Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+53:if(Double.isNaN(result)||Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+52
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:12534 patches
+Compile failed:11628 patches
+Compilation rate:0.07228338918142652
+NNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/47.java
+Current actions:
+DELETE:
+Original line: 6double result;
+
+UPDATE
+FROM:
+8:if(lValObj==null){
+return null;
+}
+TO:
+7:if(value!=null){
+return value;
+}
+
+UPDATE
+FROM:
+9:return null;
+TO:
+8:return value;
+
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+10:double lval=NodeUtil.getDoubleValue(left);
+
+INSERT:
+11:if(Double.isNaN(lval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+7
+
+DELETE:
+Original line: 13return null;
+
+UPDATE
+FROM:
+11:Double rValObj=NodeUtil.getNumberValue(right);
+TO:
+14:double rval=NodeUtil.getDoubleValue(right);
+
+INSERT:
+15:if(Double.isNaN(rval)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+11
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+DELETE:
+Original line: 17switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+
+UPDATE
+FROM:
+53:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+18:if(String.valueOf(lval).length()+String.valueOf(rval).length()+1<=String.valueOf(lval+rval).length()&&Math.abs(lval+rval)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(lval+rval);
+return newNumber;
+}
+
+UPDATE
+FROM:
+54:Node newNumber=Node.newNumber(result);
+TO:
+19:Node newNumber=Node.newNumber(lval+rval);
+
+INSERT:
+20:return newNumber;
+TO:
+54
+
+INSERT:
+22:else{
+if(Double.isInfinite(lval+rval)){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}
+TO:
+54
+
+INSERT:
+25:return null;
+TO:
+14
+
+INSERT:
+26:}
+
+TO:
+14
+
+DELETE:
+Original line: 55return newNumber;
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:12731 patches
+Compile failed:11825 patches
+Compilation rate:0.07116487314429346
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/48.java
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+7:double lval=NodeUtil.getDoubleValue(left,left.getType());
+
+Following are 0th generated patches:
+Validating 113 patches...
+Current actions:
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+DELETE:
+Original line: 16double rval=rValObj;
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 16double rval=rValObj;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:Double lValObj=NodeUtil.getNumberValue(left);
+TO:
+7:double lval=NodeUtil.getDoubleValue(left,left.getType());
+
+INSERT:
+8:double rval=NodeUtil.getDoubleValue(right,right.getType());
+TO:
+7
+
+DELETE:
+Original line: 8if(lValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 11Double rValObj=NodeUtil.getNumberValue(right);
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+DELETE:
+Original line: 15double lval=lValObj;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Double rValObj=NodeUtil.getNumberValue(right);
+
+DELETE:
+Original line: 12if(rValObj==null){
+return null;
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 11Double rValObj=NodeUtil.getNumberValue(right);
+
+Tested:13042 patches
+Compile failed:12128 patches
+Compilation rate:0.07008127587793284
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNPNNNNNPNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/49.java
+Current actions:
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+58:Node newNode=Node.newString(Token.NAME,"NaN");
+TO:
+57
+
+DELETE:
+Original line: 58return Node.newString(Token.NAME,"NaN");
+
+INSERT:
+59:new Node(Token.SHEQ,left,newNode);
+TO:
+57
+
+INSERT:
+60:return newNode;
+TO:
+57
+
+DELETE:
+Original line: 61return Node.newString(Token.NAME,"Infinity");
+
+INSERT:
+63:Node newNode=Node.newString(Token.NAME,"Infinity");
+TO:
+60
+
+DELETE:
+Original line: 64return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+
+INSERT:
+65:return newNode;
+TO:
+60
+
+INSERT:
+68:Node newNode=new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+TO:
+63
+
+INSERT:
+69:new Node(Token.SHEQ,left,newNode);
+TO:
+63
+
+INSERT:
+70:return newNode;
+TO:
+63
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:13440 patches
+Compile failed:12292 patches
+Compilation rate:0.08541666666666667
+NNNNNNNNNNNNNNNPPPNPNNPNNNNNPPPNNNNNNPPNNNNNNNNNNNNPNPPPNNNPNNNNNPNPPPPNNNPNPNPNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNPNPPNPPNPNNNNNNNNNNNNPNNPNNPPPNNNPNPPNPNNNNNNNNNNPNNNNNPPPNPNPNNPNNNNNPPPPPPPPPPPPNPPPPPPPPPNNNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPNNPPPPPPPPPPPNPPPPPNPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/50.java
+Current actions:
+INSERT:
+66:Node leftNumber=NodeUtil.makeNumber(compiler,left);
+TO:
+65
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+66:Node leftNumber=NodeUtil.makeNumber(compiler,left);
+TO:
+65
+
+INSERT:
+67:if(leftNumber==null){
+return null;
+}
+TO:
+65
+
+INSERT:
+71:if(rightNumber==null){
+return null;
+}
+TO:
+67
+
+INSERT:
+75:}
+
+TO:
+67
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+70:Node rightNumber=NodeUtil.makeNumber(compiler,right);
+TO:
+67
+
+INSERT:
+74:return performArithmeticOp(opType,leftNumber,rightNumber);
+TO:
+67
+
+INSERT:
+75:}
+
+TO:
+67
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:13874 patches
+Compile failed:12726 patches
+Compilation rate:0.08274470232088799
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/51.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}, if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}, default :, return null;, throw new Error("Unexpected arithmetic operator");, return Node.newString(Token.NAME,"NaN");, return Node.newString(Token.NAME,"NaN");, else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+return Node.newString(Token.NAME,"Infinity");
+}, else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}, {
+return Node.newString(Token.NAME,"Infinity");
+}, if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}, if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}, else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}, {
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}, {
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}, else{
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}, {
+if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}
+}, {
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}, if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}, if(result==Double.NEGATIVE_INFINITY){
+return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));
+}, return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));, return new Node(Token.NEG,Node.newString(Token.NAME,"Infinity"));]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:private Node performArithmeticOp(int opType,Node left,Node right){
+if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+double result;
+Double lValObj=NodeUtil.getNumberValue(left);
+if(lValObj==null){
+return null;
+}
+Double rValObj=NodeUtil.getNumberValue(right);
+if(rValObj==null){
+return null;
+}
+double lval=lValObj;
+double rval=rValObj;
+switch (opType){
+case Token.BITAND :
+result=ScriptRuntime.toInt32(lval)&ScriptRuntime.toInt32(rval);
+break;
+case Token.BITOR :
+result=ScriptRuntime.toInt32(lval)|ScriptRuntime.toInt32(rval);
+break;
+case Token.BITXOR :
+result=ScriptRuntime.toInt32(lval)^ScriptRuntime.toInt32(rval);
+break;
+case Token.ADD :
+result=lval+rval;
+break;
+case Token.SUB :
+result=lval-rval;
+break;
+case Token.MUL :
+result=lval*rval;
+break;
+case Token.MOD :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval%rval;
+break;
+case Token.DIV :
+if(rval==0){
+error(DiagnosticType.error("JSC_DIVIDE_BY_0_ERROR","Divide by 0"),right);
+return null;
+}
+result=lval/rval;
+break;
+default :
+throw new Error("Unexpected arithmetic operator");
+}
+if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+else{
+if(result==Double.POSITIVE_INFINITY){
+return Node.newString(Token.NAME,"Infinity");
+}
+}
+if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+return null;
+}
+TO:
+1
+
+DELETE:
+Original line: 50default :
+
+DELETE:
+Original line: 51throw new Error("Unexpected arithmetic operator");
+
+DELETE:
+Original line: 53if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+
+DELETE:
+Original line: 57if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+
+DELETE:
+Original line: 66return null;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:13876 patches
+Compile failed:12728 patches
+Compilation rate:0.08273277601614298
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/52.java
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 3if(opType==Token.ADD&&(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false))){
+return null;
+}
+
+INSERT:
+4:if(NodeUtil.mayBeString(left,false)||NodeUtil.mayBeString(right,false)){
+return null;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:14079 patches
+Compile failed:12835 patches
+Compilation rate:0.0883585481923432
+PPPPNNNNNNNNNNNNNNNPNPPPNNNNNPPNNNNPNPPPNNNNPNNPNPNPNPNNNNNNNPNNPPNPNPNNNNNPPNPPNNPNPPNNPPPPNNPPPNNNPPNNPPPPPPNNNNNPNPNNNNPPPNNPPPPNPNNNPPPPPPPPPPPPNPNPNNNPNPPNPNPNNPPPPPNPNPNPPPPNNPNNNNNNNNPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/53.java
+Current actions:
+INSERT:
+55:newNumber.putBooleanProp(Node.ANALYZED_DURING_GSSA,true);
+TO:
+54
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+65:newString.putBooleanProp(Node.ANALYZED_DURING_GSSA,true);
+TO:
+60
+
+INSERT:
+66:return newString;
+TO:
+60
+
+INSERT:
+70:newString.putBooleanProp(Node.ANALYZED_DURING_GSSA,true);
+TO:
+63
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:14477 patches
+Compile failed:13201 patches
+Compilation rate:0.08813980797126476
+NNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPNNNPPNNNNNNNNNNNNNNNPPPNNNNNNNNPNPNNPNPNNPNPPPNNNNPNNNPNNPNNNPNNPNNNPNNNNNNNNNNNPPPNNNNPNNNNNNNNNNPPNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/54.java
+Current actions:
+INSERT:
+66:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+65
+
+Following are 0th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+66:if(String.valueOf(result).length()<=String.valueOf(lval).length()+String.valueOf(rval).length()+1&&Math.abs(result)<=MAX_FOLD_NUMBER){
+Node newNumber=Node.newNumber(result);
+return newNumber;
+}
+TO:
+65
+
+INSERT:
+70:if(Double.isNaN(result)){
+return Node.newString(Token.NAME,"NaN");
+}
+TO:
+65
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:14736 patches
+Compile failed:13445 patches
+Compilation rate:0.0876085776330076
+NNNNNNNNNNNNNNNNNNPPPPPNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_78/55.java
+Current actions:
+INSERT:
+28:if(NodeUtil.mayBeString(left,false)){
+if(NodeUtil.mayBeString(right,false)){
+result=stringAdd(lval,rval);
+}
+else{
+result=stringAdd(lval,rValObj);
+}
+}
+TO:
+27
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+37:result=stringAdd(lValObj,rval);
+TO:
+27
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(NodeUtil.mayBeString(right,false)){
+result=stringAdd(lval,rval);
+}
+TO:
+27
+
+INSERT:
+32:else{
+result=stringAdd(lval,rValObj);
+}
+TO:
+27
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:15177 patches
+Compile failed:13886 patches
+Compilation rate:0.08506292416156025
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-78 > patch : 0 | Start : Tue Apr 09 16:35:25 HKT 2024 | End : 2024.04.09 AD at 17:32:35 HKT

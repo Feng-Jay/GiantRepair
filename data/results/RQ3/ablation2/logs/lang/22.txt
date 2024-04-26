@@ -1,0 +1,1334 @@
+Repair : lang_22
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/1.java
+Current actions:
+UPDATE
+FROM:
+35:return -u*(1<<k);
+TO:
+35:return u*(1<<k);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+35:return -u*(1<<k);
+TO:
+35:return u*(1<<k);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/2.java
+Current actions:
+DELETE:
+Original line: 3if(Math.abs(u)<=1||Math.abs(v)<=1){
+return 1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+1 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:14:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:14:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+3 th patch/200
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:14:42 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+3:u=Math.abs(u);
+TO:
+1
+
+DELETE:
+Original line: 3if(Math.abs(u)<=1||Math.abs(v)<=1){
+return 1;
+}
+
+INSERT:
+4:v=Math.abs(v);
+TO:
+1
+
+INSERT:
+5:if(v==0){
+return u;
+}
+TO:
+1
+
+UPDATE
+FROM:
+4:return 1;
+TO:
+6:return u;
+
+DELETE:
+Original line: 6if(u>0){
+u=-u;
+}
+
+INSERT:
+8:return greatestCommonDivisor(v,u%v);
+TO:
+5
+
+DELETE:
+Original line: 9if(v>0){
+v=-v;
+}
+
+DELETE:
+Original line: 12int k=0;
+
+DELETE:
+Original line: 13while((u&1)==0&&(v&1)==0&&k<31){
+u/=2;
+v/=2;
+k++;
+}
+
+DELETE:
+Original line: 18if(k==31){
+throw new ArithmeticException("overflow: gcd is 2^31");
+}
+
+DELETE:
+Original line: 21int t=((u&1)==1)?v:-(u/2);
+
+DELETE:
+Original line: 22do {
+while((t&1)==0){
+t/=2;
+}
+if(t>0){
+u=-t;
+}
+else{
+v=t;
+}
+t=(v-u)/2;
+} while(t!=0);
+
+DELETE:
+Original line: 35return -u*(1<<k);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:123 patches
+Compile failed:32 patches
+Compilation rate:0.7398373983739838
+NNNPPPPPPNPPPPNPPPPPNPPNPPNPPPPPPNPPPPPPNPPNPNNPPPPPPNPPNPPPPPPPNPPNPPNNNPNNNPPPPPPPNNNNPPPPPPPNPPPPNPPPPPPPNNPPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/3.java
+Current actions:
+DELETE:
+Original line: 6if(u>0){
+u=-u;
+}
+
+Following are 0th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 10v=-v;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6if(u>0){
+u=-u;
+}
+
+DELETE:
+Original line: 10v=-v;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6if(u>0){
+u=-u;
+}
+
+DELETE:
+Original line: 9if(v>0){
+v=-v;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6if(u>0){
+u=-u;
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7u=-u;
+
+DELETE:
+Original line: 9if(v>0){
+v=-v;
+}
+
+Tested:135 patches
+Compile failed:32 patches
+Compilation rate:0.762962962962963
+PPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/4.java
+Current actions:
+UPDATE
+FROM:
+3:if(Math.abs(u)<=1||Math.abs(v)<=1){
+return 1;
+}
+TO:
+3:if(Math.abs(u)==1||Math.abs(v)==1){
+return 1;
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+t=(v-u)>>1;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+4 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+5 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+t=(v-u)>>1;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+6 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+7 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+v>>=1;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+8 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+int t=((u&1)==1)?v:-(u>>1);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+9 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+v>>=1;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+10 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+v>>=1;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+t=(v-u)>>1;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+11 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+v>>=1;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+int t=((u&1)==1)?v:-(u>>1);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+12 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+int t=((u&1)==1)?v:-(u>>1);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+13 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+int t=((u&1)==1)?v:-(u>>1);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+t=(v-u)>>1;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+14 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+t=(v-u)>>1;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+15 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+16 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+17 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+v>>=1;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+18 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+      return 1;
+    }
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+      u/=2;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+int t=((u&1)==1)?v:-(u>>1);
+    do {
+      while ((t & 1) == 0) {
+        t/=2;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+19 th patch/41
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:07 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+14:u/=2;
+TO:
+14:u>>=1;
+
+UPDATE
+FROM:
+15:v/=2;
+TO:
+15:v>>=1;
+
+UPDATE
+FROM:
+24:t/=2;
+TO:
+24:t>>=1;
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+3:if(Math.abs(u)<=1||Math.abs(v)<=1){
+return 1;
+}
+TO:
+3:if(Math.abs(u)==1||Math.abs(v)==1){
+return 1;
+}
+
+UPDATE
+FROM:
+14:u/=2;
+TO:
+14:u>>=1;
+
+UPDATE
+FROM:
+24:t/=2;
+TO:
+24:t>>=1;
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1||Math.abs(v)==1){
+return 1;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+20 th patch/244
+Trace:
+
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:35 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(v)==1){
+return 1;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+21 th patch/244
+Trace:
+UPDATEIfStmt
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:35 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1){
+return 1;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+22 th patch/244
+Trace:
+UPDATEIfStmt
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:35 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_22_buggy/src/main/java/org/apache/commons/lang3/math/Fraction.java
+SUCCESS
+//Following are generated patch:
+  private static int greatestCommonDivisor(  int u,  int v){
+if(Math.abs(u)==1&&Math.abs(v)==1){
+return 1;
+}
+    if (u > 0) {
+      u=-u;
+    }
+    if (v > 0) {
+      v=-v;
+    }
+    int k=0;
+    while ((u & 1) == 0 && (v & 1) == 0 && k < 31) {
+u>>=1;
+      v/=2;
+      k++;
+    }
+    if (k == 31) {
+      throw new ArithmeticException("overflow: gcd is 2^31");
+    }
+    int t=((u & 1) == 1) ? v : -(u / 2);
+    do {
+      while ((t & 1) == 0) {
+t>>=1;
+      }
+      if (t > 0) {
+        u=-t;
+      }
+ else {
+        v=t;
+      }
+      t=(v - u) / 2;
+    }
+ while (t != 0);
+    return -u * (1 << k);
+  }
+
+23 th patch/244
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.07 AD at 12:13:32 HKT
+---------TIME : 
+2024.04.07 AD at 12:16:36 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 376 patches
+Compile failed 226 patches
+Compilation rate0.39893617021276595
+Patch number exceeds the limit!
+Tested 376 patches
+Compile failed 226 patches
+Compilation rate0.39893617021276595
+Tested:376 patches
+Compile failed:226 patches
+Compilation rate:0.39893617021276595
+PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_22/5.java
+Patch number exceeds the limit!
+Tested 376 patches
+Compile failed 226 patches
+Compilation rate0.39893617021276595
+Finish : lang-22 > patch : 23 | Start : Sun Apr 07 12:13:32 HKT 2024 | End : 2024.04.07 AD at 12:16:36 HKT

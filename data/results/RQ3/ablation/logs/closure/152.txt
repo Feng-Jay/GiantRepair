@@ -1,0 +1,3102 @@
+Repair : closure_152
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/0.java
+Current actions:
+INSERT:
+22:JSType top=caseTopType(getTopType());
+TO:
+21
+
+Following are 0th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+24:if(typeOfThis!=null){
+returnType=returnType.replaceThisTypes(typeOfThis,thisType);
+if(typeOfThis.getParentClass()!=null&&typeOfThis.getParentClass().name.equals(name.identifier)){
+implementedInterfaces=ImmutableList.builder().addAll(implementedInterfaces).add(typeOfThis.getParentClass()).build();
+}
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+26:if(typeOfThis.getParentClass()!=null&&typeOfThis.getParentClass().name.equals(name.identifier)){
+implementedInterfaces=ImmutableList.builder().addAll(implementedInterfaces).add(typeOfThis.getParentClass()).build();
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:JSType thisType=caseThisType(top);
+TO:
+21
+
+INSERT:
+26:if(typeOfThis.getParentClass()!=null&&typeOfThis.getParentClass().name.equals(name.identifier)){
+implementedInterfaces=ImmutableList.builder().addAll(implementedInterfaces).add(typeOfThis.getParentClass()).build();
+}
+TO:
+21
+
+INSERT:
+31:JSType type=arguments.get(i).getType();
+TO:
+21
+
+INSERT:
+32:if(type!=null){
+type=type.resolve(t,scope);
+arguments.set(i,arguments.get(i).withType(type));
+}
+TO:
+21
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/1.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[boolean changed=false;, call=(ArrowType)safeResolve(call,t,scope);, prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);, typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);, ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();, for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, {
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);, resolvedInterfaces.add(resolvedIface);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:JSType resolveInternal(ErrorReporter t,StaticScope<JSType> scope){
+setResolvedTypeInternal(this);
+call=(ArrowType)safeResolve(call,t,scope);
+prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+boolean changed=false;
+for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+return super.resolveInternal(t,scope);
+}
+TO:
+1
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/3.java
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:if(this!=typeOfThisObj){
+if(this.isInterfaceType()){
+isTopType=true;
+JSType topType=getTopType(this);
+if(topType==null){
+topType=this;
+}
+caseTopType(topType);
+}
+else{
+if(this.isUnionType()){
+isTopType=true;
+if(this.isAllType()){
+isTopType=true;
+caseTopType(getNativeType(ARRAY_TYPE));
+}
+else{
+JSType topType=this.getTopType();
+caseTopType(topType);
+}
+}
+}
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(this.isInterfaceType()){
+isTopType=true;
+JSType topType=getTopType(this);
+if(topType==null){
+topType=this;
+}
+caseTopType(topType);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 76 patches...
+Current actions:
+INSERT:
+27:if(topType==null){
+topType=this;
+}
+TO:
+21
+
+Following are 3th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+34:if(this.isAllType()){
+isTopType=true;
+caseTopType(getNativeType(ARRAY_TYPE));
+}
+TO:
+21
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:boolean isTopType=false;
+TO:
+21
+
+INSERT:
+24:if(this.isInterfaceType()){
+isTopType=true;
+JSType topType=getTopType(this);
+if(topType==null){
+topType=this;
+}
+caseTopType(topType);
+}
+TO:
+21
+
+INSERT:
+33:isTopType=true;
+TO:
+21
+
+INSERT:
+34:if(this.isAllType()){
+isTopType=true;
+caseTopType(getNativeType(ARRAY_TYPE));
+}
+TO:
+21
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/4.java
+Current actions:
+INSERT:
+18:ImmutableList.Builder<JSType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+Following are 0th generated patches:
+Validating 134 patches...
+Current actions:
+INSERT:
+21:if(subType instanceof FunctionType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+24:if(subType instanceof FunctionPrototypeType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<JSType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:JSType subType=subTypes.get(i);
+TO:
+18
+
+INSERT:
+21:if(subType instanceof FunctionType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+INSERT:
+24:if(subType instanceof FunctionPrototypeType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+INSERT:
+31:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:JSType subType=subTypes.get(i);
+TO:
+18
+
+INSERT:
+21:if(subType instanceof FunctionType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+INSERT:
+24:if(subType instanceof FunctionPrototypeType){
+resolvedSubTypes.add(subType);
+}
+TO:
+18
+
+INSERT:
+31:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/5.java
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:return this;
+TO:
+21
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:return this;
+TO:
+21
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/6.java
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseResolveInternal(t,scope);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseResolveInternal(t,scope);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/7.java
+Current actions:
+INSERT:
+22:topScope=scope.getTopScope();
+TO:
+21
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:topScope=scope.getTopScope();
+TO:
+21
+
+Following are 1th generated patches:
+Validating 71 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/8.java
+Current actions:
+INSERT:
+22:if(name=="Function"||name=="Array"){
+typeOfThis=scope.getGlobalScope().getImplicitPrototype();
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:if(name=="Function"||name=="Array"){
+typeOfThis=scope.getGlobalScope().getImplicitPrototype();
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:typeOfThis=scope.getGlobalScope().getImplicitPrototype();
+TO:
+21
+
+Following are 2th generated patches:
+Validating 55 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/9.java
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+7:if(!typeOfThisResolved.isNativeObjectType()||typeOfThisResolved.isInstanceType()){
+t.warning(this,"typeOfThis should be an object type");
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+8:t.warning(this,"typeOfThis should be an object type");
+TO:
+5
+
+Following are 2th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+6:ObjectType typeOfThisResolved=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+7:if(!typeOfThisResolved.isNativeObjectType()||typeOfThisResolved.isInstanceType()){
+t.warning(this,"typeOfThis should be an object type");
+}
+TO:
+5
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:ObjectType typeOfThisResolved=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+INSERT:
+7:if(!typeOfThisResolved.isNativeObjectType()||typeOfThisResolved.isInstanceType()){
+t.warning(this,"typeOfThis should be an object type");
+}
+TO:
+5
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/10.java
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 0th generated patches:
+Validating 51 patches...
+Current actions:
+INSERT:
+7:if(typeOfThisType!=null&&typeOfThisType.isAllType()){
+typeOfThis=getNativeObjectType(GLOBAL_TYPE);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+INSERT:
+8:typeOfThis=getNativeObjectType(GLOBAL_TYPE);
+TO:
+5
+
+INSERT:
+10:else{
+typeOfThis=typeOfThisType;
+}
+TO:
+5
+
+INSERT:
+14:boolean changed=false;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 60 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+7:if(typeOfThisType!=null&&typeOfThisType.isAllType()){
+typeOfThis=getNativeObjectType(GLOBAL_TYPE);
+}
+TO:
+5
+
+DELETE:
+Original line: 7boolean changed=false;
+
+INSERT:
+10:else{
+typeOfThis=typeOfThisType;
+}
+TO:
+5
+
+INSERT:
+14:boolean changed=false;
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:ObjectType typeOfThisType=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+DELETE:
+Original line: 7boolean changed=false;
+
+INSERT:
+8:typeOfThis=getNativeObjectType(GLOBAL_TYPE);
+TO:
+5
+
+INSERT:
+10:else{
+typeOfThis=typeOfThisType;
+}
+TO:
+5
+
+INSERT:
+14:boolean changed=false;
+TO:
+8
+
+Following are 4th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+8:typeOfThis=getNativeObjectType(GLOBAL_TYPE);
+TO:
+5
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/11.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 142 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subType.resolve(t,scope);
+TO:
+17
+
+INSERT:
+21:resolvedSubTypes.add(resolvedSubType);
+TO:
+17
+
+INSERT:
+22:changed|=(resolvedSubType!=subType);
+TO:
+17
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subType.resolve(t,scope);
+TO:
+17
+
+Following are 3th generated patches:
+Validating 65 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subType.resolve(t,scope);
+TO:
+17
+
+INSERT:
+22:changed|=(resolvedSubType!=subType);
+TO:
+17
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/12.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+INSERT:
+22:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 1th generated patches:
+Validating 75 patches...
+Current actions:
+INSERT:
+19:for(FunctionType subType : subTypes){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+22:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+22:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 4th generated patches:
+Validating 73 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/13.java
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+22:JSType type=super.resolveInternal(t,scope);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:JSType type=super.resolveInternal(t,scope);
+TO:
+21
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+INSERT:
+23:return caseTopType(type);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 102 patches...
+Current actions:
+INSERT:
+23:return caseTopType(type);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 100 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+INSERT:
+23:return caseTopType(type);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 101 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/14.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+20:resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+TO:
+17
+
+INSERT:
+22:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 152 patches...
+Current actions:
+INSERT:
+20:resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+TO:
+17
+
+Following are 3th generated patches:
+Validating 80 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+INSERT:
+22:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/15.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[implementedInterfaces=resolvedInterfaces.build();, call=(ArrowType)safeResolve(call,t,scope);, prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);, typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);, ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();, for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, {
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);, resolvedInterfaces.add(resolvedIface);, {
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, {
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}, for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}, subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));]
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+2:JSType resolveInternal(ErrorReporter t,StaticScope<JSType> scope){
+setResolvedTypeInternal(this);
+call=(ArrowType)safeResolve(call,t,scope);
+prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+}
+implementedInterfaces=resolvedInterfaces.build();
+if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+return super.resolveInternal(t,scope);
+}
+TO:
+1
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 15implementedInterfaces=resolvedInterfaces.build();
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:JSType resolveInternal(ErrorReporter t,StaticScope<JSType> scope){
+setResolvedTypeInternal(this);
+call=(ArrowType)safeResolve(call,t,scope);
+prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+}
+implementedInterfaces=resolvedInterfaces.build();
+if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+return super.resolveInternal(t,scope);
+}
+TO:
+1
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 4th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/16.java
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+14:if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+TO:
+12:if(!resolvedInterfaces.build().equals(implementedInterfaces)){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+UPDATE
+FROM:
+14:if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+TO:
+12:if(!resolvedInterfaces.build().equals(implementedInterfaces)){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+UPDATE
+FROM:
+14:if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+TO:
+12:if(!resolvedInterfaces.build().equals(implementedInterfaces)){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/17.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/18.java
+Current actions:
+INSERT:
+22:topLevelScope=scope;
+TO:
+21
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:topLevelScope=scope;
+TO:
+21
+
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/19.java
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 142 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subTypes.get(i).resolve(t,scope);
+TO:
+18
+
+INSERT:
+21:resolvedSubTypes.add(resolvedSubType);
+TO:
+18
+
+INSERT:
+22:changed|=(resolvedSubType!=subTypes.get(i));
+TO:
+18
+
+INSERT:
+23:}
+
+TO:
+18
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+22:changed|=(resolvedSubType!=subTypes.get(i));
+TO:
+18
+
+INSERT:
+23:}
+
+TO:
+18
+
+INSERT:
+25:subTypes=resolvedSubTypes.build();
+TO:
+18
+
+Following are 3th generated patches:
+Validating 166 patches...
+Current actions:
+INSERT:
+21:resolvedSubTypes.add(resolvedSubType);
+TO:
+18
+
+INSERT:
+23:}
+
+TO:
+18
+
+Following are 4th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subTypes.get(i).resolve(t,scope);
+TO:
+18
+
+INSERT:
+22:changed|=(resolvedSubType!=subTypes.get(i));
+TO:
+18
+
+INSERT:
+23:}
+
+TO:
+18
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+18
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/20.java
+Current actions:
+INSERT:
+22:if(superClass!=null){
+superClass=(FunctionType)superClass.resolve(t,scope);
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:if(superClass!=null){
+superClass=(FunctionType)superClass.resolve(t,scope);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:superClass=(FunctionType)superClass.resolve(t,scope);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 19 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/21.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+6:if(typeOfThis!=null){
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+}
+TO:
+5
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 1th generated patches:
+Validating 30 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/22.java
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+21:if(!subType.isSubtypeOf(this)){
+t.warning(subType.getSourceName(),INVALID_ARGUMENTS_FOR_CALLING_FUNCTION,this,subType);
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:FunctionType subType=(FunctionType)subTypes.get(i).resolve(t,scope);
+TO:
+18
+
+INSERT:
+21:if(!subType.isSubtypeOf(this)){
+t.warning(subType.getSourceName(),INVALID_ARGUMENTS_FOR_CALLING_FUNCTION,this,subType);
+}
+TO:
+18
+
+INSERT:
+24:resolvedSubTypes.add(subType);
+TO:
+18
+
+INSERT:
+26:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+22:t.warning(subType.getSourceName(),INVALID_ARGUMENTS_FOR_CALLING_FUNCTION,this,subType);
+TO:
+18
+
+INSERT:
+26:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 91 patches...
+Current actions:
+INSERT:
+20:FunctionType subType=(FunctionType)subTypes.get(i).resolve(t,scope);
+TO:
+18
+
+INSERT:
+22:t.warning(subType.getSourceName(),INVALID_ARGUMENTS_FOR_CALLING_FUNCTION,this,subType);
+TO:
+18
+
+Following are 4th generated patches:
+Validating 78 patches...
+Current actions:
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:FunctionType subType=(FunctionType)subTypes.get(i).resolve(t,scope);
+TO:
+18
+
+INSERT:
+26:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/23.java
+Current actions:
+INSERT:
+22:if(topType.isAllType()){
+topType=caseTopType(topType);
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:if(topType.isAllType()){
+topType=caseTopType(topType);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:topType=caseTopType(topType);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 56 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/24.java
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+7:if(!typeOfThis.isAllType()){
+reportInvalidTypeOfThis(t,typeOfThis);
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:ObjectType typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+INSERT:
+7:if(!typeOfThis.isAllType()){
+reportInvalidTypeOfThis(t,typeOfThis);
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+7:if(!typeOfThis.isAllType()){
+reportInvalidTypeOfThis(t,typeOfThis);
+}
+TO:
+5
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/25.java
+Current actions:
+INSERT:
+22:if(topType!=null){
+topType=caseTopType(topType);
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:if(topType!=null){
+topType=caseTopType(topType);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:topType=caseTopType(topType);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 56 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/26.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[implementedInterfaces=resolvedInterfaces.build();, boolean changed=false;, call=(ArrowType)safeResolve(call,t,scope);, prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);, typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);, ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();, for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, {
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);, resolvedInterfaces.add(resolvedIface);, {
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, return super.resolveInternal(t,scope);]
+Following are 0th generated patches:
+Validating 194 patches...
+Current actions:
+INSERT:
+17:FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+TO:
+17
+
+Following are 1th generated patches:
+Validating 65 patches...
+Current actions:
+INSERT:
+16:for(FunctionType subtype : subTypes){
+FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+resolvedSubTypes.add(resolvedSubType);
+changed|=(resolvedSubType!=subtype);
+}
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+2:JSType resolveInternal(ErrorReporter t,StaticScope<JSType> scope){
+setResolvedTypeInternal(this);
+call=(ArrowType)safeResolve(call,t,scope);
+prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+}
+implementedInterfaces=resolvedInterfaces.build();
+boolean changed=false;
+if(subTypes!=null){
+ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+for(FunctionType subtype : subTypes){
+FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+resolvedSubTypes.add(resolvedSubType);
+changed|=(resolvedSubType!=subtype);
+}
+subTypes=resolvedSubTypes.build();
+}
+return super.resolveInternal(t,scope);
+}
+TO:
+1
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+INSERT:
+15:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+16:for(FunctionType subtype : subTypes){
+FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+resolvedSubTypes.add(resolvedSubType);
+changed|=(resolvedSubType!=subtype);
+}
+TO:
+17
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+INSERT:
+21:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 3th generated patches:
+Validating 78 patches...
+Current actions:
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:JSType resolveInternal(ErrorReporter t,StaticScope<JSType> scope){
+setResolvedTypeInternal(this);
+call=(ArrowType)safeResolve(call,t,scope);
+prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+}
+implementedInterfaces=resolvedInterfaces.build();
+boolean changed=false;
+if(subTypes!=null){
+ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+for(FunctionType subtype : subTypes){
+FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+resolvedSubTypes.add(resolvedSubType);
+changed|=(resolvedSubType!=subtype);
+}
+subTypes=resolvedSubTypes.build();
+}
+return super.resolveInternal(t,scope);
+}
+TO:
+1
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+INSERT:
+15:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 15implementedInterfaces=resolvedInterfaces.build();
+
+INSERT:
+16:for(FunctionType subtype : subTypes){
+FunctionType resolvedSubType=(FunctionType)subtype.resolve(t,scope);
+resolvedSubTypes.add(resolvedSubType);
+changed|=(resolvedSubType!=subtype);
+}
+TO:
+17
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+INSERT:
+21:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/27.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[return super.resolveInternal(t,scope);]
+Following are 0th generated patches:
+Validating 71 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+INSERT:
+22:if(!this.isGeneric()){
+return super.resolveInternal(t,scope);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+25:if(this.getTypeOfThis()!=null){
+this.getTypeOfThis().resolve(t,scope);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+INSERT:
+22:if(!this.isGeneric()){
+return super.resolveInternal(t,scope);
+}
+TO:
+21
+
+INSERT:
+25:if(this.getTypeOfThis()!=null){
+this.getTypeOfThis().resolve(t,scope);
+}
+TO:
+21
+
+INSERT:
+31:for(FunctionType subType : this.getSubTypes()){
+subType.resolve(t,scope);
+}
+TO:
+21
+
+INSERT:
+34:return this;
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:subType.resolve(t,scope);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 59 patches...
+Current actions:
+INSERT:
+28:for(TypeVariable v : this.getTypeParameters()){
+v.resolve(t,scope);
+}
+TO:
+21
+
+INSERT:
+32:subType.resolve(t,scope);
+TO:
+21
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/28.java
+Current actions:
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/29.java
+Current actions:
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/30.java
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseTopType(super.resolveInternal(t,scope));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseTopType(super.resolveInternal(t,scope));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/31.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[boolean changed=false;, call=(ArrowType)safeResolve(call,t,scope);, prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);, typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);, ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();, for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, {
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}, ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);, resolvedInterfaces.add(resolvedIface);, implementedInterfaces=resolvedInterfaces.build();, {
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}, return super.resolveInternal(t,scope);]
+Following are 0th generated patches:
+Validating 133 patches...
+Current actions:
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 142 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subType.resolve(t,scope);
+TO:
+17
+
+INSERT:
+24:if(changed){
+subTypes=resolvedSubTypes.build();
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:subTypes=resolvedSubTypes.build();
+TO:
+17
+
+Following are 3th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+21:resolvedSubTypes.add(resolvedSubType);
+TO:
+17
+
+INSERT:
+22:changed|=(resolvedSubType!=subType);
+TO:
+17
+
+INSERT:
+25:subTypes=resolvedSubTypes.build();
+TO:
+17
+
+Following are 4th generated patches:
+Validating 189 patches...
+Current actions:
+DELETE:
+Original line: 19subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+
+INSERT:
+20:FunctionType resolvedSubType=(FunctionType)subType.resolve(t,scope);
+TO:
+17
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/32.java
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 15implementedInterfaces=resolvedInterfaces.build();
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/33.java
+Current actions:
+DELETE:
+Original line: 22return super.resolveInternal(t,scope);
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+23:if(result.isAllType()){
+return getNativeType(FUNCTION_INSTANCE_TYPE);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:JSType result=super.resolveInternal(t,scope);
+TO:
+21
+
+INSERT:
+23:if(result.isAllType()){
+return getNativeType(FUNCTION_INSTANCE_TYPE);
+}
+TO:
+21
+
+INSERT:
+26:return result;
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:if(result.isAllType()){
+return getNativeType(FUNCTION_INSTANCE_TYPE);
+}
+TO:
+21
+
+INSERT:
+26:return result;
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/34.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+24:if(changed){
+subTypes=newSubTypes.build();
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 142 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> newSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType type : subTypes){
+FunctionType resolved=(FunctionType)type.resolve(t,scope);
+newSubTypes.add(resolved);
+changed|=(resolved!=type);
+}
+TO:
+17
+
+INSERT:
+25:subTypes=newSubTypes.build();
+TO:
+17
+
+Following are 2th generated patches:
+Validating 75 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> newSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+22:changed|=(resolved!=type);
+TO:
+17
+
+Following are 3th generated patches:
+Validating 37 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> newSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType type : subTypes){
+FunctionType resolved=(FunctionType)type.resolve(t,scope);
+newSubTypes.add(resolved);
+changed|=(resolved!=type);
+}
+TO:
+17
+
+INSERT:
+24:if(changed){
+subTypes=newSubTypes.build();
+}
+TO:
+17
+
+Following are 4th generated patches:
+Validating 146 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType type : subTypes){
+FunctionType resolved=(FunctionType)type.resolve(t,scope);
+newSubTypes.add(resolved);
+changed|=(resolved!=type);
+}
+TO:
+17
+
+INSERT:
+24:if(changed){
+subTypes=newSubTypes.build();
+}
+TO:
+17
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/35.java
+Current actions:
+INSERT:
+22:topType=caseTopType(topType);
+TO:
+21
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:topType=caseTopType(topType);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 56 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/36.java
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseTopType(super.resolveInternal(t,scope));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseTopType(super.resolveInternal(t,scope));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/37.java
+Current actions:
+DELETE:
+Original line: 3setResolvedTypeInternal(this);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:if(type==null){
+return null;
+}
+TO:
+1
+
+Following are 1th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+4:return null;
+TO:
+1
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 10ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+
+DELETE:
+Original line: 12changed|=(resolvedIface!=iface);
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 10ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+3:if(type==null){
+return null;
+}
+TO:
+1
+
+DELETE:
+Original line: 3setResolvedTypeInternal(this);
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 8ImmutableList.Builder<ObjectType> resolvedInterfaces=ImmutableList.builder();
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+DELETE:
+Original line: 17if(subTypes!=null){
+for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+}
+
+Following are 4th generated patches:
+Validating 37 patches...
+Current actions:
+DELETE:
+Original line: 3setResolvedTypeInternal(this);
+
+DELETE:
+Original line: 4call=(ArrowType)safeResolve(call,t,scope);
+
+INSERT:
+4:return null;
+TO:
+1
+
+DELETE:
+Original line: 5prototype=(FunctionPrototypeType)safeResolve(prototype,t,scope);
+
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+6:return type.resolve(t,scope);
+
+DELETE:
+Original line: 7boolean changed=false;
+
+DELETE:
+Original line: 9for(ObjectType iface : implementedInterfaces){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedInterfaces.add(resolvedIface);
+changed|=(resolvedIface!=iface);
+}
+
+DELETE:
+Original line: 14if(changed){
+implementedInterfaces=resolvedInterfaces.build();
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/38.java
+Current actions:
+INSERT:
+22:boolean changed2=false;
+TO:
+21
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+29:if(changed2){
+superTypes=resolvedSupertypes.build();
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:boolean changed2=false;
+TO:
+21
+
+INSERT:
+26:resolvedSupertypes.add(resolvedIface);
+TO:
+21
+
+INSERT:
+27:changed2|=(resolvedIface!=iface);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 115 patches...
+Current actions:
+INSERT:
+22:boolean changed2=false;
+TO:
+21
+
+INSERT:
+24:for(ObjectType iface : superTypes){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedSupertypes.add(resolvedIface);
+changed2|=(resolvedIface!=iface);
+}
+TO:
+21
+
+INSERT:
+29:if(changed2){
+superTypes=resolvedSupertypes.build();
+}
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+TO:
+21
+
+INSERT:
+26:resolvedSupertypes.add(resolvedIface);
+TO:
+21
+
+INSERT:
+29:if(changed2){
+superTypes=resolvedSupertypes.build();
+}
+TO:
+21
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:boolean changed2=false;
+TO:
+21
+
+INSERT:
+23:ImmutableList.Builder<ObjectType> resolvedSupertypes=ImmutableList.builder();
+TO:
+21
+
+INSERT:
+24:for(ObjectType iface : superTypes){
+ObjectType resolvedIface=(ObjectType)iface.resolve(t,scope);
+resolvedSupertypes.add(resolvedIface);
+changed2|=(resolvedIface!=iface);
+}
+TO:
+21
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/39.java
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+7:if(typeOfThisObj!=typeOfThis){
+typeOfThis=typeOfThisObj;
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 186 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+7:if(typeOfThisObj!=typeOfThis){
+typeOfThis=typeOfThisObj;
+}
+TO:
+5
+
+Following are 2th generated patches:
+Validating 187 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+6:ObjectType typeOfThisObj=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+INSERT:
+7:if(typeOfThisObj!=typeOfThis){
+typeOfThis=typeOfThisObj;
+}
+TO:
+5
+
+Following are 3th generated patches:
+Validating 189 patches...
+Current actions:
+DELETE:
+Original line: 6typeOfThis=(ObjectType)safeResolve(typeOfThis,t,scope);
+
+INSERT:
+6:ObjectType typeOfThisObj=(ObjectType)safeResolve(typeOfThis,t,scope);
+TO:
+5
+
+INSERT:
+8:typeOfThis=typeOfThisObj;
+TO:
+5
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+8:typeOfThis=typeOfThisObj;
+TO:
+5
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/40.java
+Current actions:
+INSERT:
+22:boolean isConstructor=this.isConstructor();
+TO:
+21
+
+Following are 0th generated patches:
+Validating 81 patches...
+Current actions:
+INSERT:
+26:if(isConstructor&&paramName.equals("this")){
+if(paramType.isAllType()){
+paramType=getNativeType(ARRAY_TYPE);
+}
+else{
+if(!(paramType instanceof ObjectType)&&!(paramType instanceof AllType)){
+t.warning(paramType.getSourceName()+" is not a valid type "+"for the 'this' parameter of a constructor. "+"Ignoring this parameter.");
+params.set(i,new JSTypeNative(UNKNOWN_TYPE));
+}
+}
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:if(paramType.isAllType()){
+paramType=getNativeType(ARRAY_TYPE);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:boolean isConstructor=this.isConstructor();
+TO:
+21
+
+INSERT:
+23:for(int i=0;i<params.size();i++){
+String paramName=params.get(i).getName();
+JSType paramType=params.get(i).getType();
+if(isConstructor&&paramName.equals("this")){
+if(paramType.isAllType()){
+paramType=getNativeType(ARRAY_TYPE);
+}
+else{
+if(!(paramType instanceof ObjectType)&&!(paramType instanceof AllType)){
+t.warning(paramType.getSourceName()+" is not a valid type "+"for the 'this' parameter of a constructor. "+"Ignoring this parameter.");
+params.set(i,new JSTypeNative(UNKNOWN_TYPE));
+}
+}
+}
+}
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:JSType paramType=params.get(i).getType();
+TO:
+21
+
+INSERT:
+27:if(paramType.isAllType()){
+paramType=getNativeType(ARRAY_TYPE);
+}
+TO:
+21
+
+INSERT:
+30:else{
+if(!(paramType instanceof ObjectType)&&!(paramType instanceof AllType)){
+t.warning(paramType.getSourceName()+" is not a valid type "+"for the 'this' parameter of a constructor. "+"Ignoring this parameter.");
+params.set(i,new JSTypeNative(UNKNOWN_TYPE));
+}
+}
+TO:
+21
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/41.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+20:if(subType!=null){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+if(subType!=null){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+}
+TO:
+17
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+24:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+INSERT:
+19:for(FunctionType subType : subTypes){
+if(subType!=null){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+}
+TO:
+17
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+18:ImmutableList.Builder<FunctionType> resolvedSubTypes=ImmutableList.builder();
+TO:
+17
+
+DELETE:
+Original line: 18for(int i=0;i<subTypes.size();i++){
+subTypes.set(i,(FunctionType)subTypes.get(i).resolve(t,scope));
+}
+
+INSERT:
+20:if(subType!=null){
+resolvedSubTypes.add((FunctionType)subType.resolve(t,scope));
+}
+TO:
+17
+
+INSERT:
+24:subTypes=resolvedSubTypes.build();
+TO:
+20
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/42.java
+Current actions:
+INSERT:
+22:if(call!=null){
+call=(ArrowType)caseTopType(call);
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:if(call!=null){
+call=(ArrowType)caseTopType(call);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+23:call=(ArrowType)caseTopType(call);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 56 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_152/43.java
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseResolve(t,scope);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+22:return super.resolveInternal(t,scope);
+TO:
+22:return caseResolve(t,scope);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Finish : closure-152 > patch : 0 | Start : Tue Apr 09 13:18:55 HKT 2024 | End : 2024.04.09 AD at 13:23:32 HKT

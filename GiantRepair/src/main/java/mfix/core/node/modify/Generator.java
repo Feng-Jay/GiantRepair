@@ -668,6 +668,9 @@ public class Generator {
     public List<List<MyActions>> randomCombineOriActions()
     {
         // select at most 3 actions
+        if (_actions.size() > 20){
+            return new ArrayList<>();
+        }
         int limit = Math.min(3, _actions.size());
         List<List<List<Integer>>> indexes = new ArrayList<>();
         for (int i = 0; i < limit; i++) {
@@ -726,26 +729,29 @@ public class Generator {
             return new ArrayList<>();
 
         // insert if-stmt is the most common case
-        for(MyActions action: _actions){
-            if(action instanceof MyInsertion&&((MyInsertion) action).getCurNode() instanceof IfStmt){
-                oneByoneApply.add(action);
-                _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
-                _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
-            }
-            if(action instanceof MyUpdate&&((MyUpdate) action).getCurNode() instanceof IfStmt){
-                oneByoneApply.add(action);
-                _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
-                _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
-            }
-            if(action instanceof Wrap&&((Wrap) action).getCurNode() instanceof IfStmt){
-                oneByoneApply.add(action);
-                _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
-                _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
+        if (Constant.SELECT_MODIFY){
+            for(MyActions action: _actions){
+                if(action instanceof MyInsertion&&((MyInsertion) action).getCurNode() instanceof IfStmt){
+                    oneByoneApply.add(action);
+                    _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
+                    _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
+                }
+                if(action instanceof MyUpdate&&((MyUpdate) action).getCurNode() instanceof IfStmt){
+                    oneByoneApply.add(action);
+                    _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
+                    _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
+                }
+                if(action instanceof Wrap&&((Wrap) action).getCurNode() instanceof IfStmt){
+                    oneByoneApply.add(action);
+                    _alreadyNormal.add(Collections.singletonList(_actions.indexOf(action)));
+                    _alreadyFiltered.add(Collections.singletonList(_actions.indexOf(action)));
+                }
             }
         }
-
+        LevelLogger.info("One by one selection done...");
         List<List<List<MyActions>>> ret = new ArrayList<>();
         ret.add(randomCombineOriActions());
+        LevelLogger.info("Random selection done...");
         int counter = 0;
         for(MyActions actions: oneByoneApply){
             List<MyActions> tmp2 = new ArrayList<>();
@@ -842,6 +848,9 @@ public class Generator {
                     LevelLogger.info("Candidates size: "+candidates.size());
                     retActions.add(candidates);
                     candidatesCounter += candidates.size();
+                }
+                if(_alreadyNormal.size() >= MaxCombination){
+                    break;
                 }
             }
             counter ++;

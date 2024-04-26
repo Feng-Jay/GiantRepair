@@ -1,0 +1,3703 @@
+Repair : closure_113
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/0.java
+Current actions:
+INSERT:
+19:if(provided.hasRequireType()){
+String typeName=provided.requireType.getSecondChild().getString();
+ProvidedName typeProvided=providedNames.get(typeName);
+if(typeProvided==null){
+typeProvided=new ProvidedName(typeName,null);
+providedNames.put(typeName,typeProvided);
+}
+typeProvided.explicitModule=module;
+typeProvided.isGoogProvided=true;
+if(typeProvided.isExplicitlyProvided()){
+compiler.report(t.makeError(n,XTYPE_REQUIRE_ERROR,typeName,providedModule.getName(),module.getName()));
+}
+}
+TO:
+18
+
+Following are 0th generated patches:
+Validating 107 patches...
+Current actions:
+INSERT:
+19:if(provided.hasRequireType()){
+String typeName=provided.requireType.getSecondChild().getString();
+ProvidedName typeProvided=providedNames.get(typeName);
+if(typeProvided==null){
+typeProvided=new ProvidedName(typeName,null);
+providedNames.put(typeName,typeProvided);
+}
+typeProvided.explicitModule=module;
+typeProvided.isGoogProvided=true;
+if(typeProvided.isExplicitlyProvided()){
+compiler.report(t.makeError(n,XTYPE_REQUIRE_ERROR,typeName,providedModule.getName(),module.getName()));
+}
+}
+TO:
+18
+
+Following are 1th generated patches:
+Validating 58 patches...
+Current actions:
+INSERT:
+23:typeProvided=new ProvidedName(typeName,null);
+TO:
+18
+
+INSERT:
+26:typeProvided.explicitModule=module;
+TO:
+18
+
+INSERT:
+27:typeProvided.isGoogProvided=true;
+TO:
+18
+
+INSERT:
+28:if(typeProvided.isExplicitlyProvided()){
+compiler.report(t.makeError(n,XTYPE_REQUIRE_ERROR,typeName,providedModule.getName(),module.getName()));
+}
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:362 patches
+Compile failed:362 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/1.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.preserve){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.preserve){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 42 patches...
+Tested:405 patches
+Compile failed:404 patches
+Compilation rate:0.0024691358024691358
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/2.java
+Current actions:
+INSERT:
+9:if(preserveRequireNames){
+parent.replaceChild(arg,NodeUtil.newStringNode(compiler,ns,arg));
+compiler.reportCodeChange();
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+9:if(preserveRequireNames){
+parent.replaceChild(arg,NodeUtil.newStringNode(compiler,ns,arg));
+compiler.reportCodeChange();
+}
+TO:
+8
+
+INSERT:
+13:else{
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:parent.replaceChild(arg,NodeUtil.newStringNode(compiler,ns,arg));
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:809 patches
+Compile failed:663 patches
+Compilation rate:0.18046971569839307
+NNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPPPPPPNPNNNNPNNPNNPPNPNNNPPNNPPNPPPPPPPPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPNPPPPNPPPPPNPPPPNPPNPPNPPPPNNPPNPPNPPPPPNPPPPNNNNPPPPPPNPNNNNPNNPPNPPNPPPPPNPPNNPPPPPPPNPPPNPPPNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/3.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!checkMissingRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!checkMissingRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:816 patches
+Compile failed:669 patches
+Compilation rate:0.1801470588235294
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/4.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!skipBrokenProvides){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!skipBrokenProvides){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:823 patches
+Compile failed:675 patches
+Compilation rate:0.1798298906439854
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/5.java
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+9:compiler.reportCodeChange();
+TO:
+8
+
+INSERT:
+10:compiler.reportChangeToEnclosingScope(n);
+TO:
+8
+
+INSERT:
+11:maybeAddToSymbolTable(left);
+TO:
+8
+
+INSERT:
+12:maybeAddStringNodeToSymbolTable(arg);
+TO:
+8
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+12:maybeAddStringNodeToSymbolTable(arg);
+TO:
+8
+
+INSERT:
+13:parent.detachFromParent();
+TO:
+8
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+9:compiler.reportCodeChange();
+TO:
+8
+
+INSERT:
+10:compiler.reportChangeToEnclosingScope(n);
+TO:
+8
+
+INSERT:
+11:maybeAddToSymbolTable(left);
+TO:
+8
+
+INSERT:
+12:maybeAddStringNodeToSymbolTable(arg);
+TO:
+8
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1225 patches
+Compile failed:791 patches
+Compilation rate:0.35428571428571426
+PPPPPPPPNNNNNNNNPPPPPNPPPNPPPPPPPPPPPPPPPPPPNPPPNNNPNPPPPPPPNPNPNNPNPPPPPPPPPPNNPPPNNPPNPPNNNNNPNPNPNNPPPPPPNPPNNPPPPPPPPPPPNNNPPPPNPPPPPNPNPNPPPPNPPPPPPPPNPPNPPPNNPPPPNNNPPPPPPNPPPPPNPPPPPNPPPNNPPPPPPPPPNNPPPPPPPPNNPNPPPPPPPPPPPPPPPPPPPPPNNNNNPPPPPPPNPNPNNPNPPPPPPPPPPPNPNPPNNPNNPPNNNPPNNPPNPNNPPPPPNPPNNNNPPPPPPNPPNPPPNPPPPNPPNPPPNPPNPPNPPPPNPPPPPPPNPPPPNNPPPPNPNNPNPNPPPNPPPPPPNPPNPPPPNPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/6.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null||!enforceExistenceChecks){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null||!enforceExistenceChecks){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:1232 patches
+Compile failed:797 patches
+Compilation rate:0.3530844155844156
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/7.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:1237 patches
+Compile failed:801 patches
+Compilation rate:0.35246564268391267
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/8.java
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:if(!compiler.getOptions().checkRequires||!hasErrors()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+8
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 63 patches...
+Current actions:
+INSERT:
+9:if(!compiler.getOptions().checkRequires||!hasErrors()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+8
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:if(!compiler.getOptions().checkRequires||!hasErrors()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 4th generated patches:
+Validating 64 patches...
+Current actions:
+INSERT:
+9:if(!compiler.getOptions().checkRequires||!hasErrors()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Tested:1428 patches
+Compile failed:939 patches
+Compilation rate:0.34243697478991597
+PPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNPNNPPNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNPNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNPPNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/9.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&t.getCheckRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&t.getCheckRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 107 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_113_buggy/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+SUCCESS
+//Following are generated patch:
+  private void processRequireCall(  NodeTraversal t,  Node n,  Node parent){
+    Node left=n.getFirstChild();
+    Node arg=left.getNext();
+    if (verifyLastArgumentIsString(t,left,arg)) {
+      String ns=arg.getString();
+      ProvidedName provided=providedNames.get(ns);
+      if (provided == null || !provided.isExplicitlyProvided()) {
+        unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+      }
+ else {
+        JSModule providedModule=provided.explicitModule;
+        Preconditions.checkNotNull(providedModule);
+        JSModule module=t.getModule();
+        if (moduleGraph != null && module != providedModule && !moduleGraph.dependsOn(module,providedModule)) {
+          compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+        }
+      }
+      maybeAddToSymbolTable(left);
+      maybeAddStringNodeToSymbolTable(arg);
+if(provided!=null||requiresLevel.isOn()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+    }
+  }
+
+1 th patch/108
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.10 AD at 03:48:29 HKT
+---------TIME : 
+2024.04.10 AD at 04:07:38 HKT
+--------------- END -----------------
+Tested:1536 patches
+Compile failed:1009 patches
+Compilation rate:0.3430989583333333
+NNNNNNNNNNNNNNNNNNNNNNNPPPNPPPPNPPNNPPNPPNNPPNPNNNNNNNPNPNPPPNPNNNNNPNNNPNNNNNPNNNNNNNNNNNNNPNNPPNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/10.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:1541 patches
+Compile failed:1013 patches
+Compilation rate:0.34263465282284233
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/11.java
+Current actions:
+INSERT:
+24:else{
+parent.replaceChild(n,n.getLastChild());
+}
+TO:
+24
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+24:else{
+parent.replaceChild(n,n.getLastChild());
+}
+TO:
+24
+
+INSERT:
+27:compiler.reportCodeChange();
+TO:
+24
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+24:else{
+parent.replaceChild(n,n.getLastChild());
+}
+TO:
+24
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:parent.replaceChild(n,n.getLastChild());
+TO:
+24
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+25:parent.replaceChild(n,n.getLastChild());
+TO:
+24
+
+INSERT:
+27:compiler.reportCodeChange();
+TO:
+24
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:1946 patches
+Compile failed:1129 patches
+Compilation rate:0.4198355601233299
+PPPPPNNNNNNPPPPPPPNPPPPPPPPPNPPNPPNNNPPPPPPNNNNNPNPPNPPPPPPNPPPPPNPPPPPPPNNNPPNNNNNNNNNNPPNNPPPPNPPPPPPPPPPPPPPPPPPPNPPNPNPPPPNPPNPNPPPNPPPPPPPPPPPNNNNPPPNPNNNPPPPPPPPPPPPPNPNPPPPPPPPNPNPPPPPPPPNNPPPPPPPPPNNNNNNPPPPPPPPNPPPPPNPPPPPPNNPNNPPPNPPNNNPPNPNNPPPPPPPPNPPPPNPPPPPPNPNNNPNNNPNNNNPNNNPPNPPPPNPPPPPPPPPPPPPPPPPPPNPPNNPPPPPPNNPNPPNPPPPPPPPPPPPPNNNNPNPPNPNPPNPPPPPPPPPPNNPPPPPPPPPNPNPPPPPPPPNPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/12.java
+Current actions:
+INSERT:
+9:if(!preserveMissingRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+n.detachFromParent();
+compiler.reportCodeChange();
+return ;
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 79 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:compiler.reportCodeChange();
+TO:
+8
+
+INSERT:
+13:return ;
+TO:
+8
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:if(!preserveMissingRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+n.detachFromParent();
+compiler.reportCodeChange();
+return ;
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+26:parent.detachFromParent();
+TO:
+20
+
+Following are 3th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:if(!preserveMissingRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+n.detachFromParent();
+compiler.reportCodeChange();
+return ;
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+26:parent.detachFromParent();
+TO:
+20
+
+INSERT:
+27:compiler.reportCodeChange();
+TO:
+20
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:n.detachFromParent();
+TO:
+8
+
+INSERT:
+12:compiler.reportCodeChange();
+TO:
+8
+
+INSERT:
+13:return ;
+TO:
+8
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+26:parent.detachFromParent();
+TO:
+20
+
+INSERT:
+27:compiler.reportCodeChange();
+TO:
+20
+
+Tested:2166 patches
+Compile failed:1340 patches
+Compilation rate:0.38134810710988
+NNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/13.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.explicitModule==null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.explicitModule==null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 42 patches...
+Tested:2209 patches
+Compile failed:1378 patches
+Compilation rate:0.3761883205070167
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/14.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!t.inGlobalScope()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!t.inGlobalScope()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_113_buggy/src/com/google/javascript/jscomp/ProcessClosurePrimitives.java
+SUCCESS
+//Following are generated patch:
+  private void processRequireCall(  NodeTraversal t,  Node n,  Node parent){
+    Node left=n.getFirstChild();
+    Node arg=left.getNext();
+    if (verifyLastArgumentIsString(t,left,arg)) {
+      String ns=arg.getString();
+      ProvidedName provided=providedNames.get(ns);
+      if (provided == null || !provided.isExplicitlyProvided()) {
+        unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+      }
+ else {
+        JSModule providedModule=provided.explicitModule;
+        Preconditions.checkNotNull(providedModule);
+        JSModule module=t.getModule();
+        if (moduleGraph != null && module != providedModule && !moduleGraph.dependsOn(module,providedModule)) {
+          compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+        }
+      }
+      maybeAddToSymbolTable(left);
+      maybeAddStringNodeToSymbolTable(arg);
+if(provided!=null|| requiresLevel.isOn()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+    }
+  }
+
+2 th patch/201
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.10 AD at 03:48:29 HKT
+---------TIME : 
+2024.04.10 AD at 04:17:50 HKT
+--------------- END -----------------
+Tested:2410 patches
+Compile failed:1501 patches
+Compilation rate:0.3771784232365145
+PNNNNNNNNNNPPPPPPNPNNNNNNNNNNNNNNNNNNNPPNNNNNNPNNNNNNNNPNNNNNNPNPNPNNNPNPNPNPNNNNNPPNPNNPNPNPNNNNPNPNNNPPPPNNPNPPPPPNNNPNPPPPNNPNNNPNPPPPNPNNNNPPNNPNPNPPNNPPPNNNNNNPNPPNNPPNNNNNPNPNPPNPPNNNNPNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/15.java
+Current actions:
+INSERT:
+9:if(!checkRequires){
+return ;
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+9:if(!checkRequires){
+return ;
+}
+TO:
+8
+
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+24:if(provided!=null||!checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+10:return ;
+TO:
+8
+
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+24:if(provided!=null||!checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:if(!checkRequires){
+return ;
+}
+TO:
+8
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+24:if(provided!=null||!checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+10:return ;
+TO:
+8
+
+Tested:2442 patches
+Compile failed:1532 patches
+Compilation rate:0.3726453726453726
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/16.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().brokenClosureRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().brokenClosureRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:2447 patches
+Compile failed:1536 patches
+Compilation rate:0.3722926031875766
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/17.java
+Current actions:
+INSERT:
+18:else{
+if(providedModule.getSlot(ns)==null){
+compiler.reportCodeChange();
+providedModule.add(compiler,NodeUtil.newQName(compiler,ns),IR.name(ns).srcref(arg));
+}
+}
+TO:
+17
+
+Following are 0th generated patches:
+Validating 107 patches...
+Current actions:
+INSERT:
+18:else{
+if(providedModule.getSlot(ns)==null){
+compiler.reportCodeChange();
+providedModule.add(compiler,NodeUtil.newQName(compiler,ns),IR.name(ns).srcref(arg));
+}
+}
+TO:
+17
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+18
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+INSERT:
+20:compiler.reportCodeChange();
+TO:
+17
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:else{
+if(providedModule.getSlot(ns)==null){
+compiler.reportCodeChange();
+providedModule.add(compiler,NodeUtil.newQName(compiler,ns),IR.name(ns).srcref(arg));
+}
+}
+TO:
+17
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+18
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+18
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:else{
+if(providedModule.getSlot(ns)==null){
+compiler.reportCodeChange();
+providedModule.add(compiler,NodeUtil.newQName(compiler,ns),IR.name(ns).srcref(arg));
+}
+}
+TO:
+17
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+18
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+18
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:else{
+if(providedModule.getSlot(ns)==null){
+compiler.reportCodeChange();
+providedModule.add(compiler,NodeUtil.newQName(compiler,ns),IR.name(ns).srcref(arg));
+}
+}
+TO:
+17
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+18
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+18
+
+Tested:3082 patches
+Compile failed:2036 patches
+Compilation rate:0.3393900064892927
+NNNNNNNNNNNNNNNNNPPPPPNNNNPPNNNPPNNNNNNNNNPPPPPPNNNNPPPPPPPPPPNNPPPPPPPPNNPPPPPPNPPNNNNPNPNNNNNNNNPPPPPNPPNNNPNPPNNNPNPPPNPNNPPNNPNPPNNNNPNPPNNNPNNNNNNPPNNPNNPPNPPPPPPPNPNNPPPNPPPPNPPNPPPNPPPPNPPPPPPNPNPPPPPNPNPNNNPPPPPPNPPNNNPPPPPPPPPPPNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/18.java
+Current actions:
+UPDATE
+FROM:
+22:parent.detachFromParent();
+TO:
+22:parent.replaceChild(n,left);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+22:parent.detachFromParent();
+TO:
+22:parent.replaceChild(n,left);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:3283 patches
+Compile failed:2118 patches
+Compilation rate:0.35485836125494974
+PNNNNPPPPPPPPPNNNNNNNNNPPPPPNPPPPNPPPPPPPPPPPNNNNPPPPPPNPNNNPNPPPPPPNPPPPPPPNNNNNNNNPPPPPPPPPNPNNNPNNNPNNNPNNNPPNNNNPNPPNPPNPNNPPPNPPPNNNPPPPNNPPPNPNNPNNPNPPPPPNPPNPNNNPNPNPNNNPPPPPPPPNNNPPNPPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/19.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!markBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!markBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:3290 patches
+Compile failed:2124 patches
+Compilation rate:0.35440729483282674
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/20.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().removeRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().removeRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:3295 patches
+Compile failed:2128 patches
+Compilation rate:0.3541729893778452
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/21.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+9:if(compiler.getOptions().getLanguageIn().toFeatureSet().contains(Feature.MODULES)){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 56 patches...
+Tested:3352 patches
+Compile failed:2184 patches
+Compilation rate:0.34844868735083534
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/22.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.isStaticRequire()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.isStaticRequire()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 106 patches...
+Tested:3459 patches
+Compile failed:2258 patches
+Compilation rate:0.34721017635154666
+NNNNNNNNNNNNNPPPPNNPPPPNNNNNNNNNPPPPNNNPNNPPNNNPNNNNNNNNPPNPPNNNNPNNNPPNNNPNNNNNPNNNNNNNNNNNNNNNNPNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/23.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:3464 patches
+Compile failed:2262 patches
+Compilation rate:0.34699769053117785
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/24.java
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+22:parent.replaceChild(left,n.removeFirstChild());
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:parent.replaceChild(left,n.removeFirstChild());
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3866 patches
+Compile failed:2352 patches
+Compilation rate:0.3916192446973616
+PPPNNPPPPPPNPPPPNPPPPPPPPPPNNPPPPPPPPPPNPPPPPNPPPPPNPPNPPPPPPPNPPPPPPPPNPPPNNNNNNPPNPPPPNPPNPNPPPPPPPNPNPPPPPNPPPPPPPPNNNPPPPPPPPNPNPNPPNPPNPNPPNPPPPPPPPPPPNPPNPPPPPPPPPPPNPNPPPPNNPNPPNPPPPPNPPPPNPPPPPPPNNNPPPPPPPPPPNNPPPPPPPPNPNPPPPPPNPPPPPNPPPPPPPPPNPNPPPPPNPPPPPPPPNPPPNNNPNPNPNPNPPPNPPPNNPPPPPPPNPPPNPPPPNPPPPPPPNPPNPNPPPPPPPPNNPPPNPPNNNPPPNPPPPPPPPPPPPNPPPPNPPPPPPPPPPPPNPPPNPNNNPPPPPPPPNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/25.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 20 patches...
+Tested:3887 patches
+Compile failed:2358 patches
+Compilation rate:0.3933624903524569
+PNNNNNPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/26.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:if(!preserveMissingRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 1th generated patches:
+Validating 8 patches...
+Tested:3896 patches
+Compile failed:2366 patches
+Compilation rate:0.39271047227926076
+PNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/27.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:3903 patches
+Compile failed:2372 patches
+Compilation rate:0.3922623622854215
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/28.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[parent.detachFromParent();, compiler.reportCodeChange();, {
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+8:if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+
+DELETE:
+Original line: 11else{
+JSModule providedModule=provided.explicitModule;
+Preconditions.checkNotNull(providedModule);
+JSModule module=t.getModule();
+if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+}
+
+INSERT:
+13:else{
+JSModule providedModule=provided.explicitModule;
+Preconditions.checkNotNull(providedModule);
+JSModule module=t.getModule();
+if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+maybeAddToSymbolTable(left);
+maybeAddStringNodeToSymbolTable(arg);
+}
+TO:
+10
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4305 patches
+Compile failed:2716 patches
+Compilation rate:0.36910569105691055
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNPNNNPNPNPNNNNPNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNPNPNNNPNNNPNNPPNPNNNNPNNPNPNNPPNNNNNNNNNNNPNNNPPNNPPNPNNPNPNPNPNNPNPPNPNPNNNNPNNPNNNNNNPPNPNPNPNNNPNNPNPNNNPNPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/29.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&removeRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&removeRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:4310 patches
+Compile failed:2720 patches
+Compilation rate:0.3689095127610209
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/30.java
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+21:if(provided!=null||compiler.getOptions().getMissingProvideCheckMode()==MissingProvideCheckMode.OFF){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+21:if(provided!=null||compiler.getOptions().getMissingProvideCheckMode()==MissingProvideCheckMode.OFF){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:4316 patches
+Compile failed:2724 patches
+Compilation rate:0.36886005560704355
+NNPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/31.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.isExplicitlyProvided()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&provided.isExplicitlyProvided()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 105 patches...
+Tested:4422 patches
+Compile failed:2793 patches
+Compilation rate:0.3683853459972863
+PNNNNNNNPPPPPPNNPNNPPNNNNNNNNNPPPNPNNNPNNPNPNNNPNNNPNNNNNPNPPNNNNNNNPNNNPPNNNNNNNNPNPPNNNNNNPNNNNPPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/32.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[maybeAddToSymbolTable(left);, maybeAddStringNodeToSymbolTable(arg);, parent.detachFromParent();, compiler.reportCodeChange();, {
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+8:if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+maybeAddToSymbolTable(left);
+maybeAddStringNodeToSymbolTable(arg);
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+maybeAddToSymbolTable(left);
+maybeAddStringNodeToSymbolTable(arg);
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4825 patches
+Compile failed:3077 patches
+Compilation rate:0.362279792746114
+PPNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNPNNNNNNNNNPPPNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNPNPNPNPNNPPNNPNNNPPNNNPPNNNNNNNPPNNNNPNNNNNNPNPPNPNNNPPPNNPPNNNPPNPNNPNNNPNPNNNPNNNNNPPPNNPNNNPNNPNPNNNPNPPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNPNNNNPNPNPNNPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNPNNPNPNPPPNNNNNNNPNPNPNPPPNPNNNNNNNNNNNPNNNNNPPNNPPPNNNPPNNNPPNNPPNPPNNNPNPNPNNNNPNNNNNNPPPNPPNNNNNNPNPNNNPNPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/33.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[parent.detachFromParent();, compiler.reportCodeChange();]
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+20
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+20
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:if(!allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+9
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+20
+
+INSERT:
+26:compiler.reportCodeChange();
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5229 patches
+Compile failed:3344 patches
+Compilation rate:0.36048957735704723
+PPPPPPPPNNNNPPPPPPPNPNPNNNNNPPNPPPPNPPPPPPPPNNNPPPPPPNPPPPPNNPNPPNPPPPPPNPPPNNPPPPPPPPNPPPNPNPNPNPNPPPPPPPPNPPPPNNPPPNPNNPNPPPNPPPNNPNPPNNPPNNPPNPNPNNPPNPNPPNPNPPNNNNNNPNNPPPNPPPPPPPPPNPPNPPNNNNPPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/34.java
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:parent.removeChild(n);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:parent.removeChild(n);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5631 patches
+Compile failed:3455 patches
+Compilation rate:0.3864322500443971
+PPPNNNNPPPPPPPPPNPNNNPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPNPPPPNPPNPNNPPPPPPPNPNNNNPNPPNPPPNPPPNPNPPNPPPPPPNNNPNNPPNPNPNPNPPNNPPPPPPPNPPPNNPPPNPPPNPPPPPPNPNNPPNPPPPPPNNNPNPPPNPNNPPPNPPPPPPPPPPNNNNPPPPPPPPPNPNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNNPNPPPPPPPNPPNPNNPPPNPPNNPNPPNPPPNPNPPPPNNPNPPNNPPPPPPNNNPPPPNPPNNNPNNPNPPPPPPPPNPNNPPPNNPPPNPPPPPPPPPNNPPNPPPNPNNNPNPPPPPPNPNPPNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/35.java
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:parent.replaceChild(n,arg);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:parent.replaceChild(n,arg);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6033 patches
+Compile failed:3613 patches
+Compilation rate:0.4011271340958064
+PPPNNNNNPPPNPPPPPPNNNNPNNNNNNNPNPNPPPPNPPPPPPPPPPPNPNNPPPPPPPPNNPNPPPPPNNPPNPPPPNPPNPNNPPPPNPNPNNNNNNNNPPPPNPPNPPPNPNPPNPNNNNPPPPPPPNNPPPNNPPNNNNPNPPPPPPPNNNPNNPPNNNPPNPPNNPNPPPPPPPNNPPPPNNPPPNNPPPPPPPPNNNNPPPPPPPNPPNPNNNNNNNNNPNPPNPPNPPNPPNPPPPPPPPNPNPNPPPPPPNPPNNPPPPPPNNPPPPNPPPNNNNPPPPPPNPNNNNNNNPNPPPNPNPPNPNPNPPPPNNNNPPPPPPNPNPPNPPNNPNNPNPPPPNPPPPNNNNPNNPNPPNPPPNPNNPNPPPPPPNPPPPNNNPNPPPNPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/36.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checksOnly){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checksOnly){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:6038 patches
+Compile failed:3617 patches
+Compilation rate:0.4009605829744949
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/37.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!t.inGlobalHoistScope()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!t.inGlobalHoistScope()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6239 patches
+Compile failed:3746 patches
+Compilation rate:0.39958326654912646
+NNNNNNNPPPPPPNNNNNNPNNNNNPPPNNPPNNPNNNNNNNNNNNPNNPPNPNNNPNNNNNNNPNNNNNNPNNNPNPPNPNNNNNPNPNPPNNNNPNNPNPPNPNNNNNNNPPNNNNNNNNPNPNNPPPPNNPNNNPNPNPNNNPNPNPPPNPPNPNNNNPNNNNNNNNPPNPPPPNNNPPPNNNPNNNNPNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/38.java
+Current actions:
+INSERT:
+10:compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,"an unprovided namespace","your current module"));
+TO:
+9
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,"an unprovided namespace","your current module"));
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6440 patches
+Compile failed:3858 patches
+Compilation rate:0.4009316770186335
+PNNNNNNNNNNNNNNPPNPNPNPNPNNPNNPPNNNNNPPNPPPPNPPNNPNNNPNPNPPNPPPNPNNNPPNPPNNPPPPPPPNPPPPPPPNPPPNPPPPPPPNPNNPNPPPNNNNNNNNNNNNNPPPNNNNNNNNNNNNNPPPPPPNPPNPNNNNPNPPNNNNPNNNNPNNNNNNNNNNNPNNPPPPNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/39.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checkRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checkRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 58 patches...
+Tested:6499 patches
+Compile failed:3916 patches
+Compilation rate:0.3974457608862902
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/40.java
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+19:parent.detachFromParent();
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+INSERT:
+9:if(!allowBrokenRequires){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,moduleGraph==null?null:moduleGraph.getRootModule().getName(),t.getSourceName()));
+}
+TO:
+8
+
+INSERT:
+13:Node nameNode=IR.name(ns);
+TO:
+8
+
+INSERT:
+14:nameNode.setOriginalName(ns);
+TO:
+8
+
+INSERT:
+15:nameNode.setDeclaredType(t.getTypeIRegistry().getNativeType(STRING_TYPE));
+TO:
+8
+
+INSERT:
+16:globalRequireNames.add(nameNode.getString());
+TO:
+8
+
+INSERT:
+17:maybeAddToSymbolTable(left);
+TO:
+8
+
+INSERT:
+18:maybeAddStringNodeToSymbolTable(arg);
+TO:
+8
+
+INSERT:
+19:parent.detachFromParent();
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7097 patches
+Compile failed:4326 patches
+Compilation rate:0.3904466676060307
+NNNNNNNNNNNNNNNPPPNNPPNPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPPPNNNNNNNNNPNPNNNNPNNNPPPPNNNNNNNNPPPNNNNNNNNNNNNPNNPPPPNPNNPPPNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNPPNNNNNNNPPPPPNNNPPPPNNPNNNNPPPPPPPNNNNPPPPPPPPNNPPPPPPPPPPPNNPNNNNPPPPPPPPPNPPPPPPNNPNPNPNPNPPPNPPNPPNPPPNNNPNNNNPPPNPPPPPPPPPPPPPPPPPNNPNPPPNNPPNPPNNPPNPPNNNPNPNPPPNPNNNPNNPNPPPNNPNNNPNPPNPPNNPNPPPPPPPPPPNPPNNNPNNPNPNPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/41.java
+Current actions:
+INSERT:
+22:Node parentOfAssign=left.getParent();
+TO:
+21
+
+Following are 0th generated patches:
+Validating 134 patches...
+Current actions:
+INSERT:
+22:Node parentOfAssign=left.getParent();
+TO:
+21
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+23:Node assign=parentOfAssign.isAssign()?parentOfAssign:null;
+TO:
+21
+
+INSERT:
+24:if(assign!=null){
+parent.detachFromParent();
+assign.detachFromParent();
+assign.replaceWith(n);
+n.getFirstChild().addChildToBack(assign);
+}
+TO:
+21
+
+INSERT:
+30:else{
+parent.detachFromParent();
+n.getFirstChild().addChildToFront(parentOfAssign);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:Node parentOfAssign=left.getParent();
+TO:
+21
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+24:if(assign!=null){
+parent.detachFromParent();
+assign.detachFromParent();
+assign.replaceWith(n);
+n.getFirstChild().addChildToBack(assign);
+}
+TO:
+21
+
+INSERT:
+30:else{
+parent.detachFromParent();
+n.getFirstChild().addChildToFront(parentOfAssign);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7584 patches
+Compile failed:4802 patches
+Compilation rate:0.3668248945147679
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNPPNNNNNNPNNNNNNNNNNNNNNNPPNNPNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/42.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[parent.detachFromParent();, compiler.reportCodeChange();, maybeAddToSymbolTable(left);, maybeAddStringNodeToSymbolTable(arg);, if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}, {
+parent.detachFromParent();
+compiler.reportCodeChange();
+}]
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+5:if(verifyLastArgumentIsString(t,left,arg)){
+String ns=arg.getString();
+ProvidedName provided=providedNames.get(ns);
+if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+else{
+JSModule providedModule=provided.explicitModule;
+Preconditions.checkNotNull(providedModule);
+JSModule module=t.getModule();
+if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+}
+maybeAddToSymbolTable(left);
+maybeAddStringNodeToSymbolTable(arg);
+if(provided!=null){
+Node stringArg=arg.getNext();
+if(stringArg!=null&&stringArg.isString()){
+String stringArgString=stringArg.getString();
+if(!ns.equals(stringArgString)){
+compiler.report(t.makeError(stringArg,XMODULE_CONFLICTING_PROVIDES,ns,stringArgString));
+}
+}
+}
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+1
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:7599 patches
+Compile failed:4813 patches
+Compilation rate:0.36662718778786685
+NNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/43.java
+Current actions:
+INSERT:
+9:if(moduleGraph==null||moduleGraph.getRootModule()==null){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,t.getSourceName(),t.getSourceName()));
+return ;
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 158 patches...
+Current actions:
+INSERT:
+10:compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,t.getSourceName(),t.getSourceName()));
+TO:
+8
+
+INSERT:
+13:JSModule providedModule=moduleGraph.findModuleByName(ns);
+TO:
+8
+
+DELETE:
+Original line: 13Preconditions.checkNotNull(providedModule);
+
+DELETE:
+Original line: 16compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+
+INSERT:
+19:if(module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:7849 patches
+Compile failed:5063 patches
+Compilation rate:0.3549496751178494
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/44.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!suppressCheckRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!suppressCheckRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:7856 patches
+Compile failed:5069 patches
+Compilation rate:0.35476069246435843
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/45.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().checkRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().checkRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 30 patches...
+Tested:7887 patches
+Compile failed:5099 patches
+Compilation rate:0.3534930898947635
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/46.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().removeRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().removeRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 58 patches...
+Tested:7946 patches
+Compile failed:5157 patches
+Compilation rate:0.35099421092373523
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/47.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().checkRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:7951 patches
+Compile failed:5161 patches
+Compilation rate:0.35089925795497423
+NNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/48.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!markUnresolvedRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!markUnresolvedRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:7958 patches
+Compile failed:5167 patches
+Compilation rate:0.3507162603669264
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/49.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!brokenRequires.contains(ns)){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!brokenRequires.contains(ns)){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 18 patches...
+Tested:7977 patches
+Compile failed:5181 patches
+Compilation rate:0.3505077096652877
+NNNNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/50.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null||compiler.getOptions().checksOnly){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null||compiler.getOptions().checksOnly){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 41 patches...
+Tested:8019 patches
+Compile failed:5222 patches
+Compilation rate:0.3487966080558673
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/51.java
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:parent.replaceChild(n,NodeUtil.newUndefinedNode(n));
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:parent.replaceChild(n,NodeUtil.newUndefinedNode(n));
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:8422 patches
+Compile failed:5351 patches
+Compilation rate:0.36464022797435286
+PPPPNNNNNPPPPPPNPPPNNNPPPPNPPPPNPPPNNPPPPPPNPPNNNPPNNPPPPPPPNPPPPPPNNPPPPNPPPNNPNNPPPNPPPNNPPNPPPPNPPPPPPPPNPPNNPPPPPNPNPPPNPPNPPPNPPPPPPPPPPNNNPNNPPNPNNPPPNPNPPPPPNPPPPPPNPPNPPPNPPPNNNPNNNNPNNPNPNPPPPPPPNNNNNNNNPPPPPPNPNNPPPNPPPNPPPPPPNNPPPPPPPNNPPPPNNNNPPPNPPPPPPPNPPPNNPPPPNPPNPNNPPPPNNPPPNPPPPNPNPPPPPPPPPPPPPNPPNPNPPPNPPPPNPNPNPPPPPPPPPNPPPPNNNNPPNNNPPPPNPPNPPPPNPPNPPPPPPPPNPNNNNPPNNNNPPNPPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/52.java
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+21:if(provided!=null&&compiler.getOptions().getBrokenClosureRequiresHandlingMode()==Options.BrokenClosureRequiresHandlingMode.OFF){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+21:if(provided!=null&&compiler.getOptions().getBrokenClosureRequiresHandlingMode()==Options.BrokenClosureRequiresHandlingMode.OFF){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:8428 patches
+Compile failed:5355 patches
+Compilation rate:0.3646179401993355
+NNPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/53.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!skipBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!skipBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:8435 patches
+Compile failed:5361 patches
+Compilation rate:0.36443390634262
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/54.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().brokenClosureRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().brokenClosureRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 58 patches...
+Tested:8494 patches
+Compile failed:5419 patches
+Compilation rate:0.36202024958794443
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/55.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null&&t.getModule().isFirstPass()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided==null&&t.getModule().isFirstPass()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 67 patches...
+Tested:8562 patches
+Compile failed:5486 patches
+Compilation rate:0.3592618547068442
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/56.java
+Current actions:
+INSERT:
+9:if(!hasOnlyBrokenCommonJsRequires&&(getMode()==JSModule.Mode.TYPECHECK||getMode()==JSModule.Mode.BROWSER)){
+Node newRequire=t.getScope().createSyntheticNode();
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+parent.replaceChild(n,newRequire);
+newRequire.setOriginalName("require("+ns+")");
+newRequire.putBooleanProp(Node.ANALYZED_DURING_GATHER_EXPLORATION,true);
+return ;
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 42 patches...
+Current actions:
+INSERT:
+9:if(!hasOnlyBrokenCommonJsRequires&&(getMode()==JSModule.Mode.TYPECHECK||getMode()==JSModule.Mode.BROWSER)){
+Node newRequire=t.getScope().createSyntheticNode();
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+parent.replaceChild(n,newRequire);
+newRequire.setOriginalName("require("+ns+")");
+newRequire.putBooleanProp(Node.ANALYZED_DURING_GATHER_EXPLORATION,true);
+return ;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:Node newRequire=t.getScope().createSyntheticNode();
+TO:
+8
+
+INSERT:
+13:newRequire.setOriginalName("require("+ns+")");
+TO:
+8
+
+INSERT:
+15:return ;
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8804 patches
+Compile failed:5728 patches
+Compilation rate:0.3493866424352567
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/57.java
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:8810 patches
+Compile failed:5728 patches
+Compilation rate:0.34982973893303065
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/58.java
+Current actions:
+INSERT:
+22:Node prev=left.getPrevious();
+TO:
+21
+
+Following are 0th generated patches:
+Validating 76 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:Node prev=left.getPrevious();
+TO:
+21
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+23:if(prev.isName()&&prev.getString().equals("goog")){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21
+
+INSERT:
+27:else{
+Node grandparent=parent.getParent();
+if(grandparent.isCall()&&grandparent.getFirstChild().matchesQualifiedName("goog.module.get")){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+else{
+compiler.report(t.makeError(parent,MODULE_GET_ERROR,ns));
+}
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9058 patches
+Compile failed:5968 patches
+Compilation rate:0.34113490836829324
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNNPPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/59.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!preserveRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!preserveRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 6 patches...
+Tested:9065 patches
+Compile failed:5974 patches
+Compilation rate:0.3409817981246553
+NNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/60.java
+Current actions:
+INSERT:
+10:parent.detachFromParent();
+TO:
+9
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13Preconditions.checkNotNull(providedModule);
+
+DELETE:
+Original line: 15if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+
+INSERT:
+15:Preconditions.checkNotNull(providedModule);
+TO:
+10
+
+INSERT:
+17:if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+parent.detachFromParent();
+compiler.reportCodeChange();
+return ;
+}
+TO:
+10
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+23:maybeAddToSymbolTable(left);
+TO:
+24
+
+INSERT:
+25:parent.detachFromParent();
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9338 patches
+Compile failed:6181 patches
+Compilation rate:0.33808095952023987
+NNNPPPPPPNPPPPPNPPPPPPPNPPPPPNPPPPPPNPPPPPPPNPPPPPPPNPPPPPPNPPPPPNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/61.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/61.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[JSModule providedModule=provided.explicitModule;, JSModule module=t.getModule();, if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}, maybeAddToSymbolTable(left);, maybeAddStringNodeToSymbolTable(arg);, ProvidedName provided=providedNames.get(ns);, {
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}, unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+5:if(verifyLastArgumentIsString(t,left,arg)){
+String ns=arg.getString();
+ProvidedName provided=providedNames.get(ns);
+if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+return ;
+}
+JSModule providedModule=provided.explicitModule;
+JSModule module=t.getModule();
+if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+maybeAddToSymbolTable(left);
+maybeAddStringNodeToSymbolTable(arg);
+if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 7ProvidedName provided=providedNames.get(ns);
+
+DELETE:
+Original line: 8if(provided==null||!provided.isExplicitlyProvided()){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+
+DELETE:
+Original line: 12JSModule providedModule=provided.explicitModule;
+
+DELETE:
+Original line: 14JSModule module=t.getModule();
+
+DELETE:
+Original line: 15if(moduleGraph!=null&&module!=providedModule&&!moduleGraph.dependsOn(module,providedModule)){
+compiler.report(t.makeError(n,XMODULE_REQUIRE_ERROR,ns,providedModule.getName(),module.getName()));
+}
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9345 patches
+Compile failed:6182 patches
+Compilation rate:0.3384697699304441
+PPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/62.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/62.java
+Current actions:
+INSERT:
+10:if(!hasChecksForBrokenRequires){
+return ;
+}
+TO:
+9
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+10:if(!hasChecksForBrokenRequires){
+return ;
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+11:return ;
+TO:
+9
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:9352 patches
+Compile failed:6187 patches
+Compilation rate:0.3384302822925577
+NPNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/63.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/63.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:if(strictRequires||!isBrokenRequire(n)){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 1th generated patches:
+Validating 142 patches...
+Tested:9495 patches
+Compile failed:6273 patches
+Compilation rate:0.33933649289099527
+PNNNNNNNNNNNNNNNNNNNPPPPPPPNPNNNNPPPPPPPPPNNNNNNNNPNNNNNNPNNPNNNNNNNNPPNNNNNNNNNNNNPPPPPPPNPPNPNNNNPPNNNNNNPNPNNNPNPPPPNNPPPNPNNNNPNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/64.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/64.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().skipRequiresCheck()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&compiler.getOptions().skipRequiresCheck()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 30 patches...
+Tested:9526 patches
+Compile failed:6303 patches
+Compilation rate:0.33833718244803695
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/65.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/65.java
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+21:if(provided!=null&&!(compiler.getOptions().moduleResolutionMode!=ModuleResolutionMode.ERROR&&!provided.isExplicitlyProvided())){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+21:if(provided!=null&&!(compiler.getOptions().moduleResolutionMode!=ModuleResolutionMode.ERROR&&!provided.isExplicitlyProvided())){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:9532 patches
+Compile failed:6307 patches
+Compilation rate:0.3383340327318506
+NNPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/66.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/66.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[parent.detachFromParent();]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+22:if(!providedModule.isDefaultModule()){
+parent.detachFromParent();
+}
+TO:
+21
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 1th generated patches:
+Validating 32 patches...
+Tested:9565 patches
+Compile failed:6323 patches
+Compilation rate:0.33894406691061163
+PNNNNNPPPPPPPPPNNNNNPNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/67.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/67.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&isBrokenRequire(arg)){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&isBrokenRequire(arg)){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 19 patches...
+Tested:9585 patches
+Compile failed:6331 patches
+Compilation rate:0.3394887845592071
+NNNNNNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/68.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/68.java
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+22:parent.replaceChild(n,NodeUtil.newQName(compiler,provided.alias));
+TO:
+21
+
+DELETE:
+Original line: 22parent.detachFromParent();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:parent.replaceChild(n,NodeUtil.newQName(compiler,provided.alias));
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9987 patches
+Compile failed:6442 patches
+Compilation rate:0.3549614498848503
+NNPNNNNNNNPPPPPPPPPNNNNPPPPPPNPPPPPPPPPPPPNPPPNNNNNPPPPPNPPPPNPPPPPPPPPNPPNPPNNNPNPPPPPPPPPPPPPPPPNPPPPPPNPNPNPPPPPPPPNPPPNNNPNNNPPNNNPNPPPNPPPPPNPPPNPPPPPPPPPPNNPNPNPPPPPPNPPPNPNPNPPPNPPNPPPPPPPPPPPPPPNNNNNNNPPPPPNPPPPNNNPPPPPPPPPNPPPPPPPPNPPNPPNNNPPPPPPPPPPNNPPPPPPNPPPPPPNNNPNPPNPPPPPPPPPPPPPPPNPPPPPPNNNPNPPPPPPPPPPPNNNNPPPNNNNPNNPNPPNPPPPPNPPPPNPPPPPPPPPNNNNPPPPPPPPNPPPNNPNPPPPPPNNPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/69.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/69.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+23:if(provided!=null&&allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+9:if(!allowBrokenRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+23:if(provided!=null&&allowBrokenRequires){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+9:if(!allowBrokenRequires){
+unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+}
+TO:
+8
+
+DELETE:
+Original line: 9unrecognizedRequires.add(new UnrecognizedRequire(n,ns,t.getSourceName()));
+
+Following are 3th generated patches:
+Validating 8 patches...
+Tested:10013 patches
+Compile failed:6466 patches
+Compilation rate:0.35423948866473587
+NPNNNPNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/70.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/70.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().getBrokenClosureRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().getBrokenClosureRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 58 patches...
+Tested:10072 patches
+Compile failed:6524 patches
+Compilation rate:0.352263701350278
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/71.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/71.java
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+19:boolean isFirstRun=!reportedBrokenRequires.isEmpty();
+TO:
+18
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20:if(!isFirstRun){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Following are 1th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+19:boolean isFirstRun=!reportedBrokenRequires.isEmpty();
+TO:
+18
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Following are 2th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+19:boolean isFirstRun=!reportedBrokenRequires.isEmpty();
+TO:
+18
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+Following are 3th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+19:boolean isFirstRun=!reportedBrokenRequires.isEmpty();
+TO:
+18
+
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20:if(!isFirstRun){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 4th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 19maybeAddToSymbolTable(left);
+
+DELETE:
+Original line: 20maybeAddStringNodeToSymbolTable(arg);
+
+Tested:10152 patches
+Compile failed:6569 patches
+Compilation rate:0.35293538219070136
+NNNNNNNNNNNPPPNNNNNNNNNPPPPPPPPNNNNNNNNPPPPPPPPNNNNNNNNPPPPPPPPNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/72.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/72.java
+Current actions:
+INSERT:
+22:if(providedModule==t.getModule()){
+Node moduleDef=moduleDefsByNode.get(providedModule);
+if(moduleDef!=null){
+moduleDef.addChildToBack(n.cloneTree());
+}
+}
+TO:
+21
+
+Following are 0th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+INSERT:
+22:if(providedModule==t.getModule()){
+Node moduleDef=moduleDefsByNode.get(providedModule);
+if(moduleDef!=null){
+moduleDef.addChildToBack(n.cloneTree());
+}
+}
+TO:
+21
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+28:else{
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 22parent.detachFromParent();
+
+DELETE:
+Original line: 23compiler.reportCodeChange();
+
+INSERT:
+24:if(moduleDef!=null){
+moduleDef.addChildToBack(n.cloneTree());
+}
+TO:
+21
+
+INSERT:
+28:else{
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:10360 patches
+Compile failed:6776 patches
+Compilation rate:0.34594594594594597
+NNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/73.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/73.java
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+21:if(provided!=null&&(compiler.getOptions().getClosurePassMode()==CompilerOptions.ClosurePassMode.NORMAL||compiler.getOptions().shouldPreserveClosureRequires())){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+INSERT:
+21:if(provided!=null&&(compiler.getOptions().getClosurePassMode()==CompilerOptions.ClosurePassMode.NORMAL||compiler.getOptions().shouldPreserveClosureRequires())){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+20
+
+Following are 3th generated patches:
+Validating 2 patches...
+Tested:10366 patches
+Compile failed:6780 patches
+Compilation rate:0.3459386455720625
+NNPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/74.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_113/74.java
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().isSkipBrokenRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+21:if(provided!=null){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+TO:
+21:if(provided!=null&&!compiler.getOptions().isSkipBrokenRequires()){
+parent.detachFromParent();
+compiler.reportCodeChange();
+}
+
+Following are 1th generated patches:
+Validating 58 patches...
+Tested:10425 patches
+Compile failed:6838 patches
+Compilation rate:0.3440767386091127
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Finish : closure-113 > patch : 2 | Start : Wed Apr 10 03:48:29 HKT 2024 | End : 2024.04.10 AD at 05:48:00 HKT

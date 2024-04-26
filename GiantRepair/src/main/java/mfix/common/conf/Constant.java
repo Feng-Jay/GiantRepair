@@ -62,6 +62,10 @@ public class Constant {
     /* configuration for skeleton instantiation*/
     public static Boolean CONTEXT_AWARE_OPTION = true;
 
+    public static boolean RANK_PATCHES = true;
+
+    public static boolean SELECT_MODIFY = true;
+
 
     public static String BUGGY_METHODS_DIR;
 
@@ -108,9 +112,15 @@ public class Constant {
             /* modifications apply strategy*/
             COMBINATION_OPTION = prop.getProperty("COMBINATION_OPTION", "false").equals("true");
 
-            /* skeleton instance*/
-            CONTEXT_AWARE_OPTION = prop.getProperty("CONTEXT_AWARE", "true").equals("true");
 
+            /* skeleton instance*/
+            CONTEXT_AWARE_OPTION = prop.getProperty("CONTEXT_AWARE", "false").equals("true");
+
+            RANK_PATCHES = prop.getProperty("RANK_PATCHES", "true").equals("true");
+
+            SELECT_MODIFY = prop.getProperty("SELECT_MODIFY", "true").equals("true");
+
+            /* buggy and patched codes*/
             BUGGY_METHODS_DIR = prop.getProperty("Buggy_Methods", "");
 
             PATCHES_DIR = prop.getProperty("Patch_Methods", "");

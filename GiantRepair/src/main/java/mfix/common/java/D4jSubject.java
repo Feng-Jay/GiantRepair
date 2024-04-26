@@ -17,6 +17,7 @@ public class D4jSubject extends Subject {
     private List<String> _failedTestCases;
 
 
+
     public D4jSubject(String base, String name, int id) {
         this(base, name, id, false);
     }

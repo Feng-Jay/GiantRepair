@@ -1,0 +1,1586 @@
+Repair : closure_112
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/1.java
+Current actions:
+INSERT:
+12:if(n.isTaggedTemplateLit()){
+Node args=callTarget.getNext();
+if(args!=null){
+Node arg=args.getFirstChild();
+while(arg!=null){
+if(arg.getJSType()!=null&&arg.getJSType().isFunctionType()&&arg.getJSType().toMaybeFunctionType().hasTemplateTypes()){
+arg.setJSType(arg.getJSType().visit(replacer));
+}
+arg=arg.getNext();
+}
+}
+}
+TO:
+11
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+12:if(n.isTaggedTemplateLit()){
+Node args=callTarget.getNext();
+if(args!=null){
+Node arg=args.getFirstChild();
+while(arg!=null){
+if(arg.getJSType()!=null&&arg.getJSType().isFunctionType()&&arg.getJSType().toMaybeFunctionType().hasTemplateTypes()){
+arg.setJSType(arg.getJSType().visit(replacer));
+}
+arg=arg.getNext();
+}
+}
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(args!=null){
+Node arg=args.getFirstChild();
+while(arg!=null){
+if(arg.getJSType()!=null&&arg.getJSType().isFunctionType()&&arg.getJSType().toMaybeFunctionType().hasTemplateTypes()){
+arg.setJSType(arg.getJSType().visit(replacer));
+}
+arg=arg.getNext();
+}
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:Node args=callTarget.getNext();
+TO:
+11
+
+INSERT:
+15:Node arg=args.getFirstChild();
+TO:
+11
+
+INSERT:
+16:while(arg!=null){
+if(arg.getJSType()!=null&&arg.getJSType().isFunctionType()&&arg.getJSType().toMaybeFunctionType().hasTemplateTypes()){
+arg.setJSType(arg.getJSType().visit(replacer));
+}
+arg=arg.getNext();
+}
+TO:
+11
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:628 patches
+Compile failed:624 patches
+Compilation rate:0.006369426751592357
+NNNNNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/2.java
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()){
+return false;
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()){
+return false;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:return false;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:832 patches
+Compile failed:807 patches
+Compilation rate:0.030048076923076924
+NPNNNNNPPPPNPNNNNNNNNNNNNNNNNNNNNPNPNNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/3.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[Node callTarget=n.getFirstChild();, Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);, TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);, FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();, callTarget.setJSType(replacementFnType);, n.setJSType(replacementFnType.getReturnType());, return replacer.madeChanges;]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:private boolean inferTemplatedTypesForCall(Node n,FunctionType fnType){
+ final ImmutableList<TemplateType> keys=fnType.getTemplateTypeMap().getTemplateKeys();
+if(keys.isEmpty()){
+return false;
+}
+Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+Node callTarget=n.getFirstChild();
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+return replacer.madeChanges;
+}
+TO:
+1
+
+DELETE:
+Original line: 7Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+DELETE:
+Original line: 14return replacer.madeChanges;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+2:private boolean inferTemplatedTypesForCall(Node n,FunctionType fnType){
+ final ImmutableList<TemplateType> keys=fnType.getTemplateTypeMap().getTemplateKeys();
+if(keys.isEmpty()){
+return false;
+}
+Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+Node callTarget=n.getFirstChild();
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+return replacer.madeChanges;
+}
+TO:
+1
+
+DELETE:
+Original line: 7Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+DELETE:
+Original line: 14return replacer.madeChanges;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:837 patches
+Compile failed:809 patches
+Compilation rate:0.03345280764635603
+PPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/4.java
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+TO:
+7
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> inferred=inferTemplateTypesFromParameters(fnType,n);
+TO:
+7
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:839 patches
+Compile failed:811 patches
+Compilation rate:0.033373063170441
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/5.java
+Current actions:
+INSERT:
+8:if(inferred==null){
+return false;
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(inferred==null){
+return false;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 136 patches...
+Current actions:
+INSERT:
+9:return false;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:979 patches
+Compile failed:898 patches
+Compilation rate:0.08273748723186926
+NPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNNNNNPNNNNNNNNPNNNNNNNNNNPNNNNNPNNNNNNNPNNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNPPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/6.java
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+INSERT:
+10:for(TemplateType key : keys){
+JSType inferredType=inferred.get(key);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+replacementNode=inferredType.transformTemplateType(key,new TypeTransformer(){
+  @Override public JSType transformTemplateType(  TemplateType t,  JSType ttype){
+    return inferred.get(t);
+  }
+  @Override public JSType defaultAction(  JSType type){
+    return type;
+  }
+}
+);
+}
+TO:
+9
+
+DELETE:
+Original line: 14return replacer.madeChanges;
+
+UPDATE
+FROM:
+12:callTarget.setJSType(replacementFnType);
+TO:
+25:callTarget.setJSType(replacementNode.getJSType());
+
+UPDATE
+FROM:
+13:n.setJSType(replacementFnType.getReturnType());
+TO:
+26:n.setJSType(replacementNode.getJSType());
+
+INSERT:
+27:return true;
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1576 patches
+Compile failed:1485 patches
+Compilation rate:0.057741116751269035
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNPPNNNNNNNNNNNNNPNNNNNNNNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/7.java
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> templateTypeMap=fnType.getTemplateTypeMap();
+TO:
+7
+
+Following are 0th generated patches:
+Validating 169 patches...
+Current actions:
+INSERT:
+13:if(type==null){
+type=registry.getNativeType(UNKNOWN_TYPE);
+replacer.madeChanges=true;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:type=registry.getNativeType(UNKNOWN_TYPE);
+TO:
+8
+
+INSERT:
+15:replacer.madeChanges=true;
+TO:
+8
+
+INSERT:
+17:templateTypeMap=templateTypeMap.substituteTemplateType(key,type);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> templateTypeMap=fnType.getTemplateTypeMap();
+TO:
+7
+
+INSERT:
+12:JSType type=templateTypeMap.getReplacement(key);
+TO:
+8
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+INSERT:
+15:replacer.madeChanges=true;
+TO:
+8
+
+INSERT:
+17:templateTypeMap=templateTypeMap.substituteTemplateType(key,type);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2339 patches
+Compile failed:2238 patches
+Compilation rate:0.043180846515604956
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/8.java
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+Following are 0th generated patches:
+Validating 175 patches...
+Current actions:
+INSERT:
+8:JSType replacement=fnType.replaceTemplateTypes(inferred);
+TO:
+7
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+INSERT:
+9:n.setJSType(replacement);
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+INSERT:
+10:return fnType!=replacement;
+TO:
+7
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+DELETE:
+Original line: 14return replacer.madeChanges;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:JSType replacement=fnType.replaceTemplateTypes(inferred);
+TO:
+7
+
+INSERT:
+9:n.setJSType(replacement);
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+INSERT:
+10:return fnType!=replacement;
+TO:
+7
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+DELETE:
+Original line: 14return replacer.madeChanges;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2911 patches
+Compile failed:2784 patches
+Compilation rate:0.0436276193747853
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNPNNNNNNNNNNNNNPNNPNNNNNNNNNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNPPNNNNNNNNNNNNPPNNNNNNNNNNNNPNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/9.java
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+madeChanges=true;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+INSERT:
+9:for(TemplateType key : keys){
+TemplateType inferredType=inferred.get(key);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+madeChanges=true;
+}
+n.getFirstChild().setJSType(fnType.replaceTemplateType(key,inferredType));
+}
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+UPDATE
+FROM:
+13:n.setJSType(replacementFnType.getReturnType());
+TO:
+17:n.setJSType(fnType.getReturnType());
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+18:return madeChanges;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:for(TemplateType key : keys){
+TemplateType inferredType=inferred.get(key);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+madeChanges=true;
+}
+n.getFirstChild().setJSType(fnType.replaceTemplateType(key,inferredType));
+}
+TO:
+7
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+18:return madeChanges;
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+9:for(TemplateType key : keys){
+TemplateType inferredType=inferred.get(key);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+madeChanges=true;
+}
+n.getFirstChild().setJSType(fnType.replaceTemplateType(key,inferredType));
+}
+TO:
+7
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+INSERT:
+10:TemplateType inferredType=inferred.get(key);
+TO:
+7
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+Tested:3507 patches
+Compile failed:3366 patches
+Compilation rate:0.04020530367835757
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNPNNNNNPNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/10.java
+Current actions:
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+12:n.setJSType(replacementFnType.isTypeVariable()?replacementFnType:replacementFnType.getReturnType());
+TO:
+11
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:n.setJSType(replacementFnType.isTypeVariable()?replacementFnType:replacementFnType.getReturnType());
+TO:
+11
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3914 patches
+Compile failed:3484 patches
+Compilation rate:0.10986203372508942
+NNNNPPPNNNPPPPPPPNPPPPPPPNPPPPPPPPPPPNPPPPNPNPPPPPPPPPNNPPPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPPNPNPNPNPNNPNNPPPPPPNPPNNNNNNNNNNNNNPNPNNNNNNNNNNNNPPPPNPNPPNPNPPPPNPPPPPPPPPPNPPNNPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPNNNPPPPNPPPPPPPPPNPPPPPPPPNPPPPPPPNPPNPPPPPPNPPPPNPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPNNPPNNPNNNNPPPPPPPPNPNNPPNNPNNNNNNNNNNNNNNNNNNNNNNPPPPNPNNPNPPPPPNPPPPPPPPPPNPPPNNPPPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/11.java
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()&&fnType.getReturnType().isTemplateType()&&n.getLastChild().isObjectLit()){
+inferTemplateTypesFromObjectLiteral((TemplateType)fnType.getReturnType(),n.getLastChild(),fnType.getTypeOfThis(),registry,inferred);
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()&&fnType.getReturnType().isTemplateType()&&n.getLastChild().isObjectLit()){
+inferTemplateTypesFromObjectLiteral((TemplateType)fnType.getReturnType(),n.getLastChild(),fnType.getTypeOfThis(),registry,inferred);
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:inferTemplateTypesFromObjectLiteral((TemplateType)fnType.getReturnType(),n.getLastChild(),fnType.getTypeOfThis(),registry,inferred);
+TO:
+7
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4117 patches
+Compile failed:3687 patches
+Compilation rate:0.10444498421180472
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/12.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();, Preconditions.checkNotNull(replacementFnType);, callTarget.setJSType(replacementFnType);, n.setJSType(replacementFnType.getReturnType());]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(replacer.madeChanges){
+FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+Preconditions.checkNotNull(replacementFnType);
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+}
+TO:
+9
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+Following are 1th generated patches:
+Validating 70 patches...
+Tested:4188 patches
+Compile failed:3755 patches
+Compilation rate:0.10339063992359121
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/13.java
+Current actions:
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+11:if(replacementFnType==null){
+return false;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 136 patches...
+Current actions:
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+INSERT:
+14:if(replacer.madeChanges){
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+12:return false;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(replacementFnType==null){
+return false;
+}
+TO:
+10
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+INSERT:
+14:if(replacer.madeChanges){
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+}
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+INSERT:
+12:return false;
+TO:
+10
+
+Tested:4600 patches
+Compile failed:4032 patches
+Compilation rate:0.12347826086956522
+NNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNPNNNNPNNNNNNNNPNNNNNNNPNPNNNNPPPPPPNPNNNNNPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/14.java
+Current actions:
+INSERT:
+8:if(NodeUtil.isFunctionDeclaration(n)){
+inferTemplateTypesFromDecl(n,inferred);
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(NodeUtil.isFunctionDeclaration(n)){
+inferTemplateTypesFromDecl(n,inferred);
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:inferTemplateTypesFromDecl(n,inferred);
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5002 patches
+Compile failed:4367 patches
+Compilation rate:0.12694922031187525
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNPNNNPPNNNNPPNNNNNNNNNNNPNNPNNNPNNPNNNNPNNNNNNNNNPNNNNPPNNNPNNPNNNNNPPNNNNPNPNNNNNNNNPNNNPNNNNNPNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNPNPNNNNNPNNNNPNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNNNPNNPNNNNPNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNPNNPNNNPNNNPNNNNNPNNNNNPNPNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/15.java
+Current actions:
+INSERT:
+8:if(inferred.size()<keys.size()){
+Node callTarget=n.getFirstChild();
+if(!callTarget.isGetProp()){
+return false;
+}
+Node objTarget=callTarget.getFirstChild();
+if(!objTarget.isThis()){
+return false;
+}
+return inferTemplatedTypesForProperty(callTarget.getString(),inferred,n);
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(inferred.size()<keys.size()){
+Node callTarget=n.getFirstChild();
+if(!callTarget.isGetProp()){
+return false;
+}
+Node objTarget=callTarget.getFirstChild();
+if(!objTarget.isThis()){
+return false;
+}
+return inferTemplatedTypesForProperty(callTarget.getString(),inferred,n);
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:if(!callTarget.isGetProp()){
+return false;
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(inferred.size()<keys.size()){
+Node callTarget=n.getFirstChild();
+if(!callTarget.isGetProp()){
+return false;
+}
+Node objTarget=callTarget.getFirstChild();
+if(!objTarget.isThis()){
+return false;
+}
+return inferTemplatedTypesForProperty(callTarget.getString(),inferred,n);
+}
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:Node callTarget=n.getFirstChild();
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+INSERT:
+10:if(!callTarget.isGetProp()){
+return false;
+}
+TO:
+7
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+INSERT:
+14:if(!objTarget.isThis()){
+return false;
+}
+TO:
+7
+
+INSERT:
+17:return inferTemplatedTypesForProperty(callTarget.getString(),inferred,n);
+TO:
+7
+
+Tested:5720 patches
+Compile failed:5074 patches
+Compilation rate:0.11293706293706293
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNPNNNNNNNNNNNNNPNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/16.java
+Tested:5720 patches
+Compile failed:5074 patches
+Compilation rate:0.11293706293706293
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/17.java
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> inferredTypes=inferTemplateTypesFromCall(fnType,n);
+TO:
+7
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+TO:
+9:TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferredTypes);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Map<TemplateType,JSType> inferredTypes=inferTemplateTypesFromCall(fnType,n);
+TO:
+7
+
+UPDATE
+FROM:
+8:TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+TO:
+9:TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferredTypes);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6122 patches
+Compile failed:5476 patches
+Compilation rate:0.10552107154524665
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/18.java
+Current actions:
+UPDATE
+FROM:
+13:n.setJSType(replacementFnType.getReturnType());
+TO:
+13:n.setJSType(replacementFnType.getReturnType().visit(replacer));
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+13:n.setJSType(replacementFnType.getReturnType());
+TO:
+13:n.setJSType(replacementFnType.getReturnType().visit(replacer));
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6323 patches
+Compile failed:5532 patches
+Compilation rate:0.12509884548473826
+PNNPPPPPPPPNPPPPPPPNPPPPPPPPPPNPPPPPNPPNPPPPPPPNPNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPPNNPNNPNPNPNNPPPPPPPNNPNNNNNNNNNNNPPNNNNNNNNNNNNNNPPPPNPPPNNNPPPPPNPPPPPPPPPPPNPNPNPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/19.java
+Current actions:
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:if(inferredType==null){
+inferredType=templateType.getReferencedType();
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+INSERT:
+9:for(TemplateType templateType : keys){
+JSType inferredType=inferred.get(templateType);
+if(inferredType==null){
+inferredType=templateType.getReferencedType();
+}
+madeChanges=true;
+fnType=fnType.withTemplateType(templateType,inferredType);
+}
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+18:return madeChanges;
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+INSERT:
+14:madeChanges=true;
+TO:
+7
+
+INSERT:
+15:fnType=fnType.withTemplateType(templateType,inferredType);
+TO:
+7
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+18:return madeChanges;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+DELETE:
+Original line: 8TemplateTypeReplacer replacer=new TemplateTypeReplacer(registry,inferred);
+
+INSERT:
+9:for(TemplateType templateType : keys){
+JSType inferredType=inferred.get(templateType);
+if(inferredType==null){
+inferredType=templateType.getReferencedType();
+}
+madeChanges=true;
+fnType=fnType.withTemplateType(templateType,inferredType);
+}
+TO:
+7
+
+DELETE:
+Original line: 9Node callTarget=n.getFirstChild();
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+UPDATE
+FROM:
+13:n.setJSType(replacementFnType.getReturnType());
+TO:
+17:n.setJSType(fnType.getReturnType());
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:7116 patches
+Compile failed:6311 patches
+Compilation rate:0.11312535132096684
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/20.java
+Current actions:
+INSERT:
+12:if(!inferred.isEmpty()){
+Node firstArg=callTarget.getNext();
+boolean madeChanges=false;
+for(TemplateType templateType : keys){
+JSType inferredType=inferred.get(templateType);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+Node paramNode=firstArg;
+while(paramNode!=null){
+if(paramNode.isTemplateType()&&paramNode.getString().equals(templateType.getKey())){
+paramNode.setJSType(inferredType);
+madeChanges=true;
+break;
+}
+paramNode=paramNode.getNext();
+}
+}
+if(madeChanges){
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+}
+}
+TO:
+11
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(!inferred.isEmpty()){
+Node firstArg=callTarget.getNext();
+boolean madeChanges=false;
+for(TemplateType templateType : keys){
+JSType inferredType=inferred.get(templateType);
+if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+Node paramNode=firstArg;
+while(paramNode!=null){
+if(paramNode.isTemplateType()&&paramNode.getString().equals(templateType.getKey())){
+paramNode.setJSType(inferredType);
+madeChanges=true;
+break;
+}
+paramNode=paramNode.getNext();
+}
+}
+if(madeChanges){
+callTarget.setJSType(replacementFnType);
+n.setJSType(replacementFnType.getReturnType());
+}
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+17:if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:if(paramNode.isTemplateType()&&paramNode.getString().equals(templateType.getKey())){
+paramNode.setJSType(inferredType);
+madeChanges=true;
+break;
+}
+TO:
+11
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:if(inferredType==null){
+inferredType=registry.getNativeType(UNKNOWN_TYPE);
+}
+TO:
+11
+
+INSERT:
+24:madeChanges=true;
+TO:
+11
+
+INSERT:
+27:paramNode=paramNode.getNext();
+TO:
+11
+
+Tested:7823 patches
+Compile failed:7009 patches
+Compilation rate:0.10405215390515148
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/21.java
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()||fnType.isExtern()){
+return false;
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(inferred.isEmpty()||fnType.isExtern()){
+return false;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:return false;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:8027 patches
+Compile failed:7201 patches
+Compilation rate:0.10290270337610564
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/22.java
+Current actions:
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+10:n.setJSType(fnType.visit(replacer));
+TO:
+9
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:n.setJSType(fnType.visit(replacer));
+TO:
+9
+
+DELETE:
+Original line: 10FunctionType replacementFnType=fnType.visit(replacer).toMaybeFunctionType();
+
+DELETE:
+Original line: 11Preconditions.checkNotNull(replacementFnType);
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8452 patches
+Compile failed:7468 patches
+Compilation rate:0.11642214860388074
+NNNNNNNPPPPPNNNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNPPPPPPPNPPPPPPPPPPPPNPPPPPNPPNPPPPPPNPPPNPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPNPPNPNNNNNPPPPPPPNPPNNPNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPPNNNPNPPPPPNPPPPPPPPPPNPPPNNPPPPPPNPPPPPPPPPNPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/23.java
+Current actions:
+INSERT:
+8:Node lhs=NodeUtil.getBestLValue(n);
+TO:
+7
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+INSERT:
+13:if(lhs!=null){
+callTarget.setJSType(replacementFnType);
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+8:Node lhs=NodeUtil.getBestLValue(n);
+TO:
+7
+
+UPDATE
+FROM:
+9:Node callTarget=n.getFirstChild();
+TO:
+10:Node callTarget=lhs==null?n:lhs;
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+INSERT:
+13:if(lhs!=null){
+callTarget.setJSType(replacementFnType);
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 175 patches...
+Current actions:
+INSERT:
+8:Node lhs=NodeUtil.getBestLValue(n);
+TO:
+7
+
+UPDATE
+FROM:
+9:Node callTarget=n.getFirstChild();
+TO:
+10:Node callTarget=lhs==null?n:lhs;
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+INSERT:
+16:else{
+n.setJSType(replacementFnType.getReturnType());
+}
+TO:
+11
+
+Following are 3th generated patches:
+Validating 106 patches...
+Current actions:
+INSERT:
+8:Node lhs=NodeUtil.getBestLValue(n);
+TO:
+7
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:Node lhs=NodeUtil.getBestLValue(n);
+TO:
+7
+
+UPDATE
+FROM:
+9:Node callTarget=n.getFirstChild();
+TO:
+10:Node callTarget=lhs==null?n:lhs;
+
+DELETE:
+Original line: 12callTarget.setJSType(replacementFnType);
+
+INSERT:
+13:if(lhs!=null){
+callTarget.setJSType(replacementFnType);
+}
+TO:
+11
+
+DELETE:
+Original line: 13n.setJSType(replacementFnType.getReturnType());
+
+INSERT:
+16:else{
+n.setJSType(replacementFnType.getReturnType());
+}
+TO:
+11
+
+Tested:8805 patches
+Compile failed:7768 patches
+Compilation rate:0.1177739920499716
+NPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPNNNNNNNNNPNPPPNNPPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPNNPNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNPNNNNNNNNNNNNPPPNNPNNNNNPPPPPPPPNNNPNNNNNNPNNNPNNNNNNNNNPPNNNNNPNNNNNNNPNNPPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_112/24.java
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+Following are 0th generated patches:
+Validating 105 patches...
+Current actions:
+INSERT:
+11:if(inferredType!=null){
+key.replaceWith(inferredType);
+madeChanges=true;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:if(!madeChanges){
+for(TemplateType key : keys){
+key.replaceWith(registry.getNativeObjectType(UNKNOWN_TYPE));
+}
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:boolean madeChanges=false;
+TO:
+7
+
+INSERT:
+9:for(TemplateType key : keys){
+JSType inferredType=inferred.get(key);
+if(inferredType!=null){
+key.replaceWith(inferredType);
+madeChanges=true;
+}
+}
+TO:
+7
+
+INSERT:
+17:for(TemplateType key : keys){
+key.replaceWith(registry.getNativeObjectType(UNKNOWN_TYPE));
+}
+TO:
+7
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+27:return madeChanges;
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+9:for(TemplateType key : keys){
+JSType inferredType=inferred.get(key);
+if(inferredType!=null){
+key.replaceWith(inferredType);
+madeChanges=true;
+}
+}
+TO:
+7
+
+INSERT:
+16:if(!madeChanges){
+for(TemplateType key : keys){
+key.replaceWith(registry.getNativeObjectType(UNKNOWN_TYPE));
+}
+}
+TO:
+7
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+9:for(TemplateType key : keys){
+JSType inferredType=inferred.get(key);
+if(inferredType!=null){
+key.replaceWith(inferredType);
+madeChanges=true;
+}
+}
+TO:
+7
+
+INSERT:
+16:if(!madeChanges){
+for(TemplateType key : keys){
+key.replaceWith(registry.getNativeObjectType(UNKNOWN_TYPE));
+}
+}
+TO:
+7
+
+UPDATE
+FROM:
+14:return replacer.madeChanges;
+TO:
+27:return madeChanges;
+
+Tested:9116 patches
+Compile failed:8075 patches
+Compilation rate:0.11419482229047828
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-112 > patch : 0 | Start : Mon Apr 08 11:39:58 HKT 2024 | End : 2024.04.08 AD at 13:05:34 HKT

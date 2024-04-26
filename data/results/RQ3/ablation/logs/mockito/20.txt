@@ -1,0 +1,475 @@
+Repair : mockito_20
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/1.java
+Current actions:
+UPDATE
+FROM:
+9:mockInstance=classInstantiator.instantiate(mockedProxyType);
+TO:
+9:mockInstance=classInstantiator.newInstance(mockedProxyType);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:mockInstance=classInstantiator.instantiate(mockedProxyType);
+TO:
+9:mockInstance=classInstantiator.newInstance(mockedProxyType);
+
+Following are 1th generated patches:
+Validating 13 patches...
+Tested:14 patches
+Compile failed:14 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/2.java
+Tested:14 patches
+Compile failed:14 patches
+Compilation rate:0.0
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/3.java
+Current actions:
+Wrap:
+Block
+On:
+[catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());, T mockInstance=null;, try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, {
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}, MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;, mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));, return ensureMockIsAssignableToMockedType(settings,mockInstance);, throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 15throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:mockInstance=classInstantiator.instantiate(mockedProxyType);
+TO:
+9:mockInstance=classInstantiator.newInstance(mockedProxyType);
+
+DELETE:
+Original line: 14catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}
+
+Following are 2th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+2:{
+if(settings.getSerializableMode()==SerializableMode.ACROSS_CLASSLOADERS){
+throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+}
+Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+T mockInstance=null;
+try{
+mockInstance=classInstantiator.newInstance(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 6Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+
+DELETE:
+Original line: 7T mockInstance=null;
+
+DELETE:
+Original line: 8try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:mockInstance=classInstantiator.instantiate(mockedProxyType);
+TO:
+9:mockInstance=classInstantiator.newInstance(mockedProxyType);
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+2:{
+if(settings.getSerializableMode()==SerializableMode.ACROSS_CLASSLOADERS){
+throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+}
+Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+T mockInstance=null;
+try{
+mockInstance=classInstantiator.newInstance(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 6Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+
+DELETE:
+Original line: 7T mockInstance=null;
+
+DELETE:
+Original line: 8try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+
+UPDATE
+FROM:
+9:mockInstance=classInstantiator.instantiate(mockedProxyType);
+TO:
+9:mockInstance=classInstantiator.newInstance(mockedProxyType);
+
+Tested:48 patches
+Compile failed:48 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/4.java
+Current actions:
+Wrap:
+Block
+On:
+[catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");, Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());, try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, {
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}, MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;, mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));, throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);]
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+DELETE:
+Original line: 7T mockInstance=null;
+
+DELETE:
+Original line: 12return ensureMockIsAssignableToMockedType(settings,mockInstance);
+
+DELETE:
+Original line: 15throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:{
+if(settings.getSerializableMode()==SerializableMode.ACROSS_CLASSLOADERS){
+throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+}
+Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+try{
+T mockInstance=mockInstanceFactory.createInstance(mockedProxyType,settings);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return mockInstance;
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 4throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+
+DELETE:
+Original line: 6Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+
+DELETE:
+Original line: 8try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+
+INSERT:
+8:T mockInstance=mockInstanceFactory.createInstance(mockedProxyType,settings);
+TO:
+8
+
+INSERT:
+11:return mockInstance;
+TO:
+11
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 9mockInstance=classInstantiator.instantiate(mockedProxyType);
+
+DELETE:
+Original line: 12return ensureMockIsAssignableToMockedType(settings,mockInstance);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 9mockInstance=classInstantiator.instantiate(mockedProxyType);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 9mockInstance=classInstantiator.instantiate(mockedProxyType);
+
+DELETE:
+Original line: 15throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+
+Tested:122 patches
+Compile failed:122 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/5.java
+Current actions:
+Wrap:
+Block
+On:
+[catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");, Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());, try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}, {
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}, throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);]
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+2:{
+if(settings.getSerializableMode()==SerializableMode.ACROSS_CLASSLOADERS){
+throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+}
+Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+try{
+return classInstantiator.newInstance(mockedProxyType);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 4throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+
+DELETE:
+Original line: 6Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+
+DELETE:
+Original line: 7T mockInstance=null;
+
+DELETE:
+Original line: 8try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+
+INSERT:
+8:return classInstantiator.newInstance(mockedProxyType);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+2:{
+if(settings.getSerializableMode()==SerializableMode.ACROSS_CLASSLOADERS){
+throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+}
+Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+try{
+return classInstantiator.newInstance(mockedProxyType);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 4throw new MockitoException("Serialization across classloaders not yet supported with ByteBuddyMockMaker");
+
+DELETE:
+Original line: 6Class<? extends T> mockedProxyType=cachingMockBytecodeGenerator.get(settings.getTypeToMock(),settings.getExtraInterfaces());
+
+DELETE:
+Original line: 7T mockInstance=null;
+
+DELETE:
+Original line: 8try{
+mockInstance=classInstantiator.instantiate(mockedProxyType);
+MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+return ensureMockIsAssignableToMockedType(settings,mockInstance);
+}catch(ClassCastException cce){
+throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+}catch(org.mockito.internal.creation.instance.InstantiationException e){
+throw new MockitoException("Unable to create mock instance of type '"+mockedProxyType.getSuperclass().getSimpleName()+"'",e);
+}
+
+INSERT:
+8:return classInstantiator.newInstance(mockedProxyType);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+DELETE:
+Original line: 7T mockInstance=null;
+
+INSERT:
+8:return classInstantiator.newInstance(mockedProxyType);
+TO:
+8
+
+DELETE:
+Original line: 9mockInstance=classInstantiator.instantiate(mockedProxyType);
+
+DELETE:
+Original line: 10MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+
+DELETE:
+Original line: 11mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+
+DELETE:
+Original line: 15throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+
+Following are 3th generated patches:
+Validating 16 patches...
+Current actions:
+DELETE:
+Original line: 7T mockInstance=null;
+
+INSERT:
+8:return classInstantiator.newInstance(mockedProxyType);
+TO:
+8
+
+DELETE:
+Original line: 9mockInstance=classInstantiator.instantiate(mockedProxyType);
+
+DELETE:
+Original line: 10MockMethodInterceptor.MockAccess mockAccess=(MockMethodInterceptor.MockAccess)mockInstance;
+
+DELETE:
+Original line: 11mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+
+DELETE:
+Original line: 12return ensureMockIsAssignableToMockedType(settings,mockInstance);
+
+DELETE:
+Original line: 15throw new MockitoException(join("ClassCastException occurred while creating the mockito mock :","  class to mock : "+describeClass(mockedProxyType),"  created class : "+describeClass(settings.getTypeToMock()),"  proxy instance class : "+describeClass(mockInstance),"  instance creation by : "+classInstantiator.getClass().getSimpleName(),"","You might experience classloading issues, please ask the mockito mailing-list.",""),cce);
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 11mockAccess.setMockitoInterceptor(new MockMethodInterceptor(asInternalMockHandler(handler),settings));
+
+Tested:252 patches
+Compile failed:252 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/6.java
+Tested:252 patches
+Compile failed:252 patches
+Compilation rate:0.0
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/7.java
+Tested:252 patches
+Compile failed:252 patches
+Compilation rate:0.0
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/mockito_20/8.java

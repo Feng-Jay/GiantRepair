@@ -1,0 +1,561 @@
+Repair : closure_14
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/1.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/2.java
+Current actions:
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5return null;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/3.java
+Current actions:
+INSERT:
+6:switch (node.getType()){
+case Token.IF :
+return node.getFirstChild();
+case Token.FOR :
+if(NodeUtil.isForIn(node)){
+return node;
+}
+case Token.WHILE :
+case Token.DO :
+return node.getFirstChild();
+case Token.TRY :
+Node finallyNode=node.getLastChild();
+Node child=node.getFirstChild();
+if(child==node){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+else{
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+case Token.RETURN :
+if(NodeUtil.isReturningFunction(node)){
+return NodeUtil.getSymbolicReturn(node);
+}
+case Token.BREAK :
+case Token.CONTINUE :
+if(node.getType()==Token.BREAK&&cfa!=null&&node.getParent()!=cfa.root){
+cfa.createEdge(fromNode,Branch.UNCOND,cfa.labelMap.get(node.getString()));
+}
+return computeFollowNode(fromNode,node.getParent(),cfa);
+default :
+Node nextSibling=node.getNext();
+while(nextSibling!=null&&nextSibling.isFunction()){
+nextSibling=nextSibling.getNext();
+}
+if(nextSibling!=null){
+return computeFallThrough(nextSibling);
+}
+}
+TO:
+6
+
+DELETE:
+Original line: 16if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+
+UPDATE
+FROM:
+38:if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+22:if(child==node){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(finallyNode);
+}
+else{
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+
+UPDATE
+FROM:
+40:return computeFallThrough(parent.getLastChild());
+TO:
+24:return computeFallThrough(finallyNode);
+
+DELETE:
+Original line: 27case Token.FOR :
+
+UPDATE
+FROM:
+43:return computeFollowNode(fromNode,parent,cfa);
+TO:
+27:return computeFollowNode(fromNode,child,cfa);
+
+DELETE:
+Original line: 31else{
+return parent.getFirstChild().getNext().getNext();
+}
+
+DELETE:
+Original line: 36return parent;
+
+UPDATE
+FROM:
+54:else{
+if(parent.getLastChild()==node){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(parent)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+38:else{
+if(node.getLastChild()==node){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(node)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,child,cfa);
+}
+}
+
+UPDATE
+FROM:
+60:return computeFollowNode(fromNode,parent,cfa);
+TO:
+44:return computeFollowNode(fromNode,child,cfa);
+
+UPDATE
+FROM:
+24:return computeFollowNode(fromNode,parent,cfa);
+TO:
+51:return computeFollowNode(fromNode,node.getParent(),cfa);
+
+UPDATE
+FROM:
+9:return computeFollowNode(fromNode,parent,cfa);
+TO:
+58:return computeFollowNode(fromNode,node.getParent(),cfa);
+
+DELETE:
+Original line: 71return computeFollowNode(fromNode,parent,cfa);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:201 patches
+Compile failed:197 patches
+Compilation rate:0.01990049751243781
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/4.java
+Current actions:
+UPDATE
+FROM:
+7:switch (parent.getType()){
+case Token.IF :
+return computeFollowNode(fromNode,parent,cfa);
+case Token.CASE :
+case Token.DEFAULT_CASE :
+if(parent.getNext()!=null){
+if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+else{
+if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+}
+}
+break;
+case Token.FOR :
+if(NodeUtil.isForIn(parent)){
+return parent;
+}
+case Token.WHILE :
+case Token.DO :
+return parent;
+case Token.TRY :
+if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+}
+TO:
+3:switch (node.getType()){
+case Token.IF :
+return computeFollowNode(fromNode,node,cfa);
+case Token.CASE :
+case Token.DEFAULT_CASE :
+if(node.getNext()!=null){
+if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+else{
+if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+}
+}
+break;
+case Token.FOR :
+if(NodeUtil.isForIn(node)){
+return node;
+}
+case Token.WHILE :
+case Token.DO :
+return node;
+case Token.TRY :
+if(node.getFirstChild()==fromNode){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(node.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,node,cfa);
+}
+}
+}
+
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+DELETE:
+Original line: 4if(parent==null||parent.isFunction()||(cfa!=null&&node==cfa.root)){
+return null;
+}
+
+UPDATE
+FROM:
+9:return computeFollowNode(fromNode,parent,cfa);
+TO:
+5:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+12:if(parent.getNext()!=null){
+if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+else{
+if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+}
+}
+TO:
+8:if(node.getNext()!=null){
+if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+else{
+if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+}
+}
+
+UPDATE
+FROM:
+13:if(parent.getNext().isCase()){
+return parent.getNext().getFirstChild().getNext();
+}
+TO:
+9:if(node.getNext().isCase()){
+return node.getNext().getFirstChild().getNext();
+}
+
+UPDATE
+FROM:
+14:return parent.getNext().getFirstChild().getNext();
+TO:
+10:return node.getNext().getFirstChild().getNext();
+
+UPDATE
+FROM:
+16:if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+TO:
+12:if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+
+UPDATE
+FROM:
+17:return parent.getNext().getFirstChild();
+TO:
+13:return node.getNext().getFirstChild();
+
+UPDATE
+FROM:
+24:return computeFollowNode(fromNode,parent,cfa);
+TO:
+20:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+24:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+UPDATE
+FROM:
+29:return parent;
+TO:
+25:return node;
+
+UPDATE
+FROM:
+32:return parent.getFirstChild().getNext().getNext();
+TO:
+28:return node.getFirstChild().getNext().getNext();
+
+UPDATE
+FROM:
+36:return parent;
+TO:
+32:return node;
+
+UPDATE
+FROM:
+38:if(parent.getFirstChild()==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+34:if(node.getFirstChild()==fromNode){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(node.getLastChild());
+}
+else{
+return computeFollowNode(fromNode,node,cfa);
+}
+}
+
+UPDATE
+FROM:
+39:if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(parent.getLastChild());
+}
+TO:
+35:if(NodeUtil.hasFinally(node)){
+return computeFallThrough(node.getLastChild());
+}
+
+UPDATE
+FROM:
+43:return computeFollowNode(fromNode,parent,cfa);
+TO:
+39:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+46:if(NodeUtil.getCatchBlock(parent)==node){
+if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(node.getNext());
+}
+else{
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+42:if(NodeUtil.getCatchBlock(node)==fromNode){
+if(NodeUtil.hasFinally(node)){
+return computeFallThrough(fromNode.getNext());
+}
+else{
+return computeFollowNode(fromNode,node,cfa);
+}
+}
+
+UPDATE
+FROM:
+47:if(NodeUtil.hasFinally(parent)){
+return computeFallThrough(node.getNext());
+}
+TO:
+43:if(NodeUtil.hasFinally(node)){
+return computeFallThrough(fromNode.getNext());
+}
+
+UPDATE
+FROM:
+48:return computeFallThrough(node.getNext());
+TO:
+44:return computeFallThrough(fromNode.getNext());
+
+UPDATE
+FROM:
+51:return computeFollowNode(fromNode,parent,cfa);
+TO:
+47:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+54:else{
+if(parent.getLastChild()==node){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(parent)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,parent,cfa);
+}
+}
+TO:
+50:else{
+if(node.getLastChild()==fromNode){
+if(cfa!=null){
+for(Node finallyNode : cfa.finallyMap.get(node)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+}
+return computeFollowNode(fromNode,node,cfa);
+}
+}
+
+UPDATE
+FROM:
+56:for(Node finallyNode : cfa.finallyMap.get(parent)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+TO:
+52:for(Node finallyNode : cfa.finallyMap.get(node)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+
+UPDATE
+FROM:
+60:return computeFollowNode(fromNode,parent,cfa);
+TO:
+56:return computeFollowNode(fromNode,node,cfa);
+
+UPDATE
+FROM:
+71:return computeFollowNode(fromNode,parent,cfa);
+TO:
+67:return computeFollowNode(fromNode,node,cfa);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:399 patches
+Compile failed:395 patches
+Compilation rate:0.010025062656641603
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/5.java
+Tested:399 patches
+Compile failed:395 patches
+Compilation rate:0.010025062656641603
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_14/6.java
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+UPDATE
+FROM:
+16:if(parent.getNext().isDefaultCase()){
+return parent.getNext().getFirstChild();
+}
+TO:
+15:if(node.getNext().isDefaultCase()){
+return node.getNext().getFirstChild();
+}
+
+UPDATE
+FROM:
+24:return computeFollowNode(fromNode,parent,cfa);
+TO:
+23:return computeFollowNode(fromNode,node.getParent(),cfa);
+
+UPDATE
+FROM:
+56:for(Node finallyNode : cfa.finallyMap.get(parent)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+TO:
+55:for(Node finallyNode : cfa.finallyMap.get(node)){
+cfa.createEdge(fromNode,Branch.UNCOND,finallyNode);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3Node parent=node.getParent();
+
+UPDATE
+FROM:
+28:if(NodeUtil.isForIn(parent)){
+return parent;
+}
+TO:
+27:if(NodeUtil.isForIn(node)){
+return node;
+}
+
+UPDATE
+FROM:
+60:return computeFollowNode(fromNode,parent,cfa);
+TO:
+59:return computeFollowNode(fromNode,node.getParent(),cfa);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:798 patches
+Compile failed:794 patches
+Compilation rate:0.005012531328320802
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-14 > patch : 0 | Start : Tue Apr 09 22:20:21 HKT 2024 | End : 2024.04.09 AD at 22:24:30 HKT

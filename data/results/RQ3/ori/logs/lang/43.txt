@@ -1,0 +1,3855 @@
+Repair : lang_43
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/0.java
+Current actions:
+Wrap:
+ForStatement
+On:
+[next(pos);, case QUOTE :, next(pos);, return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);, default :]
+Following are 0th generated patches:
+Validating 175 patches...
+Current actions:
+INSERT:
+9:for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+case PERIOD :
+case LETTER :
+case DIGIT :
+case UNICODE_LETTER :
+case UNICODE_COMBINING_MARK :
+case UNICODE_DIGIT :
+case UNICODE_EXTENDED_PARTICLE :
+break;
+default :
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+next(pos);
+}
+TO:
+1
+
+DELETE:
+Original line: 17case QUOTE :
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+DELETE:
+Original line: 20default :
+
+DELETE:
+Original line: 21next(pos);
+
+Following are 1th generated patches:
+Validating 164 patches...
+Current actions:
+INSERT:
+20:case PERIOD :
+TO:
+19
+
+INSERT:
+22:case DIGIT :
+TO:
+19
+
+INSERT:
+23:case UNICODE_LETTER :
+TO:
+19
+
+INSERT:
+25:case UNICODE_DIGIT :
+TO:
+19
+
+INSERT:
+26:case UNICODE_EXTENDED_PARTICLE :
+TO:
+19
+
+INSERT:
+27:break;
+TO:
+19
+
+Following are 2th generated patches:
+Validating 116 patches...
+Current actions:
+INSERT:
+20:case PERIOD :
+TO:
+19
+
+INSERT:
+22:case DIGIT :
+TO:
+19
+
+INSERT:
+25:case UNICODE_DIGIT :
+TO:
+19
+
+INSERT:
+29:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+9:for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+case PERIOD :
+case LETTER :
+case DIGIT :
+case UNICODE_LETTER :
+case UNICODE_COMBINING_MARK :
+case UNICODE_DIGIT :
+case UNICODE_EXTENDED_PARTICLE :
+break;
+default :
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+next(pos);
+}
+TO:
+1
+
+DELETE:
+Original line: 17case QUOTE :
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+DELETE:
+Original line: 20default :
+
+DELETE:
+Original line: 21next(pos);
+
+Following are 4th generated patches:
+Validating 118 patches...
+Current actions:
+INSERT:
+20:case PERIOD :
+TO:
+19
+
+INSERT:
+21:case LETTER :
+TO:
+19
+
+INSERT:
+22:case DIGIT :
+TO:
+19
+
+INSERT:
+23:case UNICODE_LETTER :
+TO:
+19
+
+INSERT:
+24:case UNICODE_COMBINING_MARK :
+TO:
+19
+
+INSERT:
+25:case UNICODE_DIGIT :
+TO:
+19
+
+INSERT:
+26:case UNICODE_EXTENDED_PARTICLE :
+TO:
+19
+
+INSERT:
+27:break;
+TO:
+19
+
+INSERT:
+29:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+20
+
+Tested:354 patches
+Compile failed:343 patches
+Compilation rate:0.031073446327683617
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/1.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[throw new IllegalArgumentException("Unterminated quoted string at position "+start);, next(pos);, lastHold=pos.getIndex();, continue;]
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+Following are 1th generated patches:
+Validating 118 patches...
+Current actions:
+INSERT:
+2:private StringBuffer appendQuotedString(String pattern,ParsePosition pos,StringBuffer appendTo,boolean escapingOn){
+int start=pos.getIndex();
+char[] c=pattern.toCharArray();
+if(escapingOn&&c[start]==QUOTE){
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+int lastHold=start;
+for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+next(pos);
+}
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+1
+
+DELETE:
+Original line: 13lastHold=pos.getIndex();
+
+DELETE:
+Original line: 14continue;
+
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+INSERT:
+20:next(pos);
+TO:
+18
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 2th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+2:private StringBuffer appendQuotedString(String pattern,ParsePosition pos,StringBuffer appendTo,boolean escapingOn){
+int start=pos.getIndex();
+char[] c=pattern.toCharArray();
+if(escapingOn&&c[start]==QUOTE){
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+int lastHold=start;
+for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+next(pos);
+}
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+1
+
+DELETE:
+Original line: 13lastHold=pos.getIndex();
+
+DELETE:
+Original line: 14continue;
+
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 17case QUOTE :
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:next(pos);
+TO:
+18
+
+DELETE:
+Original line: 21next(pos);
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 3th generated patches:
+Validating 122 patches...
+Current actions:
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+INSERT:
+20:next(pos);
+TO:
+18
+
+Following are 4th generated patches:
+Validating 120 patches...
+Current actions:
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+Tested:831 patches
+Compile failed:820 patches
+Compilation rate:0.013237063778580024
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/2.java
+Tested:831 patches
+Compile failed:820 patches
+Compilation rate:0.013237063778580024
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/3.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 163 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+25:default :
+TO:
+21
+
+INSERT:
+26:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 198 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+25:default :
+TO:
+21
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+23:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+21
+
+Tested:1341 patches
+Compile failed:1301 patches
+Compilation rate:0.02982848620432513
+NNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNPPNNNNPNNNNNPNNPNNNNNNNPNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/4.java
+Current actions:
+INSERT:
+20:case '\\' :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case '\\' :
+TO:
+19
+
+INSERT:
+23:lastHold=pos.getIndex();
+TO:
+21
+
+INSERT:
+24:default :
+TO:
+21
+
+INSERT:
+25:next(pos);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 68 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case '\\' :
+TO:
+19
+
+INSERT:
+24:default :
+TO:
+21
+
+INSERT:
+25:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+23:lastHold=pos.getIndex();
+TO:
+21
+
+Following are 3th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 38 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case '\\' :
+TO:
+19
+
+INSERT:
+24:default :
+TO:
+21
+
+Tested:1525 patches
+Compile failed:1396 patches
+Compilation rate:0.08459016393442623
+PPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPPPPNNPNPNPPPPPNNNPNPPPNNNNPNNPPPPPNNNPPPPPPPPNPNNPNNNNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNPPPPPPNPNPPNNPPPPPNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/5.java
+Current actions:
+DELETE:
+Original line: 18next(pos);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+18:pos.setIndex(i+1);
+TO:
+17
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:pos.setIndex(i+1);
+TO:
+20
+
+Following are 1th generated patches:
+Validating 108 patches...
+Current actions:
+INSERT:
+18:pos.setIndex(i+1);
+TO:
+17
+
+DELETE:
+Original line: 21next(pos);
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+18:pos.setIndex(i+1);
+TO:
+17
+
+INSERT:
+21:pos.setIndex(i+1);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 106 patches...
+Current actions:
+DELETE:
+Original line: 18next(pos);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+Tested:1803 patches
+Compile failed:1496 patches
+Compilation rate:0.17027176927343315
+PPPPPPPPPPPPPPNNNNNNNNNNNNNNPPPNPPPPPNNNPNPPPPNPPNPPPPPNPPPPPPPNPNPPPPPPPPNPPNNPNNPNPPPPPPPNPNPNPPPNPPPNNPPNNNPNPPPPPPPNNNNNPPPPPPPPNPPNNPPPPPPNPPNPNNPNNPPPPNPPNPNPNNNPPPPPNNNNNNNNNNNNNNPPPPPNPNNPPPNNPNPPPPPPPPPPPPPPNPPPPNPPNPPPNPPNNPPNPNPNNPPPPPPNNPPPNPPNNNNNNNPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/6.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+continue;
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 68 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+continue;
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 91 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+23:continue;
+TO:
+19
+
+INSERT:
+26:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+26:next(pos);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+23:continue;
+TO:
+19
+
+INSERT:
+26:next(pos);
+TO:
+20
+
+Tested:2039 patches
+Compile failed:1728 patches
+Compilation rate:0.1525257479156449
+NNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/7.java
+Current actions:
+INSERT:
+20:case BACK_SLASH :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 126 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 161 patches...
+Current actions:
+INSERT:
+20:case BACK_SLASH :
+TO:
+19
+
+INSERT:
+23:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+21
+
+INSERT:
+25:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 58 patches...
+Current actions:
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case BACK_SLASH :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+25:next(pos);
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+Tested:2430 patches
+Compile failed:2076 patches
+Compilation rate:0.145679012345679
+NNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNPPPNNNNNNPNPNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/8.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 68 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+}
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+25:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 69 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+}
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+25:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+Following are 4th generated patches:
+Validating 57 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+25:next(pos);
+TO:
+20
+
+Tested:2718 patches
+Compile failed:2357 patches
+Compilation rate:0.13281824871228845
+NNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/9.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:continue;
+TO:
+21
+
+INSERT:
+23:default :
+TO:
+21
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+22:continue;
+TO:
+21
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+23:default :
+TO:
+21
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Tested:2840 patches
+Compile failed:2447 patches
+Compilation rate:0.13838028169014085
+NNNNNPPPNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNPPPPPPNPPPPNNNNNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/10.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 157 patches...
+Current actions:
+INSERT:
+22:if(escapingOn&&pos.getIndex()<pattern.length()){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:if(appendTo!=null){
+appendTo.append(c[pos.getIndex()]);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(escapingOn&&pos.getIndex()<pattern.length()){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+21
+
+INSERT:
+25:if(appendTo!=null){
+appendTo.append(c[pos.getIndex()]);
+}
+TO:
+21
+
+INSERT:
+28:next(pos);
+TO:
+21
+
+INSERT:
+29:lastHold=pos.getIndex();
+TO:
+21
+
+INSERT:
+30:continue;
+TO:
+21
+
+INSERT:
+31:default :
+TO:
+21
+
+INSERT:
+32:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:3538 patches
+Compile failed:3015 patches
+Compilation rate:0.14782362916902206
+NNNNPPPPPPPPPPNNNPPPPPPPNPPNPNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNPNPNPNNNNNNNNNNNNNNNPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNPNNNPNNNPNNPPNNNNNPNPPNNNNNNNNNNNNNNPPNNPNNNNNNNNNNNPPPPPNPNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPPNNNNNPNNNNNNNNNNNNNNNNNPPNPPNNNNPPPPPNNNNNNNNNNNNNNPNNNNNNNNNNNNPNPNNNNNPNNPPNNNNNNNNNNNNNNNPPNNPNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/11.java
+Current actions:
+DELETE:
+Original line: 18next(pos);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 18next(pos);
+
+INSERT:
+18:pos.setIndex(i+1);
+TO:
+17
+
+Following are 1th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+18:pos.setIndex(i+1);
+TO:
+17
+
+Following are 2th generated patches:
+Validating 53 patches...
+Current actions:
+DELETE:
+Original line: 18next(pos);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:3648 patches
+Compile failed:3055 patches
+Compilation rate:0.16255482456140352
+PPPNNNNNPPPPPPPPNPPNNPPPPPPPNPNPNNPNNPPPPNPNPNPNPNNPPPPPNNNNNPPPPPPPPPNPNNNPPPPPNPPPNNPPNNNPPPPNNNNPPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/12.java
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+switch (c[pos.getIndex()]){
+case QUOTE :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+case 'b' :
+return appendTo==null?null:appendTo.append('\b');
+case 'n' :
+return appendTo==null?null:appendTo.append('\n');
+case 't' :
+return appendTo==null?null:appendTo.append('\t');
+case 'f' :
+return appendTo==null?null:appendTo.append('\f');
+case 'r' :
+return appendTo==null?null:appendTo.append('\r');
+case 'u' :
+return appendTo==null?null:appendUnicodeEscaped(pattern,pos,appendTo,i);
+default :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+26:case 'b' :
+TO:
+19
+
+INSERT:
+27:return appendTo==null?null:appendTo.append('\b');
+TO:
+19
+
+INSERT:
+28:case 'n' :
+TO:
+19
+
+INSERT:
+29:return appendTo==null?null:appendTo.append('\n');
+TO:
+19
+
+INSERT:
+31:return appendTo==null?null:appendTo.append('\t');
+TO:
+19
+
+INSERT:
+32:case 'f' :
+TO:
+19
+
+INSERT:
+33:return appendTo==null?null:appendTo.append('\f');
+TO:
+19
+
+INSERT:
+34:case 'r' :
+TO:
+19
+
+INSERT:
+35:return appendTo==null?null:appendTo.append('\r');
+TO:
+19
+
+INSERT:
+44:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+26:case 'b' :
+TO:
+19
+
+INSERT:
+28:case 'n' :
+TO:
+19
+
+INSERT:
+30:case 't' :
+TO:
+19
+
+INSERT:
+34:case 'r' :
+TO:
+19
+
+INSERT:
+37:return appendTo==null?null:appendUnicodeEscaped(pattern,pos,appendTo,i);
+TO:
+19
+
+Following are 3th generated patches:
+Validating 60 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+switch (c[pos.getIndex()]){
+case QUOTE :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+case 'b' :
+return appendTo==null?null:appendTo.append('\b');
+case 'n' :
+return appendTo==null?null:appendTo.append('\n');
+case 't' :
+return appendTo==null?null:appendTo.append('\t');
+case 'f' :
+return appendTo==null?null:appendTo.append('\f');
+case 'r' :
+return appendTo==null?null:appendTo.append('\r');
+case 'u' :
+return appendTo==null?null:appendUnicodeEscaped(pattern,pos,appendTo,i);
+default :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+}
+TO:
+19
+
+INSERT:
+42:break;
+TO:
+19
+
+INSERT:
+44:next(pos);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+switch (c[pos.getIndex()]){
+case QUOTE :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+case 'b' :
+return appendTo==null?null:appendTo.append('\b');
+case 'n' :
+return appendTo==null?null:appendTo.append('\n');
+case 't' :
+return appendTo==null?null:appendTo.append('\t');
+case 'f' :
+return appendTo==null?null:appendTo.append('\f');
+case 'r' :
+return appendTo==null?null:appendTo.append('\r');
+case 'u' :
+return appendTo==null?null:appendUnicodeEscaped(pattern,pos,appendTo,i);
+default :
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+}
+TO:
+19
+
+Tested:3917 patches
+Compile failed:3324 patches
+Compilation rate:0.15139137094715344
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/13.java
+Current actions:
+INSERT:
+20:case SLASH :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:if(pattern.substring(pos.getIndex()).startsWith(ESCAPED_SLASH)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(SLASH);
+pos.setIndex(pos.getIndex()+ESCAPED_SLASH.length());
+lastHold=pos.getIndex();
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 72 patches...
+Current actions:
+INSERT:
+30:if(escapingOn){
+return appendQuotedString(pattern,pos,appendTo,false);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+20:case SLASH :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(SLASH);
+TO:
+21
+
+INSERT:
+24:pos.setIndex(pos.getIndex()+ESCAPED_SLASH.length());
+TO:
+21
+
+INSERT:
+25:lastHold=pos.getIndex();
+TO:
+21
+
+INSERT:
+28:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+21
+
+INSERT:
+29:lastHold=pos.getIndex();
+TO:
+21
+
+INSERT:
+31:return appendQuotedString(pattern,pos,appendTo,false);
+TO:
+21
+
+INSERT:
+34:break;
+TO:
+21
+
+INSERT:
+35:default :
+TO:
+21
+
+INSERT:
+36:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:case SLASH :
+TO:
+19
+
+INSERT:
+23:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(SLASH);
+TO:
+21
+
+INSERT:
+24:pos.setIndex(pos.getIndex()+ESCAPED_SLASH.length());
+TO:
+21
+
+INSERT:
+25:lastHold=pos.getIndex();
+TO:
+21
+
+INSERT:
+27:else{
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+if(escapingOn){
+return appendQuotedString(pattern,pos,appendTo,false);
+}
+}
+TO:
+21
+
+INSERT:
+34:break;
+TO:
+21
+
+INSERT:
+36:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 165 patches...
+Current actions:
+INSERT:
+27:else{
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+if(escapingOn){
+return appendQuotedString(pattern,pos,appendTo,false);
+}
+}
+TO:
+21
+
+Tested:4481 patches
+Compile failed:3866 patches
+Compilation rate:0.13724615041285426
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPPPPPPPNNNPPNPNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/14.java
+Current actions:
+INSERT:
+20:case '\n' :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+24:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 104 patches...
+Current actions:
+INSERT:
+20:case '\n' :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:case '\r' :
+TO:
+19
+
+INSERT:
+22:case '\f' :
+TO:
+19
+
+INSERT:
+23:case '\t' :
+TO:
+19
+
+INSERT:
+24:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+INSERT:
+30:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 109 patches...
+Current actions:
+INSERT:
+20:case '\n' :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:case '\r' :
+TO:
+19
+
+INSERT:
+22:case '\f' :
+TO:
+19
+
+INSERT:
+23:case '\t' :
+TO:
+19
+
+INSERT:
+24:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+INSERT:
+28:break;
+TO:
+19
+
+INSERT:
+30:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 110 patches...
+Current actions:
+INSERT:
+21:case '\r' :
+TO:
+19
+
+INSERT:
+22:case '\f' :
+TO:
+19
+
+INSERT:
+24:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+Following are 4th generated patches:
+Validating 106 patches...
+Current actions:
+INSERT:
+20:case '\n' :
+TO:
+19
+
+INSERT:
+22:case '\f' :
+TO:
+19
+
+INSERT:
+23:case '\t' :
+TO:
+19
+
+INSERT:
+24:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+INSERT:
+28:break;
+TO:
+19
+
+Tested:4977 patches
+Compile failed:4267 patches
+Compilation rate:0.1426562186055857
+NPPPPPPPPPPPPPPPPPPPPNNNNNPPPPPPPPPNPPPPPPPPPPNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNPPNNNNNNNPNPNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPPNNNNNNNNNNPNNNNNNNPNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNPNNNNNNNNPNNNPNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/15.java
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+Following are 1th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case COMMA :
+TO:
+19
+
+INSERT:
+23:default :
+TO:
+21
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 58 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 35 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+Tested:5132 patches
+Compile failed:4391 patches
+Compilation rate:0.14438815276695247
+NNNNNPPPNNNNNNNNNNNNNNNNNNNNPPPNNNNPPPPPPPPPNPNNNNNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/16.java
+Current actions:
+DELETE:
+Original line: 3int start=pos.getIndex();
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+1 th patch/200
+Trace:
+
+START : 
+2024.04.11 AD at 13:47:11 HKT
+---------TIME : 
+2024.04.11 AD at 14:10:27 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_43_buggy/src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java
+SUCCESS
+//Following are generated patch:
+  private StringBuffer appendQuotedString(  String pattern,  ParsePosition pos,  StringBuffer appendTo,  boolean escapingOn){
+    int start=pos.getIndex();
+    char[] c=pattern.toCharArray();
+    if (escapingOn && c[start] == QUOTE) {
+    }
+    int lastHold=start;
+    for (int i=pos.getIndex(); i < pattern.length(); i++) {
+switch (c[pos.getIndex()]) {
+case QUOTE:
+        next(pos);
+      return appendTo == null ? null : appendTo.append(c,lastHold,pos.getIndex() - lastHold);
+default :
+    next(pos);
+}
+}
+throw new IllegalArgumentException("Unterminated quoted string at position " + start);
+}
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.11 AD at 13:47:11 HKT
+---------TIME : 
+2024.04.11 AD at 14:10:27 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 3int start=pos.getIndex();
+
+DELETE:
+Original line: 4char[] c=pattern.toCharArray();
+
+DELETE:
+Original line: 8int lastHold=start;
+
+DELETE:
+Original line: 9for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+}
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 3int start=pos.getIndex();
+
+DELETE:
+Original line: 4char[] c=pattern.toCharArray();
+
+DELETE:
+Original line: 5if(escapingOn&&c[start]==QUOTE){
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+
+DELETE:
+Original line: 8int lastHold=start;
+
+DELETE:
+Original line: 9for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+}
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 2th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 12pos.setIndex(i+ESCAPED_QUOTE.length());
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 3int start=pos.getIndex();
+
+DELETE:
+Original line: 5if(escapingOn&&c[start]==QUOTE){
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+
+DELETE:
+Original line: 8int lastHold=start;
+
+DELETE:
+Original line: 10if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 4th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 3int start=pos.getIndex();
+
+DELETE:
+Original line: 12pos.setIndex(i+ESCAPED_QUOTE.length());
+
+DELETE:
+Original line: 14continue;
+
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Tested:5336 patches
+Compile failed:4531 patches
+Compilation rate:0.15086206896551724
+NNNNNPPPPPPPNPNPPNNNNPPPPPNPNPPPNNNNNNNPNNNPPPPPNNNNNNPNNPNPNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNPNPPPPPPPNNNPPPPPNPPNPNPPNPNNNNPNNNPNNNNNNPNPPNPPPPPPPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/17.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 140 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 2th generated patches:
+Validating 163 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+25:break;
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+25:break;
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 198 patches...
+Current actions:
+INSERT:
+25:break;
+TO:
+21
+
+Tested:6028 patches
+Compile failed:5195 patches
+Compilation rate:0.13818845388188453
+NNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPPPNNNNPNNNNPNNPNNNNNPNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/18.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()>=c.length){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 132 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=c.length){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+25:default :
+TO:
+21
+
+INSERT:
+26:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 190 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+22:if(pos.getIndex()>=c.length){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+INSERT:
+26:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 189 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+25:default :
+TO:
+21
+
+INSERT:
+26:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 35 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+23:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+21
+
+INSERT:
+25:default :
+TO:
+21
+
+Tested:6580 patches
+Compile failed:5729 patches
+Compilation rate:0.12933130699088147
+NNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/19.java
+Current actions:
+INSERT:
+20:case ESCAPE_CHAR :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()<pattern.length()){
+next(pos);
+switch (c[pos.getIndex()]){
+case QUOTE :
+case ESCAPE_CHAR :
+case 'n' :
+break;
+default :
+throw new IllegalArgumentException("Invalid escape sequence \""+new String(c,pos.getIndex()-1,2)+"\" at position "+pos.getIndex());
+}
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:switch (c[pos.getIndex()]){
+case QUOTE :
+case ESCAPE_CHAR :
+case 'n' :
+break;
+default :
+throw new IllegalArgumentException("Invalid escape sequence \""+new String(c,pos.getIndex()-1,2)+"\" at position "+pos.getIndex());
+}
+TO:
+21
+
+INSERT:
+34:throw new IllegalArgumentException("Invalid escape sequence at the end of the string at position "+pos.getIndex());
+TO:
+21
+
+INSERT:
+36:break;
+TO:
+21
+
+Following are 2th generated patches:
+Validating 83 patches...
+Current actions:
+INSERT:
+25:case QUOTE :
+TO:
+21
+
+INSERT:
+33:else{
+throw new IllegalArgumentException("Invalid escape sequence at the end of the string at position "+pos.getIndex());
+}
+TO:
+21
+
+Following are 3th generated patches:
+Validating 23 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case ESCAPE_CHAR :
+TO:
+19
+
+INSERT:
+37:default :
+TO:
+21
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+21:next(pos);
+TO:
+19
+
+INSERT:
+37:default :
+TO:
+21
+
+Tested:6864 patches
+Compile failed:6000 patches
+Compilation rate:0.1258741258741259
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/20.java
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 45 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+INSERT:
+28:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+TO:
+19
+
+Following are 3th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+24:lastHold=pos.getIndex();
+TO:
+19
+
+Following are 4th generated patches:
+Validating 32 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+INSERT:
+28:next(pos);
+TO:
+20
+
+Tested:6971 patches
+Compile failed:6103 patches
+Compilation rate:0.12451585138430642
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/21.java
+Current actions:
+INSERT:
+20:case ESCAPE_CHAR :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+19
+
+INSERT:
+24:lastHold=pos.getIndex();
+TO:
+19
+
+Following are 2th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+26:next(pos);
+TO:
+19
+
+INSERT:
+27:break;
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+20:case ESCAPE_CHAR :
+TO:
+19
+
+Following are 4th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+pos.setIndex(i+1);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Tested:7149 patches
+Compile failed:6276 patches
+Compilation rate:0.12211498111624003
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/22.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:default :
+TO:
+21
+
+INSERT:
+23:next(pos);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 58 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:default :
+TO:
+21
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:default :
+TO:
+21
+
+INSERT:
+23:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 35 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+23:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Tested:7322 patches
+Compile failed:6438 patches
+Compilation rate:0.12073204042611309
+NNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/23.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[throw new IllegalArgumentException("Unterminated quoted string at position "+start);, next(pos);, lastHold=pos.getIndex();, continue;]
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+Following are 1th generated patches:
+Validating 118 patches...
+Current actions:
+INSERT:
+2:private StringBuffer appendQuotedString(String pattern,ParsePosition pos,StringBuffer appendTo,boolean escapingOn){
+int start=pos.getIndex();
+char[] c=pattern.toCharArray();
+if(escapingOn&&c[start]==QUOTE){
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+int lastHold=start;
+for(int i=pos.getIndex();i<pattern.length();i++){
+if(escapingOn&&pattern.substring(i).startsWith(ESCAPED_QUOTE)){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(QUOTE);
+pos.setIndex(i+ESCAPED_QUOTE.length());
+lastHold=pos.getIndex();
+continue;
+}
+if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+next(pos);
+}
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+1
+
+DELETE:
+Original line: 13lastHold=pos.getIndex();
+
+DELETE:
+Original line: 14continue;
+
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+INSERT:
+20:next(pos);
+TO:
+18
+
+DELETE:
+Original line: 20default :
+
+DELETE:
+Original line: 21next(pos);
+
+DELETE:
+Original line: 24throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+
+Following are 2th generated patches:
+Validating 121 patches...
+Current actions:
+DELETE:
+Original line: 16switch (c[pos.getIndex()]){
+case QUOTE :
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+default :
+next(pos);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(c[pos.getIndex()]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+}
+TO:
+15
+
+DELETE:
+Original line: 17case QUOTE :
+
+DELETE:
+Original line: 18next(pos);
+
+DELETE:
+Original line: 19return appendTo==null?null:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+
+DELETE:
+Original line: 20default :
+
+Following are 4th generated patches:
+Validating 120 patches...
+Current actions:
+INSERT:
+20:next(pos);
+TO:
+18
+
+DELETE:
+Original line: 21next(pos);
+
+Tested:7682 patches
+Compile failed:6798 patches
+Compilation rate:0.11507419942723249
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/24.java
+Current actions:
+INSERT:
+20:case BACKSLASH :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+21:if(++i>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 112 patches...
+Current actions:
+INSERT:
+20:case BACKSLASH :
+TO:
+19
+
+INSERT:
+21:if(++i>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 135 patches...
+Current actions:
+INSERT:
+20:case BACKSLASH :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(++i>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+INSERT:
+25:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 136 patches...
+Current actions:
+INSERT:
+20:case BACKSLASH :
+TO:
+19
+
+INSERT:
+22:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+19
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(++i>=pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+INSERT:
+25:next(pos);
+TO:
+20
+
+Tested:8091 patches
+Compile failed:7197 patches
+Compilation rate:0.11049314052651094
+NNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/25.java
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+24:next(pos);
+TO:
+20
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+INSERT:
+21:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(COMMA);
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+24:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 45 patches...
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+INSERT:
+21:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(COMMA);
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:return appendTo==null?null:appendTo.append(COMMA);
+TO:
+19
+
+INSERT:
+24:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 119 patches...
+Current actions:
+INSERT:
+21:appendTo.append(c,lastHold,pos.getIndex()-lastHold).append(COMMA);
+TO:
+19
+
+Following are 4th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+20:case COMMA :
+TO:
+19
+
+INSERT:
+22:return appendTo==null?null:appendTo.append(COMMA);
+TO:
+19
+
+Tested:8280 patches
+Compile failed:7384 patches
+Compilation rate:0.10821256038647344
+NNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/26.java
+Current actions:
+INSERT:
+11:if(appendTo==null){
+pos.setIndex(i+ESCAPED_QUOTE.length());
+return null;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+11:if(appendTo==null){
+pos.setIndex(i+ESCAPED_QUOTE.length());
+return null;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:return null;
+TO:
+10
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:pos.setIndex(i+ESCAPED_QUOTE.length());
+TO:
+10
+
+INSERT:
+13:return null;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+12:pos.setIndex(i+ESCAPED_QUOTE.length());
+TO:
+10
+
+Following are 4th generated patches:
+Validating 53 patches...
+Tested:8591 patches
+Compile failed:7626 patches
+Compilation rate:0.112326853684088
+NNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPNPPPNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPNNNPNNNPPNNPNPPNNNNNNNNNNNNNPNNNNNNPPPNNNNNNNNNNNNNNPNNNNPNNNNPNPPNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNNPNPPPPPPPPNNNPPNNNNNNPPPPPPNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/27.java
+Current actions:
+INSERT:
+20:case 0x0000 :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 129 patches...
+Current actions:
+INSERT:
+22:case 0x000D :
+TO:
+19
+
+INSERT:
+23:case 0x001A :
+TO:
+19
+
+INSERT:
+24:case 0x0085 :
+TO:
+19
+
+INSERT:
+27:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+19
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+21:case 0x000A :
+TO:
+19
+
+INSERT:
+26:case 0x2029 :
+TO:
+19
+
+INSERT:
+27:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+19
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+21:case 0x000A :
+TO:
+19
+
+INSERT:
+27:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+19
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+24:case 0x0085 :
+TO:
+19
+
+INSERT:
+25:case 0x2028 :
+TO:
+19
+
+INSERT:
+26:case 0x2029 :
+TO:
+19
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+23:case 0x001A :
+TO:
+19
+
+Tested:8688 patches
+Compile failed:7627 patches
+Compilation rate:0.12212246777163904
+PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/28.java
+Current actions:
+INSERT:
+11:if(appendTo==null){
+return null;
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(appendTo==null){
+return null;
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+12:return null;
+TO:
+10
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:8735 patches
+Compile failed:7657 patches
+Compilation rate:0.12341156267887808
+NPNNNNNNNNNNNNNNNPPPPPPPNNNNNPNNNPPNNNNNPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/29.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+22:break;
+TO:
+21
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 34 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:break;
+TO:
+21
+
+INSERT:
+23:default :
+TO:
+21
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 4th generated patches:
+Validating 35 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+Tested:8813 patches
+Compile failed:7709 patches
+Compilation rate:0.12526948825598547
+NNNNNPPPPNNNNPPPPPPPPPPNNNNNNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/30.java
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:return appendTo==null?null:appendTo.append(LITERAL_QUOTE);
+TO:
+21
+
+INSERT:
+23:default :
+TO:
+21
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 1th generated patches:
+Validating 132 patches...
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+Following are 2th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+INSERT:
+24:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 57 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:case LITERAL_QUOTE :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:default :
+TO:
+21
+
+Tested:9030 patches
+Compile failed:7918 patches
+Compilation rate:0.12314507198228128
+NNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/31.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+22:if(c[pos.getIndex()]==QUOTE){
+pos.setIndex(pos.getIndex()-1);
+lastHold=pos.getIndex();
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:if(c[pos.getIndex()]==QUOTE){
+pos.setIndex(pos.getIndex()-1);
+lastHold=pos.getIndex();
+}
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+22:if(c[pos.getIndex()]==QUOTE){
+pos.setIndex(pos.getIndex()-1);
+lastHold=pos.getIndex();
+}
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:9646 patches
+Compile failed:8511 patches
+Compilation rate:0.11766535351441011
+NNNNNNPPPPPPNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPNNNNPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/32.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+INSERT:
+27:break;
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+continue;
+}
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 26 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+25:continue;
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+23:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+19
+
+INSERT:
+24:lastHold=pos.getIndex();
+TO:
+19
+
+INSERT:
+25:continue;
+TO:
+19
+
+INSERT:
+27:break;
+TO:
+19
+
+INSERT:
+29:next(pos);
+TO:
+20
+
+Tested:9743 patches
+Compile failed:8601 patches
+Compilation rate:0.11721235759006467
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/33.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+next(pos);
+return appendQuotedString(pattern,pos,appendTo,false);
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+19
+
+INSERT:
+23:next(pos);
+TO:
+19
+
+INSERT:
+27:next(pos);
+TO:
+20
+
+Following are 2th generated patches:
+Validating 96 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+21:if(escapingOn){
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+next(pos);
+return appendQuotedString(pattern,pos,appendTo,false);
+}
+TO:
+19
+
+INSERT:
+27:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+19
+
+INSERT:
+24:return appendQuotedString(pattern,pos,appendTo,false);
+TO:
+19
+
+INSERT:
+27:next(pos);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+22:appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+TO:
+19
+
+INSERT:
+27:next(pos);
+TO:
+20
+
+Tested:9896 patches
+Compile failed:8750 patches
+Compilation rate:0.11580436540016169
+NNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/34.java
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+next(pos);
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+23:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+21:if(escapingOn){
+next(pos);
+if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+next(pos);
+}
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+33:break;
+TO:
+19
+
+INSERT:
+35:next(pos);
+TO:
+20
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+20:case ESCAPE :
+TO:
+19
+
+INSERT:
+21:if(escapingOn){
+next(pos);
+if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+next(pos);
+}
+TO:
+19
+
+DELETE:
+Original line: 21next(pos);
+
+INSERT:
+33:break;
+TO:
+19
+
+INSERT:
+35:next(pos);
+TO:
+20
+
+Following are 4th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+22:next(pos);
+TO:
+19
+
+INSERT:
+23:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+19
+
+INSERT:
+26:next(pos);
+TO:
+19
+
+INSERT:
+28:else{
+next(pos);
+appendTo.append(c,lastHold,pos.getIndex()-lastHold);
+lastHold=pos.getIndex();
+}
+TO:
+19
+
+Tested:10150 patches
+Compile failed:9000 patches
+Compilation rate:0.11330049261083744
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/35.java
+Current actions:
+INSERT:
+20:case '$' :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 74 patches...
+Current actions:
+INSERT:
+22:if(index<pattern.length()&&pattern.charAt(index)=='{'){
+next(pos);
+next(pos);
+lastHold=pos.getIndex();
+break;
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case '$' :
+TO:
+19
+
+INSERT:
+21:int index=pos.getIndex()+1;
+TO:
+19
+
+INSERT:
+22:if(index<pattern.length()&&pattern.charAt(index)=='{'){
+next(pos);
+next(pos);
+lastHold=pos.getIndex();
+break;
+}
+TO:
+19
+
+INSERT:
+28:default :
+TO:
+21
+
+INSERT:
+29:next(pos);
+TO:
+21
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+20:case '$' :
+TO:
+19
+
+INSERT:
+21:int index=pos.getIndex()+1;
+TO:
+19
+
+INSERT:
+23:next(pos);
+TO:
+19
+
+INSERT:
+28:default :
+TO:
+21
+
+INSERT:
+29:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 102 patches...
+Current actions:
+INSERT:
+21:int index=pos.getIndex()+1;
+TO:
+19
+
+INSERT:
+23:next(pos);
+TO:
+19
+
+INSERT:
+26:break;
+TO:
+21
+
+Following are 4th generated patches:
+Validating 67 patches...
+Current actions:
+DELETE:
+Original line: 20default :
+
+INSERT:
+28:default :
+TO:
+21
+
+Tested:10758 patches
+Compile failed:9521 patches
+Compilation rate:0.1149841978062837
+NNNNNNNNNNNNNPPPPPNPPPPPNNNNNNNPPPPNNNNPPPNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNPNNPNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNPPPNPNPPPNPPPNPPPNPNNNPPPPPNPPNPNPPNPPNPPNPNNPNPPNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_43/36.java
+Current actions:
+INSERT:
+20:case '\\' :
+TO:
+19
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+22:if(pos.getIndex()==pattern.length()){
+throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+}
+TO:
+21
+
+Following are 1th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+20:case '\\' :
+TO:
+19
+
+INSERT:
+25:break;
+TO:
+21
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+20:case '\\' :
+TO:
+19
+
+DELETE:
+Original line: 20default :
+
+INSERT:
+23:throw new IllegalArgumentException("Unterminated quoted string at position "+start);
+TO:
+21
+
+INSERT:
+25:break;
+TO:
+21
+
+INSERT:
+26:default :
+TO:
+21
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Following are 3th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+25:break;
+TO:
+21
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:case '\\' :
+TO:
+19
+
+INSERT:
+27:next(pos);
+TO:
+21
+
+Tested:10942 patches
+Compile failed:9675 patches
+Compilation rate:0.11579235971486017
+NNNNNNNNPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPNNNPNNNNPNPNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Finish : lang-43 > patch : 2 | Start : Thu Apr 11 13:47:11 HKT 2024 | End : 2024.04.11 AD at 14:30:49 HKT

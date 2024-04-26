@@ -1,0 +1,3868 @@
+Repair : closure_20
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/0.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Tested:8 patches
+Compile failed:6 patches
+Compilation rate:0.25
+NNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/1.java
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string("").srcref(value),value.detachFromParent()).srcref(n);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string("").srcref(value),value.detachFromParent()).srcref(n);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:209 patches
+Compile failed:205 patches
+Compilation rate:0.019138755980861243
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/2.java
+Current actions:
+DELETE:
+Original line: 14return n;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+INSERT:
+14:return tryFoldStringAdd(n);
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+14:return tryFoldStringAdd(n);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:612 patches
+Compile failed:518 patches
+Compilation rate:0.15359477124183007
+NNNNNNNNNNNNNNNNNNNNPPPPNPNPNNNPNPNNNPPPNNNPPPPNPNPPNPNPPPNPNPPPPNPNPNNNPNNNNPPNPNPPPPPPPPPPNNPNPNNNPNNNNNNNPPPNPNPPNPNPNNPNNNNPNNNNNNPNPPNNNNNNNPNNPPNNNPNPNPNNNNNPNNPPPPNNNPPNNPPPNNPPNNPNPNPPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/3.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("apply")){
+Node call=IR.call(IR.getprop(n.removeFirstChild(),"call").srcref(n));
+call.putBooleanProp(Node.FREE_CALL,true);
+n.replaceWith(call);
+reportCodeChange();
+return call;
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("apply")){
+Node call=IR.call(IR.getprop(n.removeFirstChild(),"call").srcref(n));
+call.putBooleanProp(Node.FREE_CALL,true);
+n.replaceWith(call);
+reportCodeChange();
+return call;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:n.replaceWith(call);
+TO:
+13
+
+INSERT:
+19:return call;
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node call=IR.call(IR.getprop(n.removeFirstChild(),"call").srcref(n));
+TO:
+13
+
+INSERT:
+16:call.putBooleanProp(Node.FREE_CALL,true);
+TO:
+13
+
+INSERT:
+19:return call;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1037 patches
+Compile failed:942 patches
+Compilation rate:0.09161041465766634
+NNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/4.java
+Tested:1037 patches
+Compile failed:942 patches
+Compilation rate:0.09161041465766634
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/5.java
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string(""),value.detachFromParent());
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string(""),value.detachFromParent());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1238 patches
+Compile failed:1093 patches
+Compilation rate:0.11712439418416801
+PNNNNNNNNNNNNNNNNNNNNNPNPPNPPNPNNNNNNNNPPNNNNNNNPPPNNNNNPNNNPNPNNNNNPNNNNPNNNNNPNNPPNNNNNPPNNNNNNNNNNPNNNNNNNPNNNNNNNNPNNNNNPPPNNPPNPNPNNNPPPNNPNNPNNNPNNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/6.java
+Current actions:
+INSERT:
+14:Node callName=IR.getprop(callTarget.detachFromParent(),"call");
+TO:
+13
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+16:if(callArg!=null){
+Node replacement=IR.call(callName,callArg.detachFromParent());
+Node replacementWithCallArg=IR.call(replacement,n.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,replacementWithCallArg);
+reportCodeChange();
+return replacementWithCallArg;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+14:Node callName=IR.getprop(callTarget.detachFromParent(),"call");
+TO:
+13
+
+INSERT:
+15:Node callArg=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:if(callArg!=null){
+Node replacement=IR.call(callName,callArg.detachFromParent());
+Node replacementWithCallArg=IR.call(replacement,n.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,replacementWithCallArg);
+reportCodeChange();
+return replacementWithCallArg;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:Node callName=IR.getprop(callTarget.detachFromParent(),"call");
+TO:
+13
+
+INSERT:
+17:Node replacement=IR.call(callName,callArg.detachFromParent());
+TO:
+13
+
+INSERT:
+18:Node replacementWithCallArg=IR.call(replacement,n.getLastChild().detachFromParent());
+TO:
+13
+
+INSERT:
+19:n.getParent().replaceChild(n,replacementWithCallArg);
+TO:
+13
+
+INSERT:
+20:reportCodeChange();
+TO:
+13
+
+INSERT:
+21:return replacementWithCallArg;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1727 patches
+Compile failed:1553 patches
+Compilation rate:0.1007527504342791
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNPNNPPPNPPNNNNPPNNPPPPPNNPNNNPNNPNNPNNNPPNNNNPNNNNPNPNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/7.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("toString")){
+Node value=callTarget.getOnlyChild();
+if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("toString")){
+Node value=callTarget.getOnlyChild();
+if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getOnlyChild();
+TO:
+13
+
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+INSERT:
+20:return addition;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+Following are 4th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getOnlyChild();
+TO:
+13
+
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+Tested:2045 patches
+Compile failed:1836 patches
+Compilation rate:0.10220048899755502
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNPNPPNPNPNPPPNNNNPNPPNNPNNNNNPNNNNNPPNPNPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/8.java
+Current actions:
+INSERT:
+14:String callName=n.getFirstChild().getString();
+TO:
+13
+
+Following are 0th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+n.getParent().replaceChild(n,value);
+reportCodeChange();
+return value;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+14:String callName=n.getFirstChild().getString();
+TO:
+13
+
+Following are 2th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+14:String callName=n.getFirstChild().getString();
+TO:
+13
+
+INSERT:
+15:Node value=tryFoldBuiltInFunctionCall(n);
+TO:
+13
+
+INSERT:
+16:if(value!=null){
+n.getParent().replaceChild(n,value);
+reportCodeChange();
+return value;
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:String callName=n.getFirstChild().getString();
+TO:
+13
+
+INSERT:
+17:n.getParent().replaceChild(n,value);
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:String callName=n.getFirstChild().getString();
+TO:
+13
+
+INSERT:
+15:Node value=tryFoldBuiltInFunctionCall(n);
+TO:
+13
+
+Tested:2614 patches
+Compile failed:2344 patches
+Compilation rate:0.10328997704667177
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNPPPPPNPPNPNPPPPNNNPPPNPNPNNPNNNNNNPPNNPPPPPPPPNNPPPPPPPPPNPNPNPPNNNPPNNPNNNNNNPNNNNNNNNNNNNPNPNNNPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/9.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());, n.getParent().replaceChild(n,addition);, reportCodeChange();, return addition;]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:if(value.isImmutableValue()&&value.isConstant()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2815 patches
+Compile failed:2544 patches
+Compilation rate:0.09626998223801066
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/10.java
+Current actions:
+INSERT:
+14:else{
+if(n.getLastChild().isString()){
+Node value=n.getLastChild().detachFromParent();
+n.getParent().replaceChild(n,value);
+reportCodeChange();
+return value;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+17:reportCodeChange();
+TO:
+13
+
+Following are 1th generated patches:
+Validating 121 patches...
+Current actions:
+INSERT:
+14:else{
+if(n.getLastChild().isString()){
+Node value=n.getLastChild().detachFromParent();
+n.getParent().replaceChild(n,value);
+reportCodeChange();
+return value;
+}
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=n.getLastChild().detachFromParent();
+TO:
+13
+
+INSERT:
+16:n.getParent().replaceChild(n,value);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=n.getLastChild().detachFromParent();
+TO:
+13
+
+INSERT:
+17:reportCodeChange();
+TO:
+13
+
+INSERT:
+18:return value;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=n.getLastChild().detachFromParent();
+TO:
+13
+
+INSERT:
+16:n.getParent().replaceChild(n,value);
+TO:
+13
+
+INSERT:
+17:reportCodeChange();
+TO:
+13
+
+Tested:3349 patches
+Compile failed:3011 patches
+Compilation rate:0.1009256494475963
+NNNNNNNNNPPPPPPNNNNNNNNPPNPPPPPNPNNPNNPNNNNNNPPPNPPPNPNNNNNNNNPPNPNPNPPNPPNPPNPNPPPNNNNPNPPNNPNPPNNPPNPNPNNNNNNNNPPPPNPPPNNPNPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/11.java
+Current actions:
+Wrap:
+ElseStatement
+On:
+[return n;]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+INSERT:
+14:else{
+return n;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:3351 patches
+Compile failed:3012 patches
+Compilation rate:0.10116383169203223
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/12.java
+Current actions:
+INSERT:
+8:Node valueString=value.isString()?value:value.makeImmutable();
+TO:
+7
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+9:Node addition=IR.add(IR.string("").srcref(callTarget),valueString.detachFromParent());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Node valueString=value.isString()?value:value.makeImmutable();
+TO:
+7
+
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+9:Node addition=IR.add(IR.string("").srcref(callTarget),valueString.detachFromParent());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:3754 patches
+Compile failed:3357 patches
+Compilation rate:0.10575386254661694
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNPNNPPNPPNNNPNNNNNNNPNNNNNNPNNNNNNNNPPNNNPNNNPNNNNPNPPNPNPNNNNNNPPNNPPPNPPNNNNNPNNNNPPPNNNNNNNPNNNNNNNNNNNPNNNNNNPNPNPNPNPNPPPNNNNPNNNNNNNNNNNNNPPPPNNPNNPPPPPNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/13.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());, n.getParent().replaceChild(n,addition);, reportCodeChange();, return addition;]
+Following are 0th generated patches:
+Validating 43 patches...
+Current actions:
+INSERT:
+8:if(value.isString()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node stringNode=IR.call(IR.name("String").srcref(callTarget)).srcref(callTarget);
+TO:
+7
+
+INSERT:
+16:Node addition=IR.add(stringNode,value.detachFromParent());
+TO:
+7
+
+INSERT:
+19:return addition;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(value.isString()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+15:Node stringNode=IR.call(IR.name("String").srcref(callTarget)).srcref(callTarget);
+TO:
+7
+
+INSERT:
+17:n.getParent().replaceChild(n,addition);
+TO:
+7
+
+INSERT:
+18:reportCodeChange();
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4379 patches
+Compile failed:3812 patches
+Compilation rate:0.1294816168074903
+NNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPNPNPPPPPPPPNPPNNNPPPPPNNPPPPPPPPPPPPPNPNNPNNNNNNPNPPPNNNNPNNNNNPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/14.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node plus=new Node(Token.PLUS,IR.string(""),value);
+n.getParent().replaceChild(n,plus);
+reportCodeChange();
+return plus;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node plus=new Node(Token.PLUS,IR.string(""),value);
+n.getParent().replaceChild(n,plus);
+reportCodeChange();
+return plus;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node plus=new Node(Token.PLUS,IR.string(""),value);
+n.getParent().replaceChild(n,plus);
+reportCodeChange();
+return plus;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:if(value!=null){
+Node plus=new Node(Token.PLUS,IR.string(""),value);
+n.getParent().replaceChild(n,plus);
+reportCodeChange();
+return plus;
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node plus=new Node(Token.PLUS,IR.string(""),value);
+TO:
+13
+
+INSERT:
+18:n.getParent().replaceChild(n,plus);
+TO:
+13
+
+Tested:4829 patches
+Compile failed:4135 patches
+Compilation rate:0.1437150548767861
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPNPNNPPPPPPPPPNPPPPPPPPPPNPPPPNPPNNPNPNPNPNPNPPPPPPPPPPPNNPPNPNPNPPPPPPPPNPNPPPNPNPPPPPNPPPNNPPNPPPPNPPPPNPNNPNNNNNNNNPNPNNPNPNPPNNPNNNNNPNPNNNNPNPPNPPPPPNPNPPPPPPPNPPPNNNNPPNPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/15.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Number")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.add(IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Number")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.add(IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+20:return addition;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 162 patches...
+Current actions:
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+Tested:5240 patches
+Compile failed:4422 patches
+Compilation rate:0.15610687022900763
+NNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNPNPNPNNNNNPPNNPPPNNPNNPPNPNPNNNNPPPNPPPPPNPPNPPPPPPPPPNNPNNNPPPPPPNPNPNNPPPPPPPPPNPNNPNPNNPPPNNNPNPNPPPPPPPPPNNNPPNPPPNNPPNPPNPPPNPNPPNPNNNPNPPPNNPNPPNPNPNNNNNNNPNNPPNNPNNNPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/16.java
+Current actions:
+INSERT:
+14:else{
+caseExpr(callTarget);
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:else{
+caseExpr(callTarget);
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:caseExpr(callTarget);
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5443 patches
+Compile failed:4473 patches
+Compilation rate:0.1782105456549697
+NNNNNNNNNNPPPPPPPPNNNPNPNNNPPPNPPPNPPPPPPPPPPNPPPNPPPPNPPPPPPPPPPPPPPPNNPNPNNPPNPPPPPPPPPPPPPPPPPPPNNNPNPPPPPPNPPPPPPNPPNPPPPPPPPPPNNPPPPPPPPPPPPPNNNPPPPPPPPNPPPPPPPPNPPPPPPNNPPNNPPPPPPNPPNPPPNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/17.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isString()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isString()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Tested:5445 patches
+Compile failed:4473 patches
+Compilation rate:0.17851239669421487
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/18.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isString()||value.isNumber()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isString()||value.isNumber()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Tested:5453 patches
+Compile failed:4473 patches
+Compilation rate:0.1797175866495507
+PPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/19.java
+Current actions:
+INSERT:
+13:if(stringValue.isImmutableValue()){
+Node call=IR.call(IR.name("String").srcref(callTarget),stringPlusValueCloneString.detachFromParent()).srcref(callTarget);
+call.putBooleanProp(Node.FREE_CALL,true);
+n.getParent().replaceChild(n,call);
+reportCodeChange();
+return call;
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+20:if(stringPlusValueCloneString.isString()){
+if(stringPlusValueCloneValue.isString()){
+stringPlusValueCloneString.setString(stringPlusValueCloneString.getString()+stringPlusValueCloneValue.getString());
+stringPlusValueCloneValue.detachFromParent();
+n.getParent().replaceChild(n,stringPlusValueCloneString);
+reportCodeChange();
+return stringPlusValueCloneString;
+}
+else{
+if(stringPlusValueCloneValue.isImmutableValue()){
+n.getParent().replaceChild(n,stringPlusValueCloneString);
+reportCodeChange();
+return stringPlusValueCloneString;
+}
+}
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+29:n.getParent().replaceChild(n,stringPlusValueCloneString);
+TO:
+8
+
+INSERT:
+30:reportCodeChange();
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Node stringValue=value.detachFromParent();
+TO:
+7
+
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+9:Node stringPlusValue=IR.add(IR.string("").srcref(callTarget),stringValue).srcref(callTarget);
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+INSERT:
+10:Node stringPlusValueClone=stringPlusValue.cloneNode();
+TO:
+8
+
+DELETE:
+Original line: 10reportCodeChange();
+
+INSERT:
+12:Node stringPlusValueCloneValue=stringPlusValueClone.getLastChild();
+TO:
+8
+
+INSERT:
+13:if(stringValue.isImmutableValue()){
+Node call=IR.call(IR.name("String").srcref(callTarget),stringPlusValueCloneString.detachFromParent()).srcref(callTarget);
+call.putBooleanProp(Node.FREE_CALL,true);
+n.getParent().replaceChild(n,call);
+reportCodeChange();
+return call;
+}
+TO:
+8
+
+INSERT:
+22:stringPlusValueCloneString.setString(stringPlusValueCloneString.getString()+stringPlusValueCloneValue.getString());
+TO:
+8
+
+INSERT:
+23:stringPlusValueCloneValue.detachFromParent();
+TO:
+8
+
+INSERT:
+24:n.getParent().replaceChild(n,stringPlusValueCloneString);
+TO:
+8
+
+INSERT:
+25:reportCodeChange();
+TO:
+8
+
+INSERT:
+30:reportCodeChange();
+TO:
+8
+
+INSERT:
+31:return stringPlusValueCloneString;
+TO:
+8
+
+Tested:5779 patches
+Compile failed:4799 patches
+Compilation rate:0.16957951202630211
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/20.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getFirstChild().isName()){
+String name=callTarget.getFirstChild().getString();
+if(name.equals("String")&&callTarget.getLastChild().getString().equals("fromCharCode")){
+Node string=IR.string("").srcref(n);
+for(Node c=callTarget.getLastChild().getFirstChild();c!=null;c=c.getNext()){
+string=IR.add(string,IR.number(c.getDouble()).srcref(c),IR.string("").srcref(c));
+}
+return string;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getFirstChild().isName()){
+String name=callTarget.getFirstChild().getString();
+if(name.equals("String")&&callTarget.getLastChild().getString().equals("fromCharCode")){
+Node string=IR.string("").srcref(n);
+for(Node c=callTarget.getLastChild().getFirstChild();c!=null;c=c.getNext()){
+string=IR.add(string,IR.number(c.getDouble()).srcref(c),IR.string("").srcref(c));
+}
+return string;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(name.equals("String")&&callTarget.getLastChild().getString().equals("fromCharCode")){
+Node string=IR.string("").srcref(n);
+for(Node c=callTarget.getLastChild().getFirstChild();c!=null;c=c.getNext()){
+string=IR.add(string,IR.number(c.getDouble()).srcref(c),IR.string("").srcref(c));
+}
+return string;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:String name=callTarget.getFirstChild().getString();
+TO:
+13
+
+INSERT:
+16:if(name.equals("String")&&callTarget.getLastChild().getString().equals("fromCharCode")){
+Node string=IR.string("").srcref(n);
+for(Node c=callTarget.getLastChild().getFirstChild();c!=null;c=c.getNext()){
+string=IR.add(string,IR.number(c.getDouble()).srcref(c),IR.string("").srcref(c));
+}
+return string;
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+15:String name=callTarget.getFirstChild().getString();
+TO:
+13
+
+INSERT:
+17:Node string=IR.string("").srcref(n);
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:6095 patches
+Compile failed:5111 patches
+Compilation rate:0.16144380639868744
+NNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/21.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 25 patches...
+Tested:6121 patches
+Compile failed:5125 patches
+Compilation rate:0.1627185100473779
+NNNNNNNNNNNNNNPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/22.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());, n.getParent().replaceChild(n,addition);, reportCodeChange();, return addition;]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:if(value.isImmutableValue()&&value.isZero()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6322 patches
+Compile failed:5325 patches
+Compilation rate:0.15770325846251187
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/23.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()){
+Node value=callTarget.getFirstChild();
+if(value!=null&&value.isName()&&value.getString().equals("String")){
+Node addition=IR.add(IR.string("").srcref(callTarget),callTarget.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null&&value.isName()&&value.getString().equals("String")){
+Node addition=IR.add(IR.string("").srcref(callTarget),callTarget.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getFirstChild();
+TO:
+13
+
+INSERT:
+16:if(value!=null&&value.isName()&&value.getString().equals("String")){
+Node addition=IR.add(IR.string("").srcref(callTarget),callTarget.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()){
+Node value=callTarget.getFirstChild();
+if(value!=null&&value.isName()&&value.getString().equals("String")){
+Node addition=IR.add(IR.string("").srcref(callTarget),callTarget.getLastChild().detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getFirstChild();
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:6751 patches
+Compile failed:5496 patches
+Compilation rate:0.18589838542438158
+NNNNNNNNNNNNNNPPPNPPPPNPPPPPNNNNNNPPPNNPPPNPPNPPNNNNNPPPPPPPPPNNPPPPPPPPPPPNNNNNNNPPPPPPPPPPNPPPPNNNPPPPPNPPPPPPNPNPPPPPPPPNNPPPNNPNPPPNPPPNNNNPPNPNPNNNPPPPPPPPPNNNNPPPNPPPPNPNPPPNNNPPPNNNNPPNNPPPPNNNNNNNNNPPPPPNPPPPNNNPNNNPPPPPPNNNNNPPPPPPNNPPNPPNNNNNNPPPPPPPPNPPNPPPPPPPPPPNNPNNNPNNPPPPPPPPPPPPNPPNPNNPPPPPPPNNPPPPNPPPPPPPPPNPNNNNPPNPPPPPNNNNPPNNPPNNNPPPPPPPNPNPNNPPNPPNPPNPPPPPNNPNNPPPPPNNNNNPPPNNNNNNNNNPPNPPPPPPNPPNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/24.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("call")){
+Node grandparent=n.getParent().getParent();
+Node firstArg=n.getSecondChild();
+if(firstArg!=null&&firstArg.isString()&&firstArg.getString().equals("use strict")){
+Node newStr=IR.string("'use strict'").srcref(firstArg);
+grandparent.replaceChild(n,newStr);
+reportCodeChange();
+return newStr;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 46 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("call")){
+Node grandparent=n.getParent().getParent();
+Node firstArg=n.getSecondChild();
+if(firstArg!=null&&firstArg.isString()&&firstArg.getString().equals("use strict")){
+Node newStr=IR.string("'use strict'").srcref(firstArg);
+grandparent.replaceChild(n,newStr);
+reportCodeChange();
+return newStr;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:if(firstArg!=null&&firstArg.isString()&&firstArg.getString().equals("use strict")){
+Node newStr=IR.string("'use strict'").srcref(firstArg);
+grandparent.replaceChild(n,newStr);
+reportCodeChange();
+return newStr;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+18:Node newStr=IR.string("'use strict'").srcref(firstArg);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node grandparent=n.getParent().getParent();
+TO:
+13
+
+INSERT:
+19:grandparent.replaceChild(n,newStr);
+TO:
+13
+
+INSERT:
+20:reportCodeChange();
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:7198 patches
+Compile failed:5897 patches
+Compilation rate:0.18074465129202555
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNPPPNPNNPNNPPNNNNNNPNPNPNPPNNPPNNPNNPNPNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNPNNNNNNPNNNNNNPPNNNNPNPNPNNNNPNNNNNNNNNNNNPNNNNNPNPNPNPNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/25.java
+Current actions:
+INSERT:
+8:if(!value.isImmutableValue()){
+return n;
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(!value.isImmutableValue()){
+return n;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:return n;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 11 patches...
+Tested:7411 patches
+Compile failed:5961 patches
+Compilation rate:0.1956551072729726
+NNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPNPPPNNPPPPPNPPPPPPPPPPPPNNNPPPPPNNPNPPNNPPNNNNNNNNNNPPPPPPPPPPNNPNPPPPPPNPNPPNPPPPPPPNPNNPPPPPPNPPPPPPPPPPNPPPPPPNNPNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPNPPPPPPPPPPPPPPPPPNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/26.java
+Current actions:
+INSERT:
+9:Node newExpr=value.isImmutableResult()?addition:n;
+TO:
+8
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+9:n.getParent().replaceChild(n,addition);
+TO:
+10:n.getParent().replaceChild(n,newExpr);
+
+Following are 1th generated patches:
+Validating 181 patches...
+Current actions:
+INSERT:
+9:Node newExpr=value.isImmutableResult()?addition:n;
+TO:
+8
+
+UPDATE
+FROM:
+9:n.getParent().replaceChild(n,addition);
+TO:
+10:n.getParent().replaceChild(n,newExpr);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:n.getParent().replaceChild(n,addition);
+TO:
+10:n.getParent().replaceChild(n,newExpr);
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+12:return newExpr;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 194 patches...
+Current actions:
+INSERT:
+9:Node newExpr=value.isImmutableResult()?addition:n;
+TO:
+8
+
+UPDATE
+FROM:
+9:n.getParent().replaceChild(n,addition);
+TO:
+10:n.getParent().replaceChild(n,newExpr);
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+12:return newExpr;
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:8197 patches
+Compile failed:6597 patches
+Compilation rate:0.19519336342564353
+NNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPPNNPPPNNNNPNNNNNNPPPNNNPPNPPNPNNNPNNPNNNPNNPPPPNPPPNNPPPPPPPPNNPPPPNPPPNPPPPPNPPPPPPNNPPNPPPPPPPPPPPNPPPPPPPPPNPPPPPNPPNPPNPPPPPPPPPPPNPPPPPPPPPPNNPNPNPPPPPPPPPPPPPPPNPPPPPNNPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/27.java
+Current actions:
+DELETE:
+Original line: 14return n;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+INSERT:
+14:return tryFoldConstantCall(n);
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+14:return tryFoldConstantCall(n);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:8600 patches
+Compile failed:6904 patches
+Compilation rate:0.1972093023255814
+NNNNNNNNNNPPPNPPPNPNNNPPPNNNNNNNNPPPPPNNPPPNNNPPNNNNNPPPPPPPPPPNPPNPPNNPPPNNNNPPPNPPNPPPNPPPNPPNPNPNNNPPNNNPNNNNNPPNNNPPNNNNNNNNNPPPNPPNNNNNPNNNPNNNPNPNPPPNNNNNPPPPNNNPPPNNNNPPPPNNNPPNPNPPPPPNPNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/28.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());, n.getParent().replaceChild(n,addition);, reportCodeChange();, return addition;]
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+8:if(value.isImmutableValue()&&!value.getType().isUnknownType()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(value.isImmutableValue()&&!value.getType().isUnknownType()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+15:return n;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9003 patches
+Compile failed:7306 patches
+Compilation rate:0.18849272464733977
+NNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/29.java
+Current actions:
+INSERT:
+8:Node stringPlus=IR.string("");
+TO:
+7
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+8:Node stringPlus=IR.string("");
+TO:
+7
+
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+10:Node addition=IR.add(stringPlus,value.detachFromParent());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Node stringPlus=IR.string("");
+TO:
+7
+
+INSERT:
+9:stringPlus.srcref(callTarget);
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9408 patches
+Compile failed:7502 patches
+Compilation rate:0.202593537414966
+NNNPPPPNNNNNNNNNNNNNNNNNNPPPPPNPPNNNNNPNNPNNNNNPNNPPNNPNNNNPPNNNPPPPNNNNNPNPNNNPNPPPPPPNNPNPNPNNNPNNNNNNNNNNNNNNPNNPPPNNPPNNPNPNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNPPNPNPNNNPNNNPNNPPNPPNPPPPPPNNPPNPPPPPPPPPPPNPPPPPPPPPPPNPNPPNNPPPNPPPPPPPPPNNPNNPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPNPPPPPPPPPPNNPNNPNPNPPPPNPPPPNPPNNNPNPNPPNNNPNPPNNPNPNNPPNNPPNNNPNNPPPPPPPPPPNNNPPNNNPPPPPPPNPPNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/30.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&NodeUtil.isImmutableValue(value)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&NodeUtil.isImmutableValue(value)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 11 patches...
+Tested:9420 patches
+Compile failed:7506 patches
+Compilation rate:0.2031847133757962
+PNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/31.java
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string(""),value.detachFromParent());
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+8:Node addition=IR.add(IR.string(""),value.detachFromParent());
+
+INSERT:
+9:addition.useSourceInfoIfMissingFromForTree(n);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9622 patches
+Compile failed:7550 patches
+Compilation rate:0.21533984618582416
+PPPNNNPPPPPPPPPPNNPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPNPPPPPNPPNPPPPPPPPPPPPPNPPNPPPNNNPNPNPNPNNNPNNNNNNNPPPPPNPNPNPNNPPPPPPPNNPPPPNPPPPPPNPPPPPPPPPPPPPPPPPNNPPPPPPPPNPPNPPPPPPPPPPNPPPPNPNPPPPPPPPPPNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/32.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+if(value!=null&&value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+if(value!=null&&value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(value!=null&&value.isImmutableValue()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+Following are 3th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+Following are 4th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+20:return addition;
+TO:
+13
+
+Tested:9892 patches
+Compile failed:7721 patches
+Compilation rate:0.21947027901334412
+NNNNNNNNNNNNNNNNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPPNNNNPNNPNNNPNNNNPNPNNPNPNPNPPPNNPNNNNNNPPPNPPNNPNNPNNNNPNPNNPNNPNNPPPNPPNPNPNPNPNNPNNPNNPNPPNNNPPNNNNPNPNPNNPNNNNNNNNPPNNPPPPPPPPNNNNNNNNNNNPPPPPPPNPNNPPNPPPPNPPNNNNNNNPNPPNPNNNNNNNNNPNPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/33.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&(value.isString()||value.isBoolean()||value.isNumber())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&(value.isString()||value.isBoolean()||value.isNumber())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 15 patches...
+Tested:9908 patches
+Compile failed:7730 patches
+Compilation rate:0.21982236576503836
+NNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/34.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isGetProp()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isGetProp()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Tested:9911 patches
+Compile failed:7730 patches
+Compilation rate:0.22005852083543537
+PPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/35.java
+Current actions:
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+INSERT:
+9:if(result!=null){
+reportCodeChange();
+return result;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+8:Node result=foldConstantStringCall(n,value);
+TO:
+7
+
+INSERT:
+9:if(result!=null){
+reportCodeChange();
+return result;
+}
+TO:
+7
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Node result=foldConstantStringCall(n,value);
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+INSERT:
+9:if(result!=null){
+reportCodeChange();
+return result;
+}
+TO:
+7
+
+DELETE:
+Original line: 10reportCodeChange();
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:10547 patches
+Compile failed:8344 patches
+Compilation rate:0.20887456148667868
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNPNNNNNPNNNNNNNNNNNNNPNNNNPNPNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/36.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Array")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.add(IR.arraylit().srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.arraylit().srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Array")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.add(IR.arraylit().srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.arraylit().srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Tested:10997 patches
+Compile failed:8548 patches
+Compilation rate:0.22269709920887515
+NNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNPNNPPPPPPPPNPPPPPPPPPPPNPPPPNPPPNNNPPNNPNNPPPPPPPPPPPNPNNNPPPNPPPPPPNPPNPPPNNPPPPNPPPPPPPNNPPNPPPPNPPNPNNPPNNNNPNNNNNPNPPNPNPNNPPNNNNNPNPNNNNPNPNNPPPPPPNNPPPPPPPPPPNPNNNNNNPPPPPPPPPNNNNNNPPPPPPNPPPPNNNNNNPPPPPNPPPNNPPNNNNNNNNPPPPPPPPNPPPPPPNPPPNPPPPPNNNNPNNPNPNPNPNPNPNPPPPPPNPPNPPNPPPNPPNNNPPPPPNNPPPNNPPNPNNPNNPPNNPNNNPNNNNNPNPNNPPNNPNPNNNNPNNPNPPPPNPPNPPPPPPPNPPNNNNPNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/37.java
+Current actions:
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+8:return foldString(n,value);
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 10reportCodeChange();
+
+INSERT:
+23:}
+
+TO:
+15
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:return foldString(n,value);
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+23:}
+
+TO:
+15
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:11420 patches
+Compile failed:8971 patches
+Compilation rate:0.21444833625218915
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/38.java
+Current actions:
+INSERT:
+8:Node stringNode=IR.string("");
+TO:
+7
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:stringNode.srcrefTree(callTarget);
+TO:
+7
+
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+10:Node addition=new Node(Token.ADD,stringNode,value.detachFromParent());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:11626 patches
+Compile failed:9173 patches
+Compilation rate:0.21099260278685705
+NNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/39.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("fromCharCode")&&callTarget.getFirstChild().isString()){
+Node value=callTarget.getFirstChild();
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getLastChild().getString().equals("fromCharCode")&&callTarget.getFirstChild().isString()){
+Node value=callTarget.getFirstChild();
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+Following are 2th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getFirstChild();
+TO:
+13
+
+INSERT:
+17:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+19:return addition;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:reportCodeChange();
+TO:
+13
+
+INSERT:
+19:return addition;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 162 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getFirstChild();
+TO:
+13
+
+Tested:12163 patches
+Compile failed:9702 patches
+Compilation rate:0.20233495025898215
+NNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/40.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("parseInt")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node stringLiteral=NodeUtil.newStringNode("10",value.srcref());
+Node addition=IR.add(NodeUtil.newQName(value.srcref(),"$jscomp$parseInt"),value.detachFromParent(),stringLiteral);
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node stringLiteral=NodeUtil.newStringNode("10",value.srcref());
+Node addition=IR.add(NodeUtil.newQName(value.srcref(),"$jscomp$parseInt"),value.detachFromParent(),stringLiteral);
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("parseInt")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node stringLiteral=NodeUtil.newStringNode("10",value.srcref());
+Node addition=IR.add(NodeUtil.newQName(value.srcref(),"$jscomp$parseInt"),value.detachFromParent(),stringLiteral);
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:Node stringLiteral=NodeUtil.newStringNode("10",value.srcref());
+TO:
+13
+
+INSERT:
+18:Node addition=IR.add(NodeUtil.newQName(value.srcref(),"$jscomp$parseInt"),value.detachFromParent(),stringLiteral);
+TO:
+13
+
+INSERT:
+19:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+20:reportCodeChange();
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:if(value!=null){
+Node stringLiteral=NodeUtil.newStringNode("10",value.srcref());
+Node addition=IR.add(NodeUtil.newQName(value.srcref(),"$jscomp$parseInt"),value.detachFromParent(),stringLiteral);
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Tested:12629 patches
+Compile failed:10041 patches
+Compilation rate:0.20492517222266213
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNNPNNPPPPPPPPPNPPPPPPPPPPNPPPPPNNPNPPNPNPNPNNPPPPPPPPPPNNNPPNPNPPPPPPPNPNPPPPPNNPPPNPPPPPPPPNPNNPPNPPNPPPNPNPNNPNNNNNNPPNNPNNNPNPPNPNPNNNNPNNNNNPNPPNPPPPPNNPPPPPPPPPNPPNNNNPNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/41.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("parseInt")&&callTarget.getNext()!=null){
+Node value=callTarget.getNext();
+Node numberString=value;
+if(!value.isString()){
+numberString=IR.string(String.valueOf(value.getDouble()));
+}
+Node number=new Node(Token.NUMBER,numberString.srcref());
+Node newCallTarget=IR.name("Number").srcref(callTarget);
+Node call=new Node(Token.CALL,newCallTarget.srcref(),newCallTarget,number);
+Node replacement=value.detachFromParent().replaceWith(call);
+reportCodeChange();
+return replacement;
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 167 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("parseInt")&&callTarget.getNext()!=null){
+Node value=callTarget.getNext();
+Node numberString=value;
+if(!value.isString()){
+numberString=IR.string(String.valueOf(value.getDouble()));
+}
+Node number=new Node(Token.NUMBER,numberString.srcref());
+Node newCallTarget=IR.name("Number").srcref(callTarget);
+Node call=new Node(Token.CALL,newCallTarget.srcref(),newCallTarget,number);
+Node replacement=value.detachFromParent().replaceWith(call);
+reportCodeChange();
+return replacement;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:if(!value.isString()){
+numberString=IR.string(String.valueOf(value.getDouble()));
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+16:Node numberString=value;
+TO:
+13
+
+INSERT:
+17:if(!value.isString()){
+numberString=IR.string(String.valueOf(value.getDouble()));
+}
+TO:
+13
+
+INSERT:
+20:Node number=new Node(Token.NUMBER,numberString.srcref());
+TO:
+13
+
+INSERT:
+21:Node newCallTarget=IR.name("Number").srcref(callTarget);
+TO:
+13
+
+INSERT:
+22:Node call=new Node(Token.CALL,newCallTarget.srcref(),newCallTarget,number);
+TO:
+13
+
+INSERT:
+23:Node replacement=value.detachFromParent().replaceWith(call);
+TO:
+13
+
+INSERT:
+24:reportCodeChange();
+TO:
+13
+
+INSERT:
+25:return replacement;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:13194 patches
+Compile failed:10594 patches
+Compilation rate:0.19705926936486282
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNPNNPPPNNNNNNNNPNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/42.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Symbol")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.call(IR.getprop(IR.name("Symbol").srcref(callTarget),"for").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node addition=IR.call(IR.getprop(IR.name("Symbol").srcref(callTarget),"for").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("Symbol")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node addition=IR.call(IR.getprop(IR.name("Symbol").srcref(callTarget),"for").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+INSERT:
+20:return addition;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:n.getParent().replaceChild(n,addition);
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+Tested:13641 patches
+Compile failed:11038 patches
+Compilation rate:0.19082178725899862
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/43.java
+Current actions:
+INSERT:
+14:JSType type=n.getFirstChild().getJSType();
+TO:
+13
+
+Following are 0th generated patches:
+Validating 37 patches...
+Current actions:
+INSERT:
+15:if(type==null){
+return n;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:if(type.isImmutableValueType()||type.isBooleanValueType()){
+Node value=n.getSecondChild();
+if(value.isImmutableValue()||value.isBoolean()){
+return value.detachFromParent();
+}
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:if(value.isImmutableValue()||value.isBoolean()){
+return value.detachFromParent();
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:JSType type=n.getFirstChild().getJSType();
+TO:
+13
+
+INSERT:
+15:if(type==null){
+return n;
+}
+TO:
+13
+
+INSERT:
+18:if(type.isImmutableValueType()||type.isBooleanValueType()){
+Node value=n.getSecondChild();
+if(value.isImmutableValue()||value.isBoolean()){
+return value.detachFromParent();
+}
+}
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(type==null){
+return n;
+}
+TO:
+13
+
+INSERT:
+20:if(value.isImmutableValue()||value.isBoolean()){
+return value.detachFromParent();
+}
+TO:
+13
+
+Tested:14277 patches
+Compile failed:11658 patches
+Compilation rate:0.18344189955873083
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNPNNNPNNNNNNNNNNNNNNNNNNPNPNNNNPNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/44.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&(value.isImmutableValue()||value.isTemplateLit())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&(value.isImmutableValue()||value.isTemplateLit())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Tested:14285 patches
+Compile failed:11665 patches
+Compilation rate:0.18340917045852292
+NNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/45.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());, n.getParent().replaceChild(n,addition);, reportCodeChange();, return addition;]
+Following are 0th generated patches:
+Validating 101 patches...
+Current actions:
+INSERT:
+8:if(value.isString()||value.isBoolean()||value.isBigInt()||value.isNull()||value.isUndefined()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(value.isString()||value.isBoolean()||value.isBigInt()||value.isNull()||value.isUndefined()){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7
+
+DELETE:
+Original line: 8Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 10reportCodeChange();
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+14:else{
+if(value.isAdd()){
+Node firstChild=value.getFirstChild();
+Node secondChild=firstChild.getNext();
+if(firstChild.isString()&&secondChild.isString()){
+Node addition=IR.add(firstChild.detachFromParent(),secondChild.detachFromParent());
+addition.srcref(value);
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:14754 patches
+Compile failed:12127 patches
+Compilation rate:0.17805340924495053
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/46.java
+Current actions:
+INSERT:
+8:if(!NodeUtil.isImmutableValue(value)){
+return n;
+}
+TO:
+7
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+8:if(!NodeUtil.isImmutableValue(value)){
+return n;
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:return n;
+TO:
+7
+
+Following are 2th generated patches:
+Validating 11 patches...
+Tested:14967 patches
+Compile failed:12214 patches
+Compilation rate:0.18393799692657178
+NPNNNNNNNNNNNNNNPNPPPPPPPNPNPNPPPPPPPPPPNPPPPNPPNPPNNPNNNPNNNNNNNNNNNNNNNPNPPPPPPPPPPPNPPPPPPPPPNPNPPNPPPNPNPPPPNNPPPPPNPNNPPPPPNPPPPNPPPNNNNNPNPPPPPPPPPPPPPPNPPNNPNPPPNNPPNNNNPNPPNPPPPPPPPPNPNPPPPPPPPPNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/47.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isRegExp()&&value.getType().isSubtypeOf(STRING_TYPE)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&!value.isRegExp()&&value.getType().isSubtypeOf(STRING_TYPE)){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Tested:14975 patches
+Compile failed:12219 patches
+Compilation rate:0.18404006677796328
+NNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/48.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()){
+Node value=callTarget.getLastChild();
+if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+17:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+Following are 2th generated patches:
+Validating 70 patches...
+Current actions:
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+Following are 3th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+20:return addition;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()){
+Node value=callTarget.getLastChild();
+if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+}
+}
+TO:
+13
+
+Tested:15257 patches
+Compile failed:12400 patches
+Compilation rate:0.18725830766205676
+NNNNNNNNNNNNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPNPNPNPNPPPPNNNNNNPPNPNNPNNPNNNNNNNPNPPPPNPPPPPPPPPNNNNNNNNNNNNNNPPNNPPPNNPNNNPPNNNNPNNNNNPNPNPNNPPNPPNNPNPNNNNNPPNPPNPNNPPNNNNPNPNPNNNNPNNPPNPPPNPPNPNNNPNNNPNPPPNNNPNPNNNPNNNPPPNNNPNNNNNNNNPPNPNPPPPPPPNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/49.java
+Current actions:
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+9:Node replacement=n.getParent().replaceChild(n,addition);
+TO:
+8
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+INSERT:
+11:return replacement;
+TO:
+10
+
+DELETE:
+Original line: 11return addition;
+
+Following are 1th generated patches:
+Validating 195 patches...
+Current actions:
+INSERT:
+9:Node replacement=n.getParent().replaceChild(n,addition);
+TO:
+8
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+DELETE:
+Original line: 11return addition;
+
+Following are 2th generated patches:
+Validating 183 patches...
+Current actions:
+INSERT:
+9:Node replacement=n.getParent().replaceChild(n,addition);
+TO:
+8
+
+INSERT:
+11:return replacement;
+TO:
+10
+
+Following are 3th generated patches:
+Validating 193 patches...
+Current actions:
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:Node replacement=n.getParent().replaceChild(n,addition);
+TO:
+8
+
+DELETE:
+Original line: 9n.getParent().replaceChild(n,addition);
+
+INSERT:
+11:return replacement;
+TO:
+10
+
+Tested:15837 patches
+Compile failed:12976 patches
+Compilation rate:0.18065290143335228
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/50.java
+Current actions:
+INSERT:
+9:if(value.isString()){
+addition.putBooleanProp(Node.QUOTED_PROP,true);
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:if(value.isString()){
+addition.putBooleanProp(Node.QUOTED_PROP,true);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:addition.putBooleanProp(Node.QUOTED_PROP,true);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16239 patches
+Compile failed:13028 patches
+Compilation rate:0.19773385060656445
+PPNNNNPPPPPPPPNPNNNNPPPPPPPPPPPNPPPNPPNPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPPPPPNPPPPPPPPPPNPPNPPNNPNNPNNNNPPPPPPPPPPPPPPPPPPPNPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPNPPPNPNNPPPPPPPPPNPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPNPPPNNPPPPPPNPPPPPPPPNPPPPPPPPPPPPPPPPPPNPNPNPNNPPPPPNPPPPPPPPPPPPPPPPPPPPNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/51.java
+Current actions:
+INSERT:
+14:if(callTarget.isName()&&callTarget.getString().equals("Number")){
+Node value=callTarget.getNext();
+return caseNumberStringCall(value);
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+14:if(callTarget.isName()&&callTarget.getString().equals("Number")){
+Node value=callTarget.getNext();
+return caseNumberStringCall(value);
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+18:if(callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+return caseNumberStringCall(value);
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:return caseNumberStringCall(value);
+TO:
+13
+
+INSERT:
+18:if(callTarget.isName()&&callTarget.getString().equals("String")){
+Node value=callTarget.getNext();
+return caseNumberStringCall(value);
+}
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:16459 patches
+Compile failed:13247 patches
+Compilation rate:0.19515158879640318
+NNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/52.java
+Current actions:
+DELETE:
+Original line: 14return n;
+
+Following are 0th generated patches:
+Validating 90 patches...
+Current actions:
+INSERT:
+16:if(callName!=null&&callName.equals("String")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node newValue=new Node(Token.ADD,IR.string("").srcref(callTarget),value.detachFromParent());
+result=NodeUtil.newExpr(newValue);
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+18:if(value!=null){
+Node newValue=new Node(Token.ADD,IR.string("").srcref(callTarget),value.detachFromParent());
+result=NodeUtil.newExpr(newValue);
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14return n;
+
+INSERT:
+14:Node result=n;
+TO:
+13
+
+INSERT:
+15:String callName=NodeUtil.getBestLValueName(callTarget);
+TO:
+13
+
+INSERT:
+16:if(callName!=null&&callName.equals("String")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node newValue=new Node(Token.ADD,IR.string("").srcref(callTarget),value.detachFromParent());
+result=NodeUtil.newExpr(newValue);
+}
+}
+TO:
+13
+
+INSERT:
+23:return result;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:Node result=n;
+TO:
+13
+
+INSERT:
+15:String callName=NodeUtil.getBestLValueName(callTarget);
+TO:
+13
+
+INSERT:
+19:Node newValue=new Node(Token.ADD,IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:17144 patches
+Compile failed:13740 patches
+Compilation rate:0.19855342977134857
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNPPNPNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNPNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPNPPPPNNNPPPPNPPPNPNPNPPPPPPPPPPPPPPNPPPPPPPPPPPPNPPNNPPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/53.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()&&value.isQualifiedName()&&value.getFirstChild()!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()&&value.isQualifiedName()&&value.getFirstChild()!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 15 patches...
+Tested:17160 patches
+Compile failed:13749 patches
+Compilation rate:0.19877622377622378
+NNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/54.java
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()&&(value.isBooleanTrue()||value.isNumber()||value.isString())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+7:if(value!=null&&value.isImmutableValue()&&(value.isBooleanTrue()||value.isNumber()||value.isString())){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+
+Following are 1th generated patches:
+Validating 31 patches...
+Tested:17192 patches
+Compile failed:13774 patches
+Compilation rate:0.19881340158213123
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/55.java
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getNext()!=null){
+Node target=callTarget.getFirstChild();
+Node next=callTarget.getNext();
+if(target!=null&&target.isName()&&target.getString().equals("Date")&&next!=null&&next.isString()&&next.getString().equals("now")){
+Node date=IR.call(IR.getprop(IR.name("window"),"Date").srcref(n),IR.string("now").srcref(n));
+n.getParent().replaceChild(n,date);
+reportCodeChange();
+return date;
+}
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 46 patches...
+Current actions:
+INSERT:
+17:if(target!=null&&target.isName()&&target.getString().equals("Date")&&next!=null&&next.isString()&&next.getString().equals("now")){
+Node date=IR.call(IR.getprop(IR.name("window"),"Date").srcref(n),IR.string("now").srcref(n));
+n.getParent().replaceChild(n,date);
+reportCodeChange();
+return date;
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+14:else{
+if(callTarget!=null&&callTarget.isGetProp()&&callTarget.getNext()!=null){
+Node target=callTarget.getFirstChild();
+Node next=callTarget.getNext();
+if(target!=null&&target.isName()&&target.getString().equals("Date")&&next!=null&&next.isString()&&next.getString().equals("now")){
+Node date=IR.call(IR.getprop(IR.name("window"),"Date").srcref(n),IR.string("now").srcref(n));
+n.getParent().replaceChild(n,date);
+reportCodeChange();
+return date;
+}
+}
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:Node target=callTarget.getFirstChild();
+TO:
+13
+
+INSERT:
+16:Node next=callTarget.getNext();
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:Node target=callTarget.getFirstChild();
+TO:
+13
+
+INSERT:
+16:Node next=callTarget.getNext();
+TO:
+13
+
+INSERT:
+18:Node date=IR.call(IR.getprop(IR.name("window"),"Date").srcref(n),IR.string("now").srcref(n));
+TO:
+13
+
+INSERT:
+19:n.getParent().replaceChild(n,date);
+TO:
+13
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:17638 patches
+Compile failed:14110 patches
+Compilation rate:0.2000226783081982
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPPPPPNNNNNNNPPPPPNPNNPPPPNNNNNNNNNNNNPPNNPPPNPPNNNNNPNNPPNNPPNNPNPNNPNPNPPPPNPPPPPPPNNNNPNNPNNNPNNNNNNPPPNPPPNNPPPPPPNPPPPNPPNPPPPNNNNNPNPNNPNPPPPPNNPPPNPPPPNNPNNNNPNPPNNNPPPNNPPPNNNNNPPPNNNPPPNNPPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/56.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("array")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node subscript=IR.subscript(IR.name("arguments"),IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,subscript);
+reportCodeChange();
+return subscript;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isName()&&callTarget.getString().equals("array")){
+Node value=callTarget.getNext();
+if(value!=null){
+Node subscript=IR.subscript(IR.name("arguments"),IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,subscript);
+reportCodeChange();
+return subscript;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(value!=null){
+Node subscript=IR.subscript(IR.name("arguments"),IR.number(0).srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,subscript);
+reportCodeChange();
+return subscript;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+15:Node value=callTarget.getNext();
+TO:
+13
+
+INSERT:
+17:Node subscript=IR.subscript(IR.name("arguments"),IR.number(0).srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+INSERT:
+20:return subscript;
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:Node subscript=IR.subscript(IR.name("arguments"),IR.number(0).srcref(callTarget),value.detachFromParent());
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+INSERT:
+20:return subscript;
+TO:
+13
+
+Following are 4th generated patches:
+Validating 164 patches...
+Current actions:
+INSERT:
+18:n.getParent().replaceChild(n,subscript);
+TO:
+13
+
+INSERT:
+19:reportCodeChange();
+TO:
+13
+
+Tested:18049 patches
+Compile failed:14518 patches
+Compilation rate:0.19563410715275084
+NNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/57.java
+Current actions:
+INSERT:
+7:Node stringLiteral=null;
+TO:
+6
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(value!=null&&value.isString()){
+stringLiteral=value;
+}
+TO:
+6
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:if(right!=null&&right.isString()){
+stringLiteral=right;
+value.removeChild(right);
+}
+TO:
+6
+
+Following are 2th generated patches:
+Validating 185 patches...
+Current actions:
+INSERT:
+8:if(value!=null&&value.isString()){
+stringLiteral=value;
+}
+TO:
+6
+
+DELETE:
+Original line: 11return addition;
+
+INSERT:
+11:else{
+if(value!=null&&value.isAdd()){
+Node left=value.getFirstChild();
+Node right=left.getNext();
+if(right!=null&&right.isString()){
+stringLiteral=right;
+value.removeChild(right);
+}
+else{
+if(left.isString()){
+stringLiteral=left;
+value.removeChild(left);
+}
+}
+}
+}
+TO:
+6
+
+UPDATE
+FROM:
+7:if(value!=null){
+Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+n.getParent().replaceChild(n,addition);
+reportCodeChange();
+return addition;
+}
+TO:
+23:if(stringLiteral!=null){
+Node replacement=IR.stringKey("value",stringLiteral.getString()).srcref(stringLiteral);
+n.getParent().replaceChild(n,replacement);
+reportCodeChange();
+return replacement;
+}
+
+INSERT:
+24:Node replacement=IR.stringKey("value",stringLiteral.getString()).srcref(stringLiteral);
+TO:
+7
+
+UPDATE
+FROM:
+9:n.getParent().replaceChild(n,addition);
+TO:
+25:n.getParent().replaceChild(n,replacement);
+
+INSERT:
+27:return replacement;
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:18831 patches
+Compile failed:15282 patches
+Compilation rate:0.18846582762466146
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNPNNPPNPNNNNNNNNNNNPNNNNPNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/58.java
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()){
+Node receiver=callTarget.getFirstChild();
+Node methodName=callTarget.getLastChild();
+if(receiver!=null&&methodName!=null&&methodName.getString().equals("call")&&receiver.isName()&&receiver.getString().equals("Function")){
+Node newTarget=IR.getprop(receiver.cloneTree(),"call");
+Node newCall=newTarget.cloneTree();
+newCall.addChildToBack(receiver.cloneTree());
+newCall.addChildToBack(methodName.cloneTree());
+n.getParent().replaceChild(n,newCall);
+reportCodeChange();
+return newCall;
+}
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 134 patches...
+Current actions:
+INSERT:
+14:if(callTarget!=null&&callTarget.isGetProp()){
+Node receiver=callTarget.getFirstChild();
+Node methodName=callTarget.getLastChild();
+if(receiver!=null&&methodName!=null&&methodName.getString().equals("call")&&receiver.isName()&&receiver.getString().equals("Function")){
+Node newTarget=IR.getprop(receiver.cloneTree(),"call");
+Node newCall=newTarget.cloneTree();
+newCall.addChildToBack(receiver.cloneTree());
+newCall.addChildToBack(methodName.cloneTree());
+n.getParent().replaceChild(n,newCall);
+reportCodeChange();
+return newCall;
+}
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:if(receiver!=null&&methodName!=null&&methodName.getString().equals("call")&&receiver.isName()&&receiver.getString().equals("Function")){
+Node newTarget=IR.getprop(receiver.cloneTree(),"call");
+Node newCall=newTarget.cloneTree();
+newCall.addChildToBack(receiver.cloneTree());
+newCall.addChildToBack(methodName.cloneTree());
+n.getParent().replaceChild(n,newCall);
+reportCodeChange();
+return newCall;
+}
+TO:
+13
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:Node methodName=callTarget.getLastChild();
+TO:
+13
+
+INSERT:
+18:Node newTarget=IR.getprop(receiver.cloneTree(),"call");
+TO:
+13
+
+INSERT:
+20:newCall.addChildToBack(receiver.cloneTree());
+TO:
+13
+
+INSERT:
+21:newCall.addChildToBack(methodName.cloneTree());
+TO:
+13
+
+INSERT:
+22:n.getParent().replaceChild(n,newCall);
+TO:
+13
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:19164 patches
+Compile failed:15608 patches
+Compilation rate:0.18555625130452932
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/59.java
+Current actions:
+INSERT:
+14:if(n.getParent()!=null&&n.getNext()==null){
+return tryFoldFunctionCall(n.getParent(),n);
+}
+TO:
+13
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:if(n.getParent()!=null&&n.getNext()==null){
+return tryFoldFunctionCall(n.getParent(),n);
+}
+TO:
+13
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:return tryFoldFunctionCall(n.getParent(),n);
+TO:
+13
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:19566 patches
+Compile failed:15964 patches
+Compilation rate:0.18409485842788512
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPNNNNPNNPNNPNNNPNPNPPNNNNNPPNPPNNNNNNNPNNNNNNNNNNNPNNPNNNPPPNNNNPPNPNPNNPNNNNPPNNNNNNNPNNNNNNNNNNNNPNNPNNNNPNPNNNNNNNNPNPNNNPNNNNNNNNNNNNNPNNPPNNNPNNNNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/60.java
+Current actions:
+INSERT:
+9:if(value.isImmutableValue()){
+addition.makeImmutable();
+}
+TO:
+8
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:if(value.isImmutableValue()){
+addition.makeImmutable();
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+10:addition.makeImmutable();
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:19968 patches
+Compile failed:16224 patches
+Compilation rate:0.1875
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNPPPPPPPPPNNPNPPPPPPPNPPPNNNPPPPNPNNPPPPPPPPPPPPPPPNPPPPPPNNPNPPNNNNNPNNPPPPNPPPNPPPPPPNNNPPNPNNNNPNPNPPPNPPNPPPPPPPPPPPNPPNPPPPPPPPPPPPPPPPNPNNPPNPNPPPPPNPPNPNPPPNNNNNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/61.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_20/61.java
+Current actions:
+INSERT:
+8:Node string=IR.string("").srcref(callTarget);
+TO:
+7
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+14:return IR.comma(assign,addition).srcref(callTarget);
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:Node string=IR.string("").srcref(callTarget);
+TO:
+7
+
+INSERT:
+9:Node tempString=IR.name(string.getNextUniqueId(),string.getLineno(),string.getCharno()).srcref(callTarget);
+TO:
+7
+
+INSERT:
+10:Node assign=IR.assign(tempString,string);
+TO:
+7
+
+DELETE:
+Original line: 11return addition;
+
+UPDATE
+FROM:
+8:Node addition=IR.add(IR.string("").srcref(callTarget),value.detachFromParent());
+TO:
+11:Node addition=IR.add(tempString.cloneTree(),value.detachFromParent());
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:20409 patches
+Compile failed:16662 patches
+Compilation rate:0.183595472585624
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : closure-20 > patch : 0 | Start : Sat Apr 13 01:17:22 HKT 2024 | End : 2024.04.13 AD at 02:47:23 HKT

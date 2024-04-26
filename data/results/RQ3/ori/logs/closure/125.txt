@@ -1,0 +1,1127 @@
+Repair : closure_125
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/0.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 21 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+1 th patch/21
+Trace:
+
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:34:24 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+10:if(resultType.isUnknownType()){
+resultType=unknownType.getFunType(fnType.getArity(),fnType.isConstructor(),fnType.isLoose());
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:JSType resultType=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+10:if(resultType.isUnknownType()){
+resultType=unknownType.getFunType(fnType.getArity(),fnType.isConstructor(),fnType.isLoose());
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:JSType resultType=fnType.getInstanceType();
+TO:
+8
+
+Following are 3th generated patches:
+Validating 125 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSType.NOT_A_TYPE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+2 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getReturnType();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+3 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getTypeOfThis();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+4 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=this.getJSType(n);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+5 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;THISMETHOD
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=this.getJSType(constructor);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+6 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;THISMETHOD
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSType.UNKNOWN_NAME);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+7 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSType.NOT_A_CLASS);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+8 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSType.EMPTY_TYPE_COMPONENT);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+9 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(OVERRIDING_PROTOTYPE_WITH_NON_OBJECT);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+10 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSTypeRegistry.OBJECT_INDEX_TEMPLATE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+11 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=fnType.getPropertyType(JSTypeRegistry.OBJECT_ELEMENT_TEMPLATE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+12 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType resultType=n.getJSType();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+13 th patch/546
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;MethodInvForVar(OTHER)
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:38:00 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+9:JSType resultType=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+11:resultType=unknownType.getFunType(fnType.getArity(),fnType.isConstructor(),fnType.isLoose());
+TO:
+8
+
+INSERT:
+13:ensureTyped(t,n,resultType);
+TO:
+8
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:742 patches
+Compile failed:723 patches
+Compilation rate:0.025606469002695417
+NNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNPPPNNPPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/1.java
+Tested:742 patches
+Compile failed:723 patches
+Compilation rate:0.025606469002695417
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/2.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[FunctionType fnType=type.toMaybeFunctionType();, if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}, {
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}, Node constructor=n.getFirstChild();, JSType type=getJSType(constructor).restrictByNotNullOrUndefined();, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, report(t,n,NOT_A_CONSTRUCTOR);, report(t,n,NOT_A_CONSTRUCTOR);]
+Following are 0th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+10:if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void visitNew(NodeTraversal t,Node n){
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}
+
+DELETE:
+Original line: 3Node constructor=n.getFirstChild();
+
+DELETE:
+Original line: 4JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+TO:
+4
+
+DELETE:
+Original line: 15else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void visitNew(NodeTraversal t,Node n){
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}
+
+DELETE:
+Original line: 3Node constructor=n.getFirstChild();
+
+DELETE:
+Original line: 4JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+
+DELETE:
+Original line: 6FunctionType fnType=type.toMaybeFunctionType();
+
+DELETE:
+Original line: 7if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+
+INSERT:
+10:if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+TO:
+4
+
+DELETE:
+Original line: 11else{
+ensureTyped(t,n);
+}
+
+DELETE:
+Original line: 15else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1351 patches
+Compile failed:1329 patches
+Compilation rate:0.01628423390081421
+NNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/3.java
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1753 patches
+Compile failed:1638 patches
+Compilation rate:0.06560182544209926
+NPNNNNNNPPPPPPNPPPNPNNNNNNNNNNNNNNNNNNNNPPPNPNNPPPPNPPPNNNNNNNNNNNPNPNNNNPNNNNNNPPNNNNNNNPNNNNNPNNNNNNPNPNPNPPPPPNPPPPPPNPPPNPPNPPPPPNNPPPPNNPNPPNNNNPPPPPNPNNPPPNPPPPPNNPNNNPNPPPPPPPNNPPNNPPNPNPPNPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/4.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+Following are 1th generated patches:
+Validating 125 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSType.NOT_A_TYPE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+14 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getReturnType();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+15 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=this.getJSType(n);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+16 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;THISMETHOD
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=this.getJSType(constructor);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+17 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;THISMETHOD
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSType.NOT_A_CLASS);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+18 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=typeRegistry.getNativeType(UNKNOWN_TYPE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+19 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;MethodInvForVar(OTHER)
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSType.EMPTY_TYPE_COMPONENT);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+20 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getTypeOfThis();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+21 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSType.UNKNOWN_NAME);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+22 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSTypeRegistry.OBJECT_INDEX_TEMPLATE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+23 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(OVERRIDING_PROTOTYPE_WITH_NON_OBJECT);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+24 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPropertyType(JSTypeRegistry.OBJECT_ELEMENT_TEMPLATE);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+25 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=n.getJSType();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+26 th patch/132
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;MethodInvForVar(OTHER)
+START : 
+2024.04.13 AD at 17:33:00 HKT
+---------TIME : 
+2024.04.13 AD at 17:44:56 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 1884 patches
+Compile failed 1752 patches
+Compilation rate0.07006369426751592
+Patch number exceeds the limit!
+Tested 1884 patches
+Compile failed 1752 patches
+Compilation rate0.07006369426751592
+Tested:1884 patches
+Compile failed:1752 patches
+Compilation rate:0.07006369426751592
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPPNNNPNNPNNNNNNNNNNNNNNPNNPNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/5.java
+Patch number exceeds the limit!
+Tested 1884 patches
+Compile failed 1752 patches
+Compilation rate0.07006369426751592
+Finish : closure-125 > patch : 26 | Start : Sat Apr 13 17:33:00 HKT 2024 | End : 2024.04.13 AD at 17:44:57 HKT

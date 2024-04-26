@@ -1,0 +1,3088 @@
+Repair : math_51
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/1.java
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+4:double x1=getMax();
+TO:
+4: final double x1=getMax();
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+5:double f0=computeObjectiveValue(x0);
+TO:
+5: final double f0=computeObjectiveValue(x0);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+4:double x1=getMax();
+TO:
+4: final double x1=getMax();
+
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+Tested:18 patches
+Compile failed:18 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/2.java
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return f1<=0?x1:x0;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return f1<=0?x1:x0;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return f1<=0?x1:x0;
+
+UPDATE
+FROM:
+81:return (f1>=0)?x1:x0;
+TO:
+81:return f1>=0?x1:x0;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+81:return (f1>=0)?x1:x0;
+TO:
+81:return f1>=0?x1:x0;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:24 patches
+Compile failed:18 patches
+Compilation rate:0.25
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/3.java
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+4:double x1=getMax();
+TO:
+4: final double x1=getMax();
+
+UPDATE
+FROM:
+5:double f0=computeObjectiveValue(x0);
+TO:
+5: final double f0=computeObjectiveValue(x0);
+
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+DELETE:
+Original line: 8return x0;
+
+DELETE:
+Original line: 10if(f1==0.0){
+return x1;
+}
+
+INSERT:
+11: final double fx0=computeObjectiveValue(x0);
+TO:
+16
+
+INSERT:
+12: final double fx1=computeObjectiveValue(x1);
+TO:
+16
+
+INSERT:
+13:if(FastMath.abs(fx1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(fx1<=0){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(fx1>=0){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(fx1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(fx1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+TO:
+16
+
+DELETE:
+Original line: 17boolean inverted=false;
+
+DELETE:
+Original line: 19 final double x=x1-((f1*(x1-x0))/(f1-f0));
+
+DELETE:
+Original line: 21if(fx==0.0){
+return x;
+}
+
+DELETE:
+Original line: 25x0=x1;
+
+DELETE:
+Original line: 26f0=f1;
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+INSERT:
+41: final double fxx0=computeObjectiveValueAndDerivative(x0)[1];
+TO:
+28
+
+INSERT:
+42: final double fxx1=computeObjectiveValueAndDerivative(x1)[1];
+TO:
+28
+
+INSERT:
+43:boolean inverted=false;
+TO:
+28
+
+UPDATE
+FROM:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+44:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+ final double fxx=computeObjectiveValueAndDerivative(x)[1];
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+fxx0=fxx1;
+inverted=!inverted;
+}
+else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+x1=x;
+f1=fx;
+fxx1=fxx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+
+INSERT:
+45: final double x=x1-((f1*(x1-x0))/(f1-f0));
+TO:
+18
+
+INSERT:
+47: final double fxx=computeObjectiveValueAndDerivative(x)[1];
+TO:
+18
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+48:if(fx==0.0){
+return x;
+}
+TO:
+18
+
+UPDATE
+FROM:
+24:if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+TO:
+51:if(f1*fx<0){
+x0=x1;
+f0=f1;
+fxx0=fxx1;
+inverted=!inverted;
+}
+
+INSERT:
+52:x0=x1;
+TO:
+24
+
+INSERT:
+53:f0=f1;
+TO:
+24
+
+INSERT:
+54:fxx0=fxx1;
+TO:
+24
+
+INSERT:
+55:inverted=!inverted;
+TO:
+24
+
+INSERT:
+70:fxx1=fxx;
+TO:
+41
+
+INSERT:
+76:if(inverted){
+return x1;
+}
+TO:
+46
+
+Following are 1th generated patches:
+Validating 56 patches...
+Current actions:
+DELETE:
+Original line: 10if(f1==0.0){
+return x1;
+}
+
+INSERT:
+13:if(FastMath.abs(fx1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(fx1<=0){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(fx1>=0){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(fx1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(fx1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+TO:
+16
+
+DELETE:
+Original line: 20 final double fx=computeObjectiveValue(x);
+
+DELETE:
+Original line: 21if(fx==0.0){
+return x;
+}
+
+DELETE:
+Original line: 26f0=f1;
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+INSERT:
+41: final double fxx0=computeObjectiveValueAndDerivative(x0)[1];
+TO:
+28
+
+INSERT:
+46: final double fx=computeObjectiveValue(x);
+TO:
+18
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+48:if(fx==0.0){
+return x;
+}
+TO:
+18
+
+INSERT:
+53:f0=f1;
+TO:
+24
+
+INSERT:
+54:fxx0=fxx1;
+TO:
+24
+
+INSERT:
+55:inverted=!inverted;
+TO:
+24
+
+INSERT:
+76:if(inverted){
+return x1;
+}
+TO:
+46
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:192 patches
+Compile failed:178 patches
+Compilation rate:0.07291666666666667
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/4.java
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return (f1<0)?x1:x0;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return (f1<0)?x1:x0;
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+81:return (f1>=0)?x1:x0;
+TO:
+81:return (f1>0)?x1:x0;
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+79:return (f1<=0)?x1:x0;
+TO:
+79:return (f1<0)?x1:x0;
+
+UPDATE
+FROM:
+81:return (f1>=0)?x1:x0;
+TO:
+81:return (f1>0)?x1:x0;
+
+Following are 3th generated patches:
+Validating 8 patches...
+Tested:210 patches
+Compile failed:182 patches
+Compilation rate:0.13333333333333333
+PPPNPPPNPPPNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/5.java
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+UPDATE
+FROM:
+75:return inverted?x1:x0;
+TO:
+63:return (inverted)?x1:x0;
+
+DELETE:
+Original line: 65break;
+
+UPDATE
+FROM:
+77:return inverted?x0:x1;
+TO:
+65:return (inverted)?x0:x1;
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return (inverted)?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+UPDATE
+FROM:
+77:return inverted?x0:x1;
+TO:
+65:return (inverted)?x0:x1;
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+INSERT:
+47:return (inverted)?x1:x0;
+TO:
+46
+
+INSERT:
+49:return (inverted)?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+51:return (f1<=0)?x1:x0;
+TO:
+56
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 58return x1;
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+UPDATE
+FROM:
+75:return inverted?x1:x0;
+TO:
+63:return (inverted)?x1:x0;
+
+UPDATE
+FROM:
+77:return inverted?x0:x1;
+TO:
+65:return (inverted)?x0:x1;
+
+Following are 3th generated patches:
+Validating 75 patches...
+Current actions:
+INSERT:
+47:return (inverted)?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+Following are 4th generated patches:
+Validating 59 patches...
+Current actions:
+INSERT:
+47:return (inverted)?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+49:return (inverted)?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+51:return (f1<=0)?x1:x0;
+TO:
+56
+
+DELETE:
+Original line: 53return x1;
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 63return x1;
+
+UPDATE
+FROM:
+75:return inverted?x1:x0;
+TO:
+63:return (inverted)?x1:x0;
+
+UPDATE
+FROM:
+77:return inverted?x0:x1;
+TO:
+65:return (inverted)?x0:x1;
+
+DELETE:
+Original line: 65break;
+
+Tested:588 patches
+Compile failed:455 patches
+Compilation rate:0.2261904761904762
+NNNNNNPPPPPPPPPPNPPPPPPPPPNPNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPNPPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPPPPPPNPPPPNNNNNNNNNNNNNNPNNNNPPPPNNPPPPPPPPPPNNNNNNPNNNNNNNNNNNPPPPPPPPPPNNNPPNNNPNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/6.java
+Current actions:
+DELETE:
+Original line: 50break;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 55break;
+
+INSERT:
+65:return x0;
+TO:
+64
+
+Following are 1th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 55break;
+
+INSERT:
+55:return x0;
+TO:
+54
+
+INSERT:
+60:return x0;
+TO:
+59
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 65break;
+
+INSERT:
+65:return x0;
+TO:
+64
+
+Following are 2th generated patches:
+Validating 56 patches...
+Current actions:
+DELETE:
+Original line: 50break;
+
+INSERT:
+55:return x0;
+TO:
+54
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 65break;
+
+INSERT:
+65:return x0;
+TO:
+64
+
+Following are 3th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+60:return x0;
+TO:
+59
+
+DELETE:
+Original line: 65break;
+
+Following are 4th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+55:return x0;
+TO:
+54
+
+Tested:792 patches
+Compile failed:592 patches
+Compilation rate:0.25252525252525254
+NNNNNNNNNNNNNNNNNNPPPNNPPPNPNNNPPNNPPNNPNPPNPNPNNNNNNNNPNNNNNNNNNNNNPPNNPNNNPNNNNNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/7.java
+Current actions:
+Wrap:
+WhileStatement
+On:
+[x1=x;, f1=fx;, if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}, switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}, case ANY_SIDE :, case LEFT_SIDE :, case RIGHT_SIDE :, case BELOW_SIDE :, {
+return x1;
+}, if(f1<=0){
+return x1;
+}, break;, case ABOVE_SIDE :, inverted=!inverted;, else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, {
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, {
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:x0=x1;
+TO:
+29
+
+DELETE:
+Original line: 32f0*=0.5;
+
+DELETE:
+Original line: 34case PEGASUS :
+
+DELETE:
+Original line: 35f0*=f1/(f1+fx);
+
+UPDATE
+FROM:
+52:if(!inverted){
+return x1;
+}
+TO:
+42:if(inverted){
+return x1;
+}
+
+Following are 1th generated patches:
+Validating 15 patches...
+Current actions:
+DELETE:
+Original line: 36break;
+
+INSERT:
+47:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 53return x1;
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+if(FastMath.abs(f1)>=FastMath.abs(fx)){
+x0=x1;
+f0=f1;
+}
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+UPDATE
+FROM:
+47:if(inverted){
+return x1;
+}
+TO:
+47:if(!inverted){
+return x1;
+}
+
+Following are 3th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+if(FastMath.abs(f1)>=FastMath.abs(fx)){
+x0=x1;
+f0=f1;
+}
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+Following are 4th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+30:if(FastMath.abs(f1)>=FastMath.abs(fx)){
+x0=x1;
+f0=f1;
+}
+TO:
+29
+
+DELETE:
+Original line: 32f0*=0.5;
+
+INSERT:
+40:return x1;
+TO:
+44
+
+INSERT:
+42:if(inverted){
+return x1;
+}
+TO:
+46
+
+INSERT:
+45:break;
+TO:
+52
+
+DELETE:
+Original line: 45return x1;
+
+INSERT:
+47:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+52:if(f1<=0){
+return x1;
+}
+TO:
+56
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+Tested:918 patches
+Compile failed:703 patches
+Compilation rate:0.23420479302832245
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/8.java
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+Following are 1th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+51:return (f1<=0)?x1:x0;
+TO:
+56
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 58return x1;
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 63return x1;
+
+DELETE:
+Original line: 65break;
+
+Following are 3th generated patches:
+Validating 96 patches...
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+51:return (f1<=0)?x1:x0;
+TO:
+56
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+DELETE:
+Original line: 65break;
+
+Following are 4th generated patches:
+Validating 97 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+51:return (f1<=0)?x1:x0;
+TO:
+56
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+INSERT:
+53:return (f1>=0)?x1:x0;
+TO:
+61
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+DELETE:
+Original line: 65break;
+
+Tested:1366 patches
+Compile failed:992 patches
+Compilation rate:0.27379209370424595
+NNNNNNNPPPNPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNPNNNNNNNNNNNNNNNNNNPPNNPPNPPPPNNPPNPPNNNNNPNNNNPPPPPPPPPNNNPNNNNNPPPPPPPPNPNNNNNPNNNNNPNNPNNPPPNNNNPPPPPPPNPPNPNNNNNNNNNNNNPPPPPPPPPPNNNNNNNPNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPNPNPPPPPPPNPPPNPPPPPPPNPPNNNNPNNNNNNNNNNNNNNNPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/9.java
+Current actions:
+Wrap:
+WhileStatement
+On:
+[x1=x;, f1=fx;, if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}, switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}, case ANY_SIDE :, case LEFT_SIDE :, case RIGHT_SIDE :, case BELOW_SIDE :, {
+return x1;
+}, if(f1<=0){
+return x1;
+}, break;, case ABOVE_SIDE :, inverted=!inverted;, else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, {
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}, {
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+x0=x1;
+f0=f1;
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+Following are 1th generated patches:
+Validating 38 patches...
+Current actions:
+DELETE:
+Original line: 31case ILLINOIS :
+
+DELETE:
+Original line: 32f0*=0.5;
+
+DELETE:
+Original line: 34case PEGASUS :
+
+INSERT:
+43:break;
+TO:
+52
+
+INSERT:
+48:break;
+TO:
+47
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 55break;
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+x0=x1;
+f0=f1;
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 27inverted=!inverted;
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+Following are 3th generated patches:
+Validating 29 patches...
+Current actions:
+DELETE:
+Original line: 30switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+
+INSERT:
+38:return x1;
+TO:
+44
+
+UPDATE
+FROM:
+52:if(!inverted){
+return x1;
+}
+TO:
+40:if(inverted){
+return x1;
+}
+
+INSERT:
+43:break;
+TO:
+52
+
+DELETE:
+Original line: 45return x1;
+
+INSERT:
+45:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 30switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+
+INSERT:
+31:f0=f1;
+TO:
+29
+
+INSERT:
+38:return x1;
+TO:
+44
+
+INSERT:
+43:break;
+TO:
+52
+
+INSERT:
+45:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 45return x1;
+
+INSERT:
+48:break;
+TO:
+47
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+50:if(f1<=0){
+return x1;
+}
+TO:
+56
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+Tested:1495 patches
+Compile failed:1093 patches
+Compilation rate:0.2688963210702341
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNPPPPPPPPPNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/10.java
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+Following are 0th generated patches:
+Validating 78 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+Following are 1th generated patches:
+Validating 53 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 53return x1;
+
+Following are 2th generated patches:
+Validating 26 patches...
+Current actions:
+DELETE:
+Original line: 53return x1;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+Following are 4th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+47:return inverted?x1:x0;
+TO:
+46
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+INSERT:
+49:return inverted?x0:x1;
+TO:
+51
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+Tested:1673 patches
+Compile failed:1237 patches
+Compilation rate:0.26060968320382544
+NNNNNNNNPPPPPNNPNNPPNPNPNNNNNNNPPPPPPNNNNPNNNNNPPPNNNNNNNNNPPPNNNNPPNPPPPPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/11.java
+Tested:1673 patches
+Compile failed:1237 patches
+Compilation rate:0.26060968320382544
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/12.java
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+4:double x1=getMax();
+TO:
+4: final double x1=getMax();
+
+UPDATE
+FROM:
+5:double f0=computeObjectiveValue(x0);
+TO:
+5: final double f0=computeObjectiveValue(x0);
+
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+switch (method){
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+9
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+Following are 1th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+5:double f0=computeObjectiveValue(x0);
+TO:
+5: final double f0=computeObjectiveValue(x0);
+
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+DELETE:
+Original line: 31case ILLINOIS :
+
+DELETE:
+Original line: 36break;
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+4:double x1=getMax();
+TO:
+4: final double x1=getMax();
+
+UPDATE
+FROM:
+6:double f1=computeObjectiveValue(x1);
+TO:
+6: final double f1=computeObjectiveValue(x1);
+
+INSERT:
+18:while(true){
+ final double x=x1-((f1*(x1-x0))/(f1-f0));
+ final double fx=computeObjectiveValue(x);
+if(fx==0.0){
+return x;
+}
+if(f1*fx<0){
+x0=x1;
+f0=f1;
+inverted=!inverted;
+}
+else{
+switch (method){
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+x1=x;
+f1=fx;
+if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+if(FastMath.abs(x1-x0)<FastMath.max(rtol*FastMath.abs(x1),atol)){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+}
+TO:
+9
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 40x1=x;
+
+DELETE:
+Original line: 41f1=fx;
+
+DELETE:
+Original line: 42if(FastMath.abs(f1)<=ftol){
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+if(inverted){
+return x1;
+}
+break;
+case RIGHT_SIDE :
+if(!inverted){
+return x1;
+}
+break;
+case BELOW_SIDE :
+if(f1<=0){
+return x1;
+}
+break;
+case ABOVE_SIDE :
+if(f1>=0){
+return x1;
+}
+break;
+default :
+throw new MathInternalError();
+}
+}
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+UPDATE
+FROM:
+3:double x0=getMin();
+TO:
+3: final double x0=getMin();
+
+UPDATE
+FROM:
+5:double f0=computeObjectiveValue(x0);
+TO:
+5: final double f0=computeObjectiveValue(x0);
+
+INSERT:
+29:{
+switch (method){
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+TO:
+28
+
+DELETE:
+Original line: 29else{
+switch (method){
+case ILLINOIS :
+f0*=0.5;
+break;
+case PEGASUS :
+f0*=f1/(f1+fx);
+break;
+default :
+}
+}
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+49:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 31case ILLINOIS :
+
+DELETE:
+Original line: 32f0*=0.5;
+
+DELETE:
+Original line: 36break;
+
+DELETE:
+Original line: 48return x1;
+
+INSERT:
+49:if(!inverted){
+return x1;
+}
+TO:
+51
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+Tested:1751 patches
+Compile failed:1315 patches
+Compilation rate:0.24900057110222729
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/13.java
+Current actions:
+DELETE:
+Original line: 50break;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+65:return x1;
+TO:
+64
+
+Following are 1th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 55break;
+
+INSERT:
+55:return x1;
+TO:
+54
+
+DELETE:
+Original line: 60break;
+
+INSERT:
+60:return x0;
+TO:
+59
+
+INSERT:
+65:return x1;
+TO:
+64
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 50break;
+
+INSERT:
+55:return x1;
+TO:
+54
+
+DELETE:
+Original line: 60break;
+
+INSERT:
+65:return x1;
+TO:
+64
+
+Following are 3th generated patches:
+Validating 41 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 55break;
+
+INSERT:
+55:return x1;
+TO:
+54
+
+DELETE:
+Original line: 60break;
+
+INSERT:
+60:return x0;
+TO:
+59
+
+INSERT:
+65:return x1;
+TO:
+64
+
+DELETE:
+Original line: 65break;
+
+Following are 4th generated patches:
+Validating 56 patches...
+Current actions:
+INSERT:
+50:return x0;
+TO:
+49
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 55break;
+
+INSERT:
+55:return x1;
+TO:
+54
+
+DELETE:
+Original line: 60break;
+
+INSERT:
+60:return x0;
+TO:
+59
+
+INSERT:
+65:return x1;
+TO:
+64
+
+Tested:1991 patches
+Compile failed:1488 patches
+Compilation rate:0.2526368658965344
+NNNNNNNNNNNNNNNNNNPPPNNPPPNPNNNPPNNPNPNNPPNPPPNNNNNNNNNNNNPNNNNNNNNNPPNPNNPNNNNNNNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_51/14.java
+Current actions:
+Wrap:
+Block
+On:
+[return inverted?x1:x0;, return inverted?x0:x1;, return (f1<=0)?x1:x0;, return (f1>=0)?x1:x0;, case ANY_SIDE :, return x1;, case LEFT_SIDE :, case RIGHT_SIDE :, case BELOW_SIDE :, case ABOVE_SIDE :, default :, throw new MathInternalError();]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 48return x1;
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+DELETE:
+Original line: 58return x1;
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+INSERT:
+65:return x1;
+TO:
+76
+
+Following are 1th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42:{
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 44case ANY_SIDE :
+
+DELETE:
+Original line: 45return x1;
+
+DELETE:
+Original line: 46case LEFT_SIDE :
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 51case RIGHT_SIDE :
+
+DELETE:
+Original line: 52if(!inverted){
+return x1;
+}
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 56case BELOW_SIDE :
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 60break;
+
+DELETE:
+Original line: 61case ABOVE_SIDE :
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+INSERT:
+63:return x0;
+TO:
+74
+
+DELETE:
+Original line: 65break;
+
+INSERT:
+65:return x1;
+TO:
+76
+
+DELETE:
+Original line: 66default :
+
+DELETE:
+Original line: 67throw new MathInternalError();
+
+INSERT:
+67:return (f0<=0)?x0:x1;
+TO:
+78
+
+INSERT:
+69:return (f0>=0)?x0:x1;
+TO:
+80
+
+DELETE:
+Original line: 75return inverted?x1:x0;
+
+DELETE:
+Original line: 77return inverted?x0:x1;
+
+DELETE:
+Original line: 79return (f1<=0)?x1:x0;
+
+DELETE:
+Original line: 81return (f1>=0)?x1:x0;
+
+Following are 2th generated patches:
+Validating 87 patches...
+Current actions:
+INSERT:
+42:{
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 44case ANY_SIDE :
+
+DELETE:
+Original line: 45return x1;
+
+DELETE:
+Original line: 46case LEFT_SIDE :
+
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 51case RIGHT_SIDE :
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 56case BELOW_SIDE :
+
+DELETE:
+Original line: 58return x1;
+
+DELETE:
+Original line: 61case ABOVE_SIDE :
+
+DELETE:
+Original line: 62if(f1>=0){
+return x1;
+}
+
+DELETE:
+Original line: 66default :
+
+DELETE:
+Original line: 67throw new MathInternalError();
+
+DELETE:
+Original line: 75return inverted?x1:x0;
+
+DELETE:
+Original line: 77return inverted?x0:x1;
+
+DELETE:
+Original line: 79return (f1<=0)?x1:x0;
+
+DELETE:
+Original line: 81return (f1>=0)?x1:x0;
+
+Following are 3th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+42:{
+switch (allowed){
+case ANY_SIDE :
+return x1;
+case LEFT_SIDE :
+return inverted?x1:x0;
+case RIGHT_SIDE :
+return inverted?x0:x1;
+case BELOW_SIDE :
+return (f1<=0)?x1:x0;
+case ABOVE_SIDE :
+return (f1>=0)?x1:x0;
+default :
+throw new MathInternalError();
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 44case ANY_SIDE :
+
+DELETE:
+Original line: 45return x1;
+
+DELETE:
+Original line: 46case LEFT_SIDE :
+
+DELETE:
+Original line: 47if(inverted){
+return x1;
+}
+
+DELETE:
+Original line: 51case RIGHT_SIDE :
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 56case BELOW_SIDE :
+
+DELETE:
+Original line: 57if(f1<=0){
+return x1;
+}
+
+DELETE:
+Original line: 61case ABOVE_SIDE :
+
+DELETE:
+Original line: 63return x1;
+
+INSERT:
+63:return x0;
+TO:
+74
+
+DELETE:
+Original line: 65break;
+
+DELETE:
+Original line: 66default :
+
+INSERT:
+67:return (f0<=0)?x0:x1;
+TO:
+78
+
+DELETE:
+Original line: 67throw new MathInternalError();
+
+INSERT:
+69:return (f0>=0)?x0:x1;
+TO:
+80
+
+DELETE:
+Original line: 75return inverted?x1:x0;
+
+DELETE:
+Original line: 77return inverted?x0:x1;
+
+DELETE:
+Original line: 79return (f1<=0)?x1:x0;
+
+DELETE:
+Original line: 81return (f1>=0)?x1:x0;
+
+Following are 4th generated patches:
+Validating 83 patches...
+Current actions:
+DELETE:
+Original line: 50break;
+
+DELETE:
+Original line: 53return x1;
+
+DELETE:
+Original line: 55break;
+
+DELETE:
+Original line: 60break;
+
+INSERT:
+67:return (f0<=0)?x0:x1;
+TO:
+78
+
+INSERT:
+69:return (f0>=0)?x0:x1;
+TO:
+80
+
+Tested:2246 patches
+Compile failed:1627 patches
+Compilation rate:0.27560106856634015
+NNNNNNNNNPPPNPPPPNPNNNNNNNNNNPPPPPPPPPPNPNNPPPPPPPNPPPNNPPPPNPPNPPNPPPPNPNNPPPPPPPNNNPPPPPPNPPNNPPPPPPPNNPPPPPPPPPNPPPPPPPPPPPNNNPPPPPPPPNPPPPPPPPPNNNPNNNNNPNNNPNNNNNNPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : math-51 > patch : 0 | Start : Mon Apr 08 12:26:00 HKT 2024 | End : 2024.04.08 AD at 12:32:53 HKT

@@ -1,0 +1,4446 @@
+Repair : closure_97
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/0.java
+Current actions:
+INSERT:
+38:if(rvalInt==0||(!left.isNumber()&&n.getType()==Token.RSH)){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+38:if(rvalInt==0||(!left.isNumber()&&n.getType()==Token.RSH)){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+46:return n;
+TO:
+44
+
+INSERT:
+47:}
+
+TO:
+44
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+38:if(rvalInt==0||(!left.isNumber()&&n.getType()==Token.RSH)){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+INSERT:
+46:return n;
+TO:
+44
+
+INSERT:
+47:}
+
+TO:
+44
+
+Following are 3th generated patches:
+Validating 19 patches...
+Tested:40 patches
+Compile failed:40 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/1.java
+Current actions:
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+33:result=(long)lvalInt>>>rvalInt;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+33:result=(long)lvalInt>>>rvalInt;
+
+Following are 1th generated patches:
+Validating 44 patches...
+Tested:85 patches
+Compile failed:78 patches
+Compilation rate:0.08235294117647059
+PNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNPNNNNNNPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/2.java
+Tested:85 patches
+Compile failed:78 patches
+Compilation rate:0.08235294117647059
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/3.java
+Current actions:
+INSERT:
+43:else{
+if(left.getType()==Token.STRING&&right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+String s=left.getString();
+int lvalInt=0;
+int length=s.length();
+for(int i=0;i<length;i++){
+int ch=s.charAt(i);
+if(ch<0||ch>=0x10000){
+error(NON_BMP_CHAR,left);
+return n;
+}
+lvalInt=(lvalInt<<rvalInt)|ch;
+}
+Node newNumber=Node.newNumber(lvalInt);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+41
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+TO:
+41
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+55:if(ch<0||ch>=0x10000){
+error(NON_BMP_CHAR,left);
+return n;
+}
+TO:
+41
+
+Following are 2th generated patches:
+Validating 182 patches...
+Current actions:
+INSERT:
+42:}
+
+TO:
+41
+
+INSERT:
+44:double rval=right.getDouble();
+TO:
+41
+
+INSERT:
+46:if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+TO:
+41
+
+INSERT:
+51:int lvalInt=0;
+TO:
+41
+
+INSERT:
+52:int length=s.length();
+TO:
+41
+
+INSERT:
+53:for(int i=0;i<length;i++){
+int ch=s.charAt(i);
+if(ch<0||ch>=0x10000){
+error(NON_BMP_CHAR,left);
+return n;
+}
+lvalInt=(lvalInt<<rvalInt)|ch;
+}
+TO:
+41
+
+INSERT:
+61:Node newNumber=Node.newNumber(lvalInt);
+TO:
+41
+
+INSERT:
+64:return newNumber;
+TO:
+41
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:854 patches
+Compile failed:847 patches
+Compilation rate:0.00819672131147541
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/4.java
+Current actions:
+INSERT:
+25:if(lvalInt<0){
+long lvalLong=lvalInt;
+switch (n.getType()){
+case Token.LSH :
+result=lvalLong<<rvalInt;
+break;
+case Token.RSH :
+result=lvalLong>>rvalInt;
+break;
+case Token.URSH :
+result=lvalLong>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+}
+TO:
+24
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:if(lvalInt<0){
+long lvalLong=lvalInt;
+switch (n.getType()){
+case Token.LSH :
+result=lvalLong<<rvalInt;
+break;
+case Token.RSH :
+result=lvalLong>>rvalInt;
+break;
+case Token.URSH :
+result=lvalLong>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+}
+TO:
+24
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:if(lvalInt<0){
+long lvalLong=lvalInt;
+switch (n.getType()){
+case Token.LSH :
+result=lvalLong<<rvalInt;
+break;
+case Token.RSH :
+result=lvalLong>>rvalInt;
+break;
+case Token.URSH :
+result=lvalLong>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+}
+TO:
+24
+
+DELETE:
+Original line: 27result=lvalInt<<rvalInt;
+
+DELETE:
+Original line: 30result=lvalInt>>rvalInt;
+
+DELETE:
+Original line: 31break;
+
+INSERT:
+42:switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+TO:
+29
+
+Following are 2th generated patches:
+Validating 138 patches...
+Tested:1078 patches
+Compile failed:1061 patches
+Compilation rate:0.015769944341372914
+NNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNPNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/5.java
+Current actions:
+INSERT:
+43:if(!NodeUtil.isConstantValue(left)||!NodeUtil.isConstantValue(right)){
+return n;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 131 patches...
+Current actions:
+INSERT:
+43:if(!NodeUtil.isConstantValue(left)||!NodeUtil.isConstantValue(right)){
+return n;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(!NodeUtil.isConstantValue(left)||!NodeUtil.isConstantValue(right)){
+return n;
+}
+TO:
+42
+
+INSERT:
+46:switch (n.getType()){
+case Token.LSH :
+return Node.newNumber(left.getDouble()<<right.getDouble());
+case Token.RSH :
+return Node.newNumber(left.getDouble()>>right.getDouble());
+case Token.URSH :
+return Node.newNumber((long)left.getDouble()>>>right.getDouble());
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+TO:
+44
+
+INSERT:
+56:}
+
+TO:
+44
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1608 patches
+Compile failed:1591 patches
+Compilation rate:0.010572139303482588
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/6.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&right.getType()==Token.NUMBER&&(int)right.getDouble()==right.getDouble()){
+Node newNumber=Node.newNumber(left.getDouble()>>(int)right.getDouble());
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&right.getType()==Token.NUMBER&&(int)right.getDouble()==right.getDouble()){
+Node newNumber=Node.newNumber(left.getDouble()>>(int)right.getDouble());
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+Following are 2th generated patches:
+Validating 143 patches...
+Current actions:
+INSERT:
+44:Node newNumber=Node.newNumber(left.getDouble()>>(int)right.getDouble());
+TO:
+42
+
+INSERT:
+45:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:Node newNumber=Node.newNumber(left.getDouble()>>(int)right.getDouble());
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:Node newNumber=Node.newNumber(left.getDouble()>>(int)right.getDouble());
+TO:
+42
+
+INSERT:
+45:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+INSERT:
+47:return newNumber;
+TO:
+42
+
+Tested:2166 patches
+Compile failed:2144 patches
+Compilation rate:0.010156971375807941
+NNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/7.java
+Current actions:
+INSERT:
+43:Node replacement=caseShift(n.getType(),left,right);
+TO:
+42
+
+Following are 0th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+44:if(replacement!=null){
+n.getParent().replaceChild(n,replacement);
+reportCodeChange();
+return replacement;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+43:Node replacement=caseShift(n.getType(),left,right);
+TO:
+42
+
+INSERT:
+45:n.getParent().replaceChild(n,replacement);
+TO:
+42
+
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+INSERT:
+47:return replacement;
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:Node replacement=caseShift(n.getType(),left,right);
+TO:
+42
+
+INSERT:
+44:if(replacement!=null){
+n.getParent().replaceChild(n,replacement);
+reportCodeChange();
+return replacement;
+}
+TO:
+42
+
+Following are 3th generated patches:
+Validating 182 patches...
+Current actions:
+INSERT:
+45:n.getParent().replaceChild(n,replacement);
+TO:
+42
+
+Following are 4th generated patches:
+Validating 143 patches...
+Current actions:
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+Tested:2741 patches
+Compile failed:2718 patches
+Compilation rate:0.008391098139365194
+NNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/8.java
+Current actions:
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+38:if(result>=Integer.MIN_VALUE&&result<=Integer.MAX_VALUE){
+Node newNumber=Node.newNumber((int)result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+INSERT:
+39:Node newNumber=Node.newNumber((int)result);
+TO:
+37
+
+INSERT:
+44:}
+
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+INSERT:
+38:if(result>=Integer.MIN_VALUE&&result<=Integer.MAX_VALUE){
+Node newNumber=Node.newNumber((int)result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+INSERT:
+44:}
+
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:Node newNumber=Node.newNumber((int)result);
+TO:
+37
+
+INSERT:
+44:}
+
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:3544 patches
+Compile failed:3486 patches
+Compilation rate:0.01636568848758465
+NNNPPNNNNNNNNNNNNNNNPNNNNNPNNPNNNPNNPNNNNNNNPPPNNNNNNNNNNPNNNNNNNPNPNNNNPNNNNNNNNNNNNNNNNPNPNPNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNPPNPNPNPNNNNNNNNNNNNPPPPNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/9.java
+Current actions:
+INSERT:
+38:if(result<Integer.MIN_VALUE||result>Integer.MAX_VALUE){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 0th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+38:if(result<Integer.MIN_VALUE||result>Integer.MAX_VALUE){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:Node newNumber=Node.newNumber(result);
+TO:
+37
+
+INSERT:
+40:n.getParent().replaceChild(n,newNumber);
+TO:
+37
+
+INSERT:
+42:return newNumber;
+TO:
+37
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:Node newNumber=Node.newNumber(result);
+TO:
+37
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:n.getParent().replaceChild(n,newNumber);
+TO:
+37
+
+Following are 4th generated patches:
+Validating 143 patches...
+Current actions:
+INSERT:
+39:Node newNumber=Node.newNumber(result);
+TO:
+37
+
+INSERT:
+41:reportCodeChange();
+TO:
+37
+
+Tested:4300 patches
+Compile failed:4206 patches
+Compilation rate:0.02186046511627907
+NNNNNNNNNNNNNPPNNNNNNNNNNNNNPNPPNNNNNNNNPNNPNNNNNPNNPPNNPNNNNNNNNNNNNNNNNNPPNNNNPNNNNNNNPNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNPNNNNNNNNNPNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNNNNNPPPNNNNNPPNNNNNNNNPPPNNNNNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/10.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH&&left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER&&right.getDouble()<0){
+int bits=(int)Math.ceil(-right.getDouble());
+if(bits<32){
+Node newNumber=Node.newNumber(left.getDouble()<<bits);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH&&left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER&&right.getDouble()<0){
+int bits=(int)Math.ceil(-right.getDouble());
+if(bits<32){
+Node newNumber=Node.newNumber(left.getDouble()<<bits);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:if(bits<32){
+Node newNumber=Node.newNumber(left.getDouble()<<bits);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+44:int bits=(int)Math.ceil(-right.getDouble());
+TO:
+42
+
+INSERT:
+46:Node newNumber=Node.newNumber(left.getDouble()<<bits);
+TO:
+42
+
+INSERT:
+47:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+48:reportCodeChange();
+TO:
+42
+
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:Node newNumber=Node.newNumber(left.getDouble()<<bits);
+TO:
+42
+
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:4769 patches
+Compile failed:4672 patches
+Compilation rate:0.02033969385615433
+NNNNNNNNNNNNNNNNPNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/11.java
+Current actions:
+DELETE:
+Original line: 7if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+
+Following are 0th generated patches:
+Validating 23 patches...
+Current actions:
+DELETE:
+Original line: 11if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+
+DELETE:
+Original line: 12error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+
+DELETE:
+Original line: 11if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 8error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+
+DELETE:
+Original line: 9return n;
+
+DELETE:
+Original line: 11if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 8error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+
+DELETE:
+Original line: 13return n;
+
+Tested:4796 patches
+Compile failed:4672 patches
+Compilation rate:0.02585487906588824
+PPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/12.java
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER&&left.getDouble()==(1L<<53)&&right.getType()==Token.NUMBER&&right.getDouble()==0){
+Node newNumber=Node.newNumber(Math.pow(2,53));
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 15 patches...
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER&&left.getDouble()==(1L<<53)&&right.getType()==Token.NUMBER&&right.getDouble()==0){
+Node newNumber=Node.newNumber(Math.pow(2,53));
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+44:Node newNumber=Node.newNumber(Math.pow(2,53));
+TO:
+42
+
+INSERT:
+45:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+INSERT:
+47:return newNumber;
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:Node newNumber=Node.newNumber(Math.pow(2,53));
+TO:
+42
+
+INSERT:
+45:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+47:return newNumber;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5208 patches
+Compile failed:5077 patches
+Compilation rate:0.025153609831029187
+NNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/13.java
+Current actions:
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+41:if(n.getType()==Token.RSH&&lval<0){
+replacement=addBranchAfter(newNumber,replacement,true);
+replacement=IR.ifNode(IR.lt(newNumber,Node.newNumber(0)),replacement);
+}
+TO:
+40
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+41:if(n.getType()==Token.RSH&&lval<0){
+replacement=addBranchAfter(newNumber,replacement,true);
+replacement=IR.ifNode(IR.lt(newNumber,Node.newNumber(0)),replacement);
+}
+TO:
+40
+
+UPDATE
+FROM:
+41:return newNumber;
+TO:
+45:return replacement;
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+39:Node replacement=n.getParent().replaceChild(n,newNumber);
+TO:
+38
+
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+INSERT:
+41:if(n.getType()==Token.RSH&&lval<0){
+replacement=addBranchAfter(newNumber,replacement,true);
+replacement=IR.ifNode(IR.lt(newNumber,Node.newNumber(0)),replacement);
+}
+TO:
+40
+
+UPDATE
+FROM:
+41:return newNumber;
+TO:
+45:return replacement;
+
+Following are 3th generated patches:
+Validating 140 patches...
+Tested:5402 patches
+Compile failed:5270 patches
+Compilation rate:0.024435394298407995
+NNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/14.java
+Current actions:
+INSERT:
+25:if(n.getType()==Token.URSH){
+lvalInt=Integer.toUnsignedLong(lvalInt);
+}
+TO:
+24
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+25:if(n.getType()==Token.URSH){
+lvalInt=Integer.toUnsignedLong(lvalInt);
+}
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+26:lvalInt=Integer.toUnsignedLong(lvalInt);
+TO:
+24
+
+Following are 2th generated patches:
+Validating 145 patches...
+Tested:5749 patches
+Compile failed:5616 patches
+Compilation rate:0.023134458166637676
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/15.java
+Current actions:
+INSERT:
+25:Long l=Long.valueOf(lval);
+TO:
+24
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+25:Long l=Long.valueOf(lval);
+TO:
+24
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+31:result=l>>rvalInt;
+
+Following are 1th generated patches:
+Validating 191 patches...
+Current actions:
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+28:result=l<<rvalInt;
+
+Following are 2th generated patches:
+Validating 46 patches...
+Current actions:
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+28:result=l<<rvalInt;
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+31:result=l>>rvalInt;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+34:result=l>>>rvalInt;
+
+Following are 3th generated patches:
+Validating 138 patches...
+Current actions:
+INSERT:
+25:Long l=Long.valueOf(lval);
+TO:
+24
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+31:result=l>>rvalInt;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+34:result=l>>>rvalInt;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:Long l=Long.valueOf(lval);
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+28:result=l<<rvalInt;
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+31:result=l>>rvalInt;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+34:result=l>>>rvalInt;
+
+Tested:6333 patches
+Compile failed:6198 patches
+Compilation rate:0.021316911416390336
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/16.java
+Current actions:
+UPDATE
+FROM:
+11:if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+11:if(!(rval>=0&&rval<=32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+11:if(!(rval>=0&&rval<=32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:6335 patches
+Compile failed:6198 patches
+Compilation rate:0.021625887924230466
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/17.java
+Current actions:
+INSERT:
+38:if(result>=Integer.MIN_VALUE&&result<=Integer.MAX_VALUE){
+Node newNumber=Node.newNumber((int)result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 0th generated patches:
+Validating 45 patches...
+Current actions:
+INSERT:
+38:if(result>=Integer.MIN_VALUE&&result<=Integer.MAX_VALUE){
+Node newNumber=Node.newNumber((int)result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:if(type!=null&&type.isDouble()){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+Following are 2th generated patches:
+Validating 147 patches...
+Current actions:
+INSERT:
+39:Node newNumber=Node.newNumber((int)result);
+TO:
+37
+
+INSERT:
+40:n.getParent().replaceChild(n,newNumber);
+TO:
+37
+
+INSERT:
+42:return newNumber;
+TO:
+37
+
+INSERT:
+45:if(type!=null&&type.isDouble()){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+INSERT:
+51:}
+
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:reportCodeChange();
+TO:
+37
+
+INSERT:
+45:if(type!=null&&type.isDouble()){
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+37
+
+INSERT:
+51:}
+
+TO:
+42
+
+Following are 4th generated patches:
+Validating 144 patches...
+Tested:7068 patches
+Compile failed:6896 patches
+Compilation rate:0.024335031126202604
+NNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNPNNNPNNNNPNNNNNNPNPNNPPNNNNNNNNNNNNPNPNNNNNPNNNNNPNNNNNNNNNNNNNNNPNPNNPNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNPPNPPNPNNNNNNNNNNNPNNPNPPNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/18.java
+Current actions:
+INSERT:
+39:newNumber.useSourceInfoIfMissingFromForTree(n);
+TO:
+38
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+39:newNumber.useSourceInfoIfMissingFromForTree(n);
+TO:
+38
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:7269 patches
+Compile failed:7027 patches
+Compilation rate:0.033292062181868205
+NNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNPNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNPPPNNNNNNNNNNNPNNPNNNPNPNPPNPNPNNNNNPNNNNNNNNNNNNPNNNPPPPPNPNPPPPPPNPPPPPPNPNNNNPPPPPPNNPNPNNPNPNPNPPPPPNNNPNPPNNPNPNPPNNPPNNPNNPPPNPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/19.java
+Current actions:
+INSERT:
+25:if(rvalInt==0){
+return n;
+}
+TO:
+24
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+25:if(rvalInt==0){
+return n;
+}
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+26:return n;
+TO:
+24
+
+Following are 2th generated patches:
+Validating 22 patches...
+Tested:7493 patches
+Compile failed:7227 patches
+Compilation rate:0.03549979981315895
+NPNNNNNNNNNNNNNNPNPNPNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNPNNNNNNNNPPNNPNNNNNNNNPNNNNNNNNPNNPNNNNNNNNPNPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/20.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+if(rvalInt==0){
+return left;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 133 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+if(rvalInt==0){
+return left;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+TO:
+42
+
+INSERT:
+51:error(FRACTIONAL_BITWISE_OPERAND,right);
+TO:
+42
+
+Tested:7817 patches
+Compile failed:7534 patches
+Compilation rate:0.036203146987335295
+NNNNNNNNNNNNNNNNPNPNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNPNNNNPNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNPPNNPNPNNNNNNNNNPNPPNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/21.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[return n;, error(FRACTIONAL_BITWISE_OPERAND,right);, return n;, result=lvalInt<<rvalInt;]
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:if(n.getType()==Token.LSH){
+result=lvalInt<<rvalInt;
+}
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+28:if(n.getType()==Token.RSH){
+result=lvalInt>>rvalInt;
+}
+TO:
+27
+
+DELETE:
+Original line: 30result=lvalInt>>rvalInt;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:if(n.getType()==Token.LSH){
+result=lvalInt<<rvalInt;
+}
+TO:
+24
+
+DELETE:
+Original line: 25switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+
+INSERT:
+34:else{
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+TO:
+27
+
+INSERT:
+39:reportCodeChange();
+TO:
+27
+
+DELETE:
+Original line: 40reportCodeChange();
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private Node tryFoldShift(Node n,Node left,Node right){
+if(left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+if(n.getType()==Token.LSH){
+result=lvalInt<<rvalInt;
+}
+else{
+if(n.getType()==Token.RSH){
+result=lvalInt>>rvalInt;
+}
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+return n;
+}
+TO:
+1
+
+DELETE:
+Original line: 22error(FRACTIONAL_BITWISE_OPERAND,right);
+
+DELETE:
+Original line: 23return n;
+
+DELETE:
+Original line: 26case Token.LSH :
+
+DELETE:
+Original line: 27result=lvalInt<<rvalInt;
+
+DELETE:
+Original line: 28break;
+
+INSERT:
+28:if(n.getType()==Token.RSH){
+result=lvalInt>>rvalInt;
+}
+TO:
+27
+
+DELETE:
+Original line: 29case Token.RSH :
+
+DELETE:
+Original line: 30result=lvalInt>>rvalInt;
+
+DELETE:
+Original line: 31break;
+
+DELETE:
+Original line: 34break;
+
+INSERT:
+39:reportCodeChange();
+TO:
+27
+
+DELETE:
+Original line: 40reportCodeChange();
+
+INSERT:
+40:return newNumber;
+TO:
+27
+
+DELETE:
+Original line: 41return newNumber;
+
+DELETE:
+Original line: 43return n;
+
+Tested:8453 patches
+Compile failed:8170 patches
+Compilation rate:0.03347923814030522
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/22.java
+Current actions:
+INSERT:
+43:if(right.getType()==Token.NUMBER){
+if(right.getDouble()==0){
+return left;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+43:if(right.getType()==Token.NUMBER){
+if(right.getDouble()==0){
+return left;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:if(right.getDouble()==0){
+return left;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:return left;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 18 patches...
+Tested:8874 patches
+Compile failed:8536 patches
+Compilation rate:0.03808879873788596
+NPPNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNPPNNNNPNNNPNNPNNNNNNNNNNNNNNNPNNPNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNPPNNPNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNPPPNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNPPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNPNNPNNNPNNNNNNNNNPNNPNNNNNNPNNNNNNNNNNNPNNPPPNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNPNNNNNNPPNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/23.java
+Current actions:
+INSERT:
+43:if(right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(rval<0){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 28 patches...
+Current actions:
+INSERT:
+43:if(right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(rval<0){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:if(rval<0){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 42 patches...
+Current actions:
+INSERT:
+46:Node newNumber=Node.newNumber(0);
+TO:
+42
+
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:double rval=right.getDouble();
+TO:
+42
+
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:double rval=right.getDouble();
+TO:
+42
+
+INSERT:
+45:if(rval<0){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Tested:9343 patches
+Compile failed:8990 patches
+Compilation rate:0.03778229690677513
+NNNNNNNNPNPPNPPPNNPNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/24.java
+Current actions:
+INSERT:
+43:if(!isOptimizableOperator(n)){
+return n;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 39 patches...
+Current actions:
+INSERT:
+43:if(!isOptimizableOperator(n)){
+return n;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(left.getType()==Token.NUMBER){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(!isOptimizableOperator(n)){
+return n;
+}
+TO:
+42
+
+INSERT:
+46:if(left.getType()==Token.NUMBER){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:9981 patches
+Compile failed:9620 patches
+Compilation rate:0.036168720569081256
+NNNNNNNNNNNNNNNNNNPNNNNPNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/25.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH&&left.getType()==Token.NUMBER){
+int leftValue=left.getInt();
+if(leftValue!=Integer.MIN_VALUE){
+int result=(long)leftValue<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH&&left.getType()==Token.NUMBER){
+int leftValue=left.getInt();
+if(leftValue!=Integer.MIN_VALUE){
+int result=(long)leftValue<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:if(leftValue!=Integer.MIN_VALUE){
+int result=(long)leftValue<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 80 patches...
+Current actions:
+INSERT:
+44:int leftValue=left.getInt();
+TO:
+42
+
+INSERT:
+45:if(leftValue!=Integer.MIN_VALUE){
+int result=(long)leftValue<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:int leftValue=left.getInt();
+TO:
+42
+
+INSERT:
+46:int result=(long)leftValue<<right.getInt();
+TO:
+42
+
+INSERT:
+49:reportCodeChange();
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:10504 patches
+Compile failed:10142 patches
+Compilation rate:0.03446306169078446
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/26.java
+Current actions:
+INSERT:
+38:if(lvalInt==0){
+return Node.newNumber(0);
+}
+TO:
+37
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+38:if(lvalInt==0){
+return Node.newNumber(0);
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:return Node.newNumber(0);
+TO:
+37
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:10906 patches
+Compile failed:10533 patches
+Compilation rate:0.0342013570511645
+NPNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/27.java
+Current actions:
+INSERT:
+43:if(left.isInt()&&right.isInt()){
+long lval=left.getInt();
+long rval=right.getInt();
+long result;
+switch (n.getType()){
+case Token.LSH :
+result=lval<<rval;
+break;
+case Token.RSH :
+result=lval>>rval;
+break;
+case Token.URSH :
+result=lval>>>rval;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(left.isInt()&&right.isInt()){
+long lval=left.getInt();
+long rval=right.getInt();
+long result;
+switch (n.getType()){
+case Token.LSH :
+result=lval<<rval;
+break;
+case Token.RSH :
+result=lval>>rval;
+break;
+case Token.URSH :
+result=lval>>>rval;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+46:long result;
+TO:
+42
+
+INSERT:
+50:break;
+TO:
+42
+
+INSERT:
+53:break;
+TO:
+42
+
+INSERT:
+54:case Token.URSH :
+TO:
+42
+
+INSERT:
+55:result=lval>>>rval;
+TO:
+42
+
+INSERT:
+58:throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+TO:
+42
+
+INSERT:
+62:reportCodeChange();
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+47:switch (n.getType()){
+case Token.LSH :
+result=lval<<rval;
+break;
+case Token.RSH :
+result=lval>>rval;
+break;
+case Token.URSH :
+result=lval>>>rval;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+TO:
+42
+
+INSERT:
+60:Node newNumber=Node.newNumber(result);
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:11468 patches
+Compile failed:11092 patches
+Compilation rate:0.03278688524590164
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/28.java
+Current actions:
+INSERT:
+25:long lvalLong=(long)lval;
+TO:
+24
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+26:long rvalLong=(long)rval;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Following are 1th generated patches:
+Validating 119 patches...
+Current actions:
+INSERT:
+25:long lvalLong=(long)lval;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+32:result=lvalLong>>rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Following are 2th generated patches:
+Validating 167 patches...
+Current actions:
+INSERT:
+26:long rvalLong=(long)rval;
+TO:
+24
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Following are 3th generated patches:
+Validating 72 patches...
+Current actions:
+INSERT:
+26:long rvalLong=(long)rval;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+Following are 4th generated patches:
+Validating 72 patches...
+Current actions:
+INSERT:
+25:long lvalLong=(long)lval;
+TO:
+24
+
+INSERT:
+26:long rvalLong=(long)rval;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Tested:11916 patches
+Compile failed:11528 patches
+Compilation rate:0.032561262168512926
+NNNNNNNNNNNPNNPNNPPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/29.java
+Current actions:
+INSERT:
+6:if(left.getType()==Token.NUMBER){
+lval=left.getDouble();
+allConstant&=true;
+}
+TO:
+2
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:if(right.getType()==Token.NUMBER){
+rval=right.getDouble();
+allConstant&=true;
+}
+TO:
+2
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:{
+boolean allConstant=true;
+double lval=0;
+double rval=0;
+if(left.getType()==Token.NUMBER){
+lval=left.getDouble();
+allConstant&=true;
+}
+else{
+allConstant&=false;
+}
+if(right.getType()==Token.NUMBER){
+rval=right.getDouble();
+allConstant&=true;
+}
+else{
+allConstant&=false;
+}
+boolean supported=false;
+if(allConstant){
+int leftBits=0;
+int rightBits=0;
+if(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE){
+leftBits=32-Integer.numberOfLeadingZeros((int)Math.ceil(lval));
+}
+if(rval>=0&&rval<32){
+rightBits=rval;
+}
+if(leftBits>0&&leftBits<32&&rightBits>=0&&rightBits<32){
+supported=true;
+}
+}
+if(!supported){
+return n;
+}
+int lvalInt=(int)lval;
+int rvalInt=(int)rval;
+long result=0;
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+if(left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+return n;
+}
+
+DELETE:
+Original line: 3if(left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+
+INSERT:
+3:boolean allConstant=true;
+TO:
+2
+
+INSERT:
+4:double lval=0;
+TO:
+2
+
+INSERT:
+5:double rval=0;
+TO:
+2
+
+INSERT:
+6:if(left.getType()==Token.NUMBER){
+lval=left.getDouble();
+allConstant&=true;
+}
+TO:
+2
+
+INSERT:
+10:else{
+allConstant&=false;
+}
+TO:
+2
+
+INSERT:
+13:if(right.getType()==Token.NUMBER){
+rval=right.getDouble();
+allConstant&=true;
+}
+TO:
+2
+
+INSERT:
+17:else{
+allConstant&=false;
+}
+TO:
+2
+
+INSERT:
+20:boolean supported=false;
+TO:
+2
+
+INSERT:
+21:if(allConstant){
+int leftBits=0;
+int rightBits=0;
+if(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE){
+leftBits=32-Integer.numberOfLeadingZeros((int)Math.ceil(lval));
+}
+if(rval>=0&&rval<32){
+rightBits=rval;
+}
+if(leftBits>0&&leftBits<32&&rightBits>=0&&rightBits<32){
+supported=true;
+}
+}
+TO:
+2
+
+INSERT:
+34:if(!supported){
+return n;
+}
+TO:
+24
+
+INSERT:
+37:int lvalInt=(int)lval;
+TO:
+24
+
+INSERT:
+38:int rvalInt=(int)rval;
+TO:
+24
+
+INSERT:
+39:long result=0;
+TO:
+24
+
+DELETE:
+Original line: 43return n;
+
+Tested:12316 patches
+Compile failed:11928 patches
+Compilation rate:0.03150373497888925
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/30.java
+Current actions:
+INSERT:
+43:if(left.getType()==Token.STRING||right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+43:if(left.getType()==Token.STRING||right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:return null;
+TO:
+44
+
+INSERT:
+47:}
+
+TO:
+44
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+43:if(left.getType()==Token.STRING||right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+INSERT:
+46:return null;
+TO:
+44
+
+INSERT:
+47:}
+
+TO:
+44
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:12719 patches
+Compile failed:12331 patches
+Compilation rate:0.03050554288859187
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/31.java
+Current actions:
+UPDATE
+FROM:
+11:if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+11:if(!(rval>=0&&rval<=31)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+11:if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+11:if(!(rval>=0&&rval<=31)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:12721 patches
+Compile failed:12331 patches
+Compilation rate:0.03065796714094804
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/32.java
+Current actions:
+DELETE:
+Original line: 4double result;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+26:return Node.newNumber(lvalInt<<rvalInt);
+TO:
+26
+
+INSERT:
+28:return Node.newNumber(lvalInt>>rvalInt);
+TO:
+29
+
+INSERT:
+30:return Node.newNumber((long)lvalInt>>>rvalInt);
+TO:
+32
+
+DELETE:
+Original line: 31break;
+
+DELETE:
+Original line: 33result=lvalInt>>>rvalInt;
+
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+DELETE:
+Original line: 40reportCodeChange();
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 28break;
+
+INSERT:
+28:return Node.newNumber(lvalInt>>rvalInt);
+TO:
+29
+
+INSERT:
+30:return Node.newNumber((long)lvalInt>>>rvalInt);
+TO:
+32
+
+DELETE:
+Original line: 31break;
+
+INSERT:
+32:throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+TO:
+35
+
+DELETE:
+Original line: 36throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+DELETE:
+Original line: 41return newNumber;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:13286 patches
+Compile failed:12871 patches
+Compilation rate:0.031235887400270963
+NNNNNNNNNNNPPNPPNPNPNPPNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNPNNNNPPPNPNNNPNNNNNNNNNNNNNPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/33.java
+Current actions:
+INSERT:
+43:if(left.getType()!=Token.NUMBER){
+return n;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(right.getType()!=Token.NUMBER){
+return n;
+}
+TO:
+44
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+50:if(shiftAmount!=right.getDouble()){
+return n;
+}
+TO:
+44
+
+INSERT:
+56:int result;
+TO:
+44
+
+INSERT:
+57:switch (n.getType()){
+case Token.LSH :
+result=(int)lval<<shiftAmount;
+break;
+case Token.RSH :
+result=(int)lval>>shiftAmount;
+break;
+case Token.URSH :
+result=(int)lval>>>shiftAmount;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+TO:
+44
+
+INSERT:
+70:Node newNumber=Node.newNumber(result);
+TO:
+44
+
+INSERT:
+71:n.getParent().replaceChild(n,newNumber);
+TO:
+44
+
+INSERT:
+74:}
+
+TO:
+44
+
+Tested:13686 patches
+Compile failed:13271 patches
+Compilation rate:0.03032295776706123
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/34.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH&&left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+if((lvalInt&((1<<rvalInt)-1))!=0){
+Node newNumber=Node.newNumber(lvalInt);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+47:if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+63:return n;
+TO:
+42
+
+Tested:13688 patches
+Compile failed:13272 patches
+Compilation rate:0.030391583869082407
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/35.java
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER){
+switch (n.getType()){
+case Token.LSH :
+{
+double result=left.getDouble()<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.RSH :
+{
+double result=left.getDouble()>>right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.URSH :
+{
+double result=left.getDouble()>>>right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+default :
+break;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+73:if(right.getType()==Token.NUMBER){
+switch (n.getType()){
+case Token.LSH :
+{
+double result=left.getInt()<<right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.RSH :
+{
+double result=left.getInt()>>right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.URSH :
+{
+double result=left.getInt()>>>right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+default :
+break;
+}
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+70:break;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER){
+switch (n.getType()){
+case Token.LSH :
+{
+double result=left.getDouble()<<right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.RSH :
+{
+double result=left.getDouble()>>right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.URSH :
+{
+double result=left.getDouble()>>>right.getInt();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+default :
+break;
+}
+}
+TO:
+42
+
+INSERT:
+73:if(right.getType()==Token.NUMBER){
+switch (n.getType()){
+case Token.LSH :
+{
+double result=left.getInt()<<right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.RSH :
+{
+double result=left.getInt()>>right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+case Token.URSH :
+{
+double result=left.getInt()>>>right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+default :
+break;
+}
+}
+TO:
+42
+
+Following are 4th generated patches:
+Validating 2 patches...
+Tested:13692 patches
+Compile failed:13276 patches
+Compilation rate:0.030382705229330995
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/36.java
+Current actions:
+INSERT:
+39:newNumber.srcref(n);
+TO:
+38
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+41:if(!newNumber.getJSType().isNumber()||!left.getJSType().isNumber()||!right.getJSType().isNumber()){
+replacement=newTypeCast(newNumber,n.getType());
+}
+TO:
+38
+
+Following are 1th generated patches:
+Validating 33 patches...
+Current actions:
+INSERT:
+40:Node replacement=newNumber;
+TO:
+38
+
+Following are 2th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+42:replacement=newTypeCast(newNumber,n.getType());
+TO:
+38
+
+UPDATE
+FROM:
+39:n.getParent().replaceChild(n,newNumber);
+TO:
+44:n.getParent().replaceChild(n,replacement);
+
+UPDATE
+FROM:
+41:return newNumber;
+TO:
+46:return replacement;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:if(!newNumber.getJSType().isNumber()||!left.getJSType().isNumber()||!right.getJSType().isNumber()){
+replacement=newTypeCast(newNumber,n.getType());
+}
+TO:
+38
+
+UPDATE
+FROM:
+39:n.getParent().replaceChild(n,newNumber);
+TO:
+44:n.getParent().replaceChild(n,replacement);
+
+UPDATE
+FROM:
+41:return newNumber;
+TO:
+46:return replacement;
+
+Following are 4th generated patches:
+Validating 199 patches...
+Tested:14179 patches
+Compile failed:13755 patches
+Compilation rate:0.02990337823541858
+NNNNNNNNNNNNNNNPNPNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/37.java
+Current actions:
+INSERT:
+39:newNumber.setIsJavaScriptConstantNumber(true);
+TO:
+38
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+39:newNumber.setIsJavaScriptConstantNumber(true);
+TO:
+38
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:14380 patches
+Compile failed:13880 patches
+Compilation rate:0.03477051460361613
+NNNNNNNNNNNNNNNNNNNNNPNNNPPNNPNPNNPNNNNNNNNPNNNNPNPNNNNNNNNNNNNNPNNNNNNPPNNNNPPPNPPNNNNNNNNNNNNNNNNNNNNNNPNNPPPPPPNPPPPPNPPPPPPPPPNPNNPPPNNPNPPNNPPPNPNNPNPPNNPPPPPPNNNPNPPPNPNPNPPPNNPPNNNPNNPPNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/38.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH||n.getType()==Token.RSH||n.getType()==Token.URSH){
+Node maybeNumber=tryFoldShift(left,left,right);
+if(maybeNumber!=left){
+return tryFoldShift(n,maybeNumber,right);
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.LSH||n.getType()==Token.RSH||n.getType()==Token.URSH){
+Node maybeNumber=tryFoldShift(left,left,right);
+if(maybeNumber!=left){
+return tryFoldShift(n,maybeNumber,right);
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+45:if(maybeNumber!=left){
+return tryFoldShift(n,maybeNumber,right);
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:Node maybeNumber=tryFoldShift(left,left,right);
+TO:
+42
+
+Following are 3th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+44:Node maybeNumber=tryFoldShift(left,left,right);
+TO:
+42
+
+INSERT:
+45:if(maybeNumber!=left){
+return tryFoldShift(n,maybeNumber,right);
+}
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:return tryFoldShift(n,maybeNumber,right);
+TO:
+42
+
+Tested:14930 patches
+Compile failed:14409 patches
+Compilation rate:0.03489618218352311
+NNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNPPPNNNNNNNPPNNNNNPNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/39.java
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER){
+Node newLeft=Node.newNumber((int)left.getDouble());
+n.replaceChild(left,newLeft);
+reportCodeChange();
+return tryFoldShift(n,newLeft,right);
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 115 patches...
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER){
+Node newLeft=Node.newNumber((int)left.getDouble());
+n.replaceChild(left,newLeft);
+reportCodeChange();
+return tryFoldShift(n,newLeft,right);
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:Node newLeft=Node.newNumber((int)left.getDouble());
+TO:
+42
+
+INSERT:
+45:n.replaceChild(left,newLeft);
+TO:
+42
+
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+INSERT:
+47:return tryFoldShift(n,newLeft,right);
+TO:
+42
+
+INSERT:
+49:else{
+if(right.getType()==Token.NUMBER){
+Node newRight=Node.newNumber((int)right.getDouble());
+n.replaceChild(right,newRight);
+reportCodeChange();
+return tryFoldShift(n,left,newRight);
+}
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:reportCodeChange();
+TO:
+42
+
+INSERT:
+53:return tryFoldShift(n,left,newRight);
+TO:
+42
+
+Following are 3th generated patches:
+Validating 144 patches...
+Tested:15578 patches
+Compile failed:15026 patches
+Compilation rate:0.03543458723841315
+NNNNNNNNNNNPNPNNPPNNNNPPNNNNNNNNNPNPPPNNNNNNNNPNPNNPNNNNPPNNNPNPNNNPNNPNNNPNNPNPNNNNPNNNNNNNNPNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/40.java
+Current actions:
+INSERT:
+43:if(left.getType()==Token.NUMBER&&right.getType()==Token.STRING){
+double result;
+double lval=left.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+String rvalString=right.getString();
+if(!rvalString.equals("0")){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<0;
+break;
+case Token.RSH :
+result=lvalInt>>0;
+break;
+case Token.URSH :
+result=lvalInt>>>0;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+46:if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+44:double result;
+TO:
+42
+
+INSERT:
+46:if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+TO:
+42
+
+INSERT:
+50:int lvalInt=(int)lval;
+TO:
+42
+
+INSERT:
+51:if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+TO:
+42
+
+INSERT:
+56:if(!rvalString.equals("0")){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+TO:
+42
+
+INSERT:
+61:case Token.LSH :
+TO:
+42
+
+INSERT:
+65:result=lvalInt>>0;
+TO:
+42
+
+INSERT:
+67:case Token.URSH :
+TO:
+42
+
+INSERT:
+68:result=lvalInt>>>0;
+TO:
+42
+
+INSERT:
+70:default :
+TO:
+42
+
+INSERT:
+73:Node newNumber=Node.newNumber(result);
+TO:
+42
+
+INSERT:
+74:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+75:reportCodeChange();
+TO:
+42
+
+INSERT:
+76:return newNumber;
+TO:
+42
+
+Tested:15580 patches
+Compile failed:15027 patches
+Compilation rate:0.03549422336328627
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/41.java
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+Following are 0th generated patches:
+Validating 25 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_97_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldShift(  Node n,  Node left,  Node right){
+    if (left.getType() == Token.NUMBER && right.getType() == Token.NUMBER) {
+      double result;
+      double lval=left.getDouble();
+      double rval=right.getDouble();
+      if (!(lval >= Integer.MIN_VALUE && lval <= Integer.MAX_VALUE)) {
+        error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+        return n;
+      }
+      if (!(rval >= 0 && rval < 32)) {
+        error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+        return n;
+      }
+      int lvalInt=(int)lval;
+      if (lvalInt != lval) {
+        error(FRACTIONAL_BITWISE_OPERAND,left);
+        return n;
+      }
+      int rvalInt=(int)rval;
+      if (rvalInt != rval) {
+        error(FRACTIONAL_BITWISE_OPERAND,right);
+        return n;
+      }
+long lvalLong=lvalInt&0xffffffffL;
+long rvalLong=rvalInt&0xffffffffL;
+switch (n.getType()) {
+case Token.LSH:
+        result=lvalInt << rvalInt;
+      break;
+case Token.RSH:
+    result=lvalInt >> rvalInt;
+  break;
+case Token.URSH:
+result=lvalLong>>>rvalLong;
+break;
+default :
+throw new AssertionError("Unknown shift operator: " + Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+return n;
+}
+
+1 th patch/25
+Trace:
+
+START : 
+2024.04.11 AD at 15:26:35 HKT
+---------TIME : 
+2024.04.11 AD at 16:11:48 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+INSERT:
+26:long rvalLong=rvalInt&0xffffffffL;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Following are 1th generated patches:
+Validating 138 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_97_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldShift(  Node n,  Node left,  Node right){
+    if (left.getType() == Token.NUMBER && right.getType() == Token.NUMBER) {
+      double result;
+      double lval=left.getDouble();
+      double rval=right.getDouble();
+      if (!(lval >= Integer.MIN_VALUE && lval <= Integer.MAX_VALUE)) {
+        error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+        return n;
+      }
+      if (!(rval >= 0 && rval < 32)) {
+        error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+        return n;
+      }
+      int lvalInt=(int)lval;
+      if (lvalInt != lval) {
+        error(FRACTIONAL_BITWISE_OPERAND,left);
+        return n;
+      }
+      int rvalInt=(int)rval;
+      if (rvalInt != rval) {
+        error(FRACTIONAL_BITWISE_OPERAND,right);
+        return n;
+      }
+long lvalLong=lvalInt&0xffffffffL;
+long rvalLong=rvalInt&0xffffffffL;
+switch (n.getType()) {
+case Token.LSH:
+result=lvalInt<<rvalLong;
+      break;
+case Token.RSH:
+    result=lvalInt >> rvalInt;
+  break;
+case Token.URSH:
+result=lvalLong>>>rvalLong;
+break;
+default :
+throw new AssertionError("Unknown shift operator: " + Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+return n;
+}
+
+2 th patch/163
+Trace:
+UPDATEExpressionStmt;UPDATEAssign;InfixExpr;SName
+START : 
+2024.04.11 AD at 15:26:35 HKT
+---------TIME : 
+2024.04.11 AD at 16:12:30 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+INSERT:
+26:long rvalLong=rvalInt&0xffffffffL;
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+29:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+32:result=lvalLong>>rvalLong;
+
+Following are 2th generated patches:
+Validating 138 patches...
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+INSERT:
+26:long rvalLong=rvalInt&0xffffffffL;
+TO:
+24
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+32:result=lvalLong>>rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Following are 3th generated patches:
+Validating 138 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_97_buggy/src/com/google/javascript/jscomp/PeepholeFoldConstants.java
+SUCCESS
+//Following are generated patch:
+  private Node tryFoldShift(  Node n,  Node left,  Node right){
+    if (left.getType() == Token.NUMBER && right.getType() == Token.NUMBER) {
+      double result;
+      double lval=left.getDouble();
+      double rval=right.getDouble();
+      if (!(lval >= Integer.MIN_VALUE && lval <= Integer.MAX_VALUE)) {
+        error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+        return n;
+      }
+      if (!(rval >= 0 && rval < 32)) {
+        error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+        return n;
+      }
+      int lvalInt=(int)lval;
+      if (lvalInt != lval) {
+        error(FRACTIONAL_BITWISE_OPERAND,left);
+        return n;
+      }
+      int rvalInt=(int)rval;
+      if (rvalInt != rval) {
+        error(FRACTIONAL_BITWISE_OPERAND,right);
+        return n;
+      }
+long lvalLong=lvalInt&0xffffffffL;
+long rvalLong=rvalInt&0xffffffffL;
+switch (n.getType()) {
+case Token.LSH:
+        result=lvalInt << rvalInt;
+      break;
+case Token.RSH:
+result=lvalInt>>rvalLong;
+  break;
+case Token.URSH:
+result=lvalLong>>>rvalLong;
+break;
+default :
+throw new AssertionError("Unknown shift operator: " + Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+return n;
+}
+
+3 th patch/439
+Trace:
+UPDATEExpressionStmt;UPDATEAssign;InfixExpr;SName
+START : 
+2024.04.11 AD at 15:26:35 HKT
+---------TIME : 
+2024.04.11 AD at 16:13:27 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+32:result=lvalLong>>rvalLong;
+
+Following are 4th generated patches:
+Validating 72 patches...
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+32:result=lvalLong>>rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+35:result=lvalLong>>>rvalLong;
+
+Tested:16081 patches
+Compile failed:15477 patches
+Compilation rate:0.037559853242957526
+NNNNNNNNNNNNPPPNPNNNNNNPPNNNNNNNNNNNNNNNPNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNPPPPNNPNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNPPPPPNNPNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNPPPPPNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/42.java
+Current actions:
+DELETE:
+Original line: 3if(left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+
+INSERT:
+3:}
+
+TO:
+2
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(left.getType()==Token.NUMBER&&right.getType()==Token.NUMBER){
+double result;
+double lval=left.getDouble();
+double rval=right.getDouble();
+if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+if(!(rval>=0&&rval<32)){
+error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+return n;
+}
+int lvalInt=(int)lval;
+if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+int rvalInt=(int)rval;
+if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 43return n;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 12error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+
+DELETE:
+Original line: 18return n;
+
+DELETE:
+Original line: 20int rvalInt=(int)rval;
+
+DELETE:
+Original line: 21if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+
+DELETE:
+Original line: 25switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 40reportCodeChange();
+
+DELETE:
+Original line: 41return newNumber;
+
+DELETE:
+Original line: 43return n;
+
+Following are 3th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 9return n;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 5double lval=left.getDouble();
+
+DELETE:
+Original line: 6double rval=right.getDouble();
+
+DELETE:
+Original line: 7if(!(lval>=Integer.MIN_VALUE&&lval<=Integer.MAX_VALUE)){
+error(BITWISE_OPERAND_OUT_OF_RANGE,left);
+return n;
+}
+
+DELETE:
+Original line: 12error(SHIFT_AMOUNT_OUT_OF_BOUNDS,right);
+
+DELETE:
+Original line: 15int lvalInt=(int)lval;
+
+DELETE:
+Original line: 16if(lvalInt!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+
+DELETE:
+Original line: 20int rvalInt=(int)rval;
+
+DELETE:
+Original line: 21if(rvalInt!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+
+DELETE:
+Original line: 25switch (n.getType()){
+case Token.LSH :
+result=lvalInt<<rvalInt;
+break;
+case Token.RSH :
+result=lvalInt>>rvalInt;
+break;
+case Token.URSH :
+result=lvalInt>>>rvalInt;
+break;
+default :
+throw new AssertionError("Unknown shift operator: "+Node.tokenToName(n.getType()));
+}
+
+DELETE:
+Original line: 38Node newNumber=Node.newNumber(result);
+
+DELETE:
+Original line: 41return newNumber;
+
+DELETE:
+Original line: 43return n;
+
+Tested:16085 patches
+Compile failed:15481 patches
+Compilation rate:0.037550512900217596
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/43.java
+Current actions:
+DELETE:
+Original line: 4double result;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+24:int result;
+TO:
+24
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 4double result;
+
+INSERT:
+24:int result;
+TO:
+24
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4double result;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:16091 patches
+Compile failed:15485 patches
+Compilation rate:0.03766080417624759
+NNPNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/44.java
+Current actions:
+UPDATE
+FROM:
+4:double result;
+TO:
+4:long result;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+4:double result;
+TO:
+4:long result;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:16093 patches
+Compile failed:15485 patches
+Compilation rate:0.03778040141676505
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/45.java
+Current actions:
+INSERT:
+39:JSType type=newNumber.getJSType();
+TO:
+38
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+40:if(n.getType()==Token.URSH){
+newNumber=Node.newNumber(result).castTo(type,true);
+}
+TO:
+38
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:JSType type=newNumber.getJSType();
+TO:
+38
+
+INSERT:
+40:if(n.getType()==Token.URSH){
+newNumber=Node.newNumber(result).castTo(type,true);
+}
+TO:
+38
+
+INSERT:
+43:else{
+if(type.isUnknown()){
+newNumber=Node.newNumber(result).castTo(type,true);
+}
+}
+TO:
+38
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:else{
+if(type.isUnknown()){
+newNumber=Node.newNumber(result).castTo(type,true);
+}
+}
+TO:
+38
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+39:JSType type=newNumber.getJSType();
+TO:
+38
+
+INSERT:
+40:if(n.getType()==Token.URSH){
+newNumber=Node.newNumber(result).castTo(type,true);
+}
+TO:
+38
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:16707 patches
+Compile failed:16099 patches
+Compilation rate:0.036391931525707785
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/46.java
+Current actions:
+INSERT:
+38:if(result>Integer.MAX_VALUE||result<Integer.MIN_VALUE){
+return Node.newNumber(new BigInteger(String.valueOf(result)));
+}
+TO:
+37
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+38:if(result>Integer.MAX_VALUE||result<Integer.MIN_VALUE){
+return Node.newNumber(new BigInteger(String.valueOf(result)));
+}
+TO:
+37
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:if(result>Integer.MAX_VALUE||result<Integer.MIN_VALUE){
+return Node.newNumber(new BigInteger(String.valueOf(result)));
+}
+TO:
+37
+
+UPDATE
+FROM:
+38:Node newNumber=Node.newNumber(result);
+TO:
+41:Node newNumber=Node.newNumber((int)result);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:return Node.newNumber(new BigInteger(String.valueOf(result)));
+TO:
+37
+
+UPDATE
+FROM:
+38:Node newNumber=Node.newNumber(result);
+TO:
+41:Node newNumber=Node.newNumber((int)result);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:17311 patches
+Compile failed:16702 patches
+Compilation rate:0.03517994338859685
+NNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/47.java
+Current actions:
+INSERT:
+43:if(right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 66 patches...
+Current actions:
+INSERT:
+43:if(right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(rval>=0&&rval==(int)rval){
+Node replacement=Node.newNumber(lval<<(int)rval);
+n.getParent().replaceChild(n,replacement);
+reportCodeChange();
+return replacement;
+}
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+47:double rval=right.getDouble();
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(right.getType()==Token.STRING){
+return n;
+}
+TO:
+42
+
+INSERT:
+46:if(right.getType()==Token.NUMBER){
+double rval=right.getDouble();
+if(rval>=0&&rval==(int)rval){
+Node replacement=Node.newNumber(lval<<(int)rval);
+n.getParent().replaceChild(n,replacement);
+reportCodeChange();
+return replacement;
+}
+}
+TO:
+42
+
+Tested:17778 patches
+Compile failed:17123 patches
+Compilation rate:0.03684328945888177
+NNNNNNNNNNNNNNPNPNPNNNNNNNNNNNNPNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNPPNNNPNNNNPNNNNNNNNPNNNNNNNNPNNNNNNNPNNNNNNNNNPNNNNPNNNNPNNNNNPNNNNPNNNNPNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNPNNNNPPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNPNPNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/48.java
+Current actions:
+INSERT:
+25:long lvalLong=lvalInt&0xffffffffL;
+TO:
+24
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+29:if(lvalLong!=(int)lvalLong||rvalLong!=(int)rvalLong){
+lvalLong=lvalLong&0xffffffffL;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 166 patches...
+Current actions:
+INSERT:
+38:if(lvalLong!=(int)lvalLong||rvalLong!=(int)rvalLong){
+lvalLong=lvalLong&0xffffffffL;
+}
+TO:
+32
+
+Following are 2th generated patches:
+Validating 166 patches...
+Current actions:
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+32:result=lvalLong<<rvalLong;
+
+INSERT:
+38:if(lvalLong!=(int)lvalLong||rvalLong!=(int)rvalLong){
+lvalLong=lvalLong&0xffffffffL;
+}
+TO:
+32
+
+INSERT:
+46:if(result>=Integer.MIN_VALUE&&result<=Integer.MAX_VALUE){
+result=(int)result;
+}
+TO:
+37
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:18444 patches
+Compile failed:17763 patches
+Compilation rate:0.03692257644762524
+NNNNNNNNNNNNPNNPNNPNPNNPPNNPNNNNNNNPNNNNNNNNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPNNNNNNNNPNNPNNNNNNNNNNNNNNPNNNNNNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/49.java
+Current actions:
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+Following are 0th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+40:if(parent.getType()==Token.ASSIGN){
+Node newNumberClone=newNumber.cloneNode();
+parent.replaceChild(n,newNumberClone);
+newNumberClone.addChildToFront(newNumber);
+}
+TO:
+38
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 39n.getParent().replaceChild(n,newNumber);
+
+INSERT:
+40:if(parent.getType()==Token.ASSIGN){
+Node newNumberClone=newNumber.cloneNode();
+parent.replaceChild(n,newNumberClone);
+newNumberClone.addChildToFront(newNumber);
+}
+TO:
+38
+
+INSERT:
+46:parent.replaceChild(n,newNumber);
+TO:
+38
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:Node parent=n.getParent();
+TO:
+38
+
+INSERT:
+42:parent.replaceChild(n,newNumberClone);
+TO:
+38
+
+INSERT:
+43:newNumberClone.addChildToFront(newNumber);
+TO:
+38
+
+INSERT:
+45:else{
+parent.replaceChild(n,newNumber);
+}
+TO:
+38
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:19109 patches
+Compile failed:18410 patches
+Compilation rate:0.036579622167565023
+NNNNNNNNNNNNPPPPNPNNNNPNNNNPNNNNNNNNPPNNPNPNNNPNNNNNNNNNNNPPPPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/50.java
+Current actions:
+INSERT:
+25:long lvalLong=(long)lval;
+TO:
+24
+
+Following are 0th generated patches:
+Validating 193 patches...
+Current actions:
+INSERT:
+26:if(lvalLong!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+31:if(rvalLong!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+TO:
+24
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+25:long lvalLong=(long)lval;
+TO:
+24
+
+INSERT:
+26:if(lvalLong!=lval){
+error(FRACTIONAL_BITWISE_OPERAND,left);
+return n;
+}
+TO:
+24
+
+INSERT:
+30:long rvalLong=(long)rval;
+TO:
+24
+
+INSERT:
+31:if(rvalLong!=rval){
+error(FRACTIONAL_BITWISE_OPERAND,right);
+return n;
+}
+TO:
+24
+
+UPDATE
+FROM:
+27:result=lvalInt<<rvalInt;
+TO:
+37:result=lvalLong<<rvalLong;
+
+UPDATE
+FROM:
+30:result=lvalInt>>rvalInt;
+TO:
+40:result=lvalLong>>rvalLong;
+
+UPDATE
+FROM:
+33:result=lvalInt>>>rvalInt;
+TO:
+43:result=lvalLong>>>rvalLong;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:19883 patches
+Compile failed:19116 patches
+Compilation rate:0.03857566765578635
+NNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNPNNNNNNNNPNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPNNNNNNPNNNNPPNNNNNNNNNNNNNPNNPPNNNNPNNNPNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNPNNPNNNNPNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNPNNNNNPNNNNNNPNNNNNPNPNNPNNNNNNNNNNNNNNNPNNPNNNPNNNNNNPNNNNNNNNPPPNNNPNNNNNPNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNPPNNNNNNPNNPNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/51.java
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&(left.getType()==Token.NUMBER||right.getType()==Token.NUMBER)){
+if(right.getType()==Token.NUMBER){
+int result=(int)right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 27 patches...
+Current actions:
+INSERT:
+43:if(n.getType()==Token.RSH&&(left.getType()==Token.NUMBER||right.getType()==Token.NUMBER)){
+if(right.getType()==Token.NUMBER){
+int result=(int)right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+44:if(right.getType()==Token.NUMBER){
+int result=(int)right.getDouble();
+Node newNumber=Node.newNumber(result);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+47:n.getParent().replaceChild(n,newNumber);
+TO:
+42
+
+INSERT:
+48:reportCodeChange();
+TO:
+42
+
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:int result=(int)right.getDouble();
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+49:return newNumber;
+TO:
+42
+
+Tested:20509 patches
+Compile failed:19717 patches
+Compilation rate:0.038617192452094204
+NNNNNNNNNNNNPNNNNPNPNNPPPPPPNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNPNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/52.java
+Current actions:
+INSERT:
+43:if(left.isName()&&left.getString().equals("Infinity")){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(left.isName()&&left.getString().equals("Infinity")){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 1th generated patches:
+Validating 83 patches...
+Current actions:
+INSERT:
+49:if(left.isName()&&left.getString().equals("NaN")){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+Following are 2th generated patches:
+Validating 128 patches...
+Current actions:
+INSERT:
+43:if(left.isName()&&left.getString().equals("Infinity")){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+INSERT:
+49:if(left.isName()&&left.getString().equals("NaN")){
+Node newNumber=Node.newNumber(0);
+n.getParent().replaceChild(n,newNumber);
+reportCodeChange();
+return newNumber;
+}
+TO:
+42
+
+INSERT:
+56:Node newString=Node.newString(left.getString());
+TO:
+42
+
+INSERT:
+57:n.getParent().replaceChild(n,newString);
+TO:
+42
+
+INSERT:
+58:reportCodeChange();
+TO:
+42
+
+INSERT:
+59:return newString;
+TO:
+42
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:21057 patches
+Compile failed:20226 patches
+Compilation rate:0.03946431115543525
+NNNNNNNNNNNNPPNPNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPNNNNNPNPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPNNNPPNNNNNNNNNNNNNNNNPPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_97/53.java
+Current actions:
+INSERT:
+39:newNumber.useSourceInfoFromForTree(n);
+TO:
+38
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+39:newNumber.useSourceInfoFromForTree(n);
+TO:
+38
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:21258 patches
+Compile failed:20354 patches
+Compilation rate:0.04252516699595446
+NNNNNNNNNNNNNNNNNNPNPNNPPPNNNNNNNPPNPNPPNNNNNNNNPNNNNNNNNNPNNNNNNNNPNNNPPNNPNNNPNNNNNNNNNPNNPNNNNNNPNNNNPPNNNNNNNNNPPPPPPPPNPPPNNPPPPPPPPPNPNNPPPPPPPPNNPNPNPNPNNPPPNNNPPPNNNNPPPPPNNNNNPNPNPNNNPNNPNNNPP
+Finish : closure-97 > patch : 3 | Start : Thu Apr 11 15:26:35 HKT 2024 | End : 2024.04.11 AD at 16:25:45 HKT

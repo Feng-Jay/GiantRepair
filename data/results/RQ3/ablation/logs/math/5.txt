@@ -1,0 +1,4903 @@
+Repair : math_5
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/0.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*imaginary,scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Tested:335 patches
+Compile failed:296 patches
+Compilation rate:0.11641791044776119
+NNNNPPPPPNPPNNPNPNNPNNNNPNPPPNNPNNNPNPNPNNPPNNPNNPNNPNPNPPPPNNNNNPNNNNNPNNNNPPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/1.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+Following are 3th generated patches:
+Validating 101 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 4th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+12:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:613 patches
+Compile failed:572 patches
+Compilation rate:0.06688417618270799
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/2.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+12:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+12:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 151 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:939 patches
+Compile failed:895 patches
+Compilation rate:0.046858359957401494
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/3.java
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return createComplex(scale*q,-scale*q);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return createComplex(scale*q,-scale*q);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+20:return createComplex(scale*q,-scale);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1342 patches
+Compile failed:1160 patches
+Compilation rate:0.13561847988077497
+PPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNPPPNNNNNPPPNNNNNNNNNNNNNPNNNNNPNNNPPPPPPPPNNPNPNNNNNNNNNNPPPNNNNPNNNNNNNNNNNNNNNNPNNPNNNNNNNPPPPNPNNNNNPNNNNNPNNPPPPPPPPPPNNNNNNPPPPNNNPNNNNPNNPNNNNNNNNNNNNNPPNPNNNNPNPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNPPPNNNNNPNNPPNNNNNNNNPNNNNNNNNNNPNNPPPPPPPPPNNNNPNNNNNNPPPPNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNPNPPNPNPNNNNNNPNNNNNNPPPPPPPPPPPNNNNNNPPNPPPNNNNNNPNPNNNNNNNNNNNNNPPNPNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/4.java
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(q,-1.0/q);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(q,-1.0/q);
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(1.0/q,-q);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1756 patches
+Compile failed:1503 patches
+Compilation rate:0.14407744874715261
+NNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNPPNPNNNPNNNNNNNNNNPNNNNPNNNNPPPPPPPPPNNNNNNPNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNPNPNNNNNNNNPPNPNNNNNNPNNPPNNNNNNPPPPPPPPPPPNNNNNNNNNPNPPPNNNNNPNNPNNNNNNNNNNPNPNPNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/5.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+10:double scale=1.0/real;
+TO:
+12
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*real,-scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+INSERT:
+10:double scale=1.0/real;
+TO:
+12
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/imaginary;
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*real,-scale);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2271 patches
+Compile failed:1990 patches
+Compilation rate:0.12373403786878027
+NNNNNNNNNNNNNNNNNNNNNNPPNPNNNPNNNNNNPPPNNPNNNNPPNNNNNPNNNNNNNPNNPNPNNNNNNNPNNNNNPNNNNNPPNNNNPPNNNNNNPNNNPNNPNNNNNPNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/6.java
+Tested:2271 patches
+Compile failed:1990 patches
+Compilation rate:0.12373403786878027
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/7.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:2275 patches
+Compile failed:1990 patches
+Compilation rate:0.12527472527472527
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/8.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 57 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 4return NaN;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(q,-1.0/q);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4return NaN;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(q,-1.0/q);
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(1.0/q,-q);
+
+Tested:2553 patches
+Compile failed:2162 patches
+Compilation rate:0.15315315315315314
+NNNNNPPPPPPPNNNPNPNNPNNNPPPNPNPPPNNNNPPNNPNPPNPNPPPNPPPPPPPPPPPPPPPNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNPNPPNNPNPNNNNNNNNNNNNNNPPNNNNNNPPPPPPPPPNNNNNPNNNNNNNPPNNNNPNNNNNNNNNNNNNNNNNNPPNNNNNNNNNPPPNNNPNNNNNPNPNNNNNNPPPPPPPPPPPNNNNNNNNNNPPPPNNNNNNPPNNNNNNNNNNNPNNPPNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/9.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*imaginary,-scale*real);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2793 patches
+Compile failed:2322 patches
+Compilation rate:0.1686358754027927
+NNNNNNNNPPPPPPNNNNPPNNNPNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNNNPPPPPPPPPNNNNNPPPNPNNNNNNNPNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPNPPPPPPNPPPPNNNNNNNNNNNPPPNNNNPPPPPPPPPNPNNNNPNNPNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNPPPPPPPPPPNNPNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/10.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 167 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+INSERT:
+9:return conjugate().divide(multiply(normSq()));
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:3071 patches
+Compile failed:2595 patches
+Compilation rate:0.15499837186584176
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/11.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[double q=real/imaginary;, double scale=1.0/(real*q+imaginary);, return createComplex(scale*q,-scale);, {
+return ZERO;
+}, if(isInfinite){
+return ZERO;
+}, return ZERO;]
+Following are 0th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+2:public Complex reciprocal(){
+if(isNaN){
+return NaN;
+}
+if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+if(isInfinite){
+return ZERO;
+}
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+1
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:public Complex reciprocal(){
+if(isNaN){
+return NaN;
+}
+if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+if(isInfinite){
+return ZERO;
+}
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+1
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+2:public Complex reciprocal(){
+if(isNaN){
+return NaN;
+}
+if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+if(isInfinite){
+return ZERO;
+}
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+1
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:3092 patches
+Compile failed:2614 patches
+Compilation rate:0.15459249676584735
+NNNNNNNNNNNNNNNPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/12.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(imaginary*imaginary+real*real);
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(imaginary*imaginary+real*real);
+
+Following are 2th generated patches:
+Validating 99 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(imaginary*imaginary+real*real);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(-scale*imaginary,scale*real);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:3521 patches
+Compile failed:2939 patches
+Compilation rate:0.16529395058222096
+NNNNPPPPPPPNPPNNNNNPNNNNNPPNPPPNNNPNNPNNPPNNNNPPNPNNPPNPNPPNPNNNNNNPNNNPNNNPNPNPPPPPPNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNPPNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNPPPPPPPPPNPNNNNNNNPNPNPNPNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNNPNNNNNNNPNNNNPPNNPNPPNNNNNNNNNNNPPPPPPPNPPPNNNNNNNNPNNNPNNNNNNNPNNNNNNNPNNNNNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/13.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(real*real+imaginary*imaginary);
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*imaginary,scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*imaginary,scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:4095 patches
+Compile failed:3372 patches
+Compilation rate:0.17655677655677657
+NNNNNNNNNNPPPPNPPNNNNPPNNNPNPPPNPPPPPPNNNNPPPNPNPNPNPPNNNPNPNNNPPNPPPPNNPNNNPNPNNPPNPPPNNPPPPNNNNNNPNPNPNNPNPNNPNPPNPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNPPNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPPNNNNNPPPPPPPPPNNPNNNNNPNPNPNNNPNNNNNNNNNNNNNNNNPNPPNNNNNNNNNNNNPNNPPPPNPPNPPNPPNNNNNNNNNNNNPPNNPPPPPPPPNPPNNNPNNNPNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNPNPPPPPPPPNPNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/14.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale*imaginary);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*imaginary,-scale*real);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*real);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale*imaginary);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4534 patches
+Compile failed:3668 patches
+Compilation rate:0.1910013233348037
+NNNNNNNNPPPPNPPNNNPNPNNNPNNNNNNNNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNPNNNNNNNNNNNNPNNPPPPNPPPPPPNNNNNNNNNNNNNNPPNNPNPNNNNNNNNNNNNNNNNNPNNNNNNNNNPNPPPNNNPNNNNNPNNNNNNPPPPPPPPPPPNNNNPNNPPNPPNNNNNNNNNPNNPNNNNNNNNNNNPPNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNNNNPPPPPPPPNPNNNPNNNPNNPPNNNNNNNPNNNNNNNNNNNPPPNNNNNNNNNNNNNNNPNPPPPNPPPNPPPNNNNNNNNNNNNPPNNPPPPPPPPPPNNNNNPNNPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNPPPPPPPPNNPPPNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/15.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return new Complex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return new Complex(scale*imaginary,-scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+FastMath.abs(imaginary));
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return new Complex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+FastMath.abs(real));
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return new Complex(scale*imaginary,-scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4776 patches
+Compile failed:3874 patches
+Compilation rate:0.1888609715242881
+NNNNNNNNPPPPNPPNPNNNPNNPNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPPNNNNNNNNPNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/16.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double scale=1.0/getNorm();
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+INSERT:
+14:}
+
+TO:
+11
+
+INSERT:
+16:}
+
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+14:}
+
+TO:
+11
+
+INSERT:
+16:}
+
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:}
+
+TO:
+11
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+INSERT:
+16:}
+
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:}
+
+TO:
+11
+
+INSERT:
+16:}
+
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+INSERT:
+14:}
+
+TO:
+11
+
+INSERT:
+16:}
+
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:5104 patches
+Compile failed:4201 patches
+Compilation rate:0.17692006269592475
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/17.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+10:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+14:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(scale*imaginary,scale*real);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5433 patches
+Compile failed:4404 patches
+Compilation rate:0.18939812258420763
+NNNNNNNNNNPPPPPNPNNNNPNPNNPNPPPPPPNPPPNNNNPPPPNNPPPNNPNNNPNPNNNPPNPPPPNNNNPPPNNNPNPNPPPNPNPNNPPNNNNPNPNPNNPPNNNPNNPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNPPPPPPPPPNNPNNNNNNNPNPPNNPNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNPNNNNNNNNNNNPPPPNNNNNPPNNNNNNNNNPPPPPPPNPPNPNNNNNNPNNPNNNNNNNNNNPNNNNNPNNNNNNNNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/18.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 154 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 4th generated patches:
+Validating 105 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:5883 patches
+Compile failed:4848 patches
+Compilation rate:0.17593064762876084
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/19.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[if(real==0.0&&imaginary==0.0){
+return NaN;
+}, else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}, else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}, {
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}, {
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}, {
+return NaN;
+}, if(isNaN){
+return NaN;
+}, return NaN;, {
+return ZERO;
+}, if(isInfinite){
+return ZERO;
+}, return ZERO;, if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}, {
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}]
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+INSERT:
+2:public Complex reciprocal(){
+if(isNaN){
+return NaN;
+}
+if(isInfinite){
+return ZERO;
+}
+if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double scale=1.0/(real+imaginary*real/imaginary);
+return createComplex(scale*real,-scale*imaginary);
+}
+else{
+double scale=1.0/(imaginary+real*imaginary/real);
+return createComplex(scale*real,-scale*imaginary);
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real/imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*imaginary/real);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale*imaginary);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:6122 patches
+Compile failed:5087 patches
+Compilation rate:0.16906239790918
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/20.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 51 patches...
+Current actions:
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 52 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:6544 patches
+Compile failed:5507 patches
+Compilation rate:0.15846577017114916
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/21.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 4return NaN;
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 4return NaN;
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 4th generated patches:
+Validating 101 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:6965 patches
+Compile failed:5907 patches
+Compilation rate:0.15190236898779613
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/22.java
+Current actions:
+UPDATE
+FROM:
+12:if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+12:if(abs()<1){
+double q=real/imaginary;
+double scale=1/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+12:if(abs()<1){
+double q=real/imaginary;
+double scale=1/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 1th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+12:if(abs()<1){
+double q=real/imaginary;
+double scale=1/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+14:double scale=1/(real*q+imaginary);
+
+Following are 2th generated patches:
+Validating 47 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+TO:
+12:if(abs()<1){
+double q=real/imaginary;
+double scale=1/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+14:double scale=1/(real*q+imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+19:double scale=1/(imaginary*q+real);
+
+Following are 3th generated patches:
+Validating 87 patches...
+Current actions:
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+19:double scale=1/(imaginary*q+real);
+
+Following are 4th generated patches:
+Validating 40 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+14:double scale=1/(real*q+imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+19:double scale=1/(imaginary*q+real);
+
+Tested:7152 patches
+Compile failed:6045 patches
+Compilation rate:0.15478187919463088
+PPPPPPPNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPPPNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNPPPNPNNNNNNNNNNNPNNPNNNNPNNNNPNPNNNNNNPNPPPPNPPPNNNNNNNNNNNNNNNPPPNPNNNNPNNPNPNNNNPNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/23.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 87 patches...
+Current actions:
+INSERT:
+12:return conjugate().multiply(1.0/norm());
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 110 patches...
+Current actions:
+INSERT:
+12:return conjugate().multiply(1.0/norm());
+TO:
+11
+
+Following are 2th generated patches:
+Validating 108 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 4 patches...
+Current actions:
+INSERT:
+12:return conjugate().multiply(1.0/norm());
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 110 patches...
+Current actions:
+INSERT:
+12:return conjugate().multiply(1.0/norm());
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Tested:7564 patches
+Compile failed:6456 patches
+Compilation rate:0.14648334214701217
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/24.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double scale=1/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(real*scale,-imaginary*scale);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+12:double scale=1/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(real*scale,-imaginary*scale);
+TO:
+11
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 102 patches...
+Current actions:
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:return createComplex(real*scale,-imaginary*scale);
+TO:
+11
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Tested:7989 patches
+Compile failed:6780 patches
+Compilation rate:0.15133308298911002
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPPPPPPPPPPPPPPPPPPNNNNNNPPPPPPPPPPNPPPPPPPPPPNNNPPNPNPPPPNNPNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPPPPNPPPPPNPPPNPPPPPPPPPNNNPPPPPPPPPPNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/25.java
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return new Complex(scale*q,-scale);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return new Complex(scale*q,-scale);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+20:return new Complex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return new Complex(scale*q,-scale);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+20:return new Complex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:7995 patches
+Compile failed:6780 patches
+Compilation rate:0.15196998123827393
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/26.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*imaginary,-scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8234 patches
+Compile failed:6940 patches
+Compilation rate:0.15715326694194803
+NNNNNNNNPPPPPPNNNPPNNNNNNPNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPPNNNNPPPPPPPPPNNNNPNNNPNPNNPNNNNNPNNNNNNNNNNNNNPPNPNNNNNNNNNNNNPNNPPPPNPNPPNPPPNNNNNNNNNNNPPNNNPPPPPPPPPPNNNNNNNPPNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNPNNNPPPPPPPPNNPNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/27.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return new Complex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 67 patches...
+Current actions:
+INSERT:
+13:return new Complex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 17 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12: final double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return new Complex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:8439 patches
+Compile failed:7143 patches
+Compilation rate:0.153572698186989
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/28.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*imaginary,-scale*real);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:8728 patches
+Compile failed:7360 patches
+Compilation rate:0.15673693858845097
+NNNNNNNNPPPPNPPNNNPPNNNNPNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPPPPPPNNPNNPNNNNNPPPNPNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPNNNNNNNNNNNNPPPNNNNNNNPPNNNNNNPPPPPPPPPPNNNNNNPPNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNPNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/29.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+13:return new Complex(real/imaginary,-imaginary/(real*real+imaginary*imaginary));
+TO:
+12
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+INSERT:
+16:return new Complex(imaginary/real,-real/(real*real+imaginary*imaginary));
+TO:
+17
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9020 patches
+Compile failed:7647 patches
+Compilation rate:0.15221729490022173
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPPNPNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/30.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+INSERT:
+13:return new Complex(real/imaginary,-imaginary/real,imaginary>=0);
+TO:
+12
+
+INSERT:
+16:return new Complex(imaginary/real,-real/imaginary,imaginary>=0);
+TO:
+17
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:9312 patches
+Compile failed:7939 patches
+Compilation rate:0.14744415807560138
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/31.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 36 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+11:return createComplex(1/q,-1/q);
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+15:return createComplex(1/q,1/q);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Tested:9352 patches
+Compile failed:7960 patches
+Compilation rate:0.14884516680923868
+NNNNNPPPPPPNNNPPPNNPNNNNNNNPPPPPPPPPNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/32.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real/imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,scale*-imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*imaginary/real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*-imaginary,scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9791 patches
+Compile failed:8383 patches
+Compilation rate:0.1438055356960474
+NNNNNNNNPPPPPPNNNPNPNNNPNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/33.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 50 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(imaginary*scale,real*scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(imaginary*scale,real*scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:10278 patches
+Compile failed:8854 patches
+Compilation rate:0.13854835571122787
+NNNNNNNNPPPPNPPPNPNNNNNNNPNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/34.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(real*scale,-imaginary*scale);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(imaginary*scale,-real*scale);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:10517 patches
+Compile failed:9014 patches
+Compilation rate:0.1429114766568413
+NNNNNNNNPPPPPPNNNNPPNNNPNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNPPPPPPPPPNNNNNNNPPPNNNNPNNNNNNNNPNNNNNNNPPPNNNNNNNNNNNNNNNPNNPPPPNNPPPPPPNNNNNNNNNNNPNPNNPPPPPPPPPNPNNNNNPNPNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/35.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+12:double q=real/imaginary;
+TO:
+11
+
+INSERT:
+13:double scale=1.0/(real*q+imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double q=real/imaginary;
+TO:
+11
+
+INSERT:
+13:double scale=1.0/(real*q+imaginary);
+TO:
+11
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double q=real/imaginary;
+TO:
+11
+
+INSERT:
+13:double scale=1.0/(real*q+imaginary);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double q=real/imaginary;
+TO:
+11
+
+INSERT:
+13:double scale=1.0/(real*q+imaginary);
+TO:
+11
+
+INSERT:
+14:return createComplex(scale*q,-scale*q);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:10564 patches
+Compile failed:9059 patches
+Compilation rate:0.14246497538811057
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/36.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale*imaginary);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:10805 patches
+Compile failed:9220 patches
+Compilation rate:0.14669134659879685
+NNNNNNNNPPPNPPPNPNNPNNNPNNNNNNNNNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNPNPNNNNNNNNNNNNPNNPPPPNPPPPPPNNNNNNNNNNNNNNPPNNNNPPNNNNNNNNNNNNNNNNNNPNNNNNNNNPPPNNNPNPNNNNPNNNNNNPPPPPPPPPPNPNNNNNNPPPPNNNPNNNNPNNNNPNNNNNNNNNNNNPPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/37.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 87 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return divide(ONE);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 113 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return divide(ONE);
+TO:
+11
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 3th generated patches:
+Validating 113 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return divide(ONE);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:11116 patches
+Compile failed:9529 patches
+Compilation rate:0.14276718243972653
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/38.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 1th generated patches:
+Validating 104 patches...
+Current actions:
+INSERT:
+12:double scale=1/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 152 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+12:double scale=1/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 4th generated patches:
+Validating 53 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:double scale=1/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+13:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:11541 patches
+Compile failed:9952 patches
+Compilation rate:0.13768304306385928
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/39.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 87 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+12:return conjugate().divide(multiply(magnitude()));
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:11632 patches
+Compile failed:10041 patches
+Compilation rate:0.13677785419532323
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/40.java
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(1/q,-1/imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(1/q,-1/real);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:11845 patches
+Compile failed:10183 patches
+Compilation rate:0.14031236808780076
+NNNNNNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNPPNPPNNNNPNNNNNNNNNNNPNNNNNPNNNPPPPPPPPNNPNNNNNNPNNNNNNNPNPPNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNPPPNNPNNNNNPNNPNNNNNPPPPPPPPPPPNNNNNNPNNPPPNNNNNNNNPNNPNNNNNNNNNPPNNPNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/41.java
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+INSERT:
+18:return createComplex(1.0/(imaginary*q+real),-1.0/(imaginary*q+real));
+TO:
+18
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+INSERT:
+14:return createComplex(1.0/(real*q+imaginary),-1.0/(real*q+imaginary));
+TO:
+13
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+INSERT:
+18:return createComplex(1.0/(imaginary*q+real),-1.0/(imaginary*q+real));
+TO:
+18
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:12284 patches
+Compile failed:10556 patches
+Compilation rate:0.14067079127320092
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNPPNPPNNNPNNNNNNNNNNNNNNNNNPPNNNPPPPPPPPPNNNNNPNNNNNNNNNPPNNPNNNNNNNNNNNNNNNNNNPNNPNNNNNNNPPNNPNPNNNNNPNPNNNNNPNPPPPPPPPPPNNNNNNNNPPNPPNNNNNNPNNPNNNNNNNNNNNPPNPNNNNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/42.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+INSERT:
+6:return conjugate().divide(multiply(norm()));
+TO:
+5
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 111 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+6:return conjugate().divide(multiply(norm()));
+TO:
+5
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 122 patches...
+Current actions:
+INSERT:
+6:return conjugate().divide(multiply(norm()));
+TO:
+5
+
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+6:return conjugate().divide(multiply(norm()));
+TO:
+5
+
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:12828 patches
+Compile failed:11090 patches
+Compilation rate:0.13548487683193014
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/43.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 63 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*imaginary,-scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:13091 patches
+Compile failed:11341 patches
+Compilation rate:0.13367962722481094
+NNNNNNNNNNNNNNNNNNPNPNPNPNNNNPNNPNNNNPNNNNNNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/44.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 85 patches...
+Current actions:
+INSERT:
+12:if(FastMath.abs(real)>=FastMath.abs(imaginary)){
+double scale=1.0/(real+imaginary*real/imaginary);
+return createComplex(scale,-scale*imaginary);
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*real,-scale);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(FastMath.abs(real)>=FastMath.abs(imaginary)){
+double scale=1.0/(real+imaginary*real/imaginary);
+return createComplex(scale,-scale*imaginary);
+}
+TO:
+11
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real/imaginary);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:13775 patches
+Compile failed:11819 patches
+Compilation rate:0.14199637023593467
+NNNNNNNNNNPPPPPPPNNNPNNNNPPNPPPPNNNNPNNNNNNNPPNNNPNNNNPPNNPNNPPPNPNNNNPNNPNNNNPPPPPPPNPPPPPPPPPNPPPPPPPPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPPPPPNPNNPPPNPNPPPPPPNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNPNPPNNPNNNNPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNPPNNPNNPNPNNNNNNNNNNNNNNNPNNNPPPPPPPPNPNNNNNPNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPPPNNPNNNNNNPNNNNPNNPPPPPPPPPPNNNNNNPPPPNPNNNNNNNNNNPNPNNNNNNNNNNPNPNNNNNPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNPPPPPPNNNPPPNNPPPPPNPPNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNNNNNNNNNNNNNNNNNNNPNNNNPPPNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/45.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 167 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+9:return conjugate().divide(multiply(real*real+imaginary*imaginary));
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+INSERT:
+9:return conjugate().divide(multiply(real*real+imaginary*imaginary));
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 111 patches...
+Current actions:
+INSERT:
+9:return conjugate().divide(multiply(real*real+imaginary*imaginary));
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 4th generated patches:
+Validating 111 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Tested:14267 patches
+Compile failed:12224 patches
+Compilation rate:0.1431975888413822
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPPPNPPPPPNPPPNNNNNPNNNPPPPPPPPPPNPPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPNPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/46.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+11:return createComplex(1.0/(real*q+imaginary),-1.0/(real*q+imaginary));
+TO:
+13
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+INSERT:
+15:return createComplex(1.0/(imaginary*q+real),-1.0/(imaginary*q+real));
+TO:
+18
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:14598 patches
+Compile failed:12538 patches
+Compilation rate:0.14111522126318674
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNPNNNNPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/47.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(-scale*real,scale*imaginary);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*real);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(-scale*real,scale*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:15037 patches
+Compile failed:12897 patches
+Compilation rate:0.14231562146704796
+NNNNNNNNPPPPPPNNPNPNNNNNPNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNPNNNNNNPPNNNPNNNNNNNNNNNPNNPPPNPPPPPPNPNNNNNNNNNNNNNPNPNNNPNNPNNNNNNNNNNNNNNNPNNNNNNNNNPPPNNNPNPNNNNPNNNNNNPPPPPPPPPPNPNNNNNNPPPPNNNNPNPNPNNNNNNNNNNNNNNNNNPPNNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/48.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 16 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 3th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+9:return conjugate().divide(absSq());
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 4th generated patches:
+Validating 110 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Tested:15377 patches
+Compile failed:13205 patches
+Compilation rate:0.14124991870976134
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNPNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/49.java
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7return NaN;
+
+INSERT:
+10:if(result.isNaN()){
+return NaN;
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 28 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+10:if(result.isNaN()){
+return NaN;
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 2th generated patches:
+Validating 33 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+9:Complex result=ZERO.divide(this);
+TO:
+11
+
+INSERT:
+10:if(result.isNaN()){
+return NaN;
+}
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return result;
+TO:
+21
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+INSERT:
+10:if(result.isNaN()){
+return NaN;
+}
+TO:
+11
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 4th generated patches:
+Validating 31 patches...
+Current actions:
+DELETE:
+Original line: 6if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Tested:15800 patches
+Compile failed:13440 patches
+Compilation rate:0.14936708860759493
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNPNNNNNNPNNNNNNPNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPNPNPPPPPPNPPPPPPNPPPPPPPPNPPPPPPPPPNPPPPPPNPPPPPPPPPPPNPPPPPPPPNPPPPPPPPPPPPPPPPNPPPPNPPPPPPNPPPPPPNPPPPPPPPPPNPPPPPNPPPPPPPPPPPPPNPPPNPPNPPPPPPPPPPPPPPPPNPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/50.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(real*scale,-imaginary*scale);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*imaginary);
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(real*scale,-imaginary*scale);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(real*real+imaginary*imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(scale*imaginary,-scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16237 patches
+Compile failed:13798 patches
+Compilation rate:0.15021247767444726
+NNNNNNNNPPPPPPNNPNPNNNNPNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPPNNNNPPPPPPPPPNNNNPNNNPNNPNNPNPNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNPNNPPPPNPPPNNPPPNNNNNNNNNNNPPNNNPPPPPPPPPPNNNNNNNPPNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNPNPPPPPPPPPNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/51.java
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(1/q,-q);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(q,-1/q);
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(1/q,-q);
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:16651 patches
+Compile failed:14077 patches
+Compilation rate:0.1545853101915801
+NNNNNNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNPPPNNNNPNNNNNNNNNPNNNNNNNPNNPPPPPPPPPNNNNNNPNNNNNNNNPPNPNNNNNNNNNNNNNPNPNNNNNPNNNNNNNNNNNNNPPPNPNNNNNNPNNNNPPPPPPPPPPNPNNNNNPNNNPPPNNNNNPPNNNNNNNNNNNPNNNNNPPNNNNPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNPNNNPNPNPNNNNNNNNNNPNNNNPNNNPPPPPPPPPNNNNNNPNNNNNNNNNPNPNPNNNNNNNNNNNNNNNNNPNPNNNNNNNNPPPNNNPNNNNNPNPNNNNNNPPPPPPPPPPPNNNNNNNNNPNPPPNNNNNNPPNNNNNNNNNNNNNPPPNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/52.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+16:return divide(createComplex(imaginary/real,-real));
+TO:
+17
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:return divide(createComplex(real/imaginary,-imaginary));
+TO:
+12
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:17144 patches
+Compile failed:14570 patches
+Compilation rate:0.15013999066728884
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/53.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+12:if(FastMath.abs(real)>=FastMath.abs(imaginary)){
+double scale=1.0/(real*real+imaginary*imaginary);
+return createComplex(scale*real,-scale*imaginary);
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real*real+imaginary*imaginary);
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+12:if(FastMath.abs(real)>=FastMath.abs(imaginary)){
+double scale=1.0/(real*real+imaginary*imaginary);
+return createComplex(scale*real,-scale*imaginary);
+}
+TO:
+11
+
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real*real+imaginary*imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:17614 patches
+Compile failed:14922 patches
+Compilation rate:0.15283297377086408
+NNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNPPPPPPNNNPPPNNPPPPPPPNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNPNPNNNPNPNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNPPPPPPNNNPPPNNPPPPNPPNNNPNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNPNNPNPNPNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/54.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+12:double modulus=FastMath.hypot(real,imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(real/modulus,-imaginary/modulus);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 3th generated patches:
+Validating 102 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+13:return createComplex(real/modulus,-imaginary/modulus);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 102 patches...
+Current actions:
+INSERT:
+13:return createComplex(real/modulus,-imaginary/modulus);
+TO:
+11
+
+Tested:17944 patches
+Compile failed:15177 patches
+Compilation rate:0.1542019616584931
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNPPPPPPPPPPPPPPPPNPPPNPPPPPPPPPPNNPPPPPPPPPPPPPPPPPNPNNNPPNNPNNNNNNNNPPNPNPPPPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/55.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/55.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 62 patches...
+Current actions:
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 4th generated patches:
+Validating 52 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+9:double scale=1.0/(real*real+imaginary*imaginary);
+TO:
+11
+
+INSERT:
+10:return createComplex(scale*real,-scale*imaginary);
+TO:
+11
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Tested:18263 patches
+Compile failed:15475 patches
+Compilation rate:0.15265838033181844
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/56.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/56.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+14:return createComplex(scale*real,-scale*imaginary);
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+INSERT:
+17:double scale=1.0/(imaginary+FastMath.copySign(real,imaginary));
+TO:
+17
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(-scale*imaginary,scale*real);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:18554 patches
+Compile failed:15757 patches
+Compilation rate:0.1507491646006252
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNPNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/57.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/57.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 121 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+11:return createComplex(1.0/q,-1.0/(real*q+imaginary));
+TO:
+13
+
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 15return createComplex(scale*q,-scale);
+
+INSERT:
+15:return createComplex(1.0/(imaginary*q+real),-1.0/q);
+TO:
+18
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:18884 patches
+Compile failed:15999 patches
+Compilation rate:0.15277483583986443
+NNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPNNNNNNNPPPPPPPPNPNPNNNNNPPPPPNPNNNNNNNNNPPNPNNNNNNNNPNNNNNNPPNNPNNNNPPPPPPPPPPNNNNNPNNNPNPPPNNNNNNNPNNNNNNNPNNNNNPNPNNPNNNNNNNPPPNNNNNNNNNNNNPPNPNNNNNPPPPPPPPPPPNNNNNNPNNPNPPNNNNNNNPPNNNNNNNNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/58.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/58.java
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 0th generated patches:
+Validating 87 patches...
+Current actions:
+DELETE:
+Original line: 14double scale=1.0/(real*q+imaginary);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return multiply(1.0/(real*real+imaginary*imaginary),-1.0);
+TO:
+11
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Following are 2th generated patches:
+Validating 87 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return multiply(1.0/(real*real+imaginary*imaginary),-1.0);
+TO:
+11
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 87 patches...
+Current actions:
+INSERT:
+12:return multiply(1.0/(real*real+imaginary*imaginary),-1.0);
+TO:
+11
+
+Following are 4th generated patches:
+Validating 85 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+INSERT:
+12:return multiply(1.0/(real*real+imaginary*imaginary),-1.0);
+TO:
+11
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+DELETE:
+Original line: 20return createComplex(scale,-scale*q);
+
+Tested:19227 patches
+Compile failed:16266 patches
+Compilation rate:0.15400218442814792
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNPPPPPPPPPPNPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPNPPPPPPNNNPPPPPPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/59.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/59.java
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return Complex.ofCartesian(scale*q,-scale);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+15:return createComplex(scale*q,-scale);
+TO:
+15:return Complex.ofCartesian(scale*q,-scale);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+20:return Complex.ofCartesian(scale,-scale*q);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:19430 patches
+Compile failed:16469 patches
+Compilation rate:0.1523932063818837
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/60.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/60.java
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+6:if(real==0.0&&imaginary==0.0){
+return NaN;
+}
+TO:
+3:if(isNaN||real==0.0&&imaginary==0.0){
+return NaN;
+}
+
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+6:return conjugate().divide(squareNorm());
+TO:
+5
+
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 2th generated patches:
+Validating 123 patches...
+Current actions:
+INSERT:
+6:return conjugate().divide(squareNorm());
+TO:
+5
+
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 9if(isInfinite){
+return ZERO;
+}
+
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+DELETE:
+Original line: 17else{
+double q=imaginary/real;
+double scale=1.0/(imaginary*q+real);
+return createComplex(scale,-scale*q);
+}
+
+Following are 3th generated patches:
+Validating 112 patches...
+Current actions:
+DELETE:
+Original line: 12if(FastMath.abs(real)<FastMath.abs(imaginary)){
+double q=real/imaginary;
+double scale=1.0/(real*q+imaginary);
+return createComplex(scale*q,-scale);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(isNaN){
+return NaN;
+}
+
+INSERT:
+6:return conjugate().divide(squareNorm());
+TO:
+5
+
+DELETE:
+Original line: 7return NaN;
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+DELETE:
+Original line: 19double scale=1.0/(imaginary*q+real);
+
+Tested:19867 patches
+Compile failed:16896 patches
+Compilation rate:0.14954447073035687
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/61.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_5/61.java
+Current actions:
+DELETE:
+Original line: 13double q=real/imaginary;
+
+Following are 0th generated patches:
+Validating 41 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real/imaginary);
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*imaginary/real);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(-scale*imaginary,scale*real);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+14:double scale=1.0/(real*q+imaginary);
+TO:
+13:double scale=1.0/(real+imaginary*real/imaginary);
+
+DELETE:
+Original line: 13double q=real/imaginary;
+
+UPDATE
+FROM:
+19:double scale=1.0/(imaginary*q+real);
+TO:
+17:double scale=1.0/(imaginary+real*imaginary/real);
+
+UPDATE
+FROM:
+20:return createComplex(scale,-scale*q);
+TO:
+18:return createComplex(-scale*imaginary,scale*real);
+
+DELETE:
+Original line: 18double q=imaginary/real;
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:20303 patches
+Compile failed:17265 patches
+Compilation rate:0.14963305915381964
+NNNNNNNNPPPPPNPPNPNNNNNNPNNNNNNNNNPPPPPPPNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNPPPPPPPPNNPNNNPNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPPPNNNNNPNNPPNPNNNNNPNNPNNNNNNNNNNNNNNNNNNPPNNNNNNNNPPNNNNNNNNNNNNNNPPNNNNNNNNNNNPPNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : math-5 > patch : 0 | Start : Fri Apr 05 17:50:49 HKT 2024 | End : 2024.04.05 AD at 18:35:49 HKT

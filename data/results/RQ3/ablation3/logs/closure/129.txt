@@ -1,0 +1,2274 @@
+Repair : closure_129
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/0.java
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(!first.isCast()&&!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(!first.isCast()&&!NodeUtil.isGet(first)){
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+1 th patch/1
+Trace:
+
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:03:25 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(!first.isCast()&&!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(!first.isCast()&&!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+2 th patch/2
+Trace:
+
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:04:32 HKT
+--------------- END -----------------
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/1.java
+Tested:2 patches
+Compile failed:0 patches
+Compilation rate:1.0
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/2.java
+Current actions:
+DELETE:
+Original line: 8if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+8:if(NodeUtil.isGet(first)&&first.getString().equals("eval")){
+Node second=first.getNext();
+if(NodeUtil.isOptChainEnd(second)){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+10:if(NodeUtil.isOptChainEnd(second)){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9first.putBooleanProp(Node.DIRECT_EVAL,true);
+
+INSERT:
+10:if(NodeUtil.isOptChainEnd(second)){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:if(NodeUtil.isGet(first)&&first.getString().equals("eval")){
+Node second=first.getNext();
+if(NodeUtil.isOptChainEnd(second)){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+}
+TO:
+7
+
+DELETE:
+Original line: 8if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Tested:423 patches
+Compile failed:406 patches
+Compilation rate:0.04018912529550828
+NNNNNNNNPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/3.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&first.getFirstChild().isZero()&&"eval".equals(first.getLastChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&first.getFirstChild().isZero()&&"eval".equals(first.getLastChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:425 patches
+Compile failed:408 patches
+Compilation rate:0.04
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/4.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&NodeUtil.isGet(first.getFirstChild())&&"eval".equals(first.getFirstChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&NodeUtil.isGet(first.getFirstChild())&&"eval".equals(first.getFirstChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:427 patches
+Compile failed:410 patches
+Compilation rate:0.03981264637002342
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/5.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(NodeUtil.getBestLValueName(first))){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(NodeUtil.getBestLValueName(first))){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:429 patches
+Compile failed:410 patches
+Compilation rate:0.04428904428904429
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/6.java
+Current actions:
+INSERT:
+11:if(n.getParent().isExprResult()&&n.getParent().getParent().isWith()){
+first.putBooleanProp(Node.WITH_CONTEXT,true);
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(n.getParent().isExprResult()&&n.getParent().getParent().isWith()){
+first.putBooleanProp(Node.WITH_CONTEXT,true);
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:first.putBooleanProp(Node.WITH_CONTEXT,true);
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:831 patches
+Compile failed:774 patches
+Compilation rate:0.06859205776173286
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNPPNPPPPPNPPNPPNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNPNNPPNPNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/7.java
+Current actions:
+INSERT:
+11:Node second=first.getNext();
+TO:
+10
+
+Following are 0th generated patches:
+Validating 17 patches...
+Current actions:
+INSERT:
+12:if(NodeUtil.isGet(second)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:if(second!=null&&second.isName()&&"eval".equals(second.getString())){
+second.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 151 patches...
+Current actions:
+INSERT:
+11:Node second=first.getNext();
+TO:
+10
+
+INSERT:
+12:if(NodeUtil.isGet(second)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+10
+
+INSERT:
+15:if(second!=null&&second.isName()&&"eval".equals(second.getString())){
+second.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1398 patches
+Compile failed:1326 patches
+Compilation rate:0.05150214592274678
+NNNNNNPPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/8.java
+Current actions:
+DELETE:
+Original line: 8if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 51 patches...
+Current actions:
+INSERT:
+8:if(first.isName()){
+if("eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+else{
+if(first.getQualifiedName().equals("Function")){
+Node second=first.getNext();
+if(second!=null&&NodeUtil.isGet(second)&&second.getString().equals("prototype")){
+Node third=second.getNext();
+if(third!=null&&NodeUtil.isGet(third)&&third.getString().equals("apply")){
+third.putBooleanProp(Node.CALL_SPECIAL,true);
+}
+}
+}
+}
+}
+TO:
+7
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+9:if("eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+7
+
+DELETE:
+Original line: 9first.putBooleanProp(Node.DIRECT_EVAL,true);
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+14:if(second!=null&&NodeUtil.isGet(second)&&second.getString().equals("prototype")){
+Node third=second.getNext();
+if(third!=null&&NodeUtil.isGet(third)&&third.getString().equals("apply")){
+third.putBooleanProp(Node.CALL_SPECIAL,true);
+}
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 8if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+INSERT:
+8:if(first.isName()){
+if("eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+else{
+if(first.getQualifiedName().equals("Function")){
+Node second=first.getNext();
+if(second!=null&&NodeUtil.isGet(second)&&second.getString().equals("prototype")){
+Node third=second.getNext();
+if(third!=null&&NodeUtil.isGet(third)&&third.getString().equals("apply")){
+third.putBooleanProp(Node.CALL_SPECIAL,true);
+}
+}
+}
+}
+}
+TO:
+7
+
+Tested:1432 patches
+Compile failed:1352 patches
+Compilation rate:0.055865921787709494
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPNPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/9.java
+Current actions:
+INSERT:
+11:Node parent=n.getParent();
+TO:
+10
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+12:if(parent!=null&&parent.isTypeOf()){
+parent.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:Node parent=n.getParent();
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:Node parent=n.getParent();
+TO:
+10
+
+INSERT:
+12:if(parent!=null&&parent.isTypeOf()){
+parent.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:2037 patches
+Compile failed:1936 patches
+Compilation rate:0.04958271968581247
+NNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/10.java
+Current actions:
+INSERT:
+5:if(first.isCast()){
+return ;
+}
+TO:
+4
+
+Following are 0th generated patches:
+Validating 2 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+3 th patch/2
+Trace:
+
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:16:55 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+5:if(first.isCast()){
+return ;
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:return ;
+TO:
+4
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:2240 patches
+Compile failed:2025 patches
+Compilation rate:0.09598214285714286
+NPNNNNNNPPPNNNNPPPPPPPPPPNNNPNNNNNNPNNNNNNNNNNNNNPNNPNPPPPPPPPPNNNNPNNNPPNNNNPNPNNNPNNNNPNNNNNNNNPNPPPPNNNPPPPPPPPPPPPNPNPPNPPPPPPPNNPPPPPNNNPNPPPPPPPPPNNPPPPPPPPPPPPPPPPPPPPPPPPNNNPNNNNPPPNNPNPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/11.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isName()&&"eval".equals(first.getString())&&first.isFirstChildOf(n)){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isName()&&"eval".equals(first.getString())&&first.isFirstChildOf(n)){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2242 patches
+Compile failed:2027 patches
+Compilation rate:0.09589652096342552
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/12.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&"eval".equals(first.getFirstChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(first.isGet()&&"eval".equals(first.getFirstChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:2244 patches
+Compile failed:2029 patches
+Compilation rate:0.09581105169340463
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/13.java
+Current actions:
+UPDATE
+FROM:
+9:first.putBooleanProp(Node.DIRECT_EVAL,true);
+TO:
+9:n.putBooleanProp(Node.DIRECT_EVAL,true);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+9:first.putBooleanProp(Node.DIRECT_EVAL,true);
+TO:
+9:n.putBooleanProp(Node.DIRECT_EVAL,true);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2445 patches
+Compile failed:2205 patches
+Compilation rate:0.09815950920245399
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPNPNNPPPNPPPPNNPNNNPNPNPNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/14.java
+Current actions:
+UPDATE
+FROM:
+9:first.putBooleanProp(Node.DIRECT_EVAL,true);
+TO:
+9:n.putBooleanProp(Node.DIRECT_EVAL,true);
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+11:if(first.isName()&&"new".equals(first.getString())){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+9
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:first.putBooleanProp(Node.DIRECT_EVAL,true);
+TO:
+9:n.putBooleanProp(Node.DIRECT_EVAL,true);
+
+INSERT:
+10:}
+
+TO:
+9
+
+INSERT:
+11:if(first.isName()&&"new".equals(first.getString())){
+n.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+9
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2850 patches
+Compile failed:2515 patches
+Compilation rate:0.11754385964912281
+PPPPPNNNNNNNNPPPNPNPPNPPNNNNNNNPPNPPPPNNNPNPPPPNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNPNNPNNNPPPPPPPPPPPNPPPPPPPPPNPNPPPNPPNNPNPPPNNPNPNNNPNNNNPNPPNNNNNPPNNNNNNNNNNNNNNNPNNNNNPPPPPPPPPPPPPPNPPPNNNNNNPPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/15.java
+Current actions:
+DELETE:
+Original line: 5if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+5:if(NodeUtil.isGet(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+5:if(NodeUtil.isGet(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+DELETE:
+Original line: 5if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 5if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+5:if(NodeUtil.isGet(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+DELETE:
+Original line: 6n.putBooleanProp(Node.FREE_CALL,true);
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 6n.putBooleanProp(Node.FREE_CALL,true);
+
+Tested:2861 patches
+Compile failed:2515 patches
+Compilation rate:0.12093673540720028
+PPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/16.java
+Current actions:
+INSERT:
+5:while(first.isCast()){
+first=first.getFirstChild();
+}
+TO:
+4
+
+Following are 0th generated patches:
+Validating 5 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+while(first.isCast()){
+first=first.getFirstChild();
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+4 th patch/5
+Trace:
+
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:31:14 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+8:if(first.isGet()||first.isThis()){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+5:while(first.isCast()){
+first=first.getFirstChild();
+}
+TO:
+4
+
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+8:if(first.isGet()||first.isThis()){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:first=first.getFirstChild();
+TO:
+4
+
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+8:if(first.isGet()||first.isThis()){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:3267 patches
+Compile failed:2919 patches
+Compilation rate:0.10651974288337925
+NNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/17.java
+Current actions:
+INSERT:
+11:if(first.isGetProp()&&first.getLastChild().isThis()){
+JSType type=first.getFirstChild().getJSType();
+if(type!=null&&type.isUnknownType()){
+first.putBooleanProp(Node.FREE_CALL,false);
+}
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+11:if(first.isGetProp()&&first.getLastChild().isThis()){
+JSType type=first.getFirstChild().getJSType();
+if(type!=null&&type.isUnknownType()){
+first.putBooleanProp(Node.FREE_CALL,false);
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:if(type!=null&&type.isUnknownType()){
+first.putBooleanProp(Node.FREE_CALL,false);
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:JSType type=first.getFirstChild().getJSType();
+TO:
+10
+
+INSERT:
+13:if(type!=null&&type.isUnknownType()){
+first.putBooleanProp(Node.FREE_CALL,false);
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:first.putBooleanProp(Node.FREE_CALL,false);
+TO:
+10
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:3873 patches
+Compile failed:3491 patches
+Compilation rate:0.09863155176865479
+NNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNPPNNPNNPNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPPPNNNPNNNNNNPPNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/18.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&NodeUtil.isNameDeclaration(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&NodeUtil.isNameDeclaration(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:3875 patches
+Compile failed:3493 patches
+Compilation rate:0.09858064516129032
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/19.java
+Current actions:
+INSERT:
+11:if(n.getBooleanProp(Node.FREE_CALL)&&NodeUtil.isGet(first)&&first.getFirstChild().isQualifiedName()){
+first.putBooleanProp(Node.DIRECT_CALL,true);
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(n.getBooleanProp(Node.FREE_CALL)&&NodeUtil.isGet(first)&&first.getFirstChild().isQualifiedName()){
+first.putBooleanProp(Node.DIRECT_CALL,true);
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+12:first.putBooleanProp(Node.DIRECT_CALL,true);
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:4079 patches
+Compile failed:3669 patches
+Compilation rate:0.100514832066683
+NNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNPNNPNNNPPNNNPNPPPPPPPNNNNNPNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPPNPNPPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNPNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/20.java
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(!NodeUtil.isGet(first)&&!NodeUtil.isOptChainGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(!NodeUtil.isGet(first)&&!NodeUtil.isOptChainGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:4081 patches
+Compile failed:3671 patches
+Compilation rate:0.10046557216368537
+NN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/21.java
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(first.isCast()&&NodeUtil.isGet(first.getFirstChild())){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(first.isCast()&&NodeUtil.isGet(first.getFirstChild())){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(first.isCast()&&NodeUtil.isGet(first.getFirstChild())){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+INSERT:
+9:n.putBooleanProp(Node.FREE_CALL,!NodeUtil.isGet(first));
+TO:
+7
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+8:else{
+n.putBooleanProp(Node.FREE_CALL,!NodeUtil.isGet(first));
+}
+TO:
+7
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+5:if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+TO:
+5:if(first.isCast()&&NodeUtil.isGet(first.getFirstChild())){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+INSERT:
+8:else{
+n.putBooleanProp(Node.FREE_CALL,!NodeUtil.isGet(first));
+}
+TO:
+7
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+9:n.putBooleanProp(Node.FREE_CALL,!NodeUtil.isGet(first));
+TO:
+7
+
+Tested:4290 patches
+Compile failed:3841 patches
+Compilation rate:0.10466200466200466
+PPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNPNNNNNNNNNNNPNNNNNNNNNPPNNNNNNNNNPNNPNPPPPPPNNNPNNNPNNNNNNNNNNNNNNNNNNPNNPNNNNNNPNNNNNNNNNPNPNPNNNNNNNNNNNNNNPNNNNNNNNNPNPNNPNNNNNNNNNNNNNNNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/22.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:4292 patches
+Compile failed:3841 patches
+Compilation rate:0.10507921714818266
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/23.java
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(first.getLastChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(first.isName()&&"eval".equals(first.getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+TO:
+8:if(NodeUtil.isGet(first)&&"eval".equals(first.getLastChild().getString())){
+first.putBooleanProp(Node.DIRECT_EVAL,true);
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:4294 patches
+Compile failed:3841 patches
+Compilation rate:0.10549604098742431
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/24.java
+Current actions:
+INSERT:
+11:if(NodeUtil.isGet(first)&&NodeUtil.isGet(first.getNext())){
+Node second=first.getNext();
+if(second.isGetProp()&&first.getString().equals("callee")&&second.getString().equals("caller")){
+NodeUtil.markFunctionsDeleted(first.getNext().getNext(),"Direct call to callee.caller.");
+}
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+11:if(NodeUtil.isGet(first)&&NodeUtil.isGet(first.getNext())){
+Node second=first.getNext();
+if(second.isGetProp()&&first.getString().equals("callee")&&second.getString().equals("caller")){
+NodeUtil.markFunctionsDeleted(first.getNext().getNext(),"Direct call to callee.caller.");
+}
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+13:if(second.isGetProp()&&first.getString().equals("callee")&&second.getString().equals("caller")){
+NodeUtil.markFunctionsDeleted(first.getNext().getNext(),"Direct call to callee.caller.");
+}
+TO:
+10
+
+Following are 2th generated patches:
+Validating 101 patches...
+Current actions:
+INSERT:
+12:Node second=first.getNext();
+TO:
+10
+
+INSERT:
+13:if(second.isGetProp()&&first.getString().equals("callee")&&second.getString().equals("caller")){
+NodeUtil.markFunctionsDeleted(first.getNext().getNext(),"Direct call to callee.caller.");
+}
+TO:
+10
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4601 patches
+Compile failed:4147 patches
+Compilation rate:0.09867420126059552
+NNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/25.java
+Current actions:
+INSERT:
+11:if(first.isName()&&"with".equals(first.getString())){
+first.putBooleanProp(Node.WITH_STATEMENT,true);
+}
+TO:
+10
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+11:if(first.isName()&&"with".equals(first.getString())){
+first.putBooleanProp(Node.WITH_STATEMENT,true);
+}
+TO:
+10
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:first.putBooleanProp(Node.WITH_STATEMENT,true);
+TO:
+10
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5003 patches
+Compile failed:4474 patches
+Compilation rate:0.1057365580651609
+NNNNNNNNNNNNNNNPPPPPPPNPNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPNNNNPNNPPPPNNNPNPNNNNNPNNNPNNNNNNPPPPPPPPNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPPNNPPNNNNNPNNNPNNNNPNNNNNNNNNNNNPPNPPPNNPPPNNNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPPPNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/26.java
+Current actions:
+DELETE:
+Original line: 5if(!NodeUtil.isGet(first)){
+n.putBooleanProp(Node.FREE_CALL,true);
+}
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+5:if(first.isCast()||first.isTypeof()){
+return ;
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isBreak()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+5 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isVarArgs()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+6 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isGetterDef()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+7 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isGetElem()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+8 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isDec()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+9 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isSetterDef()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+10 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isDo()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+11 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isFor()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+12 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isEmpty()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+13 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isHook()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+14 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isIf()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+15 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isLabel()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+16 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isNew()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+17 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isThis()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+18 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isNot()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+19 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isTry()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+20 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isAdd()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+21 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isAnd()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+22 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isBlock()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+23 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isCast()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+24 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isDelProp()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+25 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isCatch()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+26 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isComma()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+27 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isFalse()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+28 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isGetProp()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+29 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isIn()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+30 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isInc()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+31 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isNE()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+32 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isNull()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+33 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isNumber()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+34 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isOr()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+35 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isReturn()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+36 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isRegExp()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+37 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isScript()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+38 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isString()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+39 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isSwitch()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+40 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isVoid()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+41 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isVar()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+42 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:57 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isWhile()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+43 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:58 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_129_buggy/src/com/google/javascript/jscomp/PrepareAst.java
+SUCCESS
+//Following are generated patch:
+  private void annotateCalls(  Node n){
+    Preconditions.checkState(n.isCall());
+    Node first=n.getFirstChild();
+if(first.isCast()||first.isWith()){
+return ;
+}
+    if (!NodeUtil.isGet(first)) {
+      n.putBooleanProp(Node.FREE_CALL,true);
+    }
+    if (first.isName() && "eval".equals(first.getString())) {
+      first.putBooleanProp(Node.DIRECT_EVAL,true);
+    }
+  }
+
+44 th patch/231
+Trace:
+InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar;IfStmt;InfixExpr;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 07:02:16 HKT
+---------TIME : 
+2024.04.12 AD at 07:57:58 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 5221 patches
+Compile failed 4593 patches
+Compilation rate0.12028347059950201
+Patch number exceeds the limit!
+Tested 5221 patches
+Compile failed 4593 patches
+Compilation rate0.12028347059950201
+Tested:5221 patches
+Compile failed:4593 patches
+Compilation rate:0.12028347059950201
+NNNNNNNNNNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPNPPPPPPPPPPPPNNNNNNPPPPPPNPNPNPNNPNNNNNNNNPPPPPPPPPPPPPNPNPNNNNPNNNNNNNNNNNNNNNNNNNPPPPPNPPPPPPPNPNNNPPPPPPPPPNPPPPPPPPPPNPPPPPPNNNNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_129/27.java
+Patch number exceeds the limit!
+Tested 5221 patches
+Compile failed 4593 patches
+Compilation rate0.12028347059950201
+Finish : closure-129 > patch : 44 | Start : Fri Apr 12 07:02:16 HKT 2024 | End : 2024.04.12 AD at 07:57:58 HKT

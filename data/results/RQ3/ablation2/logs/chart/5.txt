@@ -1,0 +1,2365 @@
+Repair : chart_5
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/1.java
+Current actions:
+INSERT:
+6:if(this.allowDuplicateXValues){
+int index=indexOf(x);
+if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+}
+TO:
+5
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(this.allowDuplicateXValues){
+int index=indexOf(x);
+if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+}
+TO:
+5
+
+DELETE:
+Original line: 9XYDataItem existing=(XYDataItem)this.data.get(index);
+
+DELETE:
+Original line: 16existing.setY(y);
+
+DELETE:
+Original line: 19if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+
+INSERT:
+25:XYDataItem overwritten=null;
+TO:
+18
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+28:XYDataItem existing=(XYDataItem)this.data.get(index);
+TO:
+18
+
+INSERT:
+38:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+41:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+44:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+22
+
+Following are 1th generated patches:
+Validating 53 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(this.allowDuplicateXValues){
+int index=indexOf(x);
+if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+}
+TO:
+5
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+DELETE:
+Original line: 19if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+
+DELETE:
+Original line: 23this.data.add(new XYDataItem(x,y));
+
+INSERT:
+25:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+26:int index=indexOf(x);
+TO:
+18
+
+INSERT:
+29:try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+TO:
+18
+
+INSERT:
+35:existing.setY(y);
+TO:
+18
+
+INSERT:
+38:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+41:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+44:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+22
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+8:if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+TO:
+5
+
+DELETE:
+Original line: 9XYDataItem existing=(XYDataItem)this.data.get(index);
+
+DELETE:
+Original line: 10{
+overwritten=(XYDataItem)existing.clone();
+}
+
+DELETE:
+Original line: 11overwritten=(XYDataItem)existing.clone();
+
+INSERT:
+12:else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+TO:
+12
+
+DELETE:
+Original line: 13catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+
+DELETE:
+Original line: 16existing.setY(y);
+
+DELETE:
+Original line: 23this.data.add(new XYDataItem(x,y));
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+25:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+26:int index=indexOf(x);
+TO:
+18
+
+INSERT:
+27:if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+18
+
+INSERT:
+38:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+41:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+44:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+22
+
+Following are 3th generated patches:
+Validating 82 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(this.allowDuplicateXValues){
+int index=indexOf(x);
+if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+}
+TO:
+5
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+DELETE:
+Original line: 19if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+
+DELETE:
+Original line: 23this.data.add(new XYDataItem(x,y));
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+25:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+26:int index=indexOf(x);
+TO:
+18
+
+INSERT:
+27:if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+18
+
+INSERT:
+38:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+41:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+22
+
+INSERT:
+44:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+22
+
+Following are 4th generated patches:
+Validating 86 patches...
+Current actions:
+INSERT:
+8:if(index>=0){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+existing.setY(y);
+}
+TO:
+5
+
+DELETE:
+Original line: 9XYDataItem existing=(XYDataItem)this.data.get(index);
+
+DELETE:
+Original line: 10{
+overwritten=(XYDataItem)existing.clone();
+}
+
+DELETE:
+Original line: 11overwritten=(XYDataItem)existing.clone();
+
+DELETE:
+Original line: 13catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+
+DELETE:
+Original line: 16existing.setY(y);
+
+INSERT:
+19:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+12
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+27:{
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+18
+
+INSERT:
+29:try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+TO:
+18
+
+Tested:447 patches
+Compile failed:447 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/2.java
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+21:if(index<0){
+this.data.add(0,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+21:if(index<0){
+this.data.add(0,new XYDataItem(x,y));
+}
+TO:
+19
+
+INSERT:
+22:else{
+this.data.add(index,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+21:if(index<0){
+this.data.add(0,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 3th generated patches:
+Validating 37 patches...
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+INSERT:
+22:else{
+this.data.add(index,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+21:if(index<0){
+this.data.add(0,new XYDataItem(x,y));
+}
+TO:
+19
+
+Tested:567 patches
+Compile failed:525 patches
+Compilation rate:0.07407407407407407
+NNNNPPPPPPPPPPNNNNNNNNNNNNPPPNNPPPPPPPNNNNNNNNNNNNNNNNNNPPNNNNPPNNPPPPPPPNNNNNNNNNNNNNNNNNNNPNNNNPPNPPPPPPPPNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/3.java
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+Following are 0th generated patches:
+Validating 31 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+this.data.add(new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+1 th patch/31
+Trace:
+
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:04:43 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+this.data.add(new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+2 th patch/31
+Trace:
+
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:04:43 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+20:index=-(index+1);
+TO:
+19
+
+INSERT:
+21:if(index==this.data.size()){
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+19
+
+INSERT:
+24:else{
+this.data.add(index,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 38 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+if(!(serialVersionUID==this.data.size())){
+this.data.add(new XYDataItem(x,y));
+}
+else{
+this.data.add(index,new XYDataItem(x,y));
+}
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+3 th patch/69
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;SName
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:05:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+if(!(maximumItemCount==this.data.size())){
+this.data.add(new XYDataItem(x,y));
+}
+else{
+this.data.add(index,new XYDataItem(x,y));
+}
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+4 th patch/69
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;SName
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:05:00 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+if(!(index==this.data.size())){
+this.data.add(new XYDataItem(x,y));
+}
+else{
+this.data.add(index,new XYDataItem(x,y));
+}
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+5 th patch/69
+Trace:
+IfStmt;NOT IfCondition
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:05:00 HKT
+--------------- END -----------------
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+20:index=-(index+1);
+TO:
+19
+
+INSERT:
+21:if(index==this.data.size()){
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 37 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+if(!(maximumItemCount==this.data.size())){
+this.data.add(new XYDataItem(x,y));
+}
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+6 th patch/106
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;SName
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:05:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+index=-(index+1);
+if(!(serialVersionUID==this.data.size())){
+this.data.add(new XYDataItem(x,y));
+}
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+7 th patch/106
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;SName
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:05:15 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+20:index=-(index+1);
+TO:
+19
+
+INSERT:
+22:this.data.add(new XYDataItem(x,y));
+TO:
+19
+
+Following are 3th generated patches:
+Validating 13 patches...
+Current actions:
+INSERT:
+20:index=-(index+1);
+TO:
+19
+
+INSERT:
+22:this.data.add(new XYDataItem(x,y));
+TO:
+19
+
+INSERT:
+24:else{
+this.data.add(index,new XYDataItem(x,y));
+}
+TO:
+19
+
+Following are 4th generated patches:
+Validating 14 patches...
+Current actions:
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+INSERT:
+21:if(index==this.data.size()){
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+19
+
+INSERT:
+25:this.data.add(index,new XYDataItem(x,y));
+TO:
+19
+
+Tested:692 patches
+Compile failed:610 patches
+Compilation rate:0.11849710982658959
+NNPPPPPPPPPNPNNPPPPPNPPPNPPPPPPNNNNNNNNNNNNNNNNNNNPNNNNPPNNNNNPPPPNNNNNNNNNNNNNNNNNPNNNNNPPNNNNNNPPPPNNNNNNNNNNPPNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/4.java
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+INSERT:
+7:int index=indexOf(x);
+TO:
+5
+
+INSERT:
+8:if(index>=0){
+XYDataItem item=(XYDataItem)this.data.get(index);
+if(item!=null){
+item.setY(y);
+fireSeriesChanged();
+return item;
+}
+}
+TO:
+5
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+INSERT:
+17:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+12
+
+DELETE:
+Original line: 18else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+
+INSERT:
+20:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+17
+
+INSERT:
+23:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+18
+
+INSERT:
+27:return null;
+TO:
+29
+
+DELETE:
+Original line: 30return overwritten;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(!this.allowDuplicateXValues){
+int index=indexOf(x);
+if(index>=0){
+XYDataItem item=(XYDataItem)this.data.get(index);
+if(item!=null){
+item.setY(y);
+fireSeriesChanged();
+return item;
+}
+}
+}
+TO:
+5
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+INSERT:
+17:if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+TO:
+12
+
+DELETE:
+Original line: 18else{
+if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+else{
+this.data.add(new XYDataItem(x,y));
+}
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+
+INSERT:
+20:else{
+this.data.add(new XYDataItem(x,y));
+}
+TO:
+17
+
+INSERT:
+27:return null;
+TO:
+29
+
+DELETE:
+Original line: 30return overwritten;
+
+Following are 2th generated patches:
+Validating 2 patches...
+Tested:1022 patches
+Compile failed:910 patches
+Compilation rate:0.1095890410958904
+NNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNPNPNNNNNNNPNNNNNNNNNNNNNNNNPPNNPPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNNNNNNNNNNNNNNNNNNNPNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNPNPNPNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNPPNPPNNNNNNNNNNNNNNNNPPNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/5.java
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+21:if(index<0){
+index=0;
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+24:this.data.add(index,new XYDataItem(x,y));
+
+Following are 1th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+22:index=0;
+TO:
+19
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+INSERT:
+21:if(index<0){
+index=0;
+}
+TO:
+19
+
+Following are 3th generated patches:
+Validating 36 patches...
+Current actions:
+INSERT:
+21:if(index<0){
+index=0;
+}
+TO:
+19
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+20:index=-index-1;
+TO:
+19
+
+INSERT:
+21:if(index<0){
+index=0;
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+24:this.data.add(index,new XYDataItem(x,y));
+
+Tested:1117 patches
+Compile failed:962 patches
+Compilation rate:0.1387645478961504
+PPPPPPPPPPPNNNNNNNNNNNNNPPNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNPNNNPPPPNPPPPPPNNNNNNNNNNNNPPPPNPPNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/6.java
+Current actions:
+INSERT:
+20:int insertPosition=-index-1;
+TO:
+19
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+21:if(insertPosition<0){
+insertPosition=0;
+}
+TO:
+19
+
+Following are 1th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+20:int insertPosition=-index-1;
+TO:
+19
+
+INSERT:
+21:if(insertPosition<0){
+insertPosition=0;
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+24:this.data.add(insertPosition,new XYDataItem(x,y));
+
+Following are 2th generated patches:
+Validating 38 patches...
+Current actions:
+INSERT:
+20:int insertPosition=-index-1;
+TO:
+19
+
+INSERT:
+22:insertPosition=0;
+TO:
+19
+
+Following are 3th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+21:if(insertPosition<0){
+insertPosition=0;
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+24:this.data.add(insertPosition,new XYDataItem(x,y));
+
+Following are 4th generated patches:
+Validating 25 patches...
+Current actions:
+INSERT:
+22:insertPosition=0;
+TO:
+19
+
+Tested:1225 patches
+Compile failed:1051 patches
+Compilation rate:0.14204081632653062
+NNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPPNPPPPPPPPNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/7.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[this.data.remove(0);]
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+29:else{
+this.data.remove(getItemCount()-1);
+}
+TO:
+25
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 26this.data.remove(0);
+
+INSERT:
+26:if(this.autoSort){
+this.data.remove(0);
+}
+TO:
+25
+
+INSERT:
+29:else{
+this.data.remove(getItemCount()-1);
+}
+TO:
+25
+
+Following are 2th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 26this.data.remove(0);
+
+INSERT:
+26:if(this.autoSort){
+this.data.remove(0);
+}
+TO:
+25
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 26this.data.remove(0);
+
+INSERT:
+26:if(this.autoSort){
+this.data.remove(0);
+}
+TO:
+25
+
+INSERT:
+30:this.data.remove(getItemCount()-1);
+TO:
+25
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+30:this.data.remove(getItemCount()-1);
+TO:
+25
+
+Tested:1235 patches
+Compile failed:1053 patches
+Compilation rate:0.14736842105263157
+NPPNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/8.java
+Current actions:
+INSERT:
+20:int index=Collections.binarySearch(this.data,new XYDataItem(x,y));
+TO:
+19
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+20:int index=Collections.binarySearch(this.data,new XYDataItem(x,y));
+TO:
+19
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:1240 patches
+Compile failed:1058 patches
+Compilation rate:0.14677419354838708
+NNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/9.java
+Current actions:
+INSERT:
+6:if(y==null){
+throw new IllegalArgumentException("Null 'y' argument.");
+}
+TO:
+5
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+6:if(y==null){
+throw new IllegalArgumentException("Null 'y' argument.");
+}
+TO:
+5
+
+Following are 1th generated patches:
+Validating 120 patches...
+Current actions:
+INSERT:
+7:throw new IllegalArgumentException("Null 'y' argument.");
+TO:
+5
+
+Following are 2th generated patches:
+Validating 5 patches...
+Tested:1367 patches
+Compile failed:1178 patches
+Compilation rate:0.13825896122896855
+NPNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/10.java
+Current actions:
+INSERT:
+20:int newIndex=-index-1;
+TO:
+19
+
+Following are 0th generated patches:
+Validating 31 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+newIndex=this.data.size();
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+8 th patch/31
+Trace:
+
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:16 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+20:int newIndex=-index-1;
+TO:
+19
+
+INSERT:
+21:if(newIndex<0){
+newIndex=0;
+}
+TO:
+19
+
+INSERT:
+24:if(newIndex>this.data.size()){
+newIndex=this.data.size();
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+27:this.data.add(newIndex,new XYDataItem(x,y));
+
+Following are 1th generated patches:
+Validating 62 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+if(newIndex<0){
+newIndex=0;
+}
+if(!(newIndex>=this.data.size())){
+newIndex=this.data.size();
+}
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+9 th patch/93
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;CMPOP
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+if(newIndex<0){
+newIndex=0;
+}
+if(!(newIndex>this.data.size())){
+newIndex=this.data.size();
+}
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+10 th patch/93
+Trace:
+IfStmt;NOT IfCondition
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+if(newIndex<0){
+newIndex=0;
+}
+if(newIndex<this.data.size()){
+newIndex=this.data.size();
+}
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+11 th patch/93
+Trace:
+InfixExpr;CMPOP;IfStmt;InfixExpr;CMPOP
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+if(newIndex<0){
+newIndex=0;
+}
+if(allowDuplicateXValues){
+newIndex=this.data.size();
+}
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+12 th patch/93
+Trace:
+InfixExpr;SName;RHSEMPTY;IfStmt;InfixExpr;SName;RHSEMPTY
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+if(newIndex<0){
+newIndex=0;
+}
+if(autoSort){
+newIndex=this.data.size();
+}
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+13 th patch/93
+Trace:
+InfixExpr;SName;RHSEMPTY;IfStmt;InfixExpr;SName;RHSEMPTY
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:36 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+21:if(newIndex<0){
+newIndex=0;
+}
+TO:
+19
+
+INSERT:
+24:if(newIndex>this.data.size()){
+newIndex=this.data.size();
+}
+TO:
+19
+
+Following are 2th generated patches:
+Validating 48 patches...
+Current actions:
+INSERT:
+20:int newIndex=-index-1;
+TO:
+19
+
+INSERT:
+22:newIndex=0;
+TO:
+19
+
+INSERT:
+25:newIndex=this.data.size();
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+27:this.data.add(newIndex,new XYDataItem(x,y));
+
+Following are 3th generated patches:
+Validating 16 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-index-1;
+newIndex=0;
+newIndex=this.data.size();
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+14 th patch/157
+Trace:
+
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//chart/chart_5_buggy/source/org/jfree/data/xy/XYSeries.java
+SUCCESS
+//Following are generated patch:
+  public XYDataItem addOrUpdate(  Number x,  Number y){
+    if (x == null) {
+      throw new IllegalArgumentException("Null 'x' argument.");
+    }
+    XYDataItem overwritten=null;
+    int index=indexOf(x);
+    if (index >= 0 && !this.allowDuplicateXValues) {
+      XYDataItem existing=(XYDataItem)this.data.get(index);
+      try {
+        overwritten=(XYDataItem)existing.clone();
+      }
+ catch (      CloneNotSupportedException e) {
+        throw new SeriesException("Couldn't clone XYDataItem!");
+      }
+      existing.setY(y);
+    }
+ else {
+      if (this.autoSort) {
+int newIndex=-maximumItemCount-1;
+newIndex=0;
+newIndex=this.data.size();
+this.data.add(newIndex,new XYDataItem(x,y));
+      }
+ else {
+        this.data.add(new XYDataItem(x,y));
+      }
+      if (getItemCount() > this.maximumItemCount) {
+        this.data.remove(0);
+      }
+    }
+    fireSeriesChanged();
+    return overwritten;
+  }
+
+15 th patch/157
+Trace:
+VarDeclarationStmt;Vdf;InfixExpr;PrefixExpr;SName
+START : 
+2024.04.07 AD at 09:03:32 HKT
+---------TIME : 
+2024.04.07 AD at 09:07:54 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+21:if(newIndex<0){
+newIndex=0;
+}
+TO:
+19
+
+Following are 4th generated patches:
+Validating 24 patches...
+Current actions:
+INSERT:
+20:int newIndex=-index-1;
+TO:
+19
+
+INSERT:
+22:newIndex=0;
+TO:
+19
+
+INSERT:
+24:if(newIndex>this.data.size()){
+newIndex=this.data.size();
+}
+TO:
+19
+
+UPDATE
+FROM:
+20:this.data.add(-index-1,new XYDataItem(x,y));
+TO:
+27:this.data.add(newIndex,new XYDataItem(x,y));
+
+Tested:1541 patches
+Compile failed:1316 patches
+Compilation rate:0.14600908500973395
+NNNNNNNNNNPPNPPPPPPNNPNNNNPPPPPNNNNNNNNNNNPPPNNNNNNPPNNNNNNNNNNNNNNNPPNPNPPNNNNPPNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/chart_5/11.java
+Current actions:
+INSERT:
+6:if(this.autoSort){
+XYDataItem overwritten=null;
+int index=indexOf(x);
+if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+else{
+this.data.add(-index-1,new XYDataItem(x,y));
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+fireSeriesChanged();
+return overwritten;
+}
+TO:
+5
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(this.autoSort){
+XYDataItem overwritten=null;
+int index=indexOf(x);
+if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+else{
+this.data.add(-index-1,new XYDataItem(x,y));
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+fireSeriesChanged();
+return overwritten;
+}
+TO:
+5
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+DELETE:
+Original line: 29fireSeriesChanged();
+
+INSERT:
+29:XYDataItem overwritten=null;
+TO:
+18
+
+DELETE:
+Original line: 30return overwritten;
+
+INSERT:
+32:XYDataItem existing=(XYDataItem)this.data.get(index);
+TO:
+18
+
+INSERT:
+36:catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+TO:
+18
+
+INSERT:
+39:existing.setY(y);
+TO:
+18
+
+INSERT:
+44:this.data.remove(0);
+TO:
+23
+
+INSERT:
+48:return overwritten;
+TO:
+24
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+7:XYDataItem overwritten=null;
+TO:
+5
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+INSERT:
+9:if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+5
+
+INSERT:
+19:else{
+this.data.add(-index-1,new XYDataItem(x,y));
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+TO:
+12
+
+DELETE:
+Original line: 20this.data.add(-index-1,new XYDataItem(x,y));
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+29:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+30:int index=indexOf(x);
+TO:
+18
+
+INSERT:
+31:if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+18
+
+INSERT:
+43:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+23
+
+INSERT:
+47:fireSeriesChanged();
+TO:
+24
+
+INSERT:
+48:return overwritten;
+TO:
+24
+
+Following are 2th generated patches:
+Validating 108 patches...
+Current actions:
+DELETE:
+Original line: 6XYDataItem overwritten=null;
+
+INSERT:
+6:if(this.autoSort){
+XYDataItem overwritten=null;
+int index=indexOf(x);
+if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+else{
+this.data.add(-index-1,new XYDataItem(x,y));
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+fireSeriesChanged();
+return overwritten;
+}
+TO:
+5
+
+DELETE:
+Original line: 7int index=indexOf(x);
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+DELETE:
+Original line: 19if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+DELETE:
+Original line: 29fireSeriesChanged();
+
+INSERT:
+29:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+30:int index=indexOf(x);
+TO:
+18
+
+DELETE:
+Original line: 30return overwritten;
+
+INSERT:
+31:if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+18
+
+INSERT:
+43:if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+TO:
+23
+
+INSERT:
+47:fireSeriesChanged();
+TO:
+24
+
+INSERT:
+48:return overwritten;
+TO:
+24
+
+Following are 3th generated patches:
+Validating 114 patches...
+Current actions:
+DELETE:
+Original line: 7int index=indexOf(x);
+
+INSERT:
+8:int index=indexOf(x);
+TO:
+5
+
+DELETE:
+Original line: 8if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+
+INSERT:
+9:if(index>=0&&!this.allowDuplicateXValues){
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+5
+
+DELETE:
+Original line: 19if(this.autoSort){
+this.data.add(-index-1,new XYDataItem(x,y));
+}
+
+INSERT:
+19:else{
+this.data.add(-index-1,new XYDataItem(x,y));
+if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+}
+TO:
+12
+
+DELETE:
+Original line: 25if(getItemCount()>this.maximumItemCount){
+this.data.remove(0);
+}
+
+INSERT:
+25:fireSeriesChanged();
+TO:
+15
+
+DELETE:
+Original line: 29fireSeriesChanged();
+
+INSERT:
+29:XYDataItem overwritten=null;
+TO:
+18
+
+INSERT:
+30:int index=indexOf(x);
+TO:
+18
+
+INSERT:
+37:throw new SeriesException("Couldn't clone XYDataItem!");
+TO:
+18
+
+INSERT:
+48:return overwritten;
+TO:
+24
+
+Following are 4th generated patches:
+Validating 29 patches...
+Current actions:
+INSERT:
+9:{
+XYDataItem existing=(XYDataItem)this.data.get(index);
+try{
+overwritten=(XYDataItem)existing.clone();
+}catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+existing.setY(y);
+}
+TO:
+5
+
+DELETE:
+Original line: 10{
+overwritten=(XYDataItem)existing.clone();
+}
+
+DELETE:
+Original line: 13catch(CloneNotSupportedException e){
+throw new SeriesException("Couldn't clone XYDataItem!");
+}
+
+Tested:1990 patches
+Compile failed:1711 patches
+Compilation rate:0.14020100502512564
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPNNNPNNPPPPPPNNNPPNNNNNNNNNNNNPNNNNNPNNNPPPPNNPNNNPPNPPPPPPNPPNPPNPNNNPNPNPPPPPPPPPPPPPPNNNNNNNNNNNNNNNNNNNN
+Finish : chart-5 > patch : 15 | Start : Sun Apr 07 09:03:32 HKT 2024 | End : 2024.04.07 AD at 09:08:35 HKT

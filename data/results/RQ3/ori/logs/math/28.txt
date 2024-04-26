@@ -1,0 +1,2017 @@
+Repair : math_28
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/0.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[Integer minRow=null;, int minIndex=tableau.getWidth();, int minIndex=tableau.getWidth();, {
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}, {
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}, for(Integer row : minRatioPositions){
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}, for(Integer row : minRatioPositions){
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}, int i=tableau.getNumObjectiveFunctions();, int i=tableau.getNumObjectiveFunctions();, {
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}, {
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}, for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}, for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+24:if(minRatioPositions.size()>1){
+for(Integer row : minRatioPositions){
+for(int i=0;i<tableau.getNumArtificialVariables();i++){
+int column=i+tableau.getArtificialVariableOffset();
+ final double entry=tableau.getEntry(row,column);
+if(Precision.equals(entry,1.0,maxUlps)&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+}
+}
+int minIndex=tableau.getWidth();
+Integer minRow=null;
+for(Integer row : minRatioPositions){
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}
+return minRow;
+}
+TO:
+1
+
+DELETE:
+Original line: 34Integer minRow=null;
+
+DELETE:
+Original line: 35int minIndex=tableau.getWidth();
+
+DELETE:
+Original line: 36for(Integer row : minRatioPositions){
+int i=tableau.getNumObjectiveFunctions();
+for(;i<tableau.getWidth()-1&&minRow!=row;i++){
+if(row==tableau.getBasicRow(i)){
+if(i<minIndex){
+minIndex=i;
+minRow=row;
+}
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 84 patches...
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+PN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/1.java
+Tested:2 patches
+Compile failed:1 patches
+Compilation rate:0.5
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/2.java
+Current actions:
+INSERT:
+25:int artificialRow=-1;
+TO:
+24
+
+Following are 0th generated patches:
+Validating 78 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+break;
+          }
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+1 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+2 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+3 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+            return row;
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+4 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+if(artificialRow>=0){
+break;
+}
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+5 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+artificialRow=row;
+          }
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+6 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+if(artificialRow>=0){
+return artificialRow;
+}
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+7 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+break;
+          }
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+8 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+9 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+artificialRow=row;
+            return row;
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+10 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+break;
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+11 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+            return row;
+          }
+        }
+break;
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+12 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+int artificialRow=-1;
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+          if (Precision.equals(entry,1d,maxUlps) && row.equals(tableau.getBasicRow(column))) {
+          }
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+13 th patch/78
+Trace:
+
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:22:54 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+35:if(artificialRow>=0){
+break;
+}
+TO:
+32
+
+Following are 1th generated patches:
+Validating 12 patches...
+Current actions:
+INSERT:
+39:if(artificialRow>=0){
+return artificialRow;
+}
+TO:
+32
+
+Following are 2th generated patches:
+Validating 156 patches...
+Current actions:
+INSERT:
+25:int artificialRow=-1;
+TO:
+24
+
+INSERT:
+31:artificialRow=row;
+TO:
+29
+
+INSERT:
+32:break;
+TO:
+29
+
+INSERT:
+36:break;
+TO:
+32
+
+INSERT:
+38:}
+
+TO:
+32
+
+INSERT:
+40:return artificialRow;
+TO:
+32
+
+Following are 3th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+36:break;
+TO:
+32
+
+INSERT:
+38:}
+
+TO:
+32
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+25:int artificialRow=-1;
+TO:
+24
+
+DELETE:
+Original line: 30return row;
+
+INSERT:
+32:break;
+TO:
+29
+
+INSERT:
+36:break;
+TO:
+32
+
+INSERT:
+38:}
+
+TO:
+32
+
+INSERT:
+39:if(artificialRow>=0){
+return artificialRow;
+}
+TO:
+32
+
+Tested:271 patches
+Compile failed:246 patches
+Compilation rate:0.09225092250922509
+NNNNNNNNPNPPPNNNNNNNNNNNPNNPPPPPNNNPPNNPNNNNNPPPPNNNNNPNNNNNNNNNNNPNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/3.java
+Current actions:
+UPDATE
+FROM:
+8:if(Precision.compareTo(entry,0.0,maxUlps)>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+TO:
+8:if(entry>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(Precision.compareTo(entry,0.0,maxUlps)>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+TO:
+8:if(entry>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Tested:275 patches
+Compile failed:246 patches
+Compilation rate:0.10545454545454545
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/4.java
+Current actions:
+UPDATE
+FROM:
+8:if(Precision.compareTo(entry,0.0,maxUlps)>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+TO:
+8:if(entry>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+8:if(Precision.compareTo(entry,0.0,maxUlps)>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+TO:
+8:if(entry>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+29:if(Precision.equals(entry,1.0,maxUlps)&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+TO:
+29:if(entry==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+
+Following are 2th generated patches:
+Validating 16 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(col==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+14 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(i==1.0||row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+15 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(row==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+16 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(minRatio==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+17 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(column==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+18 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+      if (Precision.compareTo(entry,0d,maxUlps) > 0) {
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(i==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+19 th patch/22
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:24:28 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+8:if(Precision.compareTo(entry,0.0,maxUlps)>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+TO:
+8:if(entry>0){
+ final double ratio=rhs/entry;
+ final int cmp=Double.compare(ratio,minRatio);
+if(cmp==0){
+minRatioPositions.add(i);
+}
+else{
+if(cmp<0){
+minRatio=ratio;
+minRatioPositions=new ArrayList<Integer>();
+minRatioPositions.add(i);
+}
+}
+}
+
+UPDATE
+FROM:
+29:if(Precision.equals(entry,1.0,maxUlps)&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+TO:
+29:if(entry==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+
+Following are 3th generated patches:
+Validating 19 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(row==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+20 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(i==1.0||row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+21 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(column==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+22 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(i==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+23 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(col==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+24 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_28_buggy/src/main/java/org/apache/commons/math3/optimization/linear/SimplexSolver.java
+SUCCESS
+//Following are generated patch:
+  private Integer getPivotRow(  SimplexTableau tableau,  final int col){
+    List<Integer> minRatioPositions=new ArrayList<Integer>();
+    double minRatio=Double.MAX_VALUE;
+    for (int i=tableau.getNumObjectiveFunctions(); i < tableau.getHeight(); i++) {
+      final double rhs=tableau.getEntry(i,tableau.getWidth() - 1);
+      final double entry=tableau.getEntry(i,col);
+if(entry>0){
+        final double ratio=rhs / entry;
+        final int cmp=Double.compare(ratio,minRatio);
+        if (cmp == 0) {
+          minRatioPositions.add(i);
+        }
+ else         if (cmp < 0) {
+          minRatio=ratio;
+          minRatioPositions=new ArrayList<Integer>();
+          minRatioPositions.add(i);
+        }
+      }
+    }
+    if (minRatioPositions.size() == 0) {
+      return null;
+    }
+ else     if (minRatioPositions.size() > 1) {
+      for (      Integer row : minRatioPositions) {
+        for (int i=0; i < tableau.getNumArtificialVariables(); i++) {
+          int column=i + tableau.getArtificialVariableOffset();
+          final double entry=tableau.getEntry(row,column);
+if(minRatio==1.0&&row.equals(tableau.getBasicRow(column))){
+return row;
+}
+        }
+      }
+      Integer minRow=null;
+      int minIndex=tableau.getWidth();
+      for (      Integer row : minRatioPositions) {
+        int i=tableau.getNumObjectiveFunctions();
+        for (; i < tableau.getWidth() - 1 && minRow != row; i++) {
+          if (row == tableau.getBasicRow(i)) {
+            if (i < minIndex) {
+              minIndex=i;
+              minRow=row;
+            }
+          }
+        }
+      }
+      return minRow;
+    }
+    return minRatioPositions.get(0);
+  }
+
+25 th patch/41
+Trace:
+UPDATEIfStmt;UPDATEInfixExpr
+START : 
+2024.04.12 AD at 00:20:38 HKT
+---------TIME : 
+2024.04.12 AD at 00:25:42 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 316 patches
+Compile failed 250 patches
+Compilation rate0.2088607594936709
+Patch number exceeds the limit!
+Tested 316 patches
+Compile failed 250 patches
+Compilation rate0.2088607594936709
+Tested:316 patches
+Compile failed:250 patches
+Compilation rate:0.2088607594936709
+PPPPPPNPPPPPPPNPPPPPPPNPPPPPPPPNPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_28/5.java
+Patch number exceeds the limit!
+Tested 316 patches
+Compile failed 250 patches
+Compilation rate0.2088607594936709
+Finish : math-28 > patch : 25 | Start : Fri Apr 12 00:20:38 HKT 2024 | End : 2024.04.12 AD at 00:25:43 HKT

@@ -1,0 +1,2128 @@
+Repair : math_40
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/1.java
+Current actions:
+UPDATE
+FROM:
+80:if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+TO:
+80:if(signChangeIndex-start>end-signChangeIndex){
+++start;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+80:if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+TO:
+80:if(signChangeIndex-start>end-signChangeIndex){
+++start;
+}
+
+Following are 1th generated patches:
+Validating 80 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(signChangeIndex-start>end-maximalOrder){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+1 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(nbPoints-start>end-signChangeIndex){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+2 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(end-start>end-signChangeIndex){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+3 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(maximalOrder-start>end-signChangeIndex){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+4 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(signChangeIndex-start>signChangeIndex-signChangeIndex){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+5 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(signChangeIndex-start>end-end){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+6 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(signChangeIndex-start>end-nbPoints){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+7 th patch/81
+Trace:
+UPDATEIfStmt;InfixExpr;InfixExpr;SName;UPDATEInfixExpr
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:39:29 HKT
+--------------- END -----------------
+Tested:81 patches
+Compile failed:38 patches
+Compilation rate:0.5308641975308642
+PNNNNNPPPPNPPPPPNPPPPNNPPNNNNNNNPPPNNNNPPPNPNNNPNNNNPPPPNNPNPPPNPNPNNPPNPNNPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/2.java
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+123:agingB=0;
+TO:
+122:agingA=0;
+
+DELETE:
+Original line: 122++agingA;
+
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB=0;
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+123:agingB=0;
+TO:
+122:agingA=0;
+
+DELETE:
+Original line: 122++agingA;
+
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB=0;
+
+DELETE:
+Original line: 131signChangeIndex++;
+
+Following are 2th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB=0;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB=0;
+
+DELETE:
+Original line: 131signChangeIndex++;
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+DELETE:
+Original line: 131signChangeIndex++;
+
+Tested:99 patches
+Compile failed:38 patches
+Compilation rate:0.6161616161616161
+PPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/3.java
+Current actions:
+UPDATE
+FROM:
+80:if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+TO:
+80:if(start+1>=end-signChangeIndex){
+++start;
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+80:if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+TO:
+80:if(start+1>=end-signChangeIndex){
+++start;
+}
+
+Following are 1th generated patches:
+Validating 99 patches...
+Tested:199 patches
+Compile failed:96 patches
+Compilation rate:0.5175879396984925
+PNNNNNNNNPPPPPPPPNPNNNNPPPNNPPPPNPPNNNNNNNPNNNNNNNPPNPNNNPNNNNNNNPNNNNNNNNNPPPPPPNNNPNNNNNPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/4.java
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+UPDATE
+FROM:
+123:agingB=0;
+TO:
+122:agingA=0;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+123:agingB=0;
+TO:
+122:agingA=0;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:205 patches
+Compile failed:96 patches
+Compilation rate:0.5317073170731708
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/5.java
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+130:agingB=0;
+TO:
+130
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 131signChangeIndex++;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+DELETE:
+Original line: 131signChangeIndex++;
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+INSERT:
+130:agingB=0;
+TO:
+130
+
+DELETE:
+Original line: 131signChangeIndex++;
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+INSERT:
+130:agingB=0;
+TO:
+130
+
+Tested:216 patches
+Compile failed:96 patches
+Compilation rate:0.5555555555555556
+PPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/6.java
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+80:if(start>=signChangeIndex){
+++start;
+}
+TO:
+79
+
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(!(start>=signChangeIndex)){
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+8 th patch/204
+Trace:
+IfStmt;NOT IfCondition
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:43:36 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+80:if(start>=signChangeIndex){
+++start;
+}
+TO:
+79
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:619 patches
+Compile failed:335 patches
+Compilation rate:0.4588045234248788
+NPPNNNNNNNNNPPPPPPNPNNNPNPPNPNPNNNNNNNNPNNNPPPPNPPNNNPNPNNNPNPNNNNPPNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNPNNNPNPNNNNNPPNNNNPPPNPNPPPPNNPPNPNNPPPPPPPPNPPNPPNNNNNNNNPNNNNNNPNPNNNPPNPNPPPPPNPPPPNPNNNPPNPNNPPPPPPPNNNNNNPPPPNPPPPNNNPPPPPNPPPPPNNNNNNNNNNNNNNNPNPNPPPPNPNPNNNNNNNNPNNNPNNNNNNNNPNNNNNNNNPNNNNNNNNNNPNPNNNNNPNNNNNNNPPPNNPNPPPPNPPPPPNNNPPPPPNPNPNNNPNNNNNNNNPNNPNNPPPPPPNNNNNPPPPPNPPNNNPPNNPNPNPNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/7.java
+Current actions:
+UPDATE
+FROM:
+122:++agingA;
+TO:
+122:agingA++;
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+122:++agingA;
+TO:
+122:agingA++;
+
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB++;
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+122:++agingA;
+TO:
+122:agingA++;
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+130:++agingB;
+TO:
+130:agingB++;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:625 patches
+Compile failed:335 patches
+Compilation rate:0.464
+PPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/8.java
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 122++agingA;
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:627 patches
+Compile failed:335 patches
+Compilation rate:0.46570972886762363
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/9.java
+Current actions:
+INSERT:
+80:if(start+1>=end){
+break;
+}
+TO:
+79
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+80:if(start+1>=end){
+break;
+}
+TO:
+79
+
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+INSERT:
+83:else{
+if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+}
+TO:
+79
+
+DELETE:
+Original line: 83else{
+--end;
+}
+
+Following are 1th generated patches:
+Validating 109 patches...
+Current actions:
+INSERT:
+80:if(start+1>=end){
+break;
+}
+TO:
+79
+
+Following are 2th generated patches:
+Validating 108 patches...
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+INSERT:
+81:break;
+TO:
+79
+
+INSERT:
+83:else{
+if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+}
+TO:
+79
+
+DELETE:
+Original line: 83else{
+--end;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+81:break;
+TO:
+79
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+INSERT:
+83:else{
+if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+}
+TO:
+79
+
+DELETE:
+Original line: 83else{
+--end;
+}
+
+Tested:848 patches
+Compile failed:466 patches
+Compilation rate:0.45047169811320753
+NPPNNNNNNNNPPPPPPPPNNPPPNNPPPPPPNPPPNPNNPPPNPNNNPPNPNNPNNNNNNNNPPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPPPPPPPPPNNNNNNNPPPPPPPPPPNNNNPPPPPPNNPPPPNPPPPPPNNNPNNNPPNNNNNPNNNNNNPNPNNNNNNPNNNNNNPNNNNNNNNNNNNNPNNNNNNPNPPPPPPPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_40/10.java
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+80:if(start+2<end){
+++start;
+}
+TO:
+79
+
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 80if(signChangeIndex-start>=end-signChangeIndex){
+++start;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+80:if(start+2<end){
+++start;
+}
+TO:
+79
+
+Following are 3th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(!(agingA+2<end)){
+++start;
+}
+if (signChangeIndex - start >= end - signChangeIndex) {
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+9 th patch/404
+Trace:
+IfStmt;NOT IfCondition;InfixExpr;InfixExpr;SName
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:50:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(xA+2<end){
+++start;
+}
+if (signChangeIndex - start >= end - signChangeIndex) {
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+10 th patch/404
+Trace:
+InfixExpr;InfixExpr;SName;IfStmt;InfixExpr;InfixExpr;SName
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:50:38 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//math/math_40_buggy/src/main/java/org/apache/commons/math/analysis/solvers/BracketingNthOrderBrentSolver.java
+SUCCESS
+//Following are generated patch:
+  protected double doSolve(){
+    final double[] x=new double[maximalOrder + 1];
+    final double[] y=new double[maximalOrder + 1];
+    x[0]=getMin();
+    x[1]=getStartValue();
+    x[2]=getMax();
+    verifySequence(x[0],x[1],x[2]);
+    y[1]=computeObjectiveValue(x[1]);
+    if (Precision.equals(y[1],0.0,1)) {
+      return x[1];
+    }
+    y[0]=computeObjectiveValue(x[0]);
+    if (Precision.equals(y[0],0.0,1)) {
+      return x[0];
+    }
+    int nbPoints;
+    int signChangeIndex;
+    if (y[0] * y[1] < 0) {
+      nbPoints=2;
+      signChangeIndex=1;
+    }
+ else {
+      y[2]=computeObjectiveValue(x[2]);
+      if (Precision.equals(y[2],0.0,1)) {
+        return x[2];
+      }
+      if (y[1] * y[2] < 0) {
+        nbPoints=3;
+        signChangeIndex=2;
+      }
+ else {
+        throw new NoBracketingException(x[0],x[2],y[0],y[2]);
+      }
+    }
+    final double[] tmpX=new double[x.length];
+    double xA=x[signChangeIndex - 1];
+    double yA=y[signChangeIndex - 1];
+    double absYA=FastMath.abs(yA);
+    int agingA=0;
+    double xB=x[signChangeIndex];
+    double yB=y[signChangeIndex];
+    double absYB=FastMath.abs(yB);
+    int agingB=0;
+    while (true) {
+      final double xTol=getAbsoluteAccuracy() + getRelativeAccuracy() * FastMath.max(FastMath.abs(xA),FastMath.abs(xB));
+      if (((xB - xA) <= xTol) || (FastMath.max(absYA,absYB) < getFunctionValueAccuracy())) {
+switch (allowed) {
+case ANY_SIDE:
+          return absYA < absYB ? xA : xB;
+case LEFT_SIDE:
+        return xA;
+case RIGHT_SIDE:
+      return xB;
+case BELOW_SIDE:
+    return (yA <= 0) ? xA : xB;
+case ABOVE_SIDE:
+  return (yA < 0) ? xB : xA;
+default :
+throw new MathInternalError(null);
+}
+}
+double targetY;
+if (agingA >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yB;
+}
+ else if (agingB >= MAXIMAL_AGING) {
+targetY=-REDUCTION_FACTOR * yA;
+}
+ else {
+targetY=0;
+}
+double nextX;
+int start=0;
+int end=nbPoints;
+do {
+System.arraycopy(x,start,tmpX,start,end - start);
+nextX=guessX(targetY,tmpX,y,start,end);
+if (!((nextX > xA) && (nextX < xB))) {
+if(nextX+2<end){
+++start;
+}
+if (signChangeIndex - start >= end - signChangeIndex) {
+++start;
+}
+ else {
+--end;
+}
+nextX=Double.NaN;
+}
+}
+ while (Double.isNaN(nextX) && (end - start > 1));
+if (Double.isNaN(nextX)) {
+nextX=xA + 0.5 * (xB - xA);
+start=signChangeIndex - 1;
+end=signChangeIndex;
+}
+final double nextY=computeObjectiveValue(nextX);
+if (Precision.equals(nextY,0.0,1)) {
+return nextX;
+}
+if ((nbPoints > 2) && (end - start != nbPoints)) {
+nbPoints=end - start;
+System.arraycopy(x,start,x,0,nbPoints);
+System.arraycopy(y,start,y,0,nbPoints);
+signChangeIndex-=start;
+}
+ else if (nbPoints == x.length) {
+nbPoints--;
+if (signChangeIndex >= (x.length + 1) / 2) {
+System.arraycopy(x,1,x,0,nbPoints);
+System.arraycopy(y,1,y,0,nbPoints);
+--signChangeIndex;
+}
+}
+System.arraycopy(x,signChangeIndex,x,signChangeIndex + 1,nbPoints - signChangeIndex);
+x[signChangeIndex]=nextX;
+System.arraycopy(y,signChangeIndex,y,signChangeIndex + 1,nbPoints - signChangeIndex);
+y[signChangeIndex]=nextY;
+++nbPoints;
+if (nextY * yA <= 0) {
+xB=nextX;
+yB=nextY;
+absYB=FastMath.abs(yB);
+++agingA;
+agingB=0;
+}
+ else {
+xA=nextX;
+yA=nextY;
+absYA=FastMath.abs(yA);
+agingA=0;
+++agingB;
+signChangeIndex++;
+}
+}
+}
+
+11 th patch/404
+Trace:
+InfixExpr;InfixExpr;SName;IfStmt;InfixExpr;InfixExpr;SName
+START : 
+2024.04.08 AD at 10:38:08 HKT
+---------TIME : 
+2024.04.08 AD at 10:50:38 HKT
+--------------- END -----------------
+Tested:1251 patches
+Compile failed:673 patches
+Compilation rate:0.46203037569944044
+NPPNNNNNNNNPPPPPNPNPNPPPPNNNPPNNNNPNPNNNPPNNNNNNNNNPPPPPPNPPPNNNPPPPPPPNPPNPNPNNNNPNNNPNNNNNNNPNNNNNNNNNNNNNNPPNNPPNPPNNNNPPPPPNPPPNPPPNNPPPPPPNPPPNNNNPPPPPNPPNPNNPNNNNNNPNPNPNNNNNNPPPPPPPNPNPPPPPPPPPPPNNNNNNNNNPPPPPPPNPPNNPPPPPNNPNNNNNNNNNNNNPPNPNNNNPPPPPPNPPPNPNNPPPPPNPPPNNNPPNPNNPNNNNNNNNNNNNNNNNNNNPNNNNNNPNNPPNNNNPNNPPPPPPPPPNPPNNPPPNPPPPNPPNPNPNPPPPPNPPNNNPPPNPNNPNNNNNNNNNNNPPPNPPPPNNPPPPPPPPPPP
+Finish : math-40 > patch : 11 | Start : Mon Apr 08 10:38:08 HKT 2024 | End : 2024.04.08 AD at 10:50:39 HKT

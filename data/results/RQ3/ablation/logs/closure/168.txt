@@ -1,0 +1,4995 @@
+Repair : closure_168
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/0.java
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/1.java
+Current actions:
+INSERT:
+37:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/2.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/3.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/4.java
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()){
+Node target=n.getFirstChild();
+Node callee=NodeUtil.getBestLValue(target);
+if(callee!=null){
+Node callTarget=NodeUtil.getBestLValue(callee);
+if(callTarget!=null){
+String calleeName=callTarget.getQualifiedName();
+if(calleeName.equals("Object.prototype.hasOwnProperty")){
+Node arg=NodeUtil.getArgumentForCallOrNew(n);
+String prop=arg.getString();
+String functionName=NodeUtil.getBestLValueName(n.getSecondChild());
+if(functionName!=null&&data.get(t.getScopeRoot()).isAssigned(functionName)){
+data.get(t.getScopeRoot()).recordCallHasOwnProperty(prop);
+}
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 144 patches...
+Current actions:
+INSERT:
+40:if(callee!=null){
+Node callTarget=NodeUtil.getBestLValue(callee);
+if(callTarget!=null){
+String calleeName=callTarget.getQualifiedName();
+if(calleeName.equals("Object.prototype.hasOwnProperty")){
+Node arg=NodeUtil.getArgumentForCallOrNew(n);
+String prop=arg.getString();
+String functionName=NodeUtil.getBestLValueName(n.getSecondChild());
+if(functionName!=null&&data.get(t.getScopeRoot()).isAssigned(functionName)){
+data.get(t.getScopeRoot()).recordCallHasOwnProperty(prop);
+}
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:if(callTarget!=null){
+String calleeName=callTarget.getQualifiedName();
+if(calleeName.equals("Object.prototype.hasOwnProperty")){
+Node arg=NodeUtil.getArgumentForCallOrNew(n);
+String prop=arg.getString();
+String functionName=NodeUtil.getBestLValueName(n.getSecondChild());
+if(functionName!=null&&data.get(t.getScopeRoot()).isAssigned(functionName)){
+data.get(t.getScopeRoot()).recordCallHasOwnProperty(prop);
+}
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node target=n.getFirstChild();
+TO:
+36
+
+INSERT:
+40:if(callee!=null){
+Node callTarget=NodeUtil.getBestLValue(callee);
+if(callTarget!=null){
+String calleeName=callTarget.getQualifiedName();
+if(calleeName.equals("Object.prototype.hasOwnProperty")){
+Node arg=NodeUtil.getArgumentForCallOrNew(n);
+String prop=arg.getString();
+String functionName=NodeUtil.getBestLValueName(n.getSecondChild());
+if(functionName!=null&&data.get(t.getScopeRoot()).isAssigned(functionName)){
+data.get(t.getScopeRoot()).recordCallHasOwnProperty(prop);
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/5.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssignment()&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(ownerScope.isLocal()&&NodeUtil.isLValue(n.getLastChild())){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 86 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(ownerScope.isLocal()&&NodeUtil.isLValue(n.getLastChild())){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 48 patches...
+Current actions:
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(ownerScope.isLocal()&&NodeUtil.isLValue(n.getLastChild())){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssignment()&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(ownerScope.isLocal()&&NodeUtil.isLValue(n.getLastChild())){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+INSERT:
+46:if(ownerScope.isLocal()&&NodeUtil.isLValue(n.getLastChild())){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/6.java
+Current actions:
+INSERT:
+37:else{
+if(n.isScript()){
+for(Scope scope : t.getAllScopes()){
+if(scope.isLocal()){
+String[] assignedNames=data.get(scope.getRootNode()).getAssignedNames();
+String[] escapedVarNames=data.get(scope.getRootNode()).getEscapedVarNames();
+for(String name : scope.getVarNames()){
+boolean isAssigned=false;
+for(String assignedName : assignedNames){
+if(assignedName.equals(name)){
+isAssigned=true;
+break;
+}
+}
+boolean isEscaped=false;
+for(String escapedVarName : escapedVarNames){
+if(escapedVarName.equals(name)){
+isEscaped=true;
+break;
+}
+}
+if(!isAssigned&&!isEscaped){
+reportUnusedName(t,scope.getVar(name));
+}
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(scope.isLocal()){
+String[] assignedNames=data.get(scope.getRootNode()).getAssignedNames();
+String[] escapedVarNames=data.get(scope.getRootNode()).getEscapedVarNames();
+for(String name : scope.getVarNames()){
+boolean isAssigned=false;
+for(String assignedName : assignedNames){
+if(assignedName.equals(name)){
+isAssigned=true;
+break;
+}
+}
+boolean isEscaped=false;
+for(String escapedVarName : escapedVarNames){
+if(escapedVarName.equals(name)){
+isEscaped=true;
+break;
+}
+}
+if(!isAssigned&&!isEscaped){
+reportUnusedName(t,scope.getVar(name));
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 194 patches...
+Current actions:
+INSERT:
+45:if(assignedName.equals(name)){
+isAssigned=true;
+break;
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+52:if(escapedVarName.equals(name)){
+isEscaped=true;
+break;
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+57:if(!isAssigned&&!isEscaped){
+reportUnusedName(t,scope.getVar(name));
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isScript()){
+for(Scope scope : t.getAllScopes()){
+if(scope.isLocal()){
+String[] assignedNames=data.get(scope.getRootNode()).getAssignedNames();
+String[] escapedVarNames=data.get(scope.getRootNode()).getEscapedVarNames();
+for(String name : scope.getVarNames()){
+boolean isAssigned=false;
+for(String assignedName : assignedNames){
+if(assignedName.equals(name)){
+isAssigned=true;
+break;
+}
+}
+boolean isEscaped=false;
+for(String escapedVarName : escapedVarNames){
+if(escapedVarName.equals(name)){
+isEscaped=true;
+break;
+}
+}
+if(!isAssigned&&!isEscaped){
+reportUnusedName(t,scope.getVar(name));
+}
+}
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/7.java
+Current actions:
+INSERT:
+37:if(n.isFunction()){
+Scope s=t.getScope();
+Node root=s.getRootNode();
+if(!data.containsKey(root)){
+data.put(root,new NameData());
+}
+NameData nameData=data.get(root);
+for(String name : nameData.assignedNames){
+nameData.usedNames.add(name);
+}
+nameData.assignedNames.clear();
+nameData.escapedVarNames.clear();
+nameData.escapedQualifiedName.clear();
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 158 patches...
+Current actions:
+INSERT:
+37:if(n.isFunction()){
+Scope s=t.getScope();
+Node root=s.getRootNode();
+if(!data.containsKey(root)){
+data.put(root,new NameData());
+}
+NameData nameData=data.get(root);
+for(String name : nameData.assignedNames){
+nameData.usedNames.add(name);
+}
+nameData.assignedNames.clear();
+nameData.escapedVarNames.clear();
+nameData.escapedQualifiedName.clear();
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:if(!data.containsKey(root)){
+data.put(root,new NameData());
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:Node root=s.getRootNode();
+TO:
+36
+
+INSERT:
+41:data.put(root,new NameData());
+TO:
+36
+
+INSERT:
+47:nameData.assignedNames.clear();
+TO:
+36
+
+INSERT:
+49:nameData.escapedQualifiedName.clear();
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope s=t.getScope();
+TO:
+36
+
+INSERT:
+39:Node root=s.getRootNode();
+TO:
+36
+
+INSERT:
+40:if(!data.containsKey(root)){
+data.put(root,new NameData());
+}
+TO:
+36
+
+INSERT:
+43:NameData nameData=data.get(root);
+TO:
+36
+
+INSERT:
+44:for(String name : nameData.assignedNames){
+nameData.usedNames.add(name);
+}
+TO:
+36
+
+INSERT:
+47:nameData.assignedNames.clear();
+TO:
+36
+
+INSERT:
+48:nameData.escapedVarNames.clear();
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/8.java
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/9.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+Scope scope=t.getScope();
+String name=n.getFirstChild().getString();
+if(scope.getVar(name)==null){
+return ;
+}
+data.get(t.getScopeRoot()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+40:if(scope.getVar(name)==null){
+return ;
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+Scope scope=t.getScope();
+String name=n.getFirstChild().getString();
+if(scope.getVar(name)==null){
+return ;
+}
+data.get(t.getScopeRoot()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+39:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+40:if(scope.getVar(name)==null){
+return ;
+}
+TO:
+36
+
+INSERT:
+43:data.get(t.getScopeRoot()).recordAssignedName(name);
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:return ;
+TO:
+36
+
+INSERT:
+43:data.get(t.getScopeRoot()).recordAssignedName(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 19 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:if(scope.getVar(name)==null){
+return ;
+}
+TO:
+36
+
+INSERT:
+43:data.get(t.getScopeRoot()).recordAssignedName(name);
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/10.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.isAssigneeName()){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+Following are 3th generated patches:
+Validating 101 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.isAssigneeName()){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:String name=n.getString();
+TO:
+36
+
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/11.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isGetProp()&&n.getFirstChild().isUnscopedQualifiedName()){
+Node lhs=n.getFirstChild();
+String name=NodeUtil.getRootOfQualifiedName(lhs).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(lhs.getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 69 patches...
+Current actions:
+INSERT:
+42:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(lhs.getQualifiedName());
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(lhs.getQualifiedName());
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node lhs=n.getFirstChild();
+TO:
+36
+
+INSERT:
+39:String name=NodeUtil.getRootOfQualifiedName(lhs).getString();
+TO:
+36
+
+INSERT:
+40:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+41:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+44:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(lhs.getQualifiedName());
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/12.java
+Current actions:
+INSERT:
+37:if(NodeUtil.isEnhancedFor(n)){
+Node loopVar=n.getSecondChild();
+if(loopVar!=null&&loopVar.isName()){
+t.getScope().getVar(loopVar.getString());
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+37:if(NodeUtil.isEnhancedFor(n)){
+Node loopVar=n.getSecondChild();
+if(loopVar!=null&&loopVar.isName()){
+t.getScope().getVar(loopVar.getString());
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(loopVar!=null&&loopVar.isName()){
+t.getScope().getVar(loopVar.getString());
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node loopVar=n.getSecondChild();
+TO:
+36
+
+INSERT:
+39:if(loopVar!=null&&loopVar.isName()){
+t.getScope().getVar(loopVar.getString());
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node loopVar=n.getSecondChild();
+TO:
+36
+
+INSERT:
+40:t.getScope().getVar(loopVar.getString());
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node loopVar=n.getSecondChild();
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/13.java
+Current actions:
+INSERT:
+32:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedQualifiedName(n.getQualifiedName());
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+32:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedQualifiedName(n.getQualifiedName());
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:data.get(ownerScope.getRootNode()).recordAssignedQualifiedName(n.getQualifiedName());
+TO:
+31
+
+Following are 2th generated patches:
+Validating 22 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/14.java
+Current actions:
+INSERT:
+37:if(n.isName()){
+String name=n.getString();
+if(NodeUtil.isLValue(n)&&!NodeUtil.isGlobal(n)&&!NodeUtil.isFromExterns(n)&&!NodeUtil.isBleedingFunctionName(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 88 patches...
+Current actions:
+INSERT:
+37:if(n.isName()){
+String name=n.getString();
+if(NodeUtil.isLValue(n)&&!NodeUtil.isGlobal(n)&&!NodeUtil.isFromExterns(n)&&!NodeUtil.isBleedingFunctionName(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(NodeUtil.isLValue(n)&&!NodeUtil.isGlobal(n)&&!NodeUtil.isFromExterns(n)&&!NodeUtil.isBleedingFunctionName(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:String name=n.getString();
+TO:
+36
+
+INSERT:
+39:if(NodeUtil.isLValue(n)&&!NodeUtil.isGlobal(n)&&!NodeUtil.isFromExterns(n)&&!NodeUtil.isBleedingFunctionName(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/15.java
+Current actions:
+INSERT:
+37:else{
+if(n.isVar()&&n.getFirstChild().isAssign()&&n.getFirstFirstChild().isName()){
+String name=n.getFirstFirstChild().getString();
+if(!name.isEmpty()){
+Scope scope=t.getScope();
+if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+39:if(!name.isEmpty()){
+Scope scope=t.getScope();
+if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isVar()&&n.getFirstChild().isAssign()&&n.getFirstFirstChild().isName()){
+String name=n.getFirstFirstChild().getString();
+if(!name.isEmpty()){
+Scope scope=t.getScope();
+if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstFirstChild().getString();
+TO:
+36
+
+INSERT:
+39:if(!name.isEmpty()){
+Scope scope=t.getScope();
+if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+41:if(scope.isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/16.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()&&!NodeUtil.isLValue(NodeUtil.getRootOfQualifiedName(n))){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()&&!NodeUtil.isLValue(NodeUtil.getRootOfQualifiedName(n))){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/17.java
+Current actions:
+INSERT:
+37:else{
+if(n.isMemberFunctionDef()){
+visitFunction(t,n,parent);
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isMemberFunctionDef()){
+visitFunction(t,n,parent);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:visitFunction(t,n,parent);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/18.java
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()){
+visitCallNode(t,n);
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()){
+visitCallNode(t,n);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:visitCallNode(t,n);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/19.java
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 3th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/20.java
+Current actions:
+INSERT:
+37:else{
+if(n.isFor()){
+Node nameNode=n.getFirstChild();
+if(nameNode!=null&&nameNode.isName()){
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()&&ownerScope==scope){
+data.get(ownerScope.getRootNode()).recordDeclaredVarName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+39:if(nameNode!=null&&nameNode.isName()){
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()&&ownerScope==scope){
+data.get(ownerScope.getRootNode()).recordDeclaredVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()&&ownerScope==scope){
+data.get(ownerScope.getRootNode()).recordDeclaredVarName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node nameNode=n.getFirstChild();
+TO:
+36
+
+INSERT:
+39:if(nameNode!=null&&nameNode.isName()){
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()&&ownerScope==scope){
+data.get(ownerScope.getRootNode()).recordDeclaredVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isFor()){
+Node nameNode=n.getFirstChild();
+if(nameNode!=null&&nameNode.isName()){
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()&&ownerScope==scope){
+data.get(ownerScope.getRootNode()).recordDeclaredVarName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/21.java
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+
+Following are 1th generated patches:
+Validating 22 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/22.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.isFirstChildOf(parent)){
+Node rValue=n.getLastChild();
+if(rValue.isName()&&!rValue.getBooleanProp(Node.IS_CONSTANT_NAME)){
+String name=rValue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 71 patches...
+Current actions:
+INSERT:
+39:if(rValue.isName()&&!rValue.getBooleanProp(Node.IS_CONSTANT_NAME)){
+String name=rValue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.isFirstChildOf(parent)){
+Node rValue=n.getLastChild();
+if(rValue.isName()&&!rValue.getBooleanProp(Node.IS_CONSTANT_NAME)){
+String name=rValue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Node rValue=n.getLastChild();
+TO:
+36
+
+INSERT:
+40:String name=rValue.getString();
+TO:
+36
+
+INSERT:
+46:data.get(ownerScope.getRootNode()).recordAssignedName(name);
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/23.java
+Current actions:
+INSERT:
+37:else{
+if(NodeUtil.isDefinition(n,parent)&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(NodeUtil.isDefinition(n,parent)&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/24.java
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n);
+
+Following are 1th generated patches:
+Validating 22 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/25.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+Scope scope=t.getScope();
+String name=n.getFirstChild().getString();
+Var var=scope.getVar(name);
+if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+Following are 2th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+42:data.get(scope.getRootNode()).recordAssignedName(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:String name=n.getFirstChild().getString();
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/26.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/26.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/27.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/27.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+String name=n.getFirstChild().getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+42:Scope ownerScope=var.getScope();
+TO:
+36
+
+Following are 4th generated patches:
+Validating 111 patches...
+Current actions:
+INSERT:
+38:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/28.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/28.java
+Current actions:
+INSERT:
+37:if(n.isFunction()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 86 patches...
+Current actions:
+INSERT:
+37:if(n.isFunction()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 48 patches...
+Current actions:
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:String name=NodeUtil.getRootOfQualifiedName(n).getString();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+43:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+INSERT:
+46:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/29.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/29.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()&&n.getFirstChild().getString().equals("arguments")){
+Node rhs=n.getLastChild();
+Scope scope=t.getScope();
+if(rhs.isArrayLit()){
+for(Node c=rhs.getFirstChild();c!=null;c=c.getNext()){
+String name=c.getString();
+if(c.isDestructuringPattern()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+else{
+if(c.isStringKey()){
+Node value=c.getFirstChild();
+if(value.isString()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+}
+else{
+data.get(scope.getRootNode()).recordAssignedName(null);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:if(rhs.isArrayLit()){
+for(Node c=rhs.getFirstChild();c!=null;c=c.getNext()){
+String name=c.getString();
+if(c.isDestructuringPattern()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+else{
+if(c.isStringKey()){
+Node value=c.getFirstChild();
+if(value.isString()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(c.isDestructuringPattern()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()&&n.getFirstChild().getString().equals("arguments")){
+Node rhs=n.getLastChild();
+Scope scope=t.getScope();
+if(rhs.isArrayLit()){
+for(Node c=rhs.getFirstChild();c!=null;c=c.getNext()){
+String name=c.getString();
+if(c.isDestructuringPattern()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+else{
+if(c.isStringKey()){
+Node value=c.getFirstChild();
+if(value.isString()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+}
+}
+else{
+data.get(scope.getRootNode()).recordAssignedName(null);
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/30.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/30.java
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()){
+Scope scope=t.getScope();
+if(scope.hasEscapedVariables()){
+data.get(t.getScopeRoot()).recordCallWithEscapedVars();
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 6 patches...
+Current actions:
+INSERT:
+39:if(scope.hasEscapedVariables()){
+data.get(t.getScopeRoot()).recordCallWithEscapedVars();
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()){
+Scope scope=t.getScope();
+if(scope.hasEscapedVariables()){
+data.get(t.getScopeRoot()).recordCallWithEscapedVars();
+}
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+39:if(scope.hasEscapedVariables()){
+data.get(t.getScopeRoot()).recordCallWithEscapedVars();
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:data.get(t.getScopeRoot()).recordCallWithEscapedVars();
+TO:
+36
+
+Following are 4th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/31.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/31.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node rvalue=n.getLastChild();
+if(rvalue.isName()){
+String name=rvalue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+else{
+if(rvalue.isGetProp()&&rvalue.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(rvalue).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(rvalue.getQualifiedName());
+}
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(rvalue.isName()){
+String name=rvalue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node rvalue=n.getLastChild();
+TO:
+36
+
+INSERT:
+39:if(rvalue.isName()){
+String name=rvalue.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+INSERT:
+51:String name=NodeUtil.getRootOfQualifiedName(rvalue).getString();
+TO:
+36
+
+INSERT:
+52:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+53:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+55:Scope ownerScope=var.getScope();
+TO:
+36
+
+INSERT:
+56:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(rvalue.getQualifiedName());
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/32.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/32.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isGetProp()&&NodeUtil.isLValue(n.getFirstChild())){
+String name=NodeUtil.getRootOfQualifiedName(n.getFirstChild()).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getFirstChild().getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 44 patches...
+Current actions:
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getFirstChild().getQualifiedName());
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getFirstChild().getQualifiedName());
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isGetProp()&&NodeUtil.isLValue(n.getFirstChild())){
+String name=NodeUtil.getRootOfQualifiedName(n.getFirstChild()).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getFirstChild().getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+38:String name=NodeUtil.getRootOfQualifiedName(n.getFirstChild()).getString();
+TO:
+36
+
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+41:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getFirstChild().getQualifiedName());
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/33.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/33.java
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedName(name);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+33:data.get(ownerScope.getRootNode()).recordEscapedName(name);
+
+Following are 1th generated patches:
+Validating 22 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/34.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/34.java
+Current actions:
+INSERT:
+37:else{
+if(n.isName()&&n.getString().equals("arguments")&&NodeUtil.isLValue(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar("arguments");
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName("arguments");
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+40:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName("arguments");
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName("arguments");
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isName()&&n.getString().equals("arguments")&&NodeUtil.isLValue(n)){
+Scope scope=t.getScope();
+Var var=scope.getVar("arguments");
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName("arguments");
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName("arguments");
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+41:Scope ownerScope=var.getScope();
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/35.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/35.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node assignTarget=n.getFirstChild();
+if(!assignTarget.isQualifiedName()){
+return ;
+}
+Node rootOfAssignTarget=NodeUtil.getRootOfQualifiedName(assignTarget);
+if(!rootOfAssignTarget.isName()){
+return ;
+}
+String assignTargetName=rootOfAssignTarget.getString();
+Scope assignTargetScope=t.getScope();
+Var assignTargetVar=assignTargetScope.getVar(assignTargetName);
+if(assignTargetVar!=null){
+Scope assignTargetOwnerScope=assignTargetVar.getScope();
+if(assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordAssignedName(assignTargetName);
+}
+if(assignTargetScope!=assignTargetOwnerScope&&assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordEscapedVarName(assignTargetName);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(!assignTarget.isQualifiedName()){
+return ;
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(!rootOfAssignTarget.isName()){
+return ;
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+49:if(assignTargetVar!=null){
+Scope assignTargetOwnerScope=assignTargetVar.getScope();
+if(assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordAssignedName(assignTargetName);
+}
+if(assignTargetScope!=assignTargetOwnerScope&&assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordEscapedVarName(assignTargetName);
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+51:if(assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordAssignedName(assignTargetName);
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node assignTarget=n.getFirstChild();
+if(!assignTarget.isQualifiedName()){
+return ;
+}
+Node rootOfAssignTarget=NodeUtil.getRootOfQualifiedName(assignTarget);
+if(!rootOfAssignTarget.isName()){
+return ;
+}
+String assignTargetName=rootOfAssignTarget.getString();
+Scope assignTargetScope=t.getScope();
+Var assignTargetVar=assignTargetScope.getVar(assignTargetName);
+if(assignTargetVar!=null){
+Scope assignTargetOwnerScope=assignTargetVar.getScope();
+if(assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordAssignedName(assignTargetName);
+}
+if(assignTargetScope!=assignTargetOwnerScope&&assignTargetOwnerScope.isLocal()){
+data.get(assignTargetOwnerScope.getRootNode()).recordEscapedVarName(assignTargetName);
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/36.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/36.java
+Current actions:
+INSERT:
+37:else{
+if(n.isFunction()){
+visitFunction(t,n,parent);
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isFunction()){
+visitFunction(t,n,parent);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:visitFunction(t,n,parent);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/37.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/37.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.isAssignToProperty()&&NodeUtil.isCallOrNewTarget(n.getFirstChild())&&n.getLastChild().isQualifiedName()){
+Node assignee=n.getFirstChild();
+Node target=n.getLastChild();
+String name=target.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 102 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Node assignee=n.getFirstChild();
+TO:
+36
+
+INSERT:
+40:String name=target.getQualifiedName();
+TO:
+36
+
+INSERT:
+41:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+42:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/38.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/38.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node lhs=n.getFirstChild();
+if(lhs.isName()){
+String name=lhs.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 127 patches...
+Current actions:
+INSERT:
+39:if(lhs.isName()){
+String name=lhs.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+45:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:data.get(ownerScope.getRootNode()).recordAssignedName(name);
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/39.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/39.java
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+DELETE:
+Original line: 18if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+
+Following are 2th generated patches:
+Validating 5 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+DELETE:
+Original line: 19data.get(ownerScope.getRootNode()).recordAssignedName(name);
+
+Following are 3th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 18if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 19data.get(ownerScope.getRootNode()).recordAssignedName(name);
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/40.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/40.java
+Current actions:
+INSERT:
+32:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+31
+
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+INSERT:
+32:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+31
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+31
+
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+36:data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+33:data.get(ownerScope.getRootNode()).recordAssignedName(name);
+TO:
+31
+
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+36:data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+
+Following are 3th generated patches:
+Validating 44 patches...
+Current actions:
+UPDATE
+FROM:
+33:data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+TO:
+36:data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+
+Following are 4th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+33:data.get(ownerScope.getRootNode()).recordAssignedName(name);
+TO:
+31
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/41.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/41.java
+Current actions:
+INSERT:
+12:if(!NodeUtil.isLValue(n)){
+return ;
+}
+TO:
+11
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+12:if(!NodeUtil.isLValue(n)){
+return ;
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:if(n.isName()){
+name=n.getString();
+}
+TO:
+11
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:return ;
+TO:
+11
+
+DELETE:
+Original line: 13String name=n.getString();
+
+INSERT:
+17:name=n.getString();
+TO:
+11
+
+INSERT:
+19:if(n.isGetProp()){
+name=NodeUtil.getRootOfQualifiedName(n).getString();
+}
+TO:
+11
+
+DELETE:
+Original line: 28Scope scope=t.getScope();
+
+DELETE:
+Original line: 29Var var=scope.getVar(name);
+
+DELETE:
+Original line: 31Scope ownerScope=var.getScope();
+
+DELETE:
+Original line: 32if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/42.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/42.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 27String name=NodeUtil.getRootOfQualifiedName(n).getString();
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+27:String name=n.getQualifiedName();
+TO:
+26
+
+DELETE:
+Original line: 27String name=NodeUtil.getRootOfQualifiedName(n).getString();
+
+Following are 2th generated patches:
+Validating 151 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+INSERT:
+27:String name=n.getQualifiedName();
+TO:
+26
+
+DELETE:
+Original line: 27String name=NodeUtil.getRootOfQualifiedName(n).getString();
+
+Following are 3th generated patches:
+Validating 152 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+INSERT:
+27:String name=n.getQualifiedName();
+TO:
+26
+
+Following are 4th generated patches:
+Validating 151 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&n.isQualifiedName()&&NodeUtil.isLValue(n)){
+String name=n.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+DELETE:
+Original line: 27String name=NodeUtil.getRootOfQualifiedName(n).getString();
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/43.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/43.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+Scope scope=t.getScope();
+String name=n.getFirstChild().getString();
+Var var=scope.getVar(name);
+if(var!=null&&var.getScope().isLocal()&&var.getScope()==scope){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()&&var.getScope()==scope){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+39:String name=n.getFirstChild().getString();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(name);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+Following are 3th generated patches:
+Validating 100 patches...
+Current actions:
+INSERT:
+42:data.get(scope.getRootNode()).recordAssignedName(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getFirstChild().isName()){
+Scope scope=t.getScope();
+String name=n.getFirstChild().getString();
+Var var=scope.getVar(name);
+if(var!=null&&var.getScope().isLocal()&&var.getScope()==scope){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/44.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/44.java
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()&&n.getParent().isAssign()&&n.getLastChild().isString()){
+Scope scope=t.getScope();
+Scope ownerScope=scope.getRootNode().getScope();
+if(scope!=ownerScope){
+Var var=scope.getVar(n.getFirstChild().getQualifiedName());
+if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 26 patches...
+Current actions:
+INSERT:
+40:if(scope!=ownerScope){
+Var var=scope.getVar(n.getFirstChild().getQualifiedName());
+if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isCall()&&n.getParent().isAssign()&&n.getLastChild().isString()){
+Scope scope=t.getScope();
+Scope ownerScope=scope.getRootNode().getScope();
+if(scope!=ownerScope){
+Var var=scope.getVar(n.getFirstChild().getQualifiedName());
+if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+41:Var var=scope.getVar(n.getFirstChild().getQualifiedName());
+TO:
+36
+
+INSERT:
+42:if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+38:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+39:Scope ownerScope=scope.getRootNode().getScope();
+TO:
+36
+
+INSERT:
+41:Var var=scope.getVar(n.getFirstChild().getQualifiedName());
+TO:
+36
+
+INSERT:
+42:if(var!=null&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(n.getFirstChild().getQualifiedName());
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/45.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/45.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isUnscopedQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/46.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/46.java
+Current actions:
+INSERT:
+37:else{
+if(n.isFunction()&&n.hasChildren()){
+if(NodeUtil.isFunctionExpression(n)){
+return ;
+}
+Node nameNode=n.getFirstChild();
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var==null||!var.isLocal()){
+return ;
+}
+data.get(scope.getRootNode()).recordFunctionExpression();
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 114 patches...
+Current actions:
+INSERT:
+38:if(NodeUtil.isFunctionExpression(n)){
+return ;
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+45:if(var==null||!var.isLocal()){
+return ;
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isFunction()&&n.hasChildren()){
+if(NodeUtil.isFunctionExpression(n)){
+return ;
+}
+Node nameNode=n.getFirstChild();
+String name=nameNode.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var==null||!var.isLocal()){
+return ;
+}
+data.get(scope.getRootNode()).recordFunctionExpression();
+}
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+44:Var var=scope.getVar(name);
+TO:
+36
+
+Following are 4th generated patches:
+Validating 128 patches...
+Current actions:
+INSERT:
+38:if(NodeUtil.isFunctionExpression(n)){
+return ;
+}
+TO:
+36
+
+INSERT:
+41:Node nameNode=n.getFirstChild();
+TO:
+36
+
+INSERT:
+43:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+44:Var var=scope.getVar(name);
+TO:
+36
+
+INSERT:
+45:if(var==null||!var.isLocal()){
+return ;
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/47.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/47.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getLastChild().isQualifiedName()){
+Node lhs=n.getFirstChild();
+Node rhs=n.getLastChild();
+String lhsName=NodeUtil.getRootOfQualifiedName(lhs).getString();
+String rhsName=NodeUtil.getRootOfQualifiedName(rhs).getString();
+if(lhsName.equals(rhsName)){
+Scope scope=t.getScope();
+Var lhsVar=scope.getVar(lhsName);
+if(lhsVar!=null){
+Scope ownerScope=lhsVar.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(lhsName);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(lhsName);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:if(lhsName.equals(rhsName)){
+Scope scope=t.getScope();
+Var lhsVar=scope.getVar(lhsName);
+if(lhsVar!=null){
+Scope ownerScope=lhsVar.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(lhsName);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(lhsName);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 176 patches...
+Current actions:
+INSERT:
+45:if(lhsVar!=null){
+Scope ownerScope=lhsVar.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(lhsName);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(lhsName);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+47:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(lhsName);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+50:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(lhsName);
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()&&n.getLastChild().isQualifiedName()){
+Node lhs=n.getFirstChild();
+Node rhs=n.getLastChild();
+String lhsName=NodeUtil.getRootOfQualifiedName(lhs).getString();
+String rhsName=NodeUtil.getRootOfQualifiedName(rhs).getString();
+if(lhsName.equals(rhsName)){
+Scope scope=t.getScope();
+Var lhsVar=scope.getVar(lhsName);
+if(lhsVar!=null){
+Scope ownerScope=lhsVar.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(lhsName);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(lhsName);
+}
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/48.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/48.java
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)&&n.getString().indexOf('$')==-1){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+12:if(n.isName()&&NodeUtil.isLValue(n)&&!NodeUtil.isBleedingFunctionName(n)&&n.getString().indexOf('$')==-1){
+String name=n.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+
+Following are 1th generated patches:
+Validating 19 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/49.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/49.java
+Current actions:
+INSERT:
+37:else{
+if(n.isFor()&&!n.getLastChild().isBlock()){
+String iname=NodeUtil.getForInIterator(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(iname);
+if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(iname);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 22 patches...
+Current actions:
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(iname);
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+42:data.get(scope.getRootNode()).recordAssignedName(iname);
+TO:
+36
+
+Following are 2th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+38:String iname=NodeUtil.getForInIterator(n).getString();
+TO:
+36
+
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+40:Var var=scope.getVar(iname);
+TO:
+36
+
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(iname);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isFor()&&!n.getLastChild().isBlock()){
+String iname=NodeUtil.getForInIterator(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(iname);
+if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(iname);
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:String iname=NodeUtil.getForInIterator(n).getString();
+TO:
+36
+
+INSERT:
+39:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+41:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(iname);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/50.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/50.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/51.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/51.java
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+26:else{
+if(n.isGetProp()&&n.isUnscopedQualifiedName()&&NodeUtil.isLValue(n)){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+TO:
+26:else{
+if(n.isGetProp()&&NodeUtil.isLValue(n)&&n.isQualifiedName()){
+String name=NodeUtil.getRootOfQualifiedName(n).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(n.getQualifiedName());
+}
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/52.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/52.java
+Current actions:
+INSERT:
+37:else{
+if(n.isGetElem()){
+Node receiver=n.getFirstChild();
+Node index=n.getLastChild();
+if(index.isQualifiedName()){
+String name=index.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 106 patches...
+Current actions:
+INSERT:
+40:if(index.isQualifiedName()){
+String name=index.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+44:if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+46:if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isGetElem()){
+Node receiver=n.getFirstChild();
+Node index=n.getLastChild();
+if(index.isQualifiedName()){
+String name=index.getQualifiedName();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(name);
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Node receiver=n.getFirstChild();
+TO:
+36
+
+INSERT:
+41:String name=index.getQualifiedName();
+TO:
+36
+
+INSERT:
+42:Scope scope=t.getScope();
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/53.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/53.java
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node left=n.getFirstChild();
+String name;
+if(left.isGetProp()&&left.isUnscopedQualifiedName()){
+name=NodeUtil.getRootOfQualifiedName(left).getString();
+}
+else{
+if(left.isName()){
+name=left.getString();
+}
+}
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+40:if(left.isGetProp()&&left.isUnscopedQualifiedName()){
+name=NodeUtil.getRootOfQualifiedName(left).getString();
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(left.isName()){
+name=left.getString();
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+37:else{
+if(n.isAssign()){
+Node left=n.getFirstChild();
+String name;
+if(left.isGetProp()&&left.isUnscopedQualifiedName()){
+name=NodeUtil.getRootOfQualifiedName(left).getString();
+}
+else{
+if(left.isName()){
+name=left.getString();
+}
+}
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+}
+}
+TO:
+36
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+38:Node left=n.getFirstChild();
+TO:
+36
+
+INSERT:
+39:String name;
+TO:
+36
+
+INSERT:
+40:if(left.isGetProp()&&left.isUnscopedQualifiedName()){
+name=NodeUtil.getRootOfQualifiedName(left).getString();
+}
+TO:
+36
+
+INSERT:
+43:if(left.isName()){
+name=left.getString();
+}
+TO:
+36
+
+INSERT:
+49:Scope scope=t.getScope();
+TO:
+36
+
+INSERT:
+51:if(var!=null&&var.getScope().isLocal()){
+data.get(scope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/54.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_168/54.java
+Current actions:
+INSERT:
+37:else{
+if(NodeUtil.isAssignmentOp(n)){
+Node left=n.getFirstChild();
+if(left.isName()&&NodeUtil.isLValue(left)&&!NodeUtil.isBleedingFunctionName(left)){
+String name=left.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+else{
+if(left.isGetProp()&&left.isUnscopedQualifiedName()&&NodeUtil.isLValue(left)){
+String name=NodeUtil.getRootOfQualifiedName(left).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(left.getQualifiedName());
+}
+}
+}
+}
+}
+}
+TO:
+36
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+39:if(left.isName()&&NodeUtil.isLValue(left)&&!NodeUtil.isBleedingFunctionName(left)){
+String name=left.getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+}
+TO:
+36
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+TO:
+36
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+INSERT:
+45:if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+TO:
+36
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+43:if(var!=null){
+Scope ownerScope=var.getScope();
+if(ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordAssignedName(name);
+}
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedVarName(name);
+}
+}
+TO:
+36
+
+INSERT:
+53:else{
+if(left.isGetProp()&&left.isUnscopedQualifiedName()&&NodeUtil.isLValue(left)){
+String name=NodeUtil.getRootOfQualifiedName(left).getString();
+Scope scope=t.getScope();
+Var var=scope.getVar(name);
+if(var!=null){
+Scope ownerScope=var.getScope();
+if(scope!=ownerScope&&ownerScope.isLocal()){
+data.get(ownerScope.getRootNode()).recordEscapedQualifiedName(left.getQualifiedName());
+}
+}
+}
+}
+TO:
+36
+
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Finish : closure-168 > patch : 0 | Start : Tue Apr 09 13:37:38 HKT 2024 | End : 2024.04.09 AD at 13:49:22 HKT

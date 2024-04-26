@@ -1,0 +1,37 @@
+Following diff 0:
+-if(!NodeUtil.isGet(first)){
+-n.putBooleanProp(Node.FREE_CALL,true);
+-}
++if(!first.isCast()&&!NodeUtil.isGet(first)){
++n.putBooleanProp(Node.FREE_CALL,true);
++}
+Following diff 0:
++if(first.isCast()){
++return;
++}
+Following diff 0:
++while(first.isCast()){
++first=first.getFirstChild();
++}
+Following diff 0:
++while(first.isCast()){
++first=first.getLastChild();
++}
+Following diff 0:
++while(first.isCast()){
++first=first.getChildAtIndex(0);
++}
+Following diff 0:
++while(first.hasOneChild()){
++first=first.getFirstChild();
++}
+Following diff 0:
+-if(!NodeUtil.isGet(first)){
++if(!NodeUtil.isGet(first)&&!first.isCast()){
+Following diff 0:
+-if(!NodeUtil.isGet(first)){
+-n.putBooleanProp(Node.FREE_CALL,true);
+-}
++if(!NodeUtil.isGet(first)&&!first.isCast()){
++n.putBooleanProp(Node.FREE_CALL,true);
++}

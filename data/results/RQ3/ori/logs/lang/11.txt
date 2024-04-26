@@ -1,0 +1,1054 @@
+Repair : lang_11
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/0.java
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 29char ch;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 34ch=chars[random.nextInt(gap)+start];
+
+DELETE:
+Original line: 36if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+
+DELETE:
+Original line: 64else{
+count++;
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 1th generated patches:
+Validating 11 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 14end=chars.length;
+
+DELETE:
+Original line: 16else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 28while(count--!=0){
+char ch;
+if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+else{
+ch=chars[random.nextInt(gap)+start];
+}
+if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+else{
+count++;
+}
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 29char ch;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 33else{
+ch=chars[random.nextInt(gap)+start];
+}
+
+DELETE:
+Original line: 38if(count==0){
+count++;
+}
+
+DELETE:
+Original line: 41else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+
+DELETE:
+Original line: 47if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+
+DELETE:
+Original line: 65count++;
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 3th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 29char ch;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 34ch=chars[random.nextInt(gap)+start];
+
+DELETE:
+Original line: 43count--;
+
+DELETE:
+Original line: 51else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+
+DELETE:
+Original line: 57if(ch>=56192&&ch<=56319){
+count++;
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 4th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 10throw new IllegalArgumentException("The chars array must not be empty");
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 28while(count--!=0){
+char ch;
+if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+else{
+ch=chars[random.nextInt(gap)+start];
+}
+if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+else{
+count++;
+}
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Tested:4 patches
+Compile failed:4 patches
+Compilation rate:0.0
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/1.java
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 18end=Integer.MAX_VALUE;
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 37if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+
+INSERT:
+38:}
+
+TO:
+2
+
+DELETE:
+Original line: 51else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+
+DELETE:
+Original line: 61buffer[count]=ch;
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 1th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 17if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+
+DELETE:
+Original line: 22start=' ';
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 34ch=chars[random.nextInt(gap)+start];
+
+DELETE:
+Original line: 38if(count==0){
+count++;
+}
+
+INSERT:
+38:}
+
+TO:
+2
+
+DELETE:
+Original line: 47if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 4return "";
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 28while(count--!=0){
+char ch;
+if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+else{
+ch=chars[random.nextInt(gap)+start];
+}
+if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+else{
+count++;
+}
+}
+
+INSERT:
+38:}
+
+TO:
+2
+
+Following are 3th generated patches:
+Validating 6 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 28while(count--!=0){
+char ch;
+if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+else{
+ch=chars[random.nextInt(gap)+start];
+}
+if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+else{
+count++;
+}
+}
+
+INSERT:
+38:}
+
+TO:
+2
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 4th generated patches:
+Validating 8 patches...
+Current actions:
+INSERT:
+3:}
+
+TO:
+2
+
+DELETE:
+Original line: 4return "";
+
+DELETE:
+Original line: 6else{
+if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+}
+}
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 29char ch;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 33else{
+ch=chars[random.nextInt(gap)+start];
+}
+
+DELETE:
+Original line: 36if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+
+INSERT:
+38:}
+
+TO:
+2
+
+DELETE:
+Original line: 64else{
+count++;
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Tested:8 patches
+Compile failed:8 patches
+Compilation rate:0.0
+NNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_11/2.java
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 37if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+
+DELETE:
+Original line: 54buffer[count]=ch;
+
+DELETE:
+Original line: 61buffer[count]=ch;
+
+Following are 1th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 4return "";
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 13if(chars!=null){
+end=chars.length;
+}
+
+DELETE:
+Original line: 16else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 27int gap=end-start;
+
+DELETE:
+Original line: 28while(count--!=0){
+char ch;
+if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+else{
+ch=chars[random.nextInt(gap)+start];
+}
+if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+else{
+count++;
+}
+}
+
+Following are 2th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 7throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+
+DELETE:
+Original line: 10throw new IllegalArgumentException("The chars array must not be empty");
+
+DELETE:
+Original line: 12if(start==0&&end==0){
+if(chars!=null){
+end=chars.length;
+}
+else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+}
+
+DELETE:
+Original line: 29char ch;
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 33else{
+ch=chars[random.nextInt(gap)+start];
+}
+
+DELETE:
+Original line: 36if(letters&&Character.isLetter(ch)||numbers&&Character.isDigit(ch)||!letters&&!numbers){
+if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+else{
+if(ch>=55296&&ch<=56191){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=(char)(56320+random.nextInt(128));
+count--;
+buffer[count]=ch;
+}
+}
+}
+}
+
+DELETE:
+Original line: 64else{
+count++;
+}
+
+Following are 3th generated patches:
+Validating 9 patches...
+Current actions:
+DELETE:
+Original line: 3if(count==0){
+return "";
+}
+
+DELETE:
+Original line: 7throw new IllegalArgumentException("Requested random string length "+count+" is less than 0.");
+
+DELETE:
+Original line: 9if(chars!=null&&chars.length==0){
+throw new IllegalArgumentException("The chars array must not be empty");
+}
+
+DELETE:
+Original line: 14end=chars.length;
+
+DELETE:
+Original line: 17if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+
+DELETE:
+Original line: 26char[] buffer=new char[count];
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 34ch=chars[random.nextInt(gap)+start];
+
+DELETE:
+Original line: 37if(ch>=56320&&ch<=57343){
+if(count==0){
+count++;
+}
+else{
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+}
+
+DELETE:
+Original line: 49count++;
+
+DELETE:
+Original line: 53count--;
+
+DELETE:
+Original line: 57if(ch>=56192&&ch<=56319){
+count++;
+}
+
+DELETE:
+Original line: 68return new String(buffer);
+
+Following are 4th generated patches:
+Validating 13 patches...
+Current actions:
+DELETE:
+Original line: 16else{
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}
+else{
+end='z'+1;
+start=' ';
+}
+}
+
+DELETE:
+Original line: 30if(chars==null){
+ch=(char)(random.nextInt(gap)+start);
+}
+
+DELETE:
+Original line: 33else{
+ch=chars[random.nextInt(gap)+start];
+}
+
+DELETE:
+Original line: 53count--;
+
+DELETE:
+Original line: 61buffer[count]=ch;
+
+Tested:12 patches
+Compile failed:12 patches
+Compilation rate:0.0
+NNNN
+Finish : lang-11 > patch : 0 | Start : Thu Apr 11 11:00:55 HKT 2024 | End : 2024.04.11 AD at 11:01:08 HKT

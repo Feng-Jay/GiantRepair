@@ -1,0 +1,2174 @@
+Repair : math_21
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/0.java
+Tested:0 patches
+Compile failed:0 patches
+Compilation rate:NaN
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/1.java
+Current actions:
+INSERT:
+4:if(matrix.getColumnDimension()!=order){
+throw new NonSquareMatrixException(matrix.getColumnDimension(),matrix.getRowDimension());
+}
+TO:
+3
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(matrix.getColumnDimension()!=order){
+throw new NonSquareMatrixException(matrix.getColumnDimension(),matrix.getRowDimension());
+}
+TO:
+3
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+9:for(int j=i+1;j<order;++j){
+if(c[j][i]!=c[i][j]){
+throw new NonSymmetricMatrixException(i,j,c[i][j],c[j][i]);
+}
+}
+TO:
+8
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+15:throw new NonPositiveDefiniteMatrixException(c[i][i],i,small);
+TO:
+20
+
+INSERT:
+19:root=matrix.copy();
+TO:
+57
+
+UPDATE
+FROM:
+5: final double[][] b=new double[order][order];
+TO:
+20: final double[] b=new double[order];
+
+INSERT:
+22: final double sqrt=FastMath.sqrt(c[i][i]);
+TO:
+60
+
+INSERT:
+23:b[i]=sqrt;
+TO:
+60
+
+INSERT:
+26:c[j][i]*=inverse;
+TO:
+60
+
+INSERT:
+29:c[i][i]=sqrt;
+TO:
+63
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 61for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+5:throw new NonSquareMatrixException(matrix.getColumnDimension(),matrix.getRowDimension());
+TO:
+3
+
+DELETE:
+Original line: 9index[i]=i;
+
+INSERT:
+10:if(c[j][i]!=c[i][j]){
+throw new NonSymmetricMatrixException(i,j,c[i][j],c[j][i]);
+}
+TO:
+8
+
+INSERT:
+14:if(c[i][i]<=small){
+throw new NonPositiveDefiniteMatrixException(c[i][i],i,small);
+}
+TO:
+20
+
+DELETE:
+Original line: 15int ii=index[i];
+
+DELETE:
+Original line: 17if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+
+INSERT:
+18:rank=order;
+TO:
+57
+
+INSERT:
+19:root=matrix.copy();
+TO:
+57
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+INSERT:
+22: final double sqrt=FastMath.sqrt(c[i][i]);
+TO:
+60
+
+DELETE:
+Original line: 26int ir=index[r];
+
+INSERT:
+26:c[j][i]*=inverse;
+TO:
+60
+
+DELETE:
+Original line: 28if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+
+DELETE:
+Original line: 32if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+
+DELETE:
+Original line: 40 final double sqrt=FastMath.sqrt(c[ir][ir]);
+
+DELETE:
+Original line: 41b[r][r]=sqrt;
+
+DELETE:
+Original line: 48for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 61for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+
+Following are 2th generated patches:
+Validating 70 patches...
+Tested:449 patches
+Compile failed:449 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/2.java
+Current actions:
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+11:int r=0;
+TO:
+6:int rank=0;
+
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+8:if(c[i][i]>=small){
+++rank;
+}
+TO:
+8
+
+DELETE:
+Original line: 9index[i]=i;
+
+INSERT:
+11:}
+
+TO:
+20
+
+INSERT:
+12:if(rank==0){
+throw new NonPositiveDefiniteMatrixException(c[0][0],0,small);
+}
+TO:
+20
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+15:for(int i=0;i<order;++i){
+if(c[i][i]<small){
+for(int j=i+1;j<order;++j){
+if(c[j][j]<-small){
+throw new NonPositiveDefiniteMatrixException(c[j][j],j,small);
+}
+}
+++rank;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[i][i]);
+b[i][i]=sqrt;
+ final double inverse=1/sqrt;
+for(int j=i+1;j<order;++j){
+ final double e=inverse*c[j][i];
+b[j][i]=e;
+c[j][j]-=e*e;
+for(int k=i+1;k<j;++k){
+ final double f=c[j][k]-e*b[k][i];
+c[j][k]=f;
+c[k][j]=f;
+}
+}
+}
+}
+TO:
+20
+
+UPDATE
+FROM:
+31:for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+TO:
+17:for(int j=i+1;j<order;++j){
+if(c[j][j]<-small){
+throw new NonPositiveDefiniteMatrixException(c[j][j],j,small);
+}
+}
+
+UPDATE
+FROM:
+32:if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+TO:
+18:if(c[j][j]<-small){
+throw new NonPositiveDefiniteMatrixException(c[j][j],j,small);
+}
+
+UPDATE
+FROM:
+33:throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+TO:
+19:throw new NonPositiveDefiniteMatrixException(c[j][j],j,small);
+
+UPDATE
+FROM:
+40: final double sqrt=FastMath.sqrt(c[ir][ir]);
+TO:
+25: final double sqrt=FastMath.sqrt(c[i][i]);
+
+UPDATE
+FROM:
+41:b[r][r]=sqrt;
+TO:
+26:b[i][i]=sqrt;
+
+UPDATE
+FROM:
+43:for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+TO:
+28:for(int j=i+1;j<order;++j){
+ final double e=inverse*c[j][i];
+b[j][i]=e;
+c[j][j]-=e*e;
+for(int k=i+1;k<j;++k){
+ final double f=c[j][k]-e*b[k][i];
+c[j][k]=f;
+c[k][j]=f;
+}
+}
+
+UPDATE
+FROM:
+46:b[i][r]=e;
+TO:
+30:b[j][i]=e;
+
+UPDATE
+FROM:
+47:c[ii][ii]-=e*e;
+TO:
+31:c[j][j]-=e*e;
+
+UPDATE
+FROM:
+50: final double f=c[ii][ij]-e*b[j][r];
+TO:
+33: final double f=c[j][k]-e*b[k][i];
+
+UPDATE
+FROM:
+52:c[ij][ii]=f;
+TO:
+34:c[j][k]=f;
+
+UPDATE
+FROM:
+51:c[ii][ij]=f;
+TO:
+35:c[k][j]=f;
+
+INSERT:
+40:this.rank=rank;
+TO:
+57
+
+UPDATE
+FROM:
+59:root=MatrixUtils.createRealMatrix(order,r);
+TO:
+41:root=MatrixUtils.createRealMatrix(order,rank);
+
+UPDATE
+FROM:
+61:for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+TO:
+43:for(int j=0;j<rank;++j){
+root.setEntry(i,j,b[i][j]);
+}
+
+DELETE:
+Original line: 58rank=r;
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:842 patches
+Compile failed:842 patches
+Compilation rate:0.0
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/3.java
+Current actions:
+UPDATE
+FROM:
+62:root.setEntry(index[i],j,b[i][j]);
+TO:
+62:root.setEntry(i,j,b[i][j]);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+62:root.setEntry(index[i],j,b[i][j]);
+TO:
+62:root.setEntry(i,j,b[i][j]);
+
+Following are 1th generated patches:
+Validating 123 patches...
+Tested:966 patches
+Compile failed:879 patches
+Compilation rate:0.09006211180124224
+PNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNPPPPPPPPNNPNNNNPPPPPPPPPPPPPNPPPPPPPNNNNNNNNNNNNNNNNNPPPNPPPNPPNNNPPNPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/4.java
+Current actions:
+INSERT:
+3:if(matrix.getRowDimension()!=matrix.getColumnDimension()){
+throw new NonSquareMatrixException(matrix.getRowDimension(),matrix.getColumnDimension());
+}
+TO:
+2
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+INSERT:
+9:for(int j=0;j<n;++j){
+double[] mColj=m.getColumnVector(j).toArray();
+int p=j;
+for(int i=j+1;i<n;++i){
+double cij=mColj[i];
+if(cij>mColj[p]){
+p=i;
+}
+}
+if(mColj[p]==0){
+rank--;
+if(rank==0){
+throw new NonPositiveDefiniteMatrixException(mColj[p],j,small);
+}
+continue;
+}
+if(p>j){
+ArrayUtils.swap(mColj,j,p);
+m.setColumnVector(j,ArrayUtils.toPrimitive(mColj));
+}
+ final double inv=1/mColj[j];
+mColj[j]=inv;
+m.setColumnVector(j,ArrayUtils.toPrimitive(mColj));
+for(int i=j+1;i<n;++i){
+mColj[i]*=inv;
+m.setColumnVector(i,ArrayUtils.toPrimitive(mColj));
+m.setEntry(i,j,-mColj[i]);
+}
+}
+TO:
+58
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+DELETE:
+Original line: 32if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+
+DELETE:
+Original line: 37loop=false;
+
+DELETE:
+Original line: 39else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+
+Following are 1th generated patches:
+Validating 20 patches...
+Current actions:
+INSERT:
+3:if(matrix.getRowDimension()!=matrix.getColumnDimension()){
+throw new NonSquareMatrixException(matrix.getRowDimension(),matrix.getColumnDimension());
+}
+TO:
+2
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+INSERT:
+6:RealMatrix m=matrix.copy();
+TO:
+10
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+UPDATE
+FROM:
+28:if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+TO:
+20:if(rank==0){
+throw new NonPositiveDefiniteMatrixException(mColj[p],j,small);
+}
+
+INSERT:
+33:mColj[i]*=inv;
+TO:
+56
+
+DELETE:
+Original line: 61for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+58:rank=r;
+TO:
+8:rank=n;
+
+DELETE:
+Original line: 32if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+
+Following are 3th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+3:if(matrix.getRowDimension()!=matrix.getColumnDimension()){
+throw new NonSquareMatrixException(matrix.getRowDimension(),matrix.getColumnDimension());
+}
+TO:
+2
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+UPDATE
+FROM:
+3: final int order=matrix.getRowDimension();
+TO:
+7: final int n=m.getRowDimension();
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 11int r=0;
+
+DELETE:
+Original line: 15int ii=index[i];
+
+INSERT:
+18:if(mColj[p]==0){
+rank--;
+if(rank==0){
+throw new NonPositiveDefiniteMatrixException(mColj[p],j,small);
+}
+continue;
+}
+TO:
+20
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+INSERT:
+35:m.setEntry(i,j,-mColj[i]);
+TO:
+56
+
+Following are 4th generated patches:
+Validating 168 patches...
+Tested:1560 patches
+Compile failed:1408 patches
+Compilation rate:0.09743589743589744
+NNNNNNNNNNNNNNNNNNNPPPPNNPNPNPNNNPPNPPNPPPNNNPNPNNNNNNPNNPNNPNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNPNNPNNNNNNNNPPPPPNNNNNPPNNNNPPNPNPPPNNPNPNPPPPNPNNNNPNPNNNPNNNNPPPPNNNNNPPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/5.java
+Current actions:
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:throw new NullArgumentException();
+TO:
+2
+
+UPDATE
+FROM:
+11:int r=0;
+TO:
+7:int rank=0;
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+8:RealMatrix root=null;
+TO:
+11
+
+DELETE:
+Original line: 9index[i]=i;
+
+INSERT:
+12:while(i<matrix.getRowDimension()&&matrix.getEntry(i,i)==0){
+++i;
+}
+TO:
+11
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+15:if(i==matrix.getRowDimension()){
+throw new NonPositiveDefiniteMatrixException(matrix.getEntry(i,i),i,small);
+}
+TO:
+20
+
+INSERT:
+18:double e=matrix.getEntry(i,i);
+TO:
+25
+
+INSERT:
+19: final double inverse=1/FastMath.sqrt(e);
+TO:
+25
+
+INSERT:
+20:root=MatrixUtils.createRealMatrix(matrix.getRowDimension(),rank+1);
+TO:
+25
+
+INSERT:
+21:root.setEntry(i,rank,inverse);
+TO:
+25
+
+INSERT:
+25:e=matrix.getEntry(j,i);
+TO:
+25
+
+INSERT:
+26:matrix.setEntry(j,i,b*e);
+TO:
+25
+
+INSERT:
+29:for(int k=i+1;k<matrix.getRowDimension();++k){
+e=matrix.getEntry(k,k);
+for(int j=k+1;j<matrix.getRowDimension();++j){
+matrix.setEntry(k,j,matrix.getEntry(k,j)-e*matrix.getEntry(k,i)*matrix.getEntry(i,j));
+}
+}
+TO:
+38
+
+INSERT:
+38:for(int i=0;i<order;++i){
+for(int j=i+1;j<order;++j){
+if(root.getEntry(i,j)<-small||root.getEntry(i,j)>small){
+throw new NonPositiveDefiniteMatrixException(root.getEntry(i,j),i,j,small);
+}
+}
+}
+TO:
+57
+
+INSERT:
+46:this.rank=rank;
+TO:
+64
+
+INSERT:
+47:this.root=root;
+TO:
+64
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:1949 patches
+Compile failed:1764 patches
+Compilation rate:0.09492047203694202
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNPPNPNPNPNNPNPNNPNNPPNNPPNNNNPPPPNPPNPNNPPNNNNPNNNNNPNPPNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/6.java
+Current actions:
+INSERT:
+4:if(order!=matrix.getColumnDimension()){
+throw new NonSquareMatrixException(order,matrix.getColumnDimension());
+}
+TO:
+3
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:if(order!=matrix.getColumnDimension()){
+throw new NonSquareMatrixException(order,matrix.getColumnDimension());
+}
+TO:
+3
+
+UPDATE
+FROM:
+7:int[] index=new int[order];
+TO:
+11: final int[] index=new int[order];
+
+UPDATE
+FROM:
+15:int ii=index[i];
+TO:
+20: final int ii=index[i];
+
+UPDATE
+FROM:
+16:int isi=index[swap[i]];
+TO:
+21: final int isi=index[ip[i]];
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+UPDATE
+FROM:
+18:swap[r]=i;
+TO:
+24:ip[r]=i;
+
+INSERT:
+28:s[r]=v;
+TO:
+26
+
+UPDATE
+FROM:
+27:if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+TO:
+29:if(v<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(v,ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+
+UPDATE
+FROM:
+40: final double sqrt=FastMath.sqrt(c[ir][ir]);
+TO:
+42: final double sqrt=FastMath.sqrt(v);
+
+INSERT:
+49:s[i]-=e*e;
+TO:
+46
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9: final double[] s=new double[order];
+TO:
+5
+
+UPDATE
+FROM:
+6:int[] swap=new int[order];
+TO:
+10: final int[] ip=new int[order];
+
+UPDATE
+FROM:
+7:int[] index=new int[order];
+TO:
+11: final int[] index=new int[order];
+
+UPDATE
+FROM:
+13:swap[r]=r;
+TO:
+17:ip[r]=r;
+
+INSERT:
+18:double v=c[index[r]][index[r]];
+TO:
+13
+
+UPDATE
+FROM:
+15:int ii=index[i];
+TO:
+20: final int ii=index[i];
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+INSERT:
+22:if(v<c[ii][ii]){
+v=c[ii][ii];
+ip[r]=i;
+}
+TO:
+16
+
+INSERT:
+28:s[r]=v;
+TO:
+26
+
+UPDATE
+FROM:
+27:if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+TO:
+29:if(v<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(v,ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+
+UPDATE
+FROM:
+40: final double sqrt=FastMath.sqrt(c[ir][ir]);
+TO:
+42: final double sqrt=FastMath.sqrt(v);
+
+DELETE:
+Original line: 47c[ii][ii]-=e*e;
+
+INSERT:
+49:s[i]-=e*e;
+TO:
+46
+
+Following are 2th generated patches:
+Validating 58 patches...
+Tested:2392 patches
+Compile failed:2145 patches
+Compilation rate:0.10326086956521739
+NNNNNNNNNNNNNNNNNNNNNPNNPPPNPNPPNNPNNNNNNNPPNPPPNNNNNPNPNNPNNNNNNNNNNNNNNPNPNPPPPPNPPNNNPNNNPNPNNNNNNNPNPNNNPNPNNPNPNPPNPNNNPNPPPNNPNPNNNNNNPNNNNPNNNNPNNNPNNNNNNNNNPNNNPNNNPPPPPPNNNNPPNNNPNNNNNNPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/7.java
+Current actions:
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+11: final double ejk=root.getEntry(j,k);
+TO:
+2
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+19:throw new NonPositiveDefiniteMatrixException(diag,i,small);
+TO:
+57
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:root=matrix.copy();
+TO:
+2
+
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+INSERT:
+4:rank=root.getColumnDimension();
+TO:
+2
+
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+INSERT:
+5:for(int j=0;j<rank;++j){
+for(int i=j+1;i<rank;++i){
+ final double cij=root.getEntry(i,j);
+ final double eij=cij/root.getEntry(j,j);
+root.setEntry(i,j,eij);
+for(int k=j+1;k<rank;++k){
+ final double ejk=root.getEntry(j,k);
+root.setEntry(i,k,root.getEntry(i,k)-eij*ejk);
+}
+}
+}
+TO:
+2
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 11int r=0;
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+16:for(int i=0;i<rank;++i){
+ final double diag=root.getEntry(i,i);
+if(FastMath.abs(diag)<small){
+throw new NonPositiveDefiniteMatrixException(diag,i,small);
+}
+}
+TO:
+57
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2987 patches
+Compile failed:2687 patches
+Compilation rate:0.1004352192835621
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNPNNPPPPPNPPNPPPNPNNPNPNNPPNPNPPPNNPNNPPNNNNNNNPNNNNPNNNPNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNNPNNNPNPPNNNNPNNNNNNNNPNPNNNNNNNNNNNNNNNNNPPNNNPPPNNNNNNNNNNNNNNNPNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/8.java
+Current actions:
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+3:rank=rectangularCholeskyDecomposition(matrix,small);
+TO:
+2
+
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+INSERT:
+4:root=matrix.getSubMatrix(0,rank-1,0,rank-1);
+TO:
+2
+
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 11int r=0;
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 1th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+3:rank=rectangularCholeskyDecomposition(matrix,small);
+TO:
+2
+
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+INSERT:
+4:root=matrix.getSubMatrix(0,rank-1,0,rank-1);
+TO:
+2
+
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 11int r=0;
+
+DELETE:
+Original line: 13swap[r]=r;
+
+DELETE:
+Original line: 15int ii=index[i];
+
+DELETE:
+Original line: 16int isi=index[swap[i]];
+
+DELETE:
+Original line: 17if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+DELETE:
+Original line: 28if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+
+DELETE:
+Original line: 31for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+
+DELETE:
+Original line: 36++r;
+
+DELETE:
+Original line: 37loop=false;
+
+DELETE:
+Original line: 39else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 2th generated patches:
+Validating 24 patches...
+Current actions:
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 21if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+
+DELETE:
+Original line: 36++r;
+
+DELETE:
+Original line: 40 final double sqrt=FastMath.sqrt(c[ir][ir]);
+
+DELETE:
+Original line: 47c[ii][ii]-=e*e;
+
+DELETE:
+Original line: 51c[ii][ij]=f;
+
+DELETE:
+Original line: 52c[ij][ii]=f;
+
+DELETE:
+Original line: 62root.setEntry(index[i],j,b[i][j]);
+
+Following are 3th generated patches:
+Validating 8 patches...
+Current actions:
+DELETE:
+Original line: 7int[] index=new int[order];
+
+DELETE:
+Original line: 11int r=0;
+
+DELETE:
+Original line: 13swap[r]=r;
+
+DELETE:
+Original line: 15int ii=index[i];
+
+DELETE:
+Original line: 22int tmp=index[r];
+
+DELETE:
+Original line: 23index[r]=index[swap[r]];
+
+DELETE:
+Original line: 24index[swap[r]]=tmp;
+
+DELETE:
+Original line: 26int ir=index[r];
+
+DELETE:
+Original line: 29throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+
+DELETE:
+Original line: 31for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+
+DELETE:
+Original line: 37loop=false;
+
+DELETE:
+Original line: 39else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+
+Following are 4th generated patches:
+Validating 12 patches...
+Current actions:
+DELETE:
+Original line: 8for(int i=0;i<order;++i){
+index[i]=i;
+}
+
+DELETE:
+Original line: 15int ii=index[i];
+
+DELETE:
+Original line: 16int isi=index[swap[i]];
+
+DELETE:
+Original line: 18swap[r]=i;
+
+DELETE:
+Original line: 27if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+
+DELETE:
+Original line: 45 final double e=inverse*c[ii][ir];
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Tested:3197 patches
+Compile failed:2866 patches
+Compilation rate:0.10353456365342509
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNPNNNNNNNNNNPNNNNNPNPPPPPPPPNNNNNNPPNPPPPNPNPNNNNNNNNNNNNNNNNPNNPPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNPPNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/9.java
+Current actions:
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+4:rank=order;
+TO:
+3
+
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+INSERT:
+7: final double d=root.getEntry(i,i);
+TO:
+8
+
+UPDATE
+FROM:
+31:for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+TO:
+9:for(int j=i;j<order;++j){
+ final double c=root.getEntry(j,j);
+if(c<-small){
+throw new NonPositiveDefiniteMatrixException(c,j,small);
+}
+}
+
+INSERT:
+11:if(c<-small){
+throw new NonPositiveDefiniteMatrixException(c,j,small);
+}
+TO:
+31
+
+UPDATE
+FROM:
+33:throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+TO:
+12:throw new NonPositiveDefiniteMatrixException(c,j,small);
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+15:++rank;
+TO:
+35
+
+UPDATE
+FROM:
+40: final double sqrt=FastMath.sqrt(c[ir][ir]);
+TO:
+18: final double sqrt=FastMath.sqrt(d);
+
+INSERT:
+19:root.setEntry(i,i,sqrt);
+TO:
+40
+
+INSERT:
+21:for(int j=i+1;j<order;++j){
+root.setEntry(i,j,inverse*root.getEntry(j,i));
+root.setEntry(j,i,0);
+}
+TO:
+42
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 4 final double[][] c=matrix.getData();
+
+DELETE:
+Original line: 5 final double[][] b=new double[order][order];
+
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+7: final double d=root.getEntry(i,i);
+TO:
+8
+
+INSERT:
+8:if(d<small){
+for(int j=i;j<order;++j){
+ final double c=root.getEntry(j,j);
+if(c<-small){
+throw new NonPositiveDefiniteMatrixException(c,j,small);
+}
+}
+++rank;
+}
+TO:
+8
+
+UPDATE
+FROM:
+31:for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+TO:
+9:for(int j=i;j<order;++j){
+ final double c=root.getEntry(j,j);
+if(c<-small){
+throw new NonPositiveDefiniteMatrixException(c,j,small);
+}
+}
+
+DELETE:
+Original line: 9index[i]=i;
+
+DELETE:
+Original line: 11int r=0;
+
+UPDATE
+FROM:
+33:throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+TO:
+12:throw new NonPositiveDefiniteMatrixException(c,j,small);
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+UPDATE
+FROM:
+40: final double sqrt=FastMath.sqrt(c[ir][ir]);
+TO:
+18: final double sqrt=FastMath.sqrt(d);
+
+INSERT:
+19:root.setEntry(i,i,sqrt);
+TO:
+40
+
+INSERT:
+21:for(int j=i+1;j<order;++j){
+root.setEntry(i,j,inverse*root.getEntry(j,i));
+root.setEntry(j,i,0);
+}
+TO:
+42
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 59root=MatrixUtils.createRealMatrix(order,r);
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 2th generated patches:
+Validating 45 patches...
+Tested:3623 patches
+Compile failed:3292 patches
+Compilation rate:0.09136075075903947
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/10.java
+Current actions:
+DELETE:
+Original line: 3 final int order=matrix.getRowDimension();
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 6int[] swap=new int[order];
+
+DELETE:
+Original line: 7int[] index=new int[order];
+
+INSERT:
+10:for(int i=0;i<matrix.getRowDimension();++i){
+for(int j=i;j<matrix.getColumnDimension();++j){
+ final double entry=matrix.getEntry(i,j);
+if(entry<0){
+throw new NonPositiveDefiniteMatrixException(entry,i,j);
+}
+}
+}
+TO:
+10
+
+DELETE:
+Original line: 12for(boolean loop=true;loop;){
+swap[r]=r;
+for(int i=r+1;i<order;++i){
+int ii=index[i];
+int isi=index[swap[i]];
+if(c[ii][ii]>c[isi][isi]){
+swap[r]=i;
+}
+}
+if(swap[r]!=r){
+int tmp=index[r];
+index[r]=index[swap[r]];
+index[swap[r]]=tmp;
+}
+int ir=index[r];
+if(c[ir][ir]<small){
+if(r==0){
+throw new NonPositiveDefiniteMatrixException(c[ir][ir],ir,small);
+}
+for(int i=r;i<order;++i){
+if(c[index[i]][index[i]]<-small){
+throw new NonPositiveDefiniteMatrixException(c[index[i]][index[i]],i,small);
+}
+}
+++r;
+loop=false;
+}
+else{
+ final double sqrt=FastMath.sqrt(c[ir][ir]);
+b[r][r]=sqrt;
+ final double inverse=1/sqrt;
+for(int i=r+1;i<order;++i){
+ final int ii=index[i];
+ final double e=inverse*c[ii][ir];
+b[i][r]=e;
+c[ii][ii]-=e*e;
+for(int j=r+1;j<i;++j){
+ final int ij=index[j];
+ final double f=c[ii][ij]-e*b[j][r];
+c[ii][ij]=f;
+c[ij][ii]=f;
+}
+}
+loop=++r<order;
+}
+}
+
+INSERT:
+19:rank=matrix.getColumnDimension();
+TO:
+57
+
+INSERT:
+22: final double entry=matrix.getEntry(i,j);
+TO:
+57
+
+INSERT:
+23:matrix.setEntry(i,j,entry-matrix.getEntry(j,j)*matrix.getEntry(i,j));
+TO:
+57
+
+INSERT:
+27:throw new NonPositiveDefiniteMatrixException(entry,i,small);
+TO:
+57
+
+DELETE:
+Original line: 58rank=r;
+
+DELETE:
+Original line: 60for(int i=0;i<order;++i){
+for(int j=0;j<r;++j){
+root.setEntry(index[i],j,b[i][j]);
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:4017 patches
+Compile failed:3652 patches
+Compilation rate:0.0908638287279064
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNPNNNNPPPPPPNNNPPNNNPPPPPPPNNNNNPNPPPPPNNPPNNNNNNNNNPNPNNNNNNNNPNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/math_21/11.java
+Current actions:
+UPDATE
+FROM:
+3: final int order=matrix.getRowDimension();
+TO:
+3:int order=matrix.getRowDimension();
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+3: final int order=matrix.getRowDimension();
+TO:
+3:int order=matrix.getRowDimension();
+
+UPDATE
+FROM:
+5: final double[][] b=new double[order][order];
+TO:
+5:double[][] b=new double[order][order];
+
+Following are 1th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+4: final double[][] c=matrix.getData();
+TO:
+4:double[][] c=matrix.getData();
+
+UPDATE
+FROM:
+5: final double[][] b=new double[order][order];
+TO:
+5:double[][] b=new double[order][order];
+
+Following are 2th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+3: final int order=matrix.getRowDimension();
+TO:
+3:int order=matrix.getRowDimension();
+
+UPDATE
+FROM:
+4: final double[][] c=matrix.getData();
+TO:
+4:double[][] c=matrix.getData();
+
+UPDATE
+FROM:
+5: final double[][] b=new double[order][order];
+TO:
+5:double[][] b=new double[order][order];
+
+Following are 3th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+3: final int order=matrix.getRowDimension();
+TO:
+3:int order=matrix.getRowDimension();
+
+UPDATE
+FROM:
+4: final double[][] c=matrix.getData();
+TO:
+4:double[][] c=matrix.getData();
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+UPDATE
+FROM:
+4: final double[][] c=matrix.getData();
+TO:
+4:double[][] c=matrix.getData();
+
+Tested:4028 patches
+Compile failed:3652 patches
+Compilation rate:0.09334657398212512
+PPPPPPPPPPP
+Finish : math-21 > patch : 0 | Start : Sun Apr 07 21:09:05 HKT 2024 | End : 2024.04.07 AD at 21:16:57 HKT

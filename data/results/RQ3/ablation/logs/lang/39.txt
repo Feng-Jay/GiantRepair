@@ -1,0 +1,2882 @@
+Repair : lang_39
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/0.java
+Current actions:
+INSERT:
+15:boolean[] noMoreMatchesForSearchIndex=new boolean[searchLength];
+TO:
+14
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForSearchIndex[i]||noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 1th generated patches:
+Validating 52 patches...
+Current actions:
+INSERT:
+15:boolean[] noMoreMatchesForSearchIndex=new boolean[searchLength];
+TO:
+14
+
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForSearchIndex[i]||noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+62:noMoreMatchesForSearchIndex[i]=true;
+
+Following are 2th generated patches:
+Validating 54 patches...
+Current actions:
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+62:noMoreMatchesForSearchIndex[i]=true;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:boolean[] noMoreMatchesForSearchIndex=new boolean[searchLength];
+TO:
+14
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+62:noMoreMatchesForSearchIndex[i]=true;
+
+Following are 4th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:boolean[] noMoreMatchesForSearchIndex=new boolean[searchLength];
+TO:
+14
+
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForSearchIndex[i]||noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Tested:114 patches
+Compile failed:52 patches
+Compilation rate:0.543859649122807
+NNNPPPPNNNNNPPPPNPPNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNPPNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNPPPPPPNNNNPPPPPPNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/1.java
+Tested:114 patches
+Compile failed:52 patches
+Compilation rate:0.543859649122807
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/2.java
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:boolean noMoreMatchesForReplIndex[]=new boolean[searchLength];
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:boolean noMoreMatchesForReplIndex[]=new boolean[searchLength];
+
+Following are 0th generated patches:
+Validating 1 patches...
+Tested:116 patches
+Compile failed:52 patches
+Compilation rate:0.5517241379310345
+PP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/3.java
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+34:}
+
+TO:
+47
+
+INSERT:
+62:String result=new String(newText[textLength]);
+TO:
+74
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:char[][] newText=new char[text.length()+1];
+TO:
+14
+
+DELETE:
+Original line: 18for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+INSERT:
+28:for(int i=0;i<=text.length();i++){
+newText[i]=new char[text.length()+increase];
+}
+TO:
+44
+
+INSERT:
+33:newText[textIndex+1][i]=text.charAt(i);
+TO:
+47
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+INSERT:
+34:}
+
+TO:
+47
+
+INSERT:
+35:for(int i=0;i<replacementList[replaceIndex].length();i++){
+newText[textIndex+1][textIndex+1+i]=replacementList[replaceIndex].charAt(i);
+}
+TO:
+47
+
+DELETE:
+Original line: 45StringBuilder buf=new StringBuilder(text.length()+increase);
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+48:noMoreMatchesForReplIndex[i]=text.length();
+
+INSERT:
+60:newText[textLength][i]=text.charAt(i);
+TO:
+72
+
+INSERT:
+62:String result=new String(newText[textLength]);
+TO:
+74
+
+DELETE:
+Original line: 75String result=buf.toString();
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:515 patches
+Compile failed:388 patches
+Compilation rate:0.24660194174757283
+NNNNNNNNNNPPNPNPNPPNPNPPPPNPNPNPNNNNPNPNPPNPPPNPPPPNNNNNPNPNNNNNNNPNNNPNNPNNPNNNNNNPNNPNNNNNNNPPPPNNPPNNNNNPNNNPNPPNNNPNNPPNPNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNPNPPNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/4.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[int start=0;, {
+return text;
+}, if(textIndex==-1){
+return text;
+}, return text;, int increase=0;, {
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}, for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}, int greater=replacementList[i].length()-searchList[i].length();, int textIndex=-1;, int replaceIndex=-1;, int tempIndex=-1;, for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}, {
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}, {
+continue;
+}, if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}, continue;, {
+noMoreMatchesForReplIndex[i]=true;
+}, if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}, noMoreMatchesForReplIndex[i]=true;]
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+2:private static String replaceEach(String text,String[] searchList,String[] replacementList,boolean repeat,int timeToLive){
+if(text==null||text.length()==0||searchList==null||searchList.length==0||replacementList==null||replacementList.length==0){
+return text;
+}
+if(timeToLive<0){
+throw new IllegalStateException("TimeToLive of "+timeToLive+" is less than 0: "+text);
+}
+int searchLength=searchList.length;
+int replacementLength=replacementList.length;
+if(searchLength!=replacementLength){
+throw new IllegalArgumentException("Search and Replace array lengths don't match: "+searchLength+" vs "+replacementLength);
+}
+boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+int textIndex=-1;
+int replaceIndex=-1;
+int tempIndex=-1;
+int start=0;
+for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i],start);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+if(textIndex==-1){
+return text;
+}
+int increase=0;
+for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+increase=Math.min(increase,text.length()/5);
+StringBuilder buf=new StringBuilder(text.length()+increase);
+while(textIndex!=-1){
+for(int i=start;i<textIndex;i++){
+buf.append(text.charAt(i));
+}
+buf.append(replacementList[replaceIndex]);
+start=textIndex+searchList[replaceIndex].length();
+textIndex=-1;
+replaceIndex=-1;
+tempIndex=-1;
+for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i],start);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+}
+int textLength=text.length();
+for(int i=start;i<textLength;i++){
+buf.append(text.charAt(i));
+}
+String result=buf.toString();
+if(!repeat){
+return result;
+}
+return replaceEach(result,searchList,replacementList,repeat,timeToLive-1);
+}
+TO:
+1
+
+DELETE:
+Original line: 15int textIndex=-1;
+
+DELETE:
+Original line: 16int replaceIndex=-1;
+
+DELETE:
+Original line: 17int tempIndex=-1;
+
+DELETE:
+Original line: 18for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+23:tempIndex=text.indexOf(searchList[i],start);
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+DELETE:
+Original line: 36int start=0;
+
+DELETE:
+Original line: 37int increase=0;
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+23:tempIndex=text.indexOf(searchList[i],start);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:916 patches
+Compile failed:785 patches
+Compilation rate:0.14301310043668122
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/5.java
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+int tempIndex;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+1 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+StringBuilder buf=new StringBuilder(text.length());
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+3 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+buf.append(text.charAt(start));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+4 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+5 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    for (int i=0; i < searchList.length; i++) {
+    }
+    increase=Math.min(increase,text.length() / 5);
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+6 th patch/200
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:45:36 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+36:int start=0;
+TO:
+18:int start;
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+DELETE:
+Original line: 44increase=Math.min(increase,text.length()/5);
+
+Following are 1th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+UPDATE
+FROM:
+47:for(int i=start;i<textIndex;i++){
+buf.append(text.charAt(i));
+}
+TO:
+39:for(start=0;start<textIndex;start++){
+buf.append(text.charAt(start));
+}
+
+UPDATE
+FROM:
+48:buf.append(text.charAt(i));
+TO:
+40:buf.append(text.charAt(start));
+
+DELETE:
+Original line: 44increase=Math.min(increase,text.length()/5);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+UPDATE
+FROM:
+47:for(int i=start;i<textIndex;i++){
+buf.append(text.charAt(i));
+}
+TO:
+39:for(start=0;start<textIndex;start++){
+buf.append(text.charAt(start));
+}
+
+Following are 3th generated patches:
+Validating 14 patches...
+Current actions:
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+Following are 4th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+45:StringBuilder buf=new StringBuilder(text.length()+increase);
+TO:
+37:StringBuilder buf=new StringBuilder(text.length());
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+UPDATE
+FROM:
+48:buf.append(text.charAt(i));
+TO:
+40:buf.append(text.charAt(start));
+
+DELETE:
+Original line: 44increase=Math.min(increase,text.length()/5);
+
+Tested:1326 patches
+Compile failed:1167 patches
+Compilation rate:0.11990950226244344
+NNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPPPPPNNNNNNNNNNPNNNNNNNPPNPPNNNNNNNPPPPNNPNPNPNNNNNNPNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/6.java
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+Following are 0th generated patches:
+Validating 92 patches...
+Current actions:
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+21:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 1th generated patches:
+Validating 60 patches...
+Current actions:
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 2th generated patches:
+Validating 60 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+INSERT:
+15:String[] textToReplace=new String[searchLength];
+TO:
+14
+
+INSERT:
+19:int start=0;
+TO:
+17
+
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+21:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+24:tempIndex=text.indexOf(searchList[i],start);
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+26:noMoreMatchesForReplIndex[i]=searchList[i].length();
+
+DELETE:
+Original line: 36int start=0;
+
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+INSERT:
+19:int start=0;
+TO:
+17
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+26:noMoreMatchesForReplIndex[i]=searchList[i].length();
+
+DELETE:
+Original line: 36int start=0;
+
+Following are 4th generated patches:
+Validating 3 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+INSERT:
+15:String[] textToReplace=new String[searchLength];
+TO:
+14
+
+INSERT:
+19:int start=0;
+TO:
+17
+
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+21:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+24:tempIndex=text.indexOf(searchList[i],start);
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+26:noMoreMatchesForReplIndex[i]=searchList[i].length();
+
+DELETE:
+Original line: 36int start=0;
+
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+57:if(noMoreMatchesForReplIndex[i]>=searchList[i].length()||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+62:noMoreMatchesForReplIndex[i]=searchList[i].length();
+
+Tested:1708 patches
+Compile failed:1513 patches
+Compilation rate:0.11416861826697892
+NNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPNPPNPNNPNNNNPPNNNNNNNNNNNNNNPNPNNNPNNPNNPPNNNNNNNNNNNNPPNNPPPNPPNPNNNNNPNPNNPNPNNNNNPNNNNNNPPNNNNNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/7.java
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+19:if(noMoreMatchesForReplIndex[i]>=0||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 1th generated patches:
+Validating 59 patches...
+Current actions:
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+56:if(noMoreMatchesForReplIndex[i]>=0||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+Following are 2th generated patches:
+Validating 59 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+19:if(noMoreMatchesForReplIndex[i]>=0||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+24:noMoreMatchesForReplIndex[i]=-1;
+
+UPDATE
+FROM:
+56:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+56:if(noMoreMatchesForReplIndex[i]>=0||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+61:noMoreMatchesForReplIndex[i]=-1;
+
+Following are 3th generated patches:
+Validating 121 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+UPDATE
+FROM:
+19:if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+TO:
+19:if(noMoreMatchesForReplIndex[i]>=0||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+24:noMoreMatchesForReplIndex[i]=-1;
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+61:noMoreMatchesForReplIndex[i]=-1;
+
+Following are 4th generated patches:
+Validating 62 patches...
+Current actions:
+UPDATE
+FROM:
+14:boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+TO:
+14:int[] noMoreMatchesForReplIndex=new int[searchLength];
+
+UPDATE
+FROM:
+24:noMoreMatchesForReplIndex[i]=true;
+TO:
+24:noMoreMatchesForReplIndex[i]=-1;
+
+UPDATE
+FROM:
+61:noMoreMatchesForReplIndex[i]=true;
+TO:
+61:noMoreMatchesForReplIndex[i]=-1;
+
+Tested:2030 patches
+Compile failed:1748 patches
+Compilation rate:0.13891625615763548
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNPPPPNNPNNNNPNNNNPPNNNNNNNNNNPNNPNNNNPPNNNPPNNNNNNNNNNNNPPNNPPPNPPNPNNNPPNNNNPNNPNNNNNNNNPNNNPPNNNNNPPPNNNNNNNNNPPPPNPNNNNNNPNNNNPNPPPPPPPNNNPNNNNPPNNNPNPPNNNNNNNNNNNNNPNNNPNNPNPNPPPPPPPPPPNPPPPPPPPPNNNNPNNPNPPPPNNNPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/8.java
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+Following are 0th generated patches:
+Validating 25 patches...
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+UPDATE
+FROM:
+36:int start=0;
+TO:
+18:int start;
+
+INSERT:
+37:start=0;
+TO:
+35
+
+Following are 1th generated patches:
+Validating 10 patches...
+Current actions:
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+UPDATE
+FROM:
+36:int start=0;
+TO:
+18:int start;
+
+INSERT:
+37:start=0;
+TO:
+35
+
+Following are 2th generated patches:
+Validating 9 patches...
+Current actions:
+UPDATE
+FROM:
+36:int start=0;
+TO:
+18:int start;
+
+Following are 3th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+17:int tempIndex=-1;
+TO:
+17:int tempIndex;
+
+INSERT:
+37:start=0;
+TO:
+35
+
+Following are 4th generated patches:
+Validating 7 patches...
+Current actions:
+UPDATE
+FROM:
+16:int replaceIndex=-1;
+TO:
+16:int replaceIndex;
+
+UPDATE
+FROM:
+36:int start=0;
+TO:
+18:int start;
+
+Tested:2074 patches
+Compile failed:1791 patches
+Compilation rate:0.1364513018322083
+NNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/9.java
+Tested:2074 patches
+Compile failed:1791 patches
+Compilation rate:0.1364513018322083
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/10.java
+Current actions:
+Move
+FROM:
+Former Line 36:int start=0;
+TO:
+Current Line 2:Block
+
+Following are 0th generated patches:
+Validating 101 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    for (int i=0; i < searchList.length; i++) {
+    }
+    increase=Math.min(increase,text.length() / 5);
+StringBuilder buf=new StringBuilder(text.length());
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+7 th patch/101
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:48:02 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+StringBuilder buf=new StringBuilder(text.length());
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+8 th patch/101
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:48:02 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+      tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    for (int i=0; i < searchList.length; i++) {
+    }
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+9 th patch/101
+Trace:
+
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:48:02 HKT
+--------------- END -----------------
+Current actions:
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+23:tempIndex=text.indexOf(searchList[i],start);
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+DELETE:
+Original line: 44increase=Math.min(increase,text.length()/5);
+
+Following are 1th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//lang/lang_39_buggy/src/java/org/apache/commons/lang3/StringUtils.java
+SUCCESS
+//Following are generated patch:
+  private static String replaceEach(  String text,  String[] searchList,  String[] replacementList,  boolean repeat,  int timeToLive){
+    if (text == null || text.length() == 0 || searchList == null || searchList.length == 0 || replacementList == null || replacementList.length == 0) {
+      return text;
+    }
+    if (timeToLive < 0) {
+      throw new IllegalStateException("TimeToLive of " + timeToLive + " is less than 0: "+ text);
+    }
+    int searchLength=searchList.length;
+    int replacementLength=replacementList.length;
+    if (searchLength != replacementLength) {
+      throw new IllegalArgumentException("Search and Replace array lengths don't match: " + searchLength + " vs "+ replacementLength);
+    }
+    boolean[] noMoreMatchesForReplIndex=new boolean[searchLength];
+    int textIndex=-1;
+    int replaceIndex=-1;
+    int tempIndex=-1;
+    for (int i=0; i < searchLength; i++) {
+      if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+        continue;
+      }
+tempIndex=text.indexOf(searchList[i]);
+      if (tempIndex == -1) {
+        noMoreMatchesForReplIndex[i]=true;
+      }
+ else {
+        if (textIndex == -1 || tempIndex < textIndex) {
+          textIndex=tempIndex;
+          replaceIndex=i;
+        }
+      }
+    }
+    if (textIndex == -1) {
+      return text;
+    }
+    int start=0;
+    int increase=0;
+    StringBuilder buf=new StringBuilder(text.length() + increase);
+    while (textIndex != -1) {
+      for (int i=start; i < textIndex; i++) {
+        buf.append(text.charAt(i));
+      }
+      buf.append(replacementList[replaceIndex]);
+      start=textIndex + searchList[replaceIndex].length();
+      textIndex=-1;
+      replaceIndex=-1;
+      tempIndex=-1;
+      for (int i=0; i < searchLength; i++) {
+        if (noMoreMatchesForReplIndex[i] || searchList[i] == null || searchList[i].length() == 0 || replacementList[i] == null) {
+          continue;
+        }
+        tempIndex=text.indexOf(searchList[i],start);
+        if (tempIndex == -1) {
+          noMoreMatchesForReplIndex[i]=true;
+        }
+ else {
+          if (textIndex == -1 || tempIndex < textIndex) {
+            textIndex=tempIndex;
+            replaceIndex=i;
+          }
+        }
+      }
+    }
+    int textLength=text.length();
+    for (int i=start; i < textLength; i++) {
+      buf.append(text.charAt(i));
+    }
+    String result=buf.toString();
+    if (!repeat) {
+      return result;
+    }
+    return replaceEach(result,searchList,replacementList,repeat,timeToLive - 1);
+  }
+
+10 th patch/301
+Trace:
+UPDATEExpressionStmt;UPDATEAssign;MethodInv;MethodInvForVar(OTHER)
+START : 
+2024.04.05 AD at 13:43:20 HKT
+---------TIME : 
+2024.04.05 AD at 13:48:27 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+18:int start=0;
+TO:
+17
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+23:tempIndex=text.indexOf(searchList[i],start);
+
+DELETE:
+Original line: 36int start=0;
+
+DELETE:
+Original line: 37int increase=0;
+
+UPDATE
+FROM:
+45:StringBuilder buf=new StringBuilder(text.length()+increase);
+TO:
+37:StringBuilder buf=new StringBuilder(text.length());
+
+DELETE:
+Original line: 38for(int i=0;i<searchList.length;i++){
+int greater=replacementList[i].length()-searchList[i].length();
+if(greater>0){
+increase+=3*greater;
+}
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2542 patches
+Compile failed:2237 patches
+Compilation rate:0.11998426435877262
+NNNNNNNNNNNNNNNNPNNNPPPPNPNNNPNNNNNPNNNNPNNNNNNNNNNNNNPNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/11.java
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+27:if((textIndex=tempIndex)==-1||(tempIndex=text.indexOf(searchList[i],textIndex+1))==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+26
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+32:if(textIndex==0){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+63
+
+Following are 2th generated patches:
+Validating 104 patches...
+Current actions:
+INSERT:
+37:if(noMoreMatchesForReplIndex[i]){
+break;
+}
+TO:
+63
+
+Following are 3th generated patches:
+Validating 80 patches...
+Current actions:
+INSERT:
+40:if(text.charAt(j)==searchList[i].charAt(0)){
+replaceIndex=-1;
+break;
+}
+TO:
+63
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+58:noMoreMatchesForReplIndex[i]=true;
+TO:
+63
+
+INSERT:
+72:break;
+TO:
+63
+
+INSERT:
+78:if(text.charAt(textIndex+j)!=searchList[i].charAt(j)){
+replaceIndex=-1;
+break;
+}
+TO:
+63
+
+INSERT:
+84:if(replaceIndex>=0){
+text=text.substring(0,textIndex)+replacementList[replaceIndex]+text.substring(textIndex+searchList[i].length());
+}
+TO:
+63
+
+UPDATE
+FROM:
+45:StringBuilder buf=new StringBuilder(text.length()+increase);
+TO:
+95:StringBuilder buf=new StringBuilder(text.length());
+
+Tested:3279 patches
+Compile failed:2974 patches
+Compilation rate:0.09301616346447088
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/12.java
+Current actions:
+INSERT:
+15:int textIndex[]=new int[searchLength];
+TO:
+14
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+27:if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+TO:
+29:if(textIndex[i]==-1||tempIndex<textIndex[i]){
+textIndex[i]=tempIndex;
+replaceIndex[i]=i;
+}
+
+Following are 1th generated patches:
+Validating 199 patches...
+Current actions:
+UPDATE
+FROM:
+33:if(textIndex==-1){
+return text;
+}
+TO:
+35:if(textIndex[0]==-1){
+return text;
+}
+
+Following are 2th generated patches:
+Validating 16 patches...
+Current actions:
+INSERT:
+60:if(textIndex[j]==-1){
+continue;
+}
+TO:
+54
+
+Following are 3th generated patches:
+Validating 98 patches...
+Current actions:
+INSERT:
+63:if(textIndex[j]<textIndex[searchIndex]){
+searchIndex=j;
+replaceIndex2=j;
+}
+TO:
+58
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+68:if(replaceIndex[j]<replaceIndex[searchIndex]){
+searchIndex=j;
+replaceIndex2=j;
+}
+TO:
+58
+
+Tested:3982 patches
+Compile failed:3669 patches
+Compilation rate:0.07860371672526369
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPPNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/13.java
+Current actions:
+DELETE:
+Original line: 15int textIndex=-1;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+23:if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+22:if(textIndex[i]==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+Following are 1th generated patches:
+Validating 21 patches...
+Current actions:
+UPDATE
+FROM:
+33:if(textIndex==-1){
+return text;
+}
+TO:
+29:if(textIndex[0]==-1){
+return text;
+}
+
+Following are 2th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+44:if(index==-1){
+continue;
+}
+TO:
+45
+
+DELETE:
+Original line: 57continue;
+
+Following are 3th generated patches:
+Validating 58 patches...
+Current actions:
+INSERT:
+15:int textIndex[]=new int[searchLength];
+TO:
+14
+
+DELETE:
+Original line: 15int textIndex=-1;
+
+INSERT:
+16:int replaceIndex[]=new int[searchLength];
+TO:
+14
+
+DELETE:
+Original line: 16int replaceIndex=-1;
+
+DELETE:
+Original line: 17int tempIndex=-1;
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+21:textIndex[i]=text.indexOf(searchList[i]);
+
+UPDATE
+FROM:
+23:if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+22:if(textIndex[i]==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+INSERT:
+26:replaceIndex[i]=i;
+TO:
+26
+
+DELETE:
+Original line: 27if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+
+UPDATE
+FROM:
+33:if(textIndex==-1){
+return text;
+}
+TO:
+29:if(textIndex[0]==-1){
+return text;
+}
+
+INSERT:
+42:for(int i=0;i<searchList.length;i++){
+int index=textIndex[i];
+if(index==-1){
+continue;
+}
+for(int j=start;j<index;j++){
+buf.append(text.charAt(j));
+}
+buf.append(replacementList[replaceIndex[i]]);
+start=index+searchList[i].length();
+}
+TO:
+45
+
+DELETE:
+Original line: 46while(textIndex!=-1){
+for(int i=start;i<textIndex;i++){
+buf.append(text.charAt(i));
+}
+buf.append(replacementList[replaceIndex]);
+start=textIndex+searchList[replaceIndex].length();
+textIndex=-1;
+replaceIndex=-1;
+tempIndex=-1;
+for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i],start);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:int replaceIndex[]=new int[searchLength];
+TO:
+14
+
+UPDATE
+FROM:
+22:tempIndex=text.indexOf(searchList[i]);
+TO:
+21:textIndex[i]=text.indexOf(searchList[i]);
+
+INSERT:
+26:replaceIndex[i]=i;
+TO:
+26
+
+DELETE:
+Original line: 28textIndex=tempIndex;
+
+UPDATE
+FROM:
+33:if(textIndex==-1){
+return text;
+}
+TO:
+29:if(textIndex[0]==-1){
+return text;
+}
+
+INSERT:
+42:for(int i=0;i<searchList.length;i++){
+int index=textIndex[i];
+if(index==-1){
+continue;
+}
+for(int j=start;j<index;j++){
+buf.append(text.charAt(j));
+}
+buf.append(replacementList[replaceIndex[i]]);
+start=index+searchList[i].length();
+}
+TO:
+45
+
+DELETE:
+Original line: 50buf.append(replacementList[replaceIndex]);
+
+DELETE:
+Original line: 55for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i],start);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+Tested:4462 patches
+Compile failed:4109 patches
+Compilation rate:0.07911250560286867
+NNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPPPPPPPNNNNPPNNPNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNPNNPPNNNNNNPPPPNNNNNNNPNPNPNPNPPPNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/14.java
+Current actions:
+Move
+FROM:
+Former Line 36:int start=0;
+TO:
+Current Line 2:Block
+
+Following are 0th generated patches:
+Validating 21 patches...
+Current actions:
+INSERT:
+18:int start=0;
+TO:
+17
+
+INSERT:
+19:int increase=0;
+TO:
+17
+
+UPDATE
+FROM:
+18:for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+TO:
+20:for(int i=0;i<searchList.length;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+DELETE:
+Original line: 36int start=0;
+
+DELETE:
+Original line: 37int increase=0;
+
+Following are 1th generated patches:
+Validating 54 patches...
+Current actions:
+INSERT:
+19:int increase=0;
+TO:
+17
+
+UPDATE
+FROM:
+18:for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+TO:
+20:for(int i=0;i<searchList.length;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+DELETE:
+Original line: 37int increase=0;
+
+Following are 2th generated patches:
+Validating 53 patches...
+Current actions:
+INSERT:
+18:int start=0;
+TO:
+17
+
+INSERT:
+19:int increase=0;
+TO:
+17
+
+UPDATE
+FROM:
+18:for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+TO:
+20:for(int i=0;i<searchList.length;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+DELETE:
+Original line: 36int start=0;
+
+DELETE:
+Original line: 37int increase=0;
+
+Following are 3th generated patches:
+Validating 53 patches...
+Current actions:
+INSERT:
+19:int increase=0;
+TO:
+17
+
+UPDATE
+FROM:
+18:for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+TO:
+20:for(int i=0;i<searchList.length;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+DELETE:
+Original line: 37int increase=0;
+
+Following are 4th generated patches:
+Validating 52 patches...
+Current actions:
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+Tested:4676 patches
+Compile failed:4297 patches
+Compilation rate:0.08105218135158256
+PPPPPPNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNPNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNPPNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNPNNNNNNNNNNPNNNNNNNNNNPNNPNNNNNNNNNNNNNNNPPNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/15.java
+Current actions:
+DELETE:
+Original line: 3if(text==null||text.length()==0||searchList==null||searchList.length==0||replacementList==null||replacementList.length==0){
+return text;
+}
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 4return text;
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 3if(text==null||text.length()==0||searchList==null||searchList.length==0||replacementList==null||replacementList.length==0){
+return text;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Tested:4680 patches
+Compile failed:4297 patches
+Compilation rate:0.08183760683760684
+PPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/16.java
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+Following are 0th generated patches:
+Validating 160 patches...
+Current actions:
+DELETE:
+Original line: 19if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+DELETE:
+Original line: 24noMoreMatchesForReplIndex[i]=true;
+
+DELETE:
+Original line: 26else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+Following are 1th generated patches:
+Validating 4 patches...
+Current actions:
+DELETE:
+Original line: 27if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+DELETE:
+Original line: 33if(textIndex==-1){
+return text;
+}
+
+Following are 3th generated patches:
+Validating 2 patches...
+Current actions:
+DELETE:
+Original line: 19if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+
+DELETE:
+Original line: 22tempIndex=text.indexOf(searchList[i]);
+
+DELETE:
+Original line: 23if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+DELETE:
+Original line: 27if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+
+DELETE:
+Original line: 34return text;
+
+Following are 4th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 18for(int i=0;i<searchLength;i++){
+if(noMoreMatchesForReplIndex[i]||searchList[i]==null||searchList[i].length()==0||replacementList[i]==null){
+continue;
+}
+tempIndex=text.indexOf(searchList[i]);
+if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+else{
+if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+}
+}
+
+Tested:4844 patches
+Compile failed:4324 patches
+Compilation rate:0.10734929810074319
+NNNNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPNNNNNNNNPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPNNNNNNPPPPPPPPPPPPPPPPPNPPPPPPPPPNPNNNNPPPPPPPPPPPPPPPPPPPPPPPPPPNPPPPPPPPPN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/17.java
+Current actions:
+UPDATE
+FROM:
+15:int textIndex=-1;
+TO:
+15:int textIndex;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+64:if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+TO:
+29:if(tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+35:if(textIndex!=-1){
+for(int i=start;i<textIndex;i++){
+text.charAt(i);
+}
+text.replace(textIndex,textIndex+searchList[0].length(),replacementList[0]);
+start=textIndex+replacementList[0].length();
+}
+TO:
+69
+
+Following are 2th generated patches:
+Validating 50 patches...
+Current actions:
+DELETE:
+Original line: 28textIndex=tempIndex;
+
+INSERT:
+37:text.charAt(i);
+TO:
+69
+
+INSERT:
+39:text.replace(textIndex,textIndex+searchList[0].length(),replacementList[0]);
+TO:
+69
+
+DELETE:
+Original line: 40if(greater>0){
+increase+=3*greater;
+}
+
+DELETE:
+Original line: 45StringBuilder buf=new StringBuilder(text.length()+increase);
+
+DELETE:
+Original line: 47for(int i=start;i<textIndex;i++){
+buf.append(text.charAt(i));
+}
+
+DELETE:
+Original line: 71int textLength=text.length();
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:5290 patches
+Compile failed:4689 patches
+Compilation rate:0.11361058601134215
+NNNNNNNNNNNNNNNNPNNNNNNNNPPNNNNNNNPNPPPPPPNPPPPNNNNPPPNPPPPPNPPPPNNPPPNNPPPPNNNPNNPNPPNPPPPPPNPPPNPNPPPPPPPNNPPNPPPPPPPNPPPPNPPPNNPNPPPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNPNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/lang_39/18.java
+Current actions:
+DELETE:
+Original line: 15int textIndex=-1;
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+23:if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+23:if(tempIndex[i]==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+Following are 1th generated patches:
+Validating 22 patches...
+Current actions:
+UPDATE
+FROM:
+33:if(textIndex==-1){
+return text;
+}
+TO:
+31:if(textIndex[0]==-1){
+return text;
+}
+
+Following are 2th generated patches:
+Validating 15 patches...
+Current actions:
+UPDATE
+FROM:
+60:if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+58:if(tempIndex[i]==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+Following are 3th generated patches:
+Validating 22 patches...
+Current actions:
+UPDATE
+FROM:
+64:if(textIndex==-1||tempIndex<textIndex){
+textIndex=tempIndex;
+replaceIndex=i;
+}
+TO:
+62:if(textIndex[i]==-1||tempIndex[i]<textIndex[i]){
+textIndex[i]=tempIndex[i];
+replaceIndex[i]=i;
+}
+
+Following are 4th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+23:if(tempIndex==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+TO:
+23:if(tempIndex[i]==-1){
+noMoreMatchesForReplIndex[i]=true;
+}
+
+INSERT:
+27:textIndex[i]=tempIndex[i];
+TO:
+26
+
+INSERT:
+28:replaceIndex[i]=i;
+TO:
+26
+
+UPDATE
+FROM:
+59:tempIndex=text.indexOf(searchList[i],start);
+TO:
+57:tempIndex[i]=text.indexOf(searchList[i],start);
+
+UPDATE
+FROM:
+65:textIndex=tempIndex;
+TO:
+63:textIndex[i]=tempIndex[i];
+
+UPDATE
+FROM:
+66:replaceIndex=i;
+TO:
+64:replaceIndex[i]=i;
+
+Tested:5749 patches
+Compile failed:5145 patches
+Compilation rate:0.10506174986954253
+NNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Finish : lang-39 > patch : 10 | Start : Fri Apr 05 13:43:20 HKT 2024 | End : 2024.04.05 AD at 13:55:09 HKT

@@ -1,0 +1,2278 @@
+Repair : closure_125
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/0.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/0.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 21 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+1 th patch/21
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:04:58 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+10:if(resultType.isUnknownType()){
+resultType=unknownType.getFunType(fnType.getArity(),fnType.isConstructor(),fnType.isLoose());
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+13:ensureTyped(t,n,resultType);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+11:resultType=unknownType.getFunType(fnType.getArity(),fnType.isConstructor(),fnType.isLoose());
+TO:
+8
+
+INSERT:
+13:ensureTyped(t,n,resultType);
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:620 patches
+Compile failed:612 patches
+Compilation rate:0.012903225806451613
+NNNNNNNNNNNNNNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/1.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/1.java
+Tested:620 patches
+Compile failed:612 patches
+Compilation rate:0.012903225806451613
+
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/2.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/2.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[FunctionType fnType=type.toMaybeFunctionType();, if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}, {
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}, Node constructor=n.getFirstChild();, JSType type=getJSType(constructor).restrictByNotNullOrUndefined();, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, report(t,n,NOT_A_CONSTRUCTOR);, report(t,n,NOT_A_CONSTRUCTOR);]
+Following are 0th generated patches:
+Validating 23 patches...
+Current actions:
+INSERT:
+10:if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void visitNew(NodeTraversal t,Node n){
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}
+
+DELETE:
+Original line: 3Node constructor=n.getFirstChild();
+
+DELETE:
+Original line: 4JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+TO:
+4
+
+DELETE:
+Original line: 15else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+2:private void visitNew(NodeTraversal t,Node n){
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+if(type.isConstructor()){
+ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+}
+}
+}
+TO:
+1
+
+DELETE:
+Original line: 2{
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}
+
+DELETE:
+Original line: 3Node constructor=n.getFirstChild();
+
+DELETE:
+Original line: 4JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+
+DELETE:
+Original line: 6FunctionType fnType=type.toMaybeFunctionType();
+
+DELETE:
+Original line: 7if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+
+INSERT:
+11:ensureTyped(t,n,type.getNativeType(FUNCTION_TYPE));
+TO:
+4
+
+DELETE:
+Original line: 12ensureTyped(t,n);
+
+DELETE:
+Original line: 15else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:1229 patches
+Compile failed:1218 patches
+Compilation rate:0.008950366151342554
+NNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/3.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/3.java
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:ensureTyped(t,n,getNativeType(ARRAY_TYPE));
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:1631 patches
+Compile failed:1592 patches
+Compilation rate:0.023911710606989576
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNPNPNNPNPPNNPNNNNPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNPNNNPPNPPNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPNPNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/4.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/4.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+10:ensureTyped(t,n,instanceType==null?type.getConstructor().getInstanceType():instanceType);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:2038 patches
+Compile failed:1986 patches
+Compilation rate:0.02551521099116781
+NNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/5.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/5.java
+Current actions:
+UPDATE
+FROM:
+17:ensureTyped(t,n);
+TO:
+17:ensureTyped(t,n,type);
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+UPDATE
+FROM:
+17:ensureTyped(t,n);
+TO:
+17:ensureTyped(t,n,type);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2239 patches
+Compile failed:2183 patches
+Compilation rate:0.025011165698972757
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/6.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/6.java
+Current actions:
+INSERT:
+15:if(type.isSubtypeOf(getNativeType(ARRAY_TYPE))){
+JSType arrayType=type.toMaybeObjectType().getProp("length").getType();
+if(!arrayType.isSubtypeOf(getNativeType(NUMBER_TYPE))){
+report(t,n,MUST_BE_NUMBER,arrayType.toString());
+}
+if(!type.isSubtypeOf(getNativeType(STRING_OBJECT_TYPE))){
+report(t,n,MUST_BE_STRING_OBJECT,type.toString());
+}
+ensureTyped(t,n);
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 32 patches...
+Current actions:
+INSERT:
+15:if(type.isSubtypeOf(getNativeType(ARRAY_TYPE))){
+JSType arrayType=type.toMaybeObjectType().getProp("length").getType();
+if(!arrayType.isSubtypeOf(getNativeType(NUMBER_TYPE))){
+report(t,n,MUST_BE_NUMBER,arrayType.toString());
+}
+if(!type.isSubtypeOf(getNativeType(STRING_OBJECT_TYPE))){
+report(t,n,MUST_BE_STRING_OBJECT,type.toString());
+}
+ensureTyped(t,n);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+17:if(!arrayType.isSubtypeOf(getNativeType(NUMBER_TYPE))){
+report(t,n,MUST_BE_NUMBER,arrayType.toString());
+}
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:if(!arrayType.isSubtypeOf(getNativeType(NUMBER_TYPE))){
+report(t,n,MUST_BE_NUMBER,arrayType.toString());
+}
+TO:
+14
+
+INSERT:
+20:if(!type.isSubtypeOf(getNativeType(STRING_OBJECT_TYPE))){
+report(t,n,MUST_BE_STRING_OBJECT,type.toString());
+}
+TO:
+14
+
+Following are 4th generated patches:
+Validating 200 patches...
+Tested:2671 patches
+Compile failed:2615 patches
+Compilation rate:0.020965930363159864
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/7.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/7.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[report(t,n,NOT_A_CONSTRUCTOR);]
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+16:if(!type.isAllType()&&!type.isUnionType()&&!type.isUnknownType()){
+report(t,n,NOT_A_CONSTRUCTOR);
+}
+TO:
+15
+
+DELETE:
+Original line: 16report(t,n,NOT_A_CONSTRUCTOR);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:2872 patches
+Compile failed:2709 patches
+Compilation rate:0.05675487465181058
+PNNNNNNNNNNPPPPPNNNPNPPPNNPNNNNNNNNNNNNNNNNNNNNNPNNPNNNPNNNNNNNNPNNNNNNNNNNPPPPPPPNPPPPPNNPPPPPNNNPNNNNPPPPPPPPNNNNPPPPPPPPPPNNPPPPPPPPPPPPNPPNPPPPPPNPNPPPPNNNNPNNNPNPNNNNPPPPPPPPPPPPPPPPPPPPNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/8.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/8.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 31 patches...
+Current actions:
+INSERT:
+10:if(!instanceType.isUnknownType()){
+ensureTyped(t,n,instanceType);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+11:ensureTyped(t,n,instanceType);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+14:n.setType(getNativeType(UNKNOWN_TYPE));
+TO:
+8
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:3503 patches
+Compile failed:3303 patches
+Compilation rate:0.05709391949757351
+NNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPNPPNNPNNNNNNNNNNPPNNNNNNNNNNPNPNPPNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNNPNNNNNNNNNNNNNNNNPNNNNPPNNNNNNNNNNNPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/9.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/9.java
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+Following are 0th generated patches:
+Validating 134 patches...
+Current actions:
+INSERT:
+6:if(fnType==null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 8visitParameterList(t,n,fnType);
+
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+10:if(fnType.isConstructor()){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+TO:
+18
+
+Following are 2th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+6:if(fnType==null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+TO:
+4
+
+INSERT:
+10:if(fnType.isConstructor()){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+TO:
+18
+
+DELETE:
+Original line: 15else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4163 patches
+Compile failed:3933 patches
+Compilation rate:0.055248618784530384
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNPNNNPNNPPNNNNNPNNNNNNNPNNNNNNNNNNNNPPNNNNNNNNNNNNNNNPNNNNNPPNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/10.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/10.java
+Current actions:
+Wrap:
+MethodDeclaration
+On:
+[FunctionType fnType=type.toMaybeFunctionType();, if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}, {
+Node constructor=n.getFirstChild();
+JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+}, Node constructor=n.getFirstChild();, JSType type=getJSType(constructor).restrictByNotNullOrUndefined();, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, else{
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, {
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}, report(t,n,NOT_A_CONSTRUCTOR);, report(t,n,NOT_A_CONSTRUCTOR);]
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+10:if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+ensureTyped(t,n);
+}
+TO:
+4
+
+DELETE:
+Original line: 12ensureTyped(t,n);
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 11else{
+ensureTyped(t,n);
+}
+
+Following are 2th generated patches:
+Validating 1 patches...
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+ensureTyped(t,n);
+}
+TO:
+4
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:4566 patches
+Compile failed:4118 patches
+Compilation rate:0.09811651335961455
+NPPNNNNNNNNNNPPPNPNPNPNPPPNNPNNNNNNNNNNNNNNPNNPNNNPPPPPPNPPPPNPPPPNPNPPPPPPPNPPPPNNNNNNNNNNPPNPNNNPPNNPNPNNNPNNNNPPPPPPNNPPPNPNNNPPPPPPPPPPPPPPNNPPPNPNNNNPNPNPPPPNPPPNNPPPNNNPPPPNNPPPPPNPPPPNPPNPNPNPPPPPPNNNNNNNNNNNNNNNNPNNPNNNNNNPPPPPNNPPNNPNNNNNNNNPNPPPPPPPNPNNPPPPPPPPPPNPPPPPNNPPNPNNNNNNNNNNNPPNNNNNNNNNNNPPPPPPPNPNNPNPPPPPNPNPPPPPPPPPPPNNPPPPNNNPNNNPPPPPPPNPPPNNPPNNPNPPPPPNPNPPNPPPPPPPPNNNPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/11.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/11.java
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+if(!type.isConstructor()&&!type.isEmptyType()&&!type.isUnknownType()){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+2 th patch/200
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:35:32 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+3 th patch/200
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:35:32 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+      }
+ else {
+        ensureTyped(t,n);
+return ;
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+4 th patch/200
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:35:32 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+5:if(!type.isConstructor()&&!type.isEmptyType()&&!type.isUnknownType()){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+TO:
+4
+
+Following are 1th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+11:if(fnType!=null){
+visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getInstanceType();
+if(instanceType==null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+ensureTyped(t,n,instanceType);
+}
+TO:
+4
+
+Following are 2th generated patches:
+Validating 37 patches...
+Current actions:
+INSERT:
+14:if(instanceType==null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+TO:
+4
+
+Following are 3th generated patches:
+Validating 126 patches...
+Current actions:
+INSERT:
+5:if(!type.isConstructor()&&!type.isEmptyType()&&!type.isUnknownType()){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+TO:
+4
+
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:FunctionType fnType=type.toMaybeFunctionType();
+TO:
+4
+
+INSERT:
+11:if(fnType!=null){
+visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getInstanceType();
+if(instanceType==null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+ensureTyped(t,n,instanceType);
+}
+TO:
+4
+
+DELETE:
+Original line: 16report(t,n,NOT_A_CONSTRUCTOR);
+
+Following are 4th generated patches:
+Validating 42 patches...
+Current actions:
+INSERT:
+5:if(!type.isConstructor()&&!type.isEmptyType()&&!type.isUnknownType()){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+return ;
+}
+TO:
+4
+
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:FunctionType fnType=type.toMaybeFunctionType();
+TO:
+4
+
+INSERT:
+12:visitParameterList(t,n,fnType);
+TO:
+4
+
+INSERT:
+13:JSType instanceType=fnType.getInstanceType();
+TO:
+4
+
+DELETE:
+Original line: 16report(t,n,NOT_A_CONSTRUCTOR);
+
+INSERT:
+19:ensureTyped(t,n,instanceType);
+TO:
+13
+
+Tested:4877 patches
+Compile failed:4272 patches
+Compilation rate:0.1240516711092885
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNPNNNNPNNNNNNNPPNNNNNNNPNNNNNPNNPPPNPNNNNNNNNNPPNNPPNNNNNPPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPPPPPPPPPPPPPPPPPNNNNPNPPPPPPNNNPNPNNNNNPPPPPNNPPPNPNNNPNPNPPPPPPPNPNPPPPPPPPPPPPPNPPPPPPPNPPNPPPPPPPPPPNPPPPPPPPPPPPPPPPNPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/12.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/12.java
+Current actions:
+DELETE:
+Original line: 17ensureTyped(t,n);
+
+Following are 0th generated patches:
+Validating 3 patches...
+Current actions:
+INSERT:
+17:ensureTyped(t,n,getNativeType(UNKNOWN_TYPE));
+TO:
+16
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+17:ensureTyped(t,n,getNativeType(UNKNOWN_TYPE));
+TO:
+16
+
+DELETE:
+Original line: 17ensureTyped(t,n);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:5280 patches
+Compile failed:4662 patches
+Compilation rate:0.11704545454545455
+PPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/13.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/13.java
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+15:if(type.isAllType()){
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:5481 patches
+Compile failed:4822 patches
+Compilation rate:0.12023353402663747
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPNNPNNNNNNNNNNNNPPNNNPNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNPNNPNNNPNNNNNNNNNNNNNPNNNNNNNNNNNPNNNNPPNPNNNPNPNPNNNNNPNNPPNNNNNNPPNNNNNNNNNNNNPPPPNPNPNNPNNPNPNNPNPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/14.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/14.java
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 18 patches...
+Current actions:
+INSERT:
+10:if(instanceType==null){
+fnType=FunctionType.looseFromFunctionType(fnType);
+fnType.setInstanceType(instanceType=ObjectType.fromNominalType(JSType.fromFunctionType(fnType)));
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+UPDATE
+FROM:
+9:ensureTyped(t,n,fnType.getInstanceType());
+TO:
+14:ensureTyped(t,n,instanceType);
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+getTypedPercent();
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+5 th patch/418
+Trace:
+UPDATEExpressionStmt;MethodInv;SCOPEMETHODINV
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:44:03 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+10:if(instanceType==null){
+fnType=FunctionType.looseFromFunctionType(fnType);
+fnType.setInstanceType(instanceType=ObjectType.fromNominalType(JSType.fromFunctionType(fnType)));
+}
+TO:
+8
+
+UPDATE
+FROM:
+9:ensureTyped(t,n,fnType.getInstanceType());
+TO:
+14:ensureTyped(t,n,instanceType);
+
+Following are 3th generated patches:
+Validating 200 patches...
+Tested:6099 patches
+Compile failed:5437 patches
+Compilation rate:0.10854238399737662
+NNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/15.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/15.java
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+Following are 0th generated patches:
+Validating 11 patches...
+Current actions:
+INSERT:
+10:if(instanceType.isAllType()){
+instanceType=getNativeType(ARRAY_TYPE);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+10:if(instanceType.isAllType()){
+instanceType=getNativeType(ARRAY_TYPE);
+}
+TO:
+8
+
+UPDATE
+FROM:
+9:ensureTyped(t,n,fnType.getInstanceType());
+TO:
+13:ensureTyped(t,n,instanceType);
+
+Following are 2th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getPrototype();
+if(instanceType.isAllType()){
+instanceType=getNativeType(ARRAY_TYPE);
+}
+ensureTyped(t,n,instanceType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+6 th patch/411
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:46:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.toObjectType();
+if(instanceType.isAllType()){
+instanceType=getNativeType(ARRAY_TYPE);
+}
+ensureTyped(t,n,instanceType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+7 th patch/411
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:46:30 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+JSType instanceType=fnType.getReturnType();
+if(instanceType.isAllType()){
+instanceType=getNativeType(ARRAY_TYPE);
+}
+ensureTyped(t,n,instanceType);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+8 th patch/411
+Trace:
+VarDeclarationStmt;Vdf;MethodInv;SCOPEMETHODINV;MethodInv;MethodInvForVar
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:46:30 HKT
+--------------- END -----------------
+Tested:6509 patches
+Compile failed:5820 patches
+Compilation rate:0.10585343370717468
+NNNNNPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPNNNNNNNNNNNNNNNNNNNNPPPPPPNNNPNNNNPNNNPNNNPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/16.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/16.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 31 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+ensureTyped(t,n);
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+9 th patch/31
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 06:47:58 HKT
+--------------- END -----------------
+Current actions:
+INSERT:
+10:if(instanceType.isUnknownType()||instanceType.isEmptyType()){
+ensureTyped(t,n);
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:JSType instanceType=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+10:if(instanceType.isUnknownType()||instanceType.isEmptyType()){
+ensureTyped(t,n);
+}
+TO:
+8
+
+INSERT:
+13:else{
+ensureTyped(t,n,instanceType);
+}
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:6938 patches
+Compile failed:6196 patches
+Compilation rate:0.106947247045258
+NNNNNNNNNNNNPPPPNNPNNPPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPPNNPPNNNPNPNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPPNNNPNPNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNPNNPNNPNNNNNNPNNNNNNNNNPPPPPNPNNPPPPPPPPNNNNNNNNPNNNNNNPNNNNNNNPNNNPNNNNNNNPNNPNNPNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/17.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/17.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+10:result=result.restrictByNotNullOrUndefined();
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+9:JSType result=fnType.getInstanceType();
+TO:
+8
+
+INSERT:
+11:ensureTyped(t,n,result);
+TO:
+8
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7352 patches
+Compile failed:6592 patches
+Compilation rate:0.10337323177366703
+NNNNNNPPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNPNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/18.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/18.java
+Current actions:
+INSERT:
+15:if(type.isAllType()||type.isNullType()){
+ensureTyped(t,n);
+}
+TO:
+14
+
+Following are 0th generated patches:
+Validating 2 patches...
+Current actions:
+INSERT:
+15:if(type.isAllType()||type.isNullType()){
+ensureTyped(t,n);
+}
+TO:
+14
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+16:ensureTyped(t,n);
+TO:
+14
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:7754 patches
+Compile failed:6962 patches
+Compilation rate:0.1021408305390766
+NPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPPNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPPNPPPPNPPNPNNPNNNNNNNNNPNPNNNNNNNNPNNNPNNNNPNNNNNNPNNNNPNNPPNPPPNNNPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/19.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/19.java
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+Following are 0th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+6:if(fnType!=null&&fnType.isConstructor()){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+TO:
+4
+
+DELETE:
+Original line: 8visitParameterList(t,n,fnType);
+
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+DELETE:
+Original line: 5if(type.isConstructor()||type.isEmptyType()||type.isUnknownType()){
+FunctionType fnType=type.toMaybeFunctionType();
+if(fnType!=null){
+visitParameterList(t,n,fnType);
+ensureTyped(t,n,fnType.getInstanceType());
+}
+else{
+ensureTyped(t,n);
+}
+}
+
+INSERT:
+10:if(fnType!=null){
+report(t,n,NOT_A_CONSTRUCTOR);
+ensureTyped(t,n);
+}
+TO:
+4
+
+Tested:8019 patches
+Compile failed:7203 patches
+Compilation rate:0.1017583239805462
+NNNNNNNNNNNNNNNNNNNNNNNPNPPPNPNNNNNPPPNNNNNPPPPPPNNPNPNNPNPPPPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/20.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/20.java
+Current actions:
+DELETE:
+Original line: 12ensureTyped(t,n);
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+12:ensureTyped(t,n,getNativeType(TOP_OBJECT_TYPE));
+TO:
+11
+
+DELETE:
+Original line: 17ensureTyped(t,n);
+
+INSERT:
+17:ensureTyped(t,n,getNativeType(TOP_OBJECT_TYPE));
+TO:
+16
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8231 patches
+Compile failed:7412 patches
+Compilation rate:0.0995018831247722
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/21.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/21.java
+Current actions:
+INSERT:
+9:fnType=maybeFixFunctionType(t,n,fnType);
+TO:
+8
+
+Following are 0th generated patches:
+Validating 14 patches...
+Current actions:
+INSERT:
+9:fnType=maybeFixFunctionType(t,n,fnType);
+TO:
+8
+
+DELETE:
+Original line: 12ensureTyped(t,n);
+
+INSERT:
+13:fnType=maybeFixFunctionType(t,n,null);
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8443 patches
+Compile failed:7621 patches
+Compilation rate:0.09735875873504679
+NNNNNNNNNNNPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/22.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/22.java
+Current actions:
+INSERT:
+12:report(t,n,NOT_A_CONSTRUCTOR);
+TO:
+11
+
+Following are 0th generated patches:
+Validating 1 patches...
+Current actions:
+INSERT:
+12:report(t,n,NOT_A_CONSTRUCTOR);
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8644 patches
+Compile failed:7814 patches
+Compilation rate:0.0960203609440074
+PNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNNNNNNNNPPNNNNNNNNNNNNNNNP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/23.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/23.java
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+Following are 0th generated patches:
+Validating 7 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:JSType returnType=caseTopType(fnType.getInstanceType());
+TO:
+8
+
+INSERT:
+10:ensureTyped(t,n,returnType);
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+Tested:8849 patches
+Compile failed:8018 patches
+Compilation rate:0.09390891626172448
+NNNNNNPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/24.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/24.java
+Current actions:
+INSERT:
+12:Node callee=n.getFirstChild();
+TO:
+11
+
+Following are 0th generated patches:
+Validating 72 patches...
+Current actions:
+INSERT:
+14:if(firstParam!=null){
+visit(t,firstParam);
+type=getJSType(firstParam);
+}
+TO:
+11
+
+Following are 1th generated patches:
+Validating 200 patches...
+Current actions:
+INSERT:
+15:visit(t,firstParam);
+TO:
+11
+
+INSERT:
+18:else{
+type=getNativeType(OBJECT_TYPE);
+}
+TO:
+11
+
+UPDATE
+FROM:
+12:ensureTyped(t,n);
+TO:
+21:ensureTyped(t,n,type);
+
+Following are 2th generated patches:
+Validating 200 patches...
+Tested:9319 patches
+Compile failed:8477 patches
+Compilation rate:0.09035304217190686
+NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPNNPNNNNNNNNNNPNNNNPNNPNNPNNNNNPPPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/25.java
+Patch Number: /data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/25.java
+Current actions:
+Wrap:
+IfStatement
+On:
+[ensureTyped(t,n,fnType.getInstanceType());]
+Following are 0th generated patches:
+Validating 5 patches...
+Current actions:
+DELETE:
+Original line: 9ensureTyped(t,n,fnType.getInstanceType());
+
+INSERT:
+9:if(fnType.isConstructor()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+TO:
+8
+
+Following are 1th generated patches:
+Validating 200 patches...
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isConstructor()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+10 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:14 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isNoObjectType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+11 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:14 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.makesDicts()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+12 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:14 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isNoType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+13 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(!fnType.isEmptyType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+14 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isVoidType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+15 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isUnionType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+16 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isEnumType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+17 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(!fnType.isFunctionType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+18 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isRecordType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+19 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isNominalType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+20 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isResolved()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+21 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isNominalConstructor()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+22 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.makesStructs()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+23 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isNumber()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+24 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(type.isConstructor()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+25 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isStruct()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+26 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isInstanceType()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+27 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isInterface()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+28 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(fnType.isDict()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+29 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+FILE : /data/PLM4APR/tmp/defects4j_buggy//closure/closure_125_buggy/src/com/google/javascript/jscomp/TypeCheck.java
+SUCCESS
+//Following are generated patch:
+  private void visitNew(  NodeTraversal t,  Node n){
+    Node constructor=n.getFirstChild();
+    JSType type=getJSType(constructor).restrictByNotNullOrUndefined();
+    if (type.isConstructor() || type.isEmptyType() || type.isUnknownType()) {
+      FunctionType fnType=type.toMaybeFunctionType();
+      if (fnType != null) {
+        visitParameterList(t,n,fnType);
+if(!fnType.isObject()){
+ensureTyped(t,n,fnType.getInstanceType());
+}
+      }
+ else {
+        ensureTyped(t,n);
+      }
+    }
+ else {
+      report(t,n,NOT_A_CONSTRUCTOR);
+      ensureTyped(t,n);
+    }
+  }
+
+30 th patch/205
+Trace:
+
+START : 
+2024.04.12 AD at 06:03:30 HKT
+---------TIME : 
+2024.04.12 AD at 07:02:15 HKT
+--------------- END -----------------
+Patch number exceeds the limit!
+Tested 9522 patches
+Compile failed 8632 patches
+Compilation rate0.0934677588741861
+Patch number exceeds the limit!
+Tested 9522 patches
+Compile failed 8632 patches
+Compilation rate0.0934677588741861
+Tested:9522 patches
+Compile failed:8632 patches
+Compilation rate:0.0934677588741861
+NPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNPPPPPPPPPPNPPPPPPNNNNPPNNNPPNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNPNNNNNPNNPNNNNNNNNNNNNNNNNNNNNPNNNNPPNPNNNNPNPPPNNPPPPPNNNPNNNNNNNNNNNNNNNNNNNNNPNNNNPPPPPPP
+Current file:/data/PLM4APR/codex_out/200_patches_starcoder_all/closure_125/26.java
+Patch number exceeds the limit!
+Tested 9522 patches
+Compile failed 8632 patches
+Compilation rate0.0934677588741861
+Finish : closure-125 > patch : 30 | Start : Fri Apr 12 06:03:30 HKT 2024 | End : 2024.04.12 AD at 07:02:15 HKT
