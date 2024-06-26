@@ -1,6 +1,6 @@
 # GiantRepair
 
-Artifact for ICSE 2025 Submission: GiantRepair
+Artifact for TOSEM Submission: GiantRepair
 
 
 * [I. Introduction](#i-introduction)
