@@ -49,7 +49,7 @@ Automated Program Repair (APR) has garnered significant attention due to its pot
 
 ### LLM
 
-* Python==3.9da
+* Python==3.9
 * transformers==4.33.3 
 
 ## IV. How to Run
